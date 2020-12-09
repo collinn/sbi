@@ -184,7 +184,7 @@ library(rsconnect)
 No longer necessary :sunglasses:
 ```{r}
 ## And then here it embeds with include_app
-#knitr::include_app('https://ph-shiny.iowa.uiowa.edu/collin/textbook2/', height = '1000px')
+knitr::include_app('https://ph-shiny.iowa.uiowa.edu/collin/textbook2/', height = '1000px')
 ```
 
 ## Regular UI
