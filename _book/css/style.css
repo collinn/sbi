@@ -1,0 +1,24 @@
+/*https://www.w3schools.com/css/css_selectors.asp*/
+
+/*Beginning with a dot indicates a general class*/
+/*Element.class is class for specific element*/
+/*div.para1 {*/
+  text-align: center;
+  color: red;
+}
+
+
+p.para1 {
+    text-align: end;
+    color: cadetblue;
+}
+
+/*Let's try to make section headers*/
+h2 {
+    border-radius: 5px 15px 15px 5px;
+    background-color: azure;
+    border-left-style: solid;
+    border-left-width: 5px;
+    border-left-color: lightblue;
+    padding-left: 10px;
+}

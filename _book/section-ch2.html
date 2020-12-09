@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>2 What is Data? | Seriously Interesting Statistics Textbook</title>
+  <meta name="description" content="First template!" />
+  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="2 What is Data? | Seriously Interesting Statistics Textbook" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="First template!" />
+  <meta name="github-repo" content="ceward/introTextbook" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="2 What is Data? | Seriously Interesting Statistics Textbook" />
+  
+  <meta name="twitter:description" content="First template!" />
+  
+
+<meta name="author" content="Caitlin Ward and Collin ‘C-Money’ Nolte" />
+
+
+<meta name="date" content="2020-12-08" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="section-ch1.html"/>
+<link rel="next" href="section-ch3.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<script src="libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
+<script src="libs/tippyjs-2.5.2/tippy.all.min.js"></script>
+<script src="libs/tippy-binding-0.0.1/tippy.js"></script>
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a><ul>
+<li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#section-stuff-lifted-that-used-to-be-in-ch2-may-or-may-not-be-useful-still"><i class="fa fa-check"></i><b>0.1</b> Stuff lifted that used to be in ch2 (may or may not be useful still?)</a></li>
+<li class="chapter" data-level="0.2" data-path="index.html"><a href="index.html#section-shiny-test"><i class="fa fa-check"></i><b>0.2</b> Shiny test</a></li>
+<li class="chapter" data-level="0.3" data-path="index.html"><a href="index.html#section-editing-text"><i class="fa fa-check"></i><b>0.3</b> Editing text</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="section-ch1.html"><a href="section-ch1.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
+<li class="chapter" data-level="1.1" data-path="section-ch1.html"><a href="section-ch1.html#section-ch1_s1"><i class="fa fa-check"></i><b>1.1</b> Evidence-based Research</a></li>
+<li class="chapter" data-level="1.2" data-path="section-ch1.html"><a href="section-ch1.html#section-ch1_s2"><i class="fa fa-check"></i><b>1.2</b> Scientific Method</a></li>
+<li class="chapter" data-level="1.3" data-path="section-ch1.html"><a href="section-ch1.html#section-ch1_s3"><i class="fa fa-check"></i><b>1.3</b> Introduction to Biostatistics</a></li>
+<li class="chapter" data-level="1.4" data-path="section-ch1.html"><a href="section-ch1.html#section-ch1_s4"><i class="fa fa-check"></i><b>1.4</b> Statistical framework</a></li>
+<li class="chapter" data-level="1.5" data-path="section-ch1.html"><a href="section-ch1.html#section-ch1_s5"><i class="fa fa-check"></i><b>1.5</b> What is a simulation?</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="section-ch2.html"><a href="section-ch2.html"><i class="fa fa-check"></i><b>2</b> What is Data?</a><ul>
+<li class="chapter" data-level="2.1" data-path="section-ch2.html"><a href="section-ch2.html#section-outline"><i class="fa fa-check"></i><b>2.1</b> Outline</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="section-ch2.html"><a href="section-ch2.html#section-summaries"><i class="fa fa-check"></i><b>2.1.1</b> Summaries</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="section-ch2.html"><a href="section-ch2.html#section-types-of-data"><i class="fa fa-check"></i><b>2.2</b> Types of Data</a></li>
+<li class="chapter" data-level="2.3" data-path="section-ch2.html"><a href="section-ch2.html#section-categorical-data"><i class="fa fa-check"></i><b>2.3</b> Categorical Data</a></li>
+<li class="chapter" data-level="2.4" data-path="section-ch2.html"><a href="section-ch2.html#section-continuous-data"><i class="fa fa-check"></i><b>2.4</b> Continuous data</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="section-ch2.html"><a href="section-ch2.html#section-graphical-summaries"><i class="fa fa-check"></i><b>2.4.1</b> Graphical Summaries</a></li>
+<li class="chapter" data-level="2.4.2" data-path="section-ch2.html"><a href="section-ch2.html#section-numerical-summaries"><i class="fa fa-check"></i><b>2.4.2</b> Numerical Summaries</a></li>
+<li class="chapter" data-level="2.4.3" data-path="section-ch2.html"><a href="section-ch2.html#section-measures-of-spread"><i class="fa fa-check"></i><b>2.4.3</b> Measures of Spread</a></li>
+<li class="chapter" data-level="2.4.4" data-path="section-ch2.html"><a href="section-ch2.html#section-percentiles-and-quartiles"><i class="fa fa-check"></i><b>2.4.4</b> Percentiles and Quartiles</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="section-ch3.html"><a href="section-ch3.html"><i class="fa fa-check"></i><b>3</b> Study Design</a><ul>
+<li class="chapter" data-level="3.1" data-path="section-ch3.html"><a href="section-ch3.html#section-all-strawberry-no-rhubarb"><i class="fa fa-check"></i><b>3.1</b> All Strawberry, no Rhubarb</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="section-ch3.html"><a href="section-ch3.html#section-selection-bias"><i class="fa fa-check"></i><b>3.1.1</b> Selection Bias</a></li>
+<li class="chapter" data-level="3.1.2" data-path="section-ch3.html"><a href="section-ch3.html#section-non-response-bias"><i class="fa fa-check"></i><b>3.1.2</b> Non-response Bias</a></li>
+<li class="chapter" data-level="3.1.3" data-path="section-ch3.html"><a href="section-ch3.html#section-false-generalization-bias-extrapolation-bias"><i class="fa fa-check"></i><b>3.1.3</b> False Generalization Bias / Extrapolation Bias</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="section-ch3.html"><a href="section-ch3.html#section-asking-the-question"><i class="fa fa-check"></i><b>3.2</b> Asking the Question</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="section-ch3.html"><a href="section-ch3.html#section-confounding"><i class="fa fa-check"></i><b>3.2.1</b> Confounding</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="section-ch4.html"><a href="section-ch4.html"><i class="fa fa-check"></i><b>4</b> Probability</a><ul>
+<li class="chapter" data-level="4.1" data-path="section-ch4.html"><a href="section-ch4.html#section-idea"><i class="fa fa-check"></i><b>4.1</b> Idea</a></li>
+<li class="chapter" data-level="4.2" data-path="section-ch4.html"><a href="section-ch4.html#section-ch4_s1"><i class="fa fa-check"></i><b>4.2</b> Understanding Randomness</a></li>
+<li class="chapter" data-level="4.3" data-path="section-ch4.html"><a href="section-ch4.html#section-ch4_s2"><i class="fa fa-check"></i><b>4.3</b> Probability Operations</a></li>
+<li class="chapter" data-level="4.4" data-path="section-ch4.html"><a href="section-ch4.html#section-ch4_s3"><i class="fa fa-check"></i><b>4.4</b> Conditional Probability</a></li>
+<li class="chapter" data-level="4.5" data-path="section-ch4.html"><a href="section-ch4.html#section-ch4_s4"><i class="fa fa-check"></i><b>4.5</b> Probabilities from tables (needs a different example)</a></li>
+<li class="chapter" data-level="4.6" data-path="section-ch4.html"><a href="section-ch4.html#section-ch4_s5"><i class="fa fa-check"></i><b>4.6</b> Bayes’ Rule</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="section-ch5.html"><a href="section-ch5.html"><i class="fa fa-check"></i><b>5</b> Probability Distributions</a><ul>
+<li class="chapter" data-level="5.1" data-path="section-ch5.html"><a href="section-ch5.html#section-ch5_s1"><i class="fa fa-check"></i><b>5.1</b> Introduction to Probability Distributions</a></li>
+<li class="chapter" data-level="5.2" data-path="section-ch5.html"><a href="section-ch5.html#section-ch5_s2"><i class="fa fa-check"></i><b>5.2</b> Binomial Distribution</a></li>
+<li class="chapter" data-level="5.3" data-path="section-ch5.html"><a href="section-ch5.html#section-ch5_s3"><i class="fa fa-check"></i><b>5.3</b> Normal Distribution</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="section-ch6.html"><a href="section-ch6.html"><i class="fa fa-check"></i><b>6</b> Sampling Distributions and the <br/> Central Limit Theorem</a><ul>
+<li class="chapter" data-level="6.1" data-path="section-ch6.html"><a href="section-ch6.html#section-ch6_s1"><i class="fa fa-check"></i><b>6.1</b> Sampling Distributions</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="section-ch7.html"><a href="section-ch7.html"><i class="fa fa-check"></i><b>7</b> Introduction to Inference</a><ul>
+<li class="chapter" data-level="7.1" data-path="section-ch7.html"><a href="section-ch7.html#section-ch7_s1"><i class="fa fa-check"></i><b>7.1</b> Confidence Intervals</a></li>
+<li class="chapter" data-level="7.2" data-path="section-ch7.html"><a href="section-ch7.html#section-ch7_s2"><i class="fa fa-check"></i><b>7.2</b> Hypothesis Tests</a></li>
+<li class="chapter" data-level="7.3" data-path="section-ch7.html"><a href="section-ch7.html#section-ch7_s3"><i class="fa fa-check"></i><b>7.3</b> P-values</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="section-ch8.html"><a href="section-ch8.html"><i class="fa fa-check"></i><b>8</b> Tests for Means</a><ul>
+<li class="chapter" data-level="8.1" data-path="section-ch8.html"><a href="section-ch8.html#section-ch8_s1"><i class="fa fa-check"></i><b>8.1</b> Steps for hypothesis testing</a><ul>
+<li class="chapter" data-level="8.1.1" data-path="section-ch8.html"><a href="section-ch8.html#section-things-about-the-population"><i class="fa fa-check"></i><b>8.1.1</b> Things about the population</a></li>
+<li class="chapter" data-level="8.1.2" data-path="section-ch8.html"><a href="section-ch8.html#section-things-about-the-sample"><i class="fa fa-check"></i><b>8.1.2</b> Things about the sample</a></li>
+<li class="chapter" data-level="8.1.3" data-path="section-ch8.html"><a href="section-ch8.html#section-making-inference"><i class="fa fa-check"></i><b>8.1.3</b> Making inference</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="section-ch8.html"><a href="section-ch8.html#section-ch8_s2"><i class="fa fa-check"></i><b>8.2</b> Hypothesis test for a mean</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="section-ch9.html"><a href="section-ch9.html"><i class="fa fa-check"></i><b>9</b> Non-normal Continuous Data</a></li>
+<li class="chapter" data-level="10" data-path="section-ch10.html"><a href="section-ch10.html"><i class="fa fa-check"></i><b>10</b> Categorical Data</a><ul>
+<li class="chapter" data-level="10.1" data-path="section-ch10.html"><a href="section-ch10.html#section-ch10_s1"><i class="fa fa-check"></i><b>10.1</b> One Sample Proportions</a></li>
+<li class="chapter" data-level="10.2" data-path="section-ch10.html"><a href="section-ch10.html#section-ch10_s2"><i class="fa fa-check"></i><b>10.2</b> Two Sample Proportions</a></li>
+<li class="chapter" data-level="10.3" data-path="section-ch10.html"><a href="section-ch10.html#section-ch10_s3"><i class="fa fa-check"></i><b>10.3</b> Contingency Based tests</a></li>
+<li class="chapter" data-level="10.4" data-path="section-ch10.html"><a href="section-ch10.html#section-ch10_s4"><i class="fa fa-check"></i><b>10.4</b> Paired Categorical Data</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="section-ch11.html"><a href="section-ch11.html"><i class="fa fa-check"></i><b>11</b> Correlation and Regression</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Seriously Interesting Statistics Textbook</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="section-ch2" class="section level1">
+<h1><span class="header-section-number">2</span> What is Data?</h1>
+<blockquote>
+<p>“Numerical quantities focus on expected values, graphical summaries on unexpected values.”</p>
+<p>— John Tukey</p>
+</blockquote>
+<p>There are two main branches of statistics: <strong>descriptive statistics</strong>, which deals with methods for summarizing and/or presenting data and <strong>inferential statistics</strong>, which deals with methods for making generalizations about a population based on information in the sample. In this chapter, we will be focused on descriptive statistics using both numerical and graphical summaries.</p>
+<div id="section-outline" class="section level2">
+<h2><span class="header-section-number">2.1</span> Outline</h2>
+<ul>
+<li>Introduction</li>
+<li>Summaries (this maybe unnecessary?)
+<ul>
+<li>What is a plot/figure?</li>
+<li>What is a table?</li>
+</ul></li>
+<li>Types of Data
+<ul>
+<li>Categorical</li>
+<li>Continuous</li>
+</ul></li>
+<li>Categorical
+<ul>
+<li>visual summary</li>
+<li>numerical summary</li>
+</ul></li>
+<li>Continuous
+<ul>
+<li>Visual summary</li>
+<li>Numerical Summary</li>
+</ul></li>
+<li>Summary of Info</li>
+</ul>
+<p>Headers in this document need a LOT of work</p>
+<p>Data can be virtually anything that can be observed and recorded, including how tall you are, the number of cars of any color in town, or how many words are in each of the books in the library of congress. Just as the different types of data can vary considerably, so can the amount of data, ranging from a single number (your height) to gigabytes of data (number of words in all books definitely can’t be much larger than a few Mb, so maybe a better example). As the size of the data increases, so does the difficulty of making sense of it in raw form. We can condense large quantities of data into human readable forms through the use of <strong>data summaries</strong>, often displayed in the forms of <strong>tables</strong> and <strong>figures</strong>. However, in doing so, information can often be lost in the process. A good data summary will seek to strike a balance between clarity and completeness of information.</p>
+<div id="section-summaries" class="section level3">
+<h3><span class="header-section-number">2.1.1</span> Summaries</h3>
+</div>
+</div>
+<div id="section-types-of-data" class="section level2">
+<h2><span class="header-section-number">2.2</span> Types of Data</h2>
+<p>Before getting too far into the weeds, let’s consider the two broad types of data that we may see in the wild, which we will call <strong>Categorical data</strong> and <strong>Continuous data</strong>.</p>
+<p>First up is <strong>Categorical data</strong> (also known as <strong>Qualitative or Discrete data</strong>) which, as the name suggets, is data that falls into discrete categories. Categorical data can further be classified into two distinct types:</p>
+<ul>
+<li><p><strong>Nominal data</strong>: data that exists without any sort of natural or apparent ordering, e.g., colors (red, green, blue), gender (male, female), and type of motor vehicle (car, truck, SUV).</p></li>
+<li><p><strong>Ordinal data</strong>: data that does have a natural ordering, e.g., education (high school, some college, college) and injury severity (low, medium, high)</p></li>
+</ul>
+<p><strong>Continuous data</strong>, on the other hand, is data that can be any numeric value on some interval or on a continuum. This generally includes things that can be measured quantitatively, such as height, weight, and temperature.</p>
+<p>(Any sort of tie-in between bar charts and histograms? I.e., the discretizing of an interval? I would think not)</p>
+<p>Different types of data can be summarized in a number of ways, which we’ll explore in the next section.</p>
+</div>
+<div id="section-categorical-data" class="section level2">
+<h2><span class="header-section-number">2.3</span> Categorical Data</h2>
+<ul>
+<li><p>Titanic dataset might also be good here? &lt;- probably too complicated. In fact, we should probably reduce the dataset below to make it simpler</p></li>
+<li><p>I am also wondering if I should not rearrange the order in which this is presented? That is, maybe we should start with plots rather than tables. For categorical data, leading with either seems fine, but for continuous data, plots seem far more intuitive to begin with, and numerical summaries coming next</p></li>
+</ul>
+<p>Let’s begin by considering a dataset of survey responses for 592 students responding with their hair color, eye color, and sex. This dataset includes responses from male and female students, with hair colors that are black, brown, red, and blond, and eyes that are brown, blue, hazel, and green. Note that these are <em>qualitative</em> measures, suggesting that are dealing with <strong>categorical data</strong>.</p>
+<p>Trying to make sense of 592 observations is a daunting task, so we can being by taking the data we have and <em>summarizing</em> it in a useful way. For <strong>categorical data</strong>, this is often as simple as counting the number of times an observation falls into a category. For example, how many observations were male with brown hair and green eyes? Or females with red hair and blue eyes?</p>
+<p>Let’s take a look at this dataset with pairs counted together in the <code>Freq</code> column:</p>
+<div class="sourceCode" id="section-cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="section-ch2.html#cb19-1"></a><span class="kw">library</span>(knitr)</span>
+<span id="cb19-2"><a href="section-ch2.html#cb19-2"></a><span class="kw">data</span>(HairEyeColor)</span>
+<span id="cb19-3"><a href="section-ch2.html#cb19-3"></a>haireyecolor &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(HairEyeColor)</span>
+<span id="cb19-4"><a href="section-ch2.html#cb19-4"></a>haireyecolor</span>
+<span id="cb19-5"><a href="section-ch2.html#cb19-5"></a></span>
+<span id="cb19-6"><a href="section-ch2.html#cb19-6"></a><span class="co">## Gross way of doing this</span></span>
+<span id="cb19-7"><a href="section-ch2.html#cb19-7"></a>dt &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">Hair =</span> <span class="ot">NA</span>, <span class="dt">Eye =</span> <span class="ot">NA</span>, <span class="dt">Sex =</span> <span class="ot">NA</span>, <span class="dt">Freq =</span> <span class="ot">NA</span>)</span>
+<span id="cb19-8"><a href="section-ch2.html#cb19-8"></a>j &lt;-<span class="st"> </span><span class="dv">1</span></span>
+<span id="cb19-9"><a href="section-ch2.html#cb19-9"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="kw">seq_len</span>(<span class="kw">nrow</span>(haireyecolor))) {</span>
+<span id="cb19-10"><a href="section-ch2.html#cb19-10"></a>  freq &lt;-<span class="st"> </span>haireyecolor[i, <span class="st">&quot;Freq&quot;</span>]</span>
+<span id="cb19-11"><a href="section-ch2.html#cb19-11"></a>  <span class="cf">for</span>(k <span class="cf">in</span> <span class="kw">seq_len</span>(freq)) {</span>
+<span id="cb19-12"><a href="section-ch2.html#cb19-12"></a>    dt[j, ] &lt;-<span class="st"> </span>haireyecolor[i, ]</span>
+<span id="cb19-13"><a href="section-ch2.html#cb19-13"></a>    j &lt;-<span class="st"> </span>j <span class="op">+</span><span class="st"> </span><span class="dv">1</span></span>
+<span id="cb19-14"><a href="section-ch2.html#cb19-14"></a>  }</span>
+<span id="cb19-15"><a href="section-ch2.html#cb19-15"></a>}</span>
+<span id="cb19-16"><a href="section-ch2.html#cb19-16"></a>dt<span class="op">$</span>Freq &lt;-<span class="st"> </span><span class="ot">NULL</span></span>
+<span id="cb19-17"><a href="section-ch2.html#cb19-17"></a><span class="kw">nrow</span>(dt)</span></code></pre></div>
+<pre><code>## [1] 592</code></pre>
+<p>By simply adding like values together, we have reduced 592 observations into 32 data points, indicating that pairing of sex, hair and eye color, as well as the number of subjects with each. Note here that in this summary of the data, no data/information was lost. That is, with these 32 rows, we could just as easily expand this out to having one row for each observation, with the number indicated in the <code>Freq</code> column.</p>
+<p>Something about how summarizing data doesn’t <em>always</em> preserve everything.</p>
+<!-- ------- -->
+<!-- There is the line directly above this and one below. Everything between these should be moved/heavily edited and/or deleted -->
+<!-- This is more useful than what we started with, but it's still a lot of information for a human brain to take in all at once. It may often be the case that we aren't interest in all of the data we have, but rather, certain aspects of it that are relevant to our question. For example, suppose we are curious to know more about the relationship between sex and hair color.  -->
+<!-- For example, suppose that we are less concerned with eye color, but are curious to know more about the relationship with hair color and sex. Let's begin by constructing a table that counts the number of observed hair colors within each sex -->
+<!-- ```{r} -->
+<!-- (tab1 <- with(dt, table(Sex, Hair))) -->
+<!-- ``` -->
+<!-- <spent too much time trying to work this into correct form, skipping for now> -->
+<!-- <Will turn these into latex tables similar to notes> -->
+<!-- This is an example of **absolute frequency**, which gives us a number of recorded observations in each category. -->
+<!-- ```{r} -->
+<!-- proportions(tab1, "Hair") -->
+<!-- ``` -->
+<!-- This gives us percentages of each gender *within* hair color. 48% of those with black hair are female, 52% are male. Also see that females are disproportionately blond. -->
+<!-- - These sum up to 100% when adding by column -->
+<!-- - What questions does this help us answer -->
+<!-- - The comparison here for frequency is *hair color* -->
+<!-- Compare to a similarl table below, *within* gender. -->
+<!-- ```{r} -->
+<!-- proportions(tab1, "Sex") -->
+<!-- ``` -->
+<!-- - Sum to 100% when adding a cross rows -->
+<!-- - What questions can we answer with this? How is this different than the table above? -->
+<!-- - Now we are answering questions *within gender*. That is, we can compare hair colors here, but we cannot make statements comparing genders -->
+<!-- The two tables above are known as *relative frequency*, or the percentage of observations within each category (where the categories above are different). Is it possibly too complicated to start with two variables? Maybe it makes sense to start with just hair color, and then move on. -->
+<!-- (I'll do that here below, and we can just rearrange later) -->
+<!-- -------------------------- -->
+<p>Suppose first we are only interested in a portion of this data, that is, we are only interested in asking questions about hair color. The first thing we might do, then, is count how many of each hair color was observed in our dataset</p>
+<div class="sourceCode" id="section-cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="section-ch2.html#cb21-1"></a><span class="co"># hair &lt;- dt$Hair</span></span>
+<span id="cb21-2"><a href="section-ch2.html#cb21-2"></a><span class="co"># eye &lt;- dt$Eye</span></span>
+<span id="cb21-3"><a href="section-ch2.html#cb21-3"></a><span class="co"># sex &lt;- dt$Sex</span></span>
+<span id="cb21-4"><a href="section-ch2.html#cb21-4"></a><span class="co"># why does rmarkdown insist on pissing me off always?</span></span>
+<span id="cb21-5"><a href="section-ch2.html#cb21-5"></a>tab &lt;-<span class="st"> </span><span class="kw">table</span>(dt<span class="op">$</span>Hair)</span>
+<span id="cb21-6"><a href="section-ch2.html#cb21-6"></a>nn &lt;-<span class="st"> </span><span class="kw">names</span>(tab)</span>
+<span id="cb21-7"><a href="section-ch2.html#cb21-7"></a>tab &lt;-<span class="st"> </span><span class="kw">as.numeric</span>(tab)</span>
+<span id="cb21-8"><a href="section-ch2.html#cb21-8"></a><span class="kw">names</span>(tab) &lt;-<span class="st"> </span>nn</span>
+<span id="cb21-9"><a href="section-ch2.html#cb21-9"></a>tab</span></code></pre></div>
+<pre><code>##   1   2   3   4 
+## 108 286  71 127</code></pre>
+<p>This kind of counting is known as <strong>absolute frequency</strong>, which gives us a single value indicating the total number of observations. In looking at the table above, it is clear that there are far more observations with brown hair than black, blond, and red. We gather this information by looking at the total number of observations with brown hair, and noticing that this number is quite a bit larger than any of the other observations.</p>
+<p>However, suppose somebody asks you how common brown hair is relative to others. Does it make sense to response “Oh, there are 286 individuals with brown hair”? Without knowing the values for the other hair colors, this number alone doesn’t carry much meaning. Is 286 observations a lot? It depends. Were 300 people examined? 3,000? Without knowing anything about the rest of the data, the absolute frequency may not be very useful.</p>
+<p>In addition to actual counts of observations in categorical data, we may often be interested in <strong>rates</strong>. A rate can be as simple as taking the total number of a single category observed, and stating it in terms of the total number of observations. For example, instead of simplying saying “286 subjects who were observed had brown hair,” we might instead say “286 of 592 subjects examined had brown hair.”</p>
+<table with rates shown>
+<p>Perhaps more familiar to use is a <strong>percentage</strong>, also known as a <strong>proportion</strong>, which is a special type of rate, specified as the number of instances per 100 observations. We determine this by evaluating the rate with division. That is, 286 of 592 subjects becomes <span class="math inline">\(286/592 = 0.4831 = 48.31\%\)</span>. We can now show the same table above, in terms of percentages</p>
+<div class="sourceCode" id="section-cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="section-ch2.html#cb23-1"></a><span class="kw">prop.table</span>(tab)</span></code></pre></div>
+<pre><code>##       1       2       3       4 
+## 0.18243 0.48311 0.11993 0.21453</code></pre>
+<p>By considering all observations as rates per one hundred, we can quickly compare the relative counts of our observations. For example, we can quickly note that about half of the observations collected had brown hair, and almost twice as many had blond hair compared to red. This kind of counting, as opposted to the raw numbers, is known as <strong>relative frequency</strong>.</p>
+<p>This has given us a few ways to provide numerical summaries of the data through the use of tables, but we can just as easily obtain visual summaries as well with the use of figures and plots.</p>
+<p>For categorical data, visual summaries often come in the form of <strong>bar plots</strong>. Below is a demonstration of a bar plot for the absolute frequencies of hair color found above</p>
+<div class="sourceCode" id="section-cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="section-ch2.html#cb25-1"></a><span class="kw">barplot</span>(tab, <span class="dt">main =</span> <span class="st">&quot;Why does bookdown change hair color to numbers everywhere?&quot;</span>)</span></code></pre></div>
+<p><img src="introTextbookTemplate_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
+<p>&lt; This is possibly too much info for the 2x2 tables. We can perhaps choose one margin to run with? &gt;</p>
+<p>Numerical and visual summaries become even more useful as our data becomes more complicated. Let’s continue with the example we had before, but now let us also break down observations with each hair color by eye color as well. This process is known as <strong>stratification</strong></p>
+<div class="sourceCode" id="section-cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="section-ch2.html#cb26-1"></a>table2 &lt;-<span class="st"> </span><span class="kw">with</span>(dt, <span class="kw">table</span>(Eye, Hair))</span>
+<span id="cb26-2"><a href="section-ch2.html#cb26-2"></a>table2</span></code></pre></div>
+<pre><code>##    Hair
+## Eye   1   2   3   4
+##   1  68 119  26   7
+##   2  20  84  17  94
+##   3  15  54  14  10
+##   4   5  29  14  16</code></pre>
+<p>First, we notice that by taking sums down the columns, we arrive at the same numbers that we had when only hair color was considered. If we were to sum these numbers up, they would add to 592, the total number of observations in our dataset. In other words, we haven’t lost any information related to the number of observations with each hair color, but we have <em>added information</em> to our summary by including eye color as well.</p>
+<p>One will also notice that if we sum horizontally, we get the total number of observations with each eye color as well. This is done in the margins in the table below. Note that the sum of both margin totals add up to 592, the total number of observations, as indicated by the bottom right corner.</p>
+<div class="sourceCode" id="section-cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="section-ch2.html#cb28-1"></a><span class="kw">addmargins</span>(table2)</span></code></pre></div>
+<pre><code>##      Hair
+## Eye     1   2   3   4 Sum
+##   1    68 119  26   7 220
+##   2    20  84  17  94 215
+##   3    15  54  14  10  93
+##   4     5  29  14  16  64
+##   Sum 108 286  71 127 592</code></pre>
+<p>Similar to our previous example, these numbers represent the <em>absolute frequencies</em> of our observations.</p>
+<p>Unlike the previous example, however, we now have several ways in which we might compute the <em>relative frequencies</em>. In particular, this asks the question “relative to what?” For the table above, there are three “whats” that may be of interest</p>
+<ul>
+<li>How many in each category, relative to the entire population</li>
+<li>How many in each eye color, within hair color</li>
+<li>How many in each hair color, within eye color</li>
+</ul>
+<p>I’m not sure which, if any, are relevant, so I won’t write these out just yet. Also, I know, magrittr. It’s just here for convienience</p>
+<div class="sourceCode" id="section-cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="section-ch2.html#cb30-1"></a><span class="co"># by population</span></span>
+<span id="cb30-2"><a href="section-ch2.html#cb30-2"></a><span class="kw">prop.table</span>(table2)</span></code></pre></div>
+<pre><code>##    Hair
+## Eye         1         2         3         4
+##   1 0.1148649 0.2010135 0.0439189 0.0118243
+##   2 0.0337838 0.1418919 0.0287162 0.1587838
+##   3 0.0253378 0.0912162 0.0236486 0.0168919
+##   4 0.0084459 0.0489865 0.0236486 0.0270270</code></pre>
+<div class="sourceCode" id="section-cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="section-ch2.html#cb32-1"></a><span class="co"># by hair color</span></span>
+<span id="cb32-2"><a href="section-ch2.html#cb32-2"></a><span class="kw">prop.table</span>(table2, <span class="dt">margin =</span> <span class="dv">2</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">addmargins</span>(<span class="dv">1</span>)</span></code></pre></div>
+<pre><code>##      Hair
+## Eye          1        2        3        4
+##   1   0.629630 0.416084 0.366197 0.055118
+##   2   0.185185 0.293706 0.239437 0.740157
+##   3   0.138889 0.188811 0.197183 0.078740
+##   4   0.046296 0.101399 0.197183 0.125984
+##   Sum 1.000000 1.000000 1.000000 1.000000</code></pre>
+<div class="sourceCode" id="section-cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="section-ch2.html#cb34-1"></a><span class="co"># by eye color</span></span>
+<span id="cb34-2"><a href="section-ch2.html#cb34-2"></a><span class="kw">prop.table</span>(table2, <span class="dt">margin =</span> <span class="dv">1</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">addmargins</span>(<span class="dv">2</span>)</span></code></pre></div>
+<pre><code>##    Hair
+## Eye        1        2        3        4      Sum
+##   1 0.309091 0.540909 0.118182 0.031818 1.000000
+##   2 0.093023 0.390698 0.079070 0.437209 1.000000
+##   3 0.161290 0.580645 0.150538 0.107527 1.000000
+##   4 0.078125 0.453125 0.218750 0.250000 1.000000</code></pre>
+<div class="sourceCode" id="section-cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="section-ch2.html#cb36-1"></a><span class="kw">barplot</span>(table2, <span class="dt">beside =</span> <span class="ot">TRUE</span>, <span class="dt">main =</span> <span class="st">&quot;By Hair Color&quot;</span>)</span></code></pre></div>
+<p><img src="introTextbookTemplate_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
+<div class="sourceCode" id="section-cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="section-ch2.html#cb37-1"></a><span class="kw">barplot</span>(<span class="kw">t</span>(table2), <span class="dt">beside =</span> <span class="ot">TRUE</span>, <span class="dt">main =</span> <span class="st">&quot;By Eye Color&quot;</span>)</span></code></pre></div>
+<p><img src="introTextbookTemplate_files/figure-html/unnamed-chunk-18-2.png" width="672" /></p>
+<p>Seemingly, we’ll just need to go back and do everything in ggplot, because this is just ridiculous.</p>
+<p>I feel silly mentioning mode. Probably the best way to fill in the stuff above is come up with questions and then answer them by looking at table.</p>
+<p>It might be easier if we find something with less categories. Maybe I could do sex instead of eye color? I wish I would have thought of that before doing everything above</p>
+</div>
+<div id="section-continuous-data" class="section level2">
+<h2><span class="header-section-number">2.4</span> Continuous data</h2>
+<ul>
+<li><code>faithful</code> data cool because it’s bimodal, but that also makes transition into measures of center, spread, and skewness more difficult.</li>
+<li>Possibly not bad is <code>airquality</code> It has
+<ul>
+<li>Ozone (skew)</li>
+<li>Solar radiation (skew but closer to uniform)</li>
+<li>Wind in mph (bimodal)</li>
+<li>Temp (normal)</li>
+</ul></li>
+<li>Note: also option to not use formal data set and just use distributions to control skew</li>
+</ul>
+<p>While tables of frequencies and barcharts are great for data that can be counted and categorized, it does not give us much in terms of dealing with <em>continuous data</em>, which could have potentially an infinite number of different values. Like categorical date, continuous data is typically summarized in two ways:</p>
+<ul>
+<li>Graphical Visualizations</li>
+<li>Numerical Summaries</li>
+</ul>
+<p>Let’s begin by looking at each of these in turn.</p>
+<div id="section-graphical-summaries" class="section level3">
+<h3><span class="header-section-number">2.4.1</span> Graphical Summaries</h3>
+<p>Let’s begin by considering a hypothetical dataset in which we have collected the age, in years, of 50 subjects.</p>
+<div class="sourceCode" id="section-cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="section-ch2.html#cb38-1"></a><span class="co">## Idk, I wanted something maybe not uniform? This can be changed</span></span>
+<span id="cb38-2"><a href="section-ch2.html#cb38-2"></a><span class="kw">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb38-3"><a href="section-ch2.html#cb38-3"></a>age &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="kw">sample</span>(<span class="dv">20</span><span class="op">:</span><span class="dv">29</span>, <span class="dv">25</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>), <span class="kw">sample</span>(<span class="dv">30</span><span class="op">:</span><span class="dv">60</span>, <span class="dv">25</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>))</span>
+<span id="cb38-4"><a href="section-ch2.html#cb38-4"></a>age</span></code></pre></div>
+<pre><code>##  [1] 22 22 29 21 25 24 23 25 28 29 24 22 28 28 28 22 27 29 26 29 28 22 23 20 26 50 41 44 39 42 36 38 38 39 52 56
+## [37] 57 50 36 50 56 35 54 31 58 34 37 41 60 42</code></pre>
+<p>Now, we could consider counting the number of subjects at each age and, similar to the plots in categorical data, create a plot demonstrating what our sample looks like</p>
+<div class="sourceCode" id="section-cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="section-ch2.html#cb40-1"></a><span class="kw">table</span>(age)</span></code></pre></div>
+<pre><code>## age
+## 20 21 22 23 24 25 26 27 28 29 31 34 35 36 37 38 39 41 42 44 50 52 54 56 57 58 60 
+##  1  1  5  2  2  2  2  1  5  4  1  1  1  2  1  2  2  2  2  1  3  1  1  2  1  1  1</code></pre>
+<div class="sourceCode" id="section-cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="section-ch2.html#cb42-1"></a><span class="kw">barplot</span>(<span class="kw">table</span>(age))</span></code></pre></div>
+<p><img src="introTextbookTemplate_files/figure-html/unnamed-chunk-20-1.png" width="672" /></p>
+<p>While this is slightly more helpful than the raw numerical values, it’s not by much. We can see that some ages are more prevelant than others, but we still have 40 separate values that we are looking at on our graph.</p>
+<p>As an alternative, we can consider a <em>histogram</em> which, similar to a barplot, aggregates values into bins. Let’s look at the same data above, but now binning our observations into sets of ten years (25-34, 35-44, etc)</p>
+<div class="sourceCode" id="section-cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="section-ch2.html#cb43-1"></a><span class="kw">hist</span>(age, <span class="dt">breaks =</span> <span class="kw">seq</span>(<span class="kw">min</span>(age), <span class="kw">max</span>(age), <span class="dt">by =</span> <span class="dv">10</span>))</span></code></pre></div>
+<p><img src="introTextbookTemplate_files/figure-html/unnamed-chunk-21-1.png" width="672" /></p>
+<p>Notice how this paints a slightly different picture than the barplot above. Whereas the first plot gave us counts for each individual age, the histogram gives us a <em>graphical summary</em> of the ages, indicating the number of subjects in each decade. From this histogram, then, we quickly see that there are far more subjects in the 20-29 range, than each of the others. We may have come to a similar conclusion looking at the original bar chart. However, what we also see here is that the number of subject in the 30-39 range is larger and 40-49, and so on. An observation like this is not as immediately avaiable when looking at the original bar chart.</p>
+</div>
+<div id="section-numerical-summaries" class="section level3">
+<h3><span class="header-section-number">2.4.2</span> Numerical Summaries</h3>
+<p>While looking at a graphical summary can often give us quick insight into patterns in our data, the use of <em>numerical summaries</em> can allow us to be much more precise. Typically with continuous data, we can reduce all of the data to a few numerical values that describe the data in detail. These include:</p>
+<ul>
+<li>Center</li>
+<li>Spread</li>
+<li>Skewness</li>
+</ul>
+<p>We look at each of these in turn</p>
+<div id="section-center" class="section level4">
+<h4><span class="header-section-number">2.4.2.1</span> Center</h4>
+<p>Numbers designed to reflect the center of a dataset are called <em>Measures of Central Tendancy</em>. There are three popular arithmetic measures used to caputre the center of a ((distribution)), namely</p>
+<ul>
+<li>Mean</li>
+<li>Median</li>
+<li>Mode</li>
+</ul>
+<p>Before moving onto these in detail, let’s take a moment for a brief review of Summation Notation (((Would be cool to have a div element for “Review” or “Btw”. We could also include an appendix where all of this is explained in more detail that they can click to visit, with an actual “quick review” done here)))</p>
+<hr />
+<p>[[Probably ought to start with N then move to n]]</p>
+<p>In general, we will let lowercase <span class="math inline">\(n\)</span> represent the total number of observations that we have collected. We can express these observations as</p>
+<p><span class="math display">\[
+x_1, x_2, \dots, x_n
+\]</span>
+where the subscript values are used to identify each observation. We can represent the sum of all of these observations using the abbreviated <em>Sigma</em> notation,</p>
+<p><span class="math display">\[
+x_1 + x_2 + \dots + x_n = \sum_{i=1}^n x_i
+\]</span>
+On the right hand side, note that the value of <span class="math inline">\(x\)</span> has a subscript <span class="math inline">\(x_i\)</span>, while the Sigma notation has <span class="math inline">\(i=1\)</span> on the bottom and <span class="math inline">\(n\)</span> on the top. This is to indicate that we are to go through each value of <span class="math inline">\(i = 1, 2, \dots, n\)</span>, for each value of <span class="math inline">\(x_i\)</span>. In other words, where we might say <span class="math inline">\(x_1\)</span> is the first observation, we would say that <span class="math inline">\(x_i\)</span> is the <span class="math inline">\(i\)</span>th observation. This is convenient when we want to describe any <span class="math inline">\(x\)</span> value, but it is not important which one we choose.</p>
+<hr />
+<p>[[Yeah, but what do we mean by ‘center’ of a distribution?]]</p>
+<p>The <em>mean</em> is the most commonly used measure to find the center of a distribution. Simply enough, the mean can be found by taking the sum of all of the observations, and dividing by the total number. We can express this concisely in the following way</p>
+<p><span class="math display">\[
+\frac{x_1 + x_2 + \dots + x_n}{n} = \frac1n \sum_{i=1}^n x_i
+\]</span>
+Note how this is similar to the Sigma summation expression above. Here, we are taking the sum of each <span class="math inline">\(x_i\)</span>, and then dividing this total by <span class="math inline">\(n\)</span>.</p>
+<p>Now, in statistics, we often talk about the mean in two different ways, which we will illustrate here. Consider, for example, the case in which we want to know the mean height of each individual living in the state of Iowa. We will present the number of people in Iowa, also known as the <span class="math inline">\(population\)</span>, as <span class="math inline">\(N\)</span>. That is, there are <span class="math inline">\(N\)</span> people living in Iowa. The mean of this entire population, known as the <em>population mean</em> is designated by the Greek later <span class="math inline">\(\mu\)</span> (called <em>mu</em>). Mathematically, we would write this as</p>
+<p><span class="math display">\[
+\mu = \frac1N \sum_{i=1}^N x_i
+\]</span>
+Now, finding the height of each person in Iowa is likely to be very difficult, if not impossible. Often, we can get a reasonable estimate of the population mean by taking a sample of people and treating them as an approximation of the entire population. This sample will represent the actual observations we collect, and we will represent this as we did above with the lower case <span class="math inline">\(n\)</span>, where generally, <span class="math inline">\(n &lt; N\)</span> (often by quite a bit). The <em>sample mean</em>, which we denote <span class="math inline">\(\bar{x}\)</span> (called x-bar), can be expressed similarly</p>
+<p><span class="math display">\[
+\bar{x} = \frac1n \sum_{i=1}^n x_i
+\]</span>
+There are two major differences here between these two values that are worth giving a second consideration to</p>
+<ul>
+<li>The population mean has <span class="math inline">\(N\)</span> observations, which is always larger than the <span class="math inline">\(n\)</span> observations in the sample</li>
+<li>While there is only one way to select <span class="math inline">\(N\)</span> observations from <span class="math inline">\(N\)</span> subjects, there are many ways to select <span class="math inline">\(n\)</span> observations from <span class="math inline">\(N\)</span> subjects. For example, if you have five different cookies, there is only one way to select all five cookies, while there are ten different ways to select only three (I know childish example, maybe we could have a picture? Though this also introduces some benefit to non-rigorous introduction of combinations, which could be useful in explaining variance in samples?)</li>
+</ul>
+<p>In general, we have that <span class="math inline">\(\bar{x} \approx \mu\)</span>, with this approximation being better the closer <span class="math inline">\(n\)</span> is to <span class="math inline">\(N\)</span>. This is a topic we will return to shortly.</p>
+<hr />
+<p>Median</p>
+<p>The <em>median</em>, similar to the mean, is another common measure of the center of a distribution. In particular, for a set of observations, the median is an observed value that is both larger than half of the observations, as well as smaller than half of the observations. Formally, we say that the median is the 50th percentile of a dataset. Informally, we say it’s the value in the middle (I don’t like this).</p>
+<p>To find the median, we begin by arranging our data from smallest to largest. If the total number of observations, <span class="math inline">\(n\)</span>, is odd, then the median is simply the middle observation. If <span class="math inline">\(n\)</span> is even, it is the mean of the middle two.</p>
+<p>Examples:</p>
+<ul>
+<li><span class="math inline">\(1, 2, 2, 3, {\color{red} 5}, 7, 9, 10, 11 \quad \Rightarrow \quad \text{Median} = 5\)</span></li>
+<li><span class="math inline">\(1,2,2,3, {\color{red} 5}, {\color{red} 6}, 7, 9, 10, 11, \quad \Rightarrow \quad \text{Median} = \frac{(5+6)}{2} = 5.5\)</span></li>
+</ul>
+<p>If both the mean and the median are both measures of central tendency, should we expect them to give us similar impressions about the center of a data set? [[Maybe we should have commentary on why we might be interested in center, somewhere near the beginning of this chapter. Like, maybe all of the high level ideas first, THEN do statistics and discrete/continuous plots?]]</p>
+<p>Let’s consider an example where we collect <span class="math inline">\(n = 10\)</span> samples of salaries for University of Iowa employees:</p>
+[[gross table for now]]
+<table>
+<tbody>
+<tr>
+<td style="text-align:left;">
+$31,176
+</td>
+<td style="text-align:left;">
+$130,000
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+$50,879
+</td>
+<td style="text-align:left;">
+$37,876
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+$34,619
+</td>
+<td style="text-align:left;">
+$144,600
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+$103,000
+</td>
+<td style="text-align:left;">
+$48,962
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+$36,549
+</td>
+<td style="text-align:left;">
+$5,075,000
+</td>
+</tr>
+</tbody>
+</table>
+<!-- $$ -->
+<!-- \begin{center} -->
+<!-- \begin{tabular}{ c c } -->
+<!-- \$ 31,176 & \$50,879  -->
+<!-- \end{tabular} -->
+<!-- \end{center} -->
+<!-- $$ -->
+<p>With regards to salaries, we find that</p>
+<ul>
+<li>Mean = $569,266</li>
+<li>Median = (48,962 + 50,879) / 2 = $49,921</li>
+</ul>
+<p>Due to one extremely high salary in our observation, the median is a much better reflection of the typical UI salary.</p>
+<p>This one high salary, not representative of most of the salaries collected, is known as an <strong>outlier</strong>. From the example above, we see that the mean is highly sensitive to the presence of outliers, while the median is not. Measures that are not sensitive to outliers are known as <strong>robust</strong>, or <em>resistant</em>. We see, then, that the median is a robust estimator of the center of the data.</p>
+<p>[[As mentioned above, we should maybe introduce skewness earlier?]]</p>
+<p>We see above a case in which the mean and median are widely different, owing thanks to the outlier. This begs the broader question, when might we expect these measures of central tendancy to be the same, and when might we expect them to differ?</p>
+<p>Below, we consider a collection of plots illustrating common “shapes” we might see in our data.</p>
+<p><img src="introTextbookTemplate_files/figure-html/unnamed-chunk-23-1.png" width="672" /></p>
+<p>[[Do we need discussion on mode? Skipping for now]]</p>
+</div>
+</div>
+<div id="section-measures-of-spread" class="section level3">
+<h3><span class="header-section-number">2.4.3</span> Measures of Spread</h3>
+<p>This is just getting these on paper. Serious reorganization needs to occur</p>
+<p>Suppose that we have two datasets, each with 1,000 observations, and each with both a common mean and median of 100:</p>
+<p><img src="introTextbookTemplate_files/figure-html/unnamed-chunk-24-1.png" width="672" /></p>
+<p>From the histograms above, we visually confirm that both datasets have a mean and median of 100. Despite this, however, it would appear as if these datasets are not quite as similar as one might have thought</p>
+<ul>
+<li><p>First, we see that for the first dataset, nearly all of the values fall in the range of (50, 150), while for the second dataset, this range appears to be closer to (0, 200)</p></li>
+<li><p>Recalling that each dataset has the same number of observations, it appears as if the first dataset has nearly twice as many observations near the mean value of 100 than the second dataset</p></li>
+</ul>
+<p>Suppose, then, you are approached by a researcher who wants to select a single observation from each dataset at random, and you are asked to anticipate what value that observation will have. Without having seen them, the best guess you can offer is our measure of center, which is 100. From which dataset do you suspect the random observation will have a value closer to 100? Which do you suspect will be further away?</p>
+<p>What we are observing here is two datasets with a common center that have different <em>spread</em> or <em>dispersion</em>.</p>
+<p>Next to the center, this is the second most important piece of information informing us on the shape of our data. Roughly speaking, the spread of the data informs us of the degree to which our observations tend to lie close to the center or scattered away from it. Just as we have multiple ways to determine the center of a dataset, so we have several methods for quantifying the variability of the data. These numeric summaries are known as <em>Measures of Dispersion</em>. Measures that we will investigate here include</p>
+<ul>
+<li>Variance</li>
+<li>Standard deviation</li>
+<li>Range</li>
+<li>Interquartile Range (IQR)</li>
+</ul>
+<div id="section-variance-and-standard-deviation" class="section level5">
+<h5><span class="header-section-number">2.4.3.0.1</span> Variance and Standard Deviation</h5>
+<p>In mathematical terms, we describe the <strong>variance</strong> of a dataset to be <em>the average of the squared differences between each data value and the sample mean</em>. The <strong>standard deviation</strong> is defined as the <em>square root of the variance</em>.</p>
+<p>[[something something clever way of inuiting what variance is]]
+[[<a href="https://assessingpsyche.wordpress.com/2014/07/10/two-visualizations-for-explaining-variance-explained/" class="uri">https://assessingpsyche.wordpress.com/2014/07/10/two-visualizations-for-explaining-variance-explained/</a>]]</p>
+<p>As before, consider a population with <span class="math inline">\(N\)</span> observations denoted as</p>
+<p><span class="math display">\[ 
+x_1, x_2, \dots, x_N
+\]</span>
+To tie into our definition, note that <span class="math inline">\((x_i - \mu)\)</span> represents the difference between an observation and the population mean, while <span class="math inline">\((x_i - \mu)^2\)</span> represents the squared difference. The <strong>population variance</strong>, defined as the average of these squared differences, is denoted as <span class="math inline">\(\sigma^2\)</span>, where</p>
+<p><span class="math display">\[
+\sigma^2 = \frac{1}{N} \sum_{i=1}^N (x_i - \mu)^2
+\]</span></p>
+<p>The <strong>population standard deviation</strong>, being the square root of the population variance, is denoted <span class="math inline">\(\sigma = \sqrt{\sigma^2}\)</span>.</p>
+<p>Like our measure for the mean, we can have both a population variance, as well as a <strong>sample variance</strong>. That is, suppose we have a sample of <span class="math inline">\(n &lt; N\)</span> observations,</p>
+<p><span class="math display">\[
+x_1, x_2, \dots, x_n
+\]</span>
+The sample variance, denoted <span class="math inline">\(s^2\)</span>, is nearly identical to the population variance, with the exception of the fact that we now subtract the sample mean, rather than the population mean</p>
+<p><span class="math display">\[
+s^2 = \frac{1}{n-1} \sum_{i=1}^n (x_i - \bar{x})^2
+\]</span>
+Similarly, the <strong>sample standard deviation</strong> is written as the square root, <span class="math inline">\(s = \sqrt{s^2}\)</span>. A few things to be on the lookout for:</p>
+<ul>
+<li><p>See that the sample variance finds the average by multiplying by <span class="math inline">\(\frac{1}{n-1}\)</span> rather than <span class="math inline">\(\frac1n\)</span>. This is because there is no God, and ironically, the world is doomed to end in eternal darkness after being engulfed by our only source of light, the sun</p></li>
+<li><p>Be extra careful when finding standard deviations. It is the <em>square root</em> of the sum, rather than the square root of terms inside of the sum. that is,</p></li>
+</ul>
+<p><span class="math display">\[
+\sigma = \sqrt{\frac{1}{N} \sum_{i=1}^N (x_i - \mu)^2} \not= \frac{1}{N} \sum_{i=1}^N \sqrt{(x_i - \mu)^2} = \ ?? \ _{_{(\text{mean absolute deviation})}}
+\]</span>
+[[Maybe we should describe high level properties of sd/var before their formulas]]</p>
+<p>As we are discussing measures of “spread”, it is important to consider the point in our data about which the observations are dispersed. In examining the mathematical definitions of both variance and standard deviation, we see that this point is the mean, as indicated by the <span class="math inline">\((x_i - \mu)\)</span> term within the expression. Somewhat implicit in this definition [[why?]], we assume that the observations fall symmetrically on both sides of the mean. It is this assumption that gives informative value to expressions like <span class="math inline">\(\bar{x} \pm s\)</span>, which implies that an observation is just as likely to be in the interval <span class="math inline">\((\bar{x} - s)\)</span> as it is in <span class="math inline">\((\bar{x}+ s)\)</span>. I bet a visual would be nice here. Another fun fact to be worked in here is that sd &gt; 0, and only equal zero when all observations are equal to the mean. This might be a good place to start? If, for example, we assume each <span class="math inline">\(x_i = \bar{x}\)</span>, then we can see simultaneously how there is no variation in our data AND how this would result in zero in the expressions above. Also, SD is not robust.</p>
+<p>[[shiny app showing sd/var with symmetric/nonsymmetric and with and without outliers?]]</p>
+<p>[[appendix entry for difference and use between sd/var]]</p>
+<p>Just as we had multiple methods for determining the center of a dataset, we have multiple ways with which to determine the spread of our data. The simplest method of spread, the <strong>range</strong>, gives us the difference between the largest and smallest values in the data, computed simply as</p>
+<p><span class="math display">\[
+\text{maximum value} - \text{minimum value}
+\]</span>
+We may also report the range as an interval. That is, we may say that all of our observations fall in the interval <span class="math inline">\((\text{min val}, \ \text{max val})\)</span>.</p>
+<p>The range, however, should be used with care; a single outlier in either maximum or minimum direction can give a false sense of spread for our observations. [[example]]. In other words, the range is not robust.</p>
+<p>[[Introduce quartiles, percentiles, etc.]] &lt;- this is actually done later in text. I will put it down there and we can rearrange things later. Man, this chapter is tricky</p>
+<p>As an alternative to the range, which determines the difference between the largest and smallest values, we also have the <strong>interquartile range (IQR)</strong>, which determines the differnce between the 75th percentile (third quartile, Q<sub>3</sub>) and the 25th percentile (first quartile, Q<sub>1</sub>), i.e.,</p>
+<p><span class="math display">\[
+\text{IQR} = \text{Q}_3 - \text{Q}_1
+\]</span></p>
+<p>In other words, the IQR is the length of the interval containing the middle 50% of observations, where the smallest 25% and largest 25% are not included. As this helps protect against a handful of outliers in either direction, we have that the IQR is a robust measure of spread. [[Not sure how to nicely tie in here, but good place to note that the median is also included in this (and in fact is the center of it).]]</p>
+<p>[[May be interesting to show to histograms of data and their summaries. For one, use mean and sd, for others, use median and IQR. Compare and contrast]]</p>
+</div>
+</div>
+<div id="section-percentiles-and-quartiles" class="section level3">
+<h3><span class="header-section-number">2.4.4</span> Percentiles and Quartiles</h3>
+<p>As the data that we can collect can come in a variety of different shapes and sizes, it is important that we use tools and definitions that will mean the same thing, regardless of what the data is, or where it comes from. Often, it is useful to know how large or small an observation is, relative to all of the others. We might say, for example, “Captain Public Health is the fourth tallest person in the class.” Notice how this can mean one thing if Captain Public Health is in a class of 500 students, but something entirely different were he in a class of only 5.</p>
+<p>A useful way around this is to use a concept known as a <strong>percentile</strong>, which allows us to determine where in a dataset an observation would fall relative to all other values. More precisely, the <span class="math inline">\(p\)</span>th percentile is a value <span class="math inline">\(V_p\)</span> such that</p>
+<ul>
+<li><span class="math inline">\(p\%\)</span> of observations are below <span class="math inline">\(V_p\)</span></li>
+<li><span class="math inline">\((100 - p)\%\)</span> of observations are greater than <span class="math inline">\(V_p\)</span></li>
+</ul>
+<p>[[chose to use 20 instead of ten, since I think it allows us to “see” observations on the other side of the percentile. If we chose 10, there would be nothing to the left of it]]</p>
+<p>Suppose, for example that we are looking for the <span class="math inline">\(20\)</span>th percentile of a dataset, which we denote <span class="math inline">\(V_{20}\)</span>. This will be the number such that it is greater than or equal to 20% of the data, but smaller than the remaining 80%. If our sample data consisted of ten observations,</p>
+<p><span class="math display">\[
+2,\ 3,\ 5,\ 5\ ,\ 6 ,\ 7,\ 10,\ 23,\ 26,\ 28.
+\]</span>
+Then the <span class="math inline">\(20\)</span>th percentile would be <span class="math inline">\(V_{20} = 3\)</span>, as 20% of the observations <span class="math inline">\(\{2, \ 3\}\)</span> are less than or equal to it, while the remaining 80%, <span class="math inline">\(\{5,\ 5\ ,\ 6 ,\ 7,\ 10,\ 23,\ 26,\ 28 \}\)</span> are greater than it.</p>
+<p>There are, however, a few difficulties that may arise with this definition. The largest of these are</p>
+<ul>
+<li>The sample size is too small</li>
+<li>There may be tied values</li>
+<li>The percentiles may not be unique</li>
+</ul>
+<p>For example, what if we had been asked to find the <span class="math inline">\(20\)</span>th percentile of an altered version of the dataset above, where 3 is repeated several times?</p>
+<p><span class="math display">\[
+2,\ 3,\ {\color{red} 3},\ {\color{red} 3}\ ,\ 6 ,\ 7,\ 10,\ 23,\ 26,\ 28.
+\]</span>
+There are a number of different methods for defining and calculating percentiles in these cases, but for the intent of this course, we will focus more on the interpretation of the percentile, rather than it’s definition.</p>
+<p>There are a number of specific percentiles that are especially useful to us. For example, we have already seen the median, which can also be referred to as the <span class="math inline">\(50\)</span>th percentile of a dataset. In addition to the median, we are also often interested in determining the <span class="math inline">\(25\)</span>th and <span class="math inline">\(75\)</span>th percentile as well. These three percentiles make up the <strong>quartiles</strong> of the data, denoted</p>
+<p><span class="math display">\[
+\begin{align*}
+Q_1 &amp;= 25^{th} \text{ percentile} = 1^{st} \text{ or lower quartile} \\
+Q_2 &amp;= 50^{th} \text{ percentile} = 2^{nd} \text{quartile or median} \\
+Q_3 &amp;= 75^{th} \text{ percentile} = 3^{rd} \text{ or upper quartile}
+\end{align*}
+\]</span>
+Here is a helpful thing to note: suppose that we begin with the median <span class="math inline">\(M\)</span>, such that 50% of observations are less than this value and 50% are greater than it. <span class="math inline">\(Q_1\)</span> can be said to represent the median of the smaller 50% of all observations, while <span class="math inline">\(Q_3\)</span> can be said to be the median of larger 50%. With some effort, I can maybe find a way to articulate this better.</p>
+<p>It is the difference between the upper and lower quartile that we define as the interquartile range, or <span class="math inline">\(\text{IRQ} = Q_3 - Q_1\)</span>.</p>
+<p>[[Thinking about box plots here, used to depict information on skewness, percentiles, outliers, etc. It might be good to lead this chapter with all of the different characteristics we might want to know about (i.e., including center, spread, etc)]]</p>
+<p>[[Numeric example with UI salaries]]</p>
+<p>While it is common to report the mean and standard deviation as a two-number summary of continuous data, as we have seen in this chapter, neither of these measures are robust to extreme observations or outliers. An alternative approach, known as a five-number summary, makes use of the percentiles of the data, consisting of: (1) the minimum, (2) the first quartile, (3) the median, (4) the third quartile, (5) and the maximum.</p>
+<p>In addition to the numerical presentation of the five-number summary, we can also present important percentiles with the use of a plot. The <strong>box plot</strong>, also known as a <strong>box-and-whisker plot</strong>, is one such visual summary. In addition to information regarding the quartiles, the box plot also depicts information about skewness and the presence of outliers.</p>
+<p>[[reproduce plot from slides, which was nicely labeled]]</p>
+<p>In general, we can expect a box plot to consist of the following elements:</p>
+<ul>
+<li>A box, indicating the Interquartile Range (IQR), bounded by the values <span class="math inline">\(Q_1\)</span> and <span class="math inline">\(Q_3\)</span></li>
+<li>The median, or <span class="math inline">\(Q_2\)</span>, represented by the line drawn within the IQR</li>
+<li>The “whiskers”, extending out of the box, which can be defined in a number of ways. In the plot above, the length of the whiskers is determined to be 1.5 times the length of the IQR from either <span class="math inline">\(Q_1\)</span> or <span class="math inline">\(Q_3\)</span>. Variations may include (but are not limited to) the minimum and maximum of the data, the length of one standard deviation above and below the mean (not median) of the data, or pre-specified percentiles in addition to those given by <span class="math inline">\(Q_1, \ Q_2, \ \text{and} \ Q_3\)</span>.</li>
+<li>Outliers. These are typically presented as small circles or dots, and are values in the data that are not present within the bounds set by either the box or whiskers.</li>
+</ul>
+<p>Box plots also allow us to determine if the distribution of the data is skewed or symmetric. We say a distribution is <strong>symmetric</strong> if the left side of the box plot is identical to the right, mirrored around the median. We say that a distribution is <strong>skewed left</strong> if the majority of the area of the box plot is on the right, and the area gradually trails off on the left. Finally, we say that a distribution is <strong>skewed right</strong> if the majority of the area for the box is on the left, gradually tailing to the right.</p>
+<p>[[Depending on how this is used in the course, I almost prefer positive and negative skew because this shit is confusing. Sort of how f(x - c) is a right shift of the plot compared to f(x)]]</p>
+<p>[[Wait, do those definitions above match what is presented in the slides for the box plots on the next page?]]</p>
+<p>[[Introduce questions to guide learning. i.e., where is median, is this skewed, are there outliers, etc]]</p>
+<p>[[ Box plots to compare multiple distributions]]</p>
+<p>[[Data presentation in the wild + common errors]]</p>
+<p>[[review]]</p>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="section-ch1.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="section-ch3.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

@@ -1,0 +1,8 @@
+---
+output: html_document
+---
+
+# Non-normal Continuous Data {#ch9}
+
+Learning objectives  
+  

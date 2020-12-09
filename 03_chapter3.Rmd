@@ -1,0 +1,162 @@
+---
+output: html_document
+---
+
+# Study Design {#ch3}
+
+> "Randomization is too important to be left to chance." - J. D. Petruccelli
+
+[[We have a scientific question, as well as statistical question, and each of these is subtly different from what we will call hypothesis in context of statistics. Should iron out how we want to use these words]]
+
+As mentioned in Chapter 1, statistics is the science that allows us to provide objective, evidenced-based answers to questions that we have about the world. Doing this effectively is tantamount to correctly establishing our inquiry within the statistical framework. Inquiry in hand, we now go about answering the three basic questions in statistics:
+
+1) How should I collect my data?  
+2) How should I describe and summarize the data I've collected?
+3) What does my data tell me about the way the world works?  
+
+The goal of this chapter is to address the first of these questions. Formally, **study design** has a definition that involves the process of identifying a relevant population, collecting a representative sample, and asking our question in such a way that the answer of this little question will ultimately give us insight to the *scientific question* at hand. Aside: for example, if we are looking at polio vaccine, our science question may be something sciency like "does this vaccine prevent polio" but that has to be translated to the *statistical question*, akin to "is the incidence of polio in control group statistically different than that of the treatment group." Maybe we should say something more about this translation process, but I don't know enough about regular science to do so. 
+
+Also, thinking something like the study design process and challenges are
+
+1. Sample/Population
+  i. selection bias
+  ii. non-response bias
+  iii. Extrapolating sample beyond population
+2. Asking question
+  i. Confounding bias
+  ii. Placebo bias
+  iii. Diagnostics and Perception bias
+  iv. Randomization
+3. "Ethics"
+  i. What are a few lives now for the future of all humanity?
+  ii. Distinction between child and adult is arbitrary
+  iii. Marginalized Populations: Would they even be missed?
+
+## All Strawberry, no Rhubarb
+
+Let's begin by considering an ideal world. In such a case, the sampling stage of our study design process might look a little bit like this: 
+
+1. We start with a list of everyone in our population of interest. 
+2. Each person in this population is equally easy to sample, and the cost of each is the same
+3. We randomly sample this population
+4. Everybody sampled is eager to help the statistician answer their question, and nobody refuses to participate
+
+In such a world, we will end up with a sample of people who are *representative* of the population in question. In other words, anything that we learn about the sample will very likely also be true about the population (but of course, we can never be *entirely* certain unless we ask everybody, in which case, we are no longer doing statistics). 
+
+Unfortunately, things are rarely perfect, and the consequence is that we may end up with a sample that is *not* representative of our population. The ways and magnitudes with which this difference exists are known as **sampling biases**. Fortunately for us, the most common imperfections occur in rather predictable ways. Broadly speaking, the two most common forms of sampling bias are **selection bias** and **non-response bias**.
+
+### Selection Bias
+
+First and foremost, we want to be sure that the individuals that we decide to include in our sample are representative of the population we wish to study. [[Maybe we can have a richer definition of representative above]]. Often what we find is that a given population has a number of *sub-populations* that make it up. For example, if a given population is 75% female and 25% male, a representative sample population should also be about 75% female and 25% male. Or maybe instead let's consider a real-world example. 
+
+The year was 1936, and the United States was still in the midsts of the Great Depression, with nine million people unemployed and real income only two-thirds of it's 1929 equivalent. Franklin Delano Roosevelt was just completing his first term of office of president, and was up for re-election against Republican candidate Alfred Landon. Roosevelt and Landon had different views about how active the government should be in enacting policies to bring the country out of the depression. 
+
+The *Literary Digest* magazine had a custom of anticipating the outcome of the election, having successfully predicted the winner in every presidential election since 1916. Having collected samples from 2.4 million people for the upcoming 1936 election, the *Digest* predicted a landslide victory for Landon: 57% to 43%. The actual election was a landslide indeed, but the victory was to Roosevelt, having collected 62% of the vote to Landon's 38%. Having had such an enormous sample [[can we mention relationship of size and variability?]], how could this poll have been so incredibly far off?
+
+In conducting it's poll, the *Digest* mailed 10 million questionnaires to addresses that it had collected from telephone books and club membership rosters. At a time when only one in four households owned a telephone, and club membership was a luxury few could afford, the *Digest* inadvertently tended to screen out of their survey those who were poor. In other words, the sample selected was disproportionately wealthy, resulting in a classic case of selection bias.  
+
+1. Slides mention 10 million surveys and only 2.4 responses, but we don't have any information on the non-response bias other than the fact that some didn't respond.
+2. A similar thing happened in the 1948 election with [Thomas Dewey vs Harry Truman](https://medium.com/@ODSC/dewey-defeats-truman-how-sampling-bias-can-ruin-your-model-f4f67989709e) 
+
+### Non-response Bias
+
+In the previous example, we noted that 10 million questionnaires had been sent out, but only 2.4 million responses were returned. While it would certainly be nice if everybody complied with our requests for information, it is often unrealistic to expect that each inquiry will be returned. In and of itself, this is not a problem. Indeed, so long as non-response is random and the samples collected continue to be representative of the population, our sample population will still be valid [[can we mention size/variability? Maybe hint at it? Say something w/o defending it, hoping nobody asks?]]. However, what if non-response is not random? In other words, what happens if one sub-group of the population is more likely to respond to a survey than another?
+
+In 2017, the University of Iowa conducted the Speak Out Iowa campus climate survey as part of a comprehensive strategy to respond to sexual misconduct, dating violence, and stalking on our campus. All degree-seeking, undergraduate, graduate, and professional students (N=30,458) at the Iowa City and off-campus centers, including those completing online degrees, received an invitation to participate in the Speak Out Iowa survey through an email message sent to their university email address. A total of 6,952 students completed the survey, and of those, 68% identified as female, while 32% identified as male.
+
+Damn. There aren't conclusions here. Having written it out, I see why this was left as a question at the end. Ok, we can still do that, but I think we should also investigate another non-response bias
+
+
+### False Generalization Bias / Extrapolation Bias
+
+What do we call this section?
+
+The previous two examples demonstarted ways in which we might incorrectly move from a target population to a non-representative sample. This final case describes movement in the opposite direction: from a specified sample to a more general population. Nonetheless, the cause of the bias is the same.
+
+The motivation here can be most readily illustrated by considering the issue of pharmaceutical trails and the use of children. For practical, ethical, and economic reasons, clinical trials usually only involve adults - indeed, only about 25% of drugs are subjected to pediatric studies. Physicians, however, are allowed to use any FDA-approved drug in any way that they think is beneficial are are not required to inform parents if the therapy has not been tested on children. 
+By way of example, we consider here the drug propofol, a sedative that has consistently proven safe for use in adults. In 1992, however, after several children who received propofol in the ICU died, the British government recommended against using it on patients under the age of 16. Despite this recommendation, propofol continued to be widely used in the U.S.. It wasn't until 2001 that the manufacturers of propofol conducted a randomized, controlled trial, finding that 9.5% of children on propofol died, compared with 3.8% of children on a different sedative. Although the FDA has now added a warning indicating this, the administration of propofol to children in the ICU is still legal, and subject to controversy.
+
+As we can see, the safety of propofol, which had been consistently demonstrated to be effective in adults, failed to generalize to the wider population, which in this case included children under the age of 16. 
+
+
+## Asking the Question
+
+I think it would be useful here and in other sections to start off with an advance organizer. In other words, let's begin by telling them
+
+1. We are going to look at what we are doing here (asking question)
+2. We are going to look at the correct way to do it
+3. We are going to look at why we do it this way (random assignment - confounding, double blind - placebo)
+4. We are going to look at other ways this can go wrong (matching - confounding).
+
+---
+
+So far, we have identified ways in which the sampling portion of our study can introduce bias, and we now turn our attention to the questions themselves. More specifically, we concern ourselves here with the idea of "are we correctly answering the question we are meaning to ask?" Often in medical studies and biostatistics, we concern ourselves with a new treatment or therapy, and the question of interest is "is this effective?" This further begs the question "effective relative to what?"
+
+Often the only meaningful way to answer this is to compare treatment or therapy to something else. Consequently, we find ourselves with two groups:
+
+1. The **treatment group**, representing the subjects receiving the therapy
+2. The **control group**, or those subjects who are not treated
+
+Just as we had to exercise caution is selecting a sample from the population, so must we be careful to appropriately allocate subjects to the groups. At a minimum, our experiment should conform to the following guidelines:
+
+1. Subjects should be assigned to treatment or control groups at *random*
+2. The experiment should be **double blinded**
+
+So far, our general process looks like this
+
+[[Illustration]]  Population -> Sample -> (Treatment, Control) -> experiment 
+
+something something something something
+
+### Confounding
+
+In 1916, a polio epidemic hit the United States, resulting in hundreds of thousands of people, especially children, falling victim to the disease over the next forty years. By the 1950s, several vaccines had been developed. One in particular, developed by Jonas Salk, seemed especially promising based on laboratory studies. In 1954, the Public Health Service organized an experiment to see whether the Salk vaccine would protect children from polio outside of the laboratory. Two million children were selected from the most vulnerable age groups, aged 6 to 9. Of these children, some were vaccinated, some refused treatment, and some were deliberately left unvaccinated.
+
+This, of course, raises the issue of medical ethics, which are always a consideration in medical studies: is it ethical to deliberately leave some children unvaccinated? In other words, as some families ultimately chose to refuse vaccination, would a more ethical design not offer the vaccine to all children, leaving those who refused to serve as controls?
+
+Thinking back to some of the issues raised at the beginning of this chapter, what are some issues that could arise in letting the subjects determine their group assignment? Would we expect the treatment and control groups to both still be representative samples of our population? Or is it possible that that these groups might be different in important ways?
+
+[[I need to consider past/present tense here, and in general]]
+
+As it turns out, higher-income parents were generally more likely to consent to treatment, *and* their children were more likely to suffer from polio. The reason for this latter point is that children from poorer backgrounds were more likely to contract mild cases of polio early in childhood, while still protected by antibodies from their mothers. Consequently, the difference in infection between the treatment and control groups could possibly have been related to parental income, rather than treatment. Family background here is said to be a **confounding** factor, a frequent and potentially major source of bias. 
+
+A *confounder*, also known as a *lurking variable*, is a third variable which is related to both exposure and outcome. Because of this relationship, confounders distort the observed relationship between exposure and outcome.
+
+[[Image]]
+
+In the case of the polio example, then, we have the following pieces from the diagram above
+
+- Exposure = whether the child gets the vaccine or not
+- Outcome = whether the child gets polio or not
+- Confounder = child's socioeconomic status
+
+Example 2
+
+Many epidemiologic studies have shown that coffee drinkers have an increased risk of lung cancer. However, researchers also noticed that smokers are more likely to drink coffee
+
+[[Image]]
+
+Once researchers *controlled* for smoking status, they no longer found a change in lung cancer risk due to [drinking coffee](https://cebp.aacrjournals.org/content/25/6/951)
+
+---
+
+While there are many complicated analysis techniques that exist to control for confounding, **matching** is a technique used in the study design process, which can be done at either the individual or the group level. 
+
+In a matched study at the individual level, for each subject in the treatment group, a subject matching on potentially confounding variables is also placed. For example, age and sex are both common confounders. If, during the process of enrolling patients, a 40 year old male is assigned to the treatment group, the next 40 year old male would then be assigned to the control, or placebo, group.
+
+When used at the group level, matching seeks to ensure that the *distributions* of the counfoundning variables are the same in each group. Consider again the coffee/cancer example, matching at the group level would ensure that a similar proportion of smokers are included in the coffee drinking group as in the non-coffee drinking group.
+
+```{r}
+library(tippy)
+tippy("Hover me!", tooltip = "Hi, I'm the tooltip!")
+```
+
+Here is a `r tippy("definition", "a thing that we define", height="200px")`
+
+
+
+
+
+
+
+

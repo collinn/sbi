@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>6 {r image-ref-for-in-text, echo=FALSE, fig.align='center', fig.cap='Some cool caption', fig.pos='H', message=FALSE} # # out.width='0.75\\linewidth' # knitr::include_graphics("./images/biasVariabilityTargets.pdf") # | Seriously Interesting Statistics Textbook</title>
+  <meta name="description" content="First template!" />
+  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="6 {r image-ref-for-in-text, echo=FALSE, fig.align='center', fig.cap='Some cool caption', fig.pos='H', message=FALSE} # # out.width='0.75\\linewidth' # knitr::include_graphics("./images/biasVariabilityTargets.pdf") # | Seriously Interesting Statistics Textbook" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="First template!" />
+  <meta name="github-repo" content="ceward/introTextbook" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="6 {r image-ref-for-in-text, echo=FALSE, fig.align='center', fig.cap='Some cool caption', fig.pos='H', message=FALSE} # # out.width='0.75\\linewidth' # knitr::include_graphics("./images/biasVariabilityTargets.pdf") # | Seriously Interesting Statistics Textbook" />
+  
+  <meta name="twitter:description" content="First template!" />
+  
+
+<meta name="author" content="Caitlin Ward and Collin ‘C-Money’ Nolte" />
+
+
+<meta name="date" content="2020-07-29" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="ch5.html"/>
+<link rel="next" href="ch6.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a></li>
+<li class="chapter" data-level="1" data-path="ch1.html"><a href="ch1.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
+<li class="chapter" data-level="1.1" data-path="ch1.html"><a href="ch1.html#ch1_s1"><i class="fa fa-check"></i><b>1.1</b> Evidence-based Research</a></li>
+<li class="chapter" data-level="1.2" data-path="ch1.html"><a href="ch1.html#ch1_s2"><i class="fa fa-check"></i><b>1.2</b> Scientific Method</a></li>
+<li class="chapter" data-level="1.3" data-path="ch1.html"><a href="ch1.html#ch1_s3"><i class="fa fa-check"></i><b>1.3</b> Introduction to Biostatistics</a></li>
+<li class="chapter" data-level="1.4" data-path="ch1.html"><a href="ch1.html#ch1_s4"><i class="fa fa-check"></i><b>1.4</b> Statistical framework</a></li>
+<li class="chapter" data-level="1.5" data-path="ch1.html"><a href="ch1.html#ch1_s5"><i class="fa fa-check"></i><b>1.5</b> What is a simulation?</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="ch2.html"><a href="ch2.html"><i class="fa fa-check"></i><b>2</b> What is Data?</a></li>
+<li class="chapter" data-level="3" data-path="ch3.html"><a href="ch3.html"><i class="fa fa-check"></i><b>3</b> Study Design</a></li>
+<li class="chapter" data-level="4" data-path="ch4.html"><a href="ch4.html"><i class="fa fa-check"></i><b>4</b> Probability</a></li>
+<li class="chapter" data-level="5" data-path="ch5.html"><a href="ch5.html"><i class="fa fa-check"></i><b>5</b> Sampling Distributions and the <br/> Central Limit Theorem</a><ul>
+<li class="chapter" data-level="5.1" data-path="ch5.html"><a href="ch5.html#ch5_s1"><i class="fa fa-check"></i><b>5.1</b> Sampling Distributions</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="r-image-ref-for-in-text-echofalse-fig-aligncenter-fig-capsome-cool-caption-fig-posh-messagefalse-out-width0-75linewidth-knitrinclude-graphics-imagesbiasvariabilitytargets-pdf.html"><a href="r-image-ref-for-in-text-echofalse-fig-aligncenter-fig-capsome-cool-caption-fig-posh-messagefalse-out-width0-75linewidth-knitrinclude-graphics-imagesbiasvariabilitytargets-pdf.html"><i class="fa fa-check"></i><b>6</b> <code>{r image-ref-for-in-text, echo=FALSE, fig.align='center', fig.cap='Some cool caption', fig.pos='H', message=FALSE} # # out.width='0.75\\linewidth' # knitr::include_graphics("./images/biasVariabilityTargets.pdf") #</code></a></li>
+<li class="chapter" data-level="7" data-path="ch6.html"><a href="ch6.html"><i class="fa fa-check"></i><b>7</b> Introduction to Inference</a></li>
+<li class="chapter" data-level="8" data-path="ch7.html"><a href="ch7.html"><i class="fa fa-check"></i><b>8</b> Tests for Means</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Seriously Interesting Statistics Textbook</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="r-image-ref-for-in-text-echofalse-fig.aligncenter-fig.capsome-cool-caption-fig.posh-messagefalse-out.width0.75linewidth-knitrinclude_graphics.imagesbiasvariabilitytargets.pdf" class="section level1">
+<h1><span class="header-section-number">6</span> <code>{r image-ref-for-in-text, echo=FALSE, fig.align='center', fig.cap='Some cool caption', fig.pos='H', message=FALSE} # # out.width='0.75\\linewidth' # knitr::include_graphics("./images/biasVariabilityTargets.pdf") #</code></h1>
+<div class="figure" style="text-align: center"><span id="fig:image-ref-for-in-text2"></span>
+<img src="images/biasVariabilityTargets.png" alt="Some cool caption" width="410" />
+<p class="caption">
+Figure 6.1: Some cool caption
+</p>
+</div>
+<div class="infobox hazard">
+<p>PRACTICE SAFE STATISTICS</p>
+<p>Don’t drink and derive</p>
+</div>
+<p>In order to make inference, we must be able to quantify our uncertainty about the population parameter. As we will see later in this chapter, this uncertainty depends on how many individuals we sample and how variable the data we measure is.</p>
+<p>In our statistical framework, there is some unknown population parameter which we estimate with a sample statistic. In the fast food example, the parameter of interest was a population mean and the sample statistic was the sample mean. In this chapter, we will specifically focusing on estimating means, however, there are other possible numerical quantities we could describe - proportions, standard deviations, etc. .</p>
+<p>Any time we take a sample from the population, we will get a different sample mean <span class="math inline">\(\bar{x}\)</span>. In other words, <span class="math inline">\(\bar{x}\)</span> is a numeric quantity which assumes a value based on the outcome of a random experiment - the process of drawing a sample at random from the population. This should sound familiar to you - this is the definition of a random variable! We can use this logic for any statistic of interest. As we’ve described in the past, random variables have probability distributions. When the random variable is a statistic, this probability distribution is called the sampling distribution. Sampling distributions reflect which values of the statistic are likely and which values are improbable.</p>
+<p>A VISUALIZATION ABOUT SAMPLING DISTRIBUTIONS WOULD BE COOL HERE. SOMETHING THAT SHOWS ALL THE UNITS IN THE POPULATION WITH NUMERIC VALUES ON THEM, THEN TAKE SAMPLE AND CALCULATE MEAN.</p>
+<p>I think what would be neat is doing dot plots for a population and have them be all one color, say, red. Once the samples are chosen, they will be presented below with their own distribution in blue. BUT! The ones selected in the random sample would also turn blue, indicating that they were picked. Maybe this is like what that shiny app you showed me was?</p>
+<p>As we’ve seen earlier in this book, we will use upper-case letters to denote random variables, and lower-case letters to denote possible values they can take on. When it comes to the sampling distribution of the mean, <span class="math inline">\(\bar{X}\)</span> is the random variable, which arises from repeated random sampling from the population and then taking a sample mean, and <span class="math inline">\(\bar{x}\)</span> is an observed sample mean we might see. In describing a sampling distribution, we are often interested in the mean and standard deviation - this gives information about typical values the statistic might take on as well as how spread out the distribution is. We refer to the mean of a statistic as the <strong>expected value</strong> and the standard deviation as the <strong>standard error</strong>. For the random variable describing the sample mean, these are denoted as <span class="math inline">\(E(\bar{X})\)</span> and <span class="math inline">\(SE(\bar{X}) = \sqrt{Var(\bar{X})}\)</span>, respectively.</p>
+<p>Another good way to address the <span class="math inline">\(\bar{X}\)</span> vs <span class="math inline">\(\bar{x}\)</span> is to have something like (&amp;= isn’t making them align?)</p>
+<div class="latex">
+<p><span class="math display">\[
+\begin{align*}
+\bar{X} &amp;= \{\text{Mean height of} \textit{ Sex and the City } \text{protagonists}\} \\
+\bar{x} &amp;= \{\text{Mean height of Carrie and Samantha}\}
+\end{align*}
+\]</span></p>
+</div>
+<p>
+Example
+</p>
+<p>We will use the fast food scenario to motivate our sample, but for let’s assume there are only five individuals in the entire population. The monthly spending for those five individuals (rounded to the nearest dollar) is as follows:</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Person</th>
+<th align="left">Monthly Spending</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">A</td>
+<td align="left">8</td>
+</tr>
+<tr class="even">
+<td align="left">B</td>
+<td align="left">22</td>
+</tr>
+<tr class="odd">
+<td align="left">C</td>
+<td align="left">22</td>
+</tr>
+<tr class="even">
+<td align="left">D</td>
+<td align="left">36</td>
+</tr>
+<tr class="odd">
+<td align="left">E</td>
+<td align="left">50</td>
+</tr>
+</tbody>
+</table>
+<p>The population mean can be found by taking the average monthly spending of these five individuals, as they are the only people in this population. This means the population mean is 27.6. Now suppose we are taking samples of three individuals from this population. There are <span class="math inline">\(\binom{5}{3}\)</span> = 10 ways we can sample three people from this population. Since this is a small population, we can enumerate all possible samples, the values we would obtain for the monthly spending in each sample, and then the sample mean monthly fast food spending for each sample:</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Sample</th>
+<th align="left">Values</th>
+<th align="right"><span class="math inline">\(\bar{x}\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">(A, B, C)</td>
+<td align="left">(8, 22, 22)</td>
+<td align="right">17.33</td>
+</tr>
+<tr class="even">
+<td align="left">(A, B, D), (A, C, D)</td>
+<td align="left">(8, 22, 36), (8, 22, 36)</td>
+<td align="right">22.00</td>
+</tr>
+<tr class="odd">
+<td align="left">(A, B, E), (A, C, E), (B, C, D)</td>
+<td align="left">(8, 22, 50), (8, 22, 50), (22, 22, 36)</td>
+<td align="right">22.00</td>
+</tr>
+<tr class="even">
+<td align="left">(A, D, E), (B, C, E)</td>
+<td align="left">(8, 36, 50), (22, 22, 50)</td>
+<td align="right">26.67</td>
+</tr>
+<tr class="odd">
+<td align="left">(B, D, E), (C, D, E)</td>
+<td align="left">(22, 36, 50), (22, 36, 50)</td>
+<td align="right">36.00</td>
+</tr>
+</tbody>
+</table>
+<p>One thing to note is that <em>none</em> of the sample means are actually equal to the population mean. This is often the case! Based on this table, we can construct the sampling distribution of <span class="math inline">\(\bar{X}\)</span> for a sample of size three.</p>
+<div class="infobox think">
+<p>Why is our sample mean often not equal to the population mean?</p>
+</div>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th align="left">Probability</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>P(<span class="math inline">\(\bar{x}\)</span> = 17.33)</td>
+<td align="left">0.1</td>
+</tr>
+<tr class="even">
+<td>P(<span class="math inline">\(\bar{x}\)</span> = 22)</td>
+<td align="left">0.2</td>
+</tr>
+<tr class="odd">
+<td>P(<span class="math inline">\(\bar{x}\)</span> = 26.67)</td>
+<td align="left">0.3</td>
+</tr>
+<tr class="even">
+<td>P(<span class="math inline">\(\bar{x}\)</span> = 31.33)</td>
+<td align="left">0.2</td>
+</tr>
+<tr class="odd">
+<td>P(<span class="math inline">\(\bar{x}\)</span> = 36)</td>
+<td align="left">0.2</td>
+</tr>
+</tbody>
+</table>
+<p>With this probability distribution, we can get the expected value of the sampling distribution. Whenever we think about probability, we are thinking about long-run frequencies, so when we think about the expected value, we are thinking about the average sample mean if we were to take repeated samples of size three from this population. The probability distribution indicates that if we took samples of size three from this population over and over again (say 1,000 times), we would end up with 10% with a mean of 17.33, 20% with a mean of 22, 30% with a mean of 26.67; and so on. So the expected value (average) we would observed if we kept taking samples over and over would be:</p>
+<p>(0.1 <span class="math inline">\(\times\)</span> 17.33) + (0.2 <span class="math inline">\(\times\)</span> 22) + (0.3 <span class="math inline">\(\times\)</span> 26.67) + (0.2 <span class="math inline">\(\times\)</span> 31.33) + (0.2 <span class="math inline">\(\times\)</span> 36) = 27.6</p>
+<p>But wait! That is the population mean. This illustrates an extremely powerful property of the sample mean - the expected value of the sample mean (<span class="math inline">\(\bar{X}\)</span>) is equal to the population parameter (<span class="math inline">\(\mu\)</span>)! Because of this, we say that the sample mean is an <strong>unbiased estimator</strong> of the population mean. While we illustrated the property with a small example, this holds regardless of the population or sample size.</p>
+<p>
+<p>Important Formula!</p>
+<p>For <em>any</em> population distribution which can be described by a random variable <span class="math inline">\(X\)</span> with mean <span class="math inline">\(\mu\)</span> and variance <span class="math inline">\(\sigma^2\)</span>, the sample distribution of the mean based on sample of size <span class="math inline">\(n\)</span> (<span class="math inline">\(\bar{X}_n\)</span>) has the following properties:</p>
+<ol style="list-style-type: decimal">
+<li>The expected value of the sampling distribution is <span class="math inline">\(\mu\)</span>
+<span class="math display">\[E(\bar{X}_n) = \mu\]</span></li>
+<li>The variance of the sampling distribution is
+<span class="math display">\[Var(\bar{X}_n) = \frac{\sigma^2}{n}\]</span></li>
+</ol>
+</p>
+<p>Using these formulas we are able to describe the typical value of the sample mean and how variable the sample mean is in repeated sampling. Notice that the expected value does not depend on the sample size, <span class="math inline">\(n\)</span>, but the variance does. This means regardless of the sample size, the sample mean is an unbiased estimator of the population mean. But, as the sample size increases, the variance decreases, and we get a more precise estimate of the population mean. As we’ve seen in the past, it is more common to talk about the standard deviation than the variance and the standard deviation is the square root of the variance. The quantity <span class="math inline">\(\sqrt{Var(\bar{X}_n)} = \sigma / n\)</span> is primarily called the <strong>standard error</strong> of the mean, and is denoted by <span class="math inline">\(SE(\bar{X}_n)\)</span>. We use the term standard error to make it really clear that it is referencing the sampling distribution of the mean, but all standard errors could be refered to as standard deviations. Conversely, not all standard deviations could be referred to as a standard error - the term is only used in describing the distribution of the sample mean.</p>
+<p>
+<p>Example
+Let <span class="math inline">\(X\)</span> denote the resting heart rate of a randomly selected U.S. adult. Assume the distribution of resting heart rates is approximately normally distributed with mean 70 bpm and standard deviation of 5 bpm. Suppose we sample 50 adults. Let <span class="math inline">\(\bar{X}\)</span> denote the mean resting heart rate of these 50 adults.</p>
+<ol style="list-style-type: decimal">
+<li><p>What is the mean of <span class="math inline">\(\bar{X}\)</span>? (That is, in repeated sampling, what would be the average value of <span class="math inline">\(\bar{X}\)</span>?)</p></li>
+<li><p>What is the standard error of <span class="math inline">\(\bar{X}\)</span></p></li>
+</ol>
+</p>
+
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="ch5.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="ch6.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

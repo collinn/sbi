@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>5 Probability Distributions | Seriously Interesting Statistics Textbook</title>
+  <meta name="description" content="First template!" />
+  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="5 Probability Distributions | Seriously Interesting Statistics Textbook" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="First template!" />
+  <meta name="github-repo" content="ceward/introTextbook" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="5 Probability Distributions | Seriously Interesting Statistics Textbook" />
+  
+  <meta name="twitter:description" content="First template!" />
+  
+
+<meta name="author" content="Caitlin Ward and Collin ‘C-Money’ Nolte" />
+
+
+<meta name="date" content="2020-12-01" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="ch4.html"/>
+<link rel="next" href="ch6.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a><ul>
+<li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#stuff-lifted-that-used-to-be-in-ch2-may-or-may-not-be-useful-still"><i class="fa fa-check"></i><b>0.1</b> Stuff lifted that used to be in ch2 (may or may not be useful still?)</a></li>
+<li class="chapter" data-level="0.2" data-path="index.html"><a href="index.html#editing-text"><i class="fa fa-check"></i><b>0.2</b> Editing text</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="ch1.html"><a href="ch1.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
+<li class="chapter" data-level="1.1" data-path="ch1.html"><a href="ch1.html#ch1_s1"><i class="fa fa-check"></i><b>1.1</b> Evidence-based Research</a></li>
+<li class="chapter" data-level="1.2" data-path="ch1.html"><a href="ch1.html#ch1_s2"><i class="fa fa-check"></i><b>1.2</b> Scientific Method</a></li>
+<li class="chapter" data-level="1.3" data-path="ch1.html"><a href="ch1.html#ch1_s3"><i class="fa fa-check"></i><b>1.3</b> Introduction to Biostatistics</a></li>
+<li class="chapter" data-level="1.4" data-path="ch1.html"><a href="ch1.html#ch1_s4"><i class="fa fa-check"></i><b>1.4</b> Statistical framework</a></li>
+<li class="chapter" data-level="1.5" data-path="ch1.html"><a href="ch1.html#ch1_s5"><i class="fa fa-check"></i><b>1.5</b> What is a simulation?</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="ch2.html"><a href="ch2.html"><i class="fa fa-check"></i><b>2</b> What is Data?</a><ul>
+<li class="chapter" data-level="2.1" data-path="ch2.html"><a href="ch2.html#outline"><i class="fa fa-check"></i><b>2.1</b> Outline</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="ch2.html"><a href="ch2.html#summaries"><i class="fa fa-check"></i><b>2.1.1</b> Summaries</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="ch2.html"><a href="ch2.html#types-of-data"><i class="fa fa-check"></i><b>2.2</b> Types of Data</a></li>
+<li class="chapter" data-level="2.3" data-path="ch2.html"><a href="ch2.html#categorical-data"><i class="fa fa-check"></i><b>2.3</b> Categorical Data</a></li>
+<li class="chapter" data-level="2.4" data-path="ch2.html"><a href="ch2.html#continuous-data"><i class="fa fa-check"></i><b>2.4</b> Continuous data</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="ch2.html"><a href="ch2.html#graphical-summaries"><i class="fa fa-check"></i><b>2.4.1</b> Graphical Summaries</a></li>
+<li class="chapter" data-level="2.4.2" data-path="ch2.html"><a href="ch2.html#numerical-summaries"><i class="fa fa-check"></i><b>2.4.2</b> Numerical Summaries</a></li>
+<li class="chapter" data-level="2.4.3" data-path="ch2.html"><a href="ch2.html#measures-of-spread"><i class="fa fa-check"></i><b>2.4.3</b> Measures of Spread</a></li>
+<li class="chapter" data-level="2.4.4" data-path="ch2.html"><a href="ch2.html#percentiles-and-quartiles"><i class="fa fa-check"></i><b>2.4.4</b> Percentiles and Quartiles</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="ch3.html"><a href="ch3.html"><i class="fa fa-check"></i><b>3</b> Study Design</a><ul>
+<li class="chapter" data-level="3.1" data-path="ch3.html"><a href="ch3.html#all-strawberry-no-rhubarb"><i class="fa fa-check"></i><b>3.1</b> All Strawberry, no Rhubarb</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="ch3.html"><a href="ch3.html#selection-bias"><i class="fa fa-check"></i><b>3.1.1</b> Selection Bias</a></li>
+<li class="chapter" data-level="3.1.2" data-path="ch3.html"><a href="ch3.html#non-response-bias"><i class="fa fa-check"></i><b>3.1.2</b> Non-response Bias</a></li>
+<li class="chapter" data-level="3.1.3" data-path="ch3.html"><a href="ch3.html#false-generalization-bias-extrapolation-bias"><i class="fa fa-check"></i><b>3.1.3</b> False Generalization Bias / Extrapolation Bias</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="ch3.html"><a href="ch3.html#asking-the-question"><i class="fa fa-check"></i><b>3.2</b> Asking the Question</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="ch3.html"><a href="ch3.html#confounding"><i class="fa fa-check"></i><b>3.2.1</b> Confounding</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="ch4.html"><a href="ch4.html"><i class="fa fa-check"></i><b>4</b> Probability</a><ul>
+<li class="chapter" data-level="4.1" data-path="ch4.html"><a href="ch4.html#idea"><i class="fa fa-check"></i><b>4.1</b> Idea</a></li>
+<li class="chapter" data-level="4.2" data-path="ch4.html"><a href="ch4.html#ch4_s1"><i class="fa fa-check"></i><b>4.2</b> Understanding Randomness</a></li>
+<li class="chapter" data-level="4.3" data-path="ch4.html"><a href="ch4.html#ch4_s2"><i class="fa fa-check"></i><b>4.3</b> Probability Operations</a></li>
+<li class="chapter" data-level="4.4" data-path="ch4.html"><a href="ch4.html#ch4_s3"><i class="fa fa-check"></i><b>4.4</b> Conditional Probability</a></li>
+<li class="chapter" data-level="4.5" data-path="ch4.html"><a href="ch4.html#ch4_s4"><i class="fa fa-check"></i><b>4.5</b> Probabilities from tables (needs a different example)</a></li>
+<li class="chapter" data-level="4.6" data-path="ch4.html"><a href="ch4.html#ch4_s5"><i class="fa fa-check"></i><b>4.6</b> Bayes’ Rule</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="ch5.html"><a href="ch5.html"><i class="fa fa-check"></i><b>5</b> Probability Distributions</a><ul>
+<li class="chapter" data-level="5.1" data-path="ch5.html"><a href="ch5.html#ch5_s1"><i class="fa fa-check"></i><b>5.1</b> Introduction to Probability Distributions</a></li>
+<li class="chapter" data-level="5.2" data-path="ch5.html"><a href="ch5.html#ch5_s2"><i class="fa fa-check"></i><b>5.2</b> Binomial Distribution</a></li>
+<li class="chapter" data-level="5.3" data-path="ch5.html"><a href="ch5.html#ch5_s3"><i class="fa fa-check"></i><b>5.3</b> Normal Distribution</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="ch6.html"><a href="ch6.html"><i class="fa fa-check"></i><b>6</b> Sampling Distributions and the <br/> Central Limit Theorem</a><ul>
+<li class="chapter" data-level="6.1" data-path="ch6.html"><a href="ch6.html#ch6_s1"><i class="fa fa-check"></i><b>6.1</b> Sampling Distributions</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="ch7.html"><a href="ch7.html"><i class="fa fa-check"></i><b>7</b> Introduction to Inference</a><ul>
+<li class="chapter" data-level="7.1" data-path="ch7.html"><a href="ch7.html#ch7_s1"><i class="fa fa-check"></i><b>7.1</b> Confidence Intervals</a></li>
+<li class="chapter" data-level="7.2" data-path="ch7.html"><a href="ch7.html#ch7_s2"><i class="fa fa-check"></i><b>7.2</b> Hypothesis Tests</a></li>
+<li class="chapter" data-level="7.3" data-path="ch7.html"><a href="ch7.html#ch7_s3"><i class="fa fa-check"></i><b>7.3</b> P-values</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="ch8.html"><a href="ch8.html"><i class="fa fa-check"></i><b>8</b> Tests for Means</a><ul>
+<li class="chapter" data-level="8.1" data-path="ch8.html"><a href="ch8.html#ch8_s1"><i class="fa fa-check"></i><b>8.1</b> Steps for hypothesis testing</a><ul>
+<li class="chapter" data-level="8.1.1" data-path="ch8.html"><a href="ch8.html#things-about-the-population"><i class="fa fa-check"></i><b>8.1.1</b> Things about the population</a></li>
+<li class="chapter" data-level="8.1.2" data-path="ch8.html"><a href="ch8.html#things-about-the-sample"><i class="fa fa-check"></i><b>8.1.2</b> Things about the sample</a></li>
+<li class="chapter" data-level="8.1.3" data-path="ch8.html"><a href="ch8.html#making-inference"><i class="fa fa-check"></i><b>8.1.3</b> Making inference</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="ch8.html"><a href="ch8.html#ch8_s2"><i class="fa fa-check"></i><b>8.2</b> Hypothesis test for a mean</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="ch9.html"><a href="ch9.html"><i class="fa fa-check"></i><b>9</b> Non-normal Continuous Data</a></li>
+<li class="chapter" data-level="10" data-path="ch10.html"><a href="ch10.html"><i class="fa fa-check"></i><b>10</b> Categorical Data</a><ul>
+<li class="chapter" data-level="10.1" data-path="ch10.html"><a href="ch10.html#ch10_s1"><i class="fa fa-check"></i><b>10.1</b> One Sample Proportions</a></li>
+<li class="chapter" data-level="10.2" data-path="ch10.html"><a href="ch10.html#ch10_s2"><i class="fa fa-check"></i><b>10.2</b> Two Sample Proportions</a></li>
+<li class="chapter" data-level="10.3" data-path="ch10.html"><a href="ch10.html#ch10_s3"><i class="fa fa-check"></i><b>10.3</b> Contingency Based tests</a></li>
+<li class="chapter" data-level="10.4" data-path="ch10.html"><a href="ch10.html#ch10_s4"><i class="fa fa-check"></i><b>10.4</b> Paired Categorical Data</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="ch11.html"><a href="ch11.html"><i class="fa fa-check"></i><b>11</b> Correlation and Regression</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Seriously Interesting Statistics Textbook</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="ch5" class="section level1">
+<h1><span class="header-section-number">5</span> Probability Distributions</h1>
+<div class="objective-container">
+<div class="objectives">
+Learning objectives
+</div>
+<ol style="list-style-type: decimal">
+<li>Understand the definition of a probability distribution</li>
+<li>Binomial distribution</li>
+<li>Normal distribution</li>
+<li>t distribution</li>
+</ol>
+</div>
+<hr />
+<p>In the previous chapter, we introduced the idea of a random processes, situations with outcomes that we could not determine perfectly in advance. The idea of a random process can apply to most everything in our lives, from the exact amount of time it takes to go from home to class, to determining the winner of a football game. Further, recall that a random process is defined by the <em>collection of possible events</em> and their <em>associated probabilities</em>, [framed in terms of long run frequencies (discuss?)]. In the coin flipping example, where the coin was flipped three times, the collection of possible events was <span class="math inline">\(\mathcal{S} = \{HHH, HHT, HTH, THH, TTH, THT, HTT, TTT\}\)</span>, and the associated probabilities for the number of heads were:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="ch5.html#cb1-1"></a><span class="co">## Why does this need cbind?</span></span>
+<span id="cb1-2"><a href="ch5.html#cb1-2"></a>knitr<span class="op">::</span><span class="kw">kable</span>(<span class="kw">cbind.data.frame</span>(<span class="st">&#39;# Heads&#39;</span> =<span class="st"> </span><span class="dv">0</span><span class="op">:</span><span class="dv">3</span>, <span class="st">&#39;Probability&#39;</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;1/8&#39;</span>, <span class="st">&#39;3/8&#39;</span>, <span class="st">&#39;3/8&#39;</span>, <span class="st">&#39;1/8&#39;</span>)), </span>
+<span id="cb1-3"><a href="ch5.html#cb1-3"></a>             <span class="dt">align =</span> <span class="st">&#39;c&#39;</span>)</span></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="center"># Heads</th>
+<th align="center">Probability</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">0</td>
+<td align="center">1/8</td>
+</tr>
+<tr class="even">
+<td align="center">1</td>
+<td align="center">3/8</td>
+</tr>
+<tr class="odd">
+<td align="center">2</td>
+<td align="center">3/8</td>
+</tr>
+<tr class="even">
+<td align="center">3</td>
+<td align="center">1/8</td>
+</tr>
+</tbody>
+</table>
+<p>After determining all of the possible events, we were able to determine probabilities by tabulating the number of ways each event could occur and dividing by the total number of possibilities (in this case, eight). Of course, this can quickly become cumbersome in general: if three flips resulted in eight possible events, and four flips would result in sixteen, imagine trying to determine all of the possible outcomes of flipping a coin fifty times! Clearly, we need a more efficient way to do this.</p>
+<p>[I wrote this when it was two. Not sure if we should keep or not, or reword]
+Further, suppose we were asked to anticipate the number of heads that would occur after three flips. The table above would lead us to conclude that our best guess would be two or three, as it has twice the probability of either of the other outcomes. In other words, the distribution of outcomes is not <em>completely</em> random: there appear to be some structure in the ways these outcomes unfold. This, along with the need for a more precise way of determining possible outcomes and probabilities, leads us to the topic of the current chapter.</p>
+<div id="ch5_s1" class="section level2">
+<h2><span class="header-section-number">5.1</span> Introduction to Probability Distributions</h2>
+<p>Put simply, a <strong>probability distribution</strong> is a function that takes a possible event as input, and gives us the resulting probability as output.</p>
+<hr />
+<div class="sourceCode" id="cb2"><pre class="sourceCode diff"><code class="sourceCode diff"><span id="cb2-1"><a href="ch5.html#cb2-1"></a><span class="st">-In the last chapter, we discussed random processes, events, and probability. We noted that probability is framed in terms of long-run frequencies, or the fraction of time an event occurs if a random processes is repeated over and over. One example we looked at was flipping a coin three times and we were able to determine probabilities for specific events by tabulating the number of ways the event could occur and dividing by the number of possible outcomes of flipping the coin three times. This is a feasible approach when there are not very many possible outcomes, but otherwise can be quite cumbersome. Imagine trying to tabulate all the possible outcomes of flipping a coin 50 times! Yeah, we don&#39;t want to imagine that either. This is where the genius of probability distributions comes to our rescue. A **probability distribution** is a function that describes the probability of all possible outcomes for an experiment. The input to the function is the outcome of interest, and the output is the probability of observing that outcome. Probability distributions typically have one or two **parameters**, which describe the distribution. In the coin flipping example, the parameter would be the number of flips.</span></span>
+<span id="cb2-2"><a href="ch5.html#cb2-2"></a></span>
+<span id="cb2-3"><a href="ch5.html#cb2-3"></a><span class="st">-Before we get to some of the most commonly used probability distributions and the pre-defined functions, we will illustrate the concept by deriving a probability distribution for our toy example. </span></span></code></pre></div>
+<p>Before we get to some of the most commonly used distributions, let’s illustrate the concept by formally deriving a probability distribution for our example above. Suppose the experiment consists of flipping a coin three times and recording the number of heads. We will let <span class="math inline">\(X\)</span> denote the number of heads that appear. We know that the possible values <span class="math inline">\(X\)</span> can take on are <span class="math inline">\(\{0, 1, 2, 3\}\)</span>, since we can’t see more heads than we have flips, and we can’t have less than zero. As we saw in the previous chapter, there are eight possible outcomes and the sample space for this experiment is <span class="math inline">\(\mathcal{S} = \{HHH, HHT, HTH, THH, TTH, THT, HTT, TTT\}\)</span>. For each of these possible outcomes, we can count the number of heads - <span class="math inline">\(\{3, 2, 2, 2, 1, 1, 1, 0\}\)</span>. To find the probability distribution, we calculate the probability that <span class="math inline">\(X\)</span> takes on each possible value</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="ch5.html#cb3-1"></a><span class="kw">library</span>(knitr)</span>
+<span id="cb3-2"><a href="ch5.html#cb3-2"></a>tmpTab &lt;-<span class="st"> </span><span class="kw">cbind.data.frame</span>(<span class="dt">x =</span> <span class="dv">0</span><span class="op">:</span><span class="dv">3</span>, <span class="st">&#39;P(X=x)&#39;</span> =<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;1/8&#39;</span>, <span class="st">&#39;3/8&#39;</span>, <span class="st">&#39;3/8&#39;</span>, <span class="st">&#39;1/8&#39;</span>))</span>
+<span id="cb3-3"><a href="ch5.html#cb3-3"></a><span class="kw">kable</span>(tmpTab, <span class="dt">align =</span> <span class="st">&#39;c&#39;</span>)</span></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="center">x</th>
+<th align="center">P(X=x)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">0</td>
+<td align="center">1/8</td>
+</tr>
+<tr class="even">
+<td align="center">1</td>
+<td align="center">3/8</td>
+</tr>
+<tr class="odd">
+<td align="center">2</td>
+<td align="center">3/8</td>
+</tr>
+<tr class="even">
+<td align="center">3</td>
+<td align="center">1/8</td>
+</tr>
+</tbody>
+</table>
+<p>Since there is one possible event where 0 heads were obtained out of the eight possible events, <span class="math inline">\(P(X = 0) = 1/8\)</span>. Similarly, there are three possible events where 1 head was obtained, so <span class="math inline">\(P(X = 1) = 3/8\)</span>. If we were to plot this probability distribution, it would look like this</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="ch5.html#cb4-1"></a>x &lt;-<span class="st"> </span><span class="dv">0</span><span class="op">:</span><span class="dv">3</span></span>
+<span id="cb4-2"><a href="ch5.html#cb4-2"></a>y &lt;-<span class="st"> </span><span class="kw">dbinom</span>(x, <span class="dv">3</span>, <span class="fl">0.5</span>)</span>
+<span id="cb4-3"><a href="ch5.html#cb4-3"></a><span class="kw">barplot</span>(y, <span class="dt">names.arg =</span> x, <span class="dt">xlab =</span> <span class="st">&#39;Number of Heads Observed on Three Flips&#39;</span>, <span class="dt">ylab =</span> <span class="st">&#39;Probability&#39;</span>)</span></code></pre></div>
+<p><img src="introTextbookTemplate_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<p>We can also think about these probabilities from a simulation perspective. In this case, we are repeating the experiment of flipping the coin 3 times over and over. So to examine these probabilities from a simulation, we must simulate flipping three coins repeatedly, each time recording the total number of heads observed out of the three flips. If we do enough simulations, we should see the proportion of times each number of heads occurs follows the probability distribution we just calculated.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="ch5.html#cb5-1"></a>flipCoin3 &lt;-<span class="st"> </span><span class="cf">function</span>() {</span>
+<span id="cb5-2"><a href="ch5.html#cb5-2"></a>    dat &lt;-<span class="st"> </span><span class="kw">rbinom</span>(<span class="dv">3</span>, <span class="dv">1</span>, <span class="fl">0.5</span>)</span>
+<span id="cb5-3"><a href="ch5.html#cb5-3"></a>    <span class="kw">sum</span>(dat)</span>
+<span id="cb5-4"><a href="ch5.html#cb5-4"></a>}</span>
+<span id="cb5-5"><a href="ch5.html#cb5-5"></a>nSims &lt;-<span class="st"> </span><span class="dv">1000</span></span>
+<span id="cb5-6"><a href="ch5.html#cb5-6"></a>simRes &lt;-<span class="st"> </span><span class="kw">replicate</span>(nSims, <span class="kw">flipCoin3</span>())</span>
+<span id="cb5-7"><a href="ch5.html#cb5-7"></a><span class="kw">prop.table</span>(<span class="kw">table</span>(simRes))</span></code></pre></div>
+<pre><code>## simRes
+##     0     1     2     3 
+## 0.128 0.384 0.362 0.126</code></pre>
+<p>The last thing we need to know about probability distributions is that there are two types, discrete and continuous. This is a little different than the types of data discussed in Chapter 2 (categorical or continuous). <strong>Discrete distributions</strong> calculate probabilities for specific numeric values (most often counts). The coin flipping example we just looked at was a discrete distribution, because there were four distinct possibilities of the number of heads we could observe. On the other hand, <strong>Continuous distributions</strong>, describe probabilities over a continuum with a smooth curve. For continuous distributions, probabilities are described by the area under the curve.</p>
+</div>
+<div id="ch5_s2" class="section level2">
+<h2><span class="header-section-number">5.2</span> Binomial Distribution</h2>
+<p>The first distribution we will cover is the binomial distribution. The binomial distribution is a discrete distribution which describes the number of successes in a fixed number of independent trials with two outcomes. Often, the outcomes are referred to as success and failure, although this can be a little confusing in biomedical trials where a “success” might be an adverse reaction to a new drug or something even worse. To avoid this confusion, we will instead consider the outcome as either an event or a non-event. There are three assumptions of the binomial distribution:</p>
+<ol style="list-style-type: decimal">
+<li>There is fixed number of trials, <span class="math inline">\(n\)</span>, each of which has two possible outcomes</li>
+<li>Each trial is independent of the others</li>
+<li>Each trial has the same probability of an event occurring</li>
+</ol>
+<p>If <span class="math inline">\(X\)</span> describes an event with a binomial distribution, we write <span class="math inline">\(X \sim Bin(n, p)\)</span>. <span class="math inline">\(n\)</span> and <span class="math inline">\(p\)</span> are the two parameters of the binomial distribution, where <span class="math inline">\(n\)</span> is the number of trials and <span class="math inline">\(p\)</span> is the probability of the event occurring. The probability distribution function is described by the following formula:</p>
+<p><span class="math display">\[P(X = x) = \binom{n}{x} p^x (1-p)^{n-x}\]</span>
+and the possible values of <span class="math inline">\(x\)</span> are 0, 1, …, <span class="math inline">\(n\)</span>.</p>
+<p>The coin flipping example was an example of the binomial distribution, where <span class="math inline">\(n = 3\)</span> and <span class="math inline">\(p = 0.5\)</span>.</p>
+</div>
+<div id="ch5_s3" class="section level2">
+<h2><span class="header-section-number">5.3</span> Normal Distribution</h2>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="ch4.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="ch6.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
