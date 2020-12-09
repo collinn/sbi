@@ -13,33 +13,33 @@ link-citations: yes
 github-repo: ceward/introTextbook
 description: "First template!"
 ---
-<style>
-  #wrap {
-    width: 750px;
-    height: 1500px;
-    padding: 0;
-    overflow: hidden;
-  }
-  #scaled-frame {
-    width: 1000px;
-    height: 2000px;
-    border: 0px;
-  }
-  #scaled-frame {
-    zoom: 0.75;
-    -moz-transform: scale(0.75);
-    -moz-transform-origin: 0 0;
-    -o-transform: scale(0.75);
-    -o-transform-origin: 0 0;
-    -webkit-transform: scale(0.75);
-    -webkit-transform-origin: 0 0;
-  }
-  @media screen and (-webkit-min-device-pixel-ratio:0) {
-    #scaled-frame {
-      zoom: 1;
-    }
-  }
-</style>
+<!-- <style> -->
+<!--   #wrap { -->
+<!--     width: 750px; -->
+<!--     height: 1500px; -->
+<!--     padding: 0; -->
+<!--     overflow: hidden; -->
+<!--   } -->
+<!--   #scaled-frame { -->
+<!--     width: 1000px; -->
+<!--     height: 2000px; -->
+<!--     border: 0px; -->
+<!--   } -->
+<!--   #scaled-frame { -->
+<!--     zoom: 0.75; -->
+<!--     -moz-transform: scale(0.75); -->
+<!--     -moz-transform-origin: 0 0; -->
+<!--     -o-transform: scale(0.75); -->
+<!--     -o-transform-origin: 0 0; -->
+<!--     -webkit-transform: scale(0.75); -->
+<!--     -webkit-transform-origin: 0 0; -->
+<!--   } -->
+<!--   @media screen and (-webkit-min-device-pixel-ratio:0) { -->
+<!--     #scaled-frame { -->
+<!--       zoom: 1; -->
+<!--     } -->
+<!--   } -->
+<!-- </style> -->
 <!-- <style type="text/css"> -->
 <!-- .main-container { -->
 <!--   max-width: 1800px; -->
