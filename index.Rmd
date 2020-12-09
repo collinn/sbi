@@ -181,7 +181,7 @@ library(rsconnect)
 
 ## Mini UI
 
-No longer necessary 	&#128526;
+No longer necessary :sunglasses:
 ```{r}
 ## And then here it embeds with include_app
 #knitr::include_app('https://ph-shiny.iowa.uiowa.edu/collin/textbook2/', height = '1000px')
