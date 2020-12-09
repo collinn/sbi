@@ -266,18 +266,18 @@ Learning objectives
 </ol>
 <p>For the coin flipping example, there are eight possible outcomes. Since each outcome is equally likely (why?) The first property tells us that the probability of any specific outcome (say, <span class="math inline">\(HHH\)</span>) is 1/8. The second tells us that the probability of heads on the first toss is <span class="math inline">\(4/8 = 1/2\)</span>, since four of the outcomes. These properties underlie a lot of the more complicated formulas and concepts we will cover in this chapter, although we don’t always think about them explicitly.</p>
 <p>We can explore this concept of long-run frequency more with a simulation. For this simulation, we will simulate rolling a 6-sided die 100 times, recording the result of each roll, and then tabulating the proportion of rolls where we observed each side of the die.</p>
-<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="ch4.html#cb46-1"></a>rollDie &lt;-<span class="st"> </span><span class="cf">function</span>(nRolls, seed) {</span>
-<span id="cb46-2"><a href="ch4.html#cb46-2"></a>    <span class="kw">set.seed</span>(seed)</span>
-<span id="cb46-3"><a href="ch4.html#cb46-3"></a>    <span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">6</span>, nRolls, <span class="dt">replace =</span> <span class="ot">TRUE</span>)</span>
-<span id="cb46-4"><a href="ch4.html#cb46-4"></a>}</span>
-<span id="cb46-5"><a href="ch4.html#cb46-5"></a><span class="kw">barplot</span>(<span class="kw">table</span>(<span class="kw">rollDie</span>(<span class="dv">100</span>, <span class="dv">1</span>)))</span></code></pre></div>
-<p><img src="introTextbookTemplate_files/figure-html/unnamed-chunk-26-1.png" width="672" /></p>
-<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="ch4.html#cb47-1"></a><span class="kw">prop.table</span>(<span class="kw">table</span>(<span class="kw">rollDie</span>(<span class="dv">100</span>, <span class="dv">1</span>)))</span></code></pre></div>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="ch4.html#cb47-1"></a>rollDie &lt;-<span class="st"> </span><span class="cf">function</span>(nRolls, seed) {</span>
+<span id="cb47-2"><a href="ch4.html#cb47-2"></a>    <span class="kw">set.seed</span>(seed)</span>
+<span id="cb47-3"><a href="ch4.html#cb47-3"></a>    <span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">6</span>, nRolls, <span class="dt">replace =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb47-4"><a href="ch4.html#cb47-4"></a>}</span>
+<span id="cb47-5"><a href="ch4.html#cb47-5"></a><span class="kw">barplot</span>(<span class="kw">table</span>(<span class="kw">rollDie</span>(<span class="dv">100</span>, <span class="dv">1</span>)))</span></code></pre></div>
+<p><img src="introTextbookTemplate_files/figure-html/unnamed-chunk-27-1.png" width="672" /></p>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="ch4.html#cb48-1"></a><span class="kw">prop.table</span>(<span class="kw">table</span>(<span class="kw">rollDie</span>(<span class="dv">100</span>, <span class="dv">1</span>)))</span></code></pre></div>
 <pre><code>## 
 ##    1    2    3    4    5    6 
 ## 0.19 0.18 0.12 0.15 0.15 0.21</code></pre>
 <p>As we see, with just 100 rolls, we don’t observe exactly the same proportion of rolls landing on each side of the die. The proportions are not exactly 1/6 = 16.7%, because of randomness. However, if we do 1,000,000 rolls, we see things even out:</p>
-<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="ch4.html#cb49-1"></a><span class="kw">round</span>(<span class="kw">prop.table</span>(<span class="kw">table</span>(<span class="kw">rollDie</span>(<span class="fl">1e6</span>, <span class="dv">1</span>))), <span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="ch4.html#cb50-1"></a><span class="kw">round</span>(<span class="kw">prop.table</span>(<span class="kw">table</span>(<span class="kw">rollDie</span>(<span class="fl">1e6</span>, <span class="dv">1</span>))), <span class="dv">3</span>)</span></code></pre></div>
 <pre><code>## 
 ##     1     2     3     4     5     6 
 ## 0.167 0.167 0.167 0.167 0.167 0.166</code></pre>
@@ -301,22 +301,22 @@ Learning objectives
 <li><span class="math inline">\(B^C = \text{obtaining tails on the first toss} = \{TTH, THT, THH, TTT\}\)</span></li>
 </ul>
 <p>We can visualize these operations with Venn diagrams. A Venn diagram uses overlapping circles and shading to describe the relationship between two events. First, we will visualize the intersection operation. If the left circle denotes the event <span class="math inline">\(A\)</span> and the right circle denotes the event <span class="math inline">\(B\)</span>, then the intersection is the overlapping region where both <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> occur.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-28"></span>
-<img src="introTextbookTemplate_files/figure-html/unnamed-chunk-28-1.png" alt="Venn diagram of intersection" width="480" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-29"></span>
+<img src="introTextbookTemplate_files/figure-html/unnamed-chunk-29-1.png" alt="Venn diagram of intersection" width="480" />
 <p class="caption">
 Figure 4.1: Venn diagram of intersection
 </p>
 </div>
 <p>The union operation includes all outcomes in <span class="math inline">\(A\)</span> or <span class="math inline">\(B\)</span> (or both), so it would include the entire region.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-29"></span>
-<img src="introTextbookTemplate_files/figure-html/unnamed-chunk-29-1.png" alt="Venn diagram of union" width="480" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-30"></span>
+<img src="introTextbookTemplate_files/figure-html/unnamed-chunk-30-1.png" alt="Venn diagram of union" width="480" />
 <p class="caption">
 Figure 4.2: Venn diagram of union
 </p>
 </div>
 <p>The complement of <span class="math inline">\(B\)</span>, includes all outcomes that are <em>not</em> part of event <span class="math inline">\(B\)</span>.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-30"></span>
-<img src="introTextbookTemplate_files/figure-html/unnamed-chunk-30-1.png" alt="Venn diagram of the complement of B" width="576" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-31"></span>
+<img src="introTextbookTemplate_files/figure-html/unnamed-chunk-31-1.png" alt="Venn diagram of the complement of B" width="576" />
 <p class="caption">
 Figure 4.3: Venn diagram of the complement of B
 </p>
@@ -329,15 +329,15 @@ Figure 4.3: Venn diagram of the complement of B
 For mutually exclusive events:
 <span class="math display">\[P(A \cup B) = P(A) + P(B)\]</span>
 </p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-31"></span>
-<img src="introTextbookTemplate_files/figure-html/unnamed-chunk-31-1.png" alt="Venn diagram of mutually exclusive events" width="480" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-32"></span>
+<img src="introTextbookTemplate_files/figure-html/unnamed-chunk-32-1.png" alt="Venn diagram of mutually exclusive events" width="480" />
 <p class="caption">
 Figure 4.4: Venn diagram of mutually exclusive events
 </p>
 </div>
 <p>If two events are not mutually exclusive, there is overlap in the events and <span class="math inline">\(P(A \cap B) \neq 0\)</span> and we cannot get the probability of the union using the previous formula. If we did, we would be double counting the intersection. As a concrete illustration, suppose that for a married couple, the probability that one spouse contracts the flu (event <span class="math inline">\(A\)</span>) is 0.25, the probability that the other spouse contracts the flu (event <span class="math inline">\(B\)</span>) is 0.20, and the probability that both the spouses contract the flu (<span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>) is 0.15. If we displayed this information in a Venn Diagram, we would have:</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-32"></span>
-<img src="introTextbookTemplate_files/figure-html/unnamed-chunk-32-1.png" alt="Venn diagram of flu probabilities" width="480" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-33"></span>
+<img src="introTextbookTemplate_files/figure-html/unnamed-chunk-33-1.png" alt="Venn diagram of flu probabilities" width="480" />
 <p class="caption">
 Figure 4.5: Venn diagram of flu probabilities
 </p>
@@ -345,8 +345,8 @@ Figure 4.5: Venn diagram of flu probabilities
 <p>At first glance, this might not be what you would expect. If <span class="math inline">\(P(A = 0.25)\)</span>, why do we have <span class="math inline">\(0.10\)</span> in that region? However, the event <span class="math inline">\(A\)</span> is actually divided into two regions - the part that intersects <span class="math inline">\(B\)</span> and the part that doesn’t. This is called the <strong>Law of Total Probability</strong>, and this means that the probability of <span class="math inline">\(A\)</span> consists of both the probability that <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> both happen and the probability that <span class="math inline">\(A\)</span> happens but <span class="math inline">\(B\)</span> doesn’t. This is true since <span class="math inline">\(B\)</span> and <span class="math inline">\(B^C\)</span> are mutually exclusive and together contain all possible outcomes. Mathematically, we can write this as:</p>
 <p><span class="math display">\[P(A) = P(A \cap B) + P(A \cap B^C)\]</span></p>
 <p>And in a Venn diagram this looks like:</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-33"></span>
-<img src="introTextbookTemplate_files/figure-html/unnamed-chunk-33-1.png" alt="Venn diagram of the law of total probability" width="480" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-34"></span>
+<img src="introTextbookTemplate_files/figure-html/unnamed-chunk-34-1.png" alt="Venn diagram of the law of total probability" width="480" />
 <p class="caption">
 Figure 4.6: Venn diagram of the law of total probability
 </p>
@@ -359,40 +359,40 @@ This formula actually includes the mutually exclusive case, since when two event
 <p>Let’s use a coin flipping simulation to illustrate this formula with the two events of interest being obtaining exactly two heads (event <span class="math inline">\(A\)</span>) and obtaining heads on the first toss (event <span class="math inline">\(B\)</span>). We know there are three ways we can obtain exactly two heads, so <span class="math inline">\(P(A) = 3/8 = 0.375\)</span>. There are four ways we can obtain heads on the first toss, so <span class="math inline">\(P(B) = 4/8 = 0.50\)</span>. There are two ways we can obtain exactly two heads AND obtain heads on the first toss, so <span class="math inline">\(P(A \cap B) = 2/8 = 0.25\)</span>. Finally, there are five ways we can we can obtain exactly two heads OR obtain heads on the first toss, so <span class="math inline">\(P(A \cup B) = 5/8 = 0.625\)</span>. We could also find this last probability using the previous formula and the previous probabilities.</p>
 <p><span class="math display">\[P(A \cup B) = P(A) + P(B) - P(A \cap B) = 0.375 = 0.50 - 0.25 = 0.625\]</span></p>
 <p>You can decide how many simulations to run, and the app will report the proportion of simulations that results in exactly two heads, the proportion where heads was obtained on the first toss, the proportion were both events occurred simultaneously, and the proportion of where either event occurred. Since probabilities are defined as long run frequencies, if enough simulations are run, these proportions should be identical to the probabilities defined previously.</p>
-<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="ch4.html#cb51-1"></a>flipCoin3 &lt;-<span class="st"> </span><span class="cf">function</span>() {</span>
-<span id="cb51-2"><a href="ch4.html#cb51-2"></a>    dat &lt;-<span class="st"> </span><span class="kw">rbinom</span>(<span class="dv">3</span>, <span class="dv">1</span>, <span class="fl">0.5</span>)</span>
-<span id="cb51-3"><a href="ch4.html#cb51-3"></a>    event1 &lt;-<span class="st"> </span><span class="kw">sum</span>(dat) <span class="op">==</span><span class="st"> </span><span class="dv">2</span></span>
-<span id="cb51-4"><a href="ch4.html#cb51-4"></a>    event2 &lt;-<span class="st"> </span>dat[<span class="dv">1</span>] <span class="op">==</span><span class="st"> </span><span class="dv">1</span></span>
-<span id="cb51-5"><a href="ch4.html#cb51-5"></a>    intersectionProb &lt;-<span class="st"> </span>event1 <span class="op">&amp;</span><span class="st"> </span>event2</span>
-<span id="cb51-6"><a href="ch4.html#cb51-6"></a>    unionProb &lt;-<span class="st"> </span>event1 <span class="op">|</span><span class="st"> </span>event2</span>
-<span id="cb51-7"><a href="ch4.html#cb51-7"></a>    </span>
-<span id="cb51-8"><a href="ch4.html#cb51-8"></a>   <span class="kw">c</span>(event1, event2, intersectionProb, unionProb)</span>
-<span id="cb51-9"><a href="ch4.html#cb51-9"></a>}</span>
-<span id="cb51-10"><a href="ch4.html#cb51-10"></a></span>
-<span id="cb51-11"><a href="ch4.html#cb51-11"></a>nSims &lt;-<span class="st"> </span><span class="dv">1000</span></span>
-<span id="cb51-12"><a href="ch4.html#cb51-12"></a></span>
-<span id="cb51-13"><a href="ch4.html#cb51-13"></a>simRes &lt;-<span class="st"> </span><span class="kw">replicate</span>(nSims, <span class="kw">flipCoin3</span>())</span>
-<span id="cb51-14"><a href="ch4.html#cb51-14"></a><span class="kw">cbind</span>(<span class="kw">c</span>(<span class="st">&#39;P(A)&#39;</span>, <span class="st">&#39;P(B)&#39;</span>, <span class="st">&#39;P(A AND B)&#39;</span>, <span class="st">&#39;P(A OR B)&#39;</span>), <span class="kw">rowMeans</span>(simRes))</span></code></pre></div>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="ch4.html#cb52-1"></a>flipCoin3 &lt;-<span class="st"> </span><span class="cf">function</span>() {</span>
+<span id="cb52-2"><a href="ch4.html#cb52-2"></a>    dat &lt;-<span class="st"> </span><span class="kw">rbinom</span>(<span class="dv">3</span>, <span class="dv">1</span>, <span class="fl">0.5</span>)</span>
+<span id="cb52-3"><a href="ch4.html#cb52-3"></a>    event1 &lt;-<span class="st"> </span><span class="kw">sum</span>(dat) <span class="op">==</span><span class="st"> </span><span class="dv">2</span></span>
+<span id="cb52-4"><a href="ch4.html#cb52-4"></a>    event2 &lt;-<span class="st"> </span>dat[<span class="dv">1</span>] <span class="op">==</span><span class="st"> </span><span class="dv">1</span></span>
+<span id="cb52-5"><a href="ch4.html#cb52-5"></a>    intersectionProb &lt;-<span class="st"> </span>event1 <span class="op">&amp;</span><span class="st"> </span>event2</span>
+<span id="cb52-6"><a href="ch4.html#cb52-6"></a>    unionProb &lt;-<span class="st"> </span>event1 <span class="op">|</span><span class="st"> </span>event2</span>
+<span id="cb52-7"><a href="ch4.html#cb52-7"></a>    </span>
+<span id="cb52-8"><a href="ch4.html#cb52-8"></a>   <span class="kw">c</span>(event1, event2, intersectionProb, unionProb)</span>
+<span id="cb52-9"><a href="ch4.html#cb52-9"></a>}</span>
+<span id="cb52-10"><a href="ch4.html#cb52-10"></a></span>
+<span id="cb52-11"><a href="ch4.html#cb52-11"></a>nSims &lt;-<span class="st"> </span><span class="dv">1000</span></span>
+<span id="cb52-12"><a href="ch4.html#cb52-12"></a></span>
+<span id="cb52-13"><a href="ch4.html#cb52-13"></a>simRes &lt;-<span class="st"> </span><span class="kw">replicate</span>(nSims, <span class="kw">flipCoin3</span>())</span>
+<span id="cb52-14"><a href="ch4.html#cb52-14"></a><span class="kw">cbind</span>(<span class="kw">c</span>(<span class="st">&#39;P(A)&#39;</span>, <span class="st">&#39;P(B)&#39;</span>, <span class="st">&#39;P(A AND B)&#39;</span>, <span class="st">&#39;P(A OR B)&#39;</span>), <span class="kw">rowMeans</span>(simRes))</span></code></pre></div>
 <pre><code>##      [,1]         [,2]   
 ## [1,] &quot;P(A)&quot;       &quot;0.373&quot;
 ## [2,] &quot;P(B)&quot;       &quot;0.507&quot;
 ## [3,] &quot;P(A AND B)&quot; &quot;0.251&quot;
 ## [4,] &quot;P(A OR B)&quot;  &quot;0.629&quot;</code></pre>
 <p>We can run a similar experiment, but now using two mutually exclusive events - the event of obtaining exactly two heads, and the event of obtaining three tails.</p>
-<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="ch4.html#cb53-1"></a>flipCoin3 &lt;-<span class="st"> </span><span class="cf">function</span>() {</span>
-<span id="cb53-2"><a href="ch4.html#cb53-2"></a>    dat &lt;-<span class="st"> </span><span class="kw">rbinom</span>(<span class="dv">3</span>, <span class="dv">1</span>, <span class="fl">0.5</span>)</span>
-<span id="cb53-3"><a href="ch4.html#cb53-3"></a>    event1 &lt;-<span class="st"> </span><span class="kw">sum</span>(dat) <span class="op">==</span><span class="st"> </span><span class="dv">2</span></span>
-<span id="cb53-4"><a href="ch4.html#cb53-4"></a>    event2 &lt;-<span class="st"> </span><span class="kw">sum</span>(dat) <span class="op">==</span><span class="st"> </span><span class="dv">0</span></span>
-<span id="cb53-5"><a href="ch4.html#cb53-5"></a>    intersectionProb &lt;-<span class="st"> </span>event1 <span class="op">&amp;</span><span class="st"> </span>event2</span>
-<span id="cb53-6"><a href="ch4.html#cb53-6"></a>    unionProb &lt;-<span class="st"> </span>event1 <span class="op">|</span><span class="st"> </span>event2</span>
-<span id="cb53-7"><a href="ch4.html#cb53-7"></a>    </span>
-<span id="cb53-8"><a href="ch4.html#cb53-8"></a>   <span class="kw">c</span>(event1, event2, intersectionProb, unionProb)</span>
-<span id="cb53-9"><a href="ch4.html#cb53-9"></a>}</span>
-<span id="cb53-10"><a href="ch4.html#cb53-10"></a></span>
-<span id="cb53-11"><a href="ch4.html#cb53-11"></a>nSims &lt;-<span class="st"> </span><span class="dv">1000</span></span>
-<span id="cb53-12"><a href="ch4.html#cb53-12"></a></span>
-<span id="cb53-13"><a href="ch4.html#cb53-13"></a>simRes &lt;-<span class="st"> </span><span class="kw">replicate</span>(nSims, <span class="kw">flipCoin3</span>())</span>
-<span id="cb53-14"><a href="ch4.html#cb53-14"></a><span class="kw">cbind</span>(<span class="kw">c</span>(<span class="st">&#39;P(A)&#39;</span>, <span class="st">&#39;P(B)&#39;</span>, <span class="st">&#39;P(A AND B)&#39;</span>, <span class="st">&#39;P(A OR B)&#39;</span>), <span class="kw">rowMeans</span>(simRes))</span></code></pre></div>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="ch4.html#cb54-1"></a>flipCoin3 &lt;-<span class="st"> </span><span class="cf">function</span>() {</span>
+<span id="cb54-2"><a href="ch4.html#cb54-2"></a>    dat &lt;-<span class="st"> </span><span class="kw">rbinom</span>(<span class="dv">3</span>, <span class="dv">1</span>, <span class="fl">0.5</span>)</span>
+<span id="cb54-3"><a href="ch4.html#cb54-3"></a>    event1 &lt;-<span class="st"> </span><span class="kw">sum</span>(dat) <span class="op">==</span><span class="st"> </span><span class="dv">2</span></span>
+<span id="cb54-4"><a href="ch4.html#cb54-4"></a>    event2 &lt;-<span class="st"> </span><span class="kw">sum</span>(dat) <span class="op">==</span><span class="st"> </span><span class="dv">0</span></span>
+<span id="cb54-5"><a href="ch4.html#cb54-5"></a>    intersectionProb &lt;-<span class="st"> </span>event1 <span class="op">&amp;</span><span class="st"> </span>event2</span>
+<span id="cb54-6"><a href="ch4.html#cb54-6"></a>    unionProb &lt;-<span class="st"> </span>event1 <span class="op">|</span><span class="st"> </span>event2</span>
+<span id="cb54-7"><a href="ch4.html#cb54-7"></a>    </span>
+<span id="cb54-8"><a href="ch4.html#cb54-8"></a>   <span class="kw">c</span>(event1, event2, intersectionProb, unionProb)</span>
+<span id="cb54-9"><a href="ch4.html#cb54-9"></a>}</span>
+<span id="cb54-10"><a href="ch4.html#cb54-10"></a></span>
+<span id="cb54-11"><a href="ch4.html#cb54-11"></a>nSims &lt;-<span class="st"> </span><span class="dv">1000</span></span>
+<span id="cb54-12"><a href="ch4.html#cb54-12"></a></span>
+<span id="cb54-13"><a href="ch4.html#cb54-13"></a>simRes &lt;-<span class="st"> </span><span class="kw">replicate</span>(nSims, <span class="kw">flipCoin3</span>())</span>
+<span id="cb54-14"><a href="ch4.html#cb54-14"></a><span class="kw">cbind</span>(<span class="kw">c</span>(<span class="st">&#39;P(A)&#39;</span>, <span class="st">&#39;P(B)&#39;</span>, <span class="st">&#39;P(A AND B)&#39;</span>, <span class="st">&#39;P(A OR B)&#39;</span>), <span class="kw">rowMeans</span>(simRes))</span></code></pre></div>
 <pre><code>##      [,1]         [,2]   
 ## [1,] &quot;P(A)&quot;       &quot;0.361&quot;
 ## [2,] &quot;P(B)&quot;       &quot;0.124&quot;
@@ -435,18 +435,18 @@ Since the probability of heads is identical to the probability of heads, this is
 <div id="ch4_s4" class="section level2">
 <h2><span class="header-section-number">4.5</span> Probabilities from tables (needs a different example)</h2>
 <p>When discussing and interpreting probability relationships between two or more events, it is often helpful to use tables. Consider the following table of representing Japanese men aged 45-69 (1975). The entries in the table are the probabilities of outcomes for a person selected randomly from the population.</p>
-<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="ch4.html#cb55-1"></a><span class="kw">library</span>(knitr)</span>
-<span id="cb55-2"><a href="ch4.html#cb55-2"></a><span class="co"># fill by column</span></span>
-<span id="cb55-3"><a href="ch4.html#cb55-3"></a>probs &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">0.6</span>, <span class="fl">0.2</span>, <span class="fl">0.1</span>, <span class="fl">0.1</span>)</span>
-<span id="cb55-4"><a href="ch4.html#cb55-4"></a></span>
-<span id="cb55-5"><a href="ch4.html#cb55-5"></a>probsMat &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="ot">NA</span>,<span class="dt">ncol =</span> <span class="dv">3</span>, <span class="dt">nrow =</span> <span class="dv">3</span>)</span>
-<span id="cb55-6"><a href="ch4.html#cb55-6"></a>probsMat[<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>, <span class="dv">1</span><span class="op">:</span><span class="dv">2</span>] &lt;-<span class="st"> </span>probs</span>
-<span id="cb55-7"><a href="ch4.html#cb55-7"></a>probsMat[,<span class="dv">3</span>] &lt;-<span class="st"> </span><span class="kw">rowSums</span>(probsMat, <span class="dt">na.rm =</span> T)</span>
-<span id="cb55-8"><a href="ch4.html#cb55-8"></a>probsMat[<span class="dv">3</span>,] &lt;-<span class="st"> </span><span class="kw">colSums</span>(probsMat, <span class="dt">na.rm =</span> T)</span>
-<span id="cb55-9"><a href="ch4.html#cb55-9"></a><span class="kw">colnames</span>(probsMat) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;Normal Blood Pressure (N)&#39;</span>, <span class="st">&#39;High Blood Pressure (H)&#39;</span>, <span class="st">&#39;Total&#39;</span>)</span>
-<span id="cb55-10"><a href="ch4.html#cb55-10"></a><span class="kw">rownames</span>(probsMat) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;Reasonable Weight (R)&#39;</span>, <span class="st">&#39;Overweight (O)&#39;</span>, <span class="st">&#39;Total&#39;</span>)</span>
-<span id="cb55-11"><a href="ch4.html#cb55-11"></a></span>
-<span id="cb55-12"><a href="ch4.html#cb55-12"></a><span class="kw">kable</span>(probsMat, <span class="dt">align =</span> <span class="st">&#39;c&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="ch4.html#cb56-1"></a><span class="kw">library</span>(knitr)</span>
+<span id="cb56-2"><a href="ch4.html#cb56-2"></a><span class="co"># fill by column</span></span>
+<span id="cb56-3"><a href="ch4.html#cb56-3"></a>probs &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">0.6</span>, <span class="fl">0.2</span>, <span class="fl">0.1</span>, <span class="fl">0.1</span>)</span>
+<span id="cb56-4"><a href="ch4.html#cb56-4"></a></span>
+<span id="cb56-5"><a href="ch4.html#cb56-5"></a>probsMat &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="ot">NA</span>,<span class="dt">ncol =</span> <span class="dv">3</span>, <span class="dt">nrow =</span> <span class="dv">3</span>)</span>
+<span id="cb56-6"><a href="ch4.html#cb56-6"></a>probsMat[<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>, <span class="dv">1</span><span class="op">:</span><span class="dv">2</span>] &lt;-<span class="st"> </span>probs</span>
+<span id="cb56-7"><a href="ch4.html#cb56-7"></a>probsMat[,<span class="dv">3</span>] &lt;-<span class="st"> </span><span class="kw">rowSums</span>(probsMat, <span class="dt">na.rm =</span> T)</span>
+<span id="cb56-8"><a href="ch4.html#cb56-8"></a>probsMat[<span class="dv">3</span>,] &lt;-<span class="st"> </span><span class="kw">colSums</span>(probsMat, <span class="dt">na.rm =</span> T)</span>
+<span id="cb56-9"><a href="ch4.html#cb56-9"></a><span class="kw">colnames</span>(probsMat) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;Normal Blood Pressure (N)&#39;</span>, <span class="st">&#39;High Blood Pressure (H)&#39;</span>, <span class="st">&#39;Total&#39;</span>)</span>
+<span id="cb56-10"><a href="ch4.html#cb56-10"></a><span class="kw">rownames</span>(probsMat) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;Reasonable Weight (R)&#39;</span>, <span class="st">&#39;Overweight (O)&#39;</span>, <span class="st">&#39;Total&#39;</span>)</span>
+<span id="cb56-11"><a href="ch4.html#cb56-11"></a></span>
+<span id="cb56-12"><a href="ch4.html#cb56-12"></a><span class="kw">kable</span>(probsMat, <span class="dt">align =</span> <span class="st">&#39;c&#39;</span>)</span></code></pre></div>
 <table>
 <thead>
 <tr class="header">

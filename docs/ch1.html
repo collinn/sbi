@@ -252,8 +252,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>“‘All models are wrong, but some are useful.’ - George Box” - Joe Cavanaugh</p>
 </blockquote>
 <p>Look what I did!</p>
-<div class="figure"><span id="fig:unnamed-chunk-7"></span>
-<img src="introTextbookTemplate_files/figure-html/unnamed-chunk-7-1.png" alt="Funky tikz" width="672" />
+<div class="figure"><span id="fig:unnamed-chunk-8"></span>
+<img src="introTextbookTemplate_files/figure-html/unnamed-chunk-8-1.png" alt="Funky tikz" width="672" />
 <p class="caption">
 Figure 1.1: Funky tikz
 </p>
@@ -310,8 +310,8 @@ To make evidence-based conclusions, we need to collect, process, analyze, and in
 </ol>
 <p>Throughout the book, we will cover different ways of analyzing data and making conclusions about the way the world works. Depending on the type of data, there are different methods of analysis.</p>
 <p>In general, scientists use the scientific method to make generalizations about classes of people on the basis of their studies. The class of people that they are trying to make generalizations about is called the <strong>population</strong>. Most of the time, it is impratical and expensive to study all individuals in a population - although the United States government does do the best they can every 10 years. Instead of sampling everyone in the population, or taking a <strong>census</strong>, typically we study only a portion of th the population called the <strong>sample</strong>. In order to determine how best to obtain a sample to answer the research questions, we must be cautious about the <strong>study design</strong>. Then, researchers make generalizations, or <strong>inference</strong>, about the entire population based on studying the sample. We can visualize the statistical framework using this diagram:</p>
-<div class="figure"><span id="fig:unnamed-chunk-8"></span>
-<img src="introTextbookTemplate_files/figure-html/unnamed-chunk-8-1.png" alt="Statistical Framework" width="672" />
+<div class="figure"><span id="fig:unnamed-chunk-9"></span>
+<img src="introTextbookTemplate_files/figure-html/unnamed-chunk-9-1.png" alt="Statistical Framework" width="672" />
 <p class="caption">
 Figure 1.2: Statistical Framework
 </p>
@@ -320,23 +320,23 @@ Figure 1.2: Statistical Framework
 <div id="ch1_s5" class="section level2">
 <h2><span class="header-section-number">1.5</span> What is a simulation?</h2>
 <p>Many times in this book, we will illustrate or investigate a concept with a <strong>simulation</strong>. A simulation is a computer generated experiment where the user gets to specify the true mechanism for generating data. For example, we <em>could</em> flip a fair coin over and over again and record whether each flip results in heads or tails. OR, we could tell a computer to simulate a pre-specified number of flips with the probability of heads being 50% and get our results in a fraction of a second.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="ch1.html#cb8-1"></a>flipCoin &lt;-<span class="st"> </span><span class="cf">function</span>(nFlips) {</span>
-<span id="cb8-2"><a href="ch1.html#cb8-2"></a>    dat &lt;-<span class="st"> </span><span class="kw">rbinom</span>(nFlips, <span class="dv">1</span>, <span class="fl">0.5</span>)</span>
-<span id="cb8-3"><a href="ch1.html#cb8-3"></a>    dat &lt;-<span class="st"> </span><span class="kw">ifelse</span>(dat <span class="op">==</span><span class="st"> </span><span class="dv">1</span>, <span class="st">&#39;Heads&#39;</span>, <span class="st">&#39;Tails&#39;</span>)</span>
-<span id="cb8-4"><a href="ch1.html#cb8-4"></a>    dat</span>
-<span id="cb8-5"><a href="ch1.html#cb8-5"></a>}</span>
-<span id="cb8-6"><a href="ch1.html#cb8-6"></a><span class="kw">flipCoin</span>(<span class="dv">5</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="ch1.html#cb9-1"></a>flipCoin &lt;-<span class="st"> </span><span class="cf">function</span>(nFlips) {</span>
+<span id="cb9-2"><a href="ch1.html#cb9-2"></a>    dat &lt;-<span class="st"> </span><span class="kw">rbinom</span>(nFlips, <span class="dv">1</span>, <span class="fl">0.5</span>)</span>
+<span id="cb9-3"><a href="ch1.html#cb9-3"></a>    dat &lt;-<span class="st"> </span><span class="kw">ifelse</span>(dat <span class="op">==</span><span class="st"> </span><span class="dv">1</span>, <span class="st">&#39;Heads&#39;</span>, <span class="st">&#39;Tails&#39;</span>)</span>
+<span id="cb9-4"><a href="ch1.html#cb9-4"></a>    dat</span>
+<span id="cb9-5"><a href="ch1.html#cb9-5"></a>}</span>
+<span id="cb9-6"><a href="ch1.html#cb9-6"></a><span class="kw">flipCoin</span>(<span class="dv">5</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;Heads&quot; &quot;Heads&quot; &quot;Tails&quot; &quot;Tails&quot; &quot;Tails&quot;</code></pre>
 <p>Simulations are great tools for understanding the concept of randomness. For example, every time we simulate coin flips using the tool above, we will get a different data set:</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="ch1.html#cb10-1"></a><span class="kw">flipCoin</span>(<span class="dv">5</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="ch1.html#cb11-1"></a><span class="kw">flipCoin</span>(<span class="dv">5</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;Tails&quot; &quot;Tails&quot; &quot;Tails&quot; &quot;Tails&quot; &quot;Tails&quot;</code></pre>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="ch1.html#cb12-1"></a><span class="kw">flipCoin</span>(<span class="dv">5</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="ch1.html#cb13-1"></a><span class="kw">flipCoin</span>(<span class="dv">5</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;Heads&quot; &quot;Tails&quot; &quot;Tails&quot; &quot;Heads&quot; &quot;Tails&quot;</code></pre>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="ch1.html#cb14-1"></a><span class="kw">flipCoin</span>(<span class="dv">5</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="ch1.html#cb15-1"></a><span class="kw">flipCoin</span>(<span class="dv">5</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;Tails&quot; &quot;Heads&quot; &quot;Tails&quot; &quot;Tails&quot; &quot;Heads&quot;</code></pre>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="ch1.html#cb16-1"></a><span class="kw">flipCoin</span>(<span class="dv">5</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="ch1.html#cb17-1"></a><span class="kw">flipCoin</span>(<span class="dv">5</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;Tails&quot; &quot;Heads&quot; &quot;Heads&quot; &quot;Heads&quot; &quot;Tails&quot;</code></pre>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="ch1.html#cb18-1"></a><span class="kw">flipCoin</span>(<span class="dv">5</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="ch1.html#cb19-1"></a><span class="kw">flipCoin</span>(<span class="dv">5</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;Tails&quot; &quot;Tails&quot; &quot;Tails&quot; &quot;Tails&quot; &quot;Heads&quot;</code></pre>
 <p>This is exactly what happens when scientists conduct a research study. If they were carry out a study in exactly the same way - sampling individuals from the same population and measuring the same quantities, they would get different results every time. This is because while each sample is from the same population, each sample will contain different individuals. Each sample is random!</p>
 

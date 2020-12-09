@@ -288,9 +288,9 @@ hello
 <!-- # knitr::include_app('https://ph-shiny.iowa.uiowa.edu/collin/bookExample/', height = '600px') -->
 <!-- # knitr::include_app('https://nardus.shinyapps.io/soilprofile/', height = '600px') -->
 <!-- ``` -->
-<!-- ```{r} -->
-<!-- #knitr::include_app('https://yihui.shinyapps.io/miniUI/', height = '600px') -->
-<!-- ``` -->
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="index.html#cb3-1"></a>knitr<span class="op">::</span><span class="kw">include_app</span>(<span class="st">&#39;https://yihui.shinyapps.io/miniUI/&#39;</span>, <span class="dt">height =</span> <span class="st">&#39;600px&#39;</span>)</span></code></pre></div>
+<iframe src="https://yihui.shinyapps.io/miniUI/?showcase=0" width="672" height="600px">
+</iframe>
 <!-- We can do this, but it's not interactive -->
 <!-- ```{r} -->
 <!-- # library(shiny) -->
@@ -316,16 +316,16 @@ hello
 <div id="shiny-test" class="section level2">
 <h2><span class="header-section-number">0.2</span> Shiny test</h2>
 <p>This authenticates your computer to load shiny apps</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="index.html#cb3-1"></a>rsconnect<span class="op">::</span><span class="kw">setAccountInfo</span>(<span class="dt">name=</span><span class="st">&#39;ui-sbi&#39;</span>, <span class="dt">token=</span><span class="st">&#39;1C11998F5C3BED19B58AFD22D349483C&#39;</span>, <span class="dt">secret=</span><span class="st">&#39;DsgOVlwde3RKJzzu5Nd07xVFrr7gv56kZ8NAFKyP&#39;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="index.html#cb4-1"></a><span class="kw">library</span>(rsconnect)</span>
-<span id="cb4-2"><a href="index.html#cb4-2"></a><span class="co">## Directory containing app, this uploads it to site</span></span>
-<span id="cb4-3"><a href="index.html#cb4-3"></a><span class="co">#rsconnect::deployApp(&quot;../shinyApps/confidenceIntervals&quot;)</span></span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="index.html#cb4-1"></a>rsconnect<span class="op">::</span><span class="kw">setAccountInfo</span>(<span class="dt">name=</span><span class="st">&#39;ui-sbi&#39;</span>, <span class="dt">token=</span><span class="st">&#39;1C11998F5C3BED19B58AFD22D349483C&#39;</span>, <span class="dt">secret=</span><span class="st">&#39;DsgOVlwde3RKJzzu5Nd07xVFrr7gv56kZ8NAFKyP&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="index.html#cb5-1"></a><span class="kw">library</span>(rsconnect)</span>
+<span id="cb5-2"><a href="index.html#cb5-2"></a><span class="co">## Directory containing app, this uploads it to site</span></span>
+<span id="cb5-3"><a href="index.html#cb5-3"></a><span class="co">#rsconnect::deployApp(&quot;../shinyApps/confidenceIntervals&quot;)</span></span></code></pre></div>
 </div>
 <div id="mini-ui" class="section level2">
 <h2><span class="header-section-number">0.3</span> Mini UI</h2>
 <p>No longer necessary :sunglasses:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="index.html#cb5-1"></a><span class="co">## And then here it embeds with include_app</span></span>
-<span id="cb5-2"><a href="index.html#cb5-2"></a>knitr<span class="op">::</span><span class="kw">include_app</span>(<span class="st">&#39;https://ph-shiny.iowa.uiowa.edu/collin/textbook2/&#39;</span>, <span class="dt">height =</span> <span class="st">&#39;1000px&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="index.html#cb6-1"></a><span class="co">## And then here it embeds with include_app</span></span>
+<span id="cb6-2"><a href="index.html#cb6-2"></a>knitr<span class="op">::</span><span class="kw">include_app</span>(<span class="st">&#39;https://ph-shiny.iowa.uiowa.edu/collin/textbook2/&#39;</span>, <span class="dt">height =</span> <span class="st">&#39;1000px&#39;</span>)</span></code></pre></div>
 <iframe src="https://ph-shiny.iowa.uiowa.edu/collin/textbook2/?showcase=0" width="672" height="1000px">
 </iframe>
 </div>
@@ -340,9 +340,9 @@ hello
 </div>
 <div id="editing-text" class="section level2">
 <h2><span class="header-section-number">0.5</span> Editing text</h2>
-<div class="sourceCode" id="cb6"><pre class="sourceCode diff"><code class="sourceCode diff"><span id="cb6-1"><a href="index.html#cb6-1"></a>Here are some things that were written that seem fine</span>
-<span id="cb6-2"><a href="index.html#cb6-2"></a><span class="st">- this is maybe something we&#39;re not sure about</span></span>
-<span id="cb6-3"><a href="index.html#cb6-3"></a><span class="va">+ this is an idea or proposal we can discuss?</span></span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode diff"><code class="sourceCode diff"><span id="cb7-1"><a href="index.html#cb7-1"></a>Here are some things that were written that seem fine</span>
+<span id="cb7-2"><a href="index.html#cb7-2"></a><span class="st">- this is maybe something we&#39;re not sure about</span></span>
+<span id="cb7-3"><a href="index.html#cb7-3"></a><span class="va">+ this is an idea or proposal we can discuss?</span></span></code></pre></div>
 <p>But the actual code above looks like this</p>
 <pre><code>```diff
 Here are some things that were written that seem fine

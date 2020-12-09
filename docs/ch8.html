@@ -261,47 +261,47 @@ Learning objectives
 <div id="ch8_s2" class="section level2">
 <h2><span class="header-section-number">8.2</span> Hypothesis test for a mean</h2>
 <p>The first type of hypothesis test we will cover in detail is a hypothesis test for a mean. This test is used when we have one sample of continuous data, for which we feel comfortable summarizing the “typical” value with the mean. We seek to compare that mean to some known or pre-specified value to learn something about the population.</p>
-<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="ch8.html#cb75-1"></a>oneSampleMean &lt;-<span class="st"> </span><span class="cf">function</span>(n, mean0, mean1, sd) {</span>
-<span id="cb75-2"><a href="ch8.html#cb75-2"></a>  obsDat &lt;-<span class="st"> </span><span class="kw">rnorm</span>(n, mean0, sd)</span>
-<span id="cb75-3"><a href="ch8.html#cb75-3"></a>  </span>
-<span id="cb75-4"><a href="ch8.html#cb75-4"></a>  <span class="kw">hist</span>(obsDat)</span>
-<span id="cb75-5"><a href="ch8.html#cb75-5"></a>  <span class="kw">abline</span>(<span class="dt">v =</span> mean1, <span class="dt">col =</span> <span class="st">&#39;red&#39;</span>, <span class="dt">lwd =</span> <span class="dv">2</span>)</span>
-<span id="cb75-6"><a href="ch8.html#cb75-6"></a>}</span>
-<span id="cb75-7"><a href="ch8.html#cb75-7"></a></span>
-<span id="cb75-8"><a href="ch8.html#cb75-8"></a><span class="kw">oneSampleMean</span>(<span class="dv">100</span>, <span class="dv">5</span>, <span class="dv">4</span>, <span class="dv">1</span>)</span></code></pre></div>
-<p><img src="introTextbookTemplate_files/figure-html/unnamed-chunk-49-1.png" width="672" /></p>
-<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb76-1"><a href="ch8.html#cb76-1"></a>twoSampleMean &lt;-<span class="st"> </span><span class="cf">function</span>(n1, n2, mean1, mean2, sd1, sd2, <span class="dt">plot =</span> F) {</span>
-<span id="cb76-2"><a href="ch8.html#cb76-2"></a>  y1 &lt;-<span class="st"> </span><span class="kw">rnorm</span>(n1, mean1, sd1)</span>
-<span id="cb76-3"><a href="ch8.html#cb76-3"></a>  y2 &lt;-<span class="st"> </span><span class="kw">rnorm</span>(n2, mean2, sd2)</span>
-<span id="cb76-4"><a href="ch8.html#cb76-4"></a>  </span>
-<span id="cb76-5"><a href="ch8.html#cb76-5"></a>  <span class="cf">if</span> (plot <span class="op">==</span><span class="st"> </span><span class="ot">TRUE</span>) {</span>
-<span id="cb76-6"><a href="ch8.html#cb76-6"></a>    minVal &lt;-<span class="st"> </span><span class="kw">min</span>(<span class="kw">c</span>(y1, y2)) <span class="op">-</span><span class="st"> </span><span class="dv">1</span></span>
-<span id="cb76-7"><a href="ch8.html#cb76-7"></a>    maxVal &lt;-<span class="st"> </span><span class="kw">max</span>(<span class="kw">c</span>(y1, y2)) <span class="op">+</span><span class="st"> </span><span class="dv">1</span></span>
-<span id="cb76-8"><a href="ch8.html#cb76-8"></a>    </span>
-<span id="cb76-9"><a href="ch8.html#cb76-9"></a>    ax &lt;-<span class="st"> </span><span class="kw">pretty</span>(minVal<span class="op">:</span>maxVal, <span class="dt">n =</span> <span class="dv">12</span>)</span>
-<span id="cb76-10"><a href="ch8.html#cb76-10"></a>    </span>
-<span id="cb76-11"><a href="ch8.html#cb76-11"></a>    hgA &lt;-<span class="st"> </span><span class="kw">hist</span>(y1, <span class="dt">breaks =</span> ax, <span class="dt">plot =</span> <span class="ot">FALSE</span>) <span class="co"># Save first histogram data</span></span>
-<span id="cb76-12"><a href="ch8.html#cb76-12"></a>    hgB &lt;-<span class="st"> </span><span class="kw">hist</span>(y2, <span class="dt">breaks =</span> ax, <span class="dt">plot =</span> <span class="ot">FALSE</span>) <span class="co"># Save 2nd histogram data</span></span>
-<span id="cb76-13"><a href="ch8.html#cb76-13"></a>    </span>
-<span id="cb76-14"><a href="ch8.html#cb76-14"></a>    c1 &lt;-<span class="st"> </span><span class="kw">rgb</span>(<span class="dv">173</span>,<span class="dv">216</span>,<span class="dv">230</span>,<span class="dt">max =</span> <span class="dv">255</span>, <span class="dt">alpha =</span> <span class="dv">80</span>, <span class="dt">names =</span> <span class="st">&quot;lt.blue&quot;</span>)</span>
-<span id="cb76-15"><a href="ch8.html#cb76-15"></a>    c2 &lt;-<span class="st"> </span><span class="kw">rgb</span>(<span class="dv">255</span>,<span class="dv">192</span>,<span class="dv">203</span>, <span class="dt">max =</span> <span class="dv">255</span>, <span class="dt">alpha =</span> <span class="dv">80</span>, <span class="dt">names =</span> <span class="st">&quot;lt.pink&quot;</span>)</span>
-<span id="cb76-16"><a href="ch8.html#cb76-16"></a>    </span>
-<span id="cb76-17"><a href="ch8.html#cb76-17"></a>    ylimits &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">0</span>, <span class="kw">max</span>(<span class="kw">c</span>(hgA<span class="op">$</span>counts, hgB<span class="op">$</span>counts)))</span>
-<span id="cb76-18"><a href="ch8.html#cb76-18"></a>    </span>
-<span id="cb76-19"><a href="ch8.html#cb76-19"></a>    <span class="kw">plot</span>(hgA, <span class="dt">col =</span> c1, <span class="dt">ylim =</span> ylimits)</span>
-<span id="cb76-20"><a href="ch8.html#cb76-20"></a>    <span class="co"># Plot 1st histogram using a transparent color</span></span>
-<span id="cb76-21"><a href="ch8.html#cb76-21"></a>    <span class="kw">plot</span>(hgB, <span class="dt">col =</span> c2, <span class="dt">add =</span> <span class="ot">TRUE</span>)</span>
-<span id="cb76-22"><a href="ch8.html#cb76-22"></a>    <span class="co"># Add 2nd histogram using different color</span></span>
-<span id="cb76-23"><a href="ch8.html#cb76-23"></a>  }</span>
-<span id="cb76-24"><a href="ch8.html#cb76-24"></a>  </span>
-<span id="cb76-25"><a href="ch8.html#cb76-25"></a>  <span class="kw">c</span>(<span class="kw">mean</span>(y1), <span class="kw">mean</span>(y2), <span class="kw">sd</span>(y1), <span class="kw">sd</span>(y2), n1, n2)</span>
-<span id="cb76-26"><a href="ch8.html#cb76-26"></a>  </span>
-<span id="cb76-27"><a href="ch8.html#cb76-27"></a>}</span>
-<span id="cb76-28"><a href="ch8.html#cb76-28"></a></span>
-<span id="cb76-29"><a href="ch8.html#cb76-29"></a><span class="kw">twoSampleMean</span>(<span class="dv">100</span>, <span class="dv">100</span>, <span class="dv">5</span>, <span class="dv">10</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dt">plot =</span> T)</span></code></pre></div>
+<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb76-1"><a href="ch8.html#cb76-1"></a>oneSampleMean &lt;-<span class="st"> </span><span class="cf">function</span>(n, mean0, mean1, sd) {</span>
+<span id="cb76-2"><a href="ch8.html#cb76-2"></a>  obsDat &lt;-<span class="st"> </span><span class="kw">rnorm</span>(n, mean0, sd)</span>
+<span id="cb76-3"><a href="ch8.html#cb76-3"></a>  </span>
+<span id="cb76-4"><a href="ch8.html#cb76-4"></a>  <span class="kw">hist</span>(obsDat)</span>
+<span id="cb76-5"><a href="ch8.html#cb76-5"></a>  <span class="kw">abline</span>(<span class="dt">v =</span> mean1, <span class="dt">col =</span> <span class="st">&#39;red&#39;</span>, <span class="dt">lwd =</span> <span class="dv">2</span>)</span>
+<span id="cb76-6"><a href="ch8.html#cb76-6"></a>}</span>
+<span id="cb76-7"><a href="ch8.html#cb76-7"></a></span>
+<span id="cb76-8"><a href="ch8.html#cb76-8"></a><span class="kw">oneSampleMean</span>(<span class="dv">100</span>, <span class="dv">5</span>, <span class="dv">4</span>, <span class="dv">1</span>)</span></code></pre></div>
 <p><img src="introTextbookTemplate_files/figure-html/unnamed-chunk-50-1.png" width="672" /></p>
+<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="ch8.html#cb77-1"></a>twoSampleMean &lt;-<span class="st"> </span><span class="cf">function</span>(n1, n2, mean1, mean2, sd1, sd2, <span class="dt">plot =</span> F) {</span>
+<span id="cb77-2"><a href="ch8.html#cb77-2"></a>  y1 &lt;-<span class="st"> </span><span class="kw">rnorm</span>(n1, mean1, sd1)</span>
+<span id="cb77-3"><a href="ch8.html#cb77-3"></a>  y2 &lt;-<span class="st"> </span><span class="kw">rnorm</span>(n2, mean2, sd2)</span>
+<span id="cb77-4"><a href="ch8.html#cb77-4"></a>  </span>
+<span id="cb77-5"><a href="ch8.html#cb77-5"></a>  <span class="cf">if</span> (plot <span class="op">==</span><span class="st"> </span><span class="ot">TRUE</span>) {</span>
+<span id="cb77-6"><a href="ch8.html#cb77-6"></a>    minVal &lt;-<span class="st"> </span><span class="kw">min</span>(<span class="kw">c</span>(y1, y2)) <span class="op">-</span><span class="st"> </span><span class="dv">1</span></span>
+<span id="cb77-7"><a href="ch8.html#cb77-7"></a>    maxVal &lt;-<span class="st"> </span><span class="kw">max</span>(<span class="kw">c</span>(y1, y2)) <span class="op">+</span><span class="st"> </span><span class="dv">1</span></span>
+<span id="cb77-8"><a href="ch8.html#cb77-8"></a>    </span>
+<span id="cb77-9"><a href="ch8.html#cb77-9"></a>    ax &lt;-<span class="st"> </span><span class="kw">pretty</span>(minVal<span class="op">:</span>maxVal, <span class="dt">n =</span> <span class="dv">12</span>)</span>
+<span id="cb77-10"><a href="ch8.html#cb77-10"></a>    </span>
+<span id="cb77-11"><a href="ch8.html#cb77-11"></a>    hgA &lt;-<span class="st"> </span><span class="kw">hist</span>(y1, <span class="dt">breaks =</span> ax, <span class="dt">plot =</span> <span class="ot">FALSE</span>) <span class="co"># Save first histogram data</span></span>
+<span id="cb77-12"><a href="ch8.html#cb77-12"></a>    hgB &lt;-<span class="st"> </span><span class="kw">hist</span>(y2, <span class="dt">breaks =</span> ax, <span class="dt">plot =</span> <span class="ot">FALSE</span>) <span class="co"># Save 2nd histogram data</span></span>
+<span id="cb77-13"><a href="ch8.html#cb77-13"></a>    </span>
+<span id="cb77-14"><a href="ch8.html#cb77-14"></a>    c1 &lt;-<span class="st"> </span><span class="kw">rgb</span>(<span class="dv">173</span>,<span class="dv">216</span>,<span class="dv">230</span>,<span class="dt">max =</span> <span class="dv">255</span>, <span class="dt">alpha =</span> <span class="dv">80</span>, <span class="dt">names =</span> <span class="st">&quot;lt.blue&quot;</span>)</span>
+<span id="cb77-15"><a href="ch8.html#cb77-15"></a>    c2 &lt;-<span class="st"> </span><span class="kw">rgb</span>(<span class="dv">255</span>,<span class="dv">192</span>,<span class="dv">203</span>, <span class="dt">max =</span> <span class="dv">255</span>, <span class="dt">alpha =</span> <span class="dv">80</span>, <span class="dt">names =</span> <span class="st">&quot;lt.pink&quot;</span>)</span>
+<span id="cb77-16"><a href="ch8.html#cb77-16"></a>    </span>
+<span id="cb77-17"><a href="ch8.html#cb77-17"></a>    ylimits &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">0</span>, <span class="kw">max</span>(<span class="kw">c</span>(hgA<span class="op">$</span>counts, hgB<span class="op">$</span>counts)))</span>
+<span id="cb77-18"><a href="ch8.html#cb77-18"></a>    </span>
+<span id="cb77-19"><a href="ch8.html#cb77-19"></a>    <span class="kw">plot</span>(hgA, <span class="dt">col =</span> c1, <span class="dt">ylim =</span> ylimits)</span>
+<span id="cb77-20"><a href="ch8.html#cb77-20"></a>    <span class="co"># Plot 1st histogram using a transparent color</span></span>
+<span id="cb77-21"><a href="ch8.html#cb77-21"></a>    <span class="kw">plot</span>(hgB, <span class="dt">col =</span> c2, <span class="dt">add =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb77-22"><a href="ch8.html#cb77-22"></a>    <span class="co"># Add 2nd histogram using different color</span></span>
+<span id="cb77-23"><a href="ch8.html#cb77-23"></a>  }</span>
+<span id="cb77-24"><a href="ch8.html#cb77-24"></a>  </span>
+<span id="cb77-25"><a href="ch8.html#cb77-25"></a>  <span class="kw">c</span>(<span class="kw">mean</span>(y1), <span class="kw">mean</span>(y2), <span class="kw">sd</span>(y1), <span class="kw">sd</span>(y2), n1, n2)</span>
+<span id="cb77-26"><a href="ch8.html#cb77-26"></a>  </span>
+<span id="cb77-27"><a href="ch8.html#cb77-27"></a>}</span>
+<span id="cb77-28"><a href="ch8.html#cb77-28"></a></span>
+<span id="cb77-29"><a href="ch8.html#cb77-29"></a><span class="kw">twoSampleMean</span>(<span class="dv">100</span>, <span class="dv">100</span>, <span class="dv">5</span>, <span class="dv">10</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dt">plot =</span> T)</span></code></pre></div>
+<p><img src="introTextbookTemplate_files/figure-html/unnamed-chunk-51-1.png" width="672" /></p>
 <pre><code>## [1]   5.00070   9.90999   1.04483   0.92494 100.00000 100.00000</code></pre>
-<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb78-1"><a href="ch8.html#cb78-1"></a>repVals &lt;-<span class="st"> </span><span class="kw">replicate</span>(<span class="dv">10000</span>, <span class="kw">twoSampleMean</span>(<span class="dv">100</span>, <span class="dv">100</span>, <span class="dv">5</span>, <span class="dv">10</span>, <span class="dv">1</span>, <span class="dv">1</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="ch8.html#cb79-1"></a>repVals &lt;-<span class="st"> </span><span class="kw">replicate</span>(<span class="dv">10000</span>, <span class="kw">twoSampleMean</span>(<span class="dv">100</span>, <span class="dv">100</span>, <span class="dv">5</span>, <span class="dv">10</span>, <span class="dv">1</span>, <span class="dv">1</span>))</span></code></pre></div>
 
 </div>
 </div>

@@ -139,9 +139,9 @@ But that's boring and dumb when we can also have Shiny, though a few things of n
 <!-- # knitr::include_app('https://nardus.shinyapps.io/soilprofile/', height = '600px') -->
 <!-- ``` -->
 
-<!-- ```{r} -->
-<!-- #knitr::include_app('https://yihui.shinyapps.io/miniUI/', height = '600px') -->
-<!-- ``` -->
+```{r}
+knitr::include_app('https://yihui.shinyapps.io/miniUI/', height = '600px')
+```
 
 <!-- We can do this, but it's not interactive -->
 <!-- ```{r} -->
