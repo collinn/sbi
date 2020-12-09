@@ -265,16 +265,6 @@ hello
 <div id="stuff-lifted-that-used-to-be-in-ch2-may-or-may-not-be-useful-still" class="section level2">
 <h2><span class="header-section-number">0.1</span> Stuff lifted that used to be in ch2 (may or may not be useful still?)</h2>
 <p>We can also have R code</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="index.html#cb3-1"></a>normPop &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="fl">1e5</span>, <span class="dt">mean =</span> <span class="dv">10</span>, <span class="dt">sd =</span> <span class="dv">20</span>)</span>
-<span id="cb3-2"><a href="index.html#cb3-2"></a></span>
-<span id="cb3-3"><a href="index.html#cb3-3"></a>x &lt;-<span class="st"> </span><span class="kw">sample</span>(normPop, <span class="dt">size =</span> <span class="dv">5</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>)</span>
-<span id="cb3-4"><a href="index.html#cb3-4"></a>y &lt;-<span class="st"> </span><span class="kw">sample</span>(normPop, <span class="dt">size =</span> <span class="dv">100</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>)</span>
-<span id="cb3-5"><a href="index.html#cb3-5"></a></span>
-<span id="cb3-6"><a href="index.html#cb3-6"></a><span class="kw">hist</span>(normPop)</span>
-<span id="cb3-7"><a href="index.html#cb3-7"></a><span class="kw">abline</span>(<span class="dt">v =</span> <span class="dv">10</span>, <span class="dt">col =</span> <span class="st">&quot;blue&quot;</span>, <span class="dt">lwd =</span> <span class="dv">2</span>)</span>
-<span id="cb3-8"><a href="index.html#cb3-8"></a><span class="kw">abline</span>(<span class="dt">v =</span> <span class="kw">mean</span>(x), <span class="dt">col =</span> <span class="st">&#39;red&#39;</span>, <span class="dt">lty =</span> <span class="dv">2</span>, <span class="dt">lwd =</span> <span class="dv">2</span>)</span>
-<span id="cb3-9"><a href="index.html#cb3-9"></a><span class="kw">abline</span>(<span class="dt">v =</span> <span class="kw">mean</span>(y), <span class="dt">col =</span> <span class="st">&#39;green&#39;</span>, <span class="dt">lty =</span> <span class="dv">2</span>, <span class="dt">lwd =</span> <span class="dv">2</span>)</span></code></pre></div>
-<p><img src="introTextbookTemplate_files/figure-html/sampHist-1.png" width="672" /></p>
 <p>But that’s boring and dumb when we can also have Shiny, though a few things of note, I guess</p>
 <ul>
 <li>While rmarkdown can host a self contained shiny app, bookdown requires a url. This is not ideal, and I will investigate if there is something that can be done about this</li>
@@ -291,42 +281,50 @@ hello
 <li>Not yet sure what other options might exist</li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="index.html#cb4-1"></a><span class="co"># knitr::include_app(&#39;https://ph-shiny.iowa.uiowa.edu/collin/bookExample/&#39;, height = &#39;600px&#39;)</span></span>
-<span id="cb4-2"><a href="index.html#cb4-2"></a><span class="co"># knitr::include_app(&#39;https://nardus.shinyapps.io/soilprofile/&#39;, height = &#39;600px&#39;)</span></span></code></pre></div>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="index.html#cb5-1"></a><span class="co">#knitr::include_app(&#39;https://yihui.shinyapps.io/miniUI/&#39;, height = &#39;600px&#39;)</span></span></code></pre></div>
-<p>We can do this, but it’s not interactive</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="index.html#cb6-1"></a><span class="co"># library(shiny)</span></span>
-<span id="cb6-2"><a href="index.html#cb6-2"></a><span class="co"># shinyApp(</span></span>
-<span id="cb6-3"><a href="index.html#cb6-3"></a><span class="co"># </span></span>
-<span id="cb6-4"><a href="index.html#cb6-4"></a><span class="co">#   ui = fluidPage(</span></span>
-<span id="cb6-5"><a href="index.html#cb6-5"></a><span class="co">#     selectInput(&quot;region&quot;, &quot;Region:&quot;,</span></span>
-<span id="cb6-6"><a href="index.html#cb6-6"></a><span class="co">#                 choices = colnames(WorldPhones)),</span></span>
-<span id="cb6-7"><a href="index.html#cb6-7"></a><span class="co">#     plotOutput(&quot;phonePlot&quot;)</span></span>
-<span id="cb6-8"><a href="index.html#cb6-8"></a><span class="co">#   ),</span></span>
-<span id="cb6-9"><a href="index.html#cb6-9"></a><span class="co"># </span></span>
-<span id="cb6-10"><a href="index.html#cb6-10"></a><span class="co">#   server = function(input, output) {</span></span>
-<span id="cb6-11"><a href="index.html#cb6-11"></a><span class="co">#     output$phonePlot = renderPlot({</span></span>
-<span id="cb6-12"><a href="index.html#cb6-12"></a><span class="co">#       barplot(WorldPhones[,input$region]*1000,</span></span>
-<span id="cb6-13"><a href="index.html#cb6-13"></a><span class="co">#               ylab = &quot;Number of Telephones&quot;, xlab = &quot;Year&quot;)</span></span>
-<span id="cb6-14"><a href="index.html#cb6-14"></a><span class="co">#     })</span></span>
-<span id="cb6-15"><a href="index.html#cb6-15"></a><span class="co">#   },</span></span>
-<span id="cb6-16"><a href="index.html#cb6-16"></a><span class="co"># </span></span>
-<span id="cb6-17"><a href="index.html#cb6-17"></a><span class="co">#   options = list(height = 500)</span></span>
-<span id="cb6-18"><a href="index.html#cb6-18"></a><span class="co"># )</span></span></code></pre></div>
+<!-- ```{r, width = 160} -->
+<!-- # knitr::include_app('https://ph-shiny.iowa.uiowa.edu/collin/bookExample/', height = '600px') -->
+<!-- # knitr::include_app('https://nardus.shinyapps.io/soilprofile/', height = '600px') -->
+<!-- ``` -->
+<!-- ```{r} -->
+<!-- #knitr::include_app('https://yihui.shinyapps.io/miniUI/', height = '600px') -->
+<!-- ``` -->
+<!-- We can do this, but it's not interactive -->
+<!-- ```{r} -->
+<!-- # library(shiny) -->
+<!-- # shinyApp( -->
+<!-- #  -->
+<!-- #   ui = fluidPage( -->
+<!-- #     selectInput("region", "Region:", -->
+<!-- #                 choices = colnames(WorldPhones)), -->
+<!-- #     plotOutput("phonePlot") -->
+<!-- #   ), -->
+<!-- #  -->
+<!-- #   server = function(input, output) { -->
+<!-- #     output$phonePlot = renderPlot({ -->
+<!-- #       barplot(WorldPhones[,input$region]*1000, -->
+<!-- #               ylab = "Number of Telephones", xlab = "Year") -->
+<!-- #     }) -->
+<!-- #   }, -->
+<!-- #  -->
+<!-- #   options = list(height = 500) -->
+<!-- # ) -->
+<!-- ``` -->
 </div>
 <div id="shiny-test" class="section level2">
 <h2><span class="header-section-number">0.2</span> Shiny test</h2>
 <p>This authenticates your computer to load shiny apps</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="index.html#cb7-1"></a>rsconnect<span class="op">::</span><span class="kw">setAccountInfo</span>(<span class="dt">name=</span><span class="st">&#39;ui-sbi&#39;</span>, <span class="dt">token=</span><span class="st">&#39;1C11998F5C3BED19B58AFD22D349483C&#39;</span>, <span class="dt">secret=</span><span class="st">&#39;DsgOVlwde3RKJzzu5Nd07xVFrr7gv56kZ8NAFKyP&#39;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="index.html#cb8-1"></a><span class="kw">library</span>(rsconnect)</span>
-<span id="cb8-2"><a href="index.html#cb8-2"></a><span class="co">## Directory containing app, this uploads it to site</span></span>
-<span id="cb8-3"><a href="index.html#cb8-3"></a><span class="co">#rsconnect::deployApp(&quot;../shinyApps/confidenceIntervals&quot;)</span></span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="index.html#cb3-1"></a>rsconnect<span class="op">::</span><span class="kw">setAccountInfo</span>(<span class="dt">name=</span><span class="st">&#39;ui-sbi&#39;</span>, <span class="dt">token=</span><span class="st">&#39;1C11998F5C3BED19B58AFD22D349483C&#39;</span>, <span class="dt">secret=</span><span class="st">&#39;DsgOVlwde3RKJzzu5Nd07xVFrr7gv56kZ8NAFKyP&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="index.html#cb4-1"></a><span class="kw">library</span>(rsconnect)</span>
+<span id="cb4-2"><a href="index.html#cb4-2"></a><span class="co">## Directory containing app, this uploads it to site</span></span>
+<span id="cb4-3"><a href="index.html#cb4-3"></a><span class="co">#rsconnect::deployApp(&quot;../shinyApps/confidenceIntervals&quot;)</span></span></code></pre></div>
 </div>
 <div id="mini-ui" class="section level2">
 <h2><span class="header-section-number">0.3</span> Mini UI</h2>
 <p>No longer necessary :sunglasses:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="index.html#cb9-1"></a><span class="co">## And then here it embeds with include_app</span></span>
-<span id="cb9-2"><a href="index.html#cb9-2"></a><span class="co">#knitr::include_app(&#39;https://ph-shiny.iowa.uiowa.edu/collin/textbook2/&#39;, height = &#39;1000px&#39;)</span></span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="index.html#cb5-1"></a><span class="co">## And then here it embeds with include_app</span></span>
+<span id="cb5-2"><a href="index.html#cb5-2"></a>knitr<span class="op">::</span><span class="kw">include_app</span>(<span class="st">&#39;https://ph-shiny.iowa.uiowa.edu/collin/textbook2/&#39;</span>, <span class="dt">height =</span> <span class="st">&#39;1000px&#39;</span>)</span></code></pre></div>
+<iframe src="https://ph-shiny.iowa.uiowa.edu/collin/textbook2/?showcase=0" width="672" height="1000px">
+</iframe>
 </div>
 <div id="regular-ui" class="section level2">
 <h2><span class="header-section-number">0.4</span> Regular UI</h2>
@@ -339,9 +337,9 @@ hello
 </div>
 <div id="editing-text" class="section level2">
 <h2><span class="header-section-number">0.5</span> Editing text</h2>
-<div class="sourceCode" id="cb10"><pre class="sourceCode diff"><code class="sourceCode diff"><span id="cb10-1"><a href="index.html#cb10-1"></a>Here are some things that were written that seem fine</span>
-<span id="cb10-2"><a href="index.html#cb10-2"></a><span class="st">- this is maybe something we&#39;re not sure about</span></span>
-<span id="cb10-3"><a href="index.html#cb10-3"></a><span class="va">+ this is an idea or proposal we can discuss?</span></span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode diff"><code class="sourceCode diff"><span id="cb6-1"><a href="index.html#cb6-1"></a>Here are some things that were written that seem fine</span>
+<span id="cb6-2"><a href="index.html#cb6-2"></a><span class="st">- this is maybe something we&#39;re not sure about</span></span>
+<span id="cb6-3"><a href="index.html#cb6-3"></a><span class="va">+ this is an idea or proposal we can discuss?</span></span></code></pre></div>
 <p>But the actual code above looks like this</p>
 <pre><code>```diff
 Here are some things that were written that seem fine

@@ -108,7 +108,7 @@ https://bookdown.org/yihui/rmarkdown-cookbook/custom-blocks.html
 
 We can also have R code
 
-```{r sampHist}
+```{r sampHist, include = FALSE}
 normPop <- rnorm(1e5, mean = 10, sd = 20)
 
 x <- sample(normPop, size = 5, replace = TRUE)
@@ -133,37 +133,37 @@ But that's boring and dumb when we can also have Shiny, though a few things of n
   - Scrolly window
   - Yihui recommends miniUI for embedded shiny apps, but still
   - Not yet sure what other options might exist
-  
-```{r, width = 160}
-# knitr::include_app('https://ph-shiny.iowa.uiowa.edu/collin/bookExample/', height = '600px')
-# knitr::include_app('https://nardus.shinyapps.io/soilprofile/', height = '600px')
-```
 
-```{r}
-#knitr::include_app('https://yihui.shinyapps.io/miniUI/', height = '600px')
-```
+<!-- ```{r, width = 160} -->
+<!-- # knitr::include_app('https://ph-shiny.iowa.uiowa.edu/collin/bookExample/', height = '600px') -->
+<!-- # knitr::include_app('https://nardus.shinyapps.io/soilprofile/', height = '600px') -->
+<!-- ``` -->
 
-We can do this, but it's not interactive
-```{r}
-# library(shiny)
-# shinyApp(
-# 
-#   ui = fluidPage(
-#     selectInput("region", "Region:",
-#                 choices = colnames(WorldPhones)),
-#     plotOutput("phonePlot")
-#   ),
-# 
-#   server = function(input, output) {
-#     output$phonePlot = renderPlot({
-#       barplot(WorldPhones[,input$region]*1000,
-#               ylab = "Number of Telephones", xlab = "Year")
-#     })
-#   },
-# 
-#   options = list(height = 500)
-# )
-```
+<!-- ```{r} -->
+<!-- #knitr::include_app('https://yihui.shinyapps.io/miniUI/', height = '600px') -->
+<!-- ``` -->
+
+<!-- We can do this, but it's not interactive -->
+<!-- ```{r} -->
+<!-- # library(shiny) -->
+<!-- # shinyApp( -->
+<!-- #  -->
+<!-- #   ui = fluidPage( -->
+<!-- #     selectInput("region", "Region:", -->
+<!-- #                 choices = colnames(WorldPhones)), -->
+<!-- #     plotOutput("phonePlot") -->
+<!-- #   ), -->
+<!-- #  -->
+<!-- #   server = function(input, output) { -->
+<!-- #     output$phonePlot = renderPlot({ -->
+<!-- #       barplot(WorldPhones[,input$region]*1000, -->
+<!-- #               ylab = "Number of Telephones", xlab = "Year") -->
+<!-- #     }) -->
+<!-- #   }, -->
+<!-- #  -->
+<!-- #   options = list(height = 500) -->
+<!-- # ) -->
+<!-- ``` -->
 
 
 ## Shiny test
