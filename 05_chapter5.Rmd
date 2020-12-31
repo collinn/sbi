@@ -14,7 +14,11 @@ output: html_document
 
 ---
 
-In the previous chapter, we introduced the idea of a random processes, situations with outcomes that we could not determine perfectly in advance. The idea of a random process can apply to most everything in our lives, from the exact amount of time it takes to go from home to class, to determining the winner of a football game. Further, recall that a random process is defined by the *collection of possible events* and their *associated probabilities*, [framed in terms of long run frequencies (discuss?)]. In the coin flipping example, where the coin was flipped three times, the collection of possible events was $\mathcal{S} = \{HHH, HHT, HTH, THH, TTH, THT, HTT, TTT\}$, and the associated probabilities for the number of heads were:
+In the previous chapter, we introduced the idea of a random processes, situations with outcomes that we could not determine perfectly in advance. The idea of a random process can apply to most everything in our lives, from the exact amount of time it takes to go from home to class, to determining the winner of a football game. Further, recall that a random process is defined by the *collection of possible events* and their *associated probabilities*, [framed in terms of long run frequencies (discuss?)]. In the coin flipping example, where the coin was flipped three times, the collection of possible events was 
+
+$$\mathcal{S} = \{HHH, HHT, HTH, THH, TTH, THT, HTT, TTT\},$$
+
+and the associated probabilities for the number of heads were:
 
 ```{r}
 ## Why does this need cbind?
@@ -23,7 +27,7 @@ knitr::kable(cbind.data.frame('# Heads' = 0:3, 'Probability' = c('1/8', '3/8', '
 ```
 
 
-After determining all of the possible events, we were able to determine probabilities by tabulating the number of ways each event could occur and dividing by the total number of possibilities (in this case, eight). Of course, this can quickly become cumbersome in general: if three flips resulted in eight possible events, and four flips would result in sixteen, imagine trying to determine all of the possible outcomes of flipping a coin fifty times! Clearly, we need a more efficient way to do this.
+After tabulating all of the possible events, we were able to determine probabilities by tabulating the number of ways each event could occur and dividing by the total number of possibilities (in this case, eight). Of course, this can quickly become cumbersome in general: if three flips resulted in eight possible events, and four flips would result in sixteen, imagine trying to determine all of the possible outcomes of flipping a coin fifty times! Clearly, we need a more efficient way to do this.
 
 [I wrote this when it was two. Not sure if we should keep or not, or reword]
 Further, suppose we were asked to anticipate the number of heads that would occur after three flips. The table above would lead us to conclude that our best guess would be two or three, as it has twice the probability of either of the other outcomes. In other words, the distribution of outcomes is not *completely* random: there appear to be some structure in the ways these outcomes unfold. This, along with the need for a more precise way of determining possible outcomes and probabilities, leads us to the topic of the current chapter. 
@@ -40,7 +44,11 @@ Put simply, a **probability distribution** is a function that takes a possible e
 
 -Before we get to some of the most commonly used probability distributions and the pre-defined functions, we will illustrate the concept by deriving a probability distribution for our toy example. 
 ```
-Before we get to some of the most commonly used distributions, let's illustrate the concept by formally deriving a probability distribution for our example above. Suppose the experiment consists of flipping a coin three times and recording the number of heads. We will let $X$ denote the number of heads that appear. We know that the possible values $X$ can take on are $\{0, 1, 2, 3\}$, since we can't see more heads than we have flips, and we can't have less than zero. As we saw in the previous chapter, there are eight possible outcomes and the sample space for this experiment is $\mathcal{S} = \{HHH, HHT, HTH, THH, TTH, THT, HTT, TTT\}$. For each of these possible outcomes, we can count the number of heads - $\{3, 2, 2, 2, 1, 1, 1, 0\}$. To find the probability distribution, we calculate the probability that $X$ takes on each possible value
+Before we get to some of the most commonly used distributions, let's illustrate the concept by formally deriving a probability distribution for our example above. Suppose the experiment consists of flipping a coin three times and recording the number of heads. We will let $X$ denote the number of heads that appear. We know that the possible values $X$ can take on are $\{0, 1, 2, 3\}$, since we can't see more heads than we have flips, and we can't have less than zero. As we saw in the previous chapter, there are eight possible outcomes and the sample space for this experiment is
+
+$$\mathcal{S} = \{HHH, HHT, HTH, THH, TTH, THT, HTT, TTT\}.$$
+
+For each of these possible outcomes, we can count the number of heads - $\{3, 2, 2, 2, 1, 1, 1, 0\}$. To find the probability distribution, we calculate the probability that $X$ takes on each possible value
 
 ```{r}
 library(knitr)

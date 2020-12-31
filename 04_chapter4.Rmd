@@ -25,13 +25,17 @@ Not sure where else to write this - for running a simulation at home. Consider h
 
 If statistics is the science of uncertainty, then probability is the mechanism that allows us to quantify our uncertainty. People talk loosely about probability all the time. For example, what's the chance of rain tomorrow?" or "how likely is it that drug A is better than drug B?" However, for scientific purposes, we need to be more specific in terms of defining and using probabilities. 
 
-First let's introduce some definitions to help us talk about randomness and probability. First, a **random process** is any act or process that results in an outcome that cannot be predicted with certainty. The **sample space** of a random process is the set of all its possible outcomes and is often denoted $\mathcal{S}$. Finally, an **event** is am outcome or collection of outcomes from a random process, and it is a subset of the sample space. 
+First let's introduce some definitions to help us talk about randomness and probability. First, a **random process** is any act or process that results in an outcome that cannot be predicted with certainty. The **sample space** of a random process is the set of all its possible outcomes and is often denoted $\mathcal{S}$. Finally, an **event** is an outcome or collection of outcomes from a random process and will always be contained in the sample space. 
 
-Suppose we flip a fair coin three times. Each act of flipping the coin is random process - the coin might land on heads and it might land on tails. Letting $H$ be shorthand for the flip resulting in heads and $T$ be shorthand for the flip resulting in tails, the sample space can be enumerated as $\mathcal{S} = \{HHH, HHT, HTH, THH, TTH, THT, HTT, TTT\}$, so there are eight possible results from the eight coin flips. There are several events we could describe based on this experiments,   
+To illustrate, suppose we flip a fair coin three times. Each act of flipping the coin is random process - the coin might land on heads and it might land on tails. Letting $H$ be shorthand for the flip resulting in heads and $T$ be shorthand for the flip resulting in tails, the sample space can be enumerated as 
+
+$$\mathcal{S} = \{HHH, HHT, HTH, THH, TTH, THT, HTT, TTT\},$$ 
+
+giving us eight possible results from the three coin flips. Finally, an event could be any single outcome, or any collection of outcomes, based on this experiment. For example, we may have:
 
 * The event of obtaining *exactly* two heads: $\{HHT, HTH, THH\}$  
 * The event of obtaining heads on the first toss: $\{HHH, HHT, HTH, HTT\}$    
-* The event of obtaining three tails $\{TTT\}$
+* The event of obtaining three tails $\{TTT\}$.
 
 
 We would all agree that the probability of heads when flipping a fair coin is 50% and the probability of rolling a 2 on a 6-sided die is 1/6, but why is that true? Well, if we were to flip a coin many, many times, we would expect half of the flips to result in heads. Similarly, if we roll a 6-sided die over and over, 1/6 of the rolls should result in a value of 2. In both cases, we are thinking about a long-run frequency, which is why **probability** is defined as the fraction of time an event occurs if a random process is repeated over and over again under the same conditions. This means that probabilities are always between 0 and 1, since we can never observed more events than the number of times the process is repeated, e.g. we can never observed 12 heads on 10 coin flips. ~~Clearly, an event with probability 0 is an event that can never occur.~~
@@ -67,11 +71,11 @@ Now let users play with a similar app illustrating coin flips (or something) and
 
 It's easy to talk about probability of one event, i.e. the probability of rolling a 2, but often we are interested in quantifying probabilities about more complicated combinations of multiple events. For example, if we consider a family with two parents and one child, instead of the probability of one parent getting the flu, we might be interested in the probability that *both* parents get the flu. Or we might be interested in the probability *anyone* in the family gets the flu. Finally, we might want to quantify the probability that one parent gets the flu and the other does not. In order to succinctly describe these probabilities, we use some mathematical notation. Before you get totally scared, this notation is just to simplify the writing of probability statements - the underlying concept does not change!
 
-Probabilities are denoted as $P(Event)$, as in $P(Heads) = 0.5$. To make things even shorter we can use a capital letter to denote an event of interest, i.e. let $H$ be the event that the outcome of a fair coin flip is heads, then we have $P(H) = 0.5$. Then, to talk about relationships between events, we define the operations of the **intersection**, **union**, and **complement**.  Consider to arbitrary events $A$ and $B$:  
+Probabilities are denoted as $P(Event) = p$, as in $P(Heads) = 0.5$. To make things even shorter we can use a capital letter to denote an event of interest, i.e. let $H$ be the event that the outcome of a fair coin flip is heads, then we have $P(H) = 0.5$. Then, to talk about relationships between events, we define the operations of the **intersection**, **union**, and **complement**.  Consider to arbitrary events $A$ and $B$:  
 
 * The intersection represents the event that $A$ and $B$ occur and is denoted $A \cap B$  
 * The union represents the event that $A$ or $B$ occur and is denoted $A \cup B$  
-* The complement represents the scenario that event does not occur, the complement of $A$ is denoted as $A^C$
+* The complement represents the scenario in which an event does not occur; the complement of $A$ is denoted as $A^C$. As a corollary to this, for any event $A$, we could say that $A$ occurs or $A$ does not occur $(A^C)$. As these are the only possible outcomes regarding $A$, $A \cup A^C$ represents all possible events, or $A \cup A^C = \mathcal{S}$
 
 In the previous coin tossing example, define $A = \text{obtaining exactly two heads} = \{HHT, HTH, THH\}$ and $B = \text{obtaining heads on the first toss} = \{HHH, HHT, HTH, HTT\}$.
 

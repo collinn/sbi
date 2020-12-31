@@ -13,53 +13,7 @@ link-citations: yes
 github-repo: ceward/introTextbook
 description: "First template!"
 ---
-<!-- <style> -->
-<!--   #wrap { -->
-<!--     width: 750px; -->
-<!--     height: 1500px; -->
-<!--     padding: 0; -->
-<!--     overflow: hidden; -->
-<!--   } -->
-<!--   #scaled-frame { -->
-<!--     width: 1000px; -->
-<!--     height: 2000px; -->
-<!--     border: 0px; -->
-<!--   } -->
-<!--   #scaled-frame { -->
-<!--     zoom: 0.75; -->
-<!--     -moz-transform: scale(0.75); -->
-<!--     -moz-transform-origin: 0 0; -->
-<!--     -o-transform: scale(0.75); -->
-<!--     -o-transform-origin: 0 0; -->
-<!--     -webkit-transform: scale(0.75); -->
-<!--     -webkit-transform-origin: 0 0; -->
-<!--   } -->
-<!--   @media screen and (-webkit-min-device-pixel-ratio:0) { -->
-<!--     #scaled-frame { -->
-<!--       zoom: 1; -->
-<!--     } -->
-<!--   } -->
-<!-- </style> -->
-<!-- <style type="text/css"> -->
-<!-- .main-container { -->
-<!--   max-width: 1800px; -->
-<!--   margin-left: auto; -->
-<!--   margin-right: auto; -->
-<!-- } -->
-<!-- </style> -->
-<!-- <style> -->
-<!--     #wrap { width: 600px; height: 390px; padding: 0; overflow: hidden; } -->
-<!--     #frame { width: 800px; height: 520px; border: 1px solid black; } -->
-<!--     #frame { -->
-<!--         -ms-zoom: 0.75; -->
-<!--         -moz-transform: scale(0.75); -->
-<!--         -moz-transform-origin: 0 0; -->
-<!--         -o-transform: scale(0.75); -->
-<!--         -o-transform-origin: 0 0; -->
-<!--         -webkit-transform: scale(0.75); -->
-<!--         -webkit-transform-origin: 0 0; -->
-<!--     } -->
-<!-- </style> -->
+
 
 
 
@@ -134,36 +88,7 @@ But that's boring and dumb when we can also have Shiny, though a few things of n
   - Yihui recommends miniUI for embedded shiny apps, but still
   - Not yet sure what other options might exist
 
-<!-- ```{r, width = 160} -->
-<!-- # knitr::include_app('https://ph-shiny.iowa.uiowa.edu/collin/bookExample/', height = '600px') -->
-<!-- # knitr::include_app('https://nardus.shinyapps.io/soilprofile/', height = '600px') -->
-<!-- ``` -->
 
-```{r}
-knitr::include_app('https://yihui.shinyapps.io/miniUI/', height = '600px')
-```
-
-<!-- We can do this, but it's not interactive -->
-<!-- ```{r} -->
-<!-- # library(shiny) -->
-<!-- # shinyApp( -->
-<!-- #  -->
-<!-- #   ui = fluidPage( -->
-<!-- #     selectInput("region", "Region:", -->
-<!-- #                 choices = colnames(WorldPhones)), -->
-<!-- #     plotOutput("phonePlot") -->
-<!-- #   ), -->
-<!-- #  -->
-<!-- #   server = function(input, output) { -->
-<!-- #     output$phonePlot = renderPlot({ -->
-<!-- #       barplot(WorldPhones[,input$region]*1000, -->
-<!-- #               ylab = "Number of Telephones", xlab = "Year") -->
-<!-- #     }) -->
-<!-- #   }, -->
-<!-- #  -->
-<!-- #   options = list(height = 500) -->
-<!-- # ) -->
-<!-- ``` -->
 
 
 ## Shiny test
@@ -179,20 +104,11 @@ library(rsconnect)
 #rsconnect::deployApp("../shinyApps/confidenceIntervals")
 ```
 
-## Mini UI
 
-No longer necessary :sunglasses:
-```{r}
-## And then here it embeds with include_app
-knitr::include_app('https://ph-shiny.iowa.uiowa.edu/collin/textbook2/', height = '1000px')
-```
 
 ## Regular UI
-<!-- <div id = "wrap"> -->
-<!-- <iframe id="scaled-frame" src="https://ph-shiny.iowa.uiowa.edu/collin/textbook3/" width = "800" height = "950">  -->
-<!-- </iframe> -->
-<!-- </div> -->
-<iframe src="https://ph-shiny.iowa.uiowa.edu/collin/textbook3/" width = "800" height = "750" frameBorder="0"> 
+<!-- frameBorder="0" -->
+<iframe src="https://ph-shiny.iowa.uiowa.edu/collin/textbook3/" width = "800" height = "750"> 
 </iframe>
 
 ## Editing text
