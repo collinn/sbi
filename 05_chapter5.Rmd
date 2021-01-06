@@ -77,25 +77,174 @@ simRes <- replicate(nSims, flipCoin3())
 prop.table(table(simRes))
 ```
 
-The last thing we need to know about probability distributions is that there are two types, discrete and continuous. This is a little different than the types of data discussed in Chapter 2 (categorical or continuous). **Discrete distributions** calculate probabilities for specific numeric values (most often counts). The coin flipping example we just looked at was a discrete distribution, because there were four distinct possibilities of the number of heads we could observe. On the other hand, **Continuous distributions**, describe probabilities over a continuum with a smooth curve. For continuous distributions, probabilities are described by the area under the curve.
+### A final note
 
+There are three more characteristics of probability distributions that will be relevant to us going forward. The first of these is a concept known as *independent and identically distributed*, often written **IID** for short. 
+
+- Observations from a random experiment are **independent** when the value of one observation does not have an impact on the other. For example, if we flip a fair coin twice, the value of the first flip has absolutely no effect on the second. That is, if my first flip results in Heads, the second flip is equally likely to be Heads as it is Tails. A common fallacy related to this is the Gambler's fallacy, in which an individual, having witnessed a fair coin flip land on Heads 20 times in a row falsely believes there is a higher probability of landing on heads for the 21st flip. In actuality, the probability of landing on heads continues to be 50%. 
+
+- Observations from a random experiment are **identically distributed** if each observation comes from the same probability function. 10 flips from a fair coin would be identically distributed, while 9 flips from a fair coin and one flip from an unfair coin would not. 
+
+Next, most of the probability distributions that we will be working with are defined in terms of *parameters*. Often, distribution functions are defined in the most general way possible, specifying a general structure to a class of problems, using parameters to adjust the distribution to the problem at hand. For instance, all random experiments involving the flipping of coins have a similar structure; what changes betweeen experiments may include the number of times a coin is flipped or the probability of landing on heads. With the use of parameters, a single distribution function can be used to describe a wide variety of possible situations. 
+
+The last thing we need to know about probability distributions is that there are two types, discrete and continuous. This is a little different than the types of data discussed in Chapter 2 (categorical or continuous). **Discrete distributions** calculate probabilities for specific numeric values (most often counts). The coin flipping example we just looked at was a discrete distribution, because there were four distinct possibilities of the number of heads we could observe. On the other hand, **continuous distributions** describe probabilities over a continuum with a smooth curve, such as an individual's height, weight, or systolic blood pressure. In these distributions, it makes less sense to ask the probability of achieving an exact value (i.e., probability of weighing exactly 153.489 lbs) and more sense to inquire about a range of values (probability that an individual weighs more than 185 lbs). For continuous distributions, probabilities are described by the area under the curve.
+
+This is a fourth thing, but maybe we put it closer to a definition of random variable vs observed, though currently that's defined in a few places. We will let $X$ describe a random variable that follows some distribution, with $x$ being the value of $X$ once it is observed.
 
 ## Binomial Distribution {#ch5_s2}
 
-The first distribution we will cover is the binomial distribution. The binomial distribution is a discrete distribution which describes the number of successes in a fixed number of independent trials with two outcomes. Often, the outcomes are referred to as success and failure, although this can be a little confusing in biomedical trials where a "success" might be an adverse reaction to a new drug or something even worse. To avoid this confusion, we will instead consider the outcome as either an event or a non-event. There are three assumptions of the binomial distribution:
+The first distribution we will cover is one that we are already familiar with. The *binomial distribution* is a discrete distribution that describes the number of successes in a fixed number of independent trials in which exactly two outcomes are possible. The term "success" can be confusing depending on the situation; in our previous examples, we have considered "successes" to be the number of heads observed, when we just as well could have been counting the number of tails. Even more confusing, in biomedical trials a "success" could be used to describe an adverse reaction to a drug, or even death. To avoid this confusion, we will instead consider an outcome to be either an "event" or a "non-event". In the context of our previous examples, counting the number of heads in a sequence of flips will be synonymous with counting the number of "events" that we have observed. There are three assumptions of the binomial distribution:
 
 1) There is fixed number of trials, $n$, each of which has two possible outcomes
 2) Each trial is independent of the others
-3) Each trial has the same probability of an event occurring
+3) Each trial has the same probability $p$ of an event occurring
 
-If $X$ describes an event with a binomial distribution, we write $X \sim Bin(n, p)$. $n$ and $p$ are the two parameters of the binomial distribution, where $n$ is the number of trials and $p$ is the probability of the event occurring. The probability distribution function is described by the following formula:
+We will let $X$ describe an experiment which follows a binomial distribution with parameters for the number of trials ($n$), with probability of an event $p$. Syntactically, we write this as $X \sim Bin(n, p)$. The probability distribution function is described by the following formula:
 
 $$P(X = x) = \binom{n}{x} p^x (1-p)^{n-x}$$
-and the possible values of $x$ are 0, 1, ..., $n$.
+and the possible observed values of $X$ are $x =  0, 1, ..., n$.
 
-The coin flipping example was an example of the binomial distribution, where $n = 3$ and $p = 0.5$. 
+Our coin flipping example above is a case of a random experiment following a binomial distribution, with distribution parameters $n = 3$ and $p = 0.5$. Substituting these values into our distribution function, we may describe the random experiment with the formula:
 
+$$P(X = x) = \binom{3}{x} (0.5)^x (1-0.5)^{3-x}$$
 
+Perhaps new to us here is the leading term in the expression above, $\binom{n}{x}$, which is called a *binomial coefficient*, and can be written with the formuila
 
+$$
+\binom{n}{x} = \frac{n!}{x!(n-x)!}
+$$
+where $n! = n \times (n-1) \times (n-2) \times \ ... \ \times 2 \times 1$ (known as a *factorial*). In words, we might say $\binom{n}{x}$ as "n choose x". While this may seem daunting at first, the need for it is quite reasonable. Consider our current experiment, with $n = 3$, and the list of the possible outcomes, given above:
+
+$$\mathcal{S} = \{HHH, HHT, HTH, THH, TTH, THT, HTT, TTT\}.$$
+When we are investigating the probability of observing two heads after flipping a coin three times, we are asking: "with $n = 3$ flips, how many ways can we *choose* $x = 2$ heads", or, "three choose two". Counting the number of scenarios above in which two heads appear tells us that it is three, and indeed, we find that
+
+$$
+\binom{3}{2} = \frac{3!}{2!(3-2)!} = \frac{3 \times 2 \times 1}{2 \times 1 \cdot(1 \times 1)} = \frac62 = 3
+$$
+Using the binomial distribution function for $n = 3$ and $p = 0.5$, confirm the values here that we given in the table above
+
+```{r}
+tmpTab <- cbind.data.frame(x = 0:3, 'P(X=x)' = c('1/8', '3/8', '3/8', '1/8'))
+kable(tmpTab, align = 'c')
+```
+
+The mean of a binomial distribution in $E(X) = np$ and the variances is $Var(X) = np(1-p)$
+
+### Plot of Binomial
+
+We can visualize a binomial distribution with a plot: each of the values on the $x$-axis represent a number of events observed, while the values on the $y$-axis represent the probabilities
+
+```{r}
+x <- 0:3
+y <- dbinom(x, 3, 0.5)
+barplot(y, names.arg = x, xlab = 'Number of Heads Observed on Three Flips', ylab = 'Probability', yaxt='n')
+axis(side = 2, at = seq(0, 0.45, by = 0.05), pos = c(0, 0), labels = seq(0, 0.45, by = 0.05))
+```
+
+Of course, as the number of flips $n$ changes, so does the associated plot
+
+```{r}
+x <- 0:6
+y <- dbinom(x, max(x), 0.5)
+barplot(y, names.arg = x, xlab = 'Number of Heads Observed on Six Flips', ylab = 'Probability')
+```
 
 ## Normal Distribution {#ch5_s3}
+
+The normal distribution, also known as a Gaussian distribution, is a continuous distribution, and is perhaps the most well recognized of the statistical distributions, often informally referred to as a "bell curve".
+
+```{r, fig.align='center'}
+curve(dnorm(x), from = -3, to = 3, main = 'maybe delete this since we do plots below')
+```
+
+There are a number of properties that together characterize the normal distribution:
+
+1. There are two parameters for the normal distribution, the mean $\mu$ (pronounced "myu") and the variance $\sigma^2$ ("sigma squared")
+2. $\mu$ is the mean, or expected value, and represents the most probably value of the distribution. That is, observations from a normal distribution are more likely to be close to $\mu$ than away from it
+3. Observations are equally likely to be the same magnitude above $\mu$ as they are below it. In other words, the distribution is centered around $\mu$. We see this concept expressed in every day language when we offer estimates of some value: "The cost is 'x', plus or minus 'y'"
+4. The second parameter, $\sigma^2$, describes how concentrated values are around the mean. The smaller the value of $\sigma^2$, the more observations that will be close to $\mu$. Likewise, larger values of $\sigma^2$ result in higher dispersion, or more values further away from  $\mu$. 
+
+If a random variable $X$ follows a normal distribution with mean $\mu$ and variance $\sigma^2$, we may express it syntactically with $X \sim N(\mu, \sigma^2)$. A special case of this known as the *standard normal distribution* arises when $\mu = 0$ and $\sigma^2 = 1$. We usually write this with the letter $Z$, or $Z \sim N(0, 1)$.
+
+Many things with which we are familiar can be described with a normal distribution, including the height of individuals in a population, grades on an exam, and average shoe size. Amazingly, as we will see in the following chapters, even the number of events that we observe from a binomial distribution will follow as normal distribution, as the binomial parameter $n$ increases towards infinity. 
+
+In addition to most things that we measure following a normal distribution, we will also see that the *errors* we make when measuring are often normal. When measuring the arc distance between two stars in the sky, astronomers are just as likely to record a measurement that is just over the true value as they are to record one that is just under it as well. 
+[Maybe need to describe difference between pdf and pmf since we don't use P(X = x)]
+
+$$
+p(x) = \frac{1}{\sqrt{2\pi \sigma^2}} \ e^{- \frac{(x-\mu)^2}{2\sigma^2}}
+$$
+The mean of a normal distribution is $E(X) = \mu$ and the variance is $Var(X) = \sigma^2$
+
+### Plot for Normal
+
+In constrast to the binomial distribution, which had discrete probabilities, the normal distribution is continuous, requiring that probabilities be calculated via integration (this is somewhat analagous to the trapazoidal rule, for those who remember from calculus). As a consequence of this, we are not able to ask meaningful questions about the probability of a specific point (the intergral of a point is always zero, maybe getting into weeds here). We won't go into detail here, mostly because I'm not quite sure what details we might need, but supposing that $Z \sim N(0, 1)$, we might ask, what is the probability that $Z$ is greater than 1? This probability is represented by the red region in the plot below
+
+```{r, fig.align='center'}
+x <- seq(-3, 3, 0.01)
+y <- dnorm(x)
+plot(x, y, type = 'l')
+polygon(c(x[x > 1], max(x), 1), c(y[x > 1], 0, 0), col = 'red')
+```
+
+Things in normal that I didn't include but we may want
+
+1. calculating the probabilities
+2. more detail on how/where/when it comes up
+3. we haven't introduced estimators yet, so somewhat limited
+
+
+## Poisson Distribution
+
+The Poisson distribution, like the binomial, is a *discrete* distribution, in that it concerns itself with count data. Specifically, a Poisson distribution describes the number of independent events that may occur within a fixed interval of time. For example, we may be interested in the number of cars that pass through a busy intersection from noon to 1pm every day, or the number of major floods that occur in an area every 100 years. Perhaps the most famous example of the Poisson distribution comes courtesy of Ladislaus Bortkiewicz, a Russian statistician who, in 1898, showed that the number of Prussian soldiers killed by being kicked by a horse in a twenty year period followed a Poisson distribution (also child suicides, but that's less fun).
+
+The Poisson distribution has a single parameter, $\lambda$, which describes the rate at which events occur, and a random variable following a Poisson distribution may be expressed as $X \sim Pois(\lambda)$ (People who write $X \sim Po(\lambda)$ are heathens). A random variable following a Poisson distribution has the following assumptions:
+
+1. The value of $X$, being a count, can be any non-negative integer, i.e., $0, 1, 2, \dots$
+2. The occurence of one event in a time interval is independent of another event. One soldier being kicked by a horse has no impact on the probability of another solider being kicked by a horse. 
+3. $\lambda$, which may be any number greater than $0$, describes the rate at which events occur [and is independent of the occurence of events]
+4. [Two events cannot occur at the exact same time, though they probably don't need this]
+
+The distribution function of a Poisson random variable with rate $\lambda$ can be expressed
+
+$$
+P(X = x) = \frac{\lambda^x e^{-\lambda}}{x!}
+$$
+One surprisingly detail about the Poisson distribution is the relationship between the mean and the variance. For both, we have that $E(X) = Var(X) = \lambda$.
+
+### Plots for Poisson
+
+As we look at the plot for the Poisson, we will notice one aspect in particular that distinguishes it from the plots of both the binomial and normal distributions: it is no longer symmetric. This is a consequence of the range of values that a Poisson random variable can take on. Whereas a binomial random variable was bounded between $0$ and $n$, the number of trials conducted, and where the normal distribution allowed any real number, the Poisson is bounded below by $0$, while having no theoretical upper bound. Given below is a plot of the distribution with $\lambda = 4$ (it's obvious here that choosing a specific value is inadequate. We can replace these plots with distribution exploration apps)
+
+```{r}
+x <- 0:15
+y <- dpois(x, lambda = 4)
+barplot(y, names.arg = x, xlab = 'Number of Events Observed in Interval', ylab = 'Probability', main = expression(paste("Poisson distribution with ", lambda, " = 4")))
+```
+
+Need to do maybe:
+
+1. relate $\lambda$ to a specific interval, say, an hour
+2. Interactive (in general not just poisson)
+
+## t Distribution
+
+Actually not sure on this here, as we haven't introduced estimators. Will come back to this
+
+### Plot for t distribution
+
+## Review of Distributions
+
+[[table]]
+
+
+
+
+
+
+
+
+
+
+
+
