@@ -2,4 +2,4 @@ book_filename: "introTextbookTemplate"
 delete_merged_file: true
 output_dir: "docs"
 # to select which rmd files to include in docs/
-# rmd_files: ["index.Rmd", "04_chapter4.Rmd", "05_chapter5.Rmd", "06_chapter6.Rmd", "07_chapter7.Rmd", "13_chapter13.Rmd"]
+rmd_files: ["index.Rmd", "04_chapter4.Rmd", "05_chapter5.Rmd", "06_chapter6.Rmd", "07_chapter7.Rmd", "13_chapter13.Rmd"]

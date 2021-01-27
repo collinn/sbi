@@ -69,6 +69,26 @@ div.definition {
     font-size: 20px;
 }
 
+.exercise-container {
+    display: flex;
+    flex-direction: column;
+    background-color:rgba(14,143,23,0.15);
+    border-radius: 15px 15px 15px 15px;
+    margin: 20px;
+}
+
+div.exercise {
+    background-color: rgba(14,143,23,0.8);
+    font-weight: bold;
+    font-style: italic;
+    border-radius: 15px 15px 15px 15px;
+    padding: 5px;
+    padding-left: 15px;
+	width: 95%;
+    margin-bottom: 5px;
+    font-size: 20px;
+}
+
 .latex {
     border-style: inset;
     background-color: rgb(255,255,240, 0.5);

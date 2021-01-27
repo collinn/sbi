@@ -24,7 +24,7 @@
 <meta name="author" content="Caitlin Ward and Collin ‘C-Money’ Nolte" />
 
 
-<meta name="date" content="2021-01-04" />
+<meta name="date" content="2021-01-27" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,6 +33,7 @@
   
 <link rel="prev" href="ch6.html"/>
 <link rel="next" href="ch13.html"/>
+<script src="libs/header-attrs-2.6/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -50,24 +51,20 @@
 
 
 
-<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
-<link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
-code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
-code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -87,7 +84,7 @@ pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-le
 div.sourceCode
   {   }
 @media screen {
-code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -133,13 +130,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a>
+<ul>
 <li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#stuff-lifted-that-used-to-be-in-ch2-may-or-may-not-be-useful-still"><i class="fa fa-check"></i><b>0.1</b> Stuff lifted that used to be in ch2 (may or may not be useful still?)</a></li>
 <li class="chapter" data-level="0.2" data-path="index.html"><a href="index.html#shiny-test"><i class="fa fa-check"></i><b>0.2</b> Shiny test</a></li>
 <li class="chapter" data-level="0.3" data-path="index.html"><a href="index.html#regular-ui"><i class="fa fa-check"></i><b>0.3</b> Regular UI</a></li>
 <li class="chapter" data-level="0.4" data-path="index.html"><a href="index.html#editing-text"><i class="fa fa-check"></i><b>0.4</b> Editing text</a></li>
 </ul></li>
-<li class="chapter" data-level="1" data-path="ch4.html"><a href="ch4.html"><i class="fa fa-check"></i><b>1</b> Probability</a><ul>
+<li class="chapter" data-level="1" data-path="ch4.html"><a href="ch4.html"><i class="fa fa-check"></i><b>1</b> Probability</a>
+<ul>
 <li class="chapter" data-level="1.1" data-path="ch4.html"><a href="ch4.html#idea"><i class="fa fa-check"></i><b>1.1</b> Idea</a></li>
 <li class="chapter" data-level="1.2" data-path="ch4.html"><a href="ch4.html#ch4_s1"><i class="fa fa-check"></i><b>1.2</b> Understanding Randomness</a></li>
 <li class="chapter" data-level="1.3" data-path="ch4.html"><a href="ch4.html#ch4_s2"><i class="fa fa-check"></i><b>1.3</b> Probability Operations</a></li>
@@ -147,25 +146,49 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.5" data-path="ch4.html"><a href="ch4.html#ch4_s4"><i class="fa fa-check"></i><b>1.5</b> Probabilities from tables (needs a different example)</a></li>
 <li class="chapter" data-level="1.6" data-path="ch4.html"><a href="ch4.html#ch4_s5"><i class="fa fa-check"></i><b>1.6</b> Bayes’ Rule</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="ch5.html"><a href="ch5.html"><i class="fa fa-check"></i><b>2</b> Probability Distributions</a><ul>
-<li class="chapter" data-level="2.1" data-path="ch5.html"><a href="ch5.html#ch5_s1"><i class="fa fa-check"></i><b>2.1</b> Introduction to Probability Distributions</a></li>
-<li class="chapter" data-level="2.2" data-path="ch5.html"><a href="ch5.html#ch5_s2"><i class="fa fa-check"></i><b>2.2</b> Binomial Distribution</a></li>
-<li class="chapter" data-level="2.3" data-path="ch5.html"><a href="ch5.html#ch5_s3"><i class="fa fa-check"></i><b>2.3</b> Normal Distribution</a></li>
+<li class="chapter" data-level="2" data-path="ch5.html"><a href="ch5.html"><i class="fa fa-check"></i><b>2</b> Probability Distributions</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="ch5.html"><a href="ch5.html#ch5_s1"><i class="fa fa-check"></i><b>2.1</b> Introduction to Probability Distributions</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="ch5.html"><a href="ch5.html#a-final-note"><i class="fa fa-check"></i><b>2.1.1</b> A final note</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="ch6.html"><a href="ch6.html"><i class="fa fa-check"></i><b>3</b> Sampling Distributions and the <br/> Central Limit Theorem</a><ul>
+<li class="chapter" data-level="2.2" data-path="ch5.html"><a href="ch5.html#ch5_s2"><i class="fa fa-check"></i><b>2.2</b> Binomial Distribution</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="ch5.html"><a href="ch5.html#plot-of-binomial"><i class="fa fa-check"></i><b>2.2.1</b> Plot of Binomial</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="ch5.html"><a href="ch5.html#ch5_s3"><i class="fa fa-check"></i><b>2.3</b> Normal Distribution</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="ch5.html"><a href="ch5.html#plot-for-normal"><i class="fa fa-check"></i><b>2.3.1</b> Plot for Normal</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="ch5.html"><a href="ch5.html#poisson-distribution"><i class="fa fa-check"></i><b>2.4</b> Poisson Distribution</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="ch5.html"><a href="ch5.html#plots-for-poisson"><i class="fa fa-check"></i><b>2.4.1</b> Plots for Poisson</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="ch5.html"><a href="ch5.html#t-distribution"><i class="fa fa-check"></i><b>2.5</b> t Distribution</a>
+<ul>
+<li class="chapter" data-level="2.5.1" data-path="ch5.html"><a href="ch5.html#plot-for-t-distribution"><i class="fa fa-check"></i><b>2.5.1</b> Plot for t distribution</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="ch5.html"><a href="ch5.html#review-of-distributions"><i class="fa fa-check"></i><b>2.6</b> Review of Distributions</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="ch6.html"><a href="ch6.html"><i class="fa fa-check"></i><b>3</b> Sampling Distributions and the <br/> Central Limit Theorem</a>
+<ul>
 <li class="chapter" data-level="3.1" data-path="ch6.html"><a href="ch6.html#ch6_s1"><i class="fa fa-check"></i><b>3.1</b> Sampling Distributions</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="ch7.html"><a href="ch7.html"><i class="fa fa-check"></i><b>4</b> Introduction to Inference</a><ul>
+<li class="chapter" data-level="4" data-path="ch7.html"><a href="ch7.html"><i class="fa fa-check"></i><b>4</b> Introduction to Inference</a>
+<ul>
 <li class="chapter" data-level="4.1" data-path="ch7.html"><a href="ch7.html#ch7_s1"><i class="fa fa-check"></i><b>4.1</b> Confidence Intervals</a></li>
 <li class="chapter" data-level="4.2" data-path="ch7.html"><a href="ch7.html#ch7_s2"><i class="fa fa-check"></i><b>4.2</b> Hypothesis Tests</a></li>
 <li class="chapter" data-level="4.3" data-path="ch7.html"><a href="ch7.html#ch7_s3"><i class="fa fa-check"></i><b>4.3</b> P-values</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="ch13.html"><a href="ch13.html"><i class="fa fa-check"></i><b>5</b> Introduction to Simulations</a><ul>
+<li class="chapter" data-level="5" data-path="ch13.html"><a href="ch13.html"><i class="fa fa-check"></i><b>5</b> Introduction to Simulations</a>
+<ul>
 <li class="chapter" data-level="5.1" data-path="ch13.html"><a href="ch13.html#ch13_s1"><i class="fa fa-check"></i><b>5.1</b> What is a simulation?</a></li>
-<li class="chapter" data-level="5.2" data-path="ch13.html"><a href="ch13.html#why-simulation"><i class="fa fa-check"></i><b>5.2</b> Why Simulation</a><ul>
-<li class="chapter" data-level="5.2.1" data-path="ch13.html"><a href="ch13.html#other-methods"><i class="fa fa-check"></i><b>5.2.1</b> Other Methods</a></li>
+<li class="chapter" data-level="5.2" data-path="ch13.html"><a href="ch13.html#why-simulation"><i class="fa fa-check"></i><b>5.2</b> Why Simulation</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="ch13.html"><a href="ch13.html#non-simulation-methods"><i class="fa fa-check"></i><b>5.2.1</b> Non-simulation Methods</a></li>
 <li class="chapter" data-level="5.2.2" data-path="ch13.html"><a href="ch13.html#simulation-method"><i class="fa fa-check"></i><b>5.2.2</b> Simulation Method</a></li>
 </ul></li>
+<li class="chapter" data-level="5.3" data-path="ch13.html"><a href="ch13.html#chapter-summary"><i class="fa fa-check"></i><b>5.3</b> Chapter Summary</a></li>
 </ul></li>
 </ul>
 
@@ -184,13 +207,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="ch7" class="section level1">
+<div id="ch7" class="section level1" number="4">
 <h1><span class="header-section-number">4</span> Introduction to Inference</h1>
 <blockquote>
 <p>" A useful property of a test of significance is that it exerts a sobering influence on the type of experimenter who jumps to conclusions on scanty data, and who might otherwise try to make everyone excited about some sensational treatment effect that can well be ascribed to the ordinary variation in his experiment." - Gertrude Mary Cox</p>
-</blockquote>
-<blockquote>
-<p>“The only relevant test of the validity of a hypothesis is comparison of its predictions with experience.” - Milton Friedman</p>
 </blockquote>
 <div class="objective-container">
 <div class="objectives">
@@ -204,17 +224,59 @@ Learning objectives
 <li>Definition of p-value and how to interpret</li>
 </ol>
 </div>
-<p>Up until this point, we have introduced probability which allows us to quantify our uncertainty, we discussed the concept of random variables and two specific probability distributions which are widely used (binomial and normal), and we have seen the most powerful result in statistics, the Central Limit Theorem which gives us the distribution of the sample mean in repeated samples. Let’s take a step back quickly and remind ourselves of the goal of a statistical analysis. There is some population level numerical quantity we are interested in (parameter) which might be a mean or a proportion, or maybe it is something more complicated. Because we can (almost) never measure something in the entire population, we are restricted to taking a sample. Our goal is to use the data we collect in our sample to make inference about the parameter, which is the unknown quantity of interest. In particular, we want to use probability distributions and the observed data to quantify what values of the parameter are plausible and which are not and we would like to determine if the trends we observe in our data are “significant” or if it is simply a result of chance.</p>
-<div id="ch7_s1" class="section level2">
+<p>Up until this point, we have introduced probability, which allows us to quantify our uncertainty, we have discussed the concept of random variables and two widely used probability distributions (binomial and normal), and we have seen the most powerful result in statistics, the Central Limit Theorem which gives us the distribution of the sample mean in repeated samples. Let’s take a step back and remind ourselves of the goal of a statistical analysis. There is some population level numerical quantity we are interested in (parameter). This could be a mean or a proportion, or it could be something more complicated. Because we can (almost) never measure something in the entire population, we are restricted to taking a sample. Our goal is to use the data we collect in our sample to make inference, or generalizations, about the parameter, which is the unknown quantity of interest. In particular, we want to use probability distributions and the observed data to quantify what values of the parameter are plausible and which are not pluaible and we would like to determine if the trends we observe in our data are “significant” or if it is simply a result of chance.</p>
+<div id="ch7_s1" class="section level2" number="4.1">
 <h2><span class="header-section-number">4.1</span> Confidence Intervals</h2>
-<p>We will first turn our attention to parameter estimation, of which there are two general approaches. These approaches are <strong>point estimation</strong>, which is a single statistic computed from the sample data used to estimate the parameter and <strong>interval estimation</strong> which is an interval computed from the sample data formulated so we can have a high degree of confidence that the interval contains the true parameter. Point estimation is straightforward and is as simple as using the sample mean as an estimate of the population mean. While straightforward, this approach is problematic. In the last chapter we saw that every time we take a sample from a population and compute the sample mean, it changes. And we saw an example in which no matter how we took a sample, the sample mean could never possibly equal the population mean. This is because the act of taking a sample is a random process, which means that for any estimate from our sample it is highly unlikely (or straight up impossible) that we got the exact correct answer. Instead, it would be nice to have an interval that we could be reasonably confident contained the true parameter.</p>
-<p>What properties would make a good interval estimate? Well, on one hand we desire an interval that we can have a high degree of confidence that it includes the true parameter, but on the other hand, a narrow interval is much more informative. I can tell you with 100% confidence that the interval from <span class="math inline">\(-\infty\)</span> to <span class="math inline">\(\infty\)</span> covers the true population parameter, and I don’t even need to know anything about what you’re studying or what numerical quantity is being estimated and I don’t even need any data! I’ve achieved the first goal of having a high degree of confidence, but this interval is clearly not informative. I can make the interval smaller (I will need some data to do that), but the probability that the interval contains the true parameter will decrease. As a compromise, scientists and statisticians decided that intervals with a 95% probability of containing the true parameter was a satisfactory balance between the desire for high confidence and narrow intervals. This gives way to the most common confidence interval – the 95% confidence interval. Although we are getting a little bit ahead of ourselves here (we will have plenty of chances to calculate 95% confidence intervals). Let’s back up with some important definitions and notation.</p>
+<p>We will first turn our attention to parameter estimation, of which there are two general approaches. These approaches are <strong>point estimation</strong>, which is a single statistic computed from the sample data used to estimate the parameter and <strong>interval estimation</strong>, which is an interval computed from the sample data to give a range of plausible values that is likely to contain the true population parameter. Point estimation is straightforward and is as simple as using the sample mean as an estimate of the population mean. While straightforward, this approach is problematic. In the last chapter we saw that every time we take a sample from a population and compute the sample mean, it changes. And we saw an example in which no matter how we took a sample, the sample mean could never possibly equal the population mean. This is because the act of taking a sample is a random process, which means that for any estimate from our sample it is highly unlikely (or straight up impossible) that we got the exact correct answer. Instead, it would be nice to have an interval that we could be reasonably confident contained the true parameter.</p>
+<p>What properties would make a good interval estimate? Well, on one hand we desire an interval that we can have a high degree of confidence of including the true parameter, but on the other hand, a narrow interval is much more informative. I can tell you with 100% confidence that the interval from <span class="math inline">\(-\infty\)</span> to <span class="math inline">\(\infty\)</span> covers the true population parameter, and I don’t even need to know anything about what you’re studying or what numerical quantity is being estimated and I don’t even need any data! I’ve achieved the first goal of having a high degree of confidence, but this interval is clearly not informative. I can make the interval smaller (I will need some data to do that), but the probability that the interval contains the true parameter will decrease. As a compromise, scientists and statisticians decided that intervals with a 95% probability of containing the true parameter was a satisfactory balance between the desire for high confidence and narrow intervals. This gives way to the most common confidence interval – the 95% confidence interval. Although we are getting a little bit ahead of ourselves here (we will have plenty of chances to calculate 95% confidence intervals). Let’s back up with some important definitions and notation.</p>
 <p>With an interval estimate, we are concerned with <strong>coverage probability</strong>, the probability that the interval contains or covers the parameter of interest. Typically, coverage probability is denoted by <span class="math inline">\(1 - \alpha\)</span>. As the interval covers the parameter with probability <span class="math inline">\(1 - \alpha\)</span>, the interval <em>does not</em> cover the parameter with probability <span class="math inline">\(\alpha\)</span> (because covering and not covering the parameter are complements and cover the entire sample space). In that sense, <span class="math inline">\(\alpha\)</span> is the probability that we are wrong. We will discuss <span class="math inline">\(\alpha\)</span> in more specific terms later in the chapter, but for now let’s just note that <span class="math inline">\(\alpha\)</span> is a small number, maybe 0.05 or 0.01. If we convert from decimal format to percentage format (multiplying by 100), we have <span class="math inline">\(100(1 - \alpha)\)</span>%, which is called the <strong>confidence level</strong>.</p>
 <p>The mathematical details of constructing a confidence interval depends on the parameter of interest and how the study was designed, and we will see various formulas for constructing confidence intervals throughout the rest of this book. In this chapter, we will focus on conceptual understanding and interpretation. To construct a <span class="math inline">\(100(1 - \alpha)\)</span>% confidence interval, we use sample data and sampling distributions as we know that sampling is a random process. For example, the Central Limit Theorem tells us the sampling distribution of the mean is normally distributed and gives us the mean and standard deviation of that distribution. Once we have a normal distribution for which we know the mean and standard deviation, we can calculate probabilistic quantities using software.</p>
 <p>It’s extremely important that we remember what is random and what the probability distribution is specifying when we are interpreting confidence intervals. The sampling distribution describes which values of the sample statistic are likely and which are not likely. The random process is drawing a sample. The population parameter is a fixed quantity – we don’t know what it is, but it does not change. Confidence intervals are constructed from the information we do know – the observed data from the sample. Because sampling is a random process and confidence intervals are constructed using the sample data, the confidence interval will vary from sample to sample. However, we formulate confidence intervals mathematically to ensure that the probability that the interval contains the true probability is <span class="math inline">\(1 - \alpha\)</span>. And as we’ve seen probabilities are long-run frequencies. So any given confidence interval may or may not cover the true parameter, but in the long run if we take samples over and over and compute a confidence interval based on the data from each sample, we are guaranteed that <span class="math inline">\(100(1 - \alpha)\)</span>% of the confidence intervals constructed will cover the truth. This is quite appealing. Let’s explore this concept further by using the following applet.</p>
-<p>CONFIDENCE INTERVAL GENERATOR APP.</p>
+<div class="exercise">
+Exercises
 </div>
-<div id="ch7_s2" class="section level2">
+<!-- frameBorder="0" -->
+<iframe src="https://ph-shiny.iowa.uiowa.edu/ceward/textbook/confidenceIntervals" width="800" height="750">
+</iframe>
+<div class="exercise-container">
+<ol>
+<li>
+Set the sample size to 30, the confidence level to 95%,
+and simulate running 100 experiments and
+calculating a confidence interval for each experiment (100 intervals total).
+</li>
+<ol list-style-type: lower-latin;>
+  <li>How many intervals contained the true population parameter?
+  <li>What was the observed coverage? What would you expect it to be?
+  <li>Re-run the simulation under the same conditions. What was the observed coverage for the second set of 100 experiments?
+  </ol>
+<li>
+Keep the confidence level at 95%, but change the sample size to 50. Simulate 100 experiments.
+</li>
+<ol type="a">
+<li>
+How do the intervals differ from those constructed from experiments using a sample size of 30? What is the observed coverage?
+<li>
+Re-run the simulation, now with a sample size of 100. How do these intervals compare to those using sample sizes of 30 or 50?
+<li>
+Play around with various sample sizes. How does changing the sample size effect the observed coverage?
+</ol>
+<li>
+Return to a sample size of 30. Now we will simulate 1000 experiments.
+</li>
+<ol type="a">
+<li>
+With a confidence level of 95%, what is the observed coverage?
+<li>
+Re-run the simulation, now with a sample size of 100. How do these intervals compare to those using sample sizes of 30 or 50?
+<li>
+Re-run the simulation using a confidence level of 50%.
+How do these intervals compare to those using a confidence level of 95%? What is the observed coverage?
+</ol>
+</ol>
+</div>
+</div>
+<div id="ch7_s2" class="section level2" number="4.2">
 <h2><span class="header-section-number">4.2</span> Hypothesis Tests</h2>
 <p>Along with parameter estimation, a cornerstone of statistical inference is significance testing. Confidence intervals allow us to construct a range of plausible values for the parameter, and significance tests allow us to determine the likelihood of a parameter taking a certain value. A <strong>hypothesis test</strong> uses sample data to assess the plausibility of each of two competing hypotheses regarding an unknown parameter (or set of parameters). A <strong>statistical hypothesis</strong> is a statement or claim about an unknown parameter. The <strong>null hypothesis</strong> generally represents what is assumed to be true before the experiment is conducted. This hypothesis is typically denoted <span class="math inline">\(H_0\)</span>. The <strong>alternative hypothesis</strong> represents what the investigator is interested in establishing. This hypothesis is typically denoted <span class="math inline">\(H_A\)</span>. Oftentimes when people refer to the “scientific hypothesis,” this in reference to the alternative hypothesis - it is what the investigators think will happen or what they want to show. The goal of a hypothesis test is to determine which hypothesis is the most plausible - the null or the alternative.</p>
 <p>As an example, consider researchers that have developed a new drug to treat cancer. In order for the drug to be approved for use, the investigators must prove that it is more effective in treating cancer than the current gold standard treatment. To do this, the investigators gather a sample of cancer patients and randomize half of them to receive their new drug and half to receive the current treatment. Then they determine how many patients improved in both groups. In this scenario, the null hypothesis would be that the new drug and the current drug result in the same improvement. Why? Well, the null hypothesis is what is believed before the data was collected. The key is <em>whose</em> beliefs we are talking about. While the scientists that developed the drug most likely believe that their new drug is more effective, the rest of the scientific community remains in a state of uncertainty. The null hypothesis reflects the general beliefs of the scientific community. The alternative hypothesis in this scenario is that the drugs differ in their effectiveness on treating cancer. This is what the researchers hope to show, specifically, they hope to show that their drug is more effective, however, when the study is conducted there is no evidence in either direction, so we leave the alternative hypothesis to also encompass the possibility of the new drug being worse.</p>
@@ -253,49 +315,49 @@ Learning objectives
 <p>In this experiment, we are looking to determine if a coin is fair, i.e. the probability of heads is 50%. A type 1 error in this context would be concluding that the coin is not fair, when it actually is. A type 2 error in this context would be concluding that the coin is fair when it is actually not.</p>
 <p>We simulate flipping a coin 20 times, and you can select a cutoff for how far away from 50% the proportion of heads would need to be for you to not believe that the coin is fair. If the observer proportion of the 20 flips that result in heads is beyond your threshold, the null hypothesis will be rejected. For example, if you choose a threshold of 10%, then any experiment where there are 60% or more flips resulting in heads OR 40% or less flips resulting in heads, then the null hypothesis is rejected and the coin is determined to not be fair.</p>
 <p>In our first simulation, the coin is truly fair, i.e. <span class="math inline">\(H_0\)</span> is true, so we want to fail to reject <span class="math inline">\(H_0\)</span>. The larger we make our cutoff, the more often we fail to reject when the coin is fair. This is intuitive because we are saying that we need more evidence to reject the null hypothesis.</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="ch7.html#cb23-1"></a>flipCoinFair &lt;-<span class="st"> </span><span class="cf">function</span>( cutoff) {</span>
-<span id="cb23-2"><a href="ch7.html#cb23-2"></a>  flipRes &lt;-<span class="st"> </span><span class="kw">rbinom</span>(<span class="dv">20</span>, <span class="dv">1</span>, <span class="fl">0.5</span>)</span>
-<span id="cb23-3"><a href="ch7.html#cb23-3"></a>  <span class="kw">as.numeric</span>(<span class="kw">abs</span>(<span class="kw">mean</span>(flipRes) <span class="op">-</span><span class="st"> </span><span class="fl">0.5</span>) <span class="op">&gt;=</span><span class="st"> </span>cutoff)</span>
-<span id="cb23-4"><a href="ch7.html#cb23-4"></a>}</span>
-<span id="cb23-5"><a href="ch7.html#cb23-5"></a></span>
-<span id="cb23-6"><a href="ch7.html#cb23-6"></a>tmp &lt;-<span class="st"> </span><span class="kw">replicate</span>(<span class="dv">1000</span>, <span class="kw">flipCoinFair</span>(<span class="fl">0.05</span>))</span>
-<span id="cb23-7"><a href="ch7.html#cb23-7"></a><span class="kw">mean</span>(<span class="dv">1</span><span class="op">-</span>tmp)</span></code></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="ch7.html#cb29-1" aria-hidden="true" tabindex="-1"></a>flipCoinFair <span class="ot">&lt;-</span> <span class="cf">function</span>( cutoff) {</span>
+<span id="cb29-2"><a href="ch7.html#cb29-2" aria-hidden="true" tabindex="-1"></a>  flipRes <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(<span class="dv">20</span>, <span class="dv">1</span>, <span class="fl">0.5</span>)</span>
+<span id="cb29-3"><a href="ch7.html#cb29-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as.numeric</span>(<span class="fu">abs</span>(<span class="fu">mean</span>(flipRes) <span class="sc">-</span> <span class="fl">0.5</span>) <span class="sc">&gt;=</span> cutoff)</span>
+<span id="cb29-4"><a href="ch7.html#cb29-4" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb29-5"><a href="ch7.html#cb29-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-6"><a href="ch7.html#cb29-6" aria-hidden="true" tabindex="-1"></a>tmp <span class="ot">&lt;-</span> <span class="fu">replicate</span>(<span class="dv">1000</span>, <span class="fu">flipCoinFair</span>(<span class="fl">0.05</span>))</span>
+<span id="cb29-7"><a href="ch7.html#cb29-7" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(<span class="dv">1</span><span class="sc">-</span>tmp)</span></code></pre></div>
 <pre><code>## [1] 0.325</code></pre>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="ch7.html#cb25-1"></a>tmp &lt;-<span class="st"> </span><span class="kw">replicate</span>(<span class="dv">1000</span>, <span class="kw">flipCoinFair</span>(<span class="fl">0.1</span>))</span>
-<span id="cb25-2"><a href="ch7.html#cb25-2"></a><span class="kw">mean</span>(<span class="dv">1</span><span class="op">-</span>tmp)</span></code></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="ch7.html#cb31-1" aria-hidden="true" tabindex="-1"></a>tmp <span class="ot">&lt;-</span> <span class="fu">replicate</span>(<span class="dv">1000</span>, <span class="fu">flipCoinFair</span>(<span class="fl">0.1</span>))</span>
+<span id="cb31-2"><a href="ch7.html#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(<span class="dv">1</span><span class="sc">-</span>tmp)</span></code></pre></div>
 <pre><code>## [1] 0.769</code></pre>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="ch7.html#cb27-1"></a>tmp &lt;-<span class="st"> </span><span class="kw">replicate</span>(<span class="dv">1000</span>, <span class="kw">flipCoinFair</span>(<span class="fl">0.3</span>))</span>
-<span id="cb27-2"><a href="ch7.html#cb27-2"></a><span class="kw">mean</span>(<span class="dv">1</span><span class="op">-</span>tmp)</span></code></pre></div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="ch7.html#cb33-1" aria-hidden="true" tabindex="-1"></a>tmp <span class="ot">&lt;-</span> <span class="fu">replicate</span>(<span class="dv">1000</span>, <span class="fu">flipCoinFair</span>(<span class="fl">0.3</span>))</span>
+<span id="cb33-2"><a href="ch7.html#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(<span class="dv">1</span><span class="sc">-</span>tmp)</span></code></pre></div>
 <pre><code>## [1] 0.989</code></pre>
 <p>However, if the coin is actually not fair then we do want to reject the null hypothesis. But increasing our cutoff makes it less likely that we do so.</p>
-<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="ch7.html#cb29-1"></a>flipCoinNotFair &lt;-<span class="st"> </span><span class="cf">function</span>( cutoff) {</span>
-<span id="cb29-2"><a href="ch7.html#cb29-2"></a>  flipRes &lt;-<span class="st"> </span><span class="kw">rbinom</span>(<span class="dv">20</span>, <span class="dv">1</span>, <span class="fl">0.7</span>)</span>
-<span id="cb29-3"><a href="ch7.html#cb29-3"></a>  <span class="kw">as.numeric</span>(<span class="kw">abs</span>(<span class="kw">mean</span>(flipRes) <span class="op">-</span><span class="st"> </span><span class="fl">0.5</span>) <span class="op">&gt;=</span><span class="st"> </span>cutoff)</span>
-<span id="cb29-4"><a href="ch7.html#cb29-4"></a>}</span>
-<span id="cb29-5"><a href="ch7.html#cb29-5"></a></span>
-<span id="cb29-6"><a href="ch7.html#cb29-6"></a>tmp &lt;-<span class="st"> </span><span class="kw">replicate</span>(<span class="dv">1000</span>, <span class="kw">flipCoinNotFair</span>(<span class="fl">0.05</span>))</span>
-<span id="cb29-7"><a href="ch7.html#cb29-7"></a><span class="kw">mean</span>(tmp)</span></code></pre></div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="ch7.html#cb35-1" aria-hidden="true" tabindex="-1"></a>flipCoinNotFair <span class="ot">&lt;-</span> <span class="cf">function</span>( cutoff) {</span>
+<span id="cb35-2"><a href="ch7.html#cb35-2" aria-hidden="true" tabindex="-1"></a>  flipRes <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(<span class="dv">20</span>, <span class="dv">1</span>, <span class="fl">0.7</span>)</span>
+<span id="cb35-3"><a href="ch7.html#cb35-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as.numeric</span>(<span class="fu">abs</span>(<span class="fu">mean</span>(flipRes) <span class="sc">-</span> <span class="fl">0.5</span>) <span class="sc">&gt;=</span> cutoff)</span>
+<span id="cb35-4"><a href="ch7.html#cb35-4" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb35-5"><a href="ch7.html#cb35-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-6"><a href="ch7.html#cb35-6" aria-hidden="true" tabindex="-1"></a>tmp <span class="ot">&lt;-</span> <span class="fu">replicate</span>(<span class="dv">1000</span>, <span class="fu">flipCoinNotFair</span>(<span class="fl">0.05</span>))</span>
+<span id="cb35-7"><a href="ch7.html#cb35-7" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(tmp)</span></code></pre></div>
 <pre><code>## [1] 0.963</code></pre>
-<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="ch7.html#cb31-1"></a>tmp &lt;-<span class="st"> </span><span class="kw">replicate</span>(<span class="dv">1000</span>, <span class="kw">flipCoinNotFair</span>(<span class="fl">0.1</span>))</span>
-<span id="cb31-2"><a href="ch7.html#cb31-2"></a><span class="kw">mean</span>(tmp)</span></code></pre></div>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="ch7.html#cb37-1" aria-hidden="true" tabindex="-1"></a>tmp <span class="ot">&lt;-</span> <span class="fu">replicate</span>(<span class="dv">1000</span>, <span class="fu">flipCoinNotFair</span>(<span class="fl">0.1</span>))</span>
+<span id="cb37-2"><a href="ch7.html#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(tmp)</span></code></pre></div>
 <pre><code>## [1] 0.777</code></pre>
-<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="ch7.html#cb33-1"></a>tmp &lt;-<span class="st"> </span><span class="kw">replicate</span>(<span class="dv">1000</span>, <span class="kw">flipCoinNotFair</span>(<span class="fl">0.3</span>))</span>
-<span id="cb33-2"><a href="ch7.html#cb33-2"></a><span class="kw">mean</span>(tmp)</span></code></pre></div>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="ch7.html#cb39-1" aria-hidden="true" tabindex="-1"></a>tmp <span class="ot">&lt;-</span> <span class="fu">replicate</span>(<span class="dv">1000</span>, <span class="fu">flipCoinNotFair</span>(<span class="fl">0.3</span>))</span>
+<span id="cb39-2"><a href="ch7.html#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(tmp)</span></code></pre></div>
 <pre><code>## [1] 0.253</code></pre>
 <p>As we have seen, type I and type II errors are not independent. Changing the rejection cutoff to minimize type I errors comes at the cost of more type II errors.</p>
 </div>
-<div id="ch7_s3" class="section level2">
+<div id="ch7_s3" class="section level2" number="4.3">
 <h2><span class="header-section-number">4.3</span> P-values</h2>
 <p>All hypothesis tests are based on quantifying the probability of the study results assuming the null hypothesis is true. This probability is so important that it has a special name, the <strong>p-value</strong>. In technical terms, the p-value gives the probability of obtaining results as extreme or more extreme than the ones observed in the sample, <em>given</em> that the null hypothesis is true. A less technical way to describe a p-value is that assuming there is truly nothing going on, what’s the chances of obtaining results similar in opposition to the null hypothesis as our study?</p>
 <p>Let’s think about this in terms of the coin flipping example. Our null hypothesis is that the coin is fair or, equivalently, that the probability of flipping a heads is 50%. If our experiment involves flipping a coin 10 times, a p-value would give us the probability of observing a proportion of heads as far away or farther away from 50% if the coin was truly fair. Clearly, even if we do have a fair coin, there’s a decent chance of getting 4/10 or 6/10 heads, but what about the chances of getting 0/10 or 10/10 heads? For this simple example, we can actually plot these probabilities. We also could actually calculate the probabilities using what we’ve already learned about the binomial distribution, but we will leave those details to a later chapter.</p>
-<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="ch7.html#cb35-1"></a>x1 &lt;-<span class="st"> </span><span class="dv">0</span><span class="op">:</span><span class="dv">4</span></span>
-<span id="cb35-2"><a href="ch7.html#cb35-2"></a>x2 &lt;-<span class="st"> </span><span class="dv">6</span><span class="op">:</span><span class="dv">10</span></span>
-<span id="cb35-3"><a href="ch7.html#cb35-3"></a>prob1 &lt;-<span class="st">  </span><span class="dv">2</span> <span class="op">*</span><span class="st"> </span><span class="kw">pbinom</span>(x1, <span class="dv">10</span>, <span class="fl">0.5</span>)</span>
-<span id="cb35-4"><a href="ch7.html#cb35-4"></a>prob2 &lt;-<span class="st"> </span><span class="dv">2</span> <span class="op">*</span><span class="st"> </span><span class="kw">pbinom</span>(x2 <span class="op">-</span><span class="st"> </span><span class="dv">1</span>, <span class="dv">10</span>, <span class="fl">0.5</span>, <span class="dt">lower.tail =</span> F) </span>
-<span id="cb35-5"><a href="ch7.html#cb35-5"></a><span class="kw">plot</span>(x1, prob1, <span class="dt">type =</span> <span class="st">&#39;l&#39;</span>, <span class="dt">xlim =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">10</span>), </span>
-<span id="cb35-6"><a href="ch7.html#cb35-6"></a>     <span class="dt">main =</span> <span class="st">&#39;P-value&#39;</span>)</span>
-<span id="cb35-7"><a href="ch7.html#cb35-7"></a><span class="kw">lines</span>(x2, prob2)</span></code></pre></div>
-<p><img src="introTextbookTemplate_files/figure-html/unnamed-chunk-27-1.png" width="672" /></p>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="ch7.html#cb41-1" aria-hidden="true" tabindex="-1"></a>x1 <span class="ot">&lt;-</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">4</span></span>
+<span id="cb41-2"><a href="ch7.html#cb41-2" aria-hidden="true" tabindex="-1"></a>x2 <span class="ot">&lt;-</span> <span class="dv">6</span><span class="sc">:</span><span class="dv">10</span></span>
+<span id="cb41-3"><a href="ch7.html#cb41-3" aria-hidden="true" tabindex="-1"></a>prob1 <span class="ot">&lt;-</span>  <span class="dv">2</span> <span class="sc">*</span> <span class="fu">pbinom</span>(x1, <span class="dv">10</span>, <span class="fl">0.5</span>)</span>
+<span id="cb41-4"><a href="ch7.html#cb41-4" aria-hidden="true" tabindex="-1"></a>prob2 <span class="ot">&lt;-</span> <span class="dv">2</span> <span class="sc">*</span> <span class="fu">pbinom</span>(x2 <span class="sc">-</span> <span class="dv">1</span>, <span class="dv">10</span>, <span class="fl">0.5</span>, <span class="at">lower.tail =</span> F) </span>
+<span id="cb41-5"><a href="ch7.html#cb41-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x1, prob1, <span class="at">type =</span> <span class="st">&#39;l&#39;</span>, <span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">10</span>), </span>
+<span id="cb41-6"><a href="ch7.html#cb41-6" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">&#39;P-value&#39;</span>)</span>
+<span id="cb41-7"><a href="ch7.html#cb41-7" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(x2, prob2)</span></code></pre></div>
+<p><img src="introTextbookTemplate_files/figure-html/ch7Fig1-1.png" width="672" /></p>
 <p>As we can see, and what is hopefully intuitive, the further away our number of heads is, the lower the probability of observing something as extreme or more extreme assuming the coin is truly fair. If we observed 0/10 heads, the p-value is 0.0019. This means if the coin was truly fair, the probability of observing something as extreme or more extreme than 0/10 heads is 0.19%. This is pretty strong evidence that the coin is not fair. By comparison, if we observed 6 heads, the p-value would be 0.7539. If the coin was fair, we have a pretty high chance of observing something as extreme or more extreme than 6 heads - thus we don’t have evidence that the coin is not fair.</p>
 <p>If we are thinking about hypothesis testing as a court case, p-values are the way that we can quantify the evidence against the defendant. Recall, the prosecution wants to prove beyond a reasonable doubt that the defendant is not innocent. So what does the scientific community consider sufficient evidence? There is a generally agreed-upon scale for interpreting p-values with regards to the strength of evidence that they represent.</p>
 <table>

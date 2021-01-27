@@ -24,7 +24,7 @@
 <meta name="author" content="Caitlin Ward and Collin ‘C-Money’ Nolte" />
 
 
-<meta name="date" content="2021-01-04" />
+<meta name="date" content="2021-01-27" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,6 +33,7 @@
   
 <link rel="prev" href="ch5.html"/>
 <link rel="next" href="ch7.html"/>
+<script src="libs/header-attrs-2.6/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -50,24 +51,20 @@
 
 
 
-<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
-<link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
-code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
-code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -87,7 +84,7 @@ pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-le
 div.sourceCode
   {   }
 @media screen {
-code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -133,13 +130,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a>
+<ul>
 <li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#stuff-lifted-that-used-to-be-in-ch2-may-or-may-not-be-useful-still"><i class="fa fa-check"></i><b>0.1</b> Stuff lifted that used to be in ch2 (may or may not be useful still?)</a></li>
 <li class="chapter" data-level="0.2" data-path="index.html"><a href="index.html#shiny-test"><i class="fa fa-check"></i><b>0.2</b> Shiny test</a></li>
 <li class="chapter" data-level="0.3" data-path="index.html"><a href="index.html#regular-ui"><i class="fa fa-check"></i><b>0.3</b> Regular UI</a></li>
 <li class="chapter" data-level="0.4" data-path="index.html"><a href="index.html#editing-text"><i class="fa fa-check"></i><b>0.4</b> Editing text</a></li>
 </ul></li>
-<li class="chapter" data-level="1" data-path="ch4.html"><a href="ch4.html"><i class="fa fa-check"></i><b>1</b> Probability</a><ul>
+<li class="chapter" data-level="1" data-path="ch4.html"><a href="ch4.html"><i class="fa fa-check"></i><b>1</b> Probability</a>
+<ul>
 <li class="chapter" data-level="1.1" data-path="ch4.html"><a href="ch4.html#idea"><i class="fa fa-check"></i><b>1.1</b> Idea</a></li>
 <li class="chapter" data-level="1.2" data-path="ch4.html"><a href="ch4.html#ch4_s1"><i class="fa fa-check"></i><b>1.2</b> Understanding Randomness</a></li>
 <li class="chapter" data-level="1.3" data-path="ch4.html"><a href="ch4.html#ch4_s2"><i class="fa fa-check"></i><b>1.3</b> Probability Operations</a></li>
@@ -147,25 +146,49 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.5" data-path="ch4.html"><a href="ch4.html#ch4_s4"><i class="fa fa-check"></i><b>1.5</b> Probabilities from tables (needs a different example)</a></li>
 <li class="chapter" data-level="1.6" data-path="ch4.html"><a href="ch4.html#ch4_s5"><i class="fa fa-check"></i><b>1.6</b> Bayes’ Rule</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="ch5.html"><a href="ch5.html"><i class="fa fa-check"></i><b>2</b> Probability Distributions</a><ul>
-<li class="chapter" data-level="2.1" data-path="ch5.html"><a href="ch5.html#ch5_s1"><i class="fa fa-check"></i><b>2.1</b> Introduction to Probability Distributions</a></li>
-<li class="chapter" data-level="2.2" data-path="ch5.html"><a href="ch5.html#ch5_s2"><i class="fa fa-check"></i><b>2.2</b> Binomial Distribution</a></li>
-<li class="chapter" data-level="2.3" data-path="ch5.html"><a href="ch5.html#ch5_s3"><i class="fa fa-check"></i><b>2.3</b> Normal Distribution</a></li>
+<li class="chapter" data-level="2" data-path="ch5.html"><a href="ch5.html"><i class="fa fa-check"></i><b>2</b> Probability Distributions</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="ch5.html"><a href="ch5.html#ch5_s1"><i class="fa fa-check"></i><b>2.1</b> Introduction to Probability Distributions</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="ch5.html"><a href="ch5.html#a-final-note"><i class="fa fa-check"></i><b>2.1.1</b> A final note</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="ch6.html"><a href="ch6.html"><i class="fa fa-check"></i><b>3</b> Sampling Distributions and the <br/> Central Limit Theorem</a><ul>
+<li class="chapter" data-level="2.2" data-path="ch5.html"><a href="ch5.html#ch5_s2"><i class="fa fa-check"></i><b>2.2</b> Binomial Distribution</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="ch5.html"><a href="ch5.html#plot-of-binomial"><i class="fa fa-check"></i><b>2.2.1</b> Plot of Binomial</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="ch5.html"><a href="ch5.html#ch5_s3"><i class="fa fa-check"></i><b>2.3</b> Normal Distribution</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="ch5.html"><a href="ch5.html#plot-for-normal"><i class="fa fa-check"></i><b>2.3.1</b> Plot for Normal</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="ch5.html"><a href="ch5.html#poisson-distribution"><i class="fa fa-check"></i><b>2.4</b> Poisson Distribution</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="ch5.html"><a href="ch5.html#plots-for-poisson"><i class="fa fa-check"></i><b>2.4.1</b> Plots for Poisson</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="ch5.html"><a href="ch5.html#t-distribution"><i class="fa fa-check"></i><b>2.5</b> t Distribution</a>
+<ul>
+<li class="chapter" data-level="2.5.1" data-path="ch5.html"><a href="ch5.html#plot-for-t-distribution"><i class="fa fa-check"></i><b>2.5.1</b> Plot for t distribution</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="ch5.html"><a href="ch5.html#review-of-distributions"><i class="fa fa-check"></i><b>2.6</b> Review of Distributions</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="ch6.html"><a href="ch6.html"><i class="fa fa-check"></i><b>3</b> Sampling Distributions and the <br/> Central Limit Theorem</a>
+<ul>
 <li class="chapter" data-level="3.1" data-path="ch6.html"><a href="ch6.html#ch6_s1"><i class="fa fa-check"></i><b>3.1</b> Sampling Distributions</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="ch7.html"><a href="ch7.html"><i class="fa fa-check"></i><b>4</b> Introduction to Inference</a><ul>
+<li class="chapter" data-level="4" data-path="ch7.html"><a href="ch7.html"><i class="fa fa-check"></i><b>4</b> Introduction to Inference</a>
+<ul>
 <li class="chapter" data-level="4.1" data-path="ch7.html"><a href="ch7.html#ch7_s1"><i class="fa fa-check"></i><b>4.1</b> Confidence Intervals</a></li>
 <li class="chapter" data-level="4.2" data-path="ch7.html"><a href="ch7.html#ch7_s2"><i class="fa fa-check"></i><b>4.2</b> Hypothesis Tests</a></li>
 <li class="chapter" data-level="4.3" data-path="ch7.html"><a href="ch7.html#ch7_s3"><i class="fa fa-check"></i><b>4.3</b> P-values</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="ch13.html"><a href="ch13.html"><i class="fa fa-check"></i><b>5</b> Introduction to Simulations</a><ul>
+<li class="chapter" data-level="5" data-path="ch13.html"><a href="ch13.html"><i class="fa fa-check"></i><b>5</b> Introduction to Simulations</a>
+<ul>
 <li class="chapter" data-level="5.1" data-path="ch13.html"><a href="ch13.html#ch13_s1"><i class="fa fa-check"></i><b>5.1</b> What is a simulation?</a></li>
-<li class="chapter" data-level="5.2" data-path="ch13.html"><a href="ch13.html#why-simulation"><i class="fa fa-check"></i><b>5.2</b> Why Simulation</a><ul>
-<li class="chapter" data-level="5.2.1" data-path="ch13.html"><a href="ch13.html#other-methods"><i class="fa fa-check"></i><b>5.2.1</b> Other Methods</a></li>
+<li class="chapter" data-level="5.2" data-path="ch13.html"><a href="ch13.html#why-simulation"><i class="fa fa-check"></i><b>5.2</b> Why Simulation</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="ch13.html"><a href="ch13.html#non-simulation-methods"><i class="fa fa-check"></i><b>5.2.1</b> Non-simulation Methods</a></li>
 <li class="chapter" data-level="5.2.2" data-path="ch13.html"><a href="ch13.html#simulation-method"><i class="fa fa-check"></i><b>5.2.2</b> Simulation Method</a></li>
 </ul></li>
+<li class="chapter" data-level="5.3" data-path="ch13.html"><a href="ch13.html#chapter-summary"><i class="fa fa-check"></i><b>5.3</b> Chapter Summary</a></li>
 </ul></li>
 </ul>
 
@@ -184,7 +207,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="ch6" class="section level1">
+<div id="ch6" class="section level1" number="3">
 <h1><span class="header-section-number">3</span> Sampling Distributions and the <br/> Central Limit Theorem</h1>
 <blockquote>
 <p>“While nothing is more uncertain than a single life, nothing is more certain than the average duration of a thousand lives.” - Elizur Wright</p>
@@ -214,7 +237,7 @@ random sample? Could we use this sample to make reliable predictions about the e
 <li>Prove the Central Limit Theorem using characteristic functions for the iid case, assuming finite mean and variance.</li>
 </ol>
 <p>Ideas to make things interesting - The Wall TV show.</p>
-<div id="ch6_s1" class="section level2">
+<div id="ch6_s1" class="section level2" number="3.1">
 <h2><span class="header-section-number">3.1</span> Sampling Distributions</h2>
 <!-- <h2 class="subsection"> Sampling Distributions</h2> -->
 <div class="definition-container">
@@ -224,8 +247,8 @@ Definition
 <p><strong>Population Parameter: </strong> <em> The true numeric quantity about a population </em></p>
 </div>
 <p>Suppose policy makers and public health experts in Iowa are concerned with Iowan’s fast food intake. To understand this further, the officials want to determine the average monthly spending on fast food for all Iowans. However, it would be very expensive and costly to have all 3.2 million Iowans track and report their total monthly spending on fast food. And certainly many Iowans would not be willing to share personal financial details with public health researchers or government officials. This means it is impossible for the officials to know the true mean amount of money that Iowans spend on fast food each month. The true numeric quantity about the population, such as this, is known as a <strong>population parameter</strong>. While we will never ever know the truth, there are still options. The officials can take a sample of Iowans and have those that consent to share their information report their monthly spending on fast food. Then, they can take the sample mean, which gives them an estimate of the average monthly spending on fast food. The sample mean is an example of a <strong>sample statistic</strong>, which is a numerical quantity about the sample. In other words, statistics are what investigators know, and parameters are what investigators want to know. The statistical framework allows us to make <strong>inference</strong> about population parameters using sample statistics. This means the researchers can use a random sample of Iowans’ monthly fast food spending to make generalizations about the average monthly spending for all Iowans.</p>
-<div class="figure"><span id="fig:unnamed-chunk-21"></span>
-<img src="introTextbookTemplate_files/figure-html/unnamed-chunk-21-1.png" alt="Statistical Framework" width="672" />
+<div class="figure"><span id="fig:unnamed-chunk-27"></span>
+<img src="introTextbookTemplate_files/figure-html/unnamed-chunk-27-1.png" alt="Statistical Framework" width="672" />
 <p class="caption">
 Figure 3.1: Statistical Framework
 </p>

@@ -6,7 +6,6 @@ output: html_document
 
 > " A useful property of a test of significance is that it exerts a sobering influence on the type of experimenter who jumps to conclusions on scanty data, and who might otherwise try to make everyone excited about some sensational treatment effect that can well be ascribed to the ordinary variation in his experiment." - Gertrude Mary Cox
 
-> "The only relevant test of the validity of a hypothesis is comparison of its predictions with experience." - Milton Friedman
 
 <div class="objective-container">
 <div class="objectives"> Learning objectives </div>
@@ -18,13 +17,13 @@ output: html_document
 </div>
 
 
-Up until this point, we have introduced probability which allows us to quantify our uncertainty, we discussed the concept of random variables and two specific probability distributions which are widely used (binomial and normal), and we have seen the most powerful result in statistics, the Central Limit Theorem which gives us the distribution of the sample mean in repeated samples. Let’s take a step back quickly and remind ourselves of the goal of a statistical analysis. There is some population level numerical quantity we are interested in (parameter) which might be a mean or a proportion, or maybe it is something more complicated. Because we can (almost) never measure something in the entire population, we are restricted to taking a sample. Our goal is to use the data we collect in our sample to make inference about the parameter, which is the unknown quantity of interest. In particular, we want to use probability distributions and the observed data to quantify what values of the parameter are plausible and which are not and we would like to determine if the trends we observe in our data are “significant” or if it is simply a result of chance. 
+Up until this point, we have introduced probability, which allows us to quantify our uncertainty, we have discussed the concept of random variables and two widely used probability distributions (binomial and normal), and we have seen the most powerful result in statistics, the Central Limit Theorem which gives us the distribution of the sample mean in repeated samples. Let’s take a step back and remind ourselves of the goal of a statistical analysis. There is some population level numerical quantity we are interested in (parameter). This could be a mean or a proportion, or it could be something more complicated. Because we can (almost) never measure something in the entire population, we are restricted to taking a sample. Our goal is to use the data we collect in our sample to make inference, or generalizations, about the parameter, which is the unknown quantity of interest. In particular, we want to use probability distributions and the observed data to quantify what values of the parameter are plausible and which are not pluaible and we would like to determine if the trends we observe in our data are “significant” or if it is simply a result of chance. 
 
 ## Confidence Intervals { #ch7_s1}
 
-We will first turn our attention to parameter estimation, of which there are two general approaches. These approaches are **point estimation**, which is a single statistic computed from the sample data used to estimate the parameter and **interval estimation** which is an interval computed from the sample data formulated so we can have a high degree of confidence that the interval contains the true parameter. Point estimation is straightforward and is as simple as using the sample mean as an estimate of the population mean. While straightforward, this approach is problematic. In the last chapter we saw that every time we take a sample from a population and compute the sample mean, it changes. And we saw an example in which no matter how we took a sample, the sample mean could never possibly equal the population mean. This is because the act of taking a sample is a random process, which means that for any estimate from our sample it is highly unlikely (or straight up impossible) that we got the exact correct answer. Instead, it would be nice to have an interval that we could be reasonably confident contained the true parameter.
+We will first turn our attention to parameter estimation, of which there are two general approaches. These approaches are **point estimation**, which is a single statistic computed from the sample data used to estimate the parameter and **interval estimation**, which is an interval computed from the sample data to give a range of plausible values that is likely to contain the true population parameter. Point estimation is straightforward and is as simple as using the sample mean as an estimate of the population mean. While straightforward, this approach is problematic. In the last chapter we saw that every time we take a sample from a population and compute the sample mean, it changes. And we saw an example in which no matter how we took a sample, the sample mean could never possibly equal the population mean. This is because the act of taking a sample is a random process, which means that for any estimate from our sample it is highly unlikely (or straight up impossible) that we got the exact correct answer. Instead, it would be nice to have an interval that we could be reasonably confident contained the true parameter.
 
-What properties would make a good interval estimate? Well, on one hand we desire an interval that we can have a high degree of confidence that it includes the true parameter, but on the other hand, a narrow interval is much more informative. I can tell you with 100% confidence that the interval from $-\infty$ to $\infty$ covers the true population parameter, and I don’t even need to know anything about what you’re studying or what numerical quantity is being estimated and I don’t even need any data! I’ve achieved the first goal of having a high degree of confidence, but this interval is clearly not informative. I can make the interval smaller (I will need some data to do that), but the probability that the interval contains the true parameter will decrease. As a compromise, scientists and statisticians decided that intervals with a 95% probability of containing the true parameter was a satisfactory balance between the desire for high confidence and narrow intervals. This gives way to the most common confidence interval – the 95% confidence interval. Although we are getting a little bit ahead of ourselves here (we will have plenty of chances to calculate 95% confidence intervals). Let’s back up with some important definitions and notation.
+What properties would make a good interval estimate? Well, on one hand we desire an interval that we can have a high degree of confidence of including the true parameter, but on the other hand, a narrow interval is much more informative. I can tell you with 100% confidence that the interval from $-\infty$ to $\infty$ covers the true population parameter, and I don’t even need to know anything about what you’re studying or what numerical quantity is being estimated and I don’t even need any data! I’ve achieved the first goal of having a high degree of confidence, but this interval is clearly not informative. I can make the interval smaller (I will need some data to do that), but the probability that the interval contains the true parameter will decrease. As a compromise, scientists and statisticians decided that intervals with a 95% probability of containing the true parameter was a satisfactory balance between the desire for high confidence and narrow intervals. This gives way to the most common confidence interval – the 95% confidence interval. Although we are getting a little bit ahead of ourselves here (we will have plenty of chances to calculate 95% confidence intervals). Let’s back up with some important definitions and notation.
 
 With an interval estimate, we are concerned with **coverage probability**, the probability that the interval contains or covers the parameter of interest. Typically, coverage probability is denoted by $1 - \alpha$. As the interval covers the parameter with probability $1 - \alpha$, the interval *does not* cover the parameter with probability $\alpha$ (because covering and not covering the parameter are complements and cover the entire sample space). In that sense, $\alpha$ is the probability that we are wrong. We will discuss $\alpha$ in more specific terms later in the chapter, but for now let’s just note that $\alpha$ is a small number, maybe 0.05 or 0.01. If we convert from decimal format to percentage format (multiplying by 100), we have $100(1 - \alpha)$%, which is called the **confidence level**.
 
@@ -32,9 +31,38 @@ The mathematical details of constructing a confidence interval depends on the pa
 
 It’s extremely important that we remember what is random and what the probability distribution is specifying when we are interpreting confidence intervals. The sampling distribution describes which values of the sample statistic are likely and which are not likely. The random process is drawing a sample. The population parameter is a fixed quantity – we don’t know what it is, but it does not change. Confidence intervals are constructed from the information we do know – the observed data from the sample. Because sampling is a random process and confidence intervals are constructed using the sample data, the confidence interval will vary from sample to sample. However, we formulate confidence intervals mathematically to ensure that the probability that the interval contains the true probability is $1 - \alpha$. And as we’ve seen probabilities are long-run frequencies. So any given confidence interval may or may not cover the true parameter, but in the long run if we take samples over and over and compute a confidence interval based on the data from each sample, we are guaranteed that $100(1 - \alpha)$% of the confidence intervals constructed will cover the truth. This is quite appealing. Let’s explore this concept further by using the following applet.
 
-CONFIDENCE INTERVAL GENERATOR APP.
-	 
 
+<div class="exercise"> Exercises </div>
+
+<!-- frameBorder="0" -->
+<iframe src="https://ph-shiny.iowa.uiowa.edu/ceward/textbook/confidenceIntervals" width = "800" height = "750"> 
+</iframe>
+
+<div class="exercise-container">
+<ol>
+  <li>Set the sample size to 30, the confidence level to 95%,
+      and simulate running 100 experiments and 
+        calculating a confidence interval for each experiment (100 intervals total).</li>
+  <ol list-style-type: lower-latin;>
+  <li>How many intervals contained the true population parameter?
+  <li>What was the observed coverage? What would you expect it to be?
+  <li>Re-run the simulation under the same conditions. What was the observed coverage for the second set of 100 experiments?
+  </ol>
+  <li>Keep the confidence level at 95%, but change the sample size to 50. Simulate 100 experiments.</li>
+  <ol type="a">
+  <li>How do the intervals differ from those constructed from experiments using a sample size of 30? What is the observed coverage?
+  <li>Re-run the simulation, now with a sample size of 100. How do these intervals compare to those using sample sizes of 30 or 50?
+  <li>Play around with various sample sizes. How does changing the sample size effect the observed coverage?
+  </ol>
+  <li>Return to a sample size of 30. Now we will simulate 1000 experiments.</li>
+  <ol type="a">
+  <li>With a confidence level of 95%, what is the observed coverage?
+  <li>Re-run the simulation, now with a sample size of 100. How do these intervals compare to those using sample sizes of 30 or 50?
+  <li>Re-run the simulation using a confidence level of 50%. 
+        How do these intervals compare to those using a confidence level of 95%? What is the observed coverage?
+  </ol>
+</ol>
+</div>
 
 ## Hypothesis Tests { #ch7_s2}
 
@@ -132,7 +160,7 @@ All hypothesis tests are based on quantifying the probability of the study resul
 
 Let's think about this in terms of the coin flipping example. Our null hypothesis is that the coin is fair or, equivalently, that the probability of flipping a heads is 50\%. If our experiment involves flipping a coin 10 times, a p-value would give us the probability of observing a proportion of heads as far away or farther away from 50\% if the coin was truly fair. Clearly, even if we do have a fair coin, there's a decent chance of getting 4/10 or 6/10 heads, but what about the chances of getting 0/10 or 10/10 heads? For this simple example, we can actually plot these probabilities. We also could actually calculate the probabilities using what we've already learned about the binomial distribution, but we will leave those details to a later chapter.
 
-```{r}
+```{r ch7Fig1}
 x1 <- 0:4
 x2 <- 6:10
 prob1 <-  2 * pbinom(x1, 10, 0.5)

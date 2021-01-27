@@ -4,6 +4,8 @@ output: html_document
 
 # Tests for Means {#ch8}
 
+> "The only relevant test of the validity of a hypothesis is comparison of its predictions with experience." - Milton Friedman
+
 <div class="objective-container">
 <div class="objectives"> Learning objectives </div>
 1. Steps for hypothesis tests
