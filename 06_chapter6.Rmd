@@ -8,7 +8,6 @@ output: html_document
 
 > "Everything that can be counted does not necessarily count; everything that counts cannot necessarily be counted." - Albert Einstein
 
-https://iwant2study.org/lookangejss/math/ejss_model_GaltonBoardwee/GaltonBoardwee_Simulation.xhtml
 
 <div class="objective-container">
 <div class="objectives"> Learning objectives </div>
@@ -17,28 +16,12 @@ https://iwant2study.org/lookangejss/math/ejss_model_GaltonBoardwee/GaltonBoardwe
 3. Conceptual understanding of Central Limit Theorem and how it applies to sample means
 </div>
 
-Questions we can answer at the end of this chapter
+## Introduction
 
-1. What is a statistic? What is a parameter? What is the relationship between the two? (Draw a picture would be a cool exercise. Idk how you'd grade it)
-2. Why are sampling distributions random? Suppose we wanted to ask the state of Iowa which 
-university had the best football team, and we only ask in Iowa City. Would this be a 
-random sample? Could we use this sample to make reliable predictions about the entire state? Why or why not?
-3. Prove the Central Limit Theorem using characteristic functions for the iid case, assuming finite mean and variance.
-
-Ideas to make things interesting - The Wall TV show.
+Suppose policy makers and public health experts in Iowa are concerned with Iowan's fast food intake. To understand this further, the officials want to determine the average monthly spending on fast food for all Iowans. However, it would be very expensive and costly to have all 3.2 million Iowans track and report their total monthly spending on fast food. And certainly many Iowans would not be willing to share personal financial details with public health researchers or government officials. This means it is impossible for the officials to know the true mean amount of money that Iowans spend on fast food each month. The true numeric quantity about the population, such as this, is known as a **population parameter**. While we will never ever know the truth, there are still options. The officials can take a sample of Iowans and have those that consent to share their information report their monthly spending on fast food. Then, they can take the sample mean, which gives them an estimate of the average monthly spending on fast food. The sample mean is an example of a **sample statistic**, which is a numerical quantity about the sample. In other words, statistics are what investigators know, and parameters are what investigators want to know. The statistical framework (pictured below) allows us to make **inference** about population parameters using sample statistics. This means the researchers can use a random sample of Iowans' monthly fast food spending to make generalizations about the average monthly spending for all Iowans. The numerical quantities of interest can be many different things - means, proportions, standard deviations, etc.. In the fast food example, the parameter of interest was a population mean and the sample statistic was the sample mean. In this chapter, we will specifically focusing on estimating means.
 
 
-## Sampling Distributions { #ch6_s1}
-<!-- <h2 class="subsection"> Sampling Distributions</h2> -->
-
-<div class="definition-container">
-<div class="definition"> Definition </div>
-**Population Parameter: ** <em> The true numeric quantity about a population </em>
-</div>
-
-Suppose policy makers and public health experts in Iowa are concerned with Iowan's fast food intake. To understand this further, the officials want to determine the average monthly spending on fast food for all Iowans. However, it would be very expensive and costly to have all 3.2 million Iowans track and report their total monthly spending on fast food. And certainly many Iowans would not be willing to share personal financial details with public health researchers or government officials. This means it is impossible for the officials to know the true mean amount of money that Iowans spend on fast food each month. The true numeric quantity about the population, such as this, is known as a **population parameter**. While we will never ever know the truth, there are still options. The officials can take a sample of Iowans and have those that consent to share their information report their monthly spending on fast food. Then, they can take the sample mean, which gives them an estimate of the average monthly spending on fast food. The sample mean is an example of a **sample statistic**, which is a numerical quantity about the sample. In other words, statistics are what investigators know, and parameters are what investigators want to know. The statistical framework allows us to make **inference** about population parameters using sample statistics. This means the researchers can use a random sample of Iowans' monthly fast food spending to make generalizations about the average monthly spending for all Iowans.
-
-```{tikz, fig.cap = "Statistical Framework", fig.ext = 'png', echo = F}
+```{tikz statFramework, fig.cap = "Statistical Framework", fig.ext = 'png', echo = F}
 \usetikzlibrary{decorations.pathreplacing,positioning, arrows, shapes, calc,shapes.multipart}
 \tikzstyle{block1} = [rectangle, draw, fill=yellow!20, 
     text width=10em, text centered, rounded corners, minimum height=6em]
@@ -67,34 +50,39 @@ Suppose policy makers and public health experts in Iowa are concerned with Iowan
         \end{tikzpicture}
 ```
 
-We also want to know whether or not our estimated statistic is measuring the parameter well. To that end, there are two major issues we concern ourselves with:  
-*  On average, does our estimate tend to be centered around the true answer, or is it *biased*?  
-* How much *variability* is there likely to be in our sample?  
-The difference between our estimate and our parameter is called **bias**. **Variance** describes the spread of our data (I DON"T LIKE THIS DEFINITION), and is sometimes called noise. Sometimes we talk about spread in terms of **precision**, which is the inverse of variance. The more precision we have, the less variance, and vice versa.
+The statistical framework outlines the process of making inference using sample statistics to estimate population parameters. Later chapters in this textbook will cover the mathematical details of this process. In trying to make proper inference, we also want to ensure our estimated statistic is measuring the parameter well. To that end, there are two major statistical issues we concern ourselves with: 
 
-For some reason, it doesn't like pdfs, and it doesn't like `out.width="0.75\\linewidth"'
+* On average, does our estimate tend to be centered around the true answer, or is it *biased*?  
+* How much *variability* is there likely to be in our sample? 
 
-<!-- # ```{r image-ref-for-in-text, echo=FALSE, fig.align='center', fig.cap='Some cool caption', fig.pos='H', message=FALSE} -->
-<!-- # # out.width='0.75\\linewidth' -->
-<!-- # knitr::include_graphics("./images/biasVariabilityTargets.pdf") -->
-<!-- # ``` -->
+The difference between our estimate and our parameter is called **bias**. **Variance** describes the spread of our data, and is sometimes called noise. Sometimes we talk about spread in terms of **precision**, which is the inverse of variance. The more precision we have, the less variance, and vice versa. A good statistic will have little or no bias and would have minimal variability. We can visualize both bias and variability using a dart board analogy.
 
-```{r image-ref-for-in-text2, fig.align ='center', fig.cap='Some cool caption', fig.pos='H', message = FALSE, echo=FALSE}
+```{r image-ref-for-in-text2, fig.align ='center', fig.cap='Bias and Variability Illustration', fig.pos='H', message = FALSE, echo=FALSE, fig.height=7, fig.width=9}
 knitr::include_graphics("./images/biasVariabilityTargets.png")
 ```
 
+On the upper left target, the darts are hitting the bullseye with low bias and low variability, shown by the darts having minimal spread and all hitting the bullseye. This is the most desirable outcome when the goal is to hit the bullseye. In the upper right target, we see a lot more variability, as the darts are no longer highly concentrated on the bullseye. However, the dart locations are still centered around the bullseye, and this is why we consider this target to have low bias. This situation is less ideal than having low bias and low variance, but is stil preferable to targets in the bottom row, where we have high bias. In the bottom left target, we have high bias and low variability, evidence by the high concentration of darts that are not hitting the bullseye. The consistency is why we saw there is low variability, but if our goal is to hit the bullseye, we are not going to acheive that goal. Finally, the bottom right target is the worst possible outcome - high bias *and* high variability. We are not hitting the bullseye and the darts are landing erratically. Statisticians work hard to develop inferential procedures that allow us to estimate population parameters with little to no bias and low variability.
 
-::: {.infobox .hazard data-latex="hazard"}
-PRACTICE SAFE STATISTICS
+<div class="definition-container">
+<div class="definition"> Definitions </div>
+**Population Parameter: ** <em> The true numeric quantity about a population </em>
 
-Don't drink and derive
-:::
+**Sample Statistic: ** <em> A numerical quantity about the sample </em>
 
-In order to make inference, we must be able to quantify our uncertainty about the population parameter. As we will see later in this chapter, this uncertainty depends on how many individuals we sample and how variable the data we measure is.   
+**Inference: ** <em> The process of making generalizations about the population </em>
 
-In our statistical framework, there is some unknown population parameter which we estimate with a sample statistic. In the fast food example, the parameter of interest was a population mean and the sample statistic was the sample mean. In this chapter, we will specifically focusing on estimating means, however, there are other possible numerical quantities we could describe - proportions, standard deviations, etc. .  
+**Bias: ** <em> The difference between our estimate and our parameter </em>
 
-Any time we take a sample from the population, we will get a different sample mean $\bar{x}$. In other words, $\bar{x}$ is a numeric quantity which assumes a value based on the outcome of a random experiment - the process of drawing a sample at random from the population. This should sound familiar to you - this is the definition of a random variable! We can use this logic for any statistic of interest. As we've described in the past, random variables have probability distributions. When the random variable is a statistic, this probability distribution is called the sampling distribution. Sampling distributions reflect which values of the statistic are likely and which values are improbable.  
+**Variability: ** <em> The spread or error in the data </em>
+
+**Precision: ** <em> Inverse of variance, how   </em>
+</div>
+
+
+## Sampling Distributions 
+
+
+In order to make inference, we must be able to quantify our uncertainty about the population parameter based on our sample data. To quantify our uncertainty, we must first establilsh where it comes from - the sampling process. Any time we take a sample from the population, we will get a different sample mean $\bar{x}$. In other words, $\bar{x}$ is a numeric quantity which assumes a value based on the outcome of a random experiment - the process of drawing a sample at random from the population. This should sound familiar - this is the definition of a random variable! We can use this logic for any statistic of interest. As we've described in the past, random variables have probability distributions. When the random variable is a statistic, this probability distribution is called the sampling distribution. Sampling distributions reflect which values of the statistic are likely and which values are improbable. As we will see later in this chapter, this uncertainty depends on how many individuals we sample and how variable the data we measure is. 
 
 
 A VISUALIZATION ABOUT SAMPLING DISTRIBUTIONS WOULD BE COOL HERE. SOMETHING THAT SHOWS ALL THE UNITS IN THE POPULATION WITH NUMERIC VALUES ON THEM, THEN TAKE SAMPLE AND CALCULATE MEAN.
@@ -114,7 +102,18 @@ $$
 $$
 </div>
 
-<p> Example </p>
+
+<div class="definition-container">
+<div class="definition"> Definitions </div>
+**Expected Value: ** <em> The mean of a statistic in repeated sampling </em>
+
+**Standard Error: ** <em> The standard deviation of a statistic in repeated sampling </em>
+</div>
+
+
+## Central Limit Theorem
+
+Example 
 
 We will use the fast food scenario to motivate our sample, but for let's assume there are only five individuals in the entire population. The monthly spending for those five individuals (rounded to the nearest dollar) is as follows:
 
@@ -225,6 +224,14 @@ Let $X$ denote the resting heart rate of a randomly selected U.S. adult. Assume 
     
 
 </p>
+
+
+
+<div class="exercise"> Exercises </div>
+
+<!-- frameBorder="0" -->
+<iframe src="https://ph-shiny.iowa.uiowa.edu/ceward/textbook/CLT" width = "100%" height = "800"> 
+</iframe>
 
 
 

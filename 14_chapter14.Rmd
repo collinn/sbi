@@ -1,0 +1,138 @@
+---
+output: html_document
+---
+
+# Dump Chapter {#ch14}
+
+
+::: {.infobox .hazard data-latex="hazard"}
+PRACTICE SAFE STATISTICS
+
+Don't drink and derive
+:::
+
+
+
+
+
+# Introduction {-}
+<!-- # Introduction {.para1 -} <- this adds para1 class to introduction--> 
+
+First note - Having `{-}` in the heading skips numbering assignment (which can be customized in _bookdown.yml), so that `Chapter 1` doesn't read  as `2 Chapter 1`
+
+<p class="para1">this is a test</p>
+<div class="para1"> hello </div>
+
+This is a cool book that we are going to make, and it's going to have information about statistics
+
+index.Rmd is the first file loaded, similar to HTML use of index.html
+
+Do note that
+
+- This book uses markdown, so we can use *markdown* **notation** when writing, or <u> html tags</u> 
+  + That includes sublists too
+    - forever
+      * but not too many
+- It can be published in a lot of ways, but [this book](https://bookdown.org/yihui/bookdown/) suggests we focus on HTML first since pdf can be wonky and change format frequently
+- We can use math too if we want. sex  $\rightarrow$ $\int e^X$
+
+Since this is done in Rstudio with markdown, we can build changes by just pushing Knit at the top (Ctrl+Shift+K !). However, if we add a new file/chapter, we have to, from the console, input
+
+```{r, eval = FALSE}
+library(magrittr)
+bookdown::render_book('index.Rmd', 'bookdown::gitbook')
+```
+(or whichever format we want. When closer to finshed, we can make a script to compile finished versions in multiple formats)
+
+Things you'll need:
+
+```{r, eval=FALSE}
+install.packages(c("knitr", "bookdown", "servr", "shiny", "rmarkdown"))
+```
+
+
+https://www.w3schools.com/css/css_selectors.asp
+
+https://bookdown.org/yihui/rmarkdown-cookbook/custom-blocks.html
+
+## Stuff lifted that used to be in ch2 (may or may not be useful still?)
+
+
+We can also have R code
+
+```{r sampHist, include = FALSE}
+normPop <- rnorm(1e5, mean = 10, sd = 20)
+
+x <- sample(normPop, size = 5, replace = TRUE)
+y <- sample(normPop, size = 100, replace = TRUE)
+
+hist(normPop)
+abline(v = 10, col = "blue", lwd = 2)
+abline(v = mean(x), col = 'red', lty = 2, lwd = 2)
+abline(v = mean(y), col = 'green', lty = 2, lwd = 2)
+```
+
+But that's boring and dumb when we can also have Shiny, though a few things of note, I guess
+
+- While rmarkdown can host a self contained shiny app, bookdown requires a url. This is not ideal, and I will investigate if there is something that can be done about this
+- Ok, whatever, I'm sure the library will host it for us. That would require internet access, though.
+- We can still include the actual directories in our repo, or I think we can embed shiny if it is created as a single document instead of chapters
+- This is dumb, but the shiny.rstudio website stopped hosting all of their shiny examples (?), and everything else is too complicated
+- Oh, I know, we can just use the shiny server for public health!
+- "To protect your security, ph-shiny.iowa.uiowa.edu will not allow Firefox to display the page if another site has embedded it. To see this page, you need to open it in a new window."
+- Here is a way complicated one that takes too long to load. Things I don't like:
+  - Small window (maybe can adjust?)
+  - Scrolly window
+  - Yihui recommends miniUI for embedded shiny apps, but still
+  - Not yet sure what other options might exist
+
+
+
+
+## Shiny test
+
+
+## Regular UI
+<!-- frameBorder="0" -->
+<iframe src="https://ph-shiny.iowa.uiowa.edu/collin/textbook/confidenceIntervals/" width = "800" height = "750"> 
+</iframe>
+
+## Editing text
+
+```diff
+Here are some things that were written that seem fine
+- this is maybe something we're not sure about
++ this is an idea or proposal we can discuss?
+```
+
+But the actual code above looks like this
+
+
+    ```diff
+    Here are some things that were written that seem fine
+    - this is maybe something we're not sure about
+    + this is an idea or proposal we can discuss?
+    ```
+
+
+## Idea
+
+Not sure where else to write this - for running a simulation at home. Consider heating a pan, throwing on 10 corn kernels, and figuring out how many have popped after certain number of time. Pretend 3 minutes is 50%. Well, have them do ten for 3 minutes, then count how many popped. Repeat.
+
+
+## CLT Stuff
+
+https://iwant2study.org/lookangejss/math/ejss_model_GaltonBoardwee/GaltonBoardwee_Simulation.xhtml
+
+Ideas to make things CLT interesting - The Wall TV show.
+
+
+
+Questions we can answer at the end of this chapter
+
+1. What is a statistic? What is a parameter? What is the relationship between the two? (Draw a picture would be a cool exercise. Idk how you'd grade it)
+2. Why are sampling distributions random? Suppose we wanted to ask the state of Iowa which 
+university had the best football team, and we only ask in Iowa City. Would this be a 
+random sample? Could we use this sample to make reliable predictions about the entire state? Why or why not?
+3. Prove the Central Limit Theorem using characteristic functions for the iid case, assuming finite mean and variance.
+

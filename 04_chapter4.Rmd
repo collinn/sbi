@@ -17,9 +17,7 @@ header-includes:
 5. Use probabilities to calculate quantities of interest in diagnostic testing
 </div>
 
-## Idea
 
-Not sure where else to write this - for running a simulation at home. Consider heating a pan, throwing on 10 corn kernels, and figuring out how many have popped after certain number of time. Pretend 3 minutes is 50%. Well, have them do ten for 3 minutes, then count how many popped. Repeat.
 
 ## Understanding Randomness { #ch4_s1}
 

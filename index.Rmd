@@ -1,7 +1,6 @@
 --- 
 title: "Seriously Interesting Statistics Textbook"
-author: "Caitlin Ward and Collin 'C-Money' Nolte"
-date: "`r Sys.Date()`"
+author: "Caitlin Ward and Collin  Nolte"
 site: bookdown::bookdown_site
 output: 
   bookdown::gitbook:
@@ -15,118 +14,36 @@ description: "First template!"
 ---
 
 
-
-
-# Introduction {-}
-<!-- # Introduction {.para1 -} <- this adds para1 class to introduction--> 
-
-First note - Having `{-}` in the heading skips numbering assignment (which can be customized in _bookdown.yml), so that `Chapter 1` doesn't read  as `2 Chapter 1`
-
-<p class="para1">this is a test</p>
-<div class="para1"> hello </div>
-
-This is a cool book that we are going to make, and it's going to have information about statistics
-
-index.Rmd is the first file loaded, similar to HTML use of index.html
-
-Do note that
-
-- This book uses markdown, so we can use *markdown* **notation** when writing, or <u> html tags</u> 
-  + That includes sublists too
-    - forever
-      * but not too many
-- It can be published in a lot of ways, but [this book](https://bookdown.org/yihui/bookdown/) suggests we focus on HTML first since pdf can be wonky and change format frequently
-- We can use math too if we want. sex  $\rightarrow$ $\int e^X$
-
-Since this is done in Rstudio with markdown, we can build changes by just pushing Knit at the top (Ctrl+Shift+K !). However, if we add a new file/chapter, we have to, from the console, input
-
 ```{r, eval = FALSE}
 library(magrittr)
 bookdown::render_book('index.Rmd', 'bookdown::gitbook')
 ```
-(or whichever format we want. When closer to finshed, we can make a script to compile finished versions in multiple formats)
-
-Things you'll need:
-
-```{r, eval=FALSE}
-install.packages(c("knitr", "bookdown", "servr", "shiny", "rmarkdown"))
-```
 
 
-https://www.w3schools.com/css/css_selectors.asp
+# Introduction {-}
 
-https://bookdown.org/yihui/rmarkdown-cookbook/custom-blocks.html
+Welcome! This resource offers an interactive learning experience for introductory biostatistics. This resource was designed with the course BIOS:4120 Introduction to Biostatistics at the Unviersity of Iowa in mind, but could be used in any introductory statistics or biostatistics course. We combine textual explanations and embedded simulation-based Shiny applications, to provide students with an engaging learning resource that offers an intuitive illustration of core statistical concepts. The applications and associated exercises are targeted at *conceptional* understanding, as opposed to calculations.
 
-## Stuff lifted that used to be in ch2 (may or may not be useful still?)
+At this point in time, we provide chapters on:
+
+* Probability (text only)
+* Probability distributions (text and application)
+* Sampling distributions and Central Limit Theorem  (text and application)
+* Confidence intervals  (text and application)
 
 
-We can also have R code
 
-```{r sampHist, include = FALSE}
-normPop <- rnorm(1e5, mean = 10, sd = 20)
+::: {.infobox .hazard data-latex="hazard"}
+This resource is in a Beta phase
+:::
 
-x <- sample(normPop, size = 5, replace = TRUE)
-y <- sample(normPop, size = 100, replace = TRUE)
+# Acknowledgements
 
-hist(normPop)
-abline(v = 10, col = "blue", lwd = 2)
-abline(v = mean(x), col = 'red', lty = 2, lwd = 2)
-abline(v = mean(y), col = 'green', lty = 2, lwd = 2)
-```
-
-But that's boring and dumb when we can also have Shiny, though a few things of note, I guess
-
-- While rmarkdown can host a self contained shiny app, bookdown requires a url. This is not ideal, and I will investigate if there is something that can be done about this
-- Ok, whatever, I'm sure the library will host it for us. That would require internet access, though.
-- We can still include the actual directories in our repo, or I think we can embed shiny if it is created as a single document instead of chapters
-- This is dumb, but the shiny.rstudio website stopped hosting all of their shiny examples (?), and everything else is too complicated
-- Oh, I know, we can just use the shiny server for public health!
-- "To protect your security, ph-shiny.iowa.uiowa.edu will not allow Firefox to display the page if another site has embedded it. To see this page, you need to open it in a new window."
-- Here is a way complicated one that takes too long to load. Things I don't like:
-  - Small window (maybe can adjust?)
-  - Scrolly window
-  - Yihui recommends miniUI for embedded shiny apps, but still
-  - Not yet sure what other options might exist
+We would like to acknowledge the funding which made the creation of this resource possible, provided a the University of Iowa Libraries OpenHawks grant.
 
 
 
 
-## Shiny test
-
-This authenticates your computer to load shiny apps
-```{r, eval = FALSE}
-rsconnect::setAccountInfo(name='ui-sbi', token='1C11998F5C3BED19B58AFD22D349483C', secret='DsgOVlwde3RKJzzu5Nd07xVFrr7gv56kZ8NAFKyP')
-```
-
-```{r, eval = FALSE}
-library(rsconnect)
-## Directory containing app, this uploads it to site
-#rsconnect::deployApp("../shinyApps/confidenceIntervals")
-```
 
 
 
-## Regular UI
-<!-- frameBorder="0" -->
-<iframe src="https://ph-shiny.iowa.uiowa.edu/collin/textbook3/" width = "800" height = "750"> 
-</iframe>
-
-## Editing text
-
-```diff
-Here are some things that were written that seem fine
-- this is maybe something we're not sure about
-+ this is an idea or proposal we can discuss?
-```
-
-But the actual code above looks like this
-
-
-    ```diff
-    Here are some things that were written that seem fine
-    - this is maybe something we're not sure about
-    + this is an idea or proposal we can discuss?
-    ```
-
-
-i think
