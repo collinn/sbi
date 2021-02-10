@@ -75,6 +75,8 @@ div.definition {
     background-color:rgba(14,143,23,0.15);
     border-radius: 15px 15px 15px 15px;
     margin: 10px;
+	padding: 5px;
+    padding-left: 15px;
 }
 
 div.exercise {
