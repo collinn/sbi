@@ -74,7 +74,7 @@ div.definition {
     flex-direction: column;
     background-color:rgba(14,143,23,0.15);
     border-radius: 15px 15px 15px 15px;
-    margin: 20px;
+    margin: 10px;
 }
 
 div.exercise {

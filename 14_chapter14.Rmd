@@ -136,3 +136,14 @@ university had the best football team, and we only ask in Iowa City. Would this 
 random sample? Could we use this sample to make reliable predictions about the entire state? Why or why not?
 3. Prove the Central Limit Theorem using characteristic functions for the iid case, assuming finite mean and variance.
 
+
+Another good way to address the $\bar{X}$ vs $\bar{x}$ is to have something like (&= isn't making them align?)
+
+<div class="latex">
+$$
+\begin{align*}
+\bar{X} &= \{\text{Mean height of} \textit{ Sex and the City } \text{protagonists}\} \\
+\bar{x} &= \{\text{Mean height of Carrie and Samantha}\}
+\end{align*}
+$$
+</div>

@@ -82,40 +82,103 @@ On the upper left target, the darts are hitting the bullseye with low bias and l
 ## Sampling Distributions 
 
 
-In order to make inference, we must be able to quantify our uncertainty about the population parameter based on our sample data. To quantify our uncertainty, we must first establilsh where it comes from - the sampling process. Any time we take a sample from the population, we will get a different sample mean $\bar{x}$. In other words, $\bar{x}$ is a numeric quantity which assumes a value based on the outcome of a random experiment - the process of drawing a sample at random from the population. This should sound familiar - this is the definition of a random variable! We can use this logic for any statistic of interest. As we've described in the past, random variables have probability distributions. When the random variable is a statistic, this probability distribution is called the sampling distribution. Sampling distributions reflect which values of the statistic are likely and which values are improbable. As we will see later in this chapter, this uncertainty depends on how many individuals we sample and how variable the data we measure is. 
+In order to make inference, we must be able to quantify our uncertainty about the population parameter based on our sample data. To quantify our uncertainty, we must first establish where it comes from - the sampling process. Any time we take a sample from the population, we will get a different sample mean $\overline{x}$. In other words, $\overline{x}$ is a numeric quantity which assumes a value based on the outcome of a random experiment - the process of drawing a sample at random from the population. This should sound familiar - this is the definition of a random variable! We can use this logic for any statistic of interest. As we've described in the past, random variables have probability distributions. When the random variable is a statistic, this probability distribution is called the sampling distribution. Sampling distributions reflect which values of the statistic are likely and which values are improbable. As we will see later in this chapter, this uncertainty depends on how many individuals we sample and how variable the data we measure is. 
+
+<div class="exercise"> Exercises </div>
+<div class="exercise-container">
+
+The applet below is designed to help you get familiar with the concept of random sampling. The plot on the left side gives the population distribution. Each subject in the population is represented by one box, and the population consist of 26 people. The x-axis represents the value of the outcome variable for each individual, and when multiple people have the same value, their boxes are stacked on top of each other. For example, we have one subject in the population with a value of 0, three subjects with values of 1, and so on. The plot on the right displays the values for the subjects in our sample, and these subjects are indicated by green coloring in both the population and sample distributions. We can take samples from our population of various sizes by changing the value of the slider at the top and clicking on the "Sample" button.
 
 
-A VISUALIZATION ABOUT SAMPLING DISTRIBUTIONS WOULD BE COOL HERE. SOMETHING THAT SHOWS ALL THE UNITS IN THE POPULATION WITH NUMERIC VALUES ON THEM, THEN TAKE SAMPLE AND CALCULATE MEAN.
+</div>
+<!-- frameBorder="0" -->
+<iframe src="https://ph-shiny.iowa.uiowa.edu/ceward/textbook/sampling" width = "100%" height = "800"> 
+</iframe>
 
-I think what would be neat is doing dot plots for a population and have them be all one color, say, red. Once the samples are chosen, they will be presented below with their own distribution in blue. BUT! The ones selected in the random sample would also turn blue, indicating that they were picked. Maybe this is like what that shiny app you showed me was?
+<div class="exercise-container">
 
-As we've seen earlier in this book, we will use upper-case letters to denote random variables, and lower-case letters to denote possible values they can take on. When it comes to the sampling distribution of the mean, $\bar{X}$ is the random variable, which arises from repeated random sampling from the population and then taking a sample mean, and $\bar{x}$ is an observed sample mean we might see. In describing a sampling distribution, we are often interested in the mean and standard deviation - this gives information about typical values the statistic might take on as well as how spread out the distribution is. We refer to the mean of a statistic as the **expected value** and the standard deviation as the **standard error**. For the random variable describing the sample mean, these are denoted as $E(\bar{X})$ and $SE(\bar{X}) = \sqrt{Var(\bar{X})}$, respectively.
+<ol>
+  <li>Set the sample size to 2 and click the "Sample" button five times. Fill out the following table with the sample means observed in your five samples.
+  <table style="width:50%">
+  <tr>
+    <th style="text-align:center">Sample Number</th>
+    <th>Sample mean</th>
+  </tr>
+  <tr>
+    <td style="text-align:center">1</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td style="text-align:center">2</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td style="text-align:center">3</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td style="text-align:center">4</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td style="text-align:center">5</td>
+    <td></td>
+  </tr>
+</table>
+  
+  <ol style="list-style-type: lower-alpha;">
+  <li>Did you get the same sample mean for any of your five samples?</li>
+  <li>Was the sample mean ever equal to the population mean in any of your five samples? If not, how close were your sample means to the true population mean?</li>
+  </ol>
+  </li>
+  <li>Now set the sample size to 15 and click the "Sample" button five times. Fill out the following table with the sample means observed in your five samples.
+  <table style="width:50%">
+  <tr>
+    <th style="text-align:center">Sample Number</th>
+    <th>Sample mean</th>
+  </tr>
+  <tr>
+    <td style="text-align:center">1</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td style="text-align:center">2</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td style="text-align:center">3</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td style="text-align:center">4</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td style="text-align:center">5</td>
+    <td></td>
+  </tr>
+</table>
 
-Another good way to address the $\bar{X}$ vs $\bar{x}$ is to have something like (&= isn't making them align?)
+  <ol style="list-style-type: lower-alpha;">
+  <li>Did any of your five simulations give you a sample mean equal to the population mean?</li>
+  <li> Was the sample mean ever equal to the population mean in any of your five samples? If not, how close were your sample means to the true population mean?</li>
+  </ol>
+  </li>
+  <li> Compare your results from problem 1 and problem 2. 
+  <ol style="list-style-type: lower-alpha;">
+    <li> In either case were you able to obtain a sample mean equal to the population mean?</li>
+    <li> Which one had sample means with more variability? What does this indicate about the relationship between the sample size and the distribution of sample means in the context of repeated sampling?</li>
+  </ol>
+  </li>
+</ol>
 
-<div class="latex">
-$$
-\begin{align*}
-\bar{X} &= \{\text{Mean height of} \textit{ Sex and the City } \text{protagonists}\} \\
-\bar{x} &= \{\text{Mean height of Carrie and Samantha}\}
-\end{align*}
-$$
 </div>
 
 
-<div class="definition-container">
-<div class="definition"> Definitions </div>
-**Expected Value: ** <em> The mean of a statistic in repeated sampling </em>
-
-**Standard Error: ** <em> The standard deviation of a statistic in repeated sampling </em>
-</div>
+As we've seen earlier in this book, we will use upper-case letters to denote random variables, and lower-case letters to denote possible values they can take on. When it comes to the sampling distribution of the mean, $\overline{X}$ is the random variable, which arises from repeated random sampling from the population and then taking a sample mean, and $\overline{x}$ is an observed sample mean we might see. In describing a sampling distribution, we are often interested in the mean and standard deviation - this gives information about typical values the statistic might take on as well as how spread out the distribution is. We refer to the mean of a statistic as the **expected value** and the standard deviation as the **standard error**. For the random variable describing the sample mean, these are denoted as $E(\overline{X})$ and $SE(\overline{X}) = \sqrt{Var(\overline{X})}$, respectively.
 
 
-## Central Limit Theorem
-
-Example 
-
-We will use the fast food scenario to motivate our sample, but for let's assume there are only five individuals in the entire population. The monthly spending for those five individuals (rounded to the nearest dollar) is as follows:
+Let's return to the fast food scenario to motivate our development, but for now let's assume there are only five individuals in the entire population. The monthly spending for those five individuals (rounded to the nearest dollar) is as follows:
 
 ```{r, echo = F}
 library(knitr)
@@ -176,11 +239,11 @@ combDat2 <- data.frame(Sample = combSamples,
 
 toKeep <- which(!duplicated(combDat[,3]))
 combDat2 <- combDat2[toKeep,]
-kable(combDat2, row.names = F, col.names = c('Sample', 'Values', '$\\bar{x}$'), escape =F)
+kable(combDat2, row.names = F, col.names = c('Sample', 'Values', '$\\overline{x}$'), escape =F)
 
 ```
 
-One thing to note is that *none* of the sample means are actually equal to the population mean. This is often the case! Based on this table, we can construct the sampling distribution of $\bar{X}$ for a sample of size three.
+One thing to note is that *none* of the sample means are actually equal to the population mean. This is often the case! Based on this table, we can construct the sampling distribution of $\overline{X}$ for a sample of size three.
 
 ::: {.infobox .think data-latex="thinkaboutit"}
 Why is our sample mean often not equal to the population mean?
@@ -189,7 +252,7 @@ Why is our sample mean often not equal to the population mean?
 
 ```{r, echo = F}
 countMeans <- table(round(meanComb, 2))
-col1 <- paste0('P($\\bar{x}$ = ', names(countMeans), ')')
+col1 <- paste0('P($\\overline{x}$ = ', names(countMeans), ')')
 col2 <- prop.table(countMeans)
 toPrint <- cbind(col1, col2)
 expValue <- sum(as.numeric(names(countMeans))*col2)
@@ -201,41 +264,98 @@ With this probability distribution, we can get the expected value of the samplin
 
 (`r col2[1]` $\times$ `r names(countMeans)[1]`) + (`r col2[2]` $\times$ `r names(countMeans)[2]`)  + (`r col2[3]` $\times$ `r names(countMeans)[3]`)  + (`r col2[4]` $\times$ `r names(countMeans)[4]`) + (`r col2[5]` $\times$ `r names(countMeans)[5]`) =  `r expValue`
 
-But wait! That is the population mean. This illustrates an extremely powerful property of the sample mean - the expected value of the sample mean ($\bar{X}$) is equal to the population parameter ($\mu$)! Because of this, we say that the sample mean is an **unbiased estimator** of the population mean. While we illustrated the property with a small example, this holds regardless of the population or sample size. 
+But wait! That *is* the population mean. This illustrates an extremely powerful property of the sample mean - the expected value of the sample mean ($\overline{X}$) is equal to the population parameter ($\mu$)! Because of this, we say that the sample mean is an **unbiased estimator** of the population mean. While we illustrated the property with a small example, this holds regardless of the population or sample size. 
 
-<p> Important Formula!  
 
-For *any* population distribution which can be described by a random variable $X$ with mean $\mu$ and variance $\sigma^2$, the sample distribution of the mean based on sample of size $n$ ($\bar{X}_n$) has the following properties:  
+<div class="definition-container">
+<div class="definition"> Definitions </div>
+**Expected Value: ** <em> The mean of a statistic in repeated sampling </em>
+
+**Standard Error: ** <em> The standard deviation of a statistic (including the mean) in repeated sampling </em>
+
+**Unbiased Estimator: ** <em> The statistic with an expected value equal to the true population parameter</em>
+</div>
+
+
+
+
+
+
+## Central Limit Theorem
+
+In the last section, we used a toy example to conceptualize repeated sampling and the property of the sample mean being an unbiased estimator. Now we will formalize these properties. For *any* population distribution which can be described by a random variable $X$ with mean $\mu$ and variance $\sigma^2$, the sample distribution of the mean based on sample of size $n$ ($\overline{X}_n$) has the following properties:  
 
 1)  The expected value of the sampling distribution is $\mu$
-$$E(\bar{X}_n) = \mu$$
+$$E(\overline{X}_n) = \mu$$
 2) The variance of the sampling distribution is
-$$Var(\bar{X}_n) = \frac{\sigma^2}{n}$$
-</p>
+$$Var(\overline{X}_n) = \frac{\sigma^2}{n}$$
 
-Using these formulas we are able to describe the typical value of the sample mean and how variable the sample mean is in repeated sampling. Notice that the expected value does not depend on the sample size, $n$, but the variance does. This means regardless of the sample size, the sample mean is an unbiased estimator of the population mean. But, as the sample size increases, the variance decreases, and we get a more precise estimate of the population mean. As we've seen in the past, it is more common to talk about the standard deviation than the variance and the standard deviation is the square root of the variance. The quantity $\sqrt{Var(\bar{X}_n)} = \sigma / n$ is primarily called the **standard error** of the mean, and is denoted by $SE(\bar{X}_n)$. We use the term standard error to make it really clear that it is referencing the sampling distribution of the mean, but all standard errors could be refered to as standard deviations. Conversely, not all standard deviations could be referred to as a standard error - the term is only used in describing the distribution of the sample mean.
+Using these formulas we are able to describe the typical value of the sample mean and how variable the sample mean is in repeated sampling. Notice that the expected value does not depend on the sample size, $n$, but the variance does. This means regardless of the sample size, the sample mean is an unbiased estimator of the population mean. But, as the sample size increases, the variance decreases, and we get a more precise estimate of the population mean. As we've seen in the past, it is more common to talk about the standard deviation than the variance and the standard deviation is the square root of the variance. The quantity $\sqrt{Var(\overline{X}_n)} = \sigma / n$ is primarily called the **standard error** of the mean, and is denoted by $SE(\overline{X}_n)$. We use the term standard error to make it really clear that it is referencing the sampling distribution of the mean, but all standard errors could be referred to as standard deviations. Conversely, not all standard deviations could be referred to as a standard error - the term is only used in describing the distribution of the sample mean.
 
-<p> Example 
-Let $X$ denote the resting heart rate of a randomly selected U.S. adult. Assume the distribution of resting heart rates is approximately normally distributed with mean 70 bpm and standard deviation of 5 bpm. Suppose we sample 50 adults. Let $\bar{X}$ denote the mean resting heart rate of these 50 adults.
 
-1) What is the mean of $\bar{X}$? (That is, in repeated sampling, what would be the average value of $\bar{X}$?)  
+In addition to knowing the mean and standard error of the sample mean, we can also describe the *distribution* of sample means in repeated sampling. As we discussed in the last chapter on probability distributions, a distribution for the sample mean provides us with a way to quantify which sample mean values are likely and which values are unlikely. As it turns out, when we repeatedly sample from a population, and continue to calculate the sample mean from each sample, the distribution of the sample means will be normally distributed. This brings us what is largely considered the "fundamental theorem of statistics"
 
-2) What is the standard error of $\bar{X}$  
-    
+**Central Limit Theorem**
 
-</p>
+If the sample size is "large," the sampling distribution of $\overline{X}$ is approximately normal, regardless of the characteristics of the underlying population.
+
+$$\overline{X}_n \sim N(\mu, \sigma^2/n)$$
+Generally, we consider a sample to be "large" enough if the sample size, $n \geq 30$. Because the variance of $\overline{X}$ is inversely related to the sample size, as the $n$ increases, the variance decreases and the distribution becomes more concentrated. This is one of the most important, remarkable, and powerful results in all of statistics. In the real world, we rarely know the underlying population distribution of our data, however, the Central Limit Theorem (CLT) says: we don't have to!
+
 
 
 
 <div class="exercise"> Exercises </div>
+<div class="exercise-container">
+
+The applet below is designed to help your conceptual understanding of the CLT. You can change the underlying population distribution, the size of the samples taken ($n$), and the number of experiments performed. Each experiment consists of taking a sample of the specified size from the population and calculating the sample mean. The top left panel (blue) shows the underlying population distribution. The top right panel (red) shows the data from the most recent sample, with the sample mean from that specific sample indicated by the dashed black line. The bottom panel (gold) shows us the distribution of sample means from all the experiments, with the observed mean of the sample means indicated by the dashed black line and the true underlying population mean indicated by the solid blue line. Once you select the parameters to the values you want, click "Run Simulation" to tabulate the results.
+
+</div>
+
 
 <!-- frameBorder="0" -->
 <iframe src="https://ph-shiny.iowa.uiowa.edu/ceward/textbook/CLT" width = "100%" height = "800"> 
 </iframe>
 
 
-
-
-
-
-
+<div class="exercise-container">
+<ol>
+  <li>Set the population distribution to Normal, the sample size to 30, and perform 100 experiments to collect 100 sample means. 
+  <ol style="list-style-type: lower-alpha;">
+  <li>Describe the histogram of the the data from the last experiment. Comment on the modality and skew. </li>
+  <li>Describe the histogram of the distribution of sample means from all experiments. </li>
+  <li>What is the range of values observed for the distribution of sample means? How does this compare the the range of values observed in the data from the last experiment? </li>
+  </ol>
+  </li>
+  <li>Now adjust the sample size to 100. Perform 100 experiments.
+  <ol style="list-style-type: lower-alpha;" >
+  <li>What is the range of values observed for the distribution of sample means? How does this compare to the range observed when the sample size was 30? </li>
+  <li>What about the range of values observed in the data from the last experiment - did this change much when the sample size was increased? </li>
+  <li>Play around with various sample sizes. How does changing the sample size effect the spread of the distribution of sample means? </li>
+  </ol>
+  </li>
+  <li>Return to a sample size of 30, but change the population distribution to be right skewed. Perform 1,000 experiments.
+  <ol style="list-style-type: lower-alpha;" >
+  <li>Describe the histogram of the the data from the last experiment. Comment on the modality and skew. </li>
+  <li>Describe the histogram of the distribution of sample means from all experiments. Does it resemble the population distribution? </li>
+  <li>Re-run the simulation using a sample size of 10. How does this effect the distribution of the sample means? How does this compare to what you observed when taking samples of size 10 with a normal population distribution? </li>
+  </ol>
+  </li>
+  <li>Change the population distribution to be left skewed, set the sample size to 80, and perform 1,000 experiments.
+  <ol style="list-style-type: lower-alpha; ">
+  <li>Describe the histogram of the the data from the last experiment. Comment on the modality and skew. </li>
+  <li>Describe the histogram of the distribution of sample means from all experiments. Does it resemble the population distribution? </li>
+  <li>Run the simulation with these parameters a few times and pay attention to how the mean of the distribution of sample means compares to the population mean. Is the population mean similar or different from the mean of the sample means? What property does this illustrate? </li>
+  </ol>
+  </li>
+  <li>Change the parameters of the simulations as needed to answer the following true/false questions. Explain your answers. 
+  <ol style="list-style-type: lower-alpha; ">
+  <li>CLT tells us that the distribution of data from any experiment will be normally distributed.</li>
+  <li>With a larger sample size, the data from the last experiment will resemble the population distribution. </li>
+  <li>Performing 10 experiments is enough to see the effect of CLT. </li>
+  <li>Regardless of the underlying population distribution and the sample size, the distribution of the sample means will be normally distributed. </li>
+  <li>Increasing the sample size causes the data from a single experiment to look more and more normally distributed. </li>
+  </ol>
+  </li>
+</ol>
+</div>

@@ -31,7 +31,7 @@
   
   
 <link rel="prev" href="ch5.html"/>
-<link rel="next" href="ch7.html"/>
+
 <script src="libs/header-attrs-2.6/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -52,6 +52,69 @@
 
 
 
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -67,14 +130,7 @@
 
 <ul class="summary">
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a></li>
-<li class="chapter" data-level="1" data-path="ch4.html"><a href="ch4.html"><i class="fa fa-check"></i><b>1</b> Probability</a>
-<ul>
-<li class="chapter" data-level="1.1" data-path="ch4.html"><a href="ch4.html#ch4_s1"><i class="fa fa-check"></i><b>1.1</b> Understanding Randomness</a></li>
-<li class="chapter" data-level="1.2" data-path="ch4.html"><a href="ch4.html#ch4_s2"><i class="fa fa-check"></i><b>1.2</b> Probability Operations</a></li>
-<li class="chapter" data-level="1.3" data-path="ch4.html"><a href="ch4.html#ch4_s3"><i class="fa fa-check"></i><b>1.3</b> Conditional Probability</a></li>
-<li class="chapter" data-level="1.4" data-path="ch4.html"><a href="ch4.html#ch4_s4"><i class="fa fa-check"></i><b>1.4</b> Probabilities from tables (needs a different example)</a></li>
-<li class="chapter" data-level="1.5" data-path="ch4.html"><a href="ch4.html#ch4_s5"><i class="fa fa-check"></i><b>1.5</b> Bayes’ Rule</a></li>
-</ul></li>
+<li class="chapter" data-level="1" data-path="acknowledgements.html"><a href="acknowledgements.html"><i class="fa fa-check"></i><b>1</b> Acknowledgements</a></li>
 <li class="chapter" data-level="2" data-path="ch5.html"><a href="ch5.html"><i class="fa fa-check"></i><b>2</b> Probability Distributions</a>
 <ul>
 <li class="chapter" data-level="2.1" data-path="ch5.html"><a href="ch5.html#ch5_s1"><i class="fa fa-check"></i><b>2.1</b> Introduction to Probability Distributions</a>
@@ -104,22 +160,6 @@
 <li class="chapter" data-level="3.1" data-path="index.html"><a href="index.html#introduction"><i class="fa fa-check"></i><b>3.1</b> Introduction</a></li>
 <li class="chapter" data-level="3.2" data-path="ch6.html"><a href="ch6.html#sampling-distributions"><i class="fa fa-check"></i><b>3.2</b> Sampling Distributions</a></li>
 <li class="chapter" data-level="3.3" data-path="ch6.html"><a href="ch6.html#central-limit-theorem"><i class="fa fa-check"></i><b>3.3</b> Central Limit Theorem</a></li>
-</ul></li>
-<li class="chapter" data-level="4" data-path="ch7.html"><a href="ch7.html"><i class="fa fa-check"></i><b>4</b> Introduction to Inference</a>
-<ul>
-<li class="chapter" data-level="4.1" data-path="ch7.html"><a href="ch7.html#ch7_s1"><i class="fa fa-check"></i><b>4.1</b> Confidence Intervals</a></li>
-<li class="chapter" data-level="4.2" data-path="ch7.html"><a href="ch7.html#ch7_s2"><i class="fa fa-check"></i><b>4.2</b> Hypothesis Tests</a></li>
-<li class="chapter" data-level="4.3" data-path="ch7.html"><a href="ch7.html#ch7_s3"><i class="fa fa-check"></i><b>4.3</b> P-values</a></li>
-</ul></li>
-<li class="chapter" data-level="5" data-path="ch13.html"><a href="ch13.html"><i class="fa fa-check"></i><b>5</b> Introduction to Simulations</a>
-<ul>
-<li class="chapter" data-level="5.1" data-path="ch13.html"><a href="ch13.html#ch13_s1"><i class="fa fa-check"></i><b>5.1</b> What is a simulation?</a></li>
-<li class="chapter" data-level="5.2" data-path="ch13.html"><a href="ch13.html#why-simulation"><i class="fa fa-check"></i><b>5.2</b> Why Simulation</a>
-<ul>
-<li class="chapter" data-level="5.2.1" data-path="ch13.html"><a href="ch13.html#non-simulation-methods"><i class="fa fa-check"></i><b>5.2.1</b> Non-simulation Methods</a></li>
-<li class="chapter" data-level="5.2.2" data-path="ch13.html"><a href="ch13.html#simulation-method"><i class="fa fa-check"></i><b>5.2.2</b> Simulation Method</a></li>
-</ul></li>
-<li class="chapter" data-level="5.3" data-path="ch13.html"><a href="ch13.html#chapter-summary"><i class="fa fa-check"></i><b>5.3</b> Chapter Summary</a></li>
 </ul></li>
 </ul>
 
@@ -195,31 +235,145 @@ Definitions
 </div>
 <div id="sampling-distributions" class="section level2" number="3.2">
 <h2><span class="header-section-number">3.2</span> Sampling Distributions</h2>
-<p>In order to make inference, we must be able to quantify our uncertainty about the population parameter based on our sample data. To quantify our uncertainty, we must first establilsh where it comes from - the sampling process. Any time we take a sample from the population, we will get a different sample mean <span class="math inline">\(\bar{x}\)</span>. In other words, <span class="math inline">\(\bar{x}\)</span> is a numeric quantity which assumes a value based on the outcome of a random experiment - the process of drawing a sample at random from the population. This should sound familiar - this is the definition of a random variable! We can use this logic for any statistic of interest. As we’ve described in the past, random variables have probability distributions. When the random variable is a statistic, this probability distribution is called the sampling distribution. Sampling distributions reflect which values of the statistic are likely and which values are improbable. As we will see later in this chapter, this uncertainty depends on how many individuals we sample and how variable the data we measure is.</p>
-<p>A VISUALIZATION ABOUT SAMPLING DISTRIBUTIONS WOULD BE COOL HERE. SOMETHING THAT SHOWS ALL THE UNITS IN THE POPULATION WITH NUMERIC VALUES ON THEM, THEN TAKE SAMPLE AND CALCULATE MEAN.</p>
-<p>I think what would be neat is doing dot plots for a population and have them be all one color, say, red. Once the samples are chosen, they will be presented below with their own distribution in blue. BUT! The ones selected in the random sample would also turn blue, indicating that they were picked. Maybe this is like what that shiny app you showed me was?</p>
-<p>As we’ve seen earlier in this book, we will use upper-case letters to denote random variables, and lower-case letters to denote possible values they can take on. When it comes to the sampling distribution of the mean, <span class="math inline">\(\bar{X}\)</span> is the random variable, which arises from repeated random sampling from the population and then taking a sample mean, and <span class="math inline">\(\bar{x}\)</span> is an observed sample mean we might see. In describing a sampling distribution, we are often interested in the mean and standard deviation - this gives information about typical values the statistic might take on as well as how spread out the distribution is. We refer to the mean of a statistic as the <strong>expected value</strong> and the standard deviation as the <strong>standard error</strong>. For the random variable describing the sample mean, these are denoted as <span class="math inline">\(E(\bar{X})\)</span> and <span class="math inline">\(SE(\bar{X}) = \sqrt{Var(\bar{X})}\)</span>, respectively.</p>
-<p>Another good way to address the <span class="math inline">\(\bar{X}\)</span> vs <span class="math inline">\(\bar{x}\)</span> is to have something like (&amp;= isn’t making them align?)</p>
-<div class="latex">
-<p><span class="math display">\[
-\begin{align*}
-\bar{X} &amp;= \{\text{Mean height of} \textit{ Sex and the City } \text{protagonists}\} \\
-\bar{x} &amp;= \{\text{Mean height of Carrie and Samantha}\}
-\end{align*}
-\]</span></p>
+<p>In order to make inference, we must be able to quantify our uncertainty about the population parameter based on our sample data. To quantify our uncertainty, we must first establish where it comes from - the sampling process. Any time we take a sample from the population, we will get a different sample mean <span class="math inline">\(\overline{x}\)</span>. In other words, <span class="math inline">\(\overline{x}\)</span> is a numeric quantity which assumes a value based on the outcome of a random experiment - the process of drawing a sample at random from the population. This should sound familiar - this is the definition of a random variable! We can use this logic for any statistic of interest. As we’ve described in the past, random variables have probability distributions. When the random variable is a statistic, this probability distribution is called the sampling distribution. Sampling distributions reflect which values of the statistic are likely and which values are improbable. As we will see later in this chapter, this uncertainty depends on how many individuals we sample and how variable the data we measure is.</p>
+<div class="exercise">
+Exercises
 </div>
-<div class="definition-container">
-<div class="definition">
-Definitions
+<div class="exercise-container">
+<p>The applet below is designed to help you get familiar with the concept of random sampling. The plot on the left side gives the population distribution. Each subject in the population is represented by one box, and the population consist of 26 people. The x-axis represents the value of the outcome variable for each individual, and when multiple people have the same value, their boxes are stacked on top of each other. For example, we have one subject in the population with a value of 0, three subjects with values of 1, and so on. The plot on the right displays the values for the subjects in our sample, and these subjects are indicated by green coloring in both the population and sample distributions. We can take samples from our population of various sizes by changing the value of the slider at the top and clicking on the “Sample” button.</p>
 </div>
-<p><strong>Expected Value: </strong> <em> The mean of a statistic in repeated sampling </em></p>
-<p><strong>Standard Error: </strong> <em> The standard deviation of a statistic in repeated sampling </em></p>
+<!-- frameBorder="0" -->
+<iframe src="https://ph-shiny.iowa.uiowa.edu/ceward/textbook/sampling" width="100%" height="800">
+</iframe>
+<div class="exercise-container">
+<ol>
+<li>
+Set the sample size to 2 and click the “Sample” button five times. Fill out the following table with the sample means observed in your five samples.
+<table style="width:50%">
+<tr>
+<th style="text-align:center">
+Sample Number
+</th>
+<th>
+Sample mean
+</th>
+</tr>
+<tr>
+<td style="text-align:center">
+1
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:center">
+2
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:center">
+3
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:center">
+4
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:center">
+5
+</td>
+<td>
+</td>
+</tr>
+</table>
+<ol style="list-style-type: lower-alpha;">
+<li>
+Did you get the same sample mean for any of your five samples?
+</li>
+<li>
+Was the sample mean ever equal to the population mean in any of your five samples? If not, how close were your sample means to the true population mean?
+</li>
+</ol>
+</li>
+<li>
+Now set the sample size to 15 and click the “Sample” button five times. Fill out the following table with the sample means observed in your five samples.
+<table style="width:50%">
+<tr>
+<th style="text-align:center">
+Sample Number
+</th>
+<th>
+Sample mean
+</th>
+</tr>
+<tr>
+<td style="text-align:center">
+1
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:center">
+2
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:center">
+3
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:center">
+4
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:center">
+5
+</td>
+<td>
+</td>
+</tr>
+</table>
+<ol style="list-style-type: lower-alpha;">
+<li>
+Did any of your five simulations give you a sample mean equal to the population mean?
+</li>
+<li>
+Was the sample mean ever equal to the population mean in any of your five samples? If not, how close were your sample means to the true population mean?
+</li>
+</ol>
+</li>
+<li>
+Compare your results from problem 1 and problem 2.
+<ol style="list-style-type: lower-alpha;">
+<li>
+In either case were you able to obtain a sample mean equal to the population mean?
+</li>
+<li>
+Which one had sample means with more variability? What does this indicate about the relationship between the sample size and the distribution of sample means in the context of repeated sampling?
+</li>
+</ol>
+</li>
+</ol>
 </div>
-</div>
-<div id="central-limit-theorem" class="section level2" number="3.3">
-<h2><span class="header-section-number">3.3</span> Central Limit Theorem</h2>
-<p>Example</p>
-<p>We will use the fast food scenario to motivate our sample, but for let’s assume there are only five individuals in the entire population. The monthly spending for those five individuals (rounded to the nearest dollar) is as follows:</p>
+<p>As we’ve seen earlier in this book, we will use upper-case letters to denote random variables, and lower-case letters to denote possible values they can take on. When it comes to the sampling distribution of the mean, <span class="math inline">\(\overline{X}\)</span> is the random variable, which arises from repeated random sampling from the population and then taking a sample mean, and <span class="math inline">\(\overline{x}\)</span> is an observed sample mean we might see. In describing a sampling distribution, we are often interested in the mean and standard deviation - this gives information about typical values the statistic might take on as well as how spread out the distribution is. We refer to the mean of a statistic as the <strong>expected value</strong> and the standard deviation as the <strong>standard error</strong>. For the random variable describing the sample mean, these are denoted as <span class="math inline">\(E(\overline{X})\)</span> and <span class="math inline">\(SE(\overline{X}) = \sqrt{Var(\overline{X})}\)</span>, respectively.</p>
+<p>Let’s return to the fast food scenario to motivate our development, but for now let’s assume there are only five individuals in the entire population. The monthly spending for those five individuals (rounded to the nearest dollar) is as follows:</p>
 <table>
 <thead>
 <tr class="header">
@@ -253,15 +407,15 @@ Definitions
 <p>The population mean can be found by taking the average monthly spending of these five individuals, as they are the only people in this population. This means the population mean is 27.6. Now suppose we are taking samples of three individuals from this population. There are <span class="math inline">\(\binom{5}{3}\)</span> = 10 ways we can sample three people from this population. Since this is a small population, we can enumerate all possible samples, the values we would obtain for the monthly spending in each sample, and then the sample mean monthly fast food spending for each sample:</p>
 <table style="width:100%;">
 <colgroup>
-<col width="39%" />
-<col width="48%" />
-<col width="12%" />
+<col width="37%" />
+<col width="45%" />
+<col width="17%" />
 </colgroup>
 <thead>
 <tr class="header">
 <th align="left">Sample</th>
 <th align="left">Values</th>
-<th align="right"><span class="math inline">\(\bar{x}\)</span></th>
+<th align="right"><span class="math inline">\(\overline{x}\)</span></th>
 </tr>
 </thead>
 <tbody>
@@ -292,7 +446,7 @@ Definitions
 </tr>
 </tbody>
 </table>
-<p>One thing to note is that <em>none</em> of the sample means are actually equal to the population mean. This is often the case! Based on this table, we can construct the sampling distribution of <span class="math inline">\(\bar{X}\)</span> for a sample of size three.</p>
+<p>One thing to note is that <em>none</em> of the sample means are actually equal to the population mean. This is often the case! Based on this table, we can construct the sampling distribution of <span class="math inline">\(\overline{X}\)</span> for a sample of size three.</p>
 <div class="infobox think">
 <p>Why is our sample mean often not equal to the population mean?</p>
 </div>
@@ -305,55 +459,143 @@ Definitions
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">P(<span class="math inline">\(\bar{x}\)</span> = 17.33)</td>
+<td align="left">P(<span class="math inline">\(\overline{x}\)</span> = 17.33)</td>
 <td align="left">0.1</td>
 </tr>
 <tr class="even">
-<td align="left">P(<span class="math inline">\(\bar{x}\)</span> = 22)</td>
+<td align="left">P(<span class="math inline">\(\overline{x}\)</span> = 22)</td>
 <td align="left">0.2</td>
 </tr>
 <tr class="odd">
-<td align="left">P(<span class="math inline">\(\bar{x}\)</span> = 26.67)</td>
+<td align="left">P(<span class="math inline">\(\overline{x}\)</span> = 26.67)</td>
 <td align="left">0.3</td>
 </tr>
 <tr class="even">
-<td align="left">P(<span class="math inline">\(\bar{x}\)</span> = 31.33)</td>
+<td align="left">P(<span class="math inline">\(\overline{x}\)</span> = 31.33)</td>
 <td align="left">0.2</td>
 </tr>
 <tr class="odd">
-<td align="left">P(<span class="math inline">\(\bar{x}\)</span> = 36)</td>
+<td align="left">P(<span class="math inline">\(\overline{x}\)</span> = 36)</td>
 <td align="left">0.2</td>
 </tr>
 </tbody>
 </table>
 <p>With this probability distribution, we can get the expected value of the sampling distribution. Whenever we think about probability, we are thinking about long-run frequencies, so when we think about the expected value, we are thinking about the average sample mean if we were to take repeated samples of size three from this population. The probability distribution indicates that if we took samples of size three from this population over and over again (say 1,000 times), we would end up with 10% with a mean of 17.33, 20% with a mean of 22, 30% with a mean of 26.67; and so on. So the expected value (average) we would observed if we kept taking samples over and over would be:</p>
 <p>(0.1 <span class="math inline">\(\times\)</span> 17.33) + (0.2 <span class="math inline">\(\times\)</span> 22) + (0.3 <span class="math inline">\(\times\)</span> 26.67) + (0.2 <span class="math inline">\(\times\)</span> 31.33) + (0.2 <span class="math inline">\(\times\)</span> 36) = 27.6</p>
-<p>But wait! That is the population mean. This illustrates an extremely powerful property of the sample mean - the expected value of the sample mean (<span class="math inline">\(\bar{X}\)</span>) is equal to the population parameter (<span class="math inline">\(\mu\)</span>)! Because of this, we say that the sample mean is an <strong>unbiased estimator</strong> of the population mean. While we illustrated the property with a small example, this holds regardless of the population or sample size.</p>
-<p>
-<p>Important Formula!</p>
-<p>For <em>any</em> population distribution which can be described by a random variable <span class="math inline">\(X\)</span> with mean <span class="math inline">\(\mu\)</span> and variance <span class="math inline">\(\sigma^2\)</span>, the sample distribution of the mean based on sample of size <span class="math inline">\(n\)</span> (<span class="math inline">\(\bar{X}_n\)</span>) has the following properties:</p>
+<p>But wait! That <em>is</em> the population mean. This illustrates an extremely powerful property of the sample mean - the expected value of the sample mean (<span class="math inline">\(\overline{X}\)</span>) is equal to the population parameter (<span class="math inline">\(\mu\)</span>)! Because of this, we say that the sample mean is an <strong>unbiased estimator</strong> of the population mean. While we illustrated the property with a small example, this holds regardless of the population or sample size.</p>
+<div class="definition-container">
+<div class="definition">
+Definitions
+</div>
+<p><strong>Expected Value: </strong> <em> The mean of a statistic in repeated sampling </em></p>
+<p><strong>Standard Error: </strong> <em> The standard deviation of a statistic (including the mean) in repeated sampling </em></p>
+<p><strong>Unbiased Estimator: </strong> <em> The statistic with an expected value equal to the true population parameter</em></p>
+</div>
+</div>
+<div id="central-limit-theorem" class="section level2" number="3.3">
+<h2><span class="header-section-number">3.3</span> Central Limit Theorem</h2>
+<p>In the last section, we used a toy example to conceptualize repeated sampling and the property of the sample mean being an unbiased estimator. Now we will formalize these properties. For <em>any</em> population distribution which can be described by a random variable <span class="math inline">\(X\)</span> with mean <span class="math inline">\(\mu\)</span> and variance <span class="math inline">\(\sigma^2\)</span>, the sample distribution of the mean based on sample of size <span class="math inline">\(n\)</span> (<span class="math inline">\(\overline{X}_n\)</span>) has the following properties:</p>
 <ol style="list-style-type: decimal">
 <li>The expected value of the sampling distribution is <span class="math inline">\(\mu\)</span>
-<span class="math display">\[E(\bar{X}_n) = \mu\]</span></li>
+<span class="math display">\[E(\overline{X}_n) = \mu\]</span></li>
 <li>The variance of the sampling distribution is
-<span class="math display">\[Var(\bar{X}_n) = \frac{\sigma^2}{n}\]</span></li>
+<span class="math display">\[Var(\overline{X}_n) = \frac{\sigma^2}{n}\]</span></li>
 </ol>
-</p>
-<p>Using these formulas we are able to describe the typical value of the sample mean and how variable the sample mean is in repeated sampling. Notice that the expected value does not depend on the sample size, <span class="math inline">\(n\)</span>, but the variance does. This means regardless of the sample size, the sample mean is an unbiased estimator of the population mean. But, as the sample size increases, the variance decreases, and we get a more precise estimate of the population mean. As we’ve seen in the past, it is more common to talk about the standard deviation than the variance and the standard deviation is the square root of the variance. The quantity <span class="math inline">\(\sqrt{Var(\bar{X}_n)} = \sigma / n\)</span> is primarily called the <strong>standard error</strong> of the mean, and is denoted by <span class="math inline">\(SE(\bar{X}_n)\)</span>. We use the term standard error to make it really clear that it is referencing the sampling distribution of the mean, but all standard errors could be refered to as standard deviations. Conversely, not all standard deviations could be referred to as a standard error - the term is only used in describing the distribution of the sample mean.</p>
-<p>
-<p>Example
-Let <span class="math inline">\(X\)</span> denote the resting heart rate of a randomly selected U.S. adult. Assume the distribution of resting heart rates is approximately normally distributed with mean 70 bpm and standard deviation of 5 bpm. Suppose we sample 50 adults. Let <span class="math inline">\(\bar{X}\)</span> denote the mean resting heart rate of these 50 adults.</p>
-<ol style="list-style-type: decimal">
-<li><p>What is the mean of <span class="math inline">\(\bar{X}\)</span>? (That is, in repeated sampling, what would be the average value of <span class="math inline">\(\bar{X}\)</span>?)</p></li>
-<li><p>What is the standard error of <span class="math inline">\(\bar{X}\)</span></p></li>
-</ol>
-</p>
+<p>Using these formulas we are able to describe the typical value of the sample mean and how variable the sample mean is in repeated sampling. Notice that the expected value does not depend on the sample size, <span class="math inline">\(n\)</span>, but the variance does. This means regardless of the sample size, the sample mean is an unbiased estimator of the population mean. But, as the sample size increases, the variance decreases, and we get a more precise estimate of the population mean. As we’ve seen in the past, it is more common to talk about the standard deviation than the variance and the standard deviation is the square root of the variance. The quantity <span class="math inline">\(\sqrt{Var(\overline{X}_n)} = \sigma / n\)</span> is primarily called the <strong>standard error</strong> of the mean, and is denoted by <span class="math inline">\(SE(\overline{X}_n)\)</span>. We use the term standard error to make it really clear that it is referencing the sampling distribution of the mean, but all standard errors could be referred to as standard deviations. Conversely, not all standard deviations could be referred to as a standard error - the term is only used in describing the distribution of the sample mean.</p>
+<p>In addition to knowing the mean and standard error of the sample mean, we can also describe the <em>distribution</em> of sample means in repeated sampling. As we discussed in the last chapter on probability distributions, a distribution for the sample mean provides us with a way to quantify which sample mean values are likely and which values are unlikely. As it turns out, when we repeatedly sample from a population, and continue to calculate the sample mean from each sample, the distribution of the sample means will be normally distributed. This brings us what is largely considered the “fundamental theorem of statistics”</p>
+<p><strong>Central Limit Theorem</strong></p>
+<p>If the sample size is “large,” the sampling distribution of <span class="math inline">\(\overline{X}\)</span> is approximately normal, regardless of the characteristics of the underlying population.</p>
+<p><span class="math display">\[\overline{X}_n \sim N(\mu, \sigma^2/n)\]</span>
+Generally, we consider a sample to be “large” enough if the sample size, <span class="math inline">\(n \geq 30\)</span>. Because the variance of <span class="math inline">\(\overline{X}\)</span> is inversely related to the sample size, as the <span class="math inline">\(n\)</span> increases, the variance decreases and the distribution becomes more concentrated. This is one of the most important, remarkable, and powerful results in all of statistics. In the real world, we rarely know the underlying population distribution of our data, however, the Central Limit Theorem (CLT) says: we don’t have to!</p>
 <div class="exercise">
 Exercises
+</div>
+<div class="exercise-container">
+<p>The applet below is designed to help your conceptual understanding of the CLT. You can change the underlying population distribution, the size of the samples taken (<span class="math inline">\(n\)</span>), and the number of experiments performed. Each experiment consists of taking a sample of the specified size from the population and calculating the sample mean. The top left panel (blue) shows the underlying population distribution. The top right panel (red) shows the data from the most recent sample, with the sample mean from that specific sample indicated by the dashed black line. The bottom panel (gold) shows us the distribution of sample means from all the experiments, with the observed mean of the sample means indicated by the dashed black line and the true underlying population mean indicated by the solid blue line. Once you select the parameters to the values you want, click “Run Simulation” to tabulate the results.</p>
 </div>
 <!-- frameBorder="0" -->
 <iframe src="https://ph-shiny.iowa.uiowa.edu/ceward/textbook/CLT" width="100%" height="800">
 </iframe>
+<div class="exercise-container">
+<ol>
+<li>
+Set the population distribution to Normal, the sample size to 30, and perform 100 experiments to collect 100 sample means.
+<ol style="list-style-type: lower-alpha;">
+<li>
+Describe the histogram of the the data from the last experiment. Comment on the modality and skew.
+</li>
+<li>
+Describe the histogram of the distribution of sample means from all experiments.
+</li>
+<li>
+What is the range of values observed for the distribution of sample means? How does this compare the the range of values observed in the data from the last experiment?
+</li>
+</ol>
+</li>
+<li>
+Now adjust the sample size to 100. Perform 100 experiments.
+<ol style="list-style-type: lower-alpha;">
+<li>
+What is the range of values observed for the distribution of sample means? How does this compare to the range observed when the sample size was 30?
+</li>
+<li>
+What about the range of values observed in the data from the last experiment - did this change much when the sample size was increased?
+</li>
+<li>
+Play around with various sample sizes. How does changing the sample size effect the spread of the distribution of sample means?
+</li>
+</ol>
+</li>
+<li>
+Return to a sample size of 30, but change the population distribution to be right skewed. Perform 1,000 experiments.
+<ol style="list-style-type: lower-alpha;">
+<li>
+Describe the histogram of the the data from the last experiment. Comment on the modality and skew.
+</li>
+<li>
+Describe the histogram of the distribution of sample means from all experiments. Does it resemble the population distribution?
+</li>
+<li>
+Re-run the simulation using a sample size of 10. How does this effect the distribution of the sample means? How does this compare to what you observed when taking samples of size 10 with a normal population distribution?
+</li>
+</ol>
+</li>
+<li>
+Change the population distribution to be left skewed, set the sample size to 80, and perform 1,000 experiments.
+<ol style="list-style-type: lower-alpha; ">
+<li>
+Describe the histogram of the the data from the last experiment. Comment on the modality and skew.
+</li>
+<li>
+Describe the histogram of the distribution of sample means from all experiments. Does it resemble the population distribution?
+</li>
+<li>
+Run the simulation with these parameters a few times and pay attention to how the mean of the distribution of sample means compares to the population mean. Is the population mean similar or different from the mean of the sample means? What property does this illustrate?
+</li>
+</ol>
+</li>
+<li>
+Change the parameters of the simulations as needed to answer the following true/false questions. Explain your answers.
+<ol style="list-style-type: lower-alpha; ">
+<li>
+CLT tells us that the distribution of data from any experiment will be normally distributed.
+</li>
+<li>
+With a larger sample size, the data from the last experiment will resemble the population distribution.
+</li>
+<li>
+Performing 10 experiments is enough to see the effect of CLT.
+</li>
+<li>
+Regardless of the underlying population distribution and the sample size, the distribution of the sample means will be normally distributed.
+</li>
+<li>
+Increasing the sample size causes the data from a single experiment to look more and more normally distributed.
+</li>
+</ol>
+</li>
+</ol>
+</div>
 
 </div>
 </div>
@@ -362,8 +604,8 @@ Exercises
           </div>
         </div>
       </div>
-<a href="ch5.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="ch7.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="ch5.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
