@@ -24,14 +24,14 @@ bookdown::render_book('index.Rmd', 'bookdown::gitbook')
 
 Welcome! This resource offers an interactive learning experience for introductory biostatistics. This resource was designed with the course BIOS:4120 Introduction to Biostatistics at the Unviersity of Iowa in mind, but could be used in any introductory statistics or biostatistics course. We combine textual explanations and embedded simulation-based Shiny applications, to provide students with an engaging learning resource that offers an intuitive illustration of core statistical concepts. The applications and associated exercises are targeted at *conceptional* understanding, as opposed to calculations.
 
-At this point in time, we provide chapters on:
+At this point in time, we (maybe) provide chapters on:
 
 * Probability (text only)
 * Probability distributions (text and application)
 * Sampling distributions and Central Limit Theorem  (text and application)
 * Confidence intervals  (text and application)
 
-
+All typos and errors contained within this text are intentional with the goal of keeping the reader vigilant
 
 ::: {.infobox .hazard data-latex="hazard"}
 This resource is in a Beta phase
