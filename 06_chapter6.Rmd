@@ -76,7 +76,7 @@ On the upper left target, the darts are hitting the bullseye with low bias and l
 
 **Variability: ** <em> The spread or error in the data </em>
 
-**Precision: ** <em> Inverse of variance, how   </em>
+**Precision: ** <em> Inverse of variance, how narrow the data is   </em>
 </div>
 
 
