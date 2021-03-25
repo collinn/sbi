@@ -147,7 +147,7 @@ Exercises
 <p>The applet below is designed to help you get familiar with some of the important concepts related to confidence intervals. The inputs to the simulation are the sample size, number of experiments, and the confidence level. The simulation proceeds by taking a sample of the specified size and constructing a confidence interval based on that sample with the specified level of confidence. This process is one experiment. Each sample is drawn from the same population. For a specified number of experiments, the sampling and confidence interval construction is repeated either 10, 50, 100, or 1000 times. The plot shows all the confidence intervals constructed from each experiment - the number of intervals shown is equal to the “Number of Experiments.” The true population parameter in this case is 0 (only for simplicity). Intervals are shaded in blue if they cover the true population parameter and red if they do not contain the true parameter. The applet also reports the “observed coverage” from all experiments, this is the proportion of all the intervals shown that did contain the truth. Clicking “Run Simulation” will redo the specified number of experiments using the inputs provided.</p>
 </div>
 <!-- frameBorder="0" -->
-<iframe src="https://ph-shiny.iowa.uiowa.edu/ceward/textbook/confidenceIntervals" width="800" height="750">
+<iframe src="https://ph-shiny.iowa.uiowa.edu/ceward/textbook/confidenceIntervals" width="100%" height="550">
 </iframe>
 <div class="exercise-container">
 <ol>
@@ -258,44 +258,6 @@ If a researcher wants a narrower confidence interval, they should decrease the c
 <p>A great analogy to the concept of hypothesis testing is our judicial system. In court, the legal principle is that everyone is “innocent until proven guilty” and the prosecution must prove that the accused is guilty beyond a reasonable doubt. In many cases, there may not be definitive evidence if the defendant is actually innocent or guilty. But, if the prosecution can show that the likelihood of the accused individual being guilty is high (or equivalently, that the likelihood of the accuwsed individual being innocent is low), then the defendant will be convicted. In hypothesis testing researchers are like the prosecution and must use data to prove that the null hypothesis (current state of knowledge) is false beyond a reasonable doubt. The next several chapters will go through how we can use different types of data to quantify our evidence against the null hypothesis.</p>
 <p>With this set up in mind, we have two possible outcomes of a hypothesis test. Either we conclude that we do not have a lot of evidence against the null hypothesis, i.e. the null hyptohesis looks reasonable, and we <strong>fail to reject the null</strong> <em>or</em> we conclude that we have enough evidence against the null and we <strong>reject the null</strong>. It is extremely important to note here that we NEVER accept the null or accept the alternative. Many people find this annoying because we can never say anything with 100% certainty. But this is exactly the point! Remember that statistics is all about quantifying our uncertainty. Think back to our drug development example. There will never ever ever be a drug that works exactly the same in every person that takes it. People are too variable and many aspects of a person’s life impacts how a drug works in their body. So it would be completely unreasonable to say that a new drug works all the time. However, there can be a drug that improves outcomes for the average person or that this drug is likely to improve outcomes in a randomly selected person who takes it.</p>
 <p>We can create a two by two table for the results of any hypothesis test. In the rows we have the two possible outcomes from our test - fail to reject <span class="math inline">\(H_0\)</span> and reject <span class="math inline">\(H_0\)</span>. In the columns we have the true underlying state of nature - either <span class="math inline">\(H_0\)</span> is true or false.</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:left;">
-</th>
-<th style="text-align:left;">
-<span class="math inline">\(H_0\)</span> true
-</th>
-<th style="text-align:left;">
-<span class="math inline">\(H_0\)</span> false
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left;">
-Fail to reject <span class="math inline">\(H_0\)</span>
-</td>
-<td style="text-align:left;">
-Correct (1 - <span class="math inline">\(\alpha\)</span>)
-</td>
-<td style="text-align:left;">
-Incorrect (<span class="math inline">\(\beta\)</span>)
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Reject <span class="math inline">\(H_0\)</span>
-</td>
-<td style="text-align:left;">
-Incorrect <span class="math inline">\(\alpha\)</span>
-</td>
-<td style="text-align:left;">
-Correct (1 - <span class="math inline">\(\beta\)</span>)
-</td>
-</tr>
-</tbody>
-</table>
 <table class=" lightable-paper" style="font-family: &quot;Arial Narrow&quot;, arial, helvetica, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -345,7 +307,7 @@ Exercises
 <p>The simulation involves replicating the 20 flip experiment 10,000 times. For each experiment, a coin is flipped 20 times and the proportion of heads is calculated. If that proportion exceeds the specified threshold it is counted as “Reject.” If the proportion does not exceed the threshold, that experiment is considered a “Fail to Reject.” The barchart shows the proportion of 10,000 experiments in which the null hypothesis was and was not rejected. Note: Since we are replicating the experiment 10,000 times, we don’t expect the results to change much if the simulation is re-ran. However, you may see small changes in the proportion of rejects/fail to rejects for the same input values.</p>
 </div>
 <!-- frameBorder="0" -->
-<iframe src="https://ph-shiny.iowa.uiowa.edu/ceward/textbook/type12Err" width="800" height="750">
+<iframe src="https://ph-shiny.iowa.uiowa.edu/ceward/textbook/type12Err" width="100%" height="550">
 </iframe>
 <div class="exercise-container">
 <ol>

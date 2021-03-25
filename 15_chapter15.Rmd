@@ -44,7 +44,7 @@ The applet below is designed to help you get familiar with some of the important
 </div>
 
 <!-- frameBorder="0" -->
-<iframe src="https://ph-shiny.iowa.uiowa.edu/ceward/textbook/confidenceIntervals" width = "800" height = "750"> 
+<iframe src="https://ph-shiny.iowa.uiowa.edu/ceward/textbook/confidenceIntervals" width = "100%" height = "550"> 
 </iframe>
 
 <div class="exercise-container">
@@ -128,7 +128,6 @@ col2 <- c('Incorrect ($\\beta$)', 'Correct (1 - $\\beta$)')
 toOutput <- cbind.data.frame(col1, col2)
 colnames(toOutput) <- c("$H_0$ true", '$H_0$ false')
 rownames(toOutput) <- c('Fail to reject $H_0$', 'Reject $H_0$')
-knitr::kable(toOutput, row.names = T, escape = FALSE)
 
 kbl(toOutput) %>%
   kable_paper(full_width = F) %>%
@@ -154,7 +153,7 @@ The simulation involves replicating the 20 flip experiment 10,000 times. For eac
 </div>
 
 <!-- frameBorder="0" -->
-<iframe src="https://ph-shiny.iowa.uiowa.edu/ceward/textbook/type12Err" width = "800" height = "750"> 
+<iframe src="https://ph-shiny.iowa.uiowa.edu/ceward/textbook/type12Err" width = "100%" height = "550"> 
 </iframe>
 
 <div class="exercise-container">
