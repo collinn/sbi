@@ -4,6 +4,10 @@ output: html_document
 
 # Introduction to Inference {#ch7}
 
+```{r, echo = FALSE, warning=F, message=F}
+library(markdown)
+```
+
 > " A useful property of a test of significance is that it exerts a sobering influence on the type of experimenter who jumps to conclusions on scanty data, and who might otherwise try to make everyone excited about some sensational treatment effect that can well be ascribed to the ordinary variation in his experiment." - Gertrude Mary Cox
 
 
@@ -29,10 +33,15 @@ With an interval estimate, we are concerned with **coverage probability**, the p
 
 The mathematical details of constructing a confidence interval depends on the parameter of interest and how the study was designed, and we will see various formulas for constructing confidence intervals throughout the rest of this book. In this chapter, we will focus on conceptual understanding and interpretation. To construct a $100(1 - \alpha)$% confidence interval, we use sample data and sampling distributions as we know that sampling is a random process. For example, the Central Limit Theorem tells us the sampling distribution of the mean is normally distributed and gives us the mean and standard deviation of that distribution. Once we have a normal distribution for which we know the mean and standard deviation, we can calculate probabilistic quantities using software.
 
-It’s extremely important that we remember what is random and what the probability distribution is specifying when we are interpreting confidence intervals. The sampling distribution describes which values of the sample statistic are likely and which are not likely. The random process is drawing a sample. The population parameter is a fixed quantity – we don’t know what it is, but it does not change. Confidence intervals are constructed from the information we do know – the observed data from the sample. Because sampling is a random process and confidence intervals are constructed using the sample data, the confidence interval will vary from sample to sample. However, we formulate confidence intervals mathematically to ensure that the probability that the interval contains the true probability is $1 - \alpha$. And as we’ve seen probabilities are long-run frequencies. So any given confidence interval may or may not cover the true parameter, but in the long run if we take samples over and over and compute a confidence interval based on the data from each sample, we are guaranteed that $100(1 - \alpha)$% of the confidence intervals constructed will cover the truth. This is quite appealing. Let’s explore this concept further by using the following applet.
+It’s extremely important that we remember what is random and what the probability distribution is specifying when we are interpreting confidence intervals. The sampling distribution describes which values of the sample statistic are likely and which are not likely. The random process is drawing a sample. The population parameter is a fixed quantity – we don’t know what it is, but it does not change. Confidence intervals are constructed from the information we do know – the observed data from the sample. Because sampling is a random process and confidence intervals are constructed using the sample data, the confidence interval will vary from sample to sample. However, we formulate confidence intervals mathematically to ensure that the probability that the interval contains the true probability is $1 - \alpha$. And as we’ve seen probabilities are long-run frequencies. So any given confidence interval may or may not cover the true parameter, but in the long run if we take samples over and over and compute a confidence interval based on the data from each sample, we are guaranteed that $100(1 - \alpha)$% of the confidence intervals constructed will cover the truth. This is quite appealing. Lets explore this concept further by using the following applet.
 
 
 <div class="exercise"> Exercises </div>
+<div class="exercise-container">
+
+The applet below is designed to help you get familiar with some of the important concepts related to confidence intervals. The inputs to the simulation are the sample size, number of experiments, and the confidence level. The simulation proceeds by taking a sample of the specified size and constructing a confidence interval based on that sample with the specified level of confidence. This process is one experiment. Each sample is drawn from the same population. For a specified number of experiments, the sampling and confidence interval construction is repeated either 10, 50, 100, or 1000 times. The plot shows all the confidence intervals constructed from each experiment - the number of intervals shown is equal to the "Number of Experiments." The true population parameter in this case is 0 (only for simplicity). Intervals are shaded in blue if they cover the true population parameter and red if they do not contain the true parameter. The applet also reports the "observed coverage" from all experiments, this is the proportion of all the intervals shown that did contain the truth. Clicking "Run Simulation" will redo the specified number of experiments using the inputs provided.
+
+</div>
 
 <!-- frameBorder="0" -->
 <iframe src="https://ph-shiny.iowa.uiowa.edu/ceward/textbook/confidenceIntervals" width = "800" height = "750"> 
@@ -41,26 +50,42 @@ It’s extremely important that we remember what is random and what the probabil
 <div class="exercise-container">
 <ol>
   <li>Set the sample size to 30, the confidence level to 95%,
-      and simulate running 100 experiments and 
-        calculating a confidence interval for each experiment (100 intervals total).</li>
-  <ol list-style-type: lower-latin;>
-  <li>How many intervals contained the true population parameter?
-  <li>What was the observed coverage? What would you expect it to be?
-  <li>Re-run the simulation under the same conditions. What was the observed coverage for the second set of 100 experiments?
+      and simulate running 100 experiments (100 intervals total).
+  <ol style="list-style-type: lower-alpha; ">
+  <li>How many intervals did not contain the true population parameter? In other words, how many red intervals are there? </li>
+  <li>What was the observed coverage? Show how this was computed based on the number of intervals that did/did not contain the truth. </li>
+  <li>Given the specifications use, What would you expect the coverage to be? </li>
+  <li>Re-run the simulation under the same conditions (click "Run Simulation" again). What was the observed coverage for the second set of 100 experiments?</li> 
+  <li>Did you get the same observed coverage for both simulations? What does this indicates about the simulation? </li>
+  <li>Re-run the simulation several times and compare the observed coverage from each run. What do you notice?</li>
   </ol>
-  <li>Keep the confidence level at 95%, but change the sample size to 50. Simulate 100 experiments.</li>
-  <ol type="a">
-  <li>How do the intervals differ from those constructed from experiments using a sample size of 30? What is the observed coverage?
-  <li>Re-run the simulation, now with a sample size of 100. How do these intervals compare to those using sample sizes of 30 or 50?
-  <li>Play around with various sample sizes. How does changing the sample size effect the observed coverage?
+  </li>
+  <li>Keep the confidence level at 95%, but change the sample size to 50. Simulate 100 experiments.
+  <ol style="list-style-type: lower-alpha; ">
+  <li>How do the intervals differ from those constructed from experiments using a sample size of 30?  </li>
+  <li>What is the observed coverage? What would you expect the coverage to be based on the specifications used?</li>
+  <li>Across the 100 confidence intervals shown, how do the widths of the confidence intervals compare? Is there any difference in the confidence interval widths between intervals that do contain the true parameter and those that do not? </li>
+  <li>Now change the sample size to 100. How do these intervals compare to those using sample sizes of 30 or 50? </li>
+  <li>Change the number of experiments to be 1000. Play around with various sample sizes. How does changing the sample size effect the observed coverage? </li>
   </ol>
-  <li>Return to a sample size of 30. Now we will simulate 1000 experiments.</li>
-  <ol type="a">
-  <li>With a confidence level of 95%, what is the observed coverage?
-  <li>Re-run the simulation, now with a sample size of 100. How do these intervals compare to those using sample sizes of 30 or 50?
+  </li>
+  <li>Return to a sample size of 30. Now we will simulate 1000 experiments. Simulating more experiments makes things harder to visualize (we can no longer easily count the intervals that did not contain the truth), but the coverage is more stable when the simulation is re-ran.
+  <ol style="list-style-type: lower-alpha; ">
+  <li>With a confidence level of 95%, what is the observed coverage? </li>
+  <li>Re-run the simulation with a sample size of 100. How do these intervals compare to those using sample sizes of 30 or 50? </li>
   <li>Re-run the simulation using a confidence level of 50%. 
-        How do these intervals compare to those using a confidence level of 95%? What is the observed coverage?
+        How do these intervals compare to those using a confidence level of 95%? What is the observed coverage? </li>
   </ol>
+  </li>
+  <li>Change the parameters of the simulations as needed to answer the following true/false questions. Explain your answers. 
+  <ol style="list-style-type: lower-alpha; ">
+  <li>As the sample size increases, the coverage probability increases.</li>
+  <li>As the confidence level decreases, the width of the confidence intervals decreases,</li>
+  <li>As the sample size increases, the width of the confidence intervals increases.</li>
+  <li>If a researcher wants a narrower confidence interval, they should obtain a larger sample.</li>
+  <li>If a researcher wants a narrower confidence interval, they should decrease the confidence level. </li>
+  </ol>
+  </li>
 </ol>
 </div>
 
@@ -91,88 +116,88 @@ We are really focusing on steps 3-5. In step 3, we construct the "scientific hyp
 
 A great analogy to the concept of hypothesis testing is our judicial system. In court, the legal principle is that everyone is "innocent until proven guilty" and the prosecution must prove that the accused is guilty beyond a reasonable doubt. In many cases, there may not be definitive evidence if the defendant is actually innocent or guilty. But, if the prosecution can show that the likelihood of the accused individual being guilty is high (or equivalently, that the likelihood of the accuwsed individual being innocent is low), then the defendant will be convicted. In hypothesis testing researchers are like the prosecution and must use data to prove that the null hypothesis (current state of knowledge) is false beyond a reasonable doubt. The next several chapters will go through how we can use different types of data to quantify our evidence against the null hypothesis.
 
-With this set up in mind, we have two possible outcomes of a hypothesis test. Either we conclude that we do not have a lot of evidence against the null hypothesis, i.e. the null hyptohesis looks reasonable, and we **fail to reject the null** *or* we conclude that we have enough evidence against the null and we **reject the null**. It is extremely important to note here that we NEVER accept the null or accept the alternative. Many people find this annoying because we can never say anything with 100\% certainty. But this is exactly the point! Remember that statistics is all about quantifying our uncertainty. Think back to our drug development example. There will never ever ever be a drug that works exactly the same in every person that takes it. People are too variable and many aspects of a person's life impacts how a drug works in their body. So it would be completely unreasonable to say that a new drug works all the time. However, there can be a drug that improves outcomes for the average person or that this drug is likely to improve outcomes in a randomly selected person who takes it. I THINK THIS EXAMPLE MIGHT BE STUPID.
+With this set up in mind, we have two possible outcomes of a hypothesis test. Either we conclude that we do not have a lot of evidence against the null hypothesis, i.e. the null hyptohesis looks reasonable, and we **fail to reject the null** *or* we conclude that we have enough evidence against the null and we **reject the null**. It is extremely important to note here that we NEVER accept the null or accept the alternative. Many people find this annoying because we can never say anything with 100\% certainty. But this is exactly the point! Remember that statistics is all about quantifying our uncertainty. Think back to our drug development example. There will never ever ever be a drug that works exactly the same in every person that takes it. People are too variable and many aspects of a person's life impacts how a drug works in their body. So it would be completely unreasonable to say that a new drug works all the time. However, there can be a drug that improves outcomes for the average person or that this drug is likely to improve outcomes in a randomly selected person who takes it.
 
 We can create a two by two table for the results of any hypothesis test. In the rows we have the two possible outcomes from our test - fail to reject $H_0$ and reject $H_0$. In the columns we have the true underlying state of nature - either $H_0$ is true or false. 
 
+```{r, echo = F}
+library(kableExtra)
+col1 <- c('Correct (1 - $\\alpha$)', 'Incorrect $\\alpha$')
+col2 <- c('Incorrect ($\\beta$)', 'Correct (1 - $\\beta$)')
 
+toOutput <- cbind.data.frame(col1, col2)
+colnames(toOutput) <- c("$H_0$ true", '$H_0$ false')
+rownames(toOutput) <- c('Fail to reject $H_0$', 'Reject $H_0$')
+knitr::kable(toOutput, row.names = T, escape = FALSE)
 
-```{=latex}
-\begin{tabular}{|l|c|c|}
-        \hline
-                             & \multicolumn{2}{c|}{True State of Nature}                                                                                                                 \\ \cline{2-3} 
-        Test Result          & $H_0$ True                                                                  & $H_0$ False                                                                 \\ \hline
-        Fail to reject $H_0$ & \begin{tabular}[c]{@{}c@{}}Correct\\ ($1 - \alpha$)\end{tabular}            & \begin{tabular}[c]{@{}c@{}}Incorrect\\ Type II Error ($\beta$)\end{tabular} \\ \hline
-        Reject $H_0$         & \begin{tabular}[c]{@{}c@{}}Incorrect\\ Type I Error ($\alpha$)\end{tabular} & \begin{tabular}[c]{@{}c@{}}Correct\\ $(1 - \beta)$\end{tabular}             \\ \hline
-        \end{tabular}
+kbl(toOutput) %>%
+  kable_paper(full_width = F) %>%
+  column_spec(2, width = "4em") %>%
+  column_spec(3, width = "4em")
 ```
 
-In the upper-left and bottom-right cells of the table we are making the correct decision based on our test. When the null hypothesis is true, failing to reject $H_0$ is the correct decision and when the null hypothesis is false, rejecting $H_0$ is the correct decision. However, the other two cells correspond to a mistake being made. Because statisticians are not creative, these mistakes are referred to as **type 1 error** and **type 2 error**. A type 1 error is equivalent to a false alarm or a false positive - the null hypothesis was rejected, when in fact it was true. A type 2 error can be thought of as a missed opportunity or a false negative - the null hypothesis was false, but it was not rejected. Typically, the type 1 error rate is symbolically denoted with $\alpha$ and the type 2 error rate is denoted by $\beta$ (again statisticians are not creative).
+In the upper-left and bottom-right cells of the table we are making the correct decision based on our test. When the null hypothesis is true, failing to reject $H_0$ is the correct decision and when the null hypothesis is false, rejecting $H_0$ is the correct decision. However, the other two cells correspond to a mistake being made. Because statisticians are not creative, these mistakes are referred to as **type 1 error** and **type 2 error**. A type 1 error is equivalent to a false alarm or a false positive - the null hypothesis was rejected, when in fact it was true. A type 2 error can be thought of as a missed opportunity or a false negative - the null hypothesis was false, but it was not rejected. Typically, the type 1 error rate is symbolically denoted with $\alpha$ and the type 2 error rate is denoted by $\beta$ (again the statisticians of the past were not creative).
 
-If we were looking to create a good hypothesis test, we would want to minimize type 1 and type 2 errors. In other words, if we were to conduct our study over and over again and there was something to be found, we would want to reject the null hypothesis (find something) at a high rate and fail to reject the null hypothesis at a low rate. If there was truly nothing to be found, we wouldn't want to find anything and if there is something to be found we want to find it. However, there is a tradeoff between type 1 and type 2 error. Let us illustrate this point with a simulation.
-
-In this experiment, we are looking to determine if a coin is fair, i.e. the probability of heads is 50\%. A type 1 error in this context would be concluding that the coin is not fair, when it actually is. A type 2 error in this context would be concluding that the coin is fair when it is actually not.
-
-We simulate flipping a coin 20 times, and you can select a cutoff for how far away from 50\% the proportion of heads would need to be for you to not believe that the coin is fair. If the observer proportion of the 20 flips that result in heads is beyond your threshold, the null hypothesis will be rejected. For example, if you choose a threshold of 10\%, then any experiment where there are 60\% or more flips resulting in heads OR 40\% or less flips resulting in heads, then the null hypothesis is rejected and the coin is determined to not be fair.
-
-In our first simulation, the coin is truly fair, i.e. $H_0$ is true, so we want to fail to reject $H_0$. The larger we make our cutoff, the more often we fail to reject when the coin is fair. This is intuitive because we are saying that we need more evidence to reject the null hypothesis.
+If we were looking to create a good hypothesis test, we would want to minimize type 1 and type 2 errors. In other words, if we were to conduct our study over and over again and there was something to be found, we would want to reject the null hypothesis (find something) at a high rate and fail to reject the null hypothesis at a low rate. If there was truly nothing to be found, we wouldn't want to find anything and if there is something to be found we want to find it. However, there is a trade-off between type 1 and type 2 error. Let us illustrate this point with a simulation.
 
 
-```{r}
-flipCoinFair <- function( cutoff) {
-  flipRes <- rbinom(20, 1, 0.5)
-  as.numeric(abs(mean(flipRes) - 0.5) >= cutoff)
-}
+<div class="exercise"> Exercises </div>
+<div class="exercise-container">
 
-tmp <- replicate(1000, flipCoinFair(0.05))
-mean(1-tmp)
+In this experiment, we are looking to determine if a coin is fair, i.e. whether or not the probability of heads is 50%. A type 1 error in this context would be concluding that the coin is not fair, when it actually is. A type 2 error in this context would be concluding that the coin is fair when it is actually not. Each experiment consists of flipping a coin 20 times and observing the proportion of the 20 flips that result in heads. If the coin is fair, we would expect around 10 of the 20 flip to result in heads. However, if we observed 11 or 12 heads in one experiment, would you be convinced the coin isn't fair? What about if you observed 19/20 of the flips resulting in heads?
 
-tmp <- replicate(1000, flipCoinFair(0.1))
-mean(1-tmp)
+This applet allows the user to specify the "Rejection Threshold" to determine the cutoff where the app will reject the null hypothesis. This is specified in terms of how far off the proportion of heads in the experiment is from 50%. Since we have no way to determine if the coin is more prone to heads or tails, we consider this distance in both directions. If the observed proportion of the 20 flips that result in heads is beyond the specified threshold, the null hypothesis will be rejected. For example, if you choose a threshold of 10%, then any experiment where there are 60% (12/20) or more flips resulting in heads **OR** 40% (8/20) or less flips resulting in heads, then the null hypothesis is rejected and the coin is determined to not be fair. 
 
-tmp <- replicate(1000, flipCoinFair(0.3))
-mean(1-tmp)
-```
-
-However, if the coin is actually not fair then we do want to reject the null hypothesis. But increasing our cutoff makes it less likely that we do so.
+The simulation involves replicating the 20 flip experiment 10,000 times. For each experiment, a coin is flipped 20 times and the proportion of heads is calculated. If that proportion exceeds the specified threshold it is counted as "Reject." If the proportion does not exceed the threshold, that experiment is considered a "Fail to Reject." The barchart shows the proportion of 10,000 experiments in which the null hypothesis was and was not rejected. Note: Since we are replicating the experiment 10,000 times, we don't expect the results to change much if the simulation is re-ran. However, you may see small changes in the proportion of rejects/fail to rejects for the same input values. 
 
 
-```{r}
-flipCoinNotFair <- function( cutoff) {
-  flipRes <- rbinom(20, 1, 0.7)
-  as.numeric(abs(mean(flipRes) - 0.5) >= cutoff)
-}
+</div>
 
-tmp <- replicate(1000, flipCoinNotFair(0.05))
-mean(tmp)
+<!-- frameBorder="0" -->
+<iframe src="https://ph-shiny.iowa.uiowa.edu/ceward/textbook/type12Err" width = "800" height = "750"> 
+</iframe>
 
-tmp <- replicate(1000, flipCoinNotFair(0.1))
-mean(tmp)
+<div class="exercise-container">
+<ol>
+  <li>Set the true status of the coin to be fair and start with a threshold of 5%.
+  <ol style="list-style-type: lower-alpha; ">
+  <li>In this setting, if we reject the null hypothesis are we making the correct conclusion or the incorrect conclusion? Explain.</li>
+  <li>At this threshold, how many heads would cause an experiment to reject the null hypothesis</li>
+  <li>At this threshold, what proportion of the experiments resulted in the null hypothesis being rejected?  </li>
+  <li>In terms of $\alpha$ and $\beta$ as described above, which of those two can you specify under these circumstances (i.e., with the true status of the coin being fair and the threshold of 5%)? What is it's value?</li>
+  <li>As the threshold increases, what happens to the proportion of experiments in which the null hypothesis is rejected </li>
+  <li>Did we investigate type 1 or type 2 errors in this problem?</li>
+  </ol>
+  </li>
+  <li>Now change the true status of the coin to be unfair with a 70% chance of heads and set the rejection threshold to 15%.
+  <ol style="list-style-type: lower-alpha; ">
+  <li>In this setting, if we reject the null hypothesis are we making the correct conclusion or the incorrect conclusion? Explain.</li>
+  <li>At this threshold, how many heads would cause an experiment to reject the null hypothesis</li>
+  <li>At this threshold, what proportion of the experiments resulted in the null hypothesis *not* being rejected?  </li>
+  <li>In terms of $\alpha$ and $\beta$ as described above, which of those two can you specify under these circumstances (i.e., with the true status of the coin being fair and the threshold of 5%)? What is it's value?</li>
+  <li>As the threshold increases, what happens to the proportion of experiments in which the null hypothesis is rejected? Explain why. </li>
+  <li>Did we investigate type 1 or type 2 errors in this problem?</li>
+  </ol>
+  </li>
+  <li>Now change the true status of the coin to be unfair with a 20% chance of heads and set the rejection threshold to 20% 
+  <ol style="list-style-type: lower-alpha; ">
+  <li>In this setting, if we reject the null hypothesis are we making the correct conclusion or the incorrect conclusion? Explain.</li>
+  <li>At this threshold, how many heads would cause an experiment to reject the null hypothesis</li>
+  <li>At this threshold, what proportion of the experiments resulted in the null hypothesis *not* being rejected?  </li>
+  <li>In terms of $\alpha$ and $\beta$ as described above, which of those two can you specify under these circumstances (i.e., with the true status of the coin being fair and the threshold of 5%)? What is it's value?</li>
+  <li>As the threshold increases, what happens to the proportion of experiments in which the null hypothesis is rejected?</li>
+  <li>Did we investigate Type 1 or Type 2 errors in this problem?</li>
+  </ol>
+  </li>
+  <li>What can you conclude about the relationship between type 1 and type 2 errors? </li>
+</ol>
+</div>
 
-tmp <- replicate(1000, flipCoinNotFair(0.3))
-mean(tmp)
-```
 
-
-As we have seen, type I and type II errors are not independent. Changing the rejection cutoff to minimize type I errors comes at the cost of more type II errors.
 
 ## P-values { #ch7_s3}
 
 All hypothesis tests are based on quantifying the probability of the study results assuming the null hypothesis is true. This probability is so important that it has a special name, the **p-value**. In technical terms, the p-value gives the probability of obtaining results as extreme or more extreme than the ones observed in the sample, *given* that the null hypothesis is true. A less technical way to describe a p-value is that assuming there is truly nothing going on, what's the chances of obtaining results similar in opposition to the null hypothesis as our study? 
-
-Let's think about this in terms of the coin flipping example. Our null hypothesis is that the coin is fair or, equivalently, that the probability of flipping a heads is 50\%. If our experiment involves flipping a coin 10 times, a p-value would give us the probability of observing a proportion of heads as far away or farther away from 50\% if the coin was truly fair. Clearly, even if we do have a fair coin, there's a decent chance of getting 4/10 or 6/10 heads, but what about the chances of getting 0/10 or 10/10 heads? For this simple example, we can actually plot these probabilities. We also could actually calculate the probabilities using what we've already learned about the binomial distribution, but we will leave those details to a later chapter.
-
-```{r ch7Fig1}
-x1 <- 0:4
-x2 <- 6:10
-prob1 <-  2 * pbinom(x1, 10, 0.5)
-prob2 <- 2 * pbinom(x2 - 1, 10, 0.5, lower.tail = F) 
-plot(x1, prob1, type = 'l', xlim = c(0, 10), 
-     main = 'P-value')
-lines(x2, prob2)
-```
-
-As we can see, and what is hopefully intuitive, the further away our number of heads is, the lower the probability of observing something as extreme or more extreme assuming the coin is truly fair. If we observed 0/10 heads, the p-value is 0.0019. This means if the coin was truly fair, the probability of observing something as extreme or more extreme than 0/10 heads is 0.19%. This is pretty strong evidence that the coin is not fair. By comparison, if we observed 6 heads, the p-value would be 0.7539. If the coin was fair, we have a pretty high chance of observing something as extreme or more extreme than 6 heads - thus we don't have evidence that the coin is not fair.
 
 If we are thinking about hypothesis testing as a court case, p-values are the way that we can quantify the evidence against the defendant. Recall, the prosecution wants to prove beyond a reasonable doubt that the defendant is not innocent. So what does the scientific community consider sufficient evidence? There is a generally agreed-upon scale for interpreting p-values with regards to the strength of evidence that they represent.
 
@@ -196,8 +221,6 @@ A fundamental property of p-values is that if we use $p < \alpha$ as cutoff for 
 
 While p-values are widely used, have a distinct purpose, and can be informative they also have a number of limitations. 
 
-
-DO WE NEED THIS? IS THERE AN APP WE CAN DO ABOUT P_VALUE?
 
 
 
