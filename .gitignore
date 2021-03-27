@@ -1,4 +1,6 @@
 .html
 .Rhistory
+docs/
 docs/**
+.png
 
