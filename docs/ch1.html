@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>1 Introduction | Seriously Interesting Statistics Textbook</title>
+  <meta name="description" content="First template!" />
+  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="1 Introduction | Seriously Interesting Statistics Textbook" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="First template!" />
+  <meta name="github-repo" content="ceward/introTextbook" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="1 Introduction | Seriously Interesting Statistics Textbook" />
+  
+  <meta name="twitter:description" content="First template!" />
+  
+
+<meta name="author" content="Caitlin Ward and Collin ‘C-Money’ Nolte" />
+
+
+<meta name="date" content="2021-01-20" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="index.html"/>
+<link rel="next" href="ch2.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<script src="libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
+<script src="libs/tippyjs-2.5.2/tippy.all.min.js"></script>
+<script src="libs/tippy-binding-0.0.1/tippy.js"></script>
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a><ul>
+<li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#stuff-lifted-that-used-to-be-in-ch2-may-or-may-not-be-useful-still"><i class="fa fa-check"></i><b>0.1</b> Stuff lifted that used to be in ch2 (may or may not be useful still?)</a></li>
+<li class="chapter" data-level="0.2" data-path="index.html"><a href="index.html#shiny-test"><i class="fa fa-check"></i><b>0.2</b> Shiny test</a></li>
+<li class="chapter" data-level="0.3" data-path="index.html"><a href="index.html#regular-ui"><i class="fa fa-check"></i><b>0.3</b> Regular UI</a></li>
+<li class="chapter" data-level="0.4" data-path="index.html"><a href="index.html#editing-text"><i class="fa fa-check"></i><b>0.4</b> Editing text</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="ch1.html"><a href="ch1.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
+<li class="chapter" data-level="1.1" data-path="ch1.html"><a href="ch1.html#ch1_s1"><i class="fa fa-check"></i><b>1.1</b> Evidence-based Research</a></li>
+<li class="chapter" data-level="1.2" data-path="ch1.html"><a href="ch1.html#ch1_s2"><i class="fa fa-check"></i><b>1.2</b> Scientific Method</a></li>
+<li class="chapter" data-level="1.3" data-path="ch1.html"><a href="ch1.html#ch1_s3"><i class="fa fa-check"></i><b>1.3</b> Introduction to Biostatistics</a></li>
+<li class="chapter" data-level="1.4" data-path="ch1.html"><a href="ch1.html#ch1_s4"><i class="fa fa-check"></i><b>1.4</b> Statistical framework</a></li>
+<li class="chapter" data-level="1.5" data-path="ch1.html"><a href="ch1.html#ch1_s5"><i class="fa fa-check"></i><b>1.5</b> What is a simulation?</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="ch2.html"><a href="ch2.html"><i class="fa fa-check"></i><b>2</b> What is Data?</a><ul>
+<li class="chapter" data-level="2.1" data-path="ch2.html"><a href="ch2.html#outline"><i class="fa fa-check"></i><b>2.1</b> Outline</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="ch2.html"><a href="ch2.html#summaries"><i class="fa fa-check"></i><b>2.1.1</b> Summaries</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="ch2.html"><a href="ch2.html#types-of-data"><i class="fa fa-check"></i><b>2.2</b> Types of Data</a></li>
+<li class="chapter" data-level="2.3" data-path="ch2.html"><a href="ch2.html#categorical-data"><i class="fa fa-check"></i><b>2.3</b> Categorical Data</a></li>
+<li class="chapter" data-level="2.4" data-path="ch2.html"><a href="ch2.html#continuous-data"><i class="fa fa-check"></i><b>2.4</b> Continuous data</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="ch2.html"><a href="ch2.html#graphical-summaries"><i class="fa fa-check"></i><b>2.4.1</b> Graphical Summaries</a></li>
+<li class="chapter" data-level="2.4.2" data-path="ch2.html"><a href="ch2.html#numerical-summaries"><i class="fa fa-check"></i><b>2.4.2</b> Numerical Summaries</a></li>
+<li class="chapter" data-level="2.4.3" data-path="ch2.html"><a href="ch2.html#measures-of-spread"><i class="fa fa-check"></i><b>2.4.3</b> Measures of Spread</a></li>
+<li class="chapter" data-level="2.4.4" data-path="ch2.html"><a href="ch2.html#percentiles-and-quartiles"><i class="fa fa-check"></i><b>2.4.4</b> Percentiles and Quartiles</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="ch3.html"><a href="ch3.html"><i class="fa fa-check"></i><b>3</b> Study Design</a><ul>
+<li class="chapter" data-level="3.1" data-path="ch3.html"><a href="ch3.html#all-strawberry-no-rhubarb"><i class="fa fa-check"></i><b>3.1</b> All Strawberry, no Rhubarb</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="ch3.html"><a href="ch3.html#selection-bias"><i class="fa fa-check"></i><b>3.1.1</b> Selection Bias</a></li>
+<li class="chapter" data-level="3.1.2" data-path="ch3.html"><a href="ch3.html#non-response-bias"><i class="fa fa-check"></i><b>3.1.2</b> Non-response Bias</a></li>
+<li class="chapter" data-level="3.1.3" data-path="ch3.html"><a href="ch3.html#false-generalization-bias-extrapolation-bias"><i class="fa fa-check"></i><b>3.1.3</b> False Generalization Bias / Extrapolation Bias</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="ch3.html"><a href="ch3.html#asking-the-question"><i class="fa fa-check"></i><b>3.2</b> Asking the Question</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="ch3.html"><a href="ch3.html#confounding"><i class="fa fa-check"></i><b>3.2.1</b> Confounding</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="ch4.html"><a href="ch4.html"><i class="fa fa-check"></i><b>4</b> Probability</a><ul>
+<li class="chapter" data-level="4.1" data-path="ch4.html"><a href="ch4.html#idea"><i class="fa fa-check"></i><b>4.1</b> Idea</a></li>
+<li class="chapter" data-level="4.2" data-path="ch4.html"><a href="ch4.html#ch4_s1"><i class="fa fa-check"></i><b>4.2</b> Understanding Randomness</a></li>
+<li class="chapter" data-level="4.3" data-path="ch4.html"><a href="ch4.html#ch4_s2"><i class="fa fa-check"></i><b>4.3</b> Probability Operations</a></li>
+<li class="chapter" data-level="4.4" data-path="ch4.html"><a href="ch4.html#ch4_s3"><i class="fa fa-check"></i><b>4.4</b> Conditional Probability</a></li>
+<li class="chapter" data-level="4.5" data-path="ch4.html"><a href="ch4.html#ch4_s4"><i class="fa fa-check"></i><b>4.5</b> Probabilities from tables (needs a different example)</a></li>
+<li class="chapter" data-level="4.6" data-path="ch4.html"><a href="ch4.html#ch4_s5"><i class="fa fa-check"></i><b>4.6</b> Bayes’ Rule</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="ch5.html"><a href="ch5.html"><i class="fa fa-check"></i><b>5</b> Probability Distributions</a><ul>
+<li class="chapter" data-level="5.1" data-path="ch5.html"><a href="ch5.html#ch5_s1"><i class="fa fa-check"></i><b>5.1</b> Introduction to Probability Distributions</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="ch5.html"><a href="ch5.html#a-final-note"><i class="fa fa-check"></i><b>5.1.1</b> A final note</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="ch5.html"><a href="ch5.html#ch5_s2"><i class="fa fa-check"></i><b>5.2</b> Binomial Distribution</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="ch5.html"><a href="ch5.html#plot-of-binomial"><i class="fa fa-check"></i><b>5.2.1</b> Plot of Binomial</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="ch5.html"><a href="ch5.html#ch5_s3"><i class="fa fa-check"></i><b>5.3</b> Normal Distribution</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="ch5.html"><a href="ch5.html#plot-for-normal"><i class="fa fa-check"></i><b>5.3.1</b> Plot for Normal</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="ch5.html"><a href="ch5.html#poisson-distribution"><i class="fa fa-check"></i><b>5.4</b> Poisson Distribution</a><ul>
+<li class="chapter" data-level="5.4.1" data-path="ch5.html"><a href="ch5.html#plots-for-poisson"><i class="fa fa-check"></i><b>5.4.1</b> Plots for Poisson</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="ch5.html"><a href="ch5.html#t-distribution"><i class="fa fa-check"></i><b>5.5</b> t Distribution</a><ul>
+<li class="chapter" data-level="5.5.1" data-path="ch5.html"><a href="ch5.html#plot-for-t-distribution"><i class="fa fa-check"></i><b>5.5.1</b> Plot for t distribution</a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="ch5.html"><a href="ch5.html#review-of-distributions"><i class="fa fa-check"></i><b>5.6</b> Review of Distributions</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="ch6.html"><a href="ch6.html"><i class="fa fa-check"></i><b>6</b> Sampling Distributions and the <br/> Central Limit Theorem</a><ul>
+<li class="chapter" data-level="6.1" data-path="ch6.html"><a href="ch6.html#ch6_s1"><i class="fa fa-check"></i><b>6.1</b> Sampling Distributions</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="ch7.html"><a href="ch7.html"><i class="fa fa-check"></i><b>7</b> Introduction to Inference</a><ul>
+<li class="chapter" data-level="7.1" data-path="ch7.html"><a href="ch7.html#ch7_s1"><i class="fa fa-check"></i><b>7.1</b> Confidence Intervals</a></li>
+<li class="chapter" data-level="7.2" data-path="ch7.html"><a href="ch7.html#ch7_s2"><i class="fa fa-check"></i><b>7.2</b> Hypothesis Tests</a></li>
+<li class="chapter" data-level="7.3" data-path="ch7.html"><a href="ch7.html#ch7_s3"><i class="fa fa-check"></i><b>7.3</b> P-values</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="ch8.html"><a href="ch8.html"><i class="fa fa-check"></i><b>8</b> Tests for Means</a><ul>
+<li class="chapter" data-level="8.1" data-path="ch8.html"><a href="ch8.html#ch8_s1"><i class="fa fa-check"></i><b>8.1</b> Steps for hypothesis testing</a><ul>
+<li class="chapter" data-level="8.1.1" data-path="ch8.html"><a href="ch8.html#things-about-the-population"><i class="fa fa-check"></i><b>8.1.1</b> Things about the population</a></li>
+<li class="chapter" data-level="8.1.2" data-path="ch8.html"><a href="ch8.html#things-about-the-sample"><i class="fa fa-check"></i><b>8.1.2</b> Things about the sample</a></li>
+<li class="chapter" data-level="8.1.3" data-path="ch8.html"><a href="ch8.html#making-inference"><i class="fa fa-check"></i><b>8.1.3</b> Making inference</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="ch8.html"><a href="ch8.html#ch8_s2"><i class="fa fa-check"></i><b>8.2</b> Hypothesis test for a mean</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="ch9.html"><a href="ch9.html"><i class="fa fa-check"></i><b>9</b> Non-normal Continuous Data</a></li>
+<li class="chapter" data-level="10" data-path="ch10.html"><a href="ch10.html"><i class="fa fa-check"></i><b>10</b> Categorical Data</a><ul>
+<li class="chapter" data-level="10.1" data-path="ch10.html"><a href="ch10.html#ch10_s1"><i class="fa fa-check"></i><b>10.1</b> One Sample Proportions</a></li>
+<li class="chapter" data-level="10.2" data-path="ch10.html"><a href="ch10.html#ch10_s2"><i class="fa fa-check"></i><b>10.2</b> Two Sample Proportions</a></li>
+<li class="chapter" data-level="10.3" data-path="ch10.html"><a href="ch10.html#ch10_s3"><i class="fa fa-check"></i><b>10.3</b> Contingency Based tests</a></li>
+<li class="chapter" data-level="10.4" data-path="ch10.html"><a href="ch10.html#ch10_s4"><i class="fa fa-check"></i><b>10.4</b> Paired Categorical Data</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="ch11.html"><a href="ch11.html"><i class="fa fa-check"></i><b>11</b> Correlation and Regression</a></li>
+<li class="chapter" data-level="12" data-path="ch12.html"><a href="ch12.html"><i class="fa fa-check"></i><b>12</b> Introduction to Simulations</a><ul>
+<li class="chapter" data-level="12.1" data-path="ch12.html"><a href="ch12.html#ch12_s1"><i class="fa fa-check"></i><b>12.1</b> What is a simulation?</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="ch13.html"><a href="ch13.html"><i class="fa fa-check"></i><b>13</b> Introduction to Simulations</a><ul>
+<li class="chapter" data-level="13.1" data-path="ch13.html"><a href="ch13.html#ch13_s1"><i class="fa fa-check"></i><b>13.1</b> What is a simulation?</a></li>
+<li class="chapter" data-level="13.2" data-path="ch13.html"><a href="ch13.html#why-simulation"><i class="fa fa-check"></i><b>13.2</b> Why Simulation</a><ul>
+<li class="chapter" data-level="13.2.1" data-path="ch13.html"><a href="ch13.html#non-simulation-methods"><i class="fa fa-check"></i><b>13.2.1</b> Non-simulation Methods</a></li>
+<li class="chapter" data-level="13.2.2" data-path="ch13.html"><a href="ch13.html#simulation-method"><i class="fa fa-check"></i><b>13.2.2</b> Simulation Method</a></li>
+</ul></li>
+<li class="chapter" data-level="13.3" data-path="ch13.html"><a href="ch13.html#chapter-summary"><i class="fa fa-check"></i><b>13.3</b> Chapter Summary</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Seriously Interesting Statistics Textbook</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="ch1" class="section level1">
+<h1><span class="header-section-number">1</span> Introduction</h1>
+<blockquote>
+<p>“Statistics is the grammar of science.” - Karl Pearson</p>
+</blockquote>
+<blockquote>
+<p>“Statistics is, or should be, about scientific investigation and how to do it better, but many statisticians believe it is a branch of mathematics.” - George E. P. Box</p>
+</blockquote>
+<blockquote>
+<p>“So never lose an opportunity of urging a practical beginning, however small, for it is wonderful how often in such matters the mustard-seed germinates and roots itself.” - Florence Nightingale</p>
+</blockquote>
+<blockquote>
+<p>“How very little can be done under the spirit of fear.” - Florence Nightingale</p>
+</blockquote>
+<blockquote>
+<p>“Statistical thinking will one day be as necessary for efficient citizenship as the ability to read and write.” - H.G. Wells</p>
+</blockquote>
+<blockquote>
+<p>“All life is an experiment. The more experiments you make, the better.” - Ralph Waldo Emerson</p>
+</blockquote>
+<blockquote>
+<p>“The best thing about being a statistician is that you get to play in everyone’s backyard.” - John Tukey</p>
+</blockquote>
+<blockquote>
+<p>“‘All models are wrong, but some are useful.’ - George Box” - Joe Cavanaugh</p>
+</blockquote>
+<p>What happens when I add something?</p>
+<p>Look what I did!</p>
+<div class="figure"><span id="fig:example"></span>
+<img src="introTextbookTemplate_files/figure-html/example-1.png" alt="Funky tikz" width="672" />
+<p class="caption">
+Figure 1.1: Funky tikz
+</p>
+</div>
+<p>After index.Rmd, bookdown loads subsequent Rmd files in alphanumeric order, so 01 comes before 02, etc</p>
+<p>Here we have a chapter, we can have sections that are just like standard markdown</p>
+<p style="color:red; border-style:inset; border-color:powderblue">
+I’m not sure how to load css classes yet, but it can’t be that hard
+</p>
+<div id="ch1_s1" class="section level2">
+<h2><span class="header-section-number">1.1</span> Evidence-based Research</h2>
+<p>Dr. Anne Ecdote bases all her decisions off things she’s observed. Dr. Eva Dense bases her practice off well researched studies. Dr. Opi Yon bases his practice off his personal beliefs. You visit each doctor with a headache. Dr. Ecdote says the last person she saw with a headache had a brain tumor, so you should probably get an MRI. Dr. Yon says headaches are a construct of our imagination and that if you would just stop thinking about it, it would go away. Dr. Dense recommends a pain reliever that has been studied in several large clinical trials and repeatdtly shown to be effective at reducing headaches.</p>
+<p>There are many definitions of statistics:
+1) the science of learning from experiences
+2) the science of uncertainty
+To make evidence-based conclusions, we need to collect, process, analyze, and interpret data in order to draw conclusions in an objective manner.</p>
+</div>
+<div id="ch1_s2" class="section level2">
+<h2><span class="header-section-number">1.2</span> Scientific Method</h2>
+<p>In principle, people collect and process information every day of their lives. Since it’s something we do frequently, you might think we would be really good at it…but we’re not. Unfortunately, humans are not natural statisticians. We are not good at picking out patterns from a sea of noisy data. And, on the flip side, we are <em>too good</em> at picking out non-existent patterns from small numbers of observations. We also find it difficult to sort out the effects of multiple factors occurring simultaneously and we are subject to all sorts of biases depending on our personalities, emotions, and past experiences.</p>
+<p>Some examples of these would be good.</p>
+<p>The <strong>scientific method</strong> is the process used to answer scientific questions.</p>
+<ol style="list-style-type: decimal">
+<li>Ask a question</li>
+<li>Do background research</li>
+<li>Construct a hypothesis</li>
+<li>Test your hypothesis with a study or an experiment</li>
+<li>Analyze data and draw conclusions</li>
+<li>How do the results align with your hypothesis?</li>
+<li>Communicate results</li>
+</ol>
+<p>learn more statistics <a href="https://google.com">here</a></p>
+</div>
+<div id="ch1_s3" class="section level2">
+<h2><span class="header-section-number">1.3</span> Introduction to Biostatistics</h2>
+<p>Biostatitsics pertains to statistics as applied to medical, biological, and health sciences. In these fields, we must often make decisions in the presence of uncertainty:</p>
+<ul>
+<li>Which drug should a doctor prescribe to treat an illness?<br />
+</li>
+<li>Can we predict the logevity of the national population to inform government decisions regarding Social Security?<br />
+</li>
+<li>What factors increase the risk of an individual developing coronary heart disease?</li>
+</ul>
+<p>These questions are too important to be left to opinion, superstition, and conjecture. Thus, there has been a tremendous push for objective, <em>evidence-based</em> decision making in medicine, public health, and policy making. Statistics is the science that allows us to make these decisions. Much of statistics was developed in the context of agricultural students, where every aspect of a plant’s life can be controlled. We can create different plots of land, each with a different fertilizer, soil, sun-exposure, water, etc. and plan the same seed in each plot. Studies of humans are quite different. We can’t control every aspect of a person’s life, such as what they eat or where they work (no matter how great it would be for scientific purposes). There are ethical considerations - if we wanted to research the effects of smoking on lung cancer, we would not be able to force people to smoke (or not). Humans are also incredibly diverse and variable, not to mention expensive to perform research upon. Despite these issues, there is a moral imperative to make decisions on potentially life-saving therapies as fast as possible. For these reasons, biostatistics has emerged as an important field within statistics.</p>
+</div>
+<div id="ch1_s4" class="section level2">
+<h2><span class="header-section-number">1.4</span> Statistical framework</h2>
+<p>There are three basic questions in statistics:</p>
+<ol style="list-style-type: decimal">
+<li>How should I collect my data?<br />
+</li>
+<li>How should I describe and summarize the data I’ve collected?</li>
+<li>What does my data tell me about the way the world works?</li>
+</ol>
+<p>Throughout the book, we will cover different ways of analyzing data and making conclusions about the way the world works. Depending on the type of data, there are different methods of analysis.</p>
+<p>In general, scientists use the scientific method to make generalizations about classes of people on the basis of their studies. The class of people that they are trying to make generalizations about is called the <strong>population</strong>. Most of the time, it is impratical and expensive to study all individuals in a population - although the United States government does do the best they can every 10 years. Instead of sampling everyone in the population, or taking a <strong>census</strong>, typically we study only a portion of th the population called the <strong>sample</strong>. In order to determine how best to obtain a sample to answer the research questions, we must be cautious about the <strong>study design</strong>. Then, researchers make generalizations, or <strong>inference</strong>, about the entire population based on studying the sample. We can visualize the statistical framework using this diagram:</p>
+<div class="figure"><span id="fig:statFramework"></span>
+<img src="introTextbookTemplate_files/figure-html/statFramework-1.png" alt="Statistical Framework" width="672" />
+<p class="caption">
+Figure 1.2: Statistical Framework
+</p>
+</div>
+</div>
+<div id="ch1_s5" class="section level2">
+<h2><span class="header-section-number">1.5</span> What is a simulation?</h2>
+<p>Many times in this book, we will illustrate or investigate a concept with a <strong>simulation</strong>. A simulation is a computer generated experiment where the user gets to specify the true mechanism for generating data. For example, we <em>could</em> flip a fair coin over and over again and record whether each flip results in heads or tails. OR, we could tell a computer to simulate a pre-specified number of flips with the probability of heads being 50% and get our results in a fraction of a second.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="ch1.html#cb7-1"></a>flipCoin &lt;-<span class="st"> </span><span class="cf">function</span>(nFlips) {</span>
+<span id="cb7-2"><a href="ch1.html#cb7-2"></a>    dat &lt;-<span class="st"> </span><span class="kw">rbinom</span>(nFlips, <span class="dv">1</span>, <span class="fl">0.5</span>)</span>
+<span id="cb7-3"><a href="ch1.html#cb7-3"></a>    dat &lt;-<span class="st"> </span><span class="kw">ifelse</span>(dat <span class="op">==</span><span class="st"> </span><span class="dv">1</span>, <span class="st">&#39;Heads&#39;</span>, <span class="st">&#39;Tails&#39;</span>)</span>
+<span id="cb7-4"><a href="ch1.html#cb7-4"></a>    dat</span>
+<span id="cb7-5"><a href="ch1.html#cb7-5"></a>}</span>
+<span id="cb7-6"><a href="ch1.html#cb7-6"></a><span class="kw">flipCoin</span>(<span class="dv">5</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;Heads&quot; &quot;Heads&quot; &quot;Tails&quot; &quot;Tails&quot; &quot;Tails&quot;</code></pre>
+<p>Simulations are great tools for understanding the concept of randomness. For example, every time we simulate coin flips using the tool above, we will get a different data set:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="ch1.html#cb9-1"></a><span class="kw">flipCoin</span>(<span class="dv">5</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;Tails&quot; &quot;Tails&quot; &quot;Tails&quot; &quot;Tails&quot; &quot;Tails&quot;</code></pre>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="ch1.html#cb11-1"></a><span class="kw">flipCoin</span>(<span class="dv">5</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;Heads&quot; &quot;Tails&quot; &quot;Tails&quot; &quot;Heads&quot; &quot;Tails&quot;</code></pre>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="ch1.html#cb13-1"></a><span class="kw">flipCoin</span>(<span class="dv">5</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;Tails&quot; &quot;Heads&quot; &quot;Tails&quot; &quot;Tails&quot; &quot;Heads&quot;</code></pre>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="ch1.html#cb15-1"></a><span class="kw">flipCoin</span>(<span class="dv">5</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;Tails&quot; &quot;Heads&quot; &quot;Heads&quot; &quot;Heads&quot; &quot;Tails&quot;</code></pre>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="ch1.html#cb17-1"></a><span class="kw">flipCoin</span>(<span class="dv">5</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;Tails&quot; &quot;Tails&quot; &quot;Tails&quot; &quot;Tails&quot; &quot;Heads&quot;</code></pre>
+<p>This is exactly what happens when scientists conduct a research study. If they were carry out a study in exactly the same way - sampling individuals from the same population and measuring the same quantities, they would get different results every time. This is because while each sample is from the same population, each sample will contain different individuals. Each sample is random!</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="ch2.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
