@@ -134,7 +134,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul class="summary">
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a>
 <ul>
-<li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#acknowledgements"><i class="fa fa-check"></i><b>0.1</b> Acknowledgements</a></li>
+<li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#links-to-unpublished-chapters"><i class="fa fa-check"></i><b>0.1</b> Links to unpublished chapters</a></li>
+<li class="chapter" data-level="0.2" data-path="index.html"><a href="index.html#acknowledgements"><i class="fa fa-check"></i><b>0.2</b> Acknowledgements</a></li>
 </ul></li>
 <li class="chapter" data-level="1" data-path="ch5.html"><a href="ch5.html"><i class="fa fa-check"></i><b>1</b> Probability Distributions</a>
 <ul>
@@ -196,7 +197,7 @@ Learning Objectives
 <h2><span class="header-section-number">1.1</span> Introduction to Probability Distributions</h2>
 <p>Most simply, a <strong>probability distribution</strong> (often just called a distribution) is a method for taking a possible event as input, and giving us the corresponding probability as output. The corresponding probability tells us how likely it is that the specific event will occur, out of all of the possible events. A helpful metaphor is to consider a machine that produces these events at random frequencies corresponding to their associated probabilities. That is, if our machine only creates green marbles and red marbles, and the probability of producing a green marble is 75%, then <em>on average</em>, our machine will make 3 green marbles for each red one. In this sense, we can think of distributions as “data generating mechanisms” - the distributions govern how the machine which generates data works.</p>
 <p>To continue with the machine metaphor, it will be important for us to distinguish between two machines that are completely different, and two machines that are the same but tuned to different settings. These settings, which we call <em>distribution parameters</em>, dictate many aspects of how the machine will generate data, including the range of likely events, how likely these events are to occur, and how much variability we might expect in the events that we observe. To briefly illustrate, we might first consider a <em>normal distribution</em>, which is governed by two parameters: the mean value, <span class="math inline">\(\mu\)</span>, and the amount of variability, <span class="math inline">\(\sigma^2\)</span>. A plot of two normal distributions is given below:</p>
-<p><img src="introTextbookTemplate_files/figure-html/unnamed-chunk-208-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="introTextbookTemplate_files/figure-html/unnamed-chunk-3-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>As we can see, these two curves are quite similar, and indeed, the underlying process that created each of them is the same. What is different, however, are the parameters governing how the data were generated. With this in mind, we have three goals for the present chapter</p>
 <ol style="list-style-type: decimal">
 <li>Understand how a distribution represents a random process that creates data that is then observed</li>
@@ -265,26 +266,26 @@ and the respective probabilities for the number of heads were</p>
 <tbody>
 <tr class="odd">
 <td align="left">0</td>
-<td align="left">1,208/10,000</td>
-<td align="left">0.1208</td>
+<td align="left">1,279/10,000</td>
+<td align="left">0.1279</td>
 <td align="left">0.125</td>
 </tr>
 <tr class="even">
 <td align="left">1</td>
-<td align="left">3,735/10,000</td>
-<td align="left">0.3735</td>
+<td align="left">3,690/10,000</td>
+<td align="left">0.369</td>
 <td align="left">0.375</td>
 </tr>
 <tr class="odd">
 <td align="left">2</td>
-<td align="left">3,810/10,000</td>
-<td align="left">0.381</td>
+<td align="left">3,769/10,000</td>
+<td align="left">0.3769</td>
 <td align="left">0.375</td>
 </tr>
 <tr class="even">
 <td align="left">3</td>
-<td align="left">1,247/10,000</td>
-<td align="left">0.1247</td>
+<td align="left">1,262/10,000</td>
+<td align="left">0.1262</td>
 <td align="left">0.125</td>
 </tr>
 </tbody>
@@ -314,7 +315,7 @@ P(X = x) = \binom{3}{x} (0.5)^x (1-0.5)^{3-x}
 <div id="plotting-the-pmf" class="section level3" number="1.3.1">
 <h3><span class="header-section-number">1.3.1</span> Plotting the PMF</h3>
 <p>It is often useful to create a visual representation of a pmf as well. Doing so quickly gives us an idea of where data tend to aggregate and how the data are dispersed. Below are two plots representing two different sets of parameters for the binomials distribution. What do you notice in how they differ? How are they similar? What impacts do the different parameters have on the distribution of the data?</p>
-<p><img src="introTextbookTemplate_files/figure-html/unnamed-chunk-211-1.png" width="960" style="display: block; margin: auto;" /></p>
+<p><img src="introTextbookTemplate_files/figure-html/unnamed-chunk-6-1.png" width="960" style="display: block; margin: auto;" /></p>
 <p>Of particular note here, we recall from the previous chapter that the sum of all possible probabilities must be equal to one. Visually, this is represented by the total area of the bars in our plot. Given that our bars our rectangles, we can find the area by considering that the width of each bar is equal to 1, and it’s height is given by the probability of <span class="math inline">\(X = x\)</span>, which can be found using the PMF. On the left hand side, for example, from left to right, we have</p>
 <p><span class="math display">\[
 \begin{align}
@@ -326,7 +327,7 @@ P(X = x) = \binom{3}{x} (0.5)^x (1-0.5)^{3-x}
 \end{align}
 \]</span>
 If, say, we are interested in the probability that <span class="math inline">\(X = 2\)</span> or <span class="math inline">\(X = 3\)</span>, we can add the area of the two corresponding bars. In this case, we find <span class="math inline">\(P(X = 2, 3) = 0.75\)</span>.</p>
-<iframe src="https://ph-shiny.iowa.uiowa.edu/collin/textbook/distribution/binomial/" width="100%" height="800">
+<iframe src="https://ph-ivshiny.iowa.uiowa.edu/collin/textbook/distribution/binomial/" width="100%" height="800">
 </iframe>
 <p>[Include binomial app here. See that clicking bars adds to something. Explain changing settings, clicking bars, selecting different things. Come up with exercises below, i.e., prob that even if n = 8, prob if even n = 4, etc.]</p>
 </div>
@@ -348,7 +349,7 @@ If, say, we are interested in the probability that <span class="math inline">\(X
 f(x) = \frac{1}{\sqrt{2\pi \sigma^2}} \ e^{- \frac{(x-\mu)^2}{2\sigma^2}}
 \]</span>
 As we can see, the pdf contains both of the distribution parameters, <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\sigma^2\)</span>. As we saw at the beginning of the chapter, different values for these parameters gives us different curves:</p>
-<p><img src="introTextbookTemplate_files/figure-html/unnamed-chunk-212-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="introTextbookTemplate_files/figure-html/unnamed-chunk-7-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>Of particular interest above, notice how the value of <span class="math inline">\(\mu\)</span> changes where the data are aggregated, and similarly, note how larger values of <span class="math inline">\(\sigma^2\)</span> results in a greater amount of dispersion.</p>
 <p>Let’s now return to the issue of determining the probability of a particular event. In the discrete case, we saw that we could examine the plot of the pmf and multiply the width of each bin (which was equal to 1), with the height of the bin, given by the pmf While the pdf here does indeed give us the “height,” we quickly run into an issue when considering the width: the only way we can have an “infinite” number of bins for each outcome is to assign each bin a width of 0. As such, the probability of any particular event is unintuitively assigned a probability of zero.</p>
 <p>This apparent shortcoming can thankfully be remedied with the tools of calculus. Where discrete observations allow us to take a sum, the analogous case for continuous intervals is satisfied by the use of the integral. As it no longer makes sense to consider the probability of specific events (all of which will be zero), we instead consider the probability that an observation falls within a <em>range</em> of events. For example, if we have a random variable with <span class="math inline">\(X \sim N(\mu, \sigma^2)\)</span>, the probability that <span class="math inline">\(X &gt; 3\)</span> can be written</p>
@@ -361,7 +362,7 @@ P(2 &lt; X &lt; 5) = \int_2^{5} \frac{1}{\sqrt{2\pi \sigma^2}} \ e^{- \frac{(x-\
 \]</span>
 Fortunately for us today, this no longer need be computed by hand. A number of computational resources are able to compute this for us with minimal effort.</p>
 <p>[Using app below, explore different parameter values. Use slider to select a range of probabilities. Note that the area of interest is highlighted. Do exercises with it]</p>
-<iframe src="https://ph-shiny.iowa.uiowa.edu/collin/textbook/distribution/normal/" width="100%" height="800">
+<iframe src="https://ph-ivshiny.iowa.uiowa.edu/collin/textbook/distribution/normal/" width="100%" height="800">
 </iframe>
 <div class="definition-container">
 <div class="definition">
@@ -395,9 +396,9 @@ One surprisingly detail about the Poisson distribution is the relationship betwe
 <div id="plots-for-poisson" class="section level4" number="1.5.1.1">
 <h4><span class="header-section-number">1.5.1.1</span> Plots for Poisson</h4>
 <p>As we look at the plot for the Poisson, we will notice one aspect in particular that distinguishes it from the plots of both the binomial and normal distributions: it is no longer symmetric. This is a consequence of the range of values that a Poisson random variable can take on. Whereas a binomial random variable was bounded between <span class="math inline">\(0\)</span> and <span class="math inline">\(n\)</span>, the number of trials conducted, and where the normal distribution allowed any real number, the Poisson is bounded below by <span class="math inline">\(0\)</span>, while having no theoretical upper bound. Given below is a plot of the distribution with <span class="math inline">\(\lambda = 2\)</span> and <span class="math inline">\(\lambda = 4\)</span> (it’s obvious here that choosing a specific value is inadequate. We can replace these plots with distribution exploration apps)</p>
-<p><img src="introTextbookTemplate_files/figure-html/unnamed-chunk-213-1.png" width="960" style="display: block; margin: auto;" /></p>
+<p><img src="introTextbookTemplate_files/figure-html/unnamed-chunk-8-1.png" width="960" style="display: block; margin: auto;" /></p>
 <p>Just as with the binomial distribution, we can determine the probability of an event or collection of events by determining the area of the bars in our plot. Below is an interactive app to do stuff. Exercises</p>
-<iframe src="https://ph-shiny.iowa.uiowa.edu/collin/textbook/distribution/poisson/" width="100%" height="800">
+<iframe src="https://ph-ivshiny.iowa.uiowa.edu/collin/textbook/distribution/poisson/" width="100%" height="800">
 </iframe>
 
 </div>

@@ -79,7 +79,7 @@ But that's boring and dumb when we can also have Shiny, though a few things of n
 - We can still include the actual directories in our repo, or I think we can embed shiny if it is created as a single document instead of chapters
 - This is dumb, but the shiny.rstudio website stopped hosting all of their shiny examples (?), and everything else is too complicated
 - Oh, I know, we can just use the shiny server for public health!
-- "To protect your security, ph-shiny.iowa.uiowa.edu will not allow Firefox to display the page if another site has embedded it. To see this page, you need to open it in a new window."
+- "To protect your security, ph-ivshiny.iowa.uiowa.edu will not allow Firefox to display the page if another site has embedded it. To see this page, you need to open it in a new window."
 - Here is a way complicated one that takes too long to load. Things I don't like:
   - Small window (maybe can adjust?)
   - Scrolly window
@@ -94,7 +94,7 @@ But that's boring and dumb when we can also have Shiny, though a few things of n
 
 ## Regular UI
 <!-- frameBorder="0" -->
-<iframe src="https://ph-shiny.iowa.uiowa.edu/collin/textbook/confidenceIntervals/" width = "800" height = "750"> 
+<iframe src="https://ph-ivshiny.iowa.uiowa.edu/collin/textbook/confidenceIntervals/" width = "800" height = "750"> 
 </iframe>
 
 ## Editing text

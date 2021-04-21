@@ -155,7 +155,7 @@ $$
 $$
 If, say, we are interested in the probability that $X = 2$ or $X = 3$, we can add the area of the two corresponding bars. In this case, we find $P(X = 2, 3) = 0.75$. 
 
-<iframe src="https://ph-shiny.iowa.uiowa.edu/collin/textbook/distribution/binomial/" width = "100%" height = "800"> 
+<iframe src="https://ph-ivshiny.iowa.uiowa.edu/collin/textbook/distribution/binomial/" width = "100%" height = "800"> 
 </iframe>
 
 [Include binomial app here. See that clicking bars adds to something. Explain changing settings, clicking bars, selecting different things. Come up with exercises below, i.e., prob that even if n = 8, prob if even n = 4, etc.]
@@ -210,7 +210,7 @@ Fortunately for us today, this no longer need be computed by hand. A number of c
 
 [Using app below, explore different parameter values. Use slider to select a range of probabilities. Note that the area of interest is highlighted. Do exercises with it]
 
-<iframe src="https://ph-shiny.iowa.uiowa.edu/collin/textbook/distribution/normal/" width = "100%" height = "800"> 
+<iframe src="https://ph-ivshiny.iowa.uiowa.edu/collin/textbook/distribution/normal/" width = "100%" height = "800"> 
 </iframe>
 
 
@@ -269,7 +269,7 @@ barplot(y, names.arg = x, xlab = 'Number of Events Observed in Interval', ylab =
 Just as with the binomial distribution, we can determine the probability of an event or collection of events by determining the area of the bars in our plot. Below is an interactive app to do stuff. Exercises
 
 
-<iframe src="https://ph-shiny.iowa.uiowa.edu/collin/textbook/distribution/poisson/" width = "100%" height = "800"> 
+<iframe src="https://ph-ivshiny.iowa.uiowa.edu/collin/textbook/distribution/poisson/" width = "100%" height = "800"> 
 </iframe>
 
 

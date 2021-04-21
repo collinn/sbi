@@ -1,6 +1,6 @@
 --- 
 title: "Seriously Interesting Statistics Textbook"
-author: "Caitlin Ward and Collin  Nolte"
+author: "Caitlin Ward and Collin Nolte"
 site: bookdown::bookdown_site
 output: 
   bookdown::gitbook:
@@ -34,6 +34,8 @@ All typos and errors contained within this text are intentional with the goal of
 ::: {.infobox .hazard data-latex="hazard"}
 This resource is in a Beta phase
 :::
+
+
 
 ## Acknowledgements
 

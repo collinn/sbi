@@ -35,7 +35,7 @@ It’s extremely important that we remember what is random and what the probabil
 <div class="exercise"> Exercises </div>
 
 <!-- frameBorder="0" -->
-<iframe src="https://ph-shiny.iowa.uiowa.edu/ceward/textbook/confidenceIntervals" width = "800" height = "750"> 
+<iframe src="https://ph-ivshiny.iowa.uiowa.edu/ceward/textbook/confidenceIntervals" width = "800" height = "750"> 
 </iframe>
 
 <div class="exercise-container">
