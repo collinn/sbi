@@ -134,8 +134,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul class="summary">
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a>
 <ul>
-<li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#links-to-unpublished-chapters"><i class="fa fa-check"></i><b>0.1</b> Links to unpublished chapters</a></li>
-<li class="chapter" data-level="0.2" data-path="index.html"><a href="index.html#acknowledgements"><i class="fa fa-check"></i><b>0.2</b> Acknowledgements</a></li>
+<li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#acknowledgements"><i class="fa fa-check"></i><b>0.1</b> Acknowledgements</a></li>
 </ul></li>
 <li class="chapter" data-level="1" data-path="ch5.html"><a href="ch5.html"><i class="fa fa-check"></i><b>1</b> Probability Distributions</a>
 <ul>
@@ -219,27 +218,47 @@ Learning Objectives
 and the respective probabilities for the number of heads were</p>
 <table>
 <thead>
-<tr class="header">
-<th align="center"># Heads</th>
-<th align="center">Probability</th>
+<tr>
+<th style="text-align:center;">
+# Heads
+</th>
+<th style="text-align:center;">
+Probability
+</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td align="center">0</td>
-<td align="center">1/8</td>
+<tr>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+1/8
+</td>
 </tr>
-<tr class="even">
-<td align="center">1</td>
-<td align="center">3/8</td>
+<tr>
+<td style="text-align:center;">
+1
+</td>
+<td style="text-align:center;">
+3/8
+</td>
 </tr>
-<tr class="odd">
-<td align="center">2</td>
-<td align="center">3/8</td>
+<tr>
+<td style="text-align:center;">
+2
+</td>
+<td style="text-align:center;">
+3/8
+</td>
 </tr>
-<tr class="even">
-<td align="center">3</td>
-<td align="center">1/8</td>
+<tr>
+<td style="text-align:center;">
+3
+</td>
+<td style="text-align:center;">
+1/8
+</td>
 </tr>
 </tbody>
 </table>
@@ -256,37 +275,77 @@ and the respective probabilities for the number of heads were</p>
 <p>Another possibility involves the use of simulation, the justification for which is covered in more detail in another chapter. By simulating this experiment a large number of times, we can determine the relative probabilities by counting the relative frequency of each outcome, which saves us the trouble of having to compute them mathematically. Here, we simulate this experiment <span class="math inline">\(N = 10,000\)</span> times, and record the total number of heads in each experiment, dividing by the total number of experiments to get our desired probability</p>
 <table>
 <thead>
-<tr class="header">
-<th align="left">Number of Heads</th>
-<th align="left">Fraction</th>
-<th align="left">Observed Probability</th>
-<th align="left">True Probability</th>
+<tr>
+<th style="text-align:left;">
+Number of Heads
+</th>
+<th style="text-align:left;">
+Fraction
+</th>
+<th style="text-align:left;">
+Observed Probability
+</th>
+<th style="text-align:left;">
+True Probability
+</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td align="left">0</td>
-<td align="left">1,279/10,000</td>
-<td align="left">0.1279</td>
-<td align="left">0.125</td>
+<tr>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:left;">
+1,162/10,000
+</td>
+<td style="text-align:left;">
+0.1162
+</td>
+<td style="text-align:left;">
+0.125
+</td>
 </tr>
-<tr class="even">
-<td align="left">1</td>
-<td align="left">3,690/10,000</td>
-<td align="left">0.369</td>
-<td align="left">0.375</td>
+<tr>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+3,683/10,000
+</td>
+<td style="text-align:left;">
+0.3683
+</td>
+<td style="text-align:left;">
+0.375
+</td>
 </tr>
-<tr class="odd">
-<td align="left">2</td>
-<td align="left">3,769/10,000</td>
-<td align="left">0.3769</td>
-<td align="left">0.375</td>
+<tr>
+<td style="text-align:left;">
+2
+</td>
+<td style="text-align:left;">
+3,815/10,000
+</td>
+<td style="text-align:left;">
+0.3815
+</td>
+<td style="text-align:left;">
+0.375
+</td>
 </tr>
-<tr class="even">
-<td align="left">3</td>
-<td align="left">1,262/10,000</td>
-<td align="left">0.1262</td>
-<td align="left">0.125</td>
+<tr>
+<td style="text-align:left;">
+3
+</td>
+<td style="text-align:left;">
+1,340/10,000
+</td>
+<td style="text-align:left;">
+0.134
+</td>
+<td style="text-align:left;">
+0.125
+</td>
 </tr>
 </tbody>
 </table>

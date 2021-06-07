@@ -1,6 +1,6 @@
 def:unlabeled-div-1
 def:unlabeled-div-2
-fig:statFramework
+fig:statFramework2
 fig:image-ref-for-in-text2
 def:unlabeled-div-3
 exr:unlabeled-div-4
@@ -8,7 +8,6 @@ def:unlabeled-div-5
 exr:unlabeled-div-6
 exr:unlabeled-div-7
 exr:unlabeled-div-8
-links-to-unpublished-chapters
 acknowledgements
 ch5
 introduction-to-probability-distributions

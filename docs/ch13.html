@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>6 Introduction to Simulations | Seriously Interesting Statistics Textbook</title>
+  <title>12 Introduction to Simulations | Seriously Interesting Statistics Textbook</title>
   <meta name="description" content="First template!" />
-  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="6 Introduction to Simulations | Seriously Interesting Statistics Textbook" />
+  <meta property="og:title" content="12 Introduction to Simulations | Seriously Interesting Statistics Textbook" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="ceward/introTextbook" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="6 Introduction to Simulations | Seriously Interesting Statistics Textbook" />
+  <meta name="twitter:title" content="12 Introduction to Simulations | Seriously Interesting Statistics Textbook" />
   
   <meta name="twitter:description" content="First template!" />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="ch7.html"/>
-
+<link rel="prev" href="ch12.html"/>
+<link rel="next" href="ch14.html"/>
 <script src="libs/header-attrs-2.6/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -50,12 +50,22 @@
 
 
 
+<script src="libs/htmlwidgets-1.5.3/htmlwidgets.js"></script>
+<link href="libs/tippyjs-3.2.0/themes/google.css" rel="stylesheet" />
+<link href="libs/tippyjs-3.2.0/themes/light-border.css" rel="stylesheet" />
+<link href="libs/tippyjs-3.2.0/themes/light.css" rel="stylesheet" />
+<link href="libs/tippyjs-3.2.0/themes/translucent.css" rel="stylesheet" />
+<script src="libs/tippyjs-3.2.0/tippy.all.min.js"></script>
+<script src="libs/tippy-binding-0.1.0/tippy.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
 
 <style type="text/css">
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
@@ -129,61 +139,123 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a></li>
-<li class="chapter" data-level="1" data-path="acknowledgements.html"><a href="acknowledgements.html"><i class="fa fa-check"></i><b>1</b> Acknowledgements</a></li>
-<li class="chapter" data-level="2" data-path="ch4.html"><a href="ch4.html"><i class="fa fa-check"></i><b>2</b> Probability</a>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a>
 <ul>
-<li class="chapter" data-level="2.1" data-path="ch4.html"><a href="ch4.html#ch4_s1"><i class="fa fa-check"></i><b>2.1</b> Understanding Randomness</a></li>
-<li class="chapter" data-level="2.2" data-path="ch4.html"><a href="ch4.html#ch4_s2"><i class="fa fa-check"></i><b>2.2</b> Probability Operations</a></li>
-<li class="chapter" data-level="2.3" data-path="ch4.html"><a href="ch4.html#ch4_s3"><i class="fa fa-check"></i><b>2.3</b> Conditional Probability</a></li>
-<li class="chapter" data-level="2.4" data-path="ch4.html"><a href="ch4.html#ch4_s4"><i class="fa fa-check"></i><b>2.4</b> Probabilities from tables (needs a different example)</a></li>
-<li class="chapter" data-level="2.5" data-path="ch4.html"><a href="ch4.html#ch4_s5"><i class="fa fa-check"></i><b>2.5</b> Bayes’ Rule</a></li>
+<li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#acknowledgements"><i class="fa fa-check"></i><b>0.1</b> Acknowledgements</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="ch5.html"><a href="ch5.html"><i class="fa fa-check"></i><b>3</b> Probability Distributions</a>
+<li class="chapter" data-level="1" data-path="ch1.html"><a href="ch1.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="ch5.html"><a href="ch5.html#ch5_s1"><i class="fa fa-check"></i><b>3.1</b> Introduction to Probability Distributions</a>
-<ul>
-<li class="chapter" data-level="3.1.1" data-path="ch5.html"><a href="ch5.html#a-final-note"><i class="fa fa-check"></i><b>3.1.1</b> A final note</a></li>
+<li class="chapter" data-level="1.1" data-path="ch1.html"><a href="ch1.html#ch1_s1"><i class="fa fa-check"></i><b>1.1</b> Evidence-based Research</a></li>
+<li class="chapter" data-level="1.2" data-path="ch1.html"><a href="ch1.html#ch1_s2"><i class="fa fa-check"></i><b>1.2</b> Scientific Method</a></li>
+<li class="chapter" data-level="1.3" data-path="ch1.html"><a href="ch1.html#ch1_s3"><i class="fa fa-check"></i><b>1.3</b> Introduction to Biostatistics</a></li>
+<li class="chapter" data-level="1.4" data-path="ch1.html"><a href="ch1.html#ch1_s4"><i class="fa fa-check"></i><b>1.4</b> Statistical framework</a></li>
+<li class="chapter" data-level="1.5" data-path="ch1.html"><a href="ch1.html#ch1_s5"><i class="fa fa-check"></i><b>1.5</b> What is a simulation?</a></li>
 </ul></li>
-<li class="chapter" data-level="3.2" data-path="ch5.html"><a href="ch5.html#ch5_s2"><i class="fa fa-check"></i><b>3.2</b> Binomial Distribution</a>
+<li class="chapter" data-level="2" data-path="ch2.html"><a href="ch2.html"><i class="fa fa-check"></i><b>2</b> What is Data?</a>
 <ul>
-<li class="chapter" data-level="3.2.1" data-path="ch5.html"><a href="ch5.html#plot-of-binomial"><i class="fa fa-check"></i><b>3.2.1</b> Plot of Binomial</a></li>
-</ul></li>
-<li class="chapter" data-level="3.3" data-path="ch5.html"><a href="ch5.html#ch5_s3"><i class="fa fa-check"></i><b>3.3</b> Normal Distribution</a>
+<li class="chapter" data-level="2.1" data-path="ch2.html"><a href="ch2.html#outline"><i class="fa fa-check"></i><b>2.1</b> Outline</a>
 <ul>
-<li class="chapter" data-level="3.3.1" data-path="ch5.html"><a href="ch5.html#plot-for-normal"><i class="fa fa-check"></i><b>3.3.1</b> Plot for Normal</a></li>
+<li class="chapter" data-level="2.1.1" data-path="ch2.html"><a href="ch2.html#summaries"><i class="fa fa-check"></i><b>2.1.1</b> Summaries</a></li>
 </ul></li>
-<li class="chapter" data-level="3.4" data-path="ch5.html"><a href="ch5.html#poisson-distribution"><i class="fa fa-check"></i><b>3.4</b> Poisson Distribution</a>
+<li class="chapter" data-level="2.2" data-path="ch2.html"><a href="ch2.html#types-of-data"><i class="fa fa-check"></i><b>2.2</b> Types of Data</a></li>
+<li class="chapter" data-level="2.3" data-path="ch2.html"><a href="ch2.html#categorical-data"><i class="fa fa-check"></i><b>2.3</b> Categorical Data</a></li>
+<li class="chapter" data-level="2.4" data-path="ch2.html"><a href="ch2.html#continuous-data"><i class="fa fa-check"></i><b>2.4</b> Continuous data</a>
 <ul>
-<li class="chapter" data-level="3.4.1" data-path="ch5.html"><a href="ch5.html#plots-for-poisson"><i class="fa fa-check"></i><b>3.4.1</b> Plots for Poisson</a></li>
+<li class="chapter" data-level="2.4.1" data-path="ch2.html"><a href="ch2.html#graphical-summaries"><i class="fa fa-check"></i><b>2.4.1</b> Graphical Summaries</a></li>
+<li class="chapter" data-level="2.4.2" data-path="ch2.html"><a href="ch2.html#numerical-summaries"><i class="fa fa-check"></i><b>2.4.2</b> Numerical Summaries</a></li>
+<li class="chapter" data-level="2.4.3" data-path="ch2.html"><a href="ch2.html#measures-of-spread"><i class="fa fa-check"></i><b>2.4.3</b> Measures of Spread</a></li>
+<li class="chapter" data-level="2.4.4" data-path="ch2.html"><a href="ch2.html#percentiles-and-quartiles"><i class="fa fa-check"></i><b>2.4.4</b> Percentiles and Quartiles</a></li>
 </ul></li>
-<li class="chapter" data-level="3.5" data-path="ch5.html"><a href="ch5.html#t-distribution"><i class="fa fa-check"></i><b>3.5</b> t Distribution</a>
+</ul></li>
+<li class="chapter" data-level="3" data-path="ch3.html"><a href="ch3.html"><i class="fa fa-check"></i><b>3</b> Study Design</a>
 <ul>
-<li class="chapter" data-level="3.5.1" data-path="ch5.html"><a href="ch5.html#plot-for-t-distribution"><i class="fa fa-check"></i><b>3.5.1</b> Plot for t distribution</a></li>
-</ul></li>
-<li class="chapter" data-level="3.6" data-path="ch5.html"><a href="ch5.html#review-of-distributions"><i class="fa fa-check"></i><b>3.6</b> Review of Distributions</a></li>
-</ul></li>
-<li class="chapter" data-level="4" data-path="ch6.html"><a href="ch6.html"><i class="fa fa-check"></i><b>4</b> Sampling Distributions and the <br/> Central Limit Theorem</a>
+<li class="chapter" data-level="3.1" data-path="ch3.html"><a href="ch3.html#all-strawberry-no-rhubarb"><i class="fa fa-check"></i><b>3.1</b> All Strawberry, no Rhubarb</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="index.html"><a href="index.html#introduction"><i class="fa fa-check"></i><b>4.1</b> Introduction</a></li>
-<li class="chapter" data-level="4.2" data-path="ch6.html"><a href="ch6.html#sampling-distributions"><i class="fa fa-check"></i><b>4.2</b> Sampling Distributions</a></li>
-<li class="chapter" data-level="4.3" data-path="ch6.html"><a href="ch6.html#central-limit-theorem"><i class="fa fa-check"></i><b>4.3</b> Central Limit Theorem</a></li>
+<li class="chapter" data-level="3.1.1" data-path="ch3.html"><a href="ch3.html#selection-bias"><i class="fa fa-check"></i><b>3.1.1</b> Selection Bias</a></li>
+<li class="chapter" data-level="3.1.2" data-path="ch3.html"><a href="ch3.html#non-response-bias"><i class="fa fa-check"></i><b>3.1.2</b> Non-response Bias</a></li>
+<li class="chapter" data-level="3.1.3" data-path="ch3.html"><a href="ch3.html#false-generalization-bias-extrapolation-bias"><i class="fa fa-check"></i><b>3.1.3</b> False Generalization Bias / Extrapolation Bias</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="ch7.html"><a href="ch7.html"><i class="fa fa-check"></i><b>5</b> Introduction to Inference</a>
+<li class="chapter" data-level="3.2" data-path="ch3.html"><a href="ch3.html#asking-the-question"><i class="fa fa-check"></i><b>3.2</b> Asking the Question</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="ch7.html"><a href="ch7.html#ch7_s1"><i class="fa fa-check"></i><b>5.1</b> Confidence Intervals</a></li>
-<li class="chapter" data-level="5.2" data-path="ch7.html"><a href="ch7.html#ch7_s2"><i class="fa fa-check"></i><b>5.2</b> Hypothesis Tests</a></li>
-<li class="chapter" data-level="5.3" data-path="ch7.html"><a href="ch7.html#ch7_s3"><i class="fa fa-check"></i><b>5.3</b> P-values</a></li>
+<li class="chapter" data-level="3.2.1" data-path="ch3.html"><a href="ch3.html#confounding"><i class="fa fa-check"></i><b>3.2.1</b> Confounding</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="ch13.html"><a href="ch13.html"><i class="fa fa-check"></i><b>6</b> Introduction to Simulations</a>
-<ul>
-<li class="chapter" data-level="6.1" data-path="ch13.html"><a href="ch13.html#ch13_s1"><i class="fa fa-check"></i><b>6.1</b> What is a simulation?</a></li>
-<li class="chapter" data-level="6.2" data-path="ch13.html"><a href="ch13.html#why-simulation"><i class="fa fa-check"></i><b>6.2</b> Why Simulation</a>
-<ul>
-<li class="chapter" data-level="6.2.1" data-path="ch13.html"><a href="ch13.html#non-simulation-methods"><i class="fa fa-check"></i><b>6.2.1</b> Non-simulation Methods</a></li>
-<li class="chapter" data-level="6.2.2" data-path="ch13.html"><a href="ch13.html#simulation-method"><i class="fa fa-check"></i><b>6.2.2</b> Simulation Method</a></li>
 </ul></li>
-<li class="chapter" data-level="6.3" data-path="ch13.html"><a href="ch13.html#chapter-summary"><i class="fa fa-check"></i><b>6.3</b> Chapter Summary</a></li>
+<li class="chapter" data-level="4" data-path="ch4.html"><a href="ch4.html"><i class="fa fa-check"></i><b>4</b> Probability</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="ch4.html"><a href="ch4.html#ch4_s1"><i class="fa fa-check"></i><b>4.1</b> Understanding Randomness</a></li>
+<li class="chapter" data-level="4.2" data-path="ch4.html"><a href="ch4.html#ch4_s2"><i class="fa fa-check"></i><b>4.2</b> Probability Operations</a></li>
+<li class="chapter" data-level="4.3" data-path="ch4.html"><a href="ch4.html#ch4_s3"><i class="fa fa-check"></i><b>4.3</b> Conditional Probability</a></li>
+<li class="chapter" data-level="4.4" data-path="ch4.html"><a href="ch4.html#ch4_s4"><i class="fa fa-check"></i><b>4.4</b> Probabilities from tables (needs a different example)</a></li>
+<li class="chapter" data-level="4.5" data-path="ch4.html"><a href="ch4.html#ch4_s5"><i class="fa fa-check"></i><b>4.5</b> Bayes’ Rule</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="ch5.html"><a href="ch5.html"><i class="fa fa-check"></i><b>5</b> Probability Distributions</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="ch5.html"><a href="ch5.html#introduction-to-probability-distributions"><i class="fa fa-check"></i><b>5.1</b> Introduction to Probability Distributions</a></li>
+<li class="chapter" data-level="5.2" data-path="ch5.html"><a href="ch5.html#flipping-coins"><i class="fa fa-check"></i><b>5.2</b> Flipping Coins</a></li>
+<li class="chapter" data-level="5.3" data-path="ch5.html"><a href="ch5.html#functional-representation-of-probability-distributions"><i class="fa fa-check"></i><b>5.3</b> Functional Representation of Probability Distributions</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="ch5.html"><a href="ch5.html#plotting-the-pmf"><i class="fa fa-check"></i><b>5.3.1</b> Plotting the PMF</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="ch5.html"><a href="ch5.html#measuring-heights"><i class="fa fa-check"></i><b>5.4</b> Measuring Heights</a></li>
+<li class="chapter" data-level="5.5" data-path="ch5.html"><a href="ch5.html#other-common-distributions"><i class="fa fa-check"></i><b>5.5</b> Other Common Distributions</a>
+<ul>
+<li class="chapter" data-level="5.5.1" data-path="ch5.html"><a href="ch5.html#poisson-distribution"><i class="fa fa-check"></i><b>5.5.1</b> Poisson Distribution</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="ch6.html"><a href="ch6.html"><i class="fa fa-check"></i><b>6</b> Sampling Distributions and the <br/> Central Limit Theorem</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="ch6.html"><a href="ch6.html#introduction-to-sampling"><i class="fa fa-check"></i><b>6.1</b> Introduction to Sampling</a></li>
+<li class="chapter" data-level="6.2" data-path="ch6.html"><a href="ch6.html#sampling-distributions"><i class="fa fa-check"></i><b>6.2</b> Sampling Distributions</a></li>
+<li class="chapter" data-level="6.3" data-path="ch6.html"><a href="ch6.html#central-limit-theorem"><i class="fa fa-check"></i><b>6.3</b> Central Limit Theorem</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="ch8.html"><a href="ch8.html"><i class="fa fa-check"></i><b>7</b> Tests for Means</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="ch8.html"><a href="ch8.html#ch8_s1"><i class="fa fa-check"></i><b>7.1</b> Steps for hypothesis testing</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="ch8.html"><a href="ch8.html#things-about-the-population"><i class="fa fa-check"></i><b>7.1.1</b> Things about the population</a></li>
+<li class="chapter" data-level="7.1.2" data-path="ch8.html"><a href="ch8.html#things-about-the-sample"><i class="fa fa-check"></i><b>7.1.2</b> Things about the sample</a></li>
+<li class="chapter" data-level="7.1.3" data-path="ch8.html"><a href="ch8.html#making-inference"><i class="fa fa-check"></i><b>7.1.3</b> Making inference</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="ch8.html"><a href="ch8.html#ch8_s2"><i class="fa fa-check"></i><b>7.2</b> Hypothesis test for a mean</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="ch9.html"><a href="ch9.html"><i class="fa fa-check"></i><b>8</b> Non-normal Continuous Data</a></li>
+<li class="chapter" data-level="9" data-path="ch10.html"><a href="ch10.html"><i class="fa fa-check"></i><b>9</b> Categorical Data</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="ch10.html"><a href="ch10.html#ch10_s1"><i class="fa fa-check"></i><b>9.1</b> One Sample Proportions</a></li>
+<li class="chapter" data-level="9.2" data-path="ch10.html"><a href="ch10.html#ch10_s2"><i class="fa fa-check"></i><b>9.2</b> Two Sample Proportions</a></li>
+<li class="chapter" data-level="9.3" data-path="ch10.html"><a href="ch10.html#ch10_s3"><i class="fa fa-check"></i><b>9.3</b> Contingency Based tests</a></li>
+<li class="chapter" data-level="9.4" data-path="ch10.html"><a href="ch10.html#ch10_s4"><i class="fa fa-check"></i><b>9.4</b> Paired Categorical Data</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="ch11.html"><a href="ch11.html"><i class="fa fa-check"></i><b>10</b> Correlation and Regression</a></li>
+<li class="chapter" data-level="11" data-path="ch12.html"><a href="ch12.html"><i class="fa fa-check"></i><b>11</b> Introduction to Simulations</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="ch12.html"><a href="ch12.html#ch12_s1"><i class="fa fa-check"></i><b>11.1</b> What is a simulation?</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="ch13.html"><a href="ch13.html"><i class="fa fa-check"></i><b>12</b> Introduction to Simulations</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="ch13.html"><a href="ch13.html#ch13_s1"><i class="fa fa-check"></i><b>12.1</b> What is a simulation?</a></li>
+<li class="chapter" data-level="12.2" data-path="ch13.html"><a href="ch13.html#why-simulation"><i class="fa fa-check"></i><b>12.2</b> Why Simulation</a>
+<ul>
+<li class="chapter" data-level="12.2.1" data-path="ch13.html"><a href="ch13.html#non-simulation-methods"><i class="fa fa-check"></i><b>12.2.1</b> Non-simulation Methods</a></li>
+<li class="chapter" data-level="12.2.2" data-path="ch13.html"><a href="ch13.html#simulation-method"><i class="fa fa-check"></i><b>12.2.2</b> Simulation Method</a></li>
+</ul></li>
+<li class="chapter" data-level="12.3" data-path="ch13.html"><a href="ch13.html#chapter-summary"><i class="fa fa-check"></i><b>12.3</b> Chapter Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="ch14.html"><a href="ch14.html"><i class="fa fa-check"></i><b>13</b> Dump Chapter</a></li>
+<li class="chapter" data-level="" data-path="introduction-1.html"><a href="introduction-1.html"><i class="fa fa-check"></i>Introduction</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="introduction-1.html"><a href="introduction-1.html#stuff-lifted-that-used-to-be-in-ch2-may-or-may-not-be-useful-still"><i class="fa fa-check"></i><b>13.1</b> Stuff lifted that used to be in ch2 (may or may not be useful still?)</a></li>
+<li class="chapter" data-level="13.2" data-path="introduction-1.html"><a href="introduction-1.html#shiny-test"><i class="fa fa-check"></i><b>13.2</b> Shiny test</a></li>
+<li class="chapter" data-level="13.3" data-path="introduction-1.html"><a href="introduction-1.html#regular-ui"><i class="fa fa-check"></i><b>13.3</b> Regular UI</a></li>
+<li class="chapter" data-level="13.4" data-path="introduction-1.html"><a href="introduction-1.html#editing-text"><i class="fa fa-check"></i><b>13.4</b> Editing text</a></li>
+<li class="chapter" data-level="13.5" data-path="introduction-1.html"><a href="introduction-1.html#idea"><i class="fa fa-check"></i><b>13.5</b> Idea</a></li>
+<li class="chapter" data-level="13.6" data-path="introduction-1.html"><a href="introduction-1.html#clt-stuff"><i class="fa fa-check"></i><b>13.6</b> CLT Stuff</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="ch7.html"><a href="ch7.html"><i class="fa fa-check"></i><b>14</b> Introduction to Inference</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="ch7.html"><a href="ch7.html#ch7_s1"><i class="fa fa-check"></i><b>14.1</b> Confidence Intervals</a></li>
+<li class="chapter" data-level="14.2" data-path="ch7.html"><a href="ch7.html#ch7_s2"><i class="fa fa-check"></i><b>14.2</b> Hypothesis Tests</a></li>
+<li class="chapter" data-level="14.3" data-path="ch7.html"><a href="ch7.html#ch7_s3"><i class="fa fa-check"></i><b>14.3</b> P-values</a></li>
 </ul></li>
 </ul>
 
@@ -202,8 +274,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="ch13" class="section level1" number="6">
-<h1><span class="header-section-number">6</span> Introduction to Simulations</h1>
+<div id="ch13" class="section level1" number="12">
+<h1><span class="header-section-number">12</span> Introduction to Simulations</h1>
 <div class="objective-container">
 <div class="objectives">
 Learning objectives
@@ -215,31 +287,43 @@ Learning objectives
 <li>Conceptual understanding of randomness and a simulation</li>
 </ol>
 </div>
-<div id="ch13_s1" class="section level2" number="6.1">
-<h2><span class="header-section-number">6.1</span> What is a simulation?</h2>
-<p>Throughout this text, we will be describing simulations in terms of coins and dice. While these examples may be contrived, they do serve to illustrate the components of probability, randomness, and simulation in a way that is free from unnecessary complication. For example, flipping a coin has exactly two outcomes with equal probability. The goal here is not to bore you with unmotivating examples (“When am I ever going to flip 10,000 coins?”), but rather allow the focus of the discussion to be on the conceptual elements – experiments, events, outcomes, and probabilities. Keeping this in mind will help the reader keep their focus on the relevant information, if at the slight expense of [idk it being boring?]</p>
-<p>Prior to the advent of computers, nearly all of statistics were done in an analytic fashion, with the use of concise formulas and tedious calculations. However, with the ubiquity of</p>
-<p>Throughout this text, we will be making heavy use of a tool known as simulation. In the broadest sense, computer simulations allow us to quickly and consistently repeat a random experiment that we might use to form conclusions about a process. Before going into technical details, let’s begin with a simple random experiment that has a single event, the act of flipping a fair coin one time:</p>
+<div id="ch13_s1" class="section level2" number="12.1">
+<h2><span class="header-section-number">12.1</span> What is a simulation?</h2>
+<p>Throughout this text, we will often describe simulations in terms of coins and dice. While these examples may feel contrived, they do serve to illustrate the components of probability, randomness, and simulation in a way that is free from unnecessary complication. For example, flipping a coin has exactly two outcomes with equal probability; the goal here is not to bore you with unmotivating examples (“When am I ever going to flip 10,000 coins?”) but rather to allow the focus of the discussion to be on the conceptual elements – <em>experiments, events, outcomes, and probabilities</em>. Keeping this in mind will help the reader keep narrow center their focus on the relevant information, if at the slight expense of imaginative creativity.</p>
+<p>For most of its history, nearly all of statistics were done in an analytic fashion, with the use of concise formulas and tedious calculation. However, with the ubiquity of modern computers, something something something</p>
+<p>As an aid to our learning, we will be making heavy use of a tool known as simulation. In the broadest sense, computer simulations allow us to quickly and consistently repeat a random experiment that we might use to form conclusions about a process. Before going into technical details, let’s begin with a simple random experiment that has a single event, the act of flipping a fair coin one time:</p>
 <p>[[app]]</p>
-<p>As in a real-life coin flip, we see that we do not get the same result each time. Because we know this is a fair coin, we might say that the probability of landing on heads is 50%, and the probability of landing on tails is 50%. And while we may know for certain that the probability is the same for each outcome, we are no more able to predict what the result of the next flip will be. This is a consequence of <strong>randomness</strong>, where the outcome is uncertain until it is observed. Processes (such as flipping a coin) in which randomness occurs are known as <strong>stochastic processes</strong>. In contrast, a process that is not random is known as <strong>deterministic</strong>, where the outcome of the process is known in advance. An example of a determinsitic process may include writing the numbers 1-10 from largest to smallest.</p>
-<p>Let’s return now to the coin flip simulation, and investigate ways in which we can make our experiment slightly more complex. In the first implementation, we observed a single <strong>event</strong>, or possible outcome, from flipping a coin. Letting <span class="math inline">\(n\)</span> represent the number of events, we would say that this simulation was carried out with <span class="math inline">\(n = 1\)</span>. In the example below, we repeat the simulation above, but this time, we are able to change the value of <span class="math inline">\(n\)</span>:</p>
+<p>(too many colons and semicolons below)</p>
+<p>Because this is a fair coin, we know before we flip it that there is an equal probability of it landing on either heads or tails. Because we are unsure of the outcome before hand, we say that the outcome is <em>random</em> Once the coin is flipped, however, it is either heads <em>or</em> tails; that is, once the result is no longer random, we say that it is <em>observed</em>. This is a subtle but important distinction:</p>
+<p>Processes (such as flipping a coin) in which randomness occurs are known as <strong>stochastic processes</strong>. By contrast, a process that is not random is known as <strong>deterministic</strong>, as the outcome is determined before hand. An example of a determinsitic process may include ordering a collection of numbers from largest to smallest: every time we are given the same collection of numbers, the resulting order will be the same. Our primary interest in this text will be the investigation of statistical processes, aided with the use of simulation.</p>
+<!-- As in a real-life coin flip, we see that we do not get the same result each time. Because we know this is a fair coin, we might say that the probability of landing on heads is 50%, and the probability of landing on tails is 50%. And while we may know for certain that the probability is the same for each outcome, we are no more able to predict what the result of the next flip will be. This is a consequence of **randomness**, where the outcome is uncertain until it is observed. Processes (such as flipping a coin) in which randomness occurs are known as **stochastic processes**. In contrast, a process that is not random is known as **deterministic**, where the outcome of the process is known in advance.  -->
+<p>It’s worth taking a moment here to reflect on the somewhat obvious statement that we have not flipped an actual coin, but have instead performed a <em>computer simulation</em>. There are (three) (more? different things? make part of definition?) components of our experiment that identify it as such (might also break this into parts not unique to simulation in general but coin flip in particular. then we can separate number of flips, number of coins, probability, etc)</p>
+<ol style="list-style-type: decimal">
+<li><p>We specified the possible outcomes and the probability of each outcome occuring. In this case, our outcomes were heads and tails, each with a probability of 50%.</p></li>
+<li><p>We specified the number of coins we wanted to flip, as well as the number of times we wanted to flip them. For this simple example, we elected to flip a single coin one time.</p></li>
+<li><p>We performed this experiment with the aid of a computer.</p></li>
+</ol>
+<p>While (3) may seem a trivial component of our definition, it has two important implications: we were able to exactly specify the criteria in (1) and (2), and we are able to repeat <em>this exact same experiment</em> knowing that the initial set of conditions will remain exactly the same. The utility of this framework, or computer simulation, comes from the fact that we can conduct a random experiment as many times as we wish in the anticipation that by doing so, we can learn something about the behavior of random processes in general.</p>
+<p>Let’s now return to the coin flip simulation and investigate ways in which we can make our experiment slightly more complex. In the first implementation, we observed a single <strong>event</strong>, or observed outcome, resulting from the flip of the coin. Letting <span class="math inline">\(n\)</span> represent the number of total events, we would say that this simulation was carried out with <span class="math inline">\(n = 1\)</span>. In the example below, we repeat the simulation above, but this time we are able to change the value of <span class="math inline">\(n\)</span>:</p>
 <p>[[app]]</p>
 <p>Just as before, while having defined <span class="math inline">\(n\)</span> allows us to control the behavior of the simulation, it does not interfere with the effects of randomness. In other words, each time the simulation is run, a different outcome appears. Values such as <span class="math inline">\(n\)</span> that change the behavior of the simulation are known as <strong>simulation parameters</strong>. We will consider a number of parameters that are commonly used to direct the simulation.</p>
+<p>(this was rewritten above. not sure on appropriate order of concepts and definitions)</p>
 <p>Once an outcome is complete and the coins have been flipped, we say that it is <strong>observed</strong>, or that <em>we have observed the outcome of a random process</em>. Here, it is important to note that an observed outcome is no longer random – once the data have been observed, we know what they are. Data collected through real life experiments, such as testing the efficacy of new drugs, or measuring the height of people in a population, are all observed data. As is often lamented by researchers and statisticians alike, real word experiments can often only be conducted a single time. Once the data is observed, it’s observed. This is in stark contrast to the power of simulations, in which experiments can be conducted and data observed an arbitrary number of times.</p>
 <p>To see this in action here, consider the previous example in which we introduced the simulation parameter <span class="math inline">\(n\)</span>, which allowed us to dictate the number of events, or coin flips, that were done in our experiment. Suppose the experiment that we are interested in involves flipping a coin three times: in this case, we have <span class="math inline">\(n = 3\)</span>. When we ran the simulation above, the experiment was done once, as is often the case in the real world, and we were left with a single collection of <em>observed data</em>. It now makes sense to introduce a new simulation parameter, <span class="math inline">\(N\)</span>, which dictates <em>how many times the experiment is to be done</em>. In this last instance, our simulation was done with <span class="math inline">\(N = 1\)</span>. In the simulation below, we will continue to run the experiment with three coin flips (<span class="math inline">\(n = 3\)</span>), but we will change the number of times <span class="math inline">\(N\)</span> that the experiment is run.</p>
 <p>[[app]]</p>
 <p>It is important to note that the experiment itself is unchanged – just as before, we are continuing to investigate what happens when a coin is flipped <span class="math inline">\(n = 3\)</span> times. By adjusting the value of <span class="math inline">\(N\)</span>, we are now able to perform this same experiment as often as we wish. Even more importantly, one sees that even though the exact same experiment is performed a number of times, the <em>observed</em> values of the experiment are different. This is again a consequence of randomness, and demonstrates that even when we know all of the details of an experiment, the outcome is uncertain until it is observed.</p>
 </div>
-<div id="why-simulation" class="section level2" number="6.2">
-<h2><span class="header-section-number">6.2</span> Why Simulation</h2>
-<p>In the previous section, we learned that a simulation is a random process (of <span class="math inline">\(n\)</span> events) that can be performed an arbitrary number of (<span class="math inline">\(N\)</span>) times. Our next step will be to understand how this process can empower us to better understand key concepts in statistics. This next section will contain a number of terms and concepts that will be formally introduced in later chapters, but for now, will serve to give context to the usefulness of simulations.</p>
+<div id="why-simulation" class="section level2" number="12.2">
+<h2><span class="header-section-number">12.2</span> Why Simulation</h2>
+<p>In the previous section, we learned that a simulation is a random process (of <span class="math inline">\(n\)</span> events) that can be performed an arbitrary number of (<span class="math inline">\(N\)</span>) times. Our next step will be to understand how this process can empower us to better understand key concepts in statistics. The next section will contain a number of terms and concepts that will be formally introduced in later chapters, but for now will serve to give context to the usefulness of simulations.</p>
 <p>We will continue with the experiment above, where we are interested in flipping a fair coin <span class="math inline">\(n = 3\)</span> times. However, along with the experiment, we will also bring a question: if a coin is flipped three times, what is the probability that exactly two of the coins will be heads? Before we attempt answering this via simulation, it will be instructive to consider first the ways we might answer it without.</p>
 <p>[[might be nice to “name” these methods, like pdf method and something else.]]</p>
-<div id="non-simulation-methods" class="section level3" number="6.2.1">
-<h3><span class="header-section-number">6.2.1</span> Non-simulation Methods</h3>
+<div id="non-simulation-methods" class="section level3" number="12.2.1">
+<h3><span class="header-section-number">12.2.1</span> Non-simulation Methods</h3>
+<p>We will start by introducing two non-simulation methods to answer this question, which we will call the <em>enumeration method</em> and the <em>probability function method</em></p>
 <ol type="1">
 <li>
-<p>As <span class="math inline">\(n\)</span> is small enough, we could simply list all of the possible outcomes of this experiment and count how many of these outcomes have exactly two heads. The space of outcomes for this experiment, where the coin is flipped <span class="math inline">\(n = 3\)</span> times, denoted <span class="math inline">\(\mathcal{S}\)</span>, is given by</p>
+<p>Let’s first consider the enumeration method. As <span class="math inline">\(n\)</span> is small enough, we could simply list all of the possible outcomes of this experiment and count how many of these outcomes have exactly two heads. The space of outcomes for this experiment where the coin is flipped <span class="math inline">\(n = 3\)</span> times, denoted <span class="math inline">\(\mathcal{S}\)</span>, is given by</p>
 <p><span class="math display">\[
 \mathcal{S} = \{HHH, HHT, HTH, THH, TTH, THT, HTT, TTT\}
 \]</span>
@@ -247,13 +331,13 @@ where <span class="math inline">\(H\)</span> represents a heads and <span class=
 <span class="math display">\[
 \mathcal{S} = \{HHH, \color{red}{HHT}, \color{red}{HTH}, \color{red}{THH}, TTH, THT, HTT, TTT\}
 \]</span>
-Dividing the events of interest by the total number of outcomes, we see that the probability of getting exactly two heads is <span class="math inline">\(P(\text{# Heads = 2}) = \frac38\)</span>.
+Dividing the events of interest by the total number of outcomes, we see that the probability of getting exactly two heads is <span class="math inline">\(P(\text{# Heads = 2}) = \frac{\text{# Heads = 2}}{\text{# Possible Outcomes}} = \frac38\)</span>.
 </li>
 <br>
 <li>
-<p>Often times, a statistical or stochastic process has an associated <em>probability function</em> that allows us to determine the probability of a set of outcomes. In this case, our coin flipping example follows what is known as a <em>binomial distribution</em>, which is given as</p>
+<p>Often, a statistical or stochastic process has an associated <em>probability function</em> that allows us to determine the probability of a set of outcomes. In this case, our coin flipping example follows what is known as a <em>binomial distribution</em>, which is given as</p>
 <p><span class="math display">\[
-f(k; n,p) = \binom{n}{k}p^k(1-p)^{n-k}
+P(\text{# Heads = k}) = f(k; n,p) = \binom{n}{k}p^k(1-p)^{n-k}
 \]</span>
 with probability of heads being <span class="math inline">\(p = 0.5\)</span>, <span class="math inline">\(n = 3\)</span> total flips, and for our event, <span class="math inline">\(k = 2\)</span> heads. Substituting these numbers, we have</p>
 <span class="math display">\[
@@ -263,31 +347,32 @@ P(\text{# Heads = 2}) &amp;= \binom{3}{2} (0.5)^2 (0.5)^{3-2} \\
 &amp;= 0.375.
 \end{align*}
 \]</span>
-Just as in the first method, we find that <span class="math inline">\(P(\text{# Heads = 2}) = 0.375 = \frac38\)</span>
+Just as in the enumeration method, we find that <span class="math inline">\(P(\text{# Heads = 2}) = 0.375 = \frac38\)</span>
 </li>
 </ol>
 <p>While each of these methods is satisfactory (and mathematically equivalent), there are a number of situations in which they would be impractical to perform:</p>
 <ol style="list-style-type: decimal">
-<li><p>For example, in the first method, we determined the probability by counting the total number of events of interest (getting two heads) and dividing it by the total number of possible outcomes, in this case eight. For <span class="math inline">\(n = 4\)</span>, there are 16 possible outcomes, and for <span class="math inline">\(n = 10\)</span>, this number grows to 1024. In fact, the number of possible outcomes grows exponentially with the number of flips: with only <span class="math inline">\(n = 25\)</span> coin flips, there would be more possible outcomes in our solution space than the number of hours between today and the construction of the Great Pyramid of Giza, c.2580-2560 BC! Clearly, we need a method that is a bit more concise</p></li>
-<li><p>Our second method, determining probability via the probability function, is far and away the most popular method, as the computation is simple and immediate. Unfortunatley, we are limited by the crucial fact that we have to know what the probability function is in order to compute it. For many real life processes, such as flipping coins or estimating the number of phone calls a call center will receive in an hour, this function is readily known. For processes that are less simple, these functions can be nearly impossible to construct, leaving statisticians and researchers with no clear way to determine the probability of events.</p></li>
+<li><p>For example, in the first method, we determined the probability by counting the total number of events of interest (getting two heads) and dividing it by the total number of possible outcomes, in this case eight. For <span class="math inline">\(n = 4\)</span>, there are 16 possible outcomes, and for <span class="math inline">\(n = 10\)</span>, this number grows to 1024. In fact, the number of possible outcomes grows exponentially with the number of flips: with only <span class="math inline">\(n = 25\)</span> coin flips, there would be more possible outcomes in our solution space than the number of hours between today and the construction of the Great Pyramid of Giza, c.2580-2560 BC. Clearly, we need a method that is a bit more concise</p></li>
+<li><p>Our second method, determining probability via the probability function, is far and away the most popular method, as the computation is simple and immediate. Unfortunatley, we are limited by the crucial fact that we have to know what the probability function is in order to compute it. For many real life processes, such as flipping coins or estimating the number of phone calls a call center will receive in an hour, this function is readily known. For processes that are more complex, these functions can be nearly impossible to construct, leaving statisticians and researchers with no clear way to specify the probability of events.</p></li>
 </ol>
 </div>
-<div id="simulation-method" class="section level3" number="6.2.2">
-<h3><span class="header-section-number">6.2.2</span> Simulation Method</h3>
+<div id="simulation-method" class="section level3" number="12.2.2">
+<h3><span class="header-section-number">12.2.2</span> Simulation Method</h3>
 <p>Before moving forward, let’s quickly recap where we are right now:</p>
 <ol style="list-style-type: decimal">
 <li><p>Simulation is a tool that we have, governed by a set of parameters (in our case, <span class="math inline">\(n\)</span> and <span class="math inline">\(N\)</span>), that can be used to replicate a random experiment an arbitrary number of times. Because this process is <em>stochastic</em>, or random, it will give a different outcome each time</p></li>
-<li><p>We have specified an experiment we would like to perform, flipping a fair coin <span class="math inline">\(n = 3\)</span> times, and we would like to know the probability that exactly two of the flips will land on heads</p></li>
-<li><p>We investigated two methods besides simulation for answering this question: enumerating the event space and calculating the probability function. These methods gave identical answers, and will continue to do so each time they are performed: in other words, they are <em>deterministic</em></p></li>
+<li><p>We have specified an experiment we would like to perform, flipping a fair coin <span class="math inline">\(n = 3\)</span> times, and we would like to know the probability that exactly two of the flips will land on heads. Together, these define our experiment and our research question</p></li>
+<li><p>We investigated two methods besides simulation for answering this question: enumerating the event space and calculating the probability function. These methods gave identical answers, and will continue to do so each time they are performed: in other words, they are <em>deterministic</em> methods for determining probability.</p></li>
 <li><p>We saw that even though enumeration and probability functions worked fine for our problem, they can quickly become impractical or even impossible once the problem grows or becomes more complex</p></li>
 </ol>
+<p>[[paragraph below should be moved to later. what we should do first is rediscuss the problem above, do it in the context of simulation, and then verify that asymptotically we get the same answer. not yet sure best way to introduce/order this information]]</p>
 <p>A careful reader might note that for a given random experiment (flipping a coin three times) and a specified outcome (exactly two heads), there is only a single correct answer to the question “What is the probability of getting exactly two heads when flipping a coin three times?” and this correct answer is precisely what was found using the deterministic enumeration and probability function methods. And if this is true, how could we possibly expect simulation, which gives us <em>random</em> outcomes, to give us the same correct result? The answer lies in one of the most profound results in all of statistics, the <strong>law of large numbers</strong>. We will cover this in much greater detail in later chapters, but for now, it suffices to know that the law of larger numbers states: “the average of the probabilities obtained from a large number of trials should be close to the true probability, and will tend to become closer are more trials are performed.” In the context of our problem, we can restate this as “as the number of experiments performed <span class="math inline">\(N\)</span> becomes larger, the average of all the results will get closer and closer to the true result.” Or more clearly still, “our simulation will match determinstic methods when <span class="math inline">\(N = \infty\)</span>.” That’s pretty neat.</p>
 <p>We will end this chapter with a demonstration of the claims made above. Verify that as <span class="math inline">\(N\)</span> increases, the calculated probability from the simulation matches the analytic results made above. In addition, try changing the experiment and the outcome of interest. This can be done by changing the number of flips <span class="math inline">\(n\)</span>, as well as the number of heads we expect to see after <span class="math inline">\(n\)</span> flips.</p>
 <p>[[app]]</p>
 </div>
 </div>
-<div id="chapter-summary" class="section level2" number="6.3">
-<h2><span class="header-section-number">6.3</span> Chapter Summary</h2>
+<div id="chapter-summary" class="section level2" number="12.3">
+<h2><span class="header-section-number">12.3</span> Chapter Summary</h2>
 <p>In this chapter, we introduced a powerful tool known as simulation.</p>
 <ul>
 <li>Randomness describes the phenomenon in which a process may give different outcomes each time it is observed</li>
@@ -295,7 +380,7 @@ Just as in the first method, we find that <span class="math inline">\(P(\text{# 
 <li>A simulation, along with a number of parameters (<span class="math inline">\(n\)</span>, <span class="math inline">\(N\)</span>), can be used to perform the same random experiment an arbitrary number of times</li>
 <li>Probabilities of events can sometimes be computed directly, or with the aid of a probability function. These are <em>deterministic</em> methods of computing probability</li>
 <li>Often, deterministic methods of computing probability are either impractical or outright impossible</li>
-<li>By increasing the size of <span class="math inline">\(N\)</span>, simulations, which are <em>stochastic</em>, can be used as a very close approximation to the true results</li>
+<li>By increasing the size of <span class="math inline">\(N\)</span>, simulations, which are <em>stochastic</em>, can be used as a very close approximation to the true results, thanks to the law of large numbers</li>
 </ul>
 
 </div>
@@ -305,8 +390,8 @@ Just as in the first method, we find that <span class="math inline">\(P(\text{# 
           </div>
         </div>
       </div>
-<a href="ch7.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="ch12.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="ch14.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

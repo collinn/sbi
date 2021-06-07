@@ -25,7 +25,7 @@ A true numeric quantity about the population, here assumed to be the mean, is kn
 The statistical framework (pictured below) allows us to make **inference** about population parameters using sample statistics. This means the researchers can use a random sample of Iowans' monthly fast food spending to make generalizations about the average monthly spending for all Iowans. The numerical quantities of interest can be many different things - means, proportions, standard deviations, etc.In the fast food example, the parameter of interest was a population mean and the sample statistic was the sample mean. In this chapter, we will specifically focusing on estimating means.
 
 
-```{tikz statFramework, fig.cap = "Statistical Framework", fig.ext = 'png', echo = F, fig.align= 'center'}
+```{tikz statFramework2, fig.cap = "Statistical Framework", fig.ext = 'png', echo = F, fig.align= 'center'}
 
 \usetikzlibrary{decorations.pathreplacing,positioning, arrows, shapes, calc,shapes.multipart}
 \tikzstyle{block1} = [rectangle, draw, fill=yellow!20, 

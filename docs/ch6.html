@@ -134,8 +134,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul class="summary">
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a>
 <ul>
-<li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#links-to-unpublished-chapters"><i class="fa fa-check"></i><b>0.1</b> Links to unpublished chapters</a></li>
-<li class="chapter" data-level="0.2" data-path="index.html"><a href="index.html#acknowledgements"><i class="fa fa-check"></i><b>0.2</b> Acknowledgements</a></li>
+<li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#acknowledgements"><i class="fa fa-check"></i><b>0.1</b> Acknowledgements</a></li>
 </ul></li>
 <li class="chapter" data-level="1" data-path="ch5.html"><a href="ch5.html"><i class="fa fa-check"></i><b>1</b> Probability Distributions</a>
 <ul>
@@ -205,8 +204,8 @@ Learning objectives
 <p>Suppose policy makers and public health experts in Iowa are concerned with Iowans’ fast food intake. To understand this further, officials want to determine the average monthly spending on fast food for all Iowans. However, it would be very expensive to have all 3.2 million Iowans track and report their total monthly fast food expenses. Whatsmore, many Iowans would not be willing to share personal financial details with public health researchers or government officials. These are but a few of the challenges making it practically impossible for officials to ever determine the true average spent by Iowans each month on fast food.</p>
 <p>A true numeric quantity about the population, here assumed to be the mean, is known as a <strong>population parameter</strong>. While we may never know the truth, there are still options. The officials can take a sample of Iowans and have those that consent to share their information report their monthly spending on fast food. Then, they can take the sample mean, which gives them an estimate of the average monthly spending on fast food. The sample mean is an example of a <strong>sample statistic</strong>, which is a numerical quantity about the sample. In other words, statistics are what investigators know, and parameters are what investigators want to know.</p>
 <p>The statistical framework (pictured below) allows us to make <strong>inference</strong> about population parameters using sample statistics. This means the researchers can use a random sample of Iowans’ monthly fast food spending to make generalizations about the average monthly spending for all Iowans. The numerical quantities of interest can be many different things - means, proportions, standard deviations, etc.In the fast food example, the parameter of interest was a population mean and the sample statistic was the sample mean. In this chapter, we will specifically focusing on estimating means.</p>
-<div class="figure" style="text-align: center"><span id="fig:statFramework"></span>
-<img src="introTextbookTemplate_files/figure-html/statFramework-1.png" alt="Statistical Framework" width="672" />
+<div class="figure" style="text-align: center"><span id="fig:statFramework2"></span>
+<img src="introTextbookTemplate_files/figure-html/statFramework2-1.png" alt="Statistical Framework" width="672" />
 <p class="caption">
 Figure 2.1: Statistical Framework
 </p>
@@ -381,73 +380,128 @@ Which one had sample means with more variability? What does this indicate about 
 <p>Let’s return to the fast food scenario to motivate our development, but for now let’s assume there are only five individuals in the entire population. The monthly spending for those five individuals (rounded to the nearest dollar) is as follows:</p>
 <table>
 <thead>
-<tr class="header">
-<th align="left">Person</th>
-<th align="left">Monthly Spending</th>
+<tr>
+<th style="text-align:left;">
+Person
+</th>
+<th style="text-align:left;">
+Monthly Spending
+</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td align="left">A</td>
-<td align="left">8</td>
+<tr>
+<td style="text-align:left;">
+A
+</td>
+<td style="text-align:left;">
+8
+</td>
 </tr>
-<tr class="even">
-<td align="left">B</td>
-<td align="left">22</td>
+<tr>
+<td style="text-align:left;">
+B
+</td>
+<td style="text-align:left;">
+22
+</td>
 </tr>
-<tr class="odd">
-<td align="left">C</td>
-<td align="left">22</td>
+<tr>
+<td style="text-align:left;">
+C
+</td>
+<td style="text-align:left;">
+22
+</td>
 </tr>
-<tr class="even">
-<td align="left">D</td>
-<td align="left">36</td>
+<tr>
+<td style="text-align:left;">
+D
+</td>
+<td style="text-align:left;">
+36
+</td>
 </tr>
-<tr class="odd">
-<td align="left">E</td>
-<td align="left">50</td>
+<tr>
+<td style="text-align:left;">
+E
+</td>
+<td style="text-align:left;">
+50
+</td>
 </tr>
 </tbody>
 </table>
 <p>The population mean can be found by taking the average monthly spending of these five individuals, as they are the only people in this population. This means the population mean is 27.6. Now suppose we are taking samples of three individuals from this population. There are <span class="math inline">\(\binom{5}{3}\)</span> = 10 ways we can sample three people from this population. Since this is a small population, we can enumerate all possible samples, the values we would obtain for the monthly spending in each sample, and then the sample mean monthly fast food spending for each sample:</p>
-<table style="width:100%;">
-<colgroup>
-<col width="37%" />
-<col width="45%" />
-<col width="17%" />
-</colgroup>
+<table>
 <thead>
-<tr class="header">
-<th align="left">Sample</th>
-<th align="left">Values</th>
-<th align="right"><span class="math inline">\(\overline{x}\)</span></th>
+<tr>
+<th style="text-align:left;">
+Sample
+</th>
+<th style="text-align:left;">
+Values
+</th>
+<th style="text-align:right;">
+<span class="math inline">\(\overline{x}\)</span>
+</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td align="left">(A, B, C)</td>
-<td align="left">(8, 22, 22)</td>
-<td align="right">17.33</td>
+<tr>
+<td style="text-align:left;">
+(A, B, C)
+</td>
+<td style="text-align:left;">
+(8, 22, 22)
+</td>
+<td style="text-align:right;">
+17.33
+</td>
 </tr>
-<tr class="even">
-<td align="left">(A, B, D), (A, C, D)</td>
-<td align="left">(8, 22, 36), (8, 22, 36)</td>
-<td align="right">22.00</td>
+<tr>
+<td style="text-align:left;">
+(A, B, D), (A, C, D)
+</td>
+<td style="text-align:left;">
+(8, 22, 36), (8, 22, 36)
+</td>
+<td style="text-align:right;">
+22.00
+</td>
 </tr>
-<tr class="odd">
-<td align="left">(A, B, E), (A, C, E), (B, C, D)</td>
-<td align="left">(8, 22, 50), (8, 22, 50), (22, 22, 36)</td>
-<td align="right">22.00</td>
+<tr>
+<td style="text-align:left;">
+(A, B, E), (A, C, E), (B, C, D)
+</td>
+<td style="text-align:left;">
+(8, 22, 50), (8, 22, 50), (22, 22, 36)
+</td>
+<td style="text-align:right;">
+22.00
+</td>
 </tr>
-<tr class="even">
-<td align="left">(A, D, E), (B, C, E)</td>
-<td align="left">(8, 36, 50), (22, 22, 50)</td>
-<td align="right">26.67</td>
+<tr>
+<td style="text-align:left;">
+(A, D, E), (B, C, E)
+</td>
+<td style="text-align:left;">
+(8, 36, 50), (22, 22, 50)
+</td>
+<td style="text-align:right;">
+26.67
+</td>
 </tr>
-<tr class="odd">
-<td align="left">(B, D, E), (C, D, E)</td>
-<td align="left">(22, 36, 50), (22, 36, 50)</td>
-<td align="right">36.00</td>
+<tr>
+<td style="text-align:left;">
+(B, D, E), (C, D, E)
+</td>
+<td style="text-align:left;">
+(22, 36, 50), (22, 36, 50)
+</td>
+<td style="text-align:right;">
+36.00
+</td>
 </tr>
 </tbody>
 </table>
@@ -457,31 +511,54 @@ Which one had sample means with more variability? What does this indicate about 
 </div>
 <table>
 <thead>
-<tr class="header">
-<th align="left"></th>
-<th align="left">Probability</th>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+Probability
+</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td align="left">P(<span class="math inline">\(\overline{x}\)</span> = 17.33)</td>
-<td align="left">0.1</td>
+<tr>
+<td style="text-align:left;">
+P(<span class="math inline">\(\overline{x}\)</span> = 17.33)
+</td>
+<td style="text-align:left;">
+0.1
+</td>
 </tr>
-<tr class="even">
-<td align="left">P(<span class="math inline">\(\overline{x}\)</span> = 22)</td>
-<td align="left">0.2</td>
+<tr>
+<td style="text-align:left;">
+P(<span class="math inline">\(\overline{x}\)</span> = 22)
+</td>
+<td style="text-align:left;">
+0.2
+</td>
 </tr>
-<tr class="odd">
-<td align="left">P(<span class="math inline">\(\overline{x}\)</span> = 26.67)</td>
-<td align="left">0.3</td>
+<tr>
+<td style="text-align:left;">
+P(<span class="math inline">\(\overline{x}\)</span> = 26.67)
+</td>
+<td style="text-align:left;">
+0.3
+</td>
 </tr>
-<tr class="even">
-<td align="left">P(<span class="math inline">\(\overline{x}\)</span> = 31.33)</td>
-<td align="left">0.2</td>
+<tr>
+<td style="text-align:left;">
+P(<span class="math inline">\(\overline{x}\)</span> = 31.33)
+</td>
+<td style="text-align:left;">
+0.2
+</td>
 </tr>
-<tr class="odd">
-<td align="left">P(<span class="math inline">\(\overline{x}\)</span> = 36)</td>
-<td align="left">0.2</td>
+<tr>
+<td style="text-align:left;">
+P(<span class="math inline">\(\overline{x}\)</span> = 36)
+</td>
+<td style="text-align:left;">
+0.2
+</td>
 </tr>
 </tbody>
 </table>

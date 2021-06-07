@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>10 Categorical Data | Seriously Interesting Statistics Textbook</title>
+  <title>9 Categorical Data | Seriously Interesting Statistics Textbook</title>
   <meta name="description" content="First template!" />
-  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="10 Categorical Data | Seriously Interesting Statistics Textbook" />
+  <meta property="og:title" content="9 Categorical Data | Seriously Interesting Statistics Textbook" />
   <meta property="og:type" content="book" />
   
   
@@ -16,15 +16,14 @@
   <meta name="github-repo" content="ceward/introTextbook" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="10 Categorical Data | Seriously Interesting Statistics Textbook" />
+  <meta name="twitter:title" content="9 Categorical Data | Seriously Interesting Statistics Textbook" />
   
   <meta name="twitter:description" content="First template!" />
   
 
-<meta name="author" content="Caitlin Ward and Collin ‘C-Money’ Nolte" />
+<meta name="author" content="Caitlin Ward and Collin Nolte" />
 
 
-<meta name="date" content="2021-01-20" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,6 +32,7 @@
   
 <link rel="prev" href="ch9.html"/>
 <link rel="next" href="ch11.html"/>
+<script src="libs/header-attrs-2.6/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -50,25 +50,30 @@
 
 
 
-<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
-<script src="libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
-<script src="libs/tippyjs-2.5.2/tippy.all.min.js"></script>
-<script src="libs/tippy-binding-0.0.1/tippy.js"></script>
+<script src="libs/htmlwidgets-1.5.3/htmlwidgets.js"></script>
+<link href="libs/tippyjs-3.2.0/themes/google.css" rel="stylesheet" />
+<link href="libs/tippyjs-3.2.0/themes/light-border.css" rel="stylesheet" />
+<link href="libs/tippyjs-3.2.0/themes/light.css" rel="stylesheet" />
+<link href="libs/tippyjs-3.2.0/themes/translucent.css" rel="stylesheet" />
+<script src="libs/tippyjs-3.2.0/tippy.all.min.js"></script>
+<script src="libs/tippy-binding-0.1.0/tippy.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
 
 <style type="text/css">
-code.sourceCode > span { display: inline-block; line-height: 1.25; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-code.sourceCode > span:empty { height: 1.2em; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -88,7 +93,7 @@ pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-le
 div.sourceCode
   {   }
 @media screen {
-code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -134,102 +139,123 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a><ul>
-<li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#stuff-lifted-that-used-to-be-in-ch2-may-or-may-not-be-useful-still"><i class="fa fa-check"></i><b>0.1</b> Stuff lifted that used to be in ch2 (may or may not be useful still?)</a></li>
-<li class="chapter" data-level="0.2" data-path="index.html"><a href="index.html#shiny-test"><i class="fa fa-check"></i><b>0.2</b> Shiny test</a></li>
-<li class="chapter" data-level="0.3" data-path="index.html"><a href="index.html#regular-ui"><i class="fa fa-check"></i><b>0.3</b> Regular UI</a></li>
-<li class="chapter" data-level="0.4" data-path="index.html"><a href="index.html#editing-text"><i class="fa fa-check"></i><b>0.4</b> Editing text</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a>
+<ul>
+<li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#acknowledgements"><i class="fa fa-check"></i><b>0.1</b> Acknowledgements</a></li>
 </ul></li>
-<li class="chapter" data-level="1" data-path="ch1.html"><a href="ch1.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
+<li class="chapter" data-level="1" data-path="ch1.html"><a href="ch1.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
+<ul>
 <li class="chapter" data-level="1.1" data-path="ch1.html"><a href="ch1.html#ch1_s1"><i class="fa fa-check"></i><b>1.1</b> Evidence-based Research</a></li>
 <li class="chapter" data-level="1.2" data-path="ch1.html"><a href="ch1.html#ch1_s2"><i class="fa fa-check"></i><b>1.2</b> Scientific Method</a></li>
 <li class="chapter" data-level="1.3" data-path="ch1.html"><a href="ch1.html#ch1_s3"><i class="fa fa-check"></i><b>1.3</b> Introduction to Biostatistics</a></li>
 <li class="chapter" data-level="1.4" data-path="ch1.html"><a href="ch1.html#ch1_s4"><i class="fa fa-check"></i><b>1.4</b> Statistical framework</a></li>
 <li class="chapter" data-level="1.5" data-path="ch1.html"><a href="ch1.html#ch1_s5"><i class="fa fa-check"></i><b>1.5</b> What is a simulation?</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="ch2.html"><a href="ch2.html"><i class="fa fa-check"></i><b>2</b> What is Data?</a><ul>
-<li class="chapter" data-level="2.1" data-path="ch2.html"><a href="ch2.html#outline"><i class="fa fa-check"></i><b>2.1</b> Outline</a><ul>
+<li class="chapter" data-level="2" data-path="ch2.html"><a href="ch2.html"><i class="fa fa-check"></i><b>2</b> What is Data?</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="ch2.html"><a href="ch2.html#outline"><i class="fa fa-check"></i><b>2.1</b> Outline</a>
+<ul>
 <li class="chapter" data-level="2.1.1" data-path="ch2.html"><a href="ch2.html#summaries"><i class="fa fa-check"></i><b>2.1.1</b> Summaries</a></li>
 </ul></li>
 <li class="chapter" data-level="2.2" data-path="ch2.html"><a href="ch2.html#types-of-data"><i class="fa fa-check"></i><b>2.2</b> Types of Data</a></li>
 <li class="chapter" data-level="2.3" data-path="ch2.html"><a href="ch2.html#categorical-data"><i class="fa fa-check"></i><b>2.3</b> Categorical Data</a></li>
-<li class="chapter" data-level="2.4" data-path="ch2.html"><a href="ch2.html#continuous-data"><i class="fa fa-check"></i><b>2.4</b> Continuous data</a><ul>
+<li class="chapter" data-level="2.4" data-path="ch2.html"><a href="ch2.html#continuous-data"><i class="fa fa-check"></i><b>2.4</b> Continuous data</a>
+<ul>
 <li class="chapter" data-level="2.4.1" data-path="ch2.html"><a href="ch2.html#graphical-summaries"><i class="fa fa-check"></i><b>2.4.1</b> Graphical Summaries</a></li>
 <li class="chapter" data-level="2.4.2" data-path="ch2.html"><a href="ch2.html#numerical-summaries"><i class="fa fa-check"></i><b>2.4.2</b> Numerical Summaries</a></li>
 <li class="chapter" data-level="2.4.3" data-path="ch2.html"><a href="ch2.html#measures-of-spread"><i class="fa fa-check"></i><b>2.4.3</b> Measures of Spread</a></li>
 <li class="chapter" data-level="2.4.4" data-path="ch2.html"><a href="ch2.html#percentiles-and-quartiles"><i class="fa fa-check"></i><b>2.4.4</b> Percentiles and Quartiles</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="ch3.html"><a href="ch3.html"><i class="fa fa-check"></i><b>3</b> Study Design</a><ul>
-<li class="chapter" data-level="3.1" data-path="ch3.html"><a href="ch3.html#all-strawberry-no-rhubarb"><i class="fa fa-check"></i><b>3.1</b> All Strawberry, no Rhubarb</a><ul>
+<li class="chapter" data-level="3" data-path="ch3.html"><a href="ch3.html"><i class="fa fa-check"></i><b>3</b> Study Design</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="ch3.html"><a href="ch3.html#all-strawberry-no-rhubarb"><i class="fa fa-check"></i><b>3.1</b> All Strawberry, no Rhubarb</a>
+<ul>
 <li class="chapter" data-level="3.1.1" data-path="ch3.html"><a href="ch3.html#selection-bias"><i class="fa fa-check"></i><b>3.1.1</b> Selection Bias</a></li>
 <li class="chapter" data-level="3.1.2" data-path="ch3.html"><a href="ch3.html#non-response-bias"><i class="fa fa-check"></i><b>3.1.2</b> Non-response Bias</a></li>
 <li class="chapter" data-level="3.1.3" data-path="ch3.html"><a href="ch3.html#false-generalization-bias-extrapolation-bias"><i class="fa fa-check"></i><b>3.1.3</b> False Generalization Bias / Extrapolation Bias</a></li>
 </ul></li>
-<li class="chapter" data-level="3.2" data-path="ch3.html"><a href="ch3.html#asking-the-question"><i class="fa fa-check"></i><b>3.2</b> Asking the Question</a><ul>
+<li class="chapter" data-level="3.2" data-path="ch3.html"><a href="ch3.html#asking-the-question"><i class="fa fa-check"></i><b>3.2</b> Asking the Question</a>
+<ul>
 <li class="chapter" data-level="3.2.1" data-path="ch3.html"><a href="ch3.html#confounding"><i class="fa fa-check"></i><b>3.2.1</b> Confounding</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="ch4.html"><a href="ch4.html"><i class="fa fa-check"></i><b>4</b> Probability</a><ul>
-<li class="chapter" data-level="4.1" data-path="ch4.html"><a href="ch4.html#idea"><i class="fa fa-check"></i><b>4.1</b> Idea</a></li>
-<li class="chapter" data-level="4.2" data-path="ch4.html"><a href="ch4.html#ch4_s1"><i class="fa fa-check"></i><b>4.2</b> Understanding Randomness</a></li>
-<li class="chapter" data-level="4.3" data-path="ch4.html"><a href="ch4.html#ch4_s2"><i class="fa fa-check"></i><b>4.3</b> Probability Operations</a></li>
-<li class="chapter" data-level="4.4" data-path="ch4.html"><a href="ch4.html#ch4_s3"><i class="fa fa-check"></i><b>4.4</b> Conditional Probability</a></li>
-<li class="chapter" data-level="4.5" data-path="ch4.html"><a href="ch4.html#ch4_s4"><i class="fa fa-check"></i><b>4.5</b> Probabilities from tables (needs a different example)</a></li>
-<li class="chapter" data-level="4.6" data-path="ch4.html"><a href="ch4.html#ch4_s5"><i class="fa fa-check"></i><b>4.6</b> Bayes’ Rule</a></li>
+<li class="chapter" data-level="4" data-path="ch4.html"><a href="ch4.html"><i class="fa fa-check"></i><b>4</b> Probability</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="ch4.html"><a href="ch4.html#ch4_s1"><i class="fa fa-check"></i><b>4.1</b> Understanding Randomness</a></li>
+<li class="chapter" data-level="4.2" data-path="ch4.html"><a href="ch4.html#ch4_s2"><i class="fa fa-check"></i><b>4.2</b> Probability Operations</a></li>
+<li class="chapter" data-level="4.3" data-path="ch4.html"><a href="ch4.html#ch4_s3"><i class="fa fa-check"></i><b>4.3</b> Conditional Probability</a></li>
+<li class="chapter" data-level="4.4" data-path="ch4.html"><a href="ch4.html#ch4_s4"><i class="fa fa-check"></i><b>4.4</b> Probabilities from tables (needs a different example)</a></li>
+<li class="chapter" data-level="4.5" data-path="ch4.html"><a href="ch4.html#ch4_s5"><i class="fa fa-check"></i><b>4.5</b> Bayes’ Rule</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="ch5.html"><a href="ch5.html"><i class="fa fa-check"></i><b>5</b> Probability Distributions</a><ul>
-<li class="chapter" data-level="5.1" data-path="ch5.html"><a href="ch5.html#ch5_s1"><i class="fa fa-check"></i><b>5.1</b> Introduction to Probability Distributions</a><ul>
-<li class="chapter" data-level="5.1.1" data-path="ch5.html"><a href="ch5.html#a-final-note"><i class="fa fa-check"></i><b>5.1.1</b> A final note</a></li>
+<li class="chapter" data-level="5" data-path="ch5.html"><a href="ch5.html"><i class="fa fa-check"></i><b>5</b> Probability Distributions</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="ch5.html"><a href="ch5.html#introduction-to-probability-distributions"><i class="fa fa-check"></i><b>5.1</b> Introduction to Probability Distributions</a></li>
+<li class="chapter" data-level="5.2" data-path="ch5.html"><a href="ch5.html#flipping-coins"><i class="fa fa-check"></i><b>5.2</b> Flipping Coins</a></li>
+<li class="chapter" data-level="5.3" data-path="ch5.html"><a href="ch5.html#functional-representation-of-probability-distributions"><i class="fa fa-check"></i><b>5.3</b> Functional Representation of Probability Distributions</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="ch5.html"><a href="ch5.html#plotting-the-pmf"><i class="fa fa-check"></i><b>5.3.1</b> Plotting the PMF</a></li>
 </ul></li>
-<li class="chapter" data-level="5.2" data-path="ch5.html"><a href="ch5.html#ch5_s2"><i class="fa fa-check"></i><b>5.2</b> Binomial Distribution</a><ul>
-<li class="chapter" data-level="5.2.1" data-path="ch5.html"><a href="ch5.html#plot-of-binomial"><i class="fa fa-check"></i><b>5.2.1</b> Plot of Binomial</a></li>
+<li class="chapter" data-level="5.4" data-path="ch5.html"><a href="ch5.html#measuring-heights"><i class="fa fa-check"></i><b>5.4</b> Measuring Heights</a></li>
+<li class="chapter" data-level="5.5" data-path="ch5.html"><a href="ch5.html#other-common-distributions"><i class="fa fa-check"></i><b>5.5</b> Other Common Distributions</a>
+<ul>
+<li class="chapter" data-level="5.5.1" data-path="ch5.html"><a href="ch5.html#poisson-distribution"><i class="fa fa-check"></i><b>5.5.1</b> Poisson Distribution</a></li>
 </ul></li>
-<li class="chapter" data-level="5.3" data-path="ch5.html"><a href="ch5.html#ch5_s3"><i class="fa fa-check"></i><b>5.3</b> Normal Distribution</a><ul>
-<li class="chapter" data-level="5.3.1" data-path="ch5.html"><a href="ch5.html#plot-for-normal"><i class="fa fa-check"></i><b>5.3.1</b> Plot for Normal</a></li>
 </ul></li>
-<li class="chapter" data-level="5.4" data-path="ch5.html"><a href="ch5.html#poisson-distribution"><i class="fa fa-check"></i><b>5.4</b> Poisson Distribution</a><ul>
-<li class="chapter" data-level="5.4.1" data-path="ch5.html"><a href="ch5.html#plots-for-poisson"><i class="fa fa-check"></i><b>5.4.1</b> Plots for Poisson</a></li>
+<li class="chapter" data-level="6" data-path="ch6.html"><a href="ch6.html"><i class="fa fa-check"></i><b>6</b> Sampling Distributions and the <br/> Central Limit Theorem</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="ch6.html"><a href="ch6.html#introduction-to-sampling"><i class="fa fa-check"></i><b>6.1</b> Introduction to Sampling</a></li>
+<li class="chapter" data-level="6.2" data-path="ch6.html"><a href="ch6.html#sampling-distributions"><i class="fa fa-check"></i><b>6.2</b> Sampling Distributions</a></li>
+<li class="chapter" data-level="6.3" data-path="ch6.html"><a href="ch6.html#central-limit-theorem"><i class="fa fa-check"></i><b>6.3</b> Central Limit Theorem</a></li>
 </ul></li>
-<li class="chapter" data-level="5.5" data-path="ch5.html"><a href="ch5.html#t-distribution"><i class="fa fa-check"></i><b>5.5</b> t Distribution</a><ul>
-<li class="chapter" data-level="5.5.1" data-path="ch5.html"><a href="ch5.html#plot-for-t-distribution"><i class="fa fa-check"></i><b>5.5.1</b> Plot for t distribution</a></li>
+<li class="chapter" data-level="7" data-path="ch8.html"><a href="ch8.html"><i class="fa fa-check"></i><b>7</b> Tests for Means</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="ch8.html"><a href="ch8.html#ch8_s1"><i class="fa fa-check"></i><b>7.1</b> Steps for hypothesis testing</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="ch8.html"><a href="ch8.html#things-about-the-population"><i class="fa fa-check"></i><b>7.1.1</b> Things about the population</a></li>
+<li class="chapter" data-level="7.1.2" data-path="ch8.html"><a href="ch8.html#things-about-the-sample"><i class="fa fa-check"></i><b>7.1.2</b> Things about the sample</a></li>
+<li class="chapter" data-level="7.1.3" data-path="ch8.html"><a href="ch8.html#making-inference"><i class="fa fa-check"></i><b>7.1.3</b> Making inference</a></li>
 </ul></li>
-<li class="chapter" data-level="5.6" data-path="ch5.html"><a href="ch5.html#review-of-distributions"><i class="fa fa-check"></i><b>5.6</b> Review of Distributions</a></li>
+<li class="chapter" data-level="7.2" data-path="ch8.html"><a href="ch8.html#ch8_s2"><i class="fa fa-check"></i><b>7.2</b> Hypothesis test for a mean</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="ch6.html"><a href="ch6.html"><i class="fa fa-check"></i><b>6</b> Sampling Distributions and the <br/> Central Limit Theorem</a><ul>
-<li class="chapter" data-level="6.1" data-path="ch6.html"><a href="ch6.html#ch6_s1"><i class="fa fa-check"></i><b>6.1</b> Sampling Distributions</a></li>
+<li class="chapter" data-level="8" data-path="ch9.html"><a href="ch9.html"><i class="fa fa-check"></i><b>8</b> Non-normal Continuous Data</a></li>
+<li class="chapter" data-level="9" data-path="ch10.html"><a href="ch10.html"><i class="fa fa-check"></i><b>9</b> Categorical Data</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="ch10.html"><a href="ch10.html#ch10_s1"><i class="fa fa-check"></i><b>9.1</b> One Sample Proportions</a></li>
+<li class="chapter" data-level="9.2" data-path="ch10.html"><a href="ch10.html#ch10_s2"><i class="fa fa-check"></i><b>9.2</b> Two Sample Proportions</a></li>
+<li class="chapter" data-level="9.3" data-path="ch10.html"><a href="ch10.html#ch10_s3"><i class="fa fa-check"></i><b>9.3</b> Contingency Based tests</a></li>
+<li class="chapter" data-level="9.4" data-path="ch10.html"><a href="ch10.html#ch10_s4"><i class="fa fa-check"></i><b>9.4</b> Paired Categorical Data</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="ch7.html"><a href="ch7.html"><i class="fa fa-check"></i><b>7</b> Introduction to Inference</a><ul>
-<li class="chapter" data-level="7.1" data-path="ch7.html"><a href="ch7.html#ch7_s1"><i class="fa fa-check"></i><b>7.1</b> Confidence Intervals</a></li>
-<li class="chapter" data-level="7.2" data-path="ch7.html"><a href="ch7.html#ch7_s2"><i class="fa fa-check"></i><b>7.2</b> Hypothesis Tests</a></li>
-<li class="chapter" data-level="7.3" data-path="ch7.html"><a href="ch7.html#ch7_s3"><i class="fa fa-check"></i><b>7.3</b> P-values</a></li>
+<li class="chapter" data-level="10" data-path="ch11.html"><a href="ch11.html"><i class="fa fa-check"></i><b>10</b> Correlation and Regression</a></li>
+<li class="chapter" data-level="11" data-path="ch12.html"><a href="ch12.html"><i class="fa fa-check"></i><b>11</b> Introduction to Simulations</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="ch12.html"><a href="ch12.html#ch12_s1"><i class="fa fa-check"></i><b>11.1</b> What is a simulation?</a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="ch8.html"><a href="ch8.html"><i class="fa fa-check"></i><b>8</b> Tests for Means</a><ul>
-<li class="chapter" data-level="8.1" data-path="ch8.html"><a href="ch8.html#ch8_s1"><i class="fa fa-check"></i><b>8.1</b> Steps for hypothesis testing</a><ul>
-<li class="chapter" data-level="8.1.1" data-path="ch8.html"><a href="ch8.html#things-about-the-population"><i class="fa fa-check"></i><b>8.1.1</b> Things about the population</a></li>
-<li class="chapter" data-level="8.1.2" data-path="ch8.html"><a href="ch8.html#things-about-the-sample"><i class="fa fa-check"></i><b>8.1.2</b> Things about the sample</a></li>
-<li class="chapter" data-level="8.1.3" data-path="ch8.html"><a href="ch8.html#making-inference"><i class="fa fa-check"></i><b>8.1.3</b> Making inference</a></li>
+<li class="chapter" data-level="12" data-path="ch13.html"><a href="ch13.html"><i class="fa fa-check"></i><b>12</b> Introduction to Simulations</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="ch13.html"><a href="ch13.html#ch13_s1"><i class="fa fa-check"></i><b>12.1</b> What is a simulation?</a></li>
+<li class="chapter" data-level="12.2" data-path="ch13.html"><a href="ch13.html#why-simulation"><i class="fa fa-check"></i><b>12.2</b> Why Simulation</a>
+<ul>
+<li class="chapter" data-level="12.2.1" data-path="ch13.html"><a href="ch13.html#non-simulation-methods"><i class="fa fa-check"></i><b>12.2.1</b> Non-simulation Methods</a></li>
+<li class="chapter" data-level="12.2.2" data-path="ch13.html"><a href="ch13.html#simulation-method"><i class="fa fa-check"></i><b>12.2.2</b> Simulation Method</a></li>
 </ul></li>
-<li class="chapter" data-level="8.2" data-path="ch8.html"><a href="ch8.html#ch8_s2"><i class="fa fa-check"></i><b>8.2</b> Hypothesis test for a mean</a></li>
+<li class="chapter" data-level="12.3" data-path="ch13.html"><a href="ch13.html#chapter-summary"><i class="fa fa-check"></i><b>12.3</b> Chapter Summary</a></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="ch9.html"><a href="ch9.html"><i class="fa fa-check"></i><b>9</b> Non-normal Continuous Data</a></li>
-<li class="chapter" data-level="10" data-path="ch10.html"><a href="ch10.html"><i class="fa fa-check"></i><b>10</b> Categorical Data</a><ul>
-<li class="chapter" data-level="10.1" data-path="ch10.html"><a href="ch10.html#ch10_s1"><i class="fa fa-check"></i><b>10.1</b> One Sample Proportions</a></li>
-<li class="chapter" data-level="10.2" data-path="ch10.html"><a href="ch10.html#ch10_s2"><i class="fa fa-check"></i><b>10.2</b> Two Sample Proportions</a></li>
-<li class="chapter" data-level="10.3" data-path="ch10.html"><a href="ch10.html#ch10_s3"><i class="fa fa-check"></i><b>10.3</b> Contingency Based tests</a></li>
-<li class="chapter" data-level="10.4" data-path="ch10.html"><a href="ch10.html#ch10_s4"><i class="fa fa-check"></i><b>10.4</b> Paired Categorical Data</a></li>
+<li class="chapter" data-level="13" data-path="ch14.html"><a href="ch14.html"><i class="fa fa-check"></i><b>13</b> Dump Chapter</a></li>
+<li class="chapter" data-level="" data-path="introduction-1.html"><a href="introduction-1.html"><i class="fa fa-check"></i>Introduction</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="introduction-1.html"><a href="introduction-1.html#stuff-lifted-that-used-to-be-in-ch2-may-or-may-not-be-useful-still"><i class="fa fa-check"></i><b>13.1</b> Stuff lifted that used to be in ch2 (may or may not be useful still?)</a></li>
+<li class="chapter" data-level="13.2" data-path="introduction-1.html"><a href="introduction-1.html#shiny-test"><i class="fa fa-check"></i><b>13.2</b> Shiny test</a></li>
+<li class="chapter" data-level="13.3" data-path="introduction-1.html"><a href="introduction-1.html#regular-ui"><i class="fa fa-check"></i><b>13.3</b> Regular UI</a></li>
+<li class="chapter" data-level="13.4" data-path="introduction-1.html"><a href="introduction-1.html#editing-text"><i class="fa fa-check"></i><b>13.4</b> Editing text</a></li>
+<li class="chapter" data-level="13.5" data-path="introduction-1.html"><a href="introduction-1.html#idea"><i class="fa fa-check"></i><b>13.5</b> Idea</a></li>
+<li class="chapter" data-level="13.6" data-path="introduction-1.html"><a href="introduction-1.html#clt-stuff"><i class="fa fa-check"></i><b>13.6</b> CLT Stuff</a></li>
 </ul></li>
-<li class="chapter" data-level="11" data-path="ch11.html"><a href="ch11.html"><i class="fa fa-check"></i><b>11</b> Correlation and Regression</a></li>
-<li class="chapter" data-level="12" data-path="ch12.html"><a href="ch12.html"><i class="fa fa-check"></i><b>12</b> Introduction to Simulations</a><ul>
-<li class="chapter" data-level="12.1" data-path="ch12.html"><a href="ch12.html#ch12_s1"><i class="fa fa-check"></i><b>12.1</b> What is a simulation?</a></li>
-</ul></li>
-<li class="chapter" data-level="13" data-path="ch13.html"><a href="ch13.html"><i class="fa fa-check"></i><b>13</b> Introduction to Simulations</a><ul>
-<li class="chapter" data-level="13.1" data-path="ch13.html"><a href="ch13.html#ch13_s1"><i class="fa fa-check"></i><b>13.1</b> What is a simulation?</a></li>
-<li class="chapter" data-level="13.2" data-path="ch13.html"><a href="ch13.html#why-simulation"><i class="fa fa-check"></i><b>13.2</b> Why Simulation</a><ul>
-<li class="chapter" data-level="13.2.1" data-path="ch13.html"><a href="ch13.html#non-simulation-methods"><i class="fa fa-check"></i><b>13.2.1</b> Non-simulation Methods</a></li>
-<li class="chapter" data-level="13.2.2" data-path="ch13.html"><a href="ch13.html#simulation-method"><i class="fa fa-check"></i><b>13.2.2</b> Simulation Method</a></li>
-</ul></li>
-<li class="chapter" data-level="13.3" data-path="ch13.html"><a href="ch13.html#chapter-summary"><i class="fa fa-check"></i><b>13.3</b> Chapter Summary</a></li>
+<li class="chapter" data-level="14" data-path="ch7.html"><a href="ch7.html"><i class="fa fa-check"></i><b>14</b> Introduction to Inference</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="ch7.html"><a href="ch7.html#ch7_s1"><i class="fa fa-check"></i><b>14.1</b> Confidence Intervals</a></li>
+<li class="chapter" data-level="14.2" data-path="ch7.html"><a href="ch7.html#ch7_s2"><i class="fa fa-check"></i><b>14.2</b> Hypothesis Tests</a></li>
+<li class="chapter" data-level="14.3" data-path="ch7.html"><a href="ch7.html#ch7_s3"><i class="fa fa-check"></i><b>14.3</b> P-values</a></li>
 </ul></li>
 </ul>
 
@@ -248,23 +274,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="ch10" class="section level1">
-<h1><span class="header-section-number">10</span> Categorical Data</h1>
+<div id="ch10" class="section level1" number="9">
+<h1><span class="header-section-number">9</span> Categorical Data</h1>
 <p>Learning objectives</p>
 <p>Up until this point, the hypothesis tests we’ve covered have been tests about population means. In other words, the outcome measured was continuous. However, many times our variable of interest is categorical and requires a different method.</p>
-<div id="ch10_s1" class="section level2">
-<h2><span class="header-section-number">10.1</span> One Sample Proportions</h2>
+<div id="ch10_s1" class="section level2" number="9.1">
+<h2><span class="header-section-number">9.1</span> One Sample Proportions</h2>
 <p>For example, if researchers were interested in investigating the proportion of college students who binge drink, the researchers could ask a sample of students if they had engaged in binge drinking in the past month, and the students would answer yes or no. If the investigators had asked how many drinks they had had in the past month, then we might be interested in looking at the mean number of drinks. But, let’s say they did not ask this question, and we have a categorical outcome.</p>
 <p>When we have a sample, and each person is asked a yes or no question, we can describe the probability of their responses using a binomial distribution. In binomial distribution, there are two parameters, the sample size and the probability of an event occurring. Since the researchers are interested in proportion, they are actually interested in estimating the event probability.</p>
 </div>
-<div id="ch10_s2" class="section level2">
-<h2><span class="header-section-number">10.2</span> Two Sample Proportions</h2>
+<div id="ch10_s2" class="section level2" number="9.2">
+<h2><span class="header-section-number">9.2</span> Two Sample Proportions</h2>
 </div>
-<div id="ch10_s3" class="section level2">
-<h2><span class="header-section-number">10.3</span> Contingency Based tests</h2>
+<div id="ch10_s3" class="section level2" number="9.3">
+<h2><span class="header-section-number">9.3</span> Contingency Based tests</h2>
 </div>
-<div id="ch10_s4" class="section level2">
-<h2><span class="header-section-number">10.4</span> Paired Categorical Data</h2>
+<div id="ch10_s4" class="section level2" number="9.4">
+<h2><span class="header-section-number">9.4</span> Paired Categorical Data</h2>
 
 </div>
 </div>
