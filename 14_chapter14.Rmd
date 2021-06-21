@@ -15,7 +15,7 @@ Don't drink and derive
 
 
 
-# Introduction {-}
+# Introduction dump {-}
 <!-- # Introduction {.para1 -} <- this adds para1 class to introduction--> 
 
 First note - Having `{-}` in the heading skips numbering assignment (which can be customized in _bookdown.yml), so that `Chapter 1` doesn't read  as `2 Chapter 1`
@@ -86,6 +86,26 @@ But that's boring and dumb when we can also have Shiny, though a few things of n
   - Yihui recommends miniUI for embedded shiny apps, but still
   - Not yet sure what other options might exist
 
+## Chapter 4 dump
+
+We can explore this concept of long-run frequency more with a simulation. For this simulation, we will simulate rolling a 6-sided die 100 times, recording the result of each roll, and then tabulating the proportion of rolls where we observed each side of the die.
+
+```{r}
+rollDie <- function(nRolls, seed) {
+    set.seed(seed)
+    sample(1:6, nRolls, replace = TRUE)
+}
+barplot(table(rollDie(100, 1)))
+prop.table(table(rollDie(100, 1)))
+```
+
+As we see, with just 100 rolls, we don't observe exactly the same proportion of rolls landing on each side of the die. The proportions are not exactly 1/6 = 16.7%, because of randomness. However, if we do 1,000,000 rolls, we see things even out:
+
+```{r}
+round(prop.table(table(rollDie(1e6, 1))), 3)
+```
+
+Now let users play with a similar app illustrating coin flips (or something) and have associated exercises. Maybe a plot of the proportion over time.
 
 
 

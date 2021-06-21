@@ -21,11 +21,110 @@ header-includes:
 
 ## Understanding Randomness { #ch4_s1}
 
-If statistics is the science of uncertainty, then probability is the mechanism that allows us to quantify our uncertainty. People talk loosely about probability all the time. For example, what's the chance of rain tomorrow?" or "how likely is it that drug A is better than drug B?" However, for scientific purposes, we need to be more specific in terms of defining and using probabilities. 
+If statistics is the science of uncertainty, then probability is the mechanism that allows us to quantify our uncertainty. In other words, probability tells us how likely something is to happen. People talk loosely about probability all the time. For example, "what's the chance of rain tomorrow?" or "how likely is it that drug A is better than drug B?" However, for scientific purposes, we need to be more specific in terms of defining and using probabilities. 
 
-First let's introduce some definitions to help us talk about randomness and probability. First, a **random process** is any act or process that results in an outcome that cannot be predicted with certainty. The **sample space** of a random process is the set of all its possible outcomes and is often denoted $\mathcal{S}$. Finally, an **event** is an outcome or collection of outcomes from a random process and will always be contained in the sample space. 
+First, let's consider the simple example of flipping a coin. When a coin is flipped, there are two possible outcomes: heads or tails. We can assume the coin is fair, which means we are just as likely to observe heads as we are tails.
 
-To illustrate, suppose we flip a fair coin three times. Each act of flipping the coin is random process - the coin might land on heads and it might land on tails. Letting $H$ be shorthand for the flip resulting in heads and $T$ be shorthand for the flip resulting in tails, the sample space can be enumerated as 
+<div class="exercise"> Exercises </div>
+<div class="exercise-container">
+
+The applet below is designed to use the computer to simulate flipping a fair coin. In the top right, the flip results are shown with a blue "T" indicating the flip resulted in tails and a pink "H" indicating the flip resulted in heads. In the bottom left, the total number of heads and tails across all flips is tallied. In the bottom right, the running total of the proportion of heads is plotted. For example, if we flip a coin three times and observe THH, the running proportion of heads is 0/1=0 after the first flip (T), 1/2=0.5 after the second flip (TH), and 2/3=0.67 after the third flip (THH). The dotted red line on this plot falls at 0.5, which translates to half of the flips resulting in heads. You can set the number of flips you would like to do, and repeat your experiment over and over by clicking the "Flip Coins" button.
+
+</div>
+<iframe src="https://ph-ivshiny.iowa.uiowa.edu/ceward/textbook/shinyApps/singleCoinFlip" width = "100%" height = "800"> 
+</iframe>
+
+<div class="exercise-container">
+  
+<ol>
+ <li>Set the number of flips to 3 and click the &quot;Flip Coins&quot; button 10 times. Each time you simulate 3 coin flips, record the ordered outcome (e.g., HHT) in the following table: <br><br>
+ <table>
+ <tbody>
+ <tr>
+ <td>1.
+ <td>2.
+ <td>3.
+ <td>4.
+ <td>5.
+ </tr>
+ <tr>
+ <td>6.
+ <td>7.
+ <td>8.
+ <td>9.
+ <td>10.
+ </tr>
+ </tbody>
+ </table>
+ <ol>
+ <li>Assuming the order is important (i.e. HHT is not the same as HTH), how many different outcomes did you observe?</li>
+ <li>Still assuming the order is important, how many different outcomes are possible? List all possible outcomes you can think of. (This may include outcomes you did not observe in your 10 flips.)</li>
+ </ol>
+ </li>
+ <li>Now set the number of flips to 10 and click the &quot;Flip Coins&quot; button 10 times. Each time you perform an experiment, record the number of heads you observed in the following table:<br><br>
+ <table>
+ <tbody>
+ <tr>
+ <td>1.
+ <td>2.
+ <td>3.
+ <td>4.
+ <td>5.
+ </tr>
+ <tr>
+ <td>6.
+ <td>7.
+ <td>8.
+ <td>9.
+ <td>10
+ </tr>
+ </tbody>
+ </table>
+ <ol>
+ <li>On any given experiment where the coin is flipped 10 times, how many flips would you expect to result in heads? Why?</li>
+ <li>How many times did you see <em>exactly</em> four heads? What about at least two heads?</li>
+ </ol>
+ </li>
+ <li>Now set the number of flips to 100 and click the &quot;Flip Coins&quot; button.
+ <ol>
+ <li>What happens to the running proportion of heads as the coin is continually flipped?</li>
+ <li>Focusing your attention on the plot of the running proportion of heads, click the &quot;Flip Coins&quot; button several times. What do you notice about the plot? What characteristics of the plot stay the same and what differ?</li>
+ </ol>
+ </li>
+ <li>For each of the following number of coin flips, perform one experiment and record the final <em>proportion&nbsp;</em>of heads to observed (e.g., 12 heads out of 20 flips = 12/20 =0.6).<br><br>
+ <table>
+ <tbody>
+ <tr>
+ <td>3:
+ <td>5:
+ <td>10:
+ </tr>
+ <tr>
+ <td>20:
+ <td>100:
+ <td>500:
+ </tr>
+ <tr>
+ <td>1,000:
+ <td>5,000:
+ <td>10,000:
+ </tr>
+ </tbody>
+ </table>
+ <ol>
+ <li>What happens to the proportion of heads you observed as the number of flips increased?</li>
+ <li>ANOTHER QUESTION??</li>
+ </ol>
+ </li>
+</ol>
+
+</div>
+
+The previous exercises illustrate several important points about randomness and probability. First, we saw that when we repeated the same experiment, i.e. flipping the coin three times, several different outcomes were possible. And, if you compare your results from 10 experiments to anyone else's, it is unlikely you will have the exact same results. This is because each time we flip the coin, the outcome is random. Since we know the coin is fair, there is a 50% chance of observing heads. We don't always observe exactly 50% of the flips yielding a heads, especially if we only flip the coin a few times. However, when the coin is flipped many, many times (like, 10,000 times), we see the proportion of the flips that result in heads becomes very close to 50%. 
+
+Now that we have some intuition, let's introduce some definitions to help us talk about these concepts. First, a **random process** is any act or process that results in an outcome that cannot be predicted with certainty. The **sample space** of a random process is the set of all its possible outcomes and is often denoted $\mathcal{S}$. Finally, an **event** is an outcome or collection of outcomes from a random process and will always be contained in the sample space. 
+
+To illustrate, consider flipping a fair coin three times. Each act of flipping the coin is random process - the coin might land on heads and it might land on tails. Letting $H$ be shorthand for the flip resulting in heads and $T$ be shorthand for the flip resulting in tails, the sample space can be enumerated as 
 
 $$\mathcal{S} = \{HHH, HHT, HTH, THH, TTH, THT, HTT, TTT\},$$ 
 
@@ -35,35 +134,28 @@ giving us eight possible results from the three coin flips. Finally, an event co
 * The event of obtaining heads on the first toss: $\{HHH, HHT, HTH, HTT\}$    
 * The event of obtaining three tails $\{TTT\}$.
 
-
-We would all agree that the probability of heads when flipping a fair coin is 50% and the probability of rolling a 2 on a 6-sided die is 1/6, but why is that true? Well, if we were to flip a coin many, many times, we would expect half of the flips to result in heads. Similarly, if we roll a 6-sided die over and over, 1/6 of the rolls should result in a value of 2. In both cases, we are thinking about a long-run frequency, which is why **probability** is defined as the fraction of time an event occurs if a random process is repeated over and over again under the same conditions. This means that probabilities are always between 0 and 1, since we can never observed more events than the number of times the process is repeated, e.g. we can never observed 12 heads on 10 coin flips. ~~Clearly, an event with probability 0 is an event that can never occur.~~
+We would all agree that the probability of heads when flipping a fair coin is 50% and the probability of rolling a 2 on a 6-sided die is 1/6, but why is that true? Well, if we were to flip a coin many, many times, we would expect half of the flips to result in heads. Similarly, if we roll a 6-sided die over and over, 1/6 of the rolls should result in a value of 2. The big idea is that when we talk about probability, we are thinking about a *long-run frequency* or what will happen if the random process is repeated over and over again under the same conditions. If we think about probabilities in terms of the long-run frequencies, we can define and quantify **probability** as the fraction of time an event occurs if a random process is repeated indefinitely. This means that probabilities are always between 0 and 1, since we can never observed more events than the number of times the process is repeated, e.g. we can never observed 12 heads on 10 coin flips. Clearly, an event with probability 0 is an event that can never occur.
 
 This leads us to some important properties of probabilities:
 
 1) The sum of probabilities for all outcomes in the sample space, $\mathcal{S}$, must equal 1
 2) For any event, the probability of that event is the sum of the probabilities for all the outcomes in that event
 
-For the coin flipping example, there are eight possible outcomes. Since each outcome is equally likely (why?) The first property tells us that the probability of any specific outcome (say, $HHH$) is 1/8. The second tells us that the probability of heads on the first toss is $4/8 = 1/2$, since four of the outcomes. These properties underlie a lot of the more complicated formulas and concepts we will cover in this chapter, although we don't always think about them explicitly. 
+For the coin flipping example, there are eight possible outcomes. Since each outcome is equally likely (why?) The first property tells us that the probability of any specific outcome (say, $HHH$) is 1/8. The second tells us that the probability of heads on the first toss is $4/8 = 1/2$, since four of the eight possible outcomes have heads on the first toss. These properties underlie a lot of the more complicated formulas and concepts we will cover in this chapter, although we don't always think about them explicitly. 
 
 
-We can explore this concept of long-run frequency more with a simulation. For this simulation, we will simulate rolling a 6-sided die 100 times, recording the result of each roll, and then tabulating the proportion of rolls where we observed each side of the die.
 
-```{r}
-rollDie <- function(nRolls, seed) {
-    set.seed(seed)
-    sample(1:6, nRolls, replace = TRUE)
-}
-barplot(table(rollDie(100, 1)))
-prop.table(table(rollDie(100, 1)))
-```
+<div class="definition-container">
+<div class="definition"> Definitions </div>
+**Random Process: ** <em> An act or process that results in an outcome that cannot be predicted with certainty </em>
 
-As we see, with just 100 rolls, we don't observe exactly the same proportion of rolls landing on each side of the die. The proportions are not exactly 1/6 = 16.7%, because of randomness. However, if we do 1,000,000 rolls, we see things even out:
+**Sample Space: ** <em> The set of all possible outcomes from a random process </em>
 
-```{r}
-round(prop.table(table(rollDie(1e6, 1))), 3)
-```
+**Event: ** <em> An outcome or collection of outcomes from a random process </em>
 
-Now let users play with a similar app illustrating coin flips (or something) and have associated exercises. Maybe a plot of the proportion over time.
+**Probability: ** <em> The fraction of times an event occurs when a random process is repeated continuously</em>
+
+</div>
 
 ## Probability Operations { #ch4_s2}
 
@@ -318,6 +410,23 @@ cbind(c('P(A)', 'P(B)', 'P(A AND B)', 'P(A OR B)'), rowMeans(simRes))
 ```
 
 No matter how many times we repeat the experiment, the intersection is always 0, because we can never flip a coin three times and get exactly two heads *and* three tails.
+
+
+<div class="definition-container">
+<div class="definition"> Definitions </div>
+**Intersection: ** <em> When considering two sets, this operation includes only the events common to both sets </em>
+
+**Union: ** <em> When considering two sets, this operation includes all events in either (or both) sets </em>
+
+**Complement: ** <em> Everything that is *not* in the set </em>
+
+**Mutually exclusive: ** <em> Two events that cannot happen simultaneously</em>
+
+**Law of total probability: ** <em> An </em>
+
+</div>
+
+
 
 ## Conditional Probability { #ch4_s3}
 
