@@ -103,7 +103,7 @@ The applet below is designed to help you get familiar with the concept of random
 
 </div>
 <!-- frameBorder="0" -->
-<iframe src="https://ph-ivshiny.iowa.uiowa.edu/ceward/textbook/sampling" width = "100%" height = "800"> 
+<iframe src="https://ph-ivshiny.iowa.uiowa.edu/ceward/textbook/shinyApps/sampling" width = "100%" height = "800"> 
 </iframe>
 
 <div class="exercise-container">
@@ -326,7 +326,7 @@ The applet below is designed to help your conceptual understanding of the CLT. Y
 
 
 <!-- frameBorder="0" -->
-<iframe src="https://ph-ivshiny.iowa.uiowa.edu/ceward/textbook/CLT" width = "100%" height = "800"> 
+<iframe src="https://ph-ivshiny.iowa.uiowa.edu/ceward/textbook/shinyApps/CLT" width = "100%" height = "800"> 
 </iframe>
 
 

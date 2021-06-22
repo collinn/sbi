@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>3 Introduction to Inference | Seriously Interesting Statistics Textbook</title>
+  <title>4 Introduction to Inference | Seriously Interesting Statistics Textbook</title>
   <meta name="description" content="First template!" />
-  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="3 Introduction to Inference | Seriously Interesting Statistics Textbook" />
+  <meta property="og:title" content="4 Introduction to Inference | Seriously Interesting Statistics Textbook" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="ceward/introTextbook" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="3 Introduction to Inference | Seriously Interesting Statistics Textbook" />
+  <meta name="twitter:title" content="4 Introduction to Inference | Seriously Interesting Statistics Textbook" />
   
   <meta name="twitter:description" content="First template!" />
   
@@ -32,7 +32,7 @@
   
 <link rel="prev" href="ch6.html"/>
 
-<script src="libs/header-attrs-2.6/header-attrs.js"></script>
+<script src="libs/header-attrs-2.8/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -50,74 +50,13 @@
 
 
 
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
 
-<style type="text/css">
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-</style>
+
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -136,31 +75,39 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#acknowledgements"><i class="fa fa-check"></i><b>0.1</b> Acknowledgements</a></li>
 </ul></li>
-<li class="chapter" data-level="1" data-path="ch5.html"><a href="ch5.html"><i class="fa fa-check"></i><b>1</b> Probability Distributions</a>
+<li class="chapter" data-level="1" data-path="ch4.html"><a href="ch4.html"><i class="fa fa-check"></i><b>1</b> Probability</a>
 <ul>
-<li class="chapter" data-level="1.1" data-path="ch5.html"><a href="ch5.html#introduction-to-probability-distributions"><i class="fa fa-check"></i><b>1.1</b> Introduction to Probability Distributions</a></li>
-<li class="chapter" data-level="1.2" data-path="ch5.html"><a href="ch5.html#flipping-coins"><i class="fa fa-check"></i><b>1.2</b> Flipping Coins</a></li>
-<li class="chapter" data-level="1.3" data-path="ch5.html"><a href="ch5.html#functional-representation-of-probability-distributions"><i class="fa fa-check"></i><b>1.3</b> Functional Representation of Probability Distributions</a>
-<ul>
-<li class="chapter" data-level="1.3.1" data-path="ch5.html"><a href="ch5.html#plotting-the-pmf"><i class="fa fa-check"></i><b>1.3.1</b> Plotting the PMF</a></li>
+<li class="chapter" data-level="1.1" data-path="ch4.html"><a href="ch4.html#ch4_s1"><i class="fa fa-check"></i><b>1.1</b> Understanding Randomness</a></li>
+<li class="chapter" data-level="1.2" data-path="ch4.html"><a href="ch4.html#ch4_s2"><i class="fa fa-check"></i><b>1.2</b> Probability Operations</a></li>
+<li class="chapter" data-level="1.3" data-path="ch4.html"><a href="ch4.html#ch4_s3"><i class="fa fa-check"></i><b>1.3</b> Conditional Probability</a></li>
+<li class="chapter" data-level="1.4" data-path="ch4.html"><a href="ch4.html#ch4_s4"><i class="fa fa-check"></i><b>1.4</b> Probabilities from tables (needs a different example)</a></li>
+<li class="chapter" data-level="1.5" data-path="ch4.html"><a href="ch4.html#ch4_s5"><i class="fa fa-check"></i><b>1.5</b> Bayes’ Rule</a></li>
 </ul></li>
-<li class="chapter" data-level="1.4" data-path="ch5.html"><a href="ch5.html#measuring-heights"><i class="fa fa-check"></i><b>1.4</b> Measuring Heights</a></li>
-<li class="chapter" data-level="1.5" data-path="ch5.html"><a href="ch5.html#other-common-distributions"><i class="fa fa-check"></i><b>1.5</b> Other Common Distributions</a>
+<li class="chapter" data-level="2" data-path="ch5.html"><a href="ch5.html"><i class="fa fa-check"></i><b>2</b> Probability Distributions</a>
 <ul>
-<li class="chapter" data-level="1.5.1" data-path="ch5.html"><a href="ch5.html#poisson-distribution"><i class="fa fa-check"></i><b>1.5.1</b> Poisson Distribution</a></li>
+<li class="chapter" data-level="2.1" data-path="ch5.html"><a href="ch5.html#introduction-to-probability-distributions"><i class="fa fa-check"></i><b>2.1</b> Introduction to Probability Distributions</a></li>
+<li class="chapter" data-level="2.2" data-path="ch5.html"><a href="ch5.html#flipping-coins"><i class="fa fa-check"></i><b>2.2</b> Flipping Coins</a></li>
+<li class="chapter" data-level="2.3" data-path="ch5.html"><a href="ch5.html#functional-representation-of-probability-distributions"><i class="fa fa-check"></i><b>2.3</b> Functional Representation of Probability Distributions</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="ch5.html"><a href="ch5.html#plotting-the-pmf"><i class="fa fa-check"></i><b>2.3.1</b> Plotting the PMF</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="ch5.html"><a href="ch5.html#measuring-heights"><i class="fa fa-check"></i><b>2.4</b> Measuring Heights</a></li>
+<li class="chapter" data-level="2.5" data-path="ch5.html"><a href="ch5.html#other-common-distributions"><i class="fa fa-check"></i><b>2.5</b> Other Common Distributions</a>
+<ul>
+<li class="chapter" data-level="2.5.1" data-path="ch5.html"><a href="ch5.html#poisson-distribution"><i class="fa fa-check"></i><b>2.5.1</b> Poisson Distribution</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="ch6.html"><a href="ch6.html"><i class="fa fa-check"></i><b>2</b> Sampling Distributions and the <br/> Central Limit Theorem</a>
+<li class="chapter" data-level="3" data-path="ch6.html"><a href="ch6.html"><i class="fa fa-check"></i><b>3</b> Sampling Distributions and the <br/> Central Limit Theorem</a>
 <ul>
-<li class="chapter" data-level="2.1" data-path="ch6.html"><a href="ch6.html#introduction-to-sampling"><i class="fa fa-check"></i><b>2.1</b> Introduction to Sampling</a></li>
-<li class="chapter" data-level="2.2" data-path="ch6.html"><a href="ch6.html#sampling-distributions"><i class="fa fa-check"></i><b>2.2</b> Sampling Distributions</a></li>
-<li class="chapter" data-level="2.3" data-path="ch6.html"><a href="ch6.html#central-limit-theorem"><i class="fa fa-check"></i><b>2.3</b> Central Limit Theorem</a></li>
+<li class="chapter" data-level="3.1" data-path="ch6.html"><a href="ch6.html#introduction-to-sampling"><i class="fa fa-check"></i><b>3.1</b> Introduction to Sampling</a></li>
+<li class="chapter" data-level="3.2" data-path="ch6.html"><a href="ch6.html#sampling-distributions"><i class="fa fa-check"></i><b>3.2</b> Sampling Distributions</a></li>
+<li class="chapter" data-level="3.3" data-path="ch6.html"><a href="ch6.html#central-limit-theorem"><i class="fa fa-check"></i><b>3.3</b> Central Limit Theorem</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="ch7.html"><a href="ch7.html"><i class="fa fa-check"></i><b>3</b> Introduction to Inference</a>
+<li class="chapter" data-level="4" data-path="ch7.html"><a href="ch7.html"><i class="fa fa-check"></i><b>4</b> Introduction to Inference</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="ch7.html"><a href="ch7.html#ch7_s1"><i class="fa fa-check"></i><b>3.1</b> Confidence Intervals</a></li>
-<li class="chapter" data-level="3.2" data-path="ch7.html"><a href="ch7.html#ch7_s2"><i class="fa fa-check"></i><b>3.2</b> Hypothesis Tests</a></li>
-<li class="chapter" data-level="3.3" data-path="ch7.html"><a href="ch7.html#ch7_s3"><i class="fa fa-check"></i><b>3.3</b> P-values</a></li>
+<li class="chapter" data-level="4.1" data-path="ch7.html"><a href="ch7.html#ch7_s1"><i class="fa fa-check"></i><b>4.1</b> Confidence Intervals</a></li>
+<li class="chapter" data-level="4.2" data-path="ch7.html"><a href="ch7.html#ch7_s2"><i class="fa fa-check"></i><b>4.2</b> Hypothesis Tests</a></li>
+<li class="chapter" data-level="4.3" data-path="ch7.html"><a href="ch7.html#ch7_s3"><i class="fa fa-check"></i><b>4.3</b> P-values</a></li>
 </ul></li>
 </ul>
 
@@ -179,8 +126,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="ch7" class="section level1" number="3">
-<h1><span class="header-section-number">3</span> Introduction to Inference</h1>
+<div id="ch7" class="section level1" number="4">
+<h1><span class="header-section-number">4</span> Introduction to Inference</h1>
 <blockquote>
 <p>" A useful property of a test of significance is that it exerts a sobering influence on the type of experimenter who jumps to conclusions on scanty data, and who might otherwise try to make everyone excited about some sensational treatment effect that can well be ascribed to the ordinary variation in his experiment." - Gertrude Mary Cox</p>
 </blockquote>
@@ -196,22 +143,22 @@ Learning objectives
 <li>Definition of p-value and how to interpret</li>
 </ol>
 </div>
-<p>Up until this point, we have introduced probability, which allows us to quantify our uncertainty, we have discussed the concept of random variables and two widely used probability distributions (binomial and normal), and we have seen the most powerful result in statistics, the Central Limit Theorem which gives us the distribution of the sample mean in repeated samples. Let’s take a step back and remind ourselves of the goal of a statistical analysis. There is some population level numerical quantity we are interested in (parameter). This could be a mean or a proportion, or it could be something more complicated. Because we can (almost) never measure something in the entire population, we are restricted to taking a sample. Our goal is to use the data we collect in our sample to make inference, or generalizations, about the parameter, which is the unknown quantity of interest. In particular, we want to use probability distributions and the observed data to quantify what values of the parameter are plausible and which are not pluaible and we would like to determine if the trends we observe in our data are “significant” or if it is simply a result of chance.</p>
-<div id="ch7_s1" class="section level2" number="3.1">
-<h2><span class="header-section-number">3.1</span> Confidence Intervals</h2>
+<p>Up until this point, we have introduced probability, which allows us to quantify our uncertainty, we have discussed the concept of random variables and two widely used probability distributions (binomial and normal), and we have seen the most powerful result in statistics, the Central Limit Theorem which gives us the distribution of the sample mean in repeated samples. Let’s take a step back and remind ourselves of the goal of a statistical analysis. There is some population level numerical quantity we are interested in (parameter). This could be a mean or a proportion, or it could be something more complicated. Because we can (almost) never measure something in the entire population, we are restricted to taking a sample. Our goal is to use the data we collect in our sample to make inference, or generalizations, about the parameter, which is the unknown quantity of interest. In particular, we want to use probability distributions and the observed data to quantify what values of the parameter are plausible and which are not plausible and we would like to determine if the trends we observe in our data are “significant” or if it is simply a result of chance.</p>
+<div id="ch7_s1" class="section level2" number="4.1">
+<h2><span class="header-section-number">4.1</span> Confidence Intervals</h2>
 <p>We will first turn our attention to parameter estimation, of which there are two general approaches. These approaches are <strong>point estimation</strong>, which is a single statistic computed from the sample data used to estimate the parameter and <strong>interval estimation</strong>, which is an interval computed from the sample data to give a range of plausible values that is likely to contain the true population parameter. Point estimation is straightforward and is as simple as using the sample mean as an estimate of the population mean. While straightforward, this approach is problematic. In the last chapter we saw that every time we take a sample from a population and compute the sample mean, it changes. And we saw an example in which no matter how we took a sample, the sample mean could never possibly equal the population mean. This is because the act of taking a sample is a random process, which means that for any estimate from our sample it is highly unlikely (or straight up impossible) that we got the exact correct answer. Instead, it would be nice to have an interval that we could be reasonably confident contained the true parameter.</p>
 <p>What properties would make a good interval estimate? Well, on one hand we desire an interval that we can have a high degree of confidence of including the true parameter, but on the other hand, a narrow interval is much more informative. I can tell you with 100% confidence that the interval from <span class="math inline">\(-\infty\)</span> to <span class="math inline">\(\infty\)</span> covers the true population parameter, and I don’t even need to know anything about what you’re studying or what numerical quantity is being estimated and I don’t even need any data! I’ve achieved the first goal of having a high degree of confidence, but this interval is clearly not informative. I can make the interval smaller (I will need some data to do that), but the probability that the interval contains the true parameter will decrease. As a compromise, scientists and statisticians decided that intervals with a 95% probability of containing the true parameter was a satisfactory balance between the desire for high confidence and narrow intervals. This gives way to the most common confidence interval – the 95% confidence interval. Although we are getting a little bit ahead of ourselves here (we will have plenty of chances to calculate 95% confidence intervals). Let’s back up with some important definitions and notation.</p>
 <p>With an interval estimate, we are concerned with <strong>coverage probability</strong>, the probability that the interval contains or covers the parameter of interest. Typically, coverage probability is denoted by <span class="math inline">\(1 - \alpha\)</span>. As the interval covers the parameter with probability <span class="math inline">\(1 - \alpha\)</span>, the interval <em>does not</em> cover the parameter with probability <span class="math inline">\(\alpha\)</span> (because covering and not covering the parameter are complements and cover the entire sample space). In that sense, <span class="math inline">\(\alpha\)</span> is the probability that we are wrong. We will discuss <span class="math inline">\(\alpha\)</span> in more specific terms later in the chapter, but for now let’s just note that <span class="math inline">\(\alpha\)</span> is a small number, maybe 0.05 or 0.01. If we convert from decimal format to percentage format (multiplying by 100), we have <span class="math inline">\(100(1 - \alpha)\)</span>%, which is called the <strong>confidence level</strong>.</p>
 <p>The mathematical details of constructing a confidence interval depends on the parameter of interest and how the study was designed, and we will see various formulas for constructing confidence intervals throughout the rest of this book. In this chapter, we will focus on conceptual understanding and interpretation. To construct a <span class="math inline">\(100(1 - \alpha)\)</span>% confidence interval, we use sample data and sampling distributions as we know that sampling is a random process. For example, the Central Limit Theorem tells us the sampling distribution of the mean is normally distributed and gives us the mean and standard deviation of that distribution. Once we have a normal distribution for which we know the mean and standard deviation, we can calculate probabilistic quantities using software.</p>
 <p>It’s extremely important that we remember what is random and what the probability distribution is specifying when we are interpreting confidence intervals. The sampling distribution describes which values of the sample statistic are likely and which are not likely. The random process is drawing a sample. The population parameter is a fixed quantity – we don’t know what it is, but it does not change. Confidence intervals are constructed from the information we do know – the observed data from the sample. Because sampling is a random process and confidence intervals are constructed using the sample data, the confidence interval will vary from sample to sample. However, we formulate confidence intervals mathematically to ensure that the probability that the interval contains the true probability is <span class="math inline">\(1 - \alpha\)</span>. And as we’ve seen probabilities are long-run frequencies. So any given confidence interval may or may not cover the true parameter, but in the long run if we take samples over and over and compute a confidence interval based on the data from each sample, we are guaranteed that <span class="math inline">\(100(1 - \alpha)\)</span>% of the confidence intervals constructed will cover the truth. This is quite appealing. Lets explore this concept further by using the following applet.</p>
 <div class="exercise">
-<span id="exr:unlabeled-div-7" class="exercise"><strong>Exercise 3.1  </strong></span>Exercises
+<span id="exr:unlabeled-div-10" class="exercise"><strong>Exercise 4.1  </strong></span>Exercises
 </div>
 <div class="exercise-container">
 <p>The applet below is designed to help you get familiar with some of the important concepts related to confidence intervals. The inputs to the simulation are the sample size, number of experiments, and the confidence level. The simulation proceeds by taking a sample of the specified size and constructing a confidence interval based on that sample with the specified level of confidence. This process is one experiment. Each sample is drawn from the same population. For a specified number of experiments, the sampling and confidence interval construction is repeated either 10, 50, 100, or 1000 times. The plot shows all the confidence intervals constructed from each experiment - the number of intervals shown is equal to the “Number of Experiments.” The true population parameter in this case is 0 (only for simplicity). Intervals are shaded in blue if they cover the true population parameter and red if they do not contain the true parameter. The applet also reports the “observed coverage” from all experiments, this is the proportion of all the intervals shown that did contain the truth. Clicking “Run Simulation” will redo the specified number of experiments using the inputs provided.</p>
 </div>
 <!-- frameBorder="0" -->
-<iframe src="https://ph-ivshiny.iowa.uiowa.edu/ceward/textbook/confidenceIntervals" width="100%" height="550">
+<iframe src="https://ph-ivshiny.iowa.uiowa.edu/ceward/textbook/shinyApps/confidenceIntervals" width="100%" height="550">
 </iframe>
 <div class="exercise-container">
 <ol>
@@ -297,8 +244,8 @@ If a researcher wants a narrower confidence interval, they should decrease the c
 </ol>
 </div>
 </div>
-<div id="ch7_s2" class="section level2" number="3.2">
-<h2><span class="header-section-number">3.2</span> Hypothesis Tests</h2>
+<div id="ch7_s2" class="section level2" number="4.2">
+<h2><span class="header-section-number">4.2</span> Hypothesis Tests</h2>
 <p>Along with parameter estimation, a cornerstone of statistical inference is significance testing. Confidence intervals allow us to construct a range of plausible values for the parameter, and significance tests allow us to determine the likelihood of a parameter taking a certain value. A <strong>hypothesis test</strong> uses sample data to assess the plausibility of each of two competing hypotheses regarding an unknown parameter (or set of parameters). A <strong>statistical hypothesis</strong> is a statement or claim about an unknown parameter. The <strong>null hypothesis</strong> generally represents what is assumed to be true before the experiment is conducted. This hypothesis is typically denoted <span class="math inline">\(H_0\)</span>. The <strong>alternative hypothesis</strong> represents what the investigator is interested in establishing. This hypothesis is typically denoted <span class="math inline">\(H_A\)</span>. Oftentimes when people refer to the “scientific hypothesis,” this in reference to the alternative hypothesis - it is what the investigators think will happen or what they want to show. The goal of a hypothesis test is to determine which hypothesis is the most plausible - the null or the alternative.</p>
 <p>As an example, consider researchers that have developed a new drug to treat cancer. In order for the drug to be approved for use, the investigators must prove that it is more effective in treating cancer than the current gold standard treatment. To do this, the investigators gather a sample of cancer patients and randomize half of them to receive their new drug and half to receive the current treatment. Then they determine how many patients improved in both groups. In this scenario, the null hypothesis would be that the new drug and the current drug result in the same improvement. Why? Well, the null hypothesis is what is believed before the data was collected. The key is <em>whose</em> beliefs we are talking about. While the scientists that developed the drug most likely believe that their new drug is more effective, the rest of the scientific community remains in a state of uncertainty. The null hypothesis reflects the general beliefs of the scientific community. The alternative hypothesis in this scenario is that the drugs differ in their effectiveness on treating cancer. This is what the researchers hope to show, specifically, they hope to show that their drug is more effective, however, when the study is conducted there is no evidence in either direction, so we leave the alternative hypothesis to also encompass the possibility of the new drug being worse.</p>
 <p>In general, we can think about the null hypothesis as being the “baseline,” “boring,” “nothing to see here” hypothesis. The exact specification will depend on the study context and the type of data being measured (categorical or continuous):</p>
@@ -363,7 +310,7 @@ Correct (1 - <span class="math inline">\(\beta\)</span>)
 <p>In the upper-left and bottom-right cells of the table we are making the correct decision based on our test. When the null hypothesis is true, failing to reject <span class="math inline">\(H_0\)</span> is the correct decision and when the null hypothesis is false, rejecting <span class="math inline">\(H_0\)</span> is the correct decision. However, the other two cells correspond to a mistake being made. Because statisticians are not creative, these mistakes are referred to as <strong>type 1 error</strong> and <strong>type 2 error</strong>. A type 1 error is equivalent to a false alarm or a false positive - the null hypothesis was rejected, when in fact it was true. A type 2 error can be thought of as a missed opportunity or a false negative - the null hypothesis was false, but it was not rejected. Typically, the type 1 error rate is symbolically denoted with <span class="math inline">\(\alpha\)</span> and the type 2 error rate is denoted by <span class="math inline">\(\beta\)</span> (again the statisticians of the past were not creative).</p>
 <p>If we were looking to create a good hypothesis test, we would want to minimize type 1 and type 2 errors. In other words, if we were to conduct our study over and over again and there was something to be found, we would want to reject the null hypothesis (find something) at a high rate and fail to reject the null hypothesis at a low rate. If there was truly nothing to be found, we wouldn’t want to find anything and if there is something to be found we want to find it. However, there is a trade-off between type 1 and type 2 error. Let us illustrate this point with a simulation.</p>
 <div class="exercise">
-<span id="exr:unlabeled-div-8" class="exercise"><strong>Exercise 3.2  </strong></span>Exercises
+<span id="exr:unlabeled-div-11" class="exercise"><strong>Exercise 4.2  </strong></span>Exercises
 </div>
 <div class="exercise-container">
 <p>In this experiment, we are looking to determine if a coin is fair, i.e. whether or not the probability of heads is 50%. A type 1 error in this context would be concluding that the coin is not fair, when it actually is. A type 2 error in this context would be concluding that the coin is fair when it is actually not. Each experiment consists of flipping a coin 20 times and observing the proportion of the 20 flips that result in heads. If the coin is fair, we would expect around 10 of the 20 flip to result in heads. However, if we observed 11 or 12 heads in one experiment, would you be convinced the coin isn’t fair? What about if you observed 19/20 of the flips resulting in heads?</p>
@@ -371,7 +318,7 @@ Correct (1 - <span class="math inline">\(\beta\)</span>)
 <p>The simulation involves replicating the 20 flip experiment 10,000 times. For each experiment, a coin is flipped 20 times and the proportion of heads is calculated. If that proportion exceeds the specified threshold it is counted as “Reject.” If the proportion does not exceed the threshold, that experiment is considered a “Fail to Reject.” The barchart shows the proportion of 10,000 experiments in which the null hypothesis was and was not rejected. Note: Since we are replicating the experiment 10,000 times, we don’t expect the results to change much if the simulation is re-ran. However, you may see small changes in the proportion of rejects/fail to rejects for the same input values.</p>
 </div>
 <!-- frameBorder="0" -->
-<iframe src="https://ph-ivshiny.iowa.uiowa.edu/ceward/textbook/type12Err" width="100%" height="550">
+<iframe src="https://ph-ivshiny.iowa.uiowa.edu/ceward/textbook/shinyApps/type12Err" width="100%" height="550">
 </iframe>
 <div class="exercise-container">
 <ol>
@@ -450,8 +397,8 @@ What can you conclude about the relationship between type 1 and type 2 errors?
 </ol>
 </div>
 </div>
-<div id="ch7_s3" class="section level2" number="3.3">
-<h2><span class="header-section-number">3.3</span> P-values</h2>
+<div id="ch7_s3" class="section level2" number="4.3">
+<h2><span class="header-section-number">4.3</span> P-values</h2>
 <p>All hypothesis tests are based on quantifying the probability of the study results assuming the null hypothesis is true. This probability is so important that it has a special name, the <strong>p-value</strong>. In technical terms, the p-value gives the probability of obtaining results as extreme or more extreme than the ones observed in the sample, <em>given</em> that the null hypothesis is true. A less technical way to describe a p-value is that assuming there is truly nothing going on, what’s the chances of obtaining results similar in opposition to the null hypothesis as our study?</p>
 <p>If we are thinking about hypothesis testing as a court case, p-values are the way that we can quantify the evidence against the defendant. Recall, the prosecution wants to prove beyond a reasonable doubt that the defendant is not innocent. So what does the scientific community consider sufficient evidence? There is a generally agreed-upon scale for interpreting p-values with regards to the strength of evidence that they represent.</p>
 <table>
@@ -550,6 +497,7 @@ gitbook.start({
 "weibo": false,
 "instapaper": false,
 "vk": false,
+"whatsapp": false,
 "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
