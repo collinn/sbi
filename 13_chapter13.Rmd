@@ -41,7 +41,7 @@ As an aid to our learning, we will be making heavy use of a tool known as **simu
 
 Because this is a fair coin, we know before we flip it that there is an equal probability of it landing on either heads or tails. Because we are unsure of the outcome before hand, we say that the outcome is *random*. Once the coin is flipped, however, it is either heads *or* tails; that is, once the result is no longer random, we say that it is *observed*. This is a subtle but important distinction.
 
-Processes (such as flipping a coin) in which randomness occurs are known as **stochastic processes**. By contrast, a process that is not random is known as **deterministic**, as the outcome is determined before hand. An example of a determinsitic process may include ordering a collection of numbers from largest to smallest: every time we are given the same collection of numbers, the resulting order will be the same. Our primary interest in this text will be the investigation of statistical processes, aided with the use of simulation.
+Processes (such as flipping a coin) in which randomness occurs are known as **stochastic processes**. By contrast, a process that is not random is known as **deterministic**, as the outcome is determined before hand. An example of a deterministic process may include ordering a collection of numbers from largest to smallest: every time we are given the same collection of numbers, the resulting order will be the same. Our primary interest in this text will be the investigation of statistical processes, aided with the use of simulation.
 
 <!-- As in a real-life coin flip, we see that we do not get the same result each time. Because we know this is a fair coin, we might say that the probability of landing on heads is 50%, and the probability of landing on tails is 50%. And while we may know for certain that the probability is the same for each outcome, we are no more able to predict what the result of the next flip will be. This is a consequence of **randomness**, where the outcome is uncertain until it is observed. Processes (such as flipping a coin) in which randomness occurs are known as **stochastic processes**. In contrast, a process that is not random is known as **deterministic**, where the outcome of the process is known in advance.  -->
 
@@ -73,7 +73,22 @@ To see this in action here, consider the previous example in which we introduced
 
 It is important to note that the experiment itself is unchanged -- just as before, we are continuing to investigate what happens when a coin is flipped $n = 3$ times. By adjusting the value of $N$, we are now able to perform this same experiment as often as we wish. Even more importantly, one sees that even though the exact same experiment is performed a number of times, the *observed* values of the experiment are different. This is again a consequence of randomness, and demonstrates that even when we know all of the details of an experiment, the outcome is uncertain until it is observed.
 
-## Why Simulation
+
+<div class="definition-container">
+<div class="definition"> Definitions </div>
+**Simulation: ** <em>  </em>
+
+**Stochastic processes: ** <em> </em>
+
+**Deterministic processes: ** <em> </em>
+
+**Event: ** <em> </em>
+
+**Simulation Parameters: ** <em> Values which change the behavior of the simulation </em>
+</div>
+
+
+## Why Simulation {#ch13_s2}
 
 In the previous section, we learned that a simulation is a random process (of $n$ events) that can be performed an arbitrary number of ($N$) times. Our next step will be to understand how this process can empower us to better understand key concepts in statistics. The next section will contain a number of terms and concepts that will be formally introduced in later chapters, but for now will serve to give context to the usefulness of simulations.
 
@@ -138,7 +153,7 @@ Before moving forward, let's quickly recap where we are right now:
 
 A careful reader might note that for a given random experiment (such as flipping a coin three times) and a specified outcome (exactly two heads), there is only a *single* correct answer to the question, "What is the probability of getting exactly two heads when flipping a coin three times?", and this single correct answer is precisely what was found using the *deterministic* enumeration and probability function methods described above. If this is true, how could we possibly expect a simulation, which gives us *random* outcomes, to give us the same correct result? The answer lies in one of the most profound results in all of statistics, the **law of large numbers**.
 
-The *law of large numbers* will be covered more carefully in a later chapter, but for now, it suffices to know that the law of larger numbers states: "the average of the probabilities obtained from a large number of trials should be close to the true probability, and will tend to become closer are more trials are performed." In the context of our problem, we can restate this as "as the number of experiments performed $N$ becomes larger, the average of all the results will get closer and closer to the true result." Or more clearly still, "our simulation will match determinstic methods as $N \rightarrow \infty$". That's pretty neat.
+The *law of large numbers* will be covered more carefully in a later chapter, but for now, it suffices to know that the law of larger numbers states: "the average of the probabilities obtained from a large number of trials should be close to the true probability, and will tend to become closer are more trials are performed." In the context of our problem, we can restate this as "as the number of experiments performed $N$ becomes larger, the average of all the results will get closer and closer to the true result." Or more clearly still, "our simulation will match deterministic methods as $N \rightarrow \infty$". That's pretty neat.
 
 What happens is this: suppose that we begin our simulation with $N =1$, that is, we perform our experiment once. If we happen to collect two heads in this experiment, we might say, "two heads were observed in 100% of the experiments." Alternatively, if two heads were not collected, we may conclude, "two heads were observed in 0% of the experiments." While both of these statements are true, clearly they do not give us the answer we are looking for.
 
