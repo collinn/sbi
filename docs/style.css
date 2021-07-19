@@ -74,19 +74,18 @@ div.definition {
     flex-direction: column;
     background-color:rgba(14,143,23,0.15);
     border-radius: 15px 15px 15px 15px;
-    margin: 10px;
-	padding: 5px;
-    padding-left: 15px;
+    margin: 20px;
+    text-indent: 0.5em;
+    font-size: 15px;
 }
 
 div.exercise {
     background-color: rgba(14,143,23,0.8);
     font-weight: bold;
     font-style: italic;
-    border-radius: 15px 15px 15px 15px;
+    border-radius: 15px 15px 0px 0px;
     padding: 5px;
     padding-left: 15px;
-	width: 95%;
     margin-bottom: 5px;
     font-size: 20px;
 }
@@ -96,7 +95,25 @@ div.exercise {
     background-color: rgb(255,255,240, 0.5);
 }
 
+/* Equation or theorem box */
+.equation-container {
+    display: flex;
+    flex-direction: column;
+    background-color:rgba(192,192,192,0.15);
+    border-radius: 15px 15px 15px 15px;
+    margin: 20px;
+}
 
+div.equation {
+/*    text-indent: 2em;*/
+    background-color: rgba(192,192,192,0.8);
+    font-weight: bold;
+    font-size: 20px;
+    border-radius: 15px 15px 0px 0px;
+    padding: 10px;
+    padding-left: 15px;
+    margin-bottom: 5px;
+}
 
 /*General info box*/
 .infobox {

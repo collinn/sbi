@@ -1,85 +1,314 @@
 ---
 output: html_document
-header-includes:
-    \usepackage{multirow}
 ---
 
-# Probability {#ch4}
 
-> "The most important questions of life are, for the most part, really only problems of probability." - Pierre Simon, Marquis de Laplace
+# Introduction to Probability and Simulation {#ch15}
 
 <div class="objective-container">
 <div class="objectives"> Learning objectives </div>
-1. Learn the scientific definition of probability
-2. Conceptual understanding of randomness
-3. Understand probability notation and operations 
-4. Learn about conditional probability
-5. Use probabilities to calculate quantities of interest in diagnostic testing
+1. Conceptual understanding of randomness and simulation
+2. Learn the scientific definition of probability
+3. Methods for calculating probabilities
 </div>
 
+## Randomness and Simulation {#ch15_s1}
+
+In this section, we seek to understand randomness and how we can use the computer 
+to quickly simulate an outcome. To do this, we will start with a dice game in which two dies are
+rolled. Rolling dice is an example of a **random process**, because we cannot 
+predict the outcome with certainty. By contrast, a process that is not random is 
+known as **deterministic**, as the outcome is determined beforehand. An example 
+of a deterministic process would be computing the area of a triangle from its
+base and height - the area is always $\frac{1}{2} * base * height$.
+
+In our dice game, we are interested in the sum total of the roll. For example, if a 2 
+and a 6 are rolled, the sum total is 8. Each die has 6 outcomes, so there are 36 
+possible ways to roll the two die:
+
+<center>
+<table align="center">
+<tbody><tr> <td>(1,1) </td><td> (1,2) </td><td> (1,3) </td><td> (1,4) </td><td> (1,5) </td><td> (1,6) </td></tr>
+<tr> <td>(2,1) </td><td> (2,2) </td><td> (2,3) </td><td> (2,4) </td><td> (2,5) </td><td> (2,6) </td></tr>
+<tr> <td>(3,1) </td><td> (3,2) </td><td> (3,3) </td><td> (3,4) </td><td> (3,5) </td><td> (3,6) </td></tr>
+<tr> <td>(4,1) </td><td> (4,2) </td><td> (4,3) </td><td> (4,4) </td><td> (4,5) </td><td> (4,6) </td></tr>
+<tr> <td>(5,1) </td><td> (5,2) </td><td> (5,3) </td><td> (5,4) </td><td> (5,5) </td><td> (5,6) </td></tr>
+<tr> <td>(6,1) </td><td> (6,2) </td><td> (6,3) </td><td> (6,4) </td><td> (6,5) </td><td> (6,6) </td></tr>
+</tbody></table>
+</center>
 
 
-## Understanding Randomness { #ch4_s1}
 
-If statistics is the science of uncertainty, then probability is the mechanism that allows us to quantify our uncertainty. In other words, probability tells us how likely something is to happen. People talk loosely about probability all the time. For example, "what's the chance of rain tomorrow?" or "how likely is it that drug A is better than drug B?" However, for scientific purposes, we need to be more specific in terms of defining and using probabilities. 
-
-First, let's consider the simple example of flipping a coin. When a coin is flipped, there are two possible outcomes: heads or tails. We can assume the coin is fair, which means we are just as likely to observe heads as we are tails.
-
-<div class="exercise"> Exercises </div>
 <div class="exercise-container">
+<div class="exercise"> &nbsp; </div>
 
-The applet below is designed to use the computer to simulate flipping a fair coin. In the top right, the flip results are shown with a blue "T" indicating the flip resulted in tails and a pink "H" indicating the flip resulted in heads. In the bottom left, the total number of heads and tails across all flips is tallied. In the bottom right, the running total of the proportion of heads is plotted. For example, if we flip a coin three times and observe THH, the running proportion of heads is 0/1=0 after the first flip (T), 1/2=0.5 after the second flip (TH), and 2/3=0.67 after the third flip (THH). The dotted red line on this plot falls at 0.5, which translates to half of the flips resulting in heads. You can set the number of flips you would like to do, and repeat your experiment over and over by clicking the "Flip Coins" button.
+There are 11 possible sum totals you can achieve when rolling two six-sided dies,
+{2, 3, 4, ..., 11, 12}. In this game, you win if your roll adds up to 7.
 
-</div>
-<iframe src="https://ph-ivshiny.iowa.uiowa.edu/ceward/textbook/shinyApps/singleCoinFlip" width = "100%" height = "800"> 
+1.	Out of the 36 possible rolls listed above, how many rolls result in a win? What does this tell you about the chance of winning the game?
+
+2.	Using the applet, play the game 30 times and fill out the table below with whether you won and rolled a 7 (W) or lost and rolled any other total (L).
+
+<iframe src="https://ph-ivshiny.iowa.uiowa.edu/ceward/textbook/shinyApps/singleDieRoll" width = "100%" height = "500"> 
 </iframe>
 
-<div class="exercise-container">
+
+<table border="1" cellspacing="0" cellpadding="0" >
+<tbody>
+<tr>
+<td valign="top" ><p>Game </p></td>
+<td valign="top" ><p>1</p></td>
+<td valign="top" ><p>2</p></td>
+<td valign="top" ><p>3</p></td>
+<td valign="top" ><p>4</p></td>
+<td valign="top" ><p>5</p></td>
+<td valign="top" ><p>6</p></td>
+<td valign="top" ><p>7</p></td>
+<td valign="top" ><p>8</p></td>
+<td valign="top" ><p>9</p></td>
+<td valign="top" ><p>10</p></td>
+<td valign="top" ><p>11</p></td>
+<td valign="top" ><p>12</p></td>
+<td valign="top" ><p>13</p></td>
+<td valign="top" ><p>14</p></td>
+<td valign="top" ><p>15</p></td>
+</tr>
+
+<tr>
+<td valign="top" ><p>Result</p></td>
+<td valign="top" > </td>
+<td valign="top" > </td>
+<td valign="top" > </td>
+<td valign="top" > </td>
+<td valign="top" > </td>
+<td valign="top" > </td>
+<td valign="top" > </td>
+<td valign="top" > </td>
+<td valign="top" > </td>
+<td valign="top" > </td>
+<td valign="top" > </td>
+<td valign="top" > </td>
+<td valign="top" > </td>
+<td valign="top" > </td>
+<td valign="top" > </td>
+</tr>
+
+<tr>
+<td valign="top" ><p>Game </p></td>
+<td valign="top" ><p>16</p></td>
+<td valign="top" ><p>17</p></td>
+<td valign="top" ><p>18</p></td>
+<td valign="top" ><p>19</p></td>
+<td valign="top" ><p>20</p></td>
+<td valign="top" ><p>21</p></td>
+<td valign="top" ><p>22</p></td>
+<td valign="top" ><p>23</p></td>
+<td valign="top" ><p>24</p></td>
+<td valign="top" ><p>25</p></td>
+<td valign="top" ><p>26</p></td>
+<td valign="top" ><p>27</p></td>
+<td valign="top" ><p>28</p></td>
+<td valign="top" ><p>29</p></td>
+<td valign="top" ><p>30</p></td>
+</tr>
+
+<tr>
+<td valign="top" ><p>Result</p></td>
+<td valign="top" > </td>
+<td valign="top" > </td>
+<td valign="top" > </td>
+<td valign="top" > </td>
+<td valign="top" > </td>
+<td valign="top" > </td>
+<td valign="top" > </td>
+<td valign="top" > </td>
+<td valign="top" > </td>
+<td valign="top" > </td>
+<td valign="top" > </td>
+<td valign="top" > </td>
+<td valign="top" > </td>
+<td valign="top" > </td>
+<td valign="top" > </td>
+</tr>
+
+</tbody>
+</table>
+
+
+3.	What proportion of times did you win the game? Was this close to what you 
+  expected? Why or why not?
+
+</div>
+
+
+While this was a relatively simple dice game, it illustrates several important concepts.
+Going into the game, we are able to determine how likely it is that we win. We did 
+this by first enumerating all possible outcomes of two dies being rolled. Any such collection 
+of all possible outcomes of a random process is called the **sample space**. Then,
+we considered the ways we could observe the **event** that the two rolls result 
+in a sum total of 7. In general, an event is an outcome or collection of outcomes 
+from a random process and will always be contained in the sample space. 
+
+Another important observation is that we have not physically rolled any dice ourselves.
+Instead, we have used the computer to perform a **simulation**. Simulations are
+a powerful tool which allow us to quickly and consistently repeat a random process.
+There are two components to simulation:  
+
+1. The conditions and behavior of the experiment are determined in advance through
+  the **simulation parameters**.  
   
+2. The experiment is performed with the aid of a computer.
+
+In the dice rolling simulation, the parameters specified that each side of the die
+were equally likely and that two dies were rolled each time the game was played.
+These parameters were specified internally, such that the user cannot alter the 
+specifications. Later in this chapter, we will work with simulations where the 
+parameters can be changed. Lastly, the use of the computer may seem trivial, but 
+it has two important implications:we were able to exactly specify the simulation
+parameters, and we are able to repeat *this exact same experiment* knowing all 
+conditions will remain exactly the same.
+
+
+<div class="definition-container">
+<div class="definition"> &nbsp;  </div>
+
+**Random Process: ** <em> An act or process that results in an outcome that cannot be predicted with certainty. </em>
+
+**Deterministic Process: ** <em> An act or process that results in an outcome that is not random. </em>
+
+**Sample Space: ** <em> The set of all possible outcomes from a random process. </em>
+
+**Event: ** <em> An outcome or collection of outcomes from a random process. </em>
+
+**Simulation: ** <em> A tool to replicate random processes an arbitrary number of times. </em>
+
+**Simulation Parameters: ** <em> Values which change the behavior of the simulation. </em>
+</div>
+
+
+
+## Probability {#ch15_s2}
+
+Statistical inference is founded in the ability to quantify uncertainty. Probability
+is the mechanism that allows us to do so, by telling us how likely something is to happen.
+People talk loosely about probability all the time. For example, "What's the 
+chance of rain tomorrow?" or "How likely is it that drug A is better than drug B?"
+In order for probability to be used for statistical inference, we must be precise
+about our definition of probability.
+
+We would all agree that the probability of heads when flipping a fair coin is 50% 
+and the probability of rolling a 2 on a 6-sided die is 1/6, but why is that true? 
+Well, if we were to flip a coin many, many times, we would expect half of the 
+flips to result in heads. Similarly, if we roll a 6-sided die over and over, 1/6 
+of the rolls should result in a value of 2. The big idea is that when we talk
+about probability, we are thinking about a *long-run frequency* or what will 
+happen if the random process is repeated over and over again under the same 
+conditions. If we think about probabilities in terms of the long-run frequencies, 
+we can define and quantify **probability** as the fraction of time an event 
+occurs if a random process is repeated indefinitely. This means that 
+probabilities are always between 0 and 1, since we can never observed more 
+or less events than the number of times the process is repeated, e.g. we can never 
+observed 12 heads on 10 coin flips. 
+
+This leads us to some important properties of probabilities:
+
+<div class="equation-container">
+<div class="equation"> Properties of Probability </div>
+1) The sum of probabilities for all outcomes in the sample space, $\mathcal{S}$,
+  must equal 1
+2) For any event, the probability of that event is the sum of the probabilities 
+  for all the outcomes in that event
+</div>
+
+Consider flipping a fair coin three times. Each act of flipping the coin is 
+random process - the coin might land on heads and it might land on tails. 
+Letting $H$ be shorthand for the flip resulting in heads and $T$ be shorthand 
+for the flip resulting in tails, the sample space can be enumerated as 
+
+$$\mathcal{S} = \{HHH, HHT, HTH, THH, TTH, THT, HTT, TTT\},$$ 
+
+giving us eight possible results from the three coin flips. Since each outcome 
+is equally likely (why?) The first property tells us that the probability of any
+specific outcome (say, $HHH$) is 1/8. The second tells us that the probability 
+of heads on the first toss is $4/8 = 1/2$, since four of the eight possible 
+outcomes have heads on the first toss ($\{HHH, HHT, HTH, HTT\}$ ). These 
+properties underlie a lot of the more complicated formulas and concepts we will
+cover in this chapter, although we don't always think about them explicitly. 
+
+<div class="exercise-container">
+<div class="exercise"> &nbsp; </div>
+
+
+We will now investigate the long-run frequency definition of probability using
+an applet which simulates coin flipping. Internally, the simulation parameters
+specify that each coin flip has a 50\% chance of heads. As a user, you are able
+to determine how many coin flips you would like to perform. The simulation 
+results are summarized in three figures:
+
+1. (Top right) the flip results are shown with a blue "T" indicating the flip 
+resulted in tails and a pink "H" indicating the flip resulted in heads.
+
+2. (Bottom left) the total number of heads and tails across all flips is tallied.
+
+3. (Bottom right)  the running total of the proportion of heads is plotted. For 
+example, if we flip a coin three times and observe THH, the running proportion 
+of heads is 0/1=0 after the first flip (T), 1/2=0.5 after the second flip (TH), 
+and 2/3=0.67 after the third flip (THH). The dotted red line on this plot falls 
+at 0.5, which translates to half of the flips resulting in heads.
+
+
+<iframe src="https://ph-ivshiny.iowa.uiowa.edu/ceward/textbook/shinyApps/singleCoinFlip" width = "100%" height = "900"> 
+</iframe>
+
 <ol>
- <li>Set the number of flips to 3 and click the &quot;Flip Coins&quot; button 10 times. Each time you simulate 3 coin flips, record the ordered outcome (e.g., HHT) in the following table: <br><br>
- <table>
- <tbody>
- <tr>
- <td>1.
- <td>2.
- <td>3.
- <td>4.
- <td>5.
- </tr>
- <tr>
- <td>6.
- <td>7.
- <td>8.
- <td>9.
- <td>10.
- </tr>
- </tbody>
- </table>
- <ol>
- <li>Assuming the order is important (i.e. HHT is not the same as HTH), how many different outcomes did you observe?</li>
- <li>Still assuming the order is important, how many different outcomes are possible? List all possible outcomes you can think of. (This may include outcomes you did not observe in your 10 flips.)</li>
- </ol>
- </li>
- <li>Now set the number of flips to 10 and click the &quot;Flip Coins&quot; button 10 times. Each time you perform an experiment, record the number of heads you observed in the following table:<br><br>
- <table>
- <tbody>
- <tr>
- <td>1.
- <td>2.
- <td>3.
- <td>4.
- <td>5.
- </tr>
- <tr>
- <td>6.
- <td>7.
- <td>8.
- <td>9.
- <td>10
- </tr>
- </tbody>
- </table>
+ <li>Set the number of flips to 10 and click the &quot;Flip Coins&quot; button 
+ 15 times. Each time you perform an experiment, record the number of heads you 
+ observed in the following table:
+ 
+ <table border="1" cellspacing="0" cellpadding="0" >
+<tbody>
+<tr>
+<td valign="top" ><p>Trial </p></td>
+<td valign="top" ><p>1</p></td>
+<td valign="top" ><p>2</p></td>
+<td valign="top" ><p>3</p></td>
+<td valign="top" ><p>4</p></td>
+<td valign="top" ><p>5</p></td>
+<td valign="top" ><p>6</p></td>
+<td valign="top" ><p>7</p></td>
+<td valign="top" ><p>8</p></td>
+<td valign="top" ><p>9</p></td>
+<td valign="top" ><p>10</p></td>
+<td valign="top" ><p>11</p></td>
+<td valign="top" ><p>12</p></td>
+<td valign="top" ><p>13</p></td>
+<td valign="top" ><p>14</p></td>
+<td valign="top" ><p>15</p></td>
+</tr>
+
+<tr>
+<td valign="top" ><p># Heads</p></td>
+<td valign="top" > </td>
+<td valign="top" > </td>
+<td valign="top" > </td>
+<td valign="top" > </td>
+<td valign="top" > </td>
+<td valign="top" > </td>
+<td valign="top" > </td>
+<td valign="top" > </td>
+<td valign="top" > </td>
+<td valign="top" > </td>
+<td valign="top" > </td>
+<td valign="top" > </td>
+<td valign="top" > </td>
+<td valign="top" > </td>
+<td valign="top" > </td>
+</tr>
+
+
+
+</tbody>
+</table>
  <ol>
  <li>On any given experiment where the coin is flipped 10 times, how many flips would you expect to result in heads? Why?</li>
  <li>How many times did you see <em>exactly</em> four heads? What about at least two heads?</li>
@@ -91,7 +320,7 @@ The applet below is designed to use the computer to simulate flipping a fair coi
  <li>Focusing your attention on the plot of the running proportion of heads, click the &quot;Flip Coins&quot; button several times. What do you notice about the plot? What characteristics of the plot stay the same and what differ?</li>
  </ol>
  </li>
- <li>For each of the following number of coin flips, perform one experiment and record the final <em>proportion&nbsp;</em>of heads to observed (e.g., 12 heads out of 20 flips = 12/20 =0.6).<br><br>
+ <li>For each of the following number of coin flips, perform one experiment and record the final <em>proportion&nbsp;</em>of heads you observed (e.g., 12 heads out of 20 flips = 12/20 =0.6).<br><br>
  <table>
  <tbody>
  <tr>
@@ -112,475 +341,143 @@ The applet below is designed to use the computer to simulate flipping a fair coi
  </tbody>
  </table>
  <ol>
- <li>What happens to the proportion of heads you observed as the number of flips increased?</li>
- <li>ANOTHER QUESTION??</li>
+ <li>What happens to the proportion of heads you observed as the number of flips increased? 
+  How does this relate to the concept of long-run frequency?</li>
+ <li>How does the final proportion of heads observed relate to the probability of observing heads?</li>
  </ol>
  </li>
 </ol>
 
 </div>
 
-The previous exercises illustrate several important points about randomness and probability. First, we saw that when we repeated the same experiment, i.e. flipping the coin three times, several different outcomes were possible. And, if you compare your results from 10 experiments to anyone else's, it is unlikely you will have the exact same results. This is because each time we flip the coin, the outcome is random. Since we know the coin is fair, there is a 50% chance of observing heads. We don't always observe exactly 50% of the flips yielding a heads, especially if we only flip the coin a few times. However, when the coin is flipped many, many times (like, 10,000 times), we see the proportion of the flips that result in heads becomes very close to 50%. 
-
-Now that we have some intuition, let's introduce some definitions to help us talk about these concepts. First, a **random process** is any act or process that results in an outcome that cannot be predicted with certainty. The **sample space** of a random process is the set of all its possible outcomes and is often denoted $\mathcal{S}$. Finally, an **event** is an outcome or collection of outcomes from a random process and will always be contained in the sample space. 
-
-To illustrate, consider flipping a fair coin three times. Each act of flipping the coin is random process - the coin might land on heads and it might land on tails. Letting $H$ be shorthand for the flip resulting in heads and $T$ be shorthand for the flip resulting in tails, the sample space can be enumerated as 
-
-$$\mathcal{S} = \{HHH, HHT, HTH, THH, TTH, THT, HTT, TTT\},$$ 
-
-giving us eight possible results from the three coin flips. Finally, an event could be any single outcome, or any collection of outcomes, based on this experiment. For example, we may have:
-
-* The event of obtaining *exactly* two heads: $\{HHT, HTH, THH\}$  
-* The event of obtaining heads on the first toss: $\{HHH, HHT, HTH, HTT\}$    
-* The event of obtaining three tails $\{TTT\}$.
-
-We would all agree that the probability of heads when flipping a fair coin is 50% and the probability of rolling a 2 on a 6-sided die is 1/6, but why is that true? Well, if we were to flip a coin many, many times, we would expect half of the flips to result in heads. Similarly, if we roll a 6-sided die over and over, 1/6 of the rolls should result in a value of 2. The big idea is that when we talk about probability, we are thinking about a *long-run frequency* or what will happen if the random process is repeated over and over again under the same conditions. If we think about probabilities in terms of the long-run frequencies, we can define and quantify **probability** as the fraction of time an event occurs if a random process is repeated indefinitely. This means that probabilities are always between 0 and 1, since we can never observed more events than the number of times the process is repeated, e.g. we can never observed 12 heads on 10 coin flips. Clearly, an event with probability 0 is an event that can never occur.
-
-This leads us to some important properties of probabilities:
-
-1) The sum of probabilities for all outcomes in the sample space, $\mathcal{S}$, must equal 1
-2) For any event, the probability of that event is the sum of the probabilities for all the outcomes in that event
-
-For the coin flipping example, there are eight possible outcomes. Since each outcome is equally likely (why?) The first property tells us that the probability of any specific outcome (say, $HHH$) is 1/8. The second tells us that the probability of heads on the first toss is $4/8 = 1/2$, since four of the eight possible outcomes have heads on the first toss. These properties underlie a lot of the more complicated formulas and concepts we will cover in this chapter, although we don't always think about them explicitly. 
-
-
 
 <div class="definition-container">
-<div class="definition"> Definitions </div>
-**Random Process: ** <em> An act or process that results in an outcome that cannot be predicted with certainty </em>
+<div class="definition"> &nbsp;  </div>
 
-**Sample Space: ** <em> The set of all possible outcomes from a random process </em>
-
-**Event: ** <em> An outcome or collection of outcomes from a random process </em>
-
-**Probability: ** <em> The fraction of times an event occurs when a random process is repeated continuously</em>
+**Probability: ** <em> The fraction of times an event occurs when a random process is repeated indefinitely</em>
 
 </div>
 
-## Probability Operations { #ch4_s2}
 
-It's easy to talk about probability of one event, i.e. the probability of rolling a 2, but often we are interested in quantifying probabilities about more complicated combinations of multiple events. For example, if we consider a family with two parents and one child, instead of the probability of one parent getting the flu, we might be interested in the probability that *both* parents get the flu. Or we might be interested in the probability *anyone* in the family gets the flu. Finally, we might want to quantify the probability that one parent gets the flu and the other does not. In order to succinctly describe these probabilities, we use some mathematical notation. Before you get totally scared, this notation is just to simplify the writing of probability statements - the underlying concept does not change!
+## Methods for Computing Probabilities {#ch15_s3}
 
-Probabilities are denoted as $P(Event) = p$, as in $P(Heads) = 0.5$. To make things even shorter we can use a capital letter to denote an event of interest, i.e. let $H$ be the event that the outcome of a fair coin flip is heads, then we have $P(H) = 0.5$. Then, to talk about relationships between events, we define the operations of the **intersection**, **union**, and **complement**.  Consider to arbitrary events $A$ and $B$:  
+There are several methods that can be used to compute probabilities. We will
+introduce these methods in the context of coin flipping and seeking to answer 
+the question: if a coin is flipped three times, what is the probability that 
+exactly two of the coins will be heads?
 
-* The intersection represents the event that $A$ and $B$ occur and is denoted $A \cap B$  
-* The union represents the event that $A$ or $B$ occur and is denoted $A \cup B$  
-* The complement represents the scenario in which an event does not occur; the complement of $A$ is denoted as $A^C$. As a corollary to this, for any event $A$, we could say that $A$ occurs or $A$ does not occur $(A^C)$. As these are the only possible outcomes regarding $A$, $A \cup A^C$ represents all possible events, or $A \cup A^C = \mathcal{S}$
+<ol type = "1">
+<li> **Enumeration Method:** The enumeration method proceeds by listing all of
+the possible outcomes of the experiment and counting the total number of ways
+the event can be observed. Then, the probability is calculated as:
 
-In the previous coin tossing example, define $A = \text{obtaining exactly two heads} = \{HHT, HTH, THH\}$ and $B = \text{obtaining heads on the first toss} = \{HHH, HHT, HTH, HTT\}$.
+$$\text{Probability} = \dfrac{\text{Number of ways event can occur}}{\text{Total number of outcomes}}$$
+In our coin flipping example, we know the sample space includes eight outcomes:
 
-* $A \cap B = \text{obtaining exactly two heads AND a heads on the first toss} = \{HHT, HTH\}$
-* $A \cup B = \text{obtaining exactly two heads OR a heads on the first toss}= \{HHH, HHT, HTH, HTT, THH\}$
-* $B^C = \text{obtaining tails on the first toss} = \{TTH, THT, THH, TTT\}$
+$$
+\mathcal{S} = \{HHH, HHT, HTH, HTT, THH, TTH, THT, TTT\}
+$$
 
+Next, we count how many of those have exactly two heads:
 
-We can visualize these operations with Venn diagrams. A Venn diagram uses overlapping circles and shading to describe the relationship between two events. First, we will visualize the intersection operation. If the left circle denotes the event $A$ and the right circle denotes the event $B$, then the intersection is the overlapping region where both $A$ and $B$ occur.
+$$
+\mathcal{S} = \{HHH, \color{red}{HHT}, \color{red}{HTH}, \color{red}{THH}, TTH, THT, HTT, TTT\}
+$$
 
-```{tikz, fig.cap = "Venn diagram of intersection", fig.ext = 'png', echo = F, fig.height = 4, fig.width = 5, fig.align = 'center'}
-\usetikzlibrary{decorations.pathreplacing,positioning, arrows, shapes, calc,shapes.multipart}
+Dividing the events of interest by the total number of outcomes, we see that the 
+probability of getting exactly two heads is
+$P(\text{# Heads = 2}) = \frac{\text{# Heads = 2}}{\text{# Possible Outcomes}} = \frac38$. 
 
-\begin{tikzpicture}[
-dot/.style = {circle, inner sep=0pt, minimum size=1mm, fill,
-              node contents={}}
-                        ]
-\def\firstcircle{(-1.2,0) coordinate (a) circle (2cm)}
-\def\secondcircle{(1.2,0) coordinate (b)  circle (2cm)}
-    \begin{scope}
-\clip \secondcircle;
-\fill[green, fill opacity=0.25] \firstcircle;
-    \end{scope}
-\draw \firstcircle ;
-\draw \secondcircle;
-\node (c) [above] at (current bounding box.north -| a) {$A$};
-\node at (c -| b) {$B$};
-    \end{tikzpicture}
-```
+That is, by enumerating the eight possible outcomes, we identified three of them 
+in which the number of heads was two. </li>
+<br>
+<li> **Probability function method:** Often, a random process has an associated 
+*probability function* that allows us to determine the probability of a set of 
+outcomes. In this case, our coin flipping example follows what is known as a
+*binomial distribution*, which has the probability function:
 
-The union operation includes all outcomes in $A$ or $B$ (or both), so it would include the entire region.
+$$
+P(\text{# Heads = k}) = f(k; n,p) = \binom{n}{k}p^k(1-p)^{n-k}.
+$$
+For our experiment, the probability of heads is $p = 0.5$, the total number of 
+flips is $n = 3$, and for our event, $k = 2$ heads. Substituting these numbers, 
+we have"
 
-```{tikz, fig.cap = "Venn diagram of union", fig.ext = 'png', echo = F, fig.height = 4, fig.width = 5, fig.align = 'center'}
-\usetikzlibrary{decorations.pathreplacing,positioning, arrows, shapes, calc,shapes.multipart}
+$$
+\begin{align*}
+P(\text{# Heads = 2}) &= \binom{3}{2} (0.5)^2 (0.5)^{3-2} \\
+&= 3 \times (0.5)(0.5)(0.5) \\
+&= 0.375.
+\end{align*}
+$$
+We see, then, that a probability function is a function that takes an event as
+an argument and returns an associated probability. Just as in the enumeration
+method, we find that $P(\text{# Heads = 2}) = 0.375 = \frac38$. </li>
 
-\begin{tikzpicture}[dot/.style = {circle, inner sep=0pt, minimum size=1mm, fill,node contents={}}
-                        ]
-\def\firstcircle{(-1.2,0) coordinate (a) circle (2cm)}
-\def\secondcircle{(1.2,0) coordinate (b)  circle (2cm)}
-    \begin{scope}
-\fill[cyan, fill opacity=0.25] \secondcircle;
-\fill[yellow, fill opacity=0.25] \firstcircle;
-    \end{scope}
-\draw \firstcircle ;
-\draw \secondcircle;
-\node (c) [above] at (current bounding box.north -| a) {$A$};
-\node at (c -| b) {$B$};
-    \end{tikzpicture}
-```
+<li> **Simulation method:** The previous methods are valid, but can quickly 
+become impractical or even impossible once the problem grows becomes more complex.
+Even for an example as simple as coin flipping, the 
+enumeration method can quickly become infeasible. As the number of flips increases, 
+the size of the sample space increases exponentially, making it challenging (or
+lengthy) to count all possible outcomes and all the ways the event can occur. If
+we seek to use the probability function method, we must know what the function is; 
+for complex processes, these functions can be nearly impossible to construct, 
+leaving statisticians and researchers with no clear way to specify the probability of events.
 
-The complement of $B$, includes all outcomes that are *not* part of event $B$. 
+The simulation method allows us to mitigate both problems by using the computer
+to repeatedly perform an experiment (say 10,000 times), and computing the
+proportion of experiments in which the event was observed. We have previously defined
+probability as the fraction of times the event occurs if the random process is repeated
+many times. This is exactly what the simulation method does.
 
-```{tikz, fig.cap = "Venn diagram of the complement of B", fig.ext = 'png', echo = F, fig.height = 5, fig.width = 6, fig.align = 'center'}
-\usetikzlibrary{decorations.pathreplacing,positioning, arrows, shapes, calc,shapes.multipart}
+Mathematically, this looks like
 
-\begin{tikzpicture}[
-dot/.style = {circle, inner sep=0pt, minimum size=1mm, fill,
-              node contents={}}
-                        ]
-\def\firstcircle{(-1.2,0) coordinate (a) circle (2cm)}
-\def\secondcircle{(1.2,0) coordinate (b)  circle (2cm)}
-    \begin{scope}
-        \begin{scope}[even odd rule]% first circle without the second
-            \clip \secondcircle (-4,-3) rectangle (2,2);
-        \fill[yellow, fill opacity=0.25 ] \firstcircle;
-        \end{scope}
-        \draw \firstcircle ;
-        \draw \secondcircle;
-    \end{scope}
-\draw \firstcircle ;
-\draw \secondcircle;
-\node (c) [above] at (current bounding box.north -| a) {$A$};
-\node at (c -| b) {$B$};
-    \end{tikzpicture}
-```
-
-Since the probability of all outcomes in the sample space must add to 1, and the complement 
-
-
-Back to the flu example, let $A$ denote the event that one parent gets the flu, let $B$ denote the event that the other parent gets the flu, and let $C$ denote the event that the child gets the flu. Using this new notation, we can represent the probability that both parents get the flu as $P(A \cap B)$ , the probability that anyone in the family gets the flu as $P(A \cup B \cup C)$, and the probability that one parent gets the flu and the other does not as $P(A \cap B^C)$.
+$$
+P(\# \text{ Heads} = 2) \approx \frac{\text{Number of times \{# Heads = 2\} } }{\text{# Experiments}}
+$$
+A careful reader might note that for a given random experiment (such as flipping 
+a coin three times) and a specified event (exactly two heads), there is only a
+single* correct answer to the question, "What is the probability of getting
+exactly two heads when flipping a coin three times?", and this single correct 
+answer is precisely what was found using the enumeration and probability
+function methods described above. contrast, The simulation method provides an 
+approximation to the probability, as opposed to an exact calculation. However,
+as the number of repeated experiments increases, the simulation method will give
+a result closer and closer to the true answer.
 
 
-In some cases, there is no overlap between the events, i.e. the events cannot happen simultaneously. When two events cannot happen at the same time, they are said to be **mutually exclusive**. Mathematically, this means the $P(A \cap B) = 0$. For example, consider the following two events based on your final course letter grade: $A$ is the event of getting an $A$ and $B$ is the event of getting a $B$. As only one grade can be given per course, clearly $A$ and $B$ are mutually exclusive. Obtaining the probability of at least one of two mutually exclusive events happening is straightforward as there is no overlap between events. Thus, the probability of $A \cup B$ is simply the sum of the probabilities of $A$ and $B$ happening separately.
+</li>
 
-<p> Important Formula!  
-
-For mutually exclusive events:
-$$P(A \cup B) = P(A) + P(B)$$
-</p>
-
-```{tikz, fig.cap = "Venn diagram of mutually exclusive events", fig.ext = 'png', echo = F, fig.height = 4, fig.width = 5, fig.align = 'center'}
-\usetikzlibrary{decorations.pathreplacing,positioning, arrows, shapes, calc,shapes.multipart}
-
-\begin{tikzpicture}[
-dot/.style = {circle, inner sep=0pt, minimum size=1mm, fill,
-              node contents={}}
-                        ]
-\def\firstcircle{(-2.6,0) coordinate (a) circle (2cm)}
-\def\secondcircle{(2.6,0) coordinate (b)  circle (2cm)}
-     \begin{scope}
-\fill[cyan, fill opacity=0.25] \secondcircle;
-\fill[yellow, fill opacity=0.25] \firstcircle;
-    \end{scope}
-\draw \firstcircle ;
-\draw \secondcircle;
-\node (c) [above] at (current bounding box.north -| a) {$A$};
-\node at (c -| b) {$B$};
-    \end{tikzpicture}
-```
+</ol>
 
 
-If two events are not mutually exclusive, there is overlap in the events and $P(A \cap B) \neq 0$ and we cannot get the probability of the union using the previous formula. If we did, we would be double counting the intersection. As a concrete illustration, suppose that for a married couple, the probability that one spouse contracts the flu (event $A$) is 0.25, the probability that the other spouse contracts the flu (event $B$) is 0.20, and the probability that both the spouses contract the flu ($A$ and $B$) is 0.15. If we displayed this information in a Venn Diagram, we would have:
 
+<div class="exercise-container">
+<div class="exercise"> &nbsp; </div>
 
-```{tikz, fig.cap = "Venn diagram of flu probabilities", fig.ext = 'png', echo = F, fig.height = 4, fig.width = 5, fig.align = 'center'}
-\usetikzlibrary{decorations.pathreplacing,positioning, arrows, shapes, calc,shapes.multipart}
+<iframe src="https://ph-ivshiny.iowa.uiowa.edu/ceward/textbook/shinyApps/coinFlipSimulation" width = "100%" height = "400"> 
+</iframe>
 
-\begin{tikzpicture}[dot/.style = {circle, inner sep=0pt, minimum size=1mm, fill,node contents={}}
-                        ]
-\def\firstcircle{(-1.2,0) coordinate (a) circle (2cm)}
-\def\secondcircle{(1.2,0) coordinate (b)  circle (2cm)}
-    \begin{scope}
-\fill[red, fill opacity=0.25] \secondcircle;
-\fill[green, fill opacity=0.25] \firstcircle;
-    \end{scope}
-\draw \firstcircle ;
-\draw \secondcircle;
-\node (c) [above] at (current bounding box.north -| a) {$A$};
-\node at (c -| b) {$B$};
-  \node at (-1.8, 0)    {0.10};
-  \node at (1.8, 0)   {0.05};
-  \node at (0, 0)    {0.15};
-    \end{tikzpicture}
-```
-
-At first glance, this might not be what you would expect. If $P(A = 0.25)$, why do we have $0.10$ in that region? However, the event $A$ is actually divided into two regions - the part that intersects $B$ and the part that doesn't. This is called the **Law of Total Probability**, and this means that the probability of $A$ consists of both the probability that $A$ and $B$ both happen and the probability that $A$ happens but $B$ doesn't. This is true since $B$ and $B^C$ are mutually exclusive and together contain all possible outcomes. Mathematically, we can write this as:
-
-$$P(A) = P(A \cap B) + P(A \cap B^C)$$
-
-And in a Venn diagram this looks like:
-
-```{tikz, fig.cap = "Venn diagram of the law of total probability", fig.ext = 'png', echo = F, fig.height = 4, fig.width = 5, fig.align = 'center'}
-\usetikzlibrary{decorations.pathreplacing,positioning, arrows, shapes, calc,shapes.multipart}
-
-\begin{tikzpicture}
-        \def\firstcircle{(0,0) circle (1.2cm)}
-        \def\secondcircle{(0:1.5cm) circle (1.2cm)}
-
-        
-        \draw \firstcircle node {$A$};
-        \draw \secondcircle node {$B$};
-    
-    
-        \begin{scope}[fill opacity=0.5]
-          \clip \firstcircle;
-          \fill[red] \secondcircle;
-        \end{scope}
-    
-        \begin{scope}
-          \clip \firstcircle;
-          \clip \secondcircle;
-        \end{scope}
-        
-        \draw \firstcircle node {$A$};
-        \draw \secondcircle node {$B$};
-    
-    
-        \begin{scope}[shift={(5cm,0cm)}, fill opacity=0.5]
-            \begin{scope}[even odd rule]% first circle without the second
-                \clip \secondcircle (-3,-3) rectangle (3,3);
-            \fill[red] \firstcircle;
-            \end{scope}
-            \draw \firstcircle node {$A$};
-            \draw \secondcircle node {$B$};
-        \end{scope}
-        \begin{scope}[shift={(5cm,0cm)}]
-        \draw \firstcircle node {$A$};
-        \draw \secondcircle node {$B$};
-        \end{scope}
-        
-        \begin{scope}[shift={(3.2cm,-3cm)}, fill opacity=0.5]
-        \begin{scope}
-            \fill[red] \firstcircle;
-        \end{scope}
-            \draw \firstcircle node {$A$};
-        \end{scope}
-        \begin{scope}[shift={(3.2cm,-3cm)}]
-        \draw \firstcircle node {$A$};
-        \end{scope}
-    \end{tikzpicture}
-```
-
-
-Getting back to finding the quantity of interest, $P(A \cup B)$, what all of this means is that if two events are not mutually exclusive, then $P(A \cup B) \neq P(A) + P(B)$, because *both* $P(A)$ and $P(B)$ include the intersection regions $P(A \cap B)$. We do want to include the intersection in the union, but only one time. So we can get the correct probability by subtracting off *one* of the intersections:
-
-Important formula!!
-
-In general, 
-$$P(A \cup B) = P(A) + P(B) - P(A \cap B)$$
-This formula actually includes the mutually exclusive case, since when two events are mutually exclusive $P(A \cap B) = 0$.
-
-Let's use a coin flipping simulation to illustrate this formula with the two events of interest being obtaining exactly two heads (event $A$) and obtaining heads on the first toss (event $B$). We know there are three ways we can obtain exactly two heads, so $P(A) = 3/8 = 0.375$. There are four ways we can obtain heads on the first toss, so $P(B) = 4/8 = 0.50$. There are two ways we can obtain exactly two heads AND obtain heads on the first toss, so $P(A \cap B) = 2/8 = 0.25$. Finally, there are five ways we can we can obtain exactly two heads OR obtain heads on the first toss, so $P(A \cup B) = 5/8 = 0.625$. We could also find this last probability using the previous formula and the previous probabilities.
-
-$$P(A \cup B) = P(A) + P(B) - P(A \cap B) = 0.375 = 0.50 - 0.25 = 0.625$$
-
-You can decide how many simulations to run, and the app will report the proportion of simulations that results in exactly two heads, the proportion where heads was obtained on the first toss, the proportion were both events occurred simultaneously, and the proportion of where either event occurred. Since probabilities are defined as long run frequencies, if enough simulations are run, these proportions should be identical to the probabilities defined previously.
-
-```{r}
-flipCoin3 <- function() {
-    dat <- rbinom(3, 1, 0.5)
-    event1 <- sum(dat) == 2
-    event2 <- dat[1] == 1
-    intersectionProb <- event1 & event2
-    unionProb <- event1 | event2
-    
-   c(event1, event2, intersectionProb, unionProb)
-}
-
-nSims <- 1000
-
-simRes <- replicate(nSims, flipCoin3())
-cbind(c('P(A)', 'P(B)', 'P(A AND B)', 'P(A OR B)'), rowMeans(simRes))
-```
-
-We can run a similar experiment, but now using two mutually exclusive events - the event of obtaining exactly two heads, and the event of obtaining three tails. 
-
-```{r}
-flipCoin3 <- function() {
-    dat <- rbinom(3, 1, 0.5)
-    event1 <- sum(dat) == 2
-    event2 <- sum(dat) == 0
-    intersectionProb <- event1 & event2
-    unionProb <- event1 | event2
-    
-   c(event1, event2, intersectionProb, unionProb)
-}
-
-nSims <- 1000
-
-simRes <- replicate(nSims, flipCoin3())
-cbind(c('P(A)', 'P(B)', 'P(A AND B)', 'P(A OR B)'), rowMeans(simRes))
-```
-
-No matter how many times we repeat the experiment, the intersection is always 0, because we can never flip a coin three times and get exactly two heads *and* three tails.
+</div>
 
 
 <div class="definition-container">
-<div class="definition"> Definitions </div>
-**Intersection: ** <em> When considering two sets, this operation includes only the events common to both sets </em>
+<div class="definition"> &nbsp;  </div>
 
-**Union: ** <em> When considering two sets, this operation includes all events in either (or both) sets </em>
+**Enumeration method: ** <em> A method to exactly compute probabilities by dividing 
+  the number of ways an event can occur by the total number of possible outcomes. </em>
 
-**Complement: ** <em> Everything that is *not* in the set </em>
+**Probability function method: ** <em> A method to exactly compute probabilities
+  by using a known function. </em>
 
-**Mutually exclusive: ** <em> Two events that cannot happen simultaneously</em>
-
-**Law of total probability: ** <em> An </em>
+**Simulation method: ** <em> A method to approximately compute probabilities by
+  repeatedly simulating experiments and taking the proportion of simulations where
+  the event occurs.</em>
 
 </div>
 
 
 
-## Conditional Probability { #ch4_s3}
-
-Many times we are interested in the probability of an event occurring, given that another event has occurred, such as "What is the probability of an individual getting lung cancer, given that they are a smoker?" If we didn't know if the individual was a smoker or not, we would probably guess the probability of lung cancer is pretty low, maybe 1%. Once we gain the knowledge that the individual smokes, our estimate of the probability of lung cancer increases, maybe up to 20%. **Conditional probability** refers to the probability of one event occurring *given* that another event has already taken place. For events $A$ and $B$, the conditional probability that $B$ will occur *given* that $A$ has already taken place is denoted $P(B|A)$. 
-
-
-Important formula!
-
-Conditional probabilities
-
-$$P(A|B) = \dfrac{P(A \cap B)}{P(B)}$$
-or rearranging:
-
-$$P(A \cap B) = P(A|B) P(B)$$
-This formulas may seem like it comes out of nowhere, but let's see if we can understand the intuition behind the math. Recall that probabilities give us the fraction of time an event occurs, when repeated over and over. Conditional probabilities are calculated assuming we already have knowledge on whether a related event has occurred. In the formula above, we are given that $B$ has occurred, so the denominator includes only probabilities associated with event $B$. Additionally, since we know $B$ occurred, $A$ can only happen in conjunction with $B$, so the numerator only includes probabilities associated with $A \cap B$. We can also think about this concept with our coin flipping example. Consider the events $A$ to be obtaining exactly two heads and $B$ to be obtaining a heads on the first toss (the same events we've previously defined as $A$ and $B$)
-
-* $A = \{HHT, HTH, THH\}$  
-* $B = \{HHH, HHT, HTH, HTT\}$    
-
-If we condition on $B$, that means we know that the first flip was heads. With conditional probability, $P(A|B)$, we are thinking about the probability of obtaining exactly two heads on three flips, given that the first flip resulted in heads. Without knowledge of the first flip, we would have said the probability of exactly two heads is 3/8, because there are eight possible outcomes of flipping a coin three times, and three of those result in exactly two heads. After we condition on the first flip being heads, our sample space is reduced. Now, there are only four outcomes where the first of three flips results in heads. We also know that of those four outcomes, two of them result in exactly two heads: $B = \{HHT, HTH\}$. So this conditional probability must be $1/2$. Often, we are not able to enumerate all possible outcomes, which is why the formulas come in handy. In this case, if we had used the formula:
-
-$$P(A|B) = \dfrac{P(A \cap B)}{P(B)} = \dfrac{2/8}{4/8} = 1/2$$
-
-
-The idea of conditional probability allows us to talk about the very important property of independence. When an event is not affected by another event, the two events are described as **independent**. Mathematically, we denote this as:
-
-$$P(A|B) = P(A)$$
-
-In other words, knowing that $B$ has occurred does not change the probability of $A$ occurring. If two events are not independent, they are said to be **dependent**. A simple example of independent events would be each flip of a coin. Whether the last flip was heads or not does not change the probability of heads on the next flip. If we are interested in the probability of two independent events occurring simultaneously ($P(A \cap B)$), we can use simplify the previous result based on conditional probability:
-
-
-$$P(A \cap B) = P(A|B) P(B) = P(A)P(B)$$
-
-This can be a helpful formula - and we've actually been implicitly using it when thinking about the probabilities of different outcomes from flipping a coin three times. If the probability of heads is $1/2$ and each flip is independent, then the probability of getting three heads is
-
-$$P(HHH) = (1/2)(1/2)(1/2) = (1/2)^3 = 1/8 = 12.5\%$$
-Since the probability of heads is identical to the probability of heads, this is the probability of any outcome from the three coin flips.
-
-It is important to keep in mind that independent and mutually exclusive do not mean the same thing. Consider a fair coin and a fair six-sided die and let $A$ be the event of obtaining heads on one coin flip and $B$ be the event of rolling a 2 on one roll. Clearly, $A$ and $B$ are independent, so 
-
-$$P(A \cap B) = P(A)P(B) = (1/2)(1/6) = 1/12$$
-
-Now consider a fair six-sided die, where even-numbered faces are blue and odd-numbered faces are red. Let $A$ be the event of rolling a red face and $B$ be the event of rolling a 2. $P(A) = 1/2)$ and $P(B) = 1/6$ as before, but $A$ and $B$ are mutually exclusive, i.e. $P(A \cap B) = 0$. To determine if events are mutually exclusive or independent, there are two questions you can ask yourself:
-
-1) Can both events happen at the same time?
-2) Does one event give me any information about the other event?
-
-If your answer to the first question is no, then the events must be mutually exclusive. If the answer to the first question is yes, but the answer to the second question is no, then the events are independent.
-
-## Probabilities from tables (needs a different example) { #ch4_s4}
-
-When discussing and interpreting probability relationships between two or more events, it is often helpful to use tables. Consider the following table of representing Japanese men aged 45-69 (1975). The entries in the table are the probabilities of outcomes for a person selected randomly from the population.
-
-```{r}
-library(knitr)
-# fill by column
-probs <- c(0.6, 0.2, 0.1, 0.1)
-
-probsMat <- matrix(NA,ncol = 3, nrow = 3)
-probsMat[1:2, 1:2] <- probs
-probsMat[,3] <- rowSums(probsMat, na.rm = T)
-probsMat[3,] <- colSums(probsMat, na.rm = T)
-colnames(probsMat) <- c('Normal Blood Pressure (N)', 'High Blood Pressure (H)', 'Total')
-rownames(probsMat) <- c('Reasonable Weight (R)', 'Overweight (O)', 'Total')
-
-kable(probsMat, align = 'c')
-```
- 
-Here we use $N$ to denote the event that a man has normal blood pressure, $H$ to denote the event that a man has high blood pressure, $R$ to denote the event that a man is a reasonable weight, and $O$ to denote the event that a man is overweight (the letters $A$ and $B$ were getting old). Using this table we can get probabilities of events separately, we can get the probability of intersection, union, and complements, and we can get conditional probabilities.
-
-Let's start by finding $P(R)$, or the probability of man being a reasonable weight. This includes both men that have normal blood pressure and men that have high blood pressure, but not men that are overweight. Note that the events of being a reasonable weight and being overweight are mutually exclusive, as are the events of having normal blood pressure and high blood pressure - because a man cannot be in both categories at the same time. Thus, to find $P(R)$ we actually just need to look at the right hand margin of the table, $P(R) = 0.7$. Because of this, $P(R)$, $P(O)$, $P(N)$, and $P(H)$ are called **marginal probabilities**. 
-
-The inner cells of the table directly give us the intersection probabilities, $P(R \cap N) = 0.6$, $P(R \cap H) = 0.1$, $P(O \cap N)=0.2$, and $P(O \cap H)=0.1$. To get the probabilities of at least one event happening (the union), we must add up all the cells that correspond to either event - but just like before we have to be careful about double counting the intersection. Let's consider the probability of a man being overweight or having high blood pressure ($P(O \cup H)$). The second row of the table corresponds to a man being overweight, and using the margin we have $P(O) = 0.3$, the second column corresponds to a man having high blood pressure and $P(H) = 0.2$. So if we want to get the probability of being overweight or having high blood pressure, we can add those together *but* notice that both of those probabilities include the probability of being overweight and having high blood pressure ($P(O \cap H)$), so we have to subtract that value. Thus,
-
-$$P(O \cup H) = P(O) + P(H) - P(O \cap H) = 0.3 + 0.2 - 0.1 = 0.4$$
-This is the same formula we defined previously. When the data is in a table, we could also skip this formula and just add up all the cells where either one event or the other is present. The probability of being overweight or having high blood pressure is $0.2 + 0.1 + 0.1 = 0.4$. Either way we do it, we get the same answer and you can use whichever method makes the most sense to you.
-
-Finally, we can get conditional probabilities from the table. For example, we might be interested in the probability of having high blood pressure for overweight men, or in other words, the probability of a man having high blood pressure, given that they are overweight ($P(H|O)$). When calculation conditional probabilities from a table, we only have to focus on the part of the table that we condition on - since that information is given to us. Given that a man is overweight, we know that we are only concerned with the second row in the table as that is the only part of the table concerning overweight men. Then to get $P(H|O)$ we take the ratio of the probability of men with high blood pressure out of the probability that they are overweight $P(H|O) = 0.1 / 0.3 = 1/3$. Similarly, if we wanted to get the probability of being a reasonable weight blood pressure, given a man has normal blood pressure, we would get $P(R|N) = 0.6 / 0.8 = 0.75$.
-
-## Bayes' Rule { #ch4_s5}
-
-SHOULD PROBABLY THINK OF ANOTHER EXAMPLE
-
-We now know that conditional results allow us to incorporate already observed information into a probability calculation. However, conditional probabilities are often easier to reason through (or collect data for) in one direction or the other. For example, suppose a woman is having twins. Obviously, if she were having identical twins, the probability that the twins would be the same sex would be 1, and if her twins were fraternal, the probability would be 1/2. But what if the woman goes to the doctor, has an ultrasound performed, learns that her twins are the same sex, and wants to know the probability that her twins are identical. Both ways of looking at the probably are in terms of a conditional probability - if $SS$ denotes the event that the twins are the same sex and $I$ denotes the event that the twins are identical, we know $P(SS|I) = 1)$ and $P(SS|I^C) = 1/2$. But what we want now is $P(I|SS)$, so the information we are given has changed. The tool we use to "flip" conditional probabilities is called **Bayes' rule**.
-
-Important formula!
-
-Bayes' rule
-
-Consider to events $A$ and $B$, and suppose we know the following probabilities: $P(B|A)$, $P(B|A^C)$, $P(A)$, and $P(A^C)$. If want to get $P(A|B)$, we can use:
-
- $$P(A|B) = \frac{P(B|A)P(A)}{P(B|A)P(A) + P(B|A^C)P(A^C)}$$
-
-We can apply Bayes' rule to the woman having twins scenario, but we need to know one other piece of information: the probability that a pair of twins will be identical ($P(I)$). Since the proportion of all twins that are identical is roughly $1/3$, we will say $P(I = 1/3)$. Therefore, 
-\begin{aligned}
-    P(I|SS) &= \frac{P(SS|I)P(I)}{P(SS|I)P(I) + P(SS|I^C)P(I^C)} \\
-            &= \frac{1 \times \frac{1}{3}}{(1 \times \frac{1}{3}) + (\frac{1}{2} \times \frac{2}{3})} \\
-            &= \frac{1}{2}
-\end{aligned}
-
-
-Let's think about what happened. Before the ultrasound, the probability that the twins were identical, $P(I)$, was $1/3$. This is called the **prior** probability. After we learned the results of the ultrasound, the probability that the twins were identical, $P(I|SS)$, is $1/2$. This is called the **posterior** probability. In fact, this prior/posterior way of thinking can be used to establish an entire statistical framework rather different in philosophy than the one we have presented so far in this course. In this way of thinking, we start out with the idea of the possible values of some unknown facet of the world $\theta$. This distribution of possibilities $P(\theta)$ is our prior belief about the unknown; then we observe data $D$ and update those beliefs, arriving at our posterior beliefs about the unknown $P(\theta|D)$. Mathematically, this updating is derived from Bayes' rule, hence the name for this line of inferential reasoning: **Bayesian statistics**. One clear advantage of Bayesian statistics is that it is a much more natural representation of human thought. Instead of thinking about the proportion of times an event would occur if it was repeated over and over, we think about the belief it will occur given all of the available information. For something like the outcome of a sports match or the weather this is more intuitive, since the game in only played once and as we are not stuck in the movie Groundhog's Day, we can not experience a day over and over and record the fraction of times that it rains. However, the scientific community has not widely embraced the notion of subjective beliefs as the basis for science; the long-run frequency approach that we will cover in this course has generally proved more marketable. Bayesian statistics is certainly worth being aware of and is widely used and accepted in many fields.
-
-A common application of Bayes' rule in biostatistics is in the area of diagnostic testing and routine screening, and this is the main application of Bayes' rule we will focus on. For example, older women in the United States are recommended to undergo routine X-rays of breast tissue (mammograms) to look for cancer. Even though the vast majority of women will not have developed breast cancer in the year or two since their last mammogram, this routine screening is believed to save lives by catching cancer while it is relatively treatable. The application of a diagnostic to asympotmatic individuals in the hopes of catching a disease in its early stages is called screening. Note that this is different than someone experiencing flu-like symptoms and going to the doctor to get a rapid influenza diagnostic test (RIDT). First let's think about what characteristics would make a good screening test. Given the following cross-classification table of test results vs. true disease status, do you think this would be a good screening test for diabetes?
-
-
-THERES A TABLE HERE THAT WONT SHOW UP
-\begin{tabular}{l|cc|c}
-\hline
-                                 & \multicolumn{2}{c|}{True State of Disease}    & \multicolumn{1}{l}{} \\ 
-\multicolumn{1}{l|}{Test Result} & Diabetic & \multicolumn{1}{c|}{Not Diabetic} & Total                \\ \hline
-\multicolumn{1}{l|}{Positive (+)}    & 56       & \multicolumn{1}{c|}{49}           & 105                  \\
-\multicolumn{1}{l|}{Negative (-)}    & 14       & \multicolumn{1}{c|}{461}          & 475                  \\ \hline
-\multicolumn{1}{l|}{Total}       & 70       & \multicolumn{1}{c|}{510}          & 580                 
-\end{tabular}
-
-
-When creating a good screening test, we want to correctly classify as many individuals with and without the disease as we can. This means if an individual truly has diabetes, we would want a positive test result and if an individual does not have diabetes, we would want a negative test result as often as possible. Another way of looking at it, is that we want to minimize the errors. We want to minimize the number of truly diabetic individuals that get a negative test result, as these individuals would then be missing out on the proper treatment. Similarly, we want to minimize the number of healthy individuals that receive a positive test, as these individuals could potentially get a treatment they don't need. Which type of error is more important depends on the context of the disease and the potential treatment, although most often people are concerned with correctly classifying the individuals with the disease.
-
-We can talk about these events in terms of conditional probabilities. Consider an individual selected at random from a certain population who is administered a screening test. Define the following events:  
-
-\begin{aligned}
-        D &= \text{the individual has the disease} \\
-        D^C &= \text{the individual does not have the disease} \\
-        T^+ &= \text{the individual has a positive test result} \\
-        T^- &= \text{the individual has a negative test result}
-\end{aligned}
-
-Then, to assess how well a screening test performs, we consider two important conditional probabilities. **Sensitivity** is the probability of obtaining a positive test result, given that the individual has the disease:
- $$\text{Sensitivity} = P(T^+|D)$$
- 
-**Specificity** is the probability of obtaining a negative test result given that the individual does not have the disease:
-$$\text{Specificity} = P(T^-|D^C)$$
-Sensitivity and specificity are both concerned with correctly classifying individuals, so ideally, both the sensitivity and specificity of a screening test would equal 1. However, diagnostic tests are not perfect, so there is always some misclassification. This leads us to two other conditional probabilities, which are directly related to sensitivity and specificity.A **false positive** occurs when a positive test result is obtained for an individual who does not have the disease:
-        $$\text{False Positive} = P(T^+|D^C) = 1 - P(T^-|D^C) = 1 - \text{Specificity}$$
-
-A **false negative** occurs when a negative test result is obtained for an individual that has the disease:
-        $$\text{False Negative} = P(T^-|D) = 1 - P(T^+|D) = 1 - \text{Sensitivity}$$ 
-
-Here we are using the rule of conditional probability $P(A^C) = 1 - P(A)$ applied to conditional probabilities. In words, once we condition on the disease status the test result can only be positive or negative and since those are the only two events in the sample space the probability of both occurring must add up to 1. The previously defined quantities are all characteristics of the screening test, i.e. the probability of testing positive or negative given a certain disease status. Often, what is of more interest is the disease characteristics, conditional on the screening test results. In other words, we are interested in the probability of having the disease, given a positive test or the probability of not having the disease given a negative test. These two quantities are called the **positive predictive value (PPV)** and the **negative predictive value (NPV)** and can be calculated from the sensitivity and specificity using Bayes' rule.
-
-Both the PPV and the NPV can be written in terms of the test's sensitivity, specificity, and disease prevalence
-    \begin{aligned}
-        PPV &= P(D|T^{+}) \\
-        &= \frac{P(T^+|D)P(D)}{P(T^+|D)P(D) + P(T^+|D^C)P(D^C)} \\
-        &= \frac{\text{Sens}\times \text{Prev}}{\text{Sens}\times \text{Prev} + (1 - \text{Spec}) (1-\text{Prev})}
-    \end{aligned}
-    \begin{aligned}
-        NPV &= P(D^C|T^{-}) \\
-        &= \frac{P(T^-|D^C)P(D^C)}{P(T^-|D^C)P(D^C) + P(T^-|D)P(D)} \\
-        &= \frac{\text{Spec}(1-\text{Prev})}{\text{Spec}(1-\text{Prev}) + (1 - \text{Sens}) \text{Prev}}
-    \end{aligned}
-
-Need to add that we only use prevalence in the case of screenings. If you have symptoms than we have a different prior on the probability of you having the disease.
 
 
 
@@ -591,4 +488,6 @@ Need to add that we only use prevalence in the case of screenings. If you have s
 
 
 
-        
+
+
+

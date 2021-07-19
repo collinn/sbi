@@ -2,12 +2,7 @@
 output: html_document
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
-
-
-# Introduction to Simulations {#ch13}
+# Introduction to Simulations {#ch12}
 
 <div class="objective-container">
 <div class="objectives"> Learning objectives </div>
@@ -17,197 +12,25 @@ knitr::opts_chunk$set(echo = TRUE)
 4. Conceptual understanding of randomness and a simulation
 </div>
 
-## Introduction {#ch13_intro}
-
-Throughout this text, we will often describe simulations in terms of coins and dice. While these examples may feel contrived, they do serve to illustrate the components of probability, randomness, and simulation in a way that is free from unnecessary complication. For example, flipping a coin has exactly two outcomes with equal probability; the goal here is not to bore you with unmotivating examples ("When am I ever going to flip 10,000 coins?") but rather to allow the focus of the discussion to be on the primary conceptual elements:
-
-- *experiments*
-- *events*
-- *outcomes*
-- *probabilities* 
-
-Keeping this in mind will help the reader keep narrow center their focus on the relevant information, if at the slight expense of imaginative creativity.
-
-
-## What is a simulation? {#ch13_s1}
-
-For most of its history, nearly all of statistics were done in an analytic fashion, with the use of concise formulas and tedious calculation. However, with the ubiquity of modern computers, something something something
-
-As an aid to our learning, we will be making heavy use of a tool known as **simulation**. In the broadest sense, computer simulations allow us to quickly and consistently repeat a random experiment that we might use to form conclusions about a process. Before going into technical details, let's begin with a simple random experiment that has a single event, the act of flipping a fair coin one time:
-
-[[app]]
-
-(too many colons and semicolons below)
-
-Because this is a fair coin, we know before we flip it that there is an equal probability of it landing on either heads or tails. Because we are unsure of the outcome before hand, we say that the outcome is *random*. Once the coin is flipped, however, it is either heads *or* tails; that is, once the result is no longer random, we say that it is *observed*. This is a subtle but important distinction.
-
-Processes (such as flipping a coin) in which randomness occurs are known as **stochastic processes**. By contrast, a process that is not random is known as **deterministic**, as the outcome is determined before hand. An example of a deterministic process may include ordering a collection of numbers from largest to smallest: every time we are given the same collection of numbers, the resulting order will be the same. Our primary interest in this text will be the investigation of statistical processes, aided with the use of simulation.
-
-<!-- As in a real-life coin flip, we see that we do not get the same result each time. Because we know this is a fair coin, we might say that the probability of landing on heads is 50%, and the probability of landing on tails is 50%. And while we may know for certain that the probability is the same for each outcome, we are no more able to predict what the result of the next flip will be. This is a consequence of **randomness**, where the outcome is uncertain until it is observed. Processes (such as flipping a coin) in which randomness occurs are known as **stochastic processes**. In contrast, a process that is not random is known as **deterministic**, where the outcome of the process is known in advance.  -->
-
-It's worth taking a moment here to reflect on the somewhat obvious statement that we have not flipped an actual coin, but have instead performed a *computer simulation*. There are (three) (more? different things? make part of definition?) components of our experiment that identify it as such (might also break this into parts not unique to simulation in general but coin flip in  particular. then we can separate number of flips, number of coins, probability, etc) (flip 1 and 2)
-
-1. We specified the possible outcomes and the probability of each outcome occuring. In this case, our outcomes were heads and tails, each with a probability of 50%. 
-
-2. We specified the details of our experiment. This was the number of coins we wanted to flip, as well as the number of times we wanted to flip them. For this simple example, we elected to flip a single coin one time.
-
-3. We performed this experiment with the aid of a computer. 
-
-While (3) may seem a trivial component of our definition, it has two important implications: we were able to exactly specify the criteria in (1) and (2), and we are able to repeat *this exact same experiment* knowing that the initial set of conditions will remain exactly the same. The utility of this framework comes from the fact that we can conduct a random experiment as many times as we wish in the anticipation that by doing so, we can learn something about the behavior of random processes in general.
-
-
-Let's now return to the coin flip simulation and investigate ways in which we can make our experiment slightly more complex. In the first implementation, we observed a single **event**, or observed outcome, resulting from the flip of the coin. Letting $n$ represent the number of total flips, we would say that this simulation was carried out with $n = 1$. In the example below, we repeat the simulation above, but this time we are able to change the value of $n$:
-
-[[app]]
-
-Just as before, while having defined $n$ allows us to control the behavior of the simulation, it does not interfere with the effects of randomness. In other words, each time the simulation is run, a different outcome appears. Values such as $n$ that change the behavior of the simulation are known as **simulation parameters**. We will consider a number of parameters that are commonly used to direct the simulation.
-
-
-(this was rewritten above. not sure on appropriate order of concepts and definitions)
-
-Once an outcome is complete and the coins have been flipped, we say that it is **observed**, or that *we have observed the outcome of a random process*. Here, it is important to note that an observed outcome is no longer random -- once the data have been observed, we know what they are. Data collected through real life experiments, such as testing the efficacy of new drugs, or measuring the height of people in a population, are all observed data. As is often lamented by researchers and statisticians alike, real word experiments can often only be conducted a single time. Once the data is observed, it's observed. This is in stark contrast to the power of simulations, in which experiments can be conducted and data observed an arbitrary number of times. 
-
-To see this in action here, consider the previous example in which we introduced the simulation parameter $n$, which allowed us to dictate the number of events, or coin flips, that were done in our experiment. Suppose the experiment that we are interested in involves flipping a coin three times: in this case, we have $n = 3$. When we ran the simulation above, the experiment was done once, as is often the case in the real world, and we were left with a single collection of *observed data*. It now makes sense to introduce a new simulation parameter, $N$, which dictates *how many times the experiment is to be done*. In this last instance, our simulation was done with $N = 1$. In the simulation below, we will continue to run the experiment with three coin flips ($n = 3$), but we will change the number of times $N$ that the experiment is run.
-
-[[app]]
-
-It is important to note that the experiment itself is unchanged -- just as before, we are continuing to investigate what happens when a coin is flipped $n = 3$ times. By adjusting the value of $N$, we are now able to perform this same experiment as often as we wish. Even more importantly, one sees that even though the exact same experiment is performed a number of times, the *observed* values of the experiment are different. This is again a consequence of randomness, and demonstrates that even when we know all of the details of an experiment, the outcome is uncertain until it is observed.
-
-
-<div class="definition-container">
-<div class="definition"> Definitions </div>
-**Simulation: ** <em>  </em>
-
-**Stochastic processes: ** <em> </em>
-
-**Deterministic processes: ** <em> </em>
-
-**Event: ** <em> </em>
-
-**Simulation Parameters: ** <em> Values which change the behavior of the simulation </em>
-</div>
-
-
-## Why Simulation {#ch13_s2}
-
-In the previous section, we learned that a simulation is a random process (of $n$ events) that can be performed an arbitrary number of ($N$) times. Our next step will be to understand how this process can empower us to better understand key concepts in statistics. The next section will contain a number of terms and concepts that will be formally introduced in later chapters, but for now will serve to give context to the usefulness of simulations.
-
-We will continue with the experiment above, where we are interested in flipping a fair coin $n = 3$ times. However, along with the experiment, we will also bring a question: if a coin is flipped three times, what is the probability that exactly two of the coins will be heads? Before we attempt answering this via simulation, it will be instructive to consider first the ways we might answer it without.
-
-[[might be nice to "name" these methods, like pdf method and something else.]]
-
-### Non-simulation Methods
-
-We will start by introducing two non-simulation methods to answer this question, which we will call the *enumeration method* and the *probability function method*
-
-<ol type = "1">
-<li> **Enumeration Method:** As $n$ is small enough, we could simply list all of the possible outcomes of this experiment and count how many of these outcomes have exactly two heads. For example, we may flip a coin three times with the first flip landing on heads and the remaining flips landing on tails. We can identify this event as $\{HTT\}$. The space of *all* possible outcomes for this experiment where the coin is flipped $n = 3$ times, denoted $\mathcal{S}$, is given by 
-
-$$
-\mathcal{S} = \{HHH, HHT, HTH, HTT, THH, TTH, THT, TTT\}
-$$
-Having listed them out, we see there are eight possible outcomes. Next, we count how many of those have exactly two heads:
-
-$$
-\mathcal{S} = \{HHH, \color{red}{HHT}, \color{red}{HTH}, \color{red}{THH}, TTH, THT, HTT, TTT\}
-$$
-Dividing the events of interest by the total number of outcomes, we see that the probability of getting exactly two heads is $P(\text{# Heads = 2}) = \frac{\text{# Heads = 2}}{\text{# Possible Outcomes}} = \frac38$. That is, by enumerating the eight possible outcomes, we identified three of them in which the number of heads was two. </li>
-<br>
-<li> **Probability function method:** Often, a statistical or stochastic process has an associated *probability function* that allows us to determine the probability of a set of outcomes. In this case, our coin flipping example follows what is known as a *binomial distribution*, which has the probability function
-
-$$
-P(\text{# Heads = k}) = f(k; n,p) = \binom{n}{k}p^k(1-p)^{n-k}.
-$$
-For our experiment, the probability of heads is $p = 0.5$, the total number of flips is $n = 3$, and for our event, $k = 2$ heads. Substituting these numbers, we have
-
-$$
-\begin{align*}
-P(\text{# Heads = 2}) &= \binom{3}{2} (0.5)^2 (0.5)^{3-2} \\
-&= 3 \times (0.5)(0.5)(0.5) \\
-&= 0.375.
-\end{align*}
-$$
-We see, then, that a probability function is a function that takes an event as an argument and returns an associated probability. Just as in the enumeration method, we find that $P(\text{# Heads = 2}) = 0.375 = \frac38$. </li>
-</ol>
-
-#### Limitation of non-simulation methods
-
-While each of these methods is satisfactory (and mathematically equivalent), there are a number of situations in which they would be impractical to perform:
-
-1. For example, in the enumeration method, we determined the probability by counting the total number of events of interest (getting two heads) and dividing it by the total number of possible outcomes, in this case eight. For $n = 4$, there are 16 possible outcomes, and for $n = 10$, this number grows to 1024. In fact, the number of possible outcomes grows exponentially with the number of flips: with only $n = 25$ coin flips, there would be more possible outcomes for the coin flips than the number of hours between today and the construction of the Great Pyramid of Giza. Clearly, we need a method that is a bit more concise.
-
-2. Our second method, where we determined probability via the probability function, is far and away the most popular method. The computation was simple, and we can see immediately how we could use it to solve more difficult coin flipping experiments, such as when $n = 25$. Unfortunately, we are limited by the crucial fact that we have to know what the probability function is in order to compute it. For many real life processes, such as flipping coins or estimating the number of phone calls a call center will receive in an hour, this function is readily known. For more complex processes, such as estimating the weather, these functions can be nearly impossible to construct, leaving statisticians and researchers with no clear way to specify the probability of events.
-
-
-### Simulation Method
-
-Before moving forward, let's quickly recap where we are right now:
-
-- Simulation is a tool that we have, governed by a set of parameters (in our case, $n$ and $N$), that can be used to replicate a random experiment an arbitrary number of times. Because this process is *stochastic*, or random, it will give a different outcome each time
-
-- We have specified an experiment we would like to perform, flipping a fair coin $n = 3$ times, and we would like to know the probability that exactly two of the flips will land on heads. Together, these define our experiment and our research question
-
-- We investigated two methods besides simulation for answering this question: enumerating the event space and calculating the probability with the probability function. These methods gave identical answers, and will continue to do so each time they are performed: in other words, they are *deterministic* methods for determining probability.
-
-- We saw that even though enumeration and probability functions worked fine for our problem, they can quickly become impractical or even impossible once the problem grows becomes more complex
-
-A careful reader might note that for a given random experiment (such as flipping a coin three times) and a specified outcome (exactly two heads), there is only a *single* correct answer to the question, "What is the probability of getting exactly two heads when flipping a coin three times?", and this single correct answer is precisely what was found using the *deterministic* enumeration and probability function methods described above. If this is true, how could we possibly expect a simulation, which gives us *random* outcomes, to give us the same correct result? The answer lies in one of the most profound results in all of statistics, the **law of large numbers**.
-
-The *law of large numbers* will be covered more carefully in a later chapter, but for now, it suffices to know that the law of larger numbers states: "the average of the probabilities obtained from a large number of trials should be close to the true probability, and will tend to become closer are more trials are performed." In the context of our problem, we can restate this as "as the number of experiments performed $N$ becomes larger, the average of all the results will get closer and closer to the true result." Or more clearly still, "our simulation will match deterministic methods as $N \rightarrow \infty$". That's pretty neat.
-
-What happens is this: suppose that we begin our simulation with $N =1$, that is, we perform our experiment once. If we happen to collect two heads in this experiment, we might say, "two heads were observed in 100% of the experiments." Alternatively, if two heads were not collected, we may conclude, "two heads were observed in 0% of the experiments." While both of these statements are true, clearly they do not give us the answer we are looking for.
-
-Now suppose that we perform our simulation $N = 10$ times. Here, we might observe getting two heads 30% of the time, 60% of the time, or perhaps again 0% of the time. And while these aren't exactly correct either, we can see that the *possible* results of all of our experiments are getting larger. And by the law of larger numbers, we know that as $N$ increases, we will get results that are closer to the true solution. Mathemtically, this looks like
-
-$$
-P(\# \text{ Heads} = 2) \approx \frac{\text{Number of times \{# Heads = 2\} in } N \text{ Simulations}}{N \text{ Simulations}}
-$$
-
-What do you think will happen when $N = 1,000$? Use the simulation app below to verify that as $N$ increases, the calculated probability of the simulation gets closer to the analytic results found above.
-
-[[app]]
-
-
-Possibly edit next paragraph/move above when looking at the simulation method being a ratio, akin to enumeration, but different. could also just omit because students don't care. 
-
-It is worth noting here the similarity between the enumeration and simulation methods. In the enumeration method, we specified all possible outcomes and counted how many of those satisfied the question of our experiment, while in the simulation method, we drew a specified number of random outcomes, $N$, and counted how many of had two heads. At first glance, the enumeration method may seem more straight forward; however, the simplicity of our calculation rested on the assumption that each of the possible outcomes could occur with equal probability. This is often not the case, making the enumeration method significantly more difficult to implement in practice. The simulation method, by contrast, accounts for this by drawing random samples, allowing outcomes with higher probabilities to show up more frequently. 
-
-
-
-
-
-
-## Chapter Summary
-
-In this chapter, we introduced a powerful tool known as simulation. 
-
-- Randomness describes the phenomenon in which a process may give different outcomes each time it is observed
-- In real life, an random experiment is specified, often performed once, and the results are observed
-- A simulation, along with a number of parameters ($n$, $N$), can be used to perform the same random experiment an arbitrary number of times
-- Probabilities of events can sometimes be computed directly, as with enumeration, or with the aid of a probability function. These are *deterministic* methods of computing probability
-- Often, deterministic methods of computing probability are either impractical or outright impossible
-- By increasing the size of $N$, simulations, which are *stochastic*, can be used as a very close approximation to the true results, thanks to the law of large numbers
-
-Having finished this chapter, you should be able to answer the following questions:
-
-- What are three aspects that characterize a simulation (probably can't answer well because above should be rewritten/clarified)
-- What are non-simulation methods for computing probability of an event?
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+## What is a simulation? {#ch12_s1}
+
+In the statistics world, when we use the word simulation we are not talking about 
+*The Matrix* or *Westworld,* where humans exist in some simulated reality. Statistical simulations
+use a computer to observe potential results of an experiments. Simulations can be used
+for experiments as simple as flipping a coin or as complicated as investigating the dynamics of human
+movement and interaction. One thing that all simulations have in common is the element
+of **randomness**. If there was nothing random, the process would result in the same
+outcome every time - like if someone offered me an all-expenses paid trip to Hawaii - the 
+answer is always yes. This is what we call a **deterministic** outcome, and it is not
+something where any statistical inference is needed. However, more often than not,
+the phenomenon of interest is what we call **stochastic** which means there is
+some element of randomness - like the weather in Hawaii during my trip - it might
+be sunny, it might be rainy, and there is a tiny chance it might be below freezing.
+
+Simulations allow us to specify the **parameters** that govern the scenario and then 
+with the help of a computer, we can watch the scenario play out over and over. In the end,
+this gives us an idea of all the likely outcomes *and* just how likely those outcomes might be.
+Let's start with a simple example - flipping a coin
 
 
 

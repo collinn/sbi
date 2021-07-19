@@ -2,441 +2,212 @@
 output: html_document
 ---
 
-# Dump Chapter {#ch14}
-
-
-::: {.infobox .hazard data-latex="hazard"}
-PRACTICE SAFE STATISTICS
-
-Don't drink and derive
-:::
-
-
-
-
-
-## Introduction dump {-}
-<!-- # Introduction {.para1 -} <- this adds para1 class to introduction--> 
-
-First note - Having `{-}` in the heading skips numbering assignment (which can be customized in _bookdown.yml), so that `Chapter 1` doesn't read  as `2 Chapter 1`
-
-<p class="para1">this is a test</p>
-<div class="para1"> hello </div>
-
-This is a cool book that we are going to make, and it's going to have information about statistics
-
-index.Rmd is the first file loaded, similar to HTML use of index.html
-
-Do note that
-
-- This book uses markdown, so we can use *markdown* **notation** when writing, or <u> html tags</u> 
-  + That includes sublists too
-    - forever
-      * but not too many
-- It can be published in a lot of ways, but [this book](https://bookdown.org/yihui/bookdown/) suggests we focus on HTML first since pdf can be wonky and change format frequently
-- We can use math too if we want. sex  $\rightarrow$ $\int e^X$
-
-Since this is done in Rstudio with markdown, we can build changes by just pushing Knit at the top (Ctrl+Shift+K !). However, if we add a new file/chapter, we have to, from the console, input
-
-```{r, eval = FALSE}
-library(magrittr)
-bookdown::render_book('index.Rmd', 'bookdown::gitbook')
-```
-(or whichever format we want. When closer to finshed, we can make a script to compile finished versions in multiple formats)
-
-Things you'll need:
-
-```{r, eval=FALSE}
-install.packages(c("knitr", "bookdown", "servr", "shiny", "rmarkdown"))
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
 ```
 
 
-https://www.w3schools.com/css/css_selectors.asp
-
-https://bookdown.org/yihui/rmarkdown-cookbook/custom-blocks.html
-
-## Stuff lifted that used to be in ch2 (may or may not be useful still?)
-
-
-We can also have R code
-
-```{r sampHist, include = FALSE}
-normPop <- rnorm(1e5, mean = 10, sd = 20)
-
-x <- sample(normPop, size = 5, replace = TRUE)
-y <- sample(normPop, size = 100, replace = TRUE)
-
-hist(normPop)
-abline(v = 10, col = "blue", lwd = 2)
-abline(v = mean(x), col = 'red', lty = 2, lwd = 2)
-abline(v = mean(y), col = 'green', lty = 2, lwd = 2)
-```
-
-But that's boring and dumb when we can also have Shiny, though a few things of note, I guess
-
-- While rmarkdown can host a self contained shiny app, bookdown requires a url. This is not ideal, and I will investigate if there is something that can be done about this
-- Ok, whatever, I'm sure the library will host it for us. That would require internet access, though.
-- We can still include the actual directories in our repo, or I think we can embed shiny if it is created as a single document instead of chapters
-- This is dumb, but the shiny.rstudio website stopped hosting all of their shiny examples (?), and everything else is too complicated
-- Oh, I know, we can just use the shiny server for public health!
-- "To protect your security, ph-ivshiny.iowa.uiowa.edu will not allow Firefox to display the page if another site has embedded it. To see this page, you need to open it in a new window."
-- Here is a way complicated one that takes too long to load. Things I don't like:
-  - Small window (maybe can adjust?)
-  - Scrolly window
-  - Yihui recommends miniUI for embedded shiny apps, but still
-  - Not yet sure what other options might exist
-
-## Chapter 4 dump
-
-We can explore this concept of long-run frequency more with a simulation. For this simulation, we will simulate rolling a 6-sided die 100 times, recording the result of each roll, and then tabulating the proportion of rolls where we observed each side of the die.
-
-```{r}
-rollDie <- function(nRolls, seed) {
-    set.seed(seed)
-    sample(1:6, nRolls, replace = TRUE)
-}
-barplot(table(rollDie(100, 1)))
-prop.table(table(rollDie(100, 1)))
-```
-
-As we see, with just 100 rolls, we don't observe exactly the same proportion of rolls landing on each side of the die. The proportions are not exactly 1/6 = 16.7%, because of randomness. However, if we do 1,000,000 rolls, we see things even out:
-
-```{r}
-round(prop.table(table(rollDie(1e6, 1))), 3)
-```
-
-Now let users play with a similar app illustrating coin flips (or something) and have associated exercises. Maybe a plot of the proportion over time.
-
-
-
-## Shiny test
-
-
-## Regular UI
-<!-- frameBorder="0" -->
-<iframe src="https://ph-ivshiny.iowa.uiowa.edu/collin/textbook/confidenceIntervals/" width = "800" height = "750"> 
-</iframe>
-
-## Editing text
-
-```diff
-Here are some things that were written that seem fine
-- this is maybe something we're not sure about
-+ this is an idea or proposal we can discuss?
-```
-
-But the actual code above looks like this
-
-
-    ```diff
-    Here are some things that were written that seem fine
-    - this is maybe something we're not sure about
-    + this is an idea or proposal we can discuss?
-    ```
-
-
-## Idea
-
-Not sure where else to write this - for running a simulation at home. Consider heating a pan, throwing on 10 corn kernels, and figuring out how many have popped after certain number of time. Pretend 3 minutes is 50%. Well, have them do ten for 3 minutes, then count how many popped. Repeat.
-
-
-## CLT Stuff
-
-https://iwant2study.org/lookangejss/math/ejss_model_GaltonBoardwee/GaltonBoardwee_Simulation.xhtml
-
-Ideas to make things CLT interesting - The Wall TV show.
-
-
-
-Questions we can answer at the end of this chapter
-
-1. What is a statistic? What is a parameter? What is the relationship between the two? (Draw a picture would be a cool exercise. Idk how you'd grade it)
-2. Why are sampling distributions random? Suppose we wanted to ask the state of Iowa which 
-university had the best football team, and we only ask in Iowa City. Would this be a 
-random sample? Could we use this sample to make reliable predictions about the entire state? Why or why not?
-3. Prove the Central Limit Theorem using characteristic functions for the iid case, assuming finite mean and variance.
-
-
-Another good way to address the $\bar{X}$ vs $\bar{x}$ is to have something like (&= isn't making them align?)
-
-<div class="latex">
-$$
-\begin{align*}
-\bar{X} &= \{\text{Mean height of} \textit{ Sex and the City } \text{protagonists}\} \\
-\bar{x} &= \{\text{Mean height of Carrie and Samantha}\}
-\end{align*}
-$$
-</div>
-
-
-## Chapter 5 dump (probability distributions)
-
+# Introduction to Simulations {#ch13}
 
 <div class="objective-container">
-<div class="objectives"> Learning Objectives </div>
-1. Understand how a distribution represents a random process that creates data that is then observed
-2. Understand how the parameters of a distribution govern how the data is generated [and with what probability]
-3. Be able to identify which distributions underlying a given real world random process.
+<div class="objectives"> Learning objectives </div>
+1. Understand what a simulation is
+2. Understand why simulations are useful
+3. Learn the types of illustrations that can be helpful to summarize simulations
+4. Conceptual understanding of randomness and a simulation
 </div>
 
-In the previous chapter, we introduced the idea of random processes, which are situations where the outcome can not be determined perfectly in advance. We encounter random processes all the time in our lives, from the exact amount of time it takes to get to class from your home, to determining the winner of a football game. In any case, the random process is defined in terms of the *collection of possible events* and their *associated probabilities*. While the number of unique outcomes of a random process may be impossible to count, we will find that many of them have a very similar underlying structure dictating how these events occur. Formally recognizing the properties of these structures, as well as understanding how they can be used to make predictions, motivates the goals of this chapter. 
+## Introduction {#ch13_intro}
 
-## Introduction to Probability Distributions 
+Throughout this text, we will often describe simulations in terms of coins and dice. While these examples may feel contrived, they do serve to illustrate the components of probability, randomness, and simulation in a way that is free from unnecessary complication. For example, flipping a coin has exactly two outcomes with equal probability; the goal here is not to bore you with unmotivating examples ("When am I ever going to flip 10,000 coins?") but rather to allow the focus of the discussion to be on the primary conceptual elements:
 
-Most simply, a **probability distribution** (often just called a distribution) is a method for taking a possible event as input, and giving us the corresponding probability as output. The corresponding probability tells us how likely it is that the specific event will occur, out of all of the possible events. A helpful metaphor is to consider a machine that produces these events at random frequencies corresponding to their associated probabilities. That is, if our machine only creates green marbles and red marbles, and the probability of producing a green marble is 75%, then *on average*, our machine will make 3 green marbles for each red one. In this sense, we can think of distributions as "data generating mechanisms" - the distributions govern how the machine which generates data works. 
+- *experiments*
+- *events*
+- *outcomes*
+- *probabilities* 
 
-To continue with the machine metaphor, it will be important for us to distinguish between two machines that are completely different, and two machines that are the same but tuned to different settings. These settings, which we call *distribution parameters*, dictate many aspects of how the machine will generate data, including the range of likely events, how likely these events are to occur, and how much variability we might expect in the events that we observe. To briefly illustrate, we might first consider a *normal distribution*, which is governed by two parameters: the mean value, $\mu$, and the amount of variability, $\sigma^2$. A plot of two normal distributions is given below:
+Keeping this in mind will help the reader keep narrow center their focus on the relevant information, if at the slight expense of imaginative creativity.
 
-```{r, fig.align='center', echo = FALSE}
-curve(dnorm(x, 0, 1), from = -4, to = 13, lwd = 4,
-      col = 'steelblue', ylab = 'Probability', xlab = 'X',
-      main = "Two Normal Distributions")
-curve(dnorm(x, 5, 3), add = TRUE, lwd = 4, col = 'tomato')
-legend(x = 6.5, y = 0.35, legend = c(expression(N(mu == 0, sigma^2 == 1)),
-                                     expression(N(mu == 5, sigma^2 == 3))),
-       lwd = 4, col = c("steelblue", "tomato"))
-```
 
-As we can see, these two curves are quite similar, and indeed, the underlying process that created each of them is the same. What is different, however, are the parameters governing how the data were generated. With this in mind, we have three goals for the present chapter
+## What is a simulation? {#ch13_s1}
 
-1. Understand how a distribution represents a random process that creates data that is then observed
-2. Understand how the parameters of a distribution govern how the data is generated [and with what probability]
-3. Be able to identify which distributions underlying a given real world random process.
+For most of its history, nearly all of statistics were done in an analytic fashion, with the use of concise formulas and tedious calculation. However, with the ubiquity of modern computers, something something something
 
-<div class="definition-container">
-<div class="definition"> Definitions </div>
-**Probability Distribution: ** <em> A method for assigning probabilities to all possible events </em>
+As an aid to our learning, we will be making heavy use of a tool known as **simulation**. In the broadest sense, computer simulations allow us to quickly and consistently repeat a random experiment that we might use to form conclusions about a process. Before going into technical details, let's begin with a simple random experiment that has a single event, the act of flipping a fair coin one time:
 
-**Distribution Parameters: ** <em> Values associated with a probability distribution that determine how the data is generated </em>
+[[app]]
 
-</div>
+(too many colons and semicolons below)
 
-## Flipping Coins
+Because this is a fair coin, we know before we flip it that there is an equal probability of it landing on either heads or tails. Because we are unsure of the outcome before hand, we say that the outcome is *random*. Once the coin is flipped, however, it is either heads *or* tails; that is, once the result is no longer random, we say that it is *observed*. This is a subtle but important distinction.
 
-In the previous chapter, we examined the possible events and associated probabilities with flipping a fair coin three times. In particular, we noted the collection of possible events was given by 
+Processes (such as flipping a coin) in which randomness occurs are known as **stochastic processes**. By contrast, a process that is not random is known as **deterministic**, as the outcome is determined before hand. An example of a deterministic process may include ordering a collection of numbers from largest to smallest: every time we are given the same collection of numbers, the resulting order will be the same. Our primary interest in this text will be the investigation of statistical processes, aided with the use of simulation.
 
-$$\mathcal{S} = \{HHH, HHT, HTH, THH, TTH, THT, HTT, TTT\},$$
-and the respective probabilities for the number of heads were
+<!-- As in a real-life coin flip, we see that we do not get the same result each time. Because we know this is a fair coin, we might say that the probability of landing on heads is 50%, and the probability of landing on tails is 50%. And while we may know for certain that the probability is the same for each outcome, we are no more able to predict what the result of the next flip will be. This is a consequence of **randomness**, where the outcome is uncertain until it is observed. Processes (such as flipping a coin) in which randomness occurs are known as **stochastic processes**. In contrast, a process that is not random is known as **deterministic**, where the outcome of the process is known in advance.  -->
 
-```{r, echo = FALSE}
-## Why does this need cbind?
-knitr::kable(cbind.data.frame('# Heads' = 0:3, 'Probability' = c('1/8', '3/8', '3/8', '1/8')), 
-             align = 'c')
-```
+It's worth taking a moment here to reflect on the somewhat obvious statement that we have not flipped an actual coin, but have instead performed a *computer simulation*. There are (three) (more? different things? make part of definition?) components of our experiment that identify it as such (might also break this into parts not unique to simulation in general but coin flip in  particular. then we can separate number of flips, number of coins, probability, etc) (flip 1 and 2)
 
-In what ways might we formalize this as a process? We might start by identifying a few details about this experiment. First, we know that we are interested in coin flips, where each flip could be either one of two outcomes. We might also  recognize that in this experiment we flipped a coin three times, with each flip having an equal probability of being Heads as it did Tails. In light of our previous discussion, which of these properties seem characteristic of a more general underlying process, and which of these could be changed while retaining the more general form? If we had flipped the coin 50 times, would the process be fundamentally different? Would this process be different if the probability of Heads was twice that of Tails?
+1. We specified the possible outcomes and the probability of each outcome occuring. In this case, our outcomes were heads and tails, each with a probability of 50%. 
 
-What we have identified above is a data generating mechanism, or distribution, known as the  *binomial distribution*, in which each outcome is one of two states. In this example, the two states were Heads and Tails, but it could just as easily be described as success vs failure, adverse reaction vs non-adverse reaction, death vs non-death, etc.,. Most generally, we will consider the outcome to be either an "event" or a "non-event". 
+2. We specified the details of our experiment. This was the number of coins we wanted to flip, as well as the number of times we wanted to flip them. For this simple example, we elected to flip a single coin one time.
 
-We next turn our attention the parameters of the distribution. As you may have guessed, there are two parameters associated with the binomial distribution, namely the number of observations (or flips), denoted $n$, and the probability of a particular outcome being classified as an event, denoted $p$. In our coin flipping example, flipping the coin three times gives us a parameter value of $n = 3$. As we were interested in counting the number of Heads, we will call this our "event", and note that it occurs with probability $p = 0.5$. Together, these pieces define everything we need to know about a random process that follows a binomial distribution. Notionally, we write
+3. We performed this experiment with the aid of a computer. 
 
-$$ X \sim Bin(n, p)$$
+While (3) may seem a trivial component of our definition, it has two important implications: we were able to exactly specify the criteria in (1) and (2), and we are able to repeat *this exact same experiment* knowing that the initial set of conditions will remain exactly the same. The utility of this framework comes from the fact that we can conduct a random experiment as many times as we wish in the anticipation that by doing so, we can learn something about the behavior of random processes in general.
 
-or, "the random variable $X$ follows a binomial distribution with $n = 3$ and probability of event $p = 0.5$". Our coin flipping example would then be expressed as $X \sim Bin(n = 3, p = 0.5)$, where $X$ is our experiment.
 
-## Functional Representation of Probability Distributions
+Let's now return to the coin flip simulation and investigate ways in which we can make our experiment slightly more complex. In the first implementation, we observed a single **event**, or observed outcome, resulting from the flip of the coin. Letting $n$ represent the number of total flips, we would say that this simulation was carried out with $n = 1$. In the example below, we repeat the simulation above, but this time we are able to change the value of $n$:
 
-We turn our attention now to the practical problem of determining how we might relate the idea of a probability distribution to determine the actual probabilities of given outcomes. From our definition above, we see that at a minimum, all we need is a method to assign a probability to a given event; within these bounds, we have a number of options available. 
+[[app]]
 
-Perhaps the most direct method of doing so consists of counting each of the possible outcomes by hand and determining their probabilities, which is precisely what was done when we identified $\mathcal{S}$ and then counted the frequency in which different numbers of Heads occurred. This, of course, can become cumbersome quite quickly: with only $n = 3$, we identified a total of 8 separate outcomes. If $n$ were 4, this would increase to 16. One can quickly see the issue when considering an experiment in which the total number of coin flips was equal to $n = 50$. This example was further made easier by the fact that each of the outcomes was equally likely; if the value of $p$ was anything but $0.5$, our task of assigning probabilities to these outcomes would have been significantly more challenging (see Chapter 4).
+Just as before, while having defined $n$ allows us to control the behavior of the simulation, it does not interfere with the effects of randomness. In other words, each time the simulation is run, a different outcome appears. Values such as $n$ that change the behavior of the simulation are known as **simulation parameters**. We will consider a number of parameters that are commonly used to direct the simulation.
 
-Another possibility involves the use of simulation, the justification for which is covered in more detail in another chapter. By simulating this experiment a large number of times, we can determine the relative probabilities by counting the relative frequency of each outcome, which saves us the trouble of having to compute them mathematically. Here, we simulate this experiment $N = 10,000$ times, and record the total number of heads in each experiment, dividing by the total number of experiments to get our desired probability
 
-```{r, echo = FALSE}
-library(knitr)
-library(magrittr)
-flipCoin3 <- function() {
-  # perform binomial experiment, which returns either 1 or 0
-  dat <- rbinom(n = 3, 1, p = 0.5) 
-  # Add these up to determine number of events
-  sum(dat)
-}
-nSims <- 10000
-simRes <- replicate(nSims, flipCoin3())
-matrix(c(0:3, 
-         paste0(format(table(simRes), big.mark = ","), "/10,000"), 
-         prop.table(table(simRes)),
-         c(1,3,3,1)/8), ncol = 4) %>% 
-  kable(col.names = c("Number of Heads", "Fraction", "Observed Probability", "True Probability"))
-```
+(this was rewritten above. not sure on appropriate order of concepts and definitions)
 
-Of course as we can see, simulations have their own limitations: they often require a large number of replications, and because of randomness, the observed probabilities will rarely be exactly equal to the true probabilities. Nonetheless, simulations prove to be exceedingly useful when our experiment is complicated, or if a known distribution function for our problem does not exist. 
+Once an outcome is complete and the coins have been flipped, we say that it is **observed**, or that *we have observed the outcome of a random process*. Here, it is important to note that an observed outcome is no longer random -- once the data have been observed, we know what they are. Data collected through real life experiments, such as testing the efficacy of new drugs, or measuring the height of people in a population, are all observed data. As is often lamented by researchers and statisticians alike, real word experiments can often only be conducted a single time. Once the data is observed, it's observed. This is in stark contrast to the power of simulations, in which experiments can be conducted and data observed an arbitrary number of times. 
 
-Our final method for specifying a probability distribution is with the use of a mathematical function, often referred to as a **probability distribution function** (pdf) or **probability mass function** (pmf), with the former reserved for continuous variables and the latter for those that are discrete. The binomial distribution, consisting of discrete outcomes, is specified with a pmf. For $X \sim Bin(n, p)$, we have the following formula:
+To see this in action here, consider the previous example in which we introduced the simulation parameter $n$, which allowed us to dictate the number of events, or coin flips, that were done in our experiment. Suppose the experiment that we are interested in involves flipping a coin three times: in this case, we have $n = 3$. When we ran the simulation above, the experiment was done once, as is often the case in the real world, and we were left with a single collection of *observed data*. It now makes sense to introduce a new simulation parameter, $N$, which dictates *how many times the experiment is to be done*. In this last instance, our simulation was done with $N = 1$. In the simulation below, we will continue to run the experiment with three coin flips ($n = 3$), but we will change the number of times $N$ that the experiment is run.
 
-$$
-P(X = x) = \binom{n}{x} p^x (1-p)^{n-x}
-$$
+[[app]]
 
-where $n$ and $p$ are our distribution parameters, and $X$ can take any of the values $x = 0, 1, \dots, n$. Perhaps new to us here is the leading term in the expression above, $\binom{n}{x}$, called the *binomial coefficient*, which can be written as 
-
-$$
-\binom{n}{x} = \frac{n!}{x!(n-x)!}
-$$
-where $n! = n \times (n-1) \times \dots \times 2 \times 1$ (known as a factorial). In words, we might say $\binom{n}{x}$ as "$n$ choose $x$". While this may seem daunting at first, the need for it is quite reasonable. Consider again our coin flipping experiment, where the possible outcomes were listed as 
-
-$$
-\mathcal{S} = \{HHH, HHT, HTH, THH, TTH, THT, HTT, TTT\}.
-$$
-
-If we are interested in determining the probability of observing two Heads, it is of note that there are a number of instances above in which two Heads occurs. We might ask ourselves, "if we have $n = 3$ flips, how many ways might we *choose* $x = 2$ heads?" Writing this with our binomial coefficient, we find that
-
-$$
-\binom{3}{2} = \frac{3!}{2!(3-2)!} = \frac{3 \times 2 \times 1}{2 \times 1 \cdot(1 \times 1)} = \frac62 = 3,
-$$
-and indeed, 3 is precisely the number of outcomes in $\mathcal{S}$ in which two Heads occur. Finally, using the pmf above, we can substitute in our distribution parameters $n = 3$ and $p = 0.5$ to find the distribution function that describes our experiment:
-
-$$
-P(X = x) = \binom{3}{x} (0.5)^x (1-0.5)^{3-x}
-$$
-[Exercise: verify that the probabilities returned by the binomial pmf match the true probabilities in the table above by plugging in values for $X = \{0, 1,2,3\}$. ]
-
-### Plotting the PMF
-
-It is often useful to create a visual representation of a pmf as well. Doing so quickly gives us an idea of where data  tend to aggregate and how the data are dispersed. Below are two plots representing two different sets of parameters for the binomials distribution. What do you notice in how they differ? How are they similar? What impacts do the different parameters have on the distribution of the data?
-
-```{r, fig.align = 'center', echo = FALSE, fig.width=10}
-par(mfrow = c(1, 2))
-x <- 0:3
-y <- dbinom(x, 3, 0.5)
-barplot(y, names.arg = x, xlab = 'Number of Heads Observed on Three Flips', ylab = 'Probability', yaxt='n', 
-        main = "X ~ Bin(n = 3, p = 0.5)")
-axis(side = 2, at = seq(0, 0.45, by = 0.05), pos = c(0, 0), labels = seq(0, 0.45, by = 0.05))
-
-x <- 0:10
-y <- dbinom(x, max(x), 0.8)
-barplot(y, names.arg = x, xlab = 'Number of Heads Observed on Six Flips', ylab = 'Probability', 
-        main = "X ~  Bin(n = 6, p = 0.8)", yaxt='n')
-axis(side = 2, at = seq(0, 0.45, by = 0.05), pos = c(0, 0), labels = seq(0, 0.45, by = 0.05))
-```
-
-Of particular note here, we recall from the previous chapter that the sum of all possible probabilities must be equal to one. Visually, this is represented by the total area of the bars in our plot. Given that our bars our rectangles, we can find the area by considering that the width of each bar is equal to 1, and it's height is given by the probability of $X = x$, which can be found using the PMF. On the left hand side, for example, from left to right, we have
-
-$$
-\begin{align}
-\text{Total Area } &= \text{ \{Area of Heads = 0\} + \{Area of Heads = 1\} + } \\
-& \quad \ \ \text{\{Area of Heads = 2\} + \{Area of Heads = 3\}} \\
-&= (1 \times P(X = 0)) + (1 \times P(X = 1)) + (1 \times P(X = 2)) + (1 \times P(X = 3)) \\
-&= 0.125+0.375+0.375+0.125 \\
-&= 1
-\end{align}
-$$
-If, say, we are interested in the probability that $X = 2$ or $X = 3$, we can add the area of the two corresponding bars. In this case, we find $P(X = 2, 3) = 0.75$. 
-
-<iframe src="https://ph-ivshiny.iowa.uiowa.edu/collin/textbook/distribution/binomial/" width = "100%" height = "800"> 
-</iframe>
-
-[Include binomial app here. See that clicking bars adds to something. Explain changing settings, clicking bars, selecting different things. Come up with exercises below, i.e., prob that even if n = 8, prob if even n = 4, etc.]
-
-## Measuring Heights
-
-Often, our data will not fit nicely into a finite number of discrete categories, leaving us with *continuous data* that are described with a *probability distribution function*, or *pdf*. As our data does not fit neatly into categorical bins, many of the techniques described above will not work in the same way here. Rest assured, the idea is exactly the same. While we will spare the technical details here, interested readers may consider what follows to be analogous to the cases presented above when the number of "bins" becomes infinite. 
-
-Our motivating example here will consider the process of determining the height of individuals within a population. Unlike the binomial distribution, where the underlying process and associated parameters were easily teased apart, the components here are less obvious, and some care will be needed to identify them. Height data, like many things in the natural world, tend to follow a symmetric distribution, where most observations tend to gather around a mean value, with observations deviating from the mean being equally likely to fall some distance above the mean as below, their frequencies becoming smaller as this distance increases. That is to say, if the mean height of a population is 68 inches, an individual is equally likely to be 67 inches tall as they are 69 inches. Similarly, an individual is equally likely to be 64 inches as they are 82. However, given their proximity to the mean value, an individual is far more likely to be either 67 or 69 inches (1 inch from the mean) than they are to be either 64 or 82 inches (4 inches from the mean).
-
-The process described above describes what is known as a *normal distribution*, colloquially referred to as a "bell curve". There are a number of properties that together characterize a normal distribution
-
-1. There are two parameters for the normal distribution, the mean $\mu$ (pronounced "myu") and the variance $\sigma^2$ ("sigma squared")
-2. $\mu$ is the mean, or expected value, and represents the most probable value of the distribution. That is, observations from a normal distribution are more likely to be close to $\mu$ than away from it
-3. Observations are equally likely to be the same magnitude above $\mu$ as they are below it. In other words, the distribution is centered around $\mu$. We see this concept expressed in everyday language when we offer estimates of some value: "The cost is 'x', plus or minus 'y'"
-4. The second parameter, $\sigma^2$, describes how concentrated values are around the mean. The smaller the value of $\sigma^2$, the more observations that will be close to $\mu$. Likewise, larger values of $\sigma^2$ result in higher dispersion, or more values further away from  $\mu$. 
-
-Notationally, if a random variable $X$ follows a normal distribution with mean $\mu$ and variance $\sigma^2$, we write $X \sim N(\mu, \sigma^2)$. A special case of this that will be explored in following chapters is known as a *standard normal distribution*, which arises when the mean value is $\mu = 0$, and the variances is $\sigma^2 = 1$. This distribution is often written with its own letter $Z$, as in $Z \sim N(0, 1)$. 
-
-Another critical difference between a continuous and discrete random variable is the way in which we determine probability. In the discrete case, we could enumerate all of the events and determine their relative frequency. Alternatively, we could run a simulation and simply count how often each outcome occurred. In the continuous case, however, there is no finite set of possibilities (i.e., somebody could be 68" tall, 68.1" tall, 68.01", ...), and any attempts to enumerate these will only terminate in frustration; we will determine the implications of this below. In the meantime, however, we will rejoice in knowing that a normal distribution can be mathematically represented by it's probability function:
-
-$$
-f(x) = \frac{1}{\sqrt{2\pi \sigma^2}} \ e^{- \frac{(x-\mu)^2}{2\sigma^2}}
-$$
-As we can see, the pdf contains both of the distribution parameters, $\mu$ and $\sigma^2$. As we saw at the beginning of the chapter, different values for these parameters gives us different curves:
-
-```{r, fig.align='center', echo = FALSE}
-curve(dnorm(x, 0, 1), from = -4, to = 13, lwd = 4,
-      col = 'steelblue', ylab = 'Probability', xlab = 'X',
-      main = "Two Normal Distributions")
-curve(dnorm(x, 5, 3), add = TRUE, lwd = 4, col = 'tomato')
-legend(x = 6.5, y = 0.35, legend = c(expression(N(0, 1)),
-                                     expression(N(5, 3))),
-       lwd = 4, col = c("steelblue", "tomato"))
-```
-
-Of particular interest above, notice how the value of $\mu$ changes where the data are aggregated, and similarly, note how larger values of $\sigma^2$ results in a greater amount of dispersion.
-
-Let's now return to the issue of determining the probability of a particular event. In the discrete case, we saw that we could examine the plot of the pmf and multiply the width of each bin (which was equal to 1), with the height of the bin, given by the pmf While the pdf here does indeed give us the "height", we quickly run into an issue when considering the width: the only way we can have an "infinite" number of bins for each outcome is to assign each bin a width of 0. As such, the probability of any particular event is unintuitively assigned a probability of zero. 
-
-This apparent shortcoming can thankfully be remedied with the tools of calculus. Where discrete observations allow us to take a sum, the analogous case for continuous intervals is satisfied by the use of the integral. As it no longer makes sense to consider the probability of specific events (all of which will be zero), we instead consider the probability that an observation falls within a *range* of events. For example, if we have a random variable with $X \sim N(\mu, \sigma^2)$, the probability that $X > 3$ can be written 
-
-$$
-P(X > 3) = \int_3^{\infty} \frac{1}{\sqrt{2\pi \sigma^2}} \ e^{- \frac{(x-\mu)^2}{2\sigma^2}} \ dx
-$$
-Similarly, if we were curious to know the probability that $X$ was between a range of values, say $2 < X < 5$, we would write
-
-$$
-P(2 < X < 5) = \int_2^{5} \frac{1}{\sqrt{2\pi \sigma^2}} \ e^{- \frac{(x-\mu)^2}{2\sigma^2}} \ dx
-$$
-Fortunately for us today, this no longer need be computed by hand. A number of computational resources are able to compute this for us with minimal effort. 
-
-[Using app below, explore different parameter values. Use slider to select a range of probabilities. Note that the area of interest is highlighted. Do exercises with it]
-
-<iframe src="https://ph-ivshiny.iowa.uiowa.edu/collin/textbook/distribution/normal/" width = "100%" height = "800"> 
-</iframe>
+It is important to note that the experiment itself is unchanged -- just as before, we are continuing to investigate what happens when a coin is flipped $n = 3$ times. By adjusting the value of $N$, we are now able to perform this same experiment as often as we wish. Even more importantly, one sees that even though the exact same experiment is performed a number of times, the *observed* values of the experiment are different. This is again a consequence of randomness, and demonstrates that even when we know all of the details of an experiment, the outcome is uncertain until it is observed.
 
 
 <div class="definition-container">
 <div class="definition"> Definitions </div>
-**Binomial Distribution: ** <em> A discrete distribution in which there are two possible outcomes, "events" and "non-events". There parameters are $n$, which dictate the number of trials, and $p$, determining the probability of an event </em>
+**Simulation: ** <em>  </em>
 
-**Normal Distribution: ** <em> A continuous distribution with two parameters that is symmetric about a mean value, $\mu$, with a variance $\sigma^2$. Many real world processes follow a normal distribution.  </em>
+**Stochastic processes: ** <em> </em>
 
-**Standard Normal Distribution: ** <em> A special case of the normal distribution, $Z \sim N(0, 1)$ </em>
+**Deterministic processes: ** <em> </em>
 
-**Probability Mass Function: ** <em> A probability function used for discrete random variables. The probability of outcomes is given as a sum </em>
+**Event: ** <em> </em>
 
-**Probability Distribution Function: ** <em> A probability  function used for continuous random variables. The probabilities of outcomes are taken over a range, given as an integral. </em>
-
+**Simulation Parameters: ** <em> Values which change the behavior of the simulation </em>
 </div>
 
-## Other Common Distributions
 
-Having examined in detail both discrete and properties distributions, demonstrated with the binomial and normal distributions, respectively, we consider below a brief overview of other common distributions and their properites. 
+## Why Simulation {#ch13_s2}
 
+In the previous section, we learned that a simulation is a random process (of $n$ events) that can be performed an arbitrary number of ($N$) times. Our next step will be to understand how this process can empower us to better understand key concepts in statistics. The next section will contain a number of terms and concepts that will be formally introduced in later chapters, but for now will serve to give context to the usefulness of simulations.
 
-### Poisson Distribution
+We will continue with the experiment above, where we are interested in flipping a fair coin $n = 3$ times. However, along with the experiment, we will also bring a question: if a coin is flipped three times, what is the probability that exactly two of the coins will be heads? Before we attempt answering this via simulation, it will be instructive to consider first the ways we might answer it without.
 
-The Poisson distribution, like the binomial, is a *discrete* distribution, in that it concerns itself with count data. Specifically, a Poisson distribution describes the number of independent events that may occur within a fixed interval of time. For example, we may be interested in the number of cars that pass through a busy intersection from noon to 1pm every day, or the number of major floods that occur in an area every 100 years. Perhaps the most famous example of the Poisson distribution comes courtesy of Ladislaus Bortkiewicz, a Russian statistician who, in 1898, showed that the number of Prussian soldiers killed by being kicked by a horse in a twenty year period followed a Poisson distribution (also child suicides, but that's less fun).
+[[might be nice to "name" these methods, like pdf method and something else.]]
 
-The Poisson distribution has a single parameter, $\lambda$, which describes the rate at which events occur, and a random variable following a Poisson distribution may be expressed as $X \sim Pois(\lambda)$ (People who write $X \sim Po(\lambda)$ are heathens). A random variable following a Poisson distribution has the following assumptions:
+### Non-simulation Methods
 
-1. The value of $X$, being a count, can be any non-negative integer, i.e., $0, 1, 2, \dots$ with no upper bound
-2. The occurrence of one event in a time interval is independent of another event. One soldier being kicked by a horse has no impact on the probability of another solider being kicked by a horse. 
-3. $\lambda$, which may be any number greater than $0$, describes the rate at which events occur 
-4. [Two events cannot occur at the exact same time, though they probably don't need this]
+We will start by introducing two non-simulation methods to answer this question, which we will call the *enumeration method* and the *probability function method*
 
-The distribution function of a Poisson random variable with rate $\lambda$ can be expressed
+<ol type = "1">
+<li> **Enumeration Method:** As $n$ is small enough, we could simply list all of the possible outcomes of this experiment and count how many of these outcomes have exactly two heads. For example, we may flip a coin three times with the first flip landing on heads and the remaining flips landing on tails. We can identify this event as $\{HTT\}$. The space of *all* possible outcomes for this experiment where the coin is flipped $n = 3$ times, denoted $\mathcal{S}$, is given by 
 
 $$
-P(X = x) = \frac{\lambda^x e^{-\lambda}}{x!}
+\mathcal{S} = \{HHH, HHT, HTH, HTT, THH, TTH, THT, TTT\}
 $$
-One surprisingly detail about the Poisson distribution is the relationship between the mean and the variance. For both, we have that $E(X) = Var(X) = \lambda$.
+Having listed them out, we see there are eight possible outcomes. Next, we count how many of those have exactly two heads:
 
-#### Plots for Poisson
+$$
+\mathcal{S} = \{HHH, \color{red}{HHT}, \color{red}{HTH}, \color{red}{THH}, TTH, THT, HTT, TTT\}
+$$
+Dividing the events of interest by the total number of outcomes, we see that the probability of getting exactly two heads is $P(\text{# Heads = 2}) = \frac{\text{# Heads = 2}}{\text{# Possible Outcomes}} = \frac38$. That is, by enumerating the eight possible outcomes, we identified three of them in which the number of heads was two. </li>
+<br>
+<li> **Probability function method:** Often, a statistical or stochastic process has an associated *probability function* that allows us to determine the probability of a set of outcomes. In this case, our coin flipping example follows what is known as a *binomial distribution*, which has the probability function
 
-As we look at the plot for the Poisson, we will notice one aspect in particular that distinguishes it from the plots of both the binomial and normal distributions: it is no longer symmetric. This is a consequence of the range of values that a Poisson random variable can take on. Whereas a binomial random variable was bounded between $0$ and $n$, the number of trials conducted, and where the normal distribution allowed any real number, the Poisson is bounded below by $0$, while having no theoretical upper bound. Given below is a plot of the distribution with $\lambda = 2$ and $\lambda = 4$ (it's obvious here that choosing a specific value is inadequate. We can replace these plots with distribution exploration apps)
+$$
+P(\text{# Heads = k}) = f(k; n,p) = \binom{n}{k}p^k(1-p)^{n-k}.
+$$
+For our experiment, the probability of heads is $p = 0.5$, the total number of flips is $n = 3$, and for our event, $k = 2$ heads. Substituting these numbers, we have
 
-```{r, fig.align = 'center', fig.width = 10, echo = FALSE}
-par(mfrow = c(1, 2))
-x <- 0:9
-y <- dpois(x, lambda = 2)
-barplot(y, names.arg = x, xlab = 'Number of Events Observed in Interval', ylab = 'Probability', main = expression(paste("Poisson distribution with ", lambda, " = 2")))
+$$
+\begin{align*}
+P(\text{# Heads = 2}) &= \binom{3}{2} (0.5)^2 (0.5)^{3-2} \\
+&= 3 \times (0.5)(0.5)(0.5) \\
+&= 0.375.
+\end{align*}
+$$
+We see, then, that a probability function is a function that takes an event as an argument and returns an associated probability. Just as in the enumeration method, we find that $P(\text{# Heads = 2}) = 0.375 = \frac38$. </li>
+</ol>
 
-x <- 0:15
-y <- dpois(x, lambda = 4)
-barplot(y, names.arg = x, xlab = 'Number of Events Observed in Interval', ylab = 'Probability', main = expression(paste("Poisson distribution with ", lambda, " = 4")))
-```
+#### Limitation of non-simulation methods
 
-Just as with the binomial distribution, we can determine the probability of an event or collection of events by determining the area of the bars in our plot. Below is an interactive app to do stuff. Exercises
+While each of these methods is satisfactory (and mathematically equivalent), there are a number of situations in which they would be impractical to perform:
+
+1. For example, in the enumeration method, we determined the probability by counting the total number of events of interest (getting two heads) and dividing it by the total number of possible outcomes, in this case eight. For $n = 4$, there are 16 possible outcomes, and for $n = 10$, this number grows to 1024. In fact, the number of possible outcomes grows exponentially with the number of flips: with only $n = 25$ coin flips, there would be more possible outcomes for the coin flips than the number of hours between today and the construction of the Great Pyramid of Giza. Clearly, we need a method that is a bit more concise.
+
+2. Our second method, where we determined probability via the probability function, is far and away the most popular method. The computation was simple, and we can see immediately how we could use it to solve more difficult coin flipping experiments, such as when $n = 25$. Unfortunately, we are limited by the crucial fact that we have to know what the probability function is in order to compute it. For many real life processes, such as flipping coins or estimating the number of phone calls a call center will receive in an hour, this function is readily known. For more complex processes, such as estimating the weather, these functions can be nearly impossible to construct, leaving statisticians and researchers with no clear way to specify the probability of events.
 
 
-<iframe src="https://ph-ivshiny.iowa.uiowa.edu/collin/textbook/distribution/poisson/" width = "100%" height = "800"> 
-</iframe>
+### Simulation Method
+
+Before moving forward, let's quickly recap where we are right now:
+
+- Simulation is a tool that we have, governed by a set of parameters (in our case, $n$ and $N$), that can be used to replicate a random experiment an arbitrary number of times. Because this process is *stochastic*, or random, it will give a different outcome each time
+
+- We have specified an experiment we would like to perform, flipping a fair coin $n = 3$ times, and we would like to know the probability that exactly two of the flips will land on heads. Together, these define our experiment and our research question
+
+- We investigated two methods besides simulation for answering this question: enumerating the event space and calculating the probability with the probability function. These methods gave identical answers, and will continue to do so each time they are performed: in other words, they are *deterministic* methods for determining probability.
+
+- We saw that even though enumeration and probability functions worked fine for our problem, they can quickly become impractical or even impossible once the problem grows becomes more complex
+
+A careful reader might note that for a given random experiment (such as flipping a coin three times) and a specified outcome (exactly two heads), there is only a *single* correct answer to the question, "What is the probability of getting exactly two heads when flipping a coin three times?", and this single correct answer is precisely what was found using the *deterministic* enumeration and probability function methods described above. If this is true, how could we possibly expect a simulation, which gives us *random* outcomes, to give us the same correct result? The answer lies in one of the most profound results in all of statistics, the **law of large numbers**.
+
+The *law of large numbers* will be covered more carefully in a later chapter, but for now, it suffices to know that the law of larger numbers states: "the average of the probabilities obtained from a large number of trials should be close to the true probability, and will tend to become closer are more trials are performed." In the context of our problem, we can restate this as "as the number of experiments performed $N$ becomes larger, the average of all the results will get closer and closer to the true result." Or more clearly still, "our simulation will match deterministic methods as $N \rightarrow \infty$". That's pretty neat.
+
+What happens is this: suppose that we begin our simulation with $N =1$, that is, we perform our experiment once. If we happen to collect two heads in this experiment, we might say, "two heads were observed in 100% of the experiments." Alternatively, if two heads were not collected, we may conclude, "two heads were observed in 0% of the experiments." While both of these statements are true, clearly they do not give us the answer we are looking for.
+
+Now suppose that we perform our simulation $N = 10$ times. Here, we might observe getting two heads 30% of the time, 60% of the time, or perhaps again 0% of the time. And while these aren't exactly correct either, we can see that the *possible* results of all of our experiments are getting larger. And by the law of larger numbers, we know that as $N$ increases, we will get results that are closer to the true solution. Mathemtically, this looks like
+
+$$
+P(\# \text{ Heads} = 2) \approx \frac{\text{Number of times \{# Heads = 2\} in } N \text{ Simulations}}{N \text{ Simulations}}
+$$
+
+What do you think will happen when $N = 1,000$? Use the simulation app below to verify that as $N$ increases, the calculated probability of the simulation gets closer to the analytic results found above.
+
+[[app]]
+
+
+Possibly edit next paragraph/move above when looking at the simulation method being a ratio, akin to enumeration, but different. could also just omit because students don't care. 
+
+It is worth noting here the similarity between the enumeration and simulation methods. In the enumeration method, we specified all possible outcomes and counted how many of those satisfied the question of our experiment, while in the simulation method, we drew a specified number of random outcomes, $N$, and counted how many of had two heads. At first glance, the enumeration method may seem more straight forward; however, the simplicity of our calculation rested on the assumption that each of the possible outcomes could occur with equal probability. This is often not the case, making the enumeration method significantly more difficult to implement in practice. The simulation method, by contrast, accounts for this by drawing random samples, allowing outcomes with higher probabilities to show up more frequently. 
+
+
+
+
+
+
+## Chapter Summary
+
+In this chapter, we introduced a powerful tool known as simulation. 
+
+- Randomness describes the phenomenon in which a process may give different outcomes each time it is observed
+- In real life, an random experiment is specified, often performed once, and the results are observed
+- A simulation, along with a number of parameters ($n$, $N$), can be used to perform the same random experiment an arbitrary number of times
+- Probabilities of events can sometimes be computed directly, as with enumeration, or with the aid of a probability function. These are *deterministic* methods of computing probability
+- Often, deterministic methods of computing probability are either impractical or outright impossible
+- By increasing the size of $N$, simulations, which are *stochastic*, can be used as a very close approximation to the true results, thanks to the law of large numbers
+
+Having finished this chapter, you should be able to answer the following questions:
+
+- What are three aspects that characterize a simulation (probably can't answer well because above should be rewritten/clarified)
+- What are non-simulation methods for computing probability of an event?
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

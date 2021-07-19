@@ -2,35 +2,6 @@
 output: html_document
 ---
 
-# Introduction to Simulations {#ch12}
+# Correlation and Regression {#ch11}
 
-<div class="objective-container">
-<div class="objectives"> Learning objectives </div>
-1. Understand what a simulation is
-2. Understand why simulations are useful
-3. Learn the types of illustrations that can be helpful to summarize simulations
-4. Conceptual understanding of randomness and a simulation
-</div>
-
-## What is a simulation? {#ch12_s1}
-
-In the statistics world, when we use the word simulation we are not talking about 
-*The Matrix* or *Westworld,* where humans exist in some simulated reality. Statistical simulations
-use a computer to observe potential results of an experiments. Simulations can be used
-for experiments as simple as flipping a coin or as complicated as investigating the dynamics of human
-movement and interaction. One thing that all simulations have in common is the element
-of **randomness**. If there was nothing random, the process would result in the same
-outcome every time - like if someone offered me an all-expenses paid trip to Hawaii - the 
-answer is always yes. This is what we call a **deterministic** outcome, and it is not
-something where any statistical inference is needed. However, more often than not,
-the phenomenon of interest is what we call **stochastic** which means there is
-some element of randomness - like the weather in Hawaii during my trip - it might
-be sunny, it might be rainy, and there is a tiny chance it might be below freezing.
-
-Simulations allow us to specify the **parameters** that govern the scenario and then 
-with the help of a computer, we can watch the scenario play out over and over. In the end,
-this gives us an idea of all the likely outcomes *and* just how likely those outcomes might be.
-Let's start with a simple example - flipping a coin
-
-
-
+Learning objectives  

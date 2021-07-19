@@ -2,372 +2,398 @@
 output: html_document
 ---
 
-# Sampling Distributions and the <br/> Central Limit Theorem {#ch6}
-
-> "While nothing is more uncertain than a single life, nothing is more certain than the average duration of a thousand lives." - Elizur Wright
-
-> "Everything that can be counted does not necessarily count; everything that counts cannot necessarily be counted." - Albert Einstein
-
+# Probability Distributions {#ch5}
 
 <div class="objective-container">
-<div class="objectives"> Learning objectives </div>
-1. Learn to differentiate between statistics and parameters      
-2. Understand the concept of sampling distributions  
-3. Conceptual understanding of Central Limit Theorem and how it applies to sample means
+<div class="objectives"> Learning Objectives </div>
+1. Understand how a distribution represents a random process that creates data that is then observed
+2. Understand how the parameters of a distribution govern how the data is generated [and with what probability]
+3. Be able to identify which distributions underlying a given real world random process.
 </div>
 
-## Introduction to Sampling
+In the previous chapter, we introduced the idea of random processes, situations in which the outcome can not be determined perfectly in advance. We encounter random processes all the time in our lives, from the exact amount of time it takes to get to class from your home, to determining the winner of a football game [maybe simpler examples?]. In any case, the random process is defined in terms of the *collection of possible events* and their *associated probabilities*. What is needed is a method for relating these events to their probabilities, motivating the goal of this chapter. 
 
-Suppose policy makers and public health experts in Iowa are concerned with Iowans' fast food intake. To understand this further, officials want to determine the average monthly spending on fast food for all Iowans. However, it would be very expensive to have all 3.2 million Iowans track and report their total monthly fast food expenses. Whatsmore, many Iowans would not be willing to share personal financial details with public health researchers or government officials. These are but a few of the challenges making it practically impossible for officials to ever determine the true average spent by Iowans each month on fast food. 
+[maybe have new goals given updated (limited) scope of the chapter]
 
-A true numeric quantity about the population, here assumed to be the mean, is known as a **population parameter**. While we may never know the truth, there are still options. The officials can take a sample of Iowans and have those that consent to share their information report their monthly spending on fast food. Then, they can take the sample mean, which gives them an estimate of the average monthly spending on fast food. The sample mean is an example of a **sample statistic**, which is a numerical quantity about the sample. In other words, statistics are what investigators know, and parameters are what investigators want to know. 
+notes:
 
-The statistical framework (pictured below) allows us to make **inference** about population parameters using sample statistics. This means the researchers can use a random sample of Iowans' monthly fast food spending to make generalizations about the average monthly spending for all Iowans. The numerical quantities of interest can be many different things - means, proportions, standard deviations, etc.In the fast food example, the parameter of interest was a population mean and the sample statistic was the sample mean. In this chapter, we will specifically focusing on estimating means.
+- removed pretty much all technical stuff
+- removed idea of pdf *generating* stuff. leave that to simulation chapter, if at all
+- instead of continuous/discrete, just doing binomial/normal. bring up pmf/pdf?
+- remove idea of mean/variance. Just limit pdf to relationship between events and probs
 
+## Introduction to Probability Distributions 
 
-```{tikz statFramework2, fig.cap = "Statistical Framework", fig.ext = 'png', echo = F, fig.align= 'center'}
-
-\usetikzlibrary{decorations.pathreplacing,positioning, arrows, shapes, calc,shapes.multipart}
-\tikzstyle{block1} = [rectangle, draw, fill=yellow!20, 
-    text width=10em, text centered, rounded corners, minimum height=6em]
-\tikzstyle{block2} = [rectangle, draw, fill=yellow!20, 
-    text width=5em, text centered, rounded corners, minimum height=3em]
-\tikzset{
-    %Define standard arrow tip
-    >=stealth,
-    % Define arrow style
-    pil/.style={
-           ->,
-           thick,
-           shorten <=2pt,
-           shorten >=2pt,}
-}
-\tikzstyle{line} = [draw, -latex]
-\begin{tikzpicture}[node distance = 3cm, auto]
-            % Place nodes
-            \node [block1] (pop) {Population \\ (Parameters)};
-            \node [block2, below of=pop] (samp) {Sample \\ (Statistics)};
-            
-            % Draw edges
-            \draw[->, >=latex, shorten >=2pt, shorten <=2pt, bend right=45, thick]  (pop.west) to node[auto, swap] {Study Design}(samp.west);
-            \draw[->, >=latex, shorten >=2pt, shorten <=2pt, bend right=45, thick] (samp.east) to node[auto, swap] {Inference}(pop.east); 
-            
-        \end{tikzpicture}
-```
-
-The statistical framework outlines the process of making inference using sample statistics to estimate population parameters. Later chapters in this textbook will cover the mathematical details of this process. In trying to make proper inference, we also want to ensure our estimated statistic is measuring the parameter well. To that end, there are two major statistical issues we concern ourselves with: 
-
-* On average, does our estimate tend to be centered around the true answer, or is it *biased*?  
-* How much *variability* is there likely to be in our sample? 
-
-The difference between our estimate and our parameter is called **bias**. **Variance** describes the spread of our data, and is sometimes called noise. Sometimes we talk about spread in terms of **precision**, which is the inverse of variance. The more precision we have, the less variance, and vice versa. A good statistic will have little or no bias and would have minimal variability. We can visualize both bias and variability using a dart board analogy.
-
-```{r image-ref-for-in-text2, fig.align ='center', fig.cap='Bias and Variability Illustration', fig.pos='H', message = FALSE, echo=FALSE, fig.height=7, fig.width=9}
-knitr::include_graphics("./images/biasVariabilityTargets2.png")
-```
+Most simply, a **probability distribution** (often just called a distribution) is a method for taking a possible event as input, and giving us the corresponding probability as output; the corresponding probability tells us how likely it is that the specific event will occur, out of all of the possible events. 
 
 
-On the upper left target, the darts are hitting the bullseye with low bias and low variability, shown by the darts having minimal spread and all hitting the bullseye. This is the most desirable outcome when the goal is to hit the bullseye. In the upper right target, we see a lot more variability, as the darts are no longer highly concentrated on the bullseye. However, the dart locations are still centered around the bullseye, and this is why we consider this target to have low bias. This situation is less ideal than having low bias and low variance, but is still preferable to targets in the bottom row, where we have high bias. In the bottom left target, we have high bias and low variability, evidenced by the high concentration of darts that are not hitting the bullseye. The consistency is why we saw there is low variability, but if our goal is to hit the bullseye, we are not going to achieve that goal. Finally, the bottom right target is the worst possible outcome - high bias *and* high variability. We are not hitting the bullseye and the darts are landing erratically. Statisticians work hard to develop inferential and sampling procedures that allow us to estimate population parameters with little to no bias and low variability.
 
+
+
+
+1. Understand how a distribution represents a random process that creates data that is then observed
+2. Understand how the parameters of a distribution govern how the data is generated [and with what probability]
+3. Be able to identify which distributions underlying a given real world random process.
 
 <div class="definition-container">
-<div class="definition"> Definitions </div>
-**Population Parameter: ** <em> The true numeric quantity about a population </em>
+<div class="definition"> &nbsp;  </div>
+**Probability Distribution: ** <em> A method for assigning probabilities to all possible events </em>
 
-**Sample Statistic: ** <em> A numerical quantity about the sample </em>
-
-**Inference: ** <em> The process of making generalizations about the population </em>
-
-**Bias: ** <em> The systematic difference between our estimate and our parameter </em>
-
-**Variability: ** <em> The spread or error in the data </em>
-
-
-**Precision: ** <em> Inverse of variance, how narrow the data is   </em>
-
-**Precision: (altered def. narrow data maybe confusing?) ** <em> Inverse of variance, or how precisely our estimate matches the parameter   </em>
+**Distribution Parameters: ** <em> Values associated with a probability distribution that determine how the data is generated </em>
 
 </div>
 
+## Binomial Distribution
 
-## Sampling Distributions 
+In the previous chapter, we examined the possible events and associated probabilities with flipping a coin three times, where each side could land with equal probability. In particular, we noted the collection of possible events was given by 
 
+$$\mathcal{S} = \{HHH, HHT, HTH, THH, TTH, THT, HTT, TTT\},$$
+and the respective probabilities for the number of heads were
 
-In order to make inference, we must be able to quantify our uncertainty about the population parameter based on our sample data. To quantify our uncertainty, we must first establish where it comes from - the sampling process. Any time we take a sample from the population, we will get a different sample mean $\overline{x}$. In other words, $\overline{x}$ is a numeric quantity which assumes a value based on the outcome of a random experiment - the process of drawing a sample at random from the population. This should sound familiar - this is the definition of a random variable! We can use this logic for any statistic of interest. As we've described in the past, random variables have probability distributions. When the random variable is a statistic, this probability distribution is called the sampling distribution. Sampling distributions reflect which values of the statistic are likely and which values are improbable. As we will see later in this chapter, this uncertainty depends on how many individuals we sample and how variable the data we measure is. 
+```{r, echo = FALSE}
+## Why does this need cbind?
+knitr::kable(cbind.data.frame('# Heads' = 0:3, 'Probability' = c('1/8', '3/8', '3/8', '1/8')), 
+             align = 'c')
+```
 
-<div class="exercise"> Exercises </div>
+Might we consider this table a probability distribution? Perhaps, as it does give us a method for determining a probability for any given event. However, the usefulness of such a method comes into question as our experiment changes. What if instead we had flipped our coin 50 times? Or 100? What is needed instead is a method that is more robust to changes in the experiment. 
+
+Here, we introduce the *binomial distribution*, a probability distribution in which:
+
+1. The total number of trials (or flips) is fixed in advance at some value, $n$
+2. There are two possible events or outcomes within each trial
+3. Each trial has the same probability of success (heads), which we will denote $p$
+4. Each trial is independent of all other trials. Whatever result occurs on the first flip will have no impact on the second, and so on. 
+
+Notationally, the binomial distribution is expressed as $X \sim Bin(n,p)$, or "The random variable $X$ follows a binomial distribution with $n$ trials and probability of success, $p$." We can also express this with the following formula:
+
+$$
+P(X = x) = \binom{n}{x} p^x (1-p)^{n-x}
+$$
+where $n$ and $p$ are the *parameters* of our distribution, and $X$ can take any of the values $x = 0, 1, \dots, n$. Perhaps unfamiliar to us here is the leading term in the expression above, $\binom{n}{x}$, called the *binomial coefficient*, which can be written as 
+
+$$
+\binom{n}{x} = \frac{n!}{x!(n-x)!}
+$$
+where $n! = n \times (n-1) \times \dots \times 2 \times 1$ (known as a factorial). By convention, we have that $0! = 1$. In words, we might say $\binom{n}{x}$ as "$n$ choose $x$" or "given that we have $n$ total trials, in how many ways might the outcome $x$ appear?" While this may seem daunting at first, the need for it is quite reasonable. Consider again our coin flipping experiment, where the possible outcomes were listed as 
+
+$$
+\mathcal{S} = \{HHH, HHT, HTH, THH, TTH, THT, HTT, TTT\}.
+$$
+
+If we are interested in determining the probability of observing two heads, we note that there are multiple ways in which this occurs. We might ask ourselves, "If we have $n = 3$ flips, how many ways might we *choose* $x = 2$ heads?" Writing this with our binomial coefficient, we find that
+
+$$
+\binom{3}{2} = \frac{3!}{2!(3-2)!} = \frac{3 \times 2 \times 1}{2 \times 1 \cdot(1 \times 1)} = \frac62 = 3,
+$$
+and indeed, 3 is precisely the number of outcomes in $\mathcal{S}$ in which two heads occur.
+
+Now that we have *the number* of ways in which we might have two heads, we move on to determining the probability of such an event. Being a fair coin, we know that the probability of heads is $p = 0.5$, and because these events are independent, we know that the probability $P(HHT) = P(HTH) = P(THH)$. Consequently, we need only determine the probability for one of them and then multiply this number by 3, the number we found from the binomial coefficient. See that
+
+$$
+\begin{align*}
+P(HHT) &= P(H) \cdot P(H) \cdot P(T) \\
+&= \underbrace{(0.5)(0.5)}_{P(H) P(H)} \cdot \underbrace{(0.5)}_{{P(T)}} \\
+&= 0.125
+\end{align*}
+$$
+Putting these pieces together, we arrive precisely at the binomial distribution:
+
+$$
+\begin{align*}
+P(X = 2) &= \binom{3}{2} (0.5)^2 (0.5)^{3-2} \\
+&= 3 \times 0.125 \\
+&= 0.375
+\end{align*}
+$$
+which we note is precisely the value we computed [(in the table above)/(in chapter 4)]
+
 <div class="exercise-container">
+<div class="exercise"> &nbsp; </div>
 
-The applet below is designed to help you get familiar with the concept of random sampling. The plot on the left side gives the population distribution. Each subject in the population is represented by one box, and the population consist of 26 people. The x-axis represents the value of the outcome variable for each individual, and when multiple people have the same value, their boxes are stacked on top of each other. For example, we have one subject in the population with a value of 0, three subjects with values of 1, and so on. The plot on the right displays the values for the subjects in our sample, and these subjects are indicated by green coloring in both the population and sample distributions. We can take samples from our population of various sizes by changing the value of the slider at the top and clicking on the "Sample" button.
-
-
+ 
+ <ol>
+ <li> Using the binomial probability distribution above, verify the correct values for $X = 0,1,2,3$ in table [number]</li>
+ </ol>
 </div>
-<!-- frameBorder="0" -->
-<iframe src="https://ph-ivshiny.iowa.uiowa.edu/ceward/textbook/shinyApps/sampling" width = "100%" height = "800"> 
+
+### possibly tiny aside with binomial where we pull marbles from bag so that probability is not 1/2
+
+ALSO need to do cumulative probabilities. "probability of AT LEAST two heads"
+
+visualizing important? if so, can include right before app (but then do it after the exercises), then make new exercises using app
+
+and if so, demonstrate with like 3/4 then do exercises with 2/3 (or w/e)
+
+Here is the app related to the exercise
+
+<iframe src="https://ph-ivshiny.iowa.uiowa.edu/collin/textbook/distribution/binomial/" width = "100%" height = "800"> 
 </iframe>
 
-<div class="exercise-container">
-
-<ol>
-  <li>Set the sample size to 2 and click the "Sample" button five times. Fill out the following table with the sample means observed in your five samples.
-  <table style="width:50%">
-  <tr>
-    <th style="text-align:center">Sample Number</th>
-    <th>Sample mean</th>
-  </tr>
-  <tr>
-    <td style="text-align:center">1</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td style="text-align:center">2</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td style="text-align:center">3</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td style="text-align:center">4</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td style="text-align:center">5</td>
-    <td></td>
-  </tr>
-</table>
-  
-  <ol style="list-style-type: lower-alpha;">
-  <li>Did you get the same sample mean for any of your five samples?</li>
-  <li>Was the sample mean ever equal to the population mean in any of your five samples? If not, how close were your sample means to the true population mean?</li>
-  </ol>
-  </li>
-  <li>Now set the sample size to 15 and click the "Sample" button five times. Fill out the following table with the sample means observed in your five samples.
-  <table style="width:50%">
-  <tr>
-    <th style="text-align:center">Sample Number</th>
-    <th>Sample mean</th>
-  </tr>
-  <tr>
-    <td style="text-align:center">1</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td style="text-align:center">2</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td style="text-align:center">3</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td style="text-align:center">4</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td style="text-align:center">5</td>
-    <td></td>
-  </tr>
-</table>
-
-  <ol style="list-style-type: lower-alpha;">
-  <li>Did any of your five simulations give you a sample mean equal to the population mean?</li>
-  <li>how close were your sample means to the true population mean?</li>
-  </ol>
-  </li>
-  <li> Compare your results from problem 1 and problem 2. 
-  <ol style="list-style-type: lower-alpha;">
-    <li> In either case were you able to obtain a sample mean equal to the population mean?</li>
-    <li> Which one had sample means with more variability? What does this indicate about the relationship between the sample size and the distribution of sample means in the context of repeated sampling?</li>
-  </ol>
-  </li>
-</ol>
-
-</div>
+[Include binomial app here. See that clicking bars adds to something. Explain changing settings, clicking bars, selecting different things. Come up with exercises below, i.e., prob that even if n = 8, prob if even n = 4, etc.]
 
 
-As we've seen earlier in this book, we will use upper-case letters to denote random variables, and lower-case letters to denote values once they have been observed (that is, they are no longer random). When it comes to the sampling distribution of the mean, $\overline{X}$ is the random variable, which arises from repeated random sampling from the population and then taking a sample mean, and $\overline{x}$ is an observed sample mean we might see. In describing a sampling distribution, we are often interested in the mean and standard deviation - this gives information about typical values the statistic might take on as well as how spread out the distribution is. We refer to the mean of a statistic as the **expected value** and the standard deviation as the **standard error**. For the random variable describing the sample mean, these are denoted as $E(\overline{X})$ and $SE(\overline{X}) = \sqrt{Var(\overline{X})}$, respectively.
+### Plotting the PMF
 
+It is often useful to create a visual representation of a pmf as well. Doing so quickly gives us an idea of where data  tend to aggregate and how the data are dispersed. Below are two plots representing two different sets of parameters for the binomials distribution. What do you notice in how they differ? How are they similar? What impacts do the different parameters have on the distribution of the data?
 
-Let's return to the fast food scenario to motivate our development, but for now let's assume there are only five individuals in the entire population. The monthly spending for those five individuals (rounded to the nearest dollar) is as follows:
+```{r, fig.align = 'center', echo = FALSE, fig.width=10}
+par(mfrow = c(1, 2))
+x <- 0:3
+y <- dbinom(x, 3, 0.5)
+barplot(y, names.arg = x, xlab = 'Number of Heads Observed on Three Flips', ylab = 'Probability', yaxt='n', 
+        main = "X ~ Bin(n = 3, p = 0.5)")
+axis(side = 2, at = seq(0, 0.45, by = 0.05), pos = c(0, 0), labels = seq(0, 0.45, by = 0.05))
 
-```{r, echo = F}
-library(knitr)
-library(scales)
-person <- c('A', 'B', 'C', 'D', 'E')
-monthlySpending <- c(8, 22, 22, 36, 50)
-avgSpending <- mean(monthlySpending)
-dat <- cbind(Person = person, 'Monthly Spending'= monthlySpending)
-popSize <- length(person)
-sampSize <- 3
-nSamples <- choose(popSize, sampSize)
-kable(dat)
+x <- 0:10
+y <- dbinom(x, max(x), 0.8)
+barplot(y, names.arg = x, xlab = 'Number of Heads Observed on Six Flips', ylab = 'Probability', 
+        main = "X ~  Bin(n = 6, p = 0.8)", yaxt='n')
+axis(side = 2, at = seq(0, 0.45, by = 0.05), pos = c(0, 0), labels = seq(0, 0.45, by = 0.05))
 ```
 
+Of particular note here, we recall from the previous chapter that the sum of all possible probabilities must be equal to one. Visually, this is represented by the total area of the bars in our plot. Given that our bars our rectangles, we can find the area by considering that the width of each bar is equal to 1, and it's height is given by the probability of $X = x$, which can be found using the PMF. On the left hand side, for example, from left to right, we have
 
-The population mean can be found by taking the average monthly spending of these five individuals, as they are the only people in this population. This means the population mean is `r avgSpending`. Now suppose we are taking samples of three individuals from this population. There are $\binom{5}{3}$ = `r nSamples` ways we can sample three people from this population. Since this is a small population, we can enumerate all possible samples, the values we would obtain for the monthly spending in each sample, and then the sample mean monthly fast food spending for each sample:
+$$
+\begin{align}
+\text{Total Area } &= \text{ \{Area of Heads = 0\} + \{Area of Heads = 1\} + } \\
+& \quad \ \ \text{\{Area of Heads = 2\} + \{Area of Heads = 3\}} \\
+&= (1 \times P(X = 0)) + (1 \times P(X = 1)) + (1 \times P(X = 2)) + (1 \times P(X = 3)) \\
+&= 0.125+0.375+0.375+0.125 \\
+&= 1
+\end{align}
+$$
+If, say, we are interested in the probability that $X = 2$ or $X = 3$, we can add the area of the two corresponding bars. In this case, we find $P(X = 2, 3) = 0.75$. 
 
-```{r, warning=F, echo = F}
-allComb <- t(combn(person, 3))
-allCombP <- rep(NA, nrow(allComb))
-valuesComb <- rep(NA, nrow(allComb))
-meanComb <- rep(NA, nrow(allComb))
-for (i in 1:nrow(allComb)) {
-  allCombP[i] <- paste0('(',paste( allComb[i,], collapse = ', '), ')')
-  valuesComb[i] <- paste0('(',paste( dat[dat[,1] %in% allComb[i,],2], collapse = ', '), ')')
-  meanComb[i] <- mean(as.numeric(dat[dat[,1] %in% allComb[i,],2]))
-}
+<iframe src="https://ph-ivshiny.iowa.uiowa.edu/collin/textbook/distribution/binomial/" width = "100%" height = "800"> 
+</iframe>
 
-combDat <- data.frame(Sample = allCombP,
-                      Values = valuesComb,
-                      'Sample mean'=round(meanComb, 2))
-combDat <- combDat[order(combDat[,3]),]
+[Include binomial app here. See that clicking bars adds to something. Explain changing settings, clicking bars, selecting different things. Come up with exercises below, i.e., prob that even if n = 8, prob if even n = 4, etc.]
 
-# combine sample/values when sample mean is the same
-dupMeans <- combDat[,3][duplicated(combDat[,3])]
+## Normal Distribution
 
-combSamples <- NULL
-combValues <- NULL
+Included below are histograms of the depth of Lake Huron from 1875-1972, the annual flow of the Nile river in cubic meters from 1871-1970, and the height in feet of 31 black cherry trees. What do these histograms seem to have in common?
 
-for (i in 1:nrow(combDat)) {
-  if (combDat[i,3]%in% dupMeans) {
-    # which rows have same mean
-    toComb <- which(combDat[,3] == combDat[i,3])
-    combSamples <- c(combSamples,
-                     paste(combDat[toComb,1], collapse = ', '))
-    combValues <- c(combValues,
-                     paste(combDat[toComb,2], collapse = ', '))
-    
-  } else {
-    combSamples <- c(combSamples, combDat[i,1])
-    combValues <- c(combValues, combDat[i,2])
-  }
-}
+```{r, echo = FALSE, fig.align='center', fig.width=10}
+par(mfrow = c(1, 3))
+hist(LakeHuron)
+hist(Nile)
+hist(trees$Height)
+```
 
-combDat2 <- data.frame(Sample = combSamples,
-                      Values = combValues,
-                      'Sample mean'=round(meanComb, 2))
+What we see here are examples of a *normal distribution* (also known as a bell curve), one of the most ubiquitous distributions in all of statistics. The normal distribution is characterized by the "bell shape" that is symmetric about it's mean [but maybe don't say mean]. 
 
-toKeep <- which(!duplicated(combDat[,3]))
-combDat2 <- combDat2[toKeep,]
-kable(combDat2, row.names = F, col.names = c('Sample', 'Values', '$\\overline{x}$'), escape =F)
+Like the binomial, the normal distribution is characterized by two parameters, $\mu$ and $\sigma^2$, representing the mean and the variance, respectively. The mean value, $\mu$, indicates the location of the peak on the x-axis, whereas the variance, $\sigma^2$, indicates the amount of dispersion about the mean. A random variable $X$ that follows a normal distribution can be expressed $X \sim N(\mu, \sigma^2)$, or, "The random variable $X$ follows a normal distribution with mean $\mu$ and variance $\sigma^2$." The formula for the normal distribution is given as 
+
+$$
+\begin{align*}
+f(x) = \frac{1}{\sqrt{2 \pi \sigma^2}} \ e^{- \frac{(x-\mu)^2}{2\sigma^2}}.
+\end{align*}
+$$
+
+Consider the two normal distributions below, with different values for $\mu$ and $\sigma^2$. Although they are centered at different locations and have different amounts of dispersion around the mean, they are both bell-shaped curves characteristic of the normal distribution:
+
+```{r, fig.align='center', echo = FALSE}
+curve(dnorm(x, 0, 1), from = -4, to = 13, lwd = 4,
+      col = 'steelblue', ylab = 'Probability', xlab = 'X',
+      main = "Two Normal Distributions")
+curve(dnorm(x, 5, 3), add = TRUE, lwd = 4, col = 'tomato')
+legend(x = 6.5, y = 0.35, legend = c(expression(N(0,1)),
+                                     expression(N(5,3))),
+       lwd = 4, col = c("steelblue", "tomato"))
+```
+
+Given that the normal distribution appears so frequently in statistics, it is common practice to *standardize* a normal distribution so that it has a mean value of $\mu = 0$ and variance $\sigma^2 = 1$. A normal random variable that has been standardized is called a *standard normal distribution* and is often written $Z \sim N(0,1)$. We can consider again the histograms above, once they've been standardized:
+
+```{r, echo = FALSE, fig.align='center', fig.width=10}
+par(mfrow = c(1, 3))
+mkstd <- function(x) (x-mean(x))/sd(x)
+hist(mkstd(LakeHuron), freq = FALSE)
+curve(dnorm(x), add = TRUE, col = 'steelblue', lwd = 4)
+hist(mkstd(Nile), freq = FALSE)
+curve(dnorm(x), add = TRUE, col = 'steelblue', lwd = 4)
+hist(mkstd(trees$Height), freq = FALSE)
+curve(dnorm(x), add = TRUE, col = 'steelblue', lwd = 4)
+```
+
+Unlike the binomial distribution, in which there are $n$ possible values that our random variable can take, the normal distribution represents a random variable that is *continuous* over a range of values. Instead of asking the probability of a specific value, say, $Z = 0$, probabilities are given as the area under the curve for a certain interval. We might ask, "What is the probability that $Z$ is one standard deviation ($\sigma$) away from 0?" pr perhaps, "What is the probability that $Z < 0$?"
+
+```{r, fig.align='center', echo = FALSE, width = 12}
+par(mfrow = c(1, 2))
+curve(dnorm(x, 0, 1), from = -3, to = 3, lwd = 3, col = 'steelblue',
+      ylab = 'density', main = "Standard Normal")
+x <- seq(-2, 2, 0.01)
+y <- dnorm(x)
+z <- 1
+#axis(1, at = c(-z, 0, z), labels = c(expression(-z[alpha]), 0, expression(z[alpha])))
+polygon(c(-z, x[x > -z & x < z], z ),
+        c(0, y[x > -z & x < z], 0), col = 'pink',angle = 45, density = 55,
+        border = FALSE)
+
+text(2, 0.325, cex = 1.15,
+     labels = expression(paste("P(-", 1, " < Z < ", 1, ") = ", 0.683)))
+lines(x = c(-1, 1), y = c(dnorm(1,0,1), dnorm(1,0,1)))
+lines(x = c(0,0), y = c(0, dnorm(0, 0, 1)), lty = 2)
+text(x = 0.5, y = 0.265, labels = expression(sigma), cex = 1.5)
+text(x = -0.5, y = 0.265, labels = expression(sigma), cex = 1.5)
+
+###
+
+curve(dnorm(x, 0, 1), from = -3, to = 3, lwd = 3, col = 'steelblue',
+      ylab = 'density', main = "Standard Normal")
+lines(x = c(0,0), y = c(0, dnorm(0, 0, 1)), lty = 2)
+x <- seq(-3, 0, 0.01)
+y <- dnorm(x)
+z <- 0
+#axis(1, at = c(-z, 0, z), labels = c(expression(-z[alpha]), 0, expression(z[alpha])))
+polygon(c(-z, x[x < z], z ),
+        c(0, y[x < z], 0), col = 'pink',angle = 45, density = 55,
+        border = FALSE)
+text(2, 0.325, cex = 1.15,
+     labels = expression(paste("P( Z < ", 2, ") = ", 0.978)))
+
 
 ```
 
-One thing to note is that *none* of the sample means are actually equal to the population mean. This is often the case! Based on this table, we can construct the sampling distribution of $\overline{X}$ for a sample of size three.
+Because probabilities for continuous distributions are described as areas under the curve, their values are computed with integrals. [do we introduce probability tables or just go with the app?]
 
-::: {.infobox .think data-latex="thinkaboutit"}
-Why is our sample mean often not equal to the population mean?
-:::
+also maybe include
+
+- subtract  cdf?
+- probability that |Z| > z?
+- what else?
 
 
-```{r, echo = F}
-countMeans <- table(round(meanComb, 2))
-col1 <- paste0('P($\\overline{x}$ = ', names(countMeans), ')')
-col2 <- prop.table(countMeans)
-toPrint <- cbind(col1, col2)
-expValue <- sum(as.numeric(names(countMeans))*col2)
 
-kable(toPrint, col.names = c('', 'Probability'), row.names = F, escape = F)
+
+## Measuring Heights
+
+Often, our data will not fit nicely into a finite number of discrete categories, leaving us with *continuous data* that are described with a *probability distribution function*, or *pdf*. As our data does not fit neatly into categorical bins, many of the techniques described above will not work in the same way here. Rest assured, the idea is exactly the same. While we will spare the technical details here, interested readers may consider what follows to be analogous to the cases presented above when the number of "bins" becomes infinite. 
+
+Our motivating example here will consider the process of determining the height of individuals within a population. Unlike the binomial distribution, where the underlying process and associated parameters were easily teased apart, the components here are less obvious, and some care will be needed to identify them. Height data, like many things in the natural world, tend to follow a symmetric distribution, where most observations tend to gather around a mean value, with observations deviating from the mean being equally likely to fall some distance above the mean as below, their frequencies becoming smaller as this distance increases. That is to say, if the mean height of a population is 68 inches, an individual is equally likely to be 67 inches tall as they are 69 inches. Similarly, an individual is equally likely to be 64 inches as they are 82. However, given their proximity to the mean value, an individual is far more likely to be either 67 or 69 inches (1 inch from the mean) than they are to be either 64 or 82 inches (4 inches from the mean).
+
+The process described above describes what is known as a *normal distribution*, colloquially referred to as a "bell curve". There are a number of properties that together characterize a normal distribution
+
+1. There are two parameters for the normal distribution, the mean $\mu$ (pronounced "myu") and the variance $\sigma^2$ ("sigma squared")
+2. $\mu$ is the mean, or expected value, and represents the most probable value of the distribution. That is, observations from a normal distribution are more likely to be close to $\mu$ than away from it
+3. Observations are equally likely to be the same magnitude above $\mu$ as they are below it. In other words, the distribution is centered around $\mu$. We see this concept expressed in everyday language when we offer estimates of some value: "The cost is 'x', plus or minus 'y'"
+4. The second parameter, $\sigma^2$, describes how concentrated values are around the mean. The smaller the value of $\sigma^2$, the more observations that will be close to $\mu$. Likewise, larger values of $\sigma^2$ result in higher dispersion, or more values further away from  $\mu$. 
+
+Notationally, if a random variable $X$ follows a normal distribution with mean $\mu$ and variance $\sigma^2$, we write $X \sim N(\mu, \sigma^2)$. A special case of this that will be explored in following chapters is known as a *standard normal distribution*, which arises when the mean value is $\mu = 0$, and the variances is $\sigma^2 = 1$. This distribution is often written with its own letter $Z$, as in $Z \sim N(0, 1)$. 
+
+Another critical difference between a continuous and discrete random variable is the way in which we determine probability. In the discrete case, we could enumerate all of the events and determine their relative frequency. Alternatively, we could run a simulation and simply count how often each outcome occurred. In the continuous case, however, there is no finite set of possibilities (i.e., somebody could be 68" tall, 68.1" tall, 68.01", ...), and any attempts to enumerate these will only terminate in frustration; we will determine the implications of this below. In the meantime, however, we will rejoice in knowing that a normal distribution can be mathematically represented by it's probability function:
+
+$$
+f(x) = \frac{1}{\sqrt{2\pi \sigma^2}} \ e^{- \frac{(x-\mu)^2}{2\sigma^2}}
+$$
+As we can see, the pdf contains both of the distribution parameters, $\mu$ and $\sigma^2$. As we saw at the beginning of the chapter, different values for these parameters gives us different curves:
+
+```{r, fig.align='center', echo = FALSE}
+curve(dnorm(x, 0, 1), from = -4, to = 13, lwd = 4,
+      col = 'steelblue', ylab = 'Probability', xlab = 'X',
+      main = "Two Normal Distributions")
+curve(dnorm(x, 5, 3), add = TRUE, lwd = 4, col = 'tomato')
+legend(x = 6.5, y = 0.35, legend = c(expression(N(0, 1)),
+                                     expression(N(5, 3))),
+       lwd = 4, col = c("steelblue", "tomato"))
 ```
 
-With this probability distribution, we can get the expected value of the sampling distribution. Whenever we think about probability, we are thinking about long-run frequencies, so when we think about the expected value, we are thinking about the average sample mean if we were to take repeated samples of size three from this population. The probability distribution indicates that if we took samples of size three from this population over and over again (say 1,000 times), we would end up with `r col2[1]*100`% with a mean of `r names(countMeans)[1]`, `r col2[2]*100`% with a mean of `r names(countMeans)[2]`, `r col2[3]*100`% with a mean of `r names(countMeans)[3]`; and so on. So the expected value (average) we would observed if we kept taking samples over and over would be:
+Of particular interest above, notice how the value of $\mu$ changes where the data are aggregated, and similarly, note how larger values of $\sigma^2$ results in a greater amount of dispersion.
 
-(`r col2[1]` $\times$ `r names(countMeans)[1]`) + (`r col2[2]` $\times$ `r names(countMeans)[2]`)  + (`r col2[3]` $\times$ `r names(countMeans)[3]`)  + (`r col2[4]` $\times$ `r names(countMeans)[4]`) + (`r col2[5]` $\times$ `r names(countMeans)[5]`) =  `r expValue`
+Let's now return to the issue of determining the probability of a particular event. In the discrete case, we saw that we could examine the plot of the pmf and multiply the width of each bin (which was equal to 1), with the height of the bin, given by the pmf While the pdf here does indeed give us the "height", we quickly run into an issue when considering the width: the only way we can have an "infinite" number of bins for each outcome is to assign each bin a width of 0. As such, the probability of any particular event is unintuitively assigned a probability of zero. 
 
-But wait! That *is* the population mean. This illustrates an extremely powerful property of the sample mean - the expected value of the sample mean $\overline{X}$ is equal to the population parameter $\mu$! Because of this, we say that the sample mean is an **unbiased estimator** of the population mean. While we illustrated the property with a small example, this holds regardless of the population or sample size. 
+This apparent shortcoming can thankfully be remedied with the tools of calculus. Where discrete observations allow us to take a sum, the analogous case for continuous intervals is satisfied by the use of the integral. As it no longer makes sense to consider the probability of specific events (all of which will be zero), we instead consider the probability that an observation falls within a *range* of events. For example, if we have a random variable with $X \sim N(\mu, \sigma^2)$, the probability that $X > 3$ can be written 
 
+$$
+P(X > 3) = \int_3^{\infty} \frac{1}{\sqrt{2\pi \sigma^2}} \ e^{- \frac{(x-\mu)^2}{2\sigma^2}} \ dx
+$$
+Similarly, if we were curious to know the probability that $X$ was between a range of values, say $2 < X < 5$, we would write
 
-<div class="definition-container">
-<div class="definition"> Definitions </div>
-**Expected Value: ** <em> The mean value of a statistic in repeated sampling </em>
+$$
+P(2 < X < 5) = \int_2^{5} \frac{1}{\sqrt{2\pi \sigma^2}} \ e^{- \frac{(x-\mu)^2}{2\sigma^2}} \ dx
+$$
+Fortunately for us today, this no longer need be computed by hand. A number of computational resources are able to compute this for us with minimal effort. 
 
-**Standard Error: ** <em> The standard deviation of a statistic (including the mean) in repeated sampling </em>
+[Using app below, explore different parameter values. Use slider to select a range of probabilities. Note that the area of interest is highlighted. Do exercises with it]
 
-**Unbiased Estimator: ** <em> The statistic with an expected value equal to the true population parameter</em>
-</div>
-
-
-
-
-
-
-## Central Limit Theorem
-
-In the last section, we used a toy example to conceptualize repeated sampling and the property of the sample mean being an unbiased estimator. Now we will formalize these properties. For *any* population distribution which can be described by a random variable $X$ with mean $\mu$ and variance $\sigma^2$, the sample distribution of the mean based on sample of size $n$, denoted $\overline{X}_n$, has the following properties:  
-
-1)  The expected value of the sampling distribution is $\mu$
-$$E(\overline{X}_n) = \mu$$
-2) The variance of the sampling distribution is
-$$Var(\overline{X}_n) = \frac{\sigma^2}{n}$$
-
-Using these formulas we are able to describe the typical value of the sample mean and how variable the sample mean is in repeated sampling. Notice that the expected value does not depend on the sample size, $n$, but the variance does. This means regardless of the sample size, the sample mean is an unbiased estimator of the population mean. But, as the sample size increases, the variance decreases, and we get a more precise estimate of the population mean. As we've seen in the past, it is more common to talk about the standard deviation than the variance and the standard deviation is the square root of the variance. The quantity $\sqrt{Var(\overline{X}_n)} = \sigma / \sqrt{n}$ is primarily called the **standard error** of the mean, and is denoted by $SE(\overline{X}_n)$. We use the term standard error to make it really clear that it is referencing the sampling distribution of the mean, but all standard errors could be referred to as standard deviations. Conversely, not all standard deviations could be referred to as a standard error - the term is only used in describing the distribution of the sample mean.
-
-
-In addition to knowing the mean and standard error of our statistic, we can also describe the *distribution* of sample means in repeated sampling. As we discussed in the last chapter on probability distributions, a distribution for the sample mean provides us with a way to quantify which sample mean values are likely and which values are unlikely. As it turns out, when we repeatedly sample from a population, and continue to calculate the sample mean from each sample, the distribution of the sample means will be normally distributed. This brings us what is largely considered the "fundamental theorem of statistics"
-
-**Central Limit Theorem**
-
-If the sample size is "large," the sampling distribution of $\overline{X}$ is approximately normal, regardless of the characteristics of the underlying population.
-
-$$\overline{X}_n \sim N(\mu, \sigma^2/n)$$
-
-While the term "large enough" will inevitably depend on the context of the problem at hand, a typical rule of thumb puts this value at $n \geq 30$. Because the variance of $\overline{X}$ is inversely related to the sample size, as the $n$ increases, the variance decreases and the distribution becomes more concentrated around its mean value. This is one of the most important, remarkable, and powerful results in all of statistics. In the real world, we rarely know the underlying population distribution of our data, however, the Central Limit Theorem (CLT) says: we don't have to!
-
-
-
-
-<div class="exercise"> Exercises </div>
-<div class="exercise-container">
-
-The applet below is designed to help your conceptual understanding of the CLT. You can change the underlying population distribution, the size of the samples taken ($n$), and the number of experiments performed. Each experiment consists of taking a sample of the specified size from the population and calculating the sample mean. The top left panel (blue) shows the underlying population distribution. The top right panel (red) shows the data from the most recent sample, with the sample mean from that specific sample indicated by the dashed black line. The bottom panel (gold) shows us the distribution of sample means from all the experiments, with the observed mean of the sample means indicated by the dashed black line and the true underlying population mean indicated by the solid blue line. Once you select the parameters to the values you want, click "Run Simulation" to tabulate the results.
-
-</div>
-
-
-<!-- frameBorder="0" -->
-<iframe src="https://ph-ivshiny.iowa.uiowa.edu/ceward/textbook/shinyApps/CLT" width = "100%" height = "800"> 
+<iframe src="https://ph-ivshiny.iowa.uiowa.edu/collin/textbook/distribution/normal/" width = "100%" height = "800"> 
 </iframe>
 
 
-<div class="exercise-container">
-<ol>
-  <li>Set the population distribution to Normal, the sample size to 30, and perform 100 experiments to collect 100 sample means. 
-  <ol style="list-style-type: lower-alpha;">
-  <li>Describe the histogram of the the data from the last experiment. Comment on the modality and skew. </li>
-  <li>Describe the histogram of the distribution of sample means from all experiments. </li>
-  <li>What is the range of values observed for the distribution of sample means? How does this compare the the range of values observed in the data from the last experiment? </li>
-  </ol>
-  </li>
-  <li>Now adjust the sample size to 100. Perform 100 experiments.
-  <ol style="list-style-type: lower-alpha;" >
-  <li>What is the range of values observed for the distribution of sample means? How does this compare to the range observed when the sample size was 30? </li>
-  <li>What about the range of values observed in the data from the last experiment - did this change much when the sample size was increased? </li>
-  <li>Play around with various sample sizes. How does changing the sample size effect the spread of the distribution of sample means? </li>
-  </ol>
-  </li>
-  <li>Return to a sample size of 30, but change the population distribution to be right skewed. Perform 1,000 experiments.
-  <ol style="list-style-type: lower-alpha;" >
-  <li>Describe the histogram of the the data from the last experiment. Comment on the modality and skew. </li>
-  <li>Describe the histogram of the distribution of sample means from all experiments. Does it resemble the population distribution? </li>
-  <li>Re-run the simulation using a sample size of 10. How does this effect the distribution of the sample means? How does this compare to what you observed when taking samples of size 10 with a normal population distribution? </li>
-  </ol>
-  </li>
-  <li>Change the population distribution to be left skewed, set the sample size to 80, and perform 1,000 experiments.
-  <ol style="list-style-type: lower-alpha; ">
-  <li>Describe the histogram of the the data from the last experiment. Comment on the modality and skew. </li>
-  <li>Describe the histogram of the distribution of sample means from all experiments. Does it resemble the population distribution? </li>
-  <li>Run the simulation with these parameters a few times and pay attention to how the mean of the distribution of sample means compares to the population mean. Is the population mean similar or different from the mean of the sample means? What property does this illustrate? </li>
-  </ol>
-  </li>
-  <li>Change the parameters of the simulations as needed to answer the following true/false questions. Explain your answers. 
-  <ol style="list-style-type: lower-alpha; ">
-  <li>CLT tells us that the distribution of data from any experiment will be normally distributed.</li>
-  <li>With a larger sample size, the data from the last experiment will resemble the population distribution. </li>
-  <li>Performing 10 experiments is enough to see the effect of CLT. </li>
-  <li>Regardless of the underlying population distribution and the sample size, the distribution of the sample means will be normally distributed. </li>
-  <li>Increasing the sample size causes the data from a single experiment to look more and more normally distributed. </li>
-  </ol>
-  </li>
-</ol>
+<div class="definition-container">
+<div class="definition"> &nbsp;  </div>
+**Binomial Distribution: ** <em> A discrete distribution in which there are two possible outcomes, "events" and "non-events". There parameters are $n$, which dictate the number of trials, and $p$, determining the probability of an event </em>
+
+**Normal Distribution: ** <em> A continuous distribution with two parameters that is symmetric about a mean value, $\mu$, with a variance $\sigma^2$. Many real world processes follow a normal distribution.  </em>
+
+**Standard Normal Distribution: ** <em> A special case of the normal distribution, $Z \sim N(0, 1)$ </em>
+
+**Probability Mass Function: ** <em> A probability function used for discrete random variables. The probability of outcomes is given as a sum </em>
+
+**Probability Distribution Function: ** <em> A probability  function used for continuous random variables. The probabilities of outcomes are taken over a range, given as an integral. </em>
+
 </div>
+
+## Other Common Distributions
+
+Having examined in detail both discrete and properties distributions, demonstrated with the binomial and normal distributions, respectively, we consider below a brief overview of other common distributions and their properites. 
+
+
+### Poisson Distribution
+
+The Poisson distribution, like the binomial, is a *discrete* distribution, in that it concerns itself with count data. Specifically, a Poisson distribution describes the number of independent events that may occur within a fixed interval of time. For example, we may be interested in the number of cars that pass through a busy intersection from noon to 1pm every day, or the number of major floods that occur in an area every 100 years. Perhaps the most famous example of the Poisson distribution comes courtesy of Ladislaus Bortkiewicz, a Russian statistician who, in 1898, showed that the number of Prussian soldiers killed by being kicked by a horse in a twenty year period followed a Poisson distribution (also child suicides, but that's less fun).
+
+The Poisson distribution has a single parameter, $\lambda$, which describes the rate at which events occur, and a random variable following a Poisson distribution may be expressed as $X \sim Pois(\lambda)$ (People who write $X \sim Po(\lambda)$ are heathens). A random variable following a Poisson distribution has the following assumptions:
+
+1. The value of $X$, being a count, can be any non-negative integer, i.e., $0, 1, 2, \dots$ with no upper bound
+2. The occurrence of one event in a time interval is independent of another event. One soldier being kicked by a horse has no impact on the probability of another solider being kicked by a horse. 
+3. $\lambda$, which may be any number greater than $0$, describes the rate at which events occur 
+4. [Two events cannot occur at the exact same time, though they probably don't need this]
+
+The distribution function of a Poisson random variable with rate $\lambda$ can be expressed
+
+$$
+P(X = x) = \frac{\lambda^x e^{-\lambda}}{x!}
+$$
+One surprisingly detail about the Poisson distribution is the relationship between the mean and the variance. For both, we have that $E(X) = Var(X) = \lambda$.
+
+#### Plots for Poisson
+
+As we look at the plot for the Poisson, we will notice one aspect in particular that distinguishes it from the plots of both the binomial and normal distributions: it is no longer symmetric. This is a consequence of the range of values that a Poisson random variable can take on. Whereas a binomial random variable was bounded between $0$ and $n$, the number of trials conducted, and where the normal distribution allowed any real number, the Poisson is bounded below by $0$, while having no theoretical upper bound. Given below is a plot of the distribution with $\lambda = 2$ and $\lambda = 4$ (it's obvious here that choosing a specific value is inadequate. We can replace these plots with distribution exploration apps)
+
+```{r, fig.align = 'center', fig.width = 10, echo = FALSE}
+par(mfrow = c(1, 2))
+x <- 0:9
+y <- dpois(x, lambda = 2)
+barplot(y, names.arg = x, xlab = 'Number of Events Observed in Interval', ylab = 'Probability', main = expression(paste("Poisson distribution with ", lambda, " = 2")))
+
+x <- 0:15
+y <- dpois(x, lambda = 4)
+barplot(y, names.arg = x, xlab = 'Number of Events Observed in Interval', ylab = 'Probability', main = expression(paste("Poisson distribution with ", lambda, " = 4")))
+```
+
+Just as with the binomial distribution, we can determine the probability of an event or collection of events by determining the area of the bars in our plot. Below is an interactive app to do stuff. Exercises
+
+
+<iframe src="https://ph-ivshiny.iowa.uiowa.edu/collin/textbook/distribution/poisson/" width = "100%" height = "800"> 
+</iframe>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
