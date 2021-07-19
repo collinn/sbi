@@ -15,7 +15,14 @@ In the previous chapter, we introduced the idea of random processes, which are s
 
 ## Introduction to Probability Distributions 
 
-Most simply, a **probability distribution** (often just called a distribution) is a method for taking a possible event as input, and giving us the corresponding probability as output. The corresponding probability tells us how likely it is that the specific event will occur, out of all of the possible events. A helpful metaphor is to consider a machine that produces these events at random frequencies corresponding to their associated probabilities. That is, if our machine only creates green marbles and red marbles, and the probability of producing a green marble is 75%, then *on average*, our machine will make 3 green marbles for each red one. In this sense, we can think of distributions as "data generating mechanisms" - the distributions govern how the machine which generates data works. 
+Most simply, a **probability distribution** (often just called a distribution) is a method for taking a possible event as input, and giving us the corresponding probability as output. The corresponding probability tells us how likely it is that the specific event will occur, out of all of the possible events. 
+
+
+
+A helpful metaphor here is to consider a machine (formally, a *data generating mechanism*) which is responsible for generating outcomes. 
+
+
+A helpful metaphor is to consider a machine that produces these events at random frequencies corresponding to their associated probabilities. That is, if our machine only creates green marbles and red marbles, and the probability of producing a green marble is 75%, then *on average*, our machine will make 3 green marbles for each red one. In this sense, we can think of distributions as "data generating mechanisms" - the distributions govern how the machine which generates data works. 
 
 To continue with the machine metaphor, it will be important for us to distinguish between two machines that are completely different, and two machines that are the same but tuned to different settings. These settings, which we call *distribution parameters*, dictate many aspects of how the machine will generate data, including the range of likely events, how likely these events are to occur, and how much variability we might expect in the events that we observe. To briefly illustrate, we might first consider a *normal distribution*, which is governed by two parameters: the mean value, $\mu$, and the amount of variability, $\sigma^2$. A plot of two normal distributions is given below:
 
