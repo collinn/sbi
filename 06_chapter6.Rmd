@@ -37,6 +37,7 @@ Most simply, a **probability distribution** (often just called a distribution) i
 
 <div class="definition-container">
 <div class="definition"> &nbsp;  </div>
+
 **Probability Distribution: ** <em> A method for assigning probabilities to all possible events </em>
 
 **Distribution Parameters: ** <em> Values associated with a probability distribution that determine how the data is generated </em>
@@ -93,7 +94,7 @@ Now that we have *the number* of ways in which we might have two heads, we move 
 $$
 \begin{align*}
 P(HHT) &= P(H) \cdot P(H) \cdot P(T) \\
-&= \underbrace{(0.5)(0.5)}_{P(H) P(H)} \cdot \underbrace{(0.5)}_{{P(T)}} \\
+&= \underbrace{(0.5)(0.5)}_{P(H) P(H)} \cdot \underbrace{(1 - 0.5)}_{{P(T)}} \\
 &= 0.125
 \end{align*}
 $$
@@ -101,39 +102,51 @@ Putting these pieces together, we arrive precisely at the binomial distribution:
 
 $$
 \begin{align*}
-P(X = 2) &= \binom{3}{2} (0.5)^2 (0.5)^{3-2} \\
+P(X = 2) &= \binom{3}{2} (0.5)^2 (1-0.5)^{3-2} \\
 &= 3 \times 0.125 \\
 &= 0.375
 \end{align*}
 $$
 which we note is precisely the value we computed [(in the table above)/(in chapter 4)]
 
+Finally, we consider how we might use the probability distribution for the binomial to answer questions like, "If we have $n = 3$ coin flips, what is the probability that we get *at least* 2 heads?" We can express this as $P(X \leq 2)$, and the solution becomes immediate once we recognize that
+
+$$
+\begin{align*}
+P(X \leq 2) &= P(X = 0) + P(X = 1) + P(X=2) \\
+&= 0.125 + 0.375+0.375\\
+&= 0.875.
+\end{align*}
+$$
+In general, the solution to the binomial probability $P(X \leq x)$ for $n$ events can be written
+
+$$
+P(X \leq x) = \sum_{k=0}^x \binom{n}{k} p^k (1-p)^{n-k}.
+$$
+
 <div class="exercise-container">
 <div class="exercise"> &nbsp; </div>
 
- 
  <ol>
  <li> Using the binomial probability distribution above, verify the correct values for $X = 0,1,2,3$ in table [number]</li>
+ 
+ <li> Assume that we have a bag of red and blue marbles, with 75% of them being blue and 25% being red. Each time we draw a marble, we will place it back in the bag before drawing again (this is known as *sampling with replacement*)
+ <ol>
+ <li> If we draw 10 marbles from the bag, what is the probability that at least 4 of them will be blue?  </li>
+ <li> If we draw 6 marbles from the bag, what is the probability that we will draw an odd number of red marbles? </li>
+ <li> What does the binomial distribution function look like assuming that $n = 10$, when drawing a blue marble is considered a "success"?
+ </ol>
+ </li>
+ 
  </ol>
 </div>
-
-### possibly tiny aside with binomial where we pull marbles from bag so that probability is not 1/2
-
-ALSO need to do cumulative probabilities. "probability of AT LEAST two heads"
-
-visualizing important? if so, can include right before app (but then do it after the exercises), then make new exercises using app
-
-and if so, demonstrate with like 3/4 then do exercises with 2/3 (or w/e)
-
-Here is the app related to the exercise
 
 <iframe src="https://ph-ivshiny.iowa.uiowa.edu/collin/textbook/distribution/binomial/" width = "100%" height = "800"> 
 </iframe>
 
-[Include binomial app here. See that clicking bars adds to something. Explain changing settings, clicking bars, selecting different things. Come up with exercises below, i.e., prob that even if n = 8, prob if even n = 4, etc.]
 
 
-### Plotting the PMF
+### Plotting the PMF (delete?)
 
 It is often useful to create a visual representation of a pmf as well. Doing so quickly gives us an idea of where data  tend to aggregate and how the data are dispersed. Below are two plots representing two different sets of parameters for the binomials distribution. What do you notice in how they differ? How are they similar? What impacts do the different parameters have on the distribution of the data?
 
@@ -264,55 +277,6 @@ also maybe include
 - what else?
 
 
-
-
-## Measuring Heights
-
-Often, our data will not fit nicely into a finite number of discrete categories, leaving us with *continuous data* that are described with a *probability distribution function*, or *pdf*. As our data does not fit neatly into categorical bins, many of the techniques described above will not work in the same way here. Rest assured, the idea is exactly the same. While we will spare the technical details here, interested readers may consider what follows to be analogous to the cases presented above when the number of "bins" becomes infinite. 
-
-Our motivating example here will consider the process of determining the height of individuals within a population. Unlike the binomial distribution, where the underlying process and associated parameters were easily teased apart, the components here are less obvious, and some care will be needed to identify them. Height data, like many things in the natural world, tend to follow a symmetric distribution, where most observations tend to gather around a mean value, with observations deviating from the mean being equally likely to fall some distance above the mean as below, their frequencies becoming smaller as this distance increases. That is to say, if the mean height of a population is 68 inches, an individual is equally likely to be 67 inches tall as they are 69 inches. Similarly, an individual is equally likely to be 64 inches as they are 82. However, given their proximity to the mean value, an individual is far more likely to be either 67 or 69 inches (1 inch from the mean) than they are to be either 64 or 82 inches (4 inches from the mean).
-
-The process described above describes what is known as a *normal distribution*, colloquially referred to as a "bell curve". There are a number of properties that together characterize a normal distribution
-
-1. There are two parameters for the normal distribution, the mean $\mu$ (pronounced "myu") and the variance $\sigma^2$ ("sigma squared")
-2. $\mu$ is the mean, or expected value, and represents the most probable value of the distribution. That is, observations from a normal distribution are more likely to be close to $\mu$ than away from it
-3. Observations are equally likely to be the same magnitude above $\mu$ as they are below it. In other words, the distribution is centered around $\mu$. We see this concept expressed in everyday language when we offer estimates of some value: "The cost is 'x', plus or minus 'y'"
-4. The second parameter, $\sigma^2$, describes how concentrated values are around the mean. The smaller the value of $\sigma^2$, the more observations that will be close to $\mu$. Likewise, larger values of $\sigma^2$ result in higher dispersion, or more values further away from  $\mu$. 
-
-Notationally, if a random variable $X$ follows a normal distribution with mean $\mu$ and variance $\sigma^2$, we write $X \sim N(\mu, \sigma^2)$. A special case of this that will be explored in following chapters is known as a *standard normal distribution*, which arises when the mean value is $\mu = 0$, and the variances is $\sigma^2 = 1$. This distribution is often written with its own letter $Z$, as in $Z \sim N(0, 1)$. 
-
-Another critical difference between a continuous and discrete random variable is the way in which we determine probability. In the discrete case, we could enumerate all of the events and determine their relative frequency. Alternatively, we could run a simulation and simply count how often each outcome occurred. In the continuous case, however, there is no finite set of possibilities (i.e., somebody could be 68" tall, 68.1" tall, 68.01", ...), and any attempts to enumerate these will only terminate in frustration; we will determine the implications of this below. In the meantime, however, we will rejoice in knowing that a normal distribution can be mathematically represented by it's probability function:
-
-$$
-f(x) = \frac{1}{\sqrt{2\pi \sigma^2}} \ e^{- \frac{(x-\mu)^2}{2\sigma^2}}
-$$
-As we can see, the pdf contains both of the distribution parameters, $\mu$ and $\sigma^2$. As we saw at the beginning of the chapter, different values for these parameters gives us different curves:
-
-```{r, fig.align='center', echo = FALSE}
-curve(dnorm(x, 0, 1), from = -4, to = 13, lwd = 4,
-      col = 'steelblue', ylab = 'Probability', xlab = 'X',
-      main = "Two Normal Distributions")
-curve(dnorm(x, 5, 3), add = TRUE, lwd = 4, col = 'tomato')
-legend(x = 6.5, y = 0.35, legend = c(expression(N(0, 1)),
-                                     expression(N(5, 3))),
-       lwd = 4, col = c("steelblue", "tomato"))
-```
-
-Of particular interest above, notice how the value of $\mu$ changes where the data are aggregated, and similarly, note how larger values of $\sigma^2$ results in a greater amount of dispersion.
-
-Let's now return to the issue of determining the probability of a particular event. In the discrete case, we saw that we could examine the plot of the pmf and multiply the width of each bin (which was equal to 1), with the height of the bin, given by the pmf While the pdf here does indeed give us the "height", we quickly run into an issue when considering the width: the only way we can have an "infinite" number of bins for each outcome is to assign each bin a width of 0. As such, the probability of any particular event is unintuitively assigned a probability of zero. 
-
-This apparent shortcoming can thankfully be remedied with the tools of calculus. Where discrete observations allow us to take a sum, the analogous case for continuous intervals is satisfied by the use of the integral. As it no longer makes sense to consider the probability of specific events (all of which will be zero), we instead consider the probability that an observation falls within a *range* of events. For example, if we have a random variable with $X \sim N(\mu, \sigma^2)$, the probability that $X > 3$ can be written 
-
-$$
-P(X > 3) = \int_3^{\infty} \frac{1}{\sqrt{2\pi \sigma^2}} \ e^{- \frac{(x-\mu)^2}{2\sigma^2}} \ dx
-$$
-Similarly, if we were curious to know the probability that $X$ was between a range of values, say $2 < X < 5$, we would write
-
-$$
-P(2 < X < 5) = \int_2^{5} \frac{1}{\sqrt{2\pi \sigma^2}} \ e^{- \frac{(x-\mu)^2}{2\sigma^2}} \ dx
-$$
-Fortunately for us today, this no longer need be computed by hand. A number of computational resources are able to compute this for us with minimal effort. 
 
 [Using app below, explore different parameter values. Use slider to select a range of probabilities. Note that the area of interest is highlighted. Do exercises with it]
 

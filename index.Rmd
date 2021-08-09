@@ -15,8 +15,6 @@ description: "First template!"
 
 
 ```{r, eval = FALSE}
-library(magrittr)
-library(scales)
 bookdown::render_book('index.Rmd', 'bookdown::gitbook')
 ```
 
