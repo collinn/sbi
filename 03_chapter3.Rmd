@@ -4,7 +4,9 @@ output: html_document
 
 # Study Design {#ch3}
 
-> "Randomization is too important to be left to chance." - J. D. Petruccelli
+> "Randomization is too important to be left to chance."  
+>
+> --- J. D. Petruccelli
 
 [[We have a scientific question, as well as statistical question, and each of these is subtly different from what we will call hypothesis in context of statistics. Should iron out how we want to use these words]]
 

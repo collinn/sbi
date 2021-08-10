@@ -8,7 +8,9 @@ output: html_document
 library(markdown)
 ```
 
-> " A useful property of a test of significance is that it exerts a sobering influence on the type of experimenter who jumps to conclusions on scanty data, and who might otherwise try to make everyone excited about some sensational treatment effect that can well be ascribed to the ordinary variation in his experiment." - Gertrude Mary Cox
+> " A useful property of a test of significance is that it exerts a sobering influence on the type of experimenter who jumps to conclusions on scanty data, and who might otherwise try to make everyone excited about some sensational treatment effect that can well be ascribed to the ordinary variation in his experiment."
+>
+> --- Gertrude Mary Cox
 
 
 <div class="objective-container">

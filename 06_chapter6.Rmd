@@ -4,6 +4,10 @@ output: html_document
 
 # Probability Distributions {#ch5}
 
+> "Statistics is the grammar of science." 
+>
+> --- Karl Pearson
+
 <div class="objective-container">
 <div class="objectives"> Learning Objectives </div>
 1. Understand how a distribution represents a random process that creates data that is then observed

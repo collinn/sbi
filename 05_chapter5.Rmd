@@ -6,7 +6,14 @@ header-includes:
 
 # Advanced Probability {#ch4}
 
-> "The most important questions of life are, for the most part, really only problems of probability." - Pierre Simon, Marquis de Laplace
+> "The most important questions of life are, for the most part, really only problems of probability." 
+>
+> --- Pierre Simon, Marquis de Laplace
+
+> "How very little can be done under the spirit of fear." 
+>
+> --- Florence Nightingale
+
 
 <div class="objective-container">
 <div class="objectives"> Learning objectives </div>

@@ -2,7 +2,11 @@
 output: html_document
 ---
 
-# Categorical Data {#ch10}
+# Categorical Data {#ch11}
+
+> "The best thing about being a statistician is that you get to play in everyone's backyard." 
+>
+> --- John Tukey
 
 Learning objectives  
   
@@ -10,7 +14,7 @@ Learning objectives
   
 Up until this point, the hypothesis tests we’ve covered have been tests about population means. In other words, the outcome measured was continuous. However, many times our variable of interest is categorical and requires a different method.
 
-## One Sample Proportions {#ch10_s1}
+## One Sample Proportions {#ch11_s1}
 
 For example, if researchers were interested in investigating the proportion of college students who binge drink, the researchers could ask a sample of students if they had engaged in binge drinking in the past month, and the students would answer yes or no. If the investigators had asked how many drinks they had had in the past month, then we might be interested in looking at the mean number of drinks. But, let’s say they did not ask this question, and we have a categorical outcome.
 
@@ -18,13 +22,13 @@ When we have a sample, and each person is asked a yes or no question, we can des
 
 
 
-## Two Sample Proportions {#ch10_s2}
+## Two Sample Proportions {#ch11_s2}
 
 
 
-## Contingency Based tests {#ch10_s3}
+## Contingency Based tests {#ch11_s3}
 
-## Paired Categorical Data {#ch10_s4}
+## Paired Categorical Data {#ch11_s4}
 
 
 

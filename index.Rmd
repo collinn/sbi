@@ -1,5 +1,5 @@
 --- 
-title: "Seriously Interesting Statistics Textbook"
+title: "An Intuitive, Interactive, Introduction to Biostatistics"
 author: "Caitlin Ward and Collin Nolte"
 site: bookdown::bookdown_site
 output: 
@@ -13,8 +13,15 @@ github-repo: ceward/introTextbook
 description: "First template!"
 ---
 
+> "Statistics is, or should be, about scientific investigation and how to do it better, but many statisticians believe it is a branch of mathematics."
+>
+> --- George E. P. Box
 
 ```{r, eval = FALSE}
+library(magrittr)
+library(scales)
+# devtools::install_github("hadley/emo")
+library(emo) # for emojis
 bookdown::render_book('index.Rmd', 'bookdown::gitbook')
 ```
 

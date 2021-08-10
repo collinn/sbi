@@ -2,9 +2,11 @@
 output: html_document
 ---
 
-# Tests for Means {#ch8}
+# Tests for Means {#ch9}
 
-> "The only relevant test of the validity of a hypothesis is comparison of its predictions with experience." - Milton Friedman
+> "The only relevant test of the validity of a hypothesis is comparison of its predictions with experience."  
+>
+> --- Milton Friedman
 
 <div class="objective-container">
 <div class="objectives"> Learning objectives </div>
@@ -15,7 +17,7 @@ output: html_document
 
 
 
-## Steps for hypothesis testing { #ch8_s1}
+## Steps for hypothesis testing { #ch9_s1}
 
 Much of the rest of this book focuses on implementing hypothesis tests for various research questions and data types. While each hypothesis test is slightly different in the mathematical details and specific hypotheses being compared, the general procedure does not change. We consider hypothesis tests to have three primary steps:
 
@@ -40,7 +42,7 @@ Once we set up our research question and the competing hypotheses, we can use th
 Finally, we want to use the p-value computed from the sample data to make inference about the population parameter(s). Since the p-value quantifies the likelihood of our observations given the null hypothesis is true, a low p-value indicates evidence against the null and a larger p-value does not give evidence against the null. Based on whether the null hypothesis is rejected or not, we can answer the stated research question.
 
 
-## Hypothesis test for a mean { #ch8_s2}
+## Hypothesis test for a mean { #ch9_s2}
 
 The first type of hypothesis test we will cover in detail is a hypothesis test for a mean. This test is used when we have one sample of continuous data, for which we feel comfortable summarizing the "typical" value with the mean. We seek to compare that mean to some known or pre-specified value to learn something about the population.
 

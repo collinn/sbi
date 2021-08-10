@@ -4,10 +4,13 @@ output: html_document
 
 # Sampling Distributions and the <br/> Central Limit Theorem {#ch6}
 
-> "While nothing is more uncertain than a single life, nothing is more certain than the average duration of a thousand lives." - Elizur Wright
+> "While nothing is more uncertain than a single life, nothing is more certain than the average duration of a thousand lives."  
+>
+> --- Elizur Wright
 
-> "Everything that can be counted does not necessarily count; everything that counts cannot necessarily be counted." - Albert Einstein
-
+> "Everything that can be counted does not necessarily count; everything that counts cannot necessarily be counted." 
+>
+> --- Albert Einstein
 
 <div class="objective-container">
 <div class="objectives"> Learning objectives </div>

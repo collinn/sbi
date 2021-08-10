@@ -3,7 +3,13 @@ output: html_document
 ---
 
 
-# Introduction to Probability and Simulation {#ch15}
+# Introduction to Probability and Simulation {#ch4}
+
+> "All life is an experiment. The more experiments you make, the better." 
+>
+> --- Ralph Waldo Emerson
+
+
 
 <div class="objective-container">
 <div class="objectives"> Learning objectives </div>
@@ -12,7 +18,7 @@ output: html_document
 3. Methods for calculating probabilities
 </div>
 
-## Randomness and Simulation {#ch15_s1}
+## Randomness and Simulation {#ch4_s1}
 
 In this section, we seek to understand randomness and how we can use the computer 
 to quickly simulate an outcome. To do this, we will start with a dice game in which two dies are

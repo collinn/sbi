@@ -14,6 +14,32 @@ Don't drink and derive
 
 
 ## Introduction dump {-}
+
+
+learn more statistics [here](https://google.com)
+
+
+```{tikz example, fig.cap = "Funky tikz", fig.ext = 'png', echo = F}
+\usetikzlibrary{arrows}
+\usetikzlibrary{patterns}
+\definecolor{zzffzz}{rgb}{0.6,1,0.6}
+\definecolor{ffcctt}{rgb}{1,0.8,0.2}
+\definecolor{yqyqdz}{rgb}{0.5019607843137255,0.5019607843137255,0.8509803921568627}
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1cm,y=1cm]
+\clip(-4.505289256198347,-6.316528925619829) rectangle (21.02198347107439,13.083471074380155);
+\draw [line width=2pt,pattern color=yqyqdz,fill=yqyqdz,fill opacity=0.25] (2,0) circle (3cm);
+\draw [line width=2pt,pattern color=ffcctt,fill=ffcctt,fill opacity=0.25] (6,0) circle (3cm);
+\draw [line width=2pt,pattern color=zzffzz,fill=zzffzz,fill opacity=0.25] (4,3.46415) circle (3cm);
+\end{tikzpicture}
+```
+
+After index.Rmd, bookdown loads subsequent Rmd files in alphanumeric order, so 01 comes before 02, etc
+
+Here we have a chapter, we can have sections that are just like standard markdown
+
+<p style="color:red; border-style:inset; border-color:powderblue"> I'm not sure how to load css classes yet, but it can't be that hard </p>
+
+
 <!-- # Introduction {.para1 -} <- this adds para1 class to introduction--> 
 
 First note - Having `{-}` in the heading skips numbering assignment (which can be customized in _bookdown.yml), so that `Chapter 1` doesn't read  as `2 Chapter 1`
@@ -52,6 +78,36 @@ install.packages(c("knitr", "bookdown", "servr", "shiny", "rmarkdown"))
 https://www.w3schools.com/css/css_selectors.asp
 
 https://bookdown.org/yihui/rmarkdown-cookbook/custom-blocks.html
+
+
+
+### What is a simulation? {#ch1_s5}
+
+
+Many times in this book, we will illustrate or investigate a concept with a **simulation**. A simulation is a computer generated experiment where the user gets to specify the true mechanism for generating data. For example, we *could* flip a fair coin over and over again and record whether each flip results in heads or tails. OR, we could tell a computer to simulate a pre-specified number of flips with the probability of heads being 50% and get our results in a fraction of a second.
+
+```{r}
+flipCoin <- function(nFlips) {
+    dat <- rbinom(nFlips, 1, 0.5)
+    dat <- ifelse(dat == 1, 'Heads', 'Tails')
+    dat
+}
+flipCoin(5)
+```
+
+Simulations are great tools for understanding the concept of randomness. For example, every time we simulate coin flips using the tool above, we will get a different data set:
+
+```{r}
+flipCoin(5)
+flipCoin(5)
+flipCoin(5)
+flipCoin(5)
+flipCoin(5)
+```
+
+This is exactly what happens when scientists conduct a research study. If they were carry out a study in exactly the same way - sampling individuals from the same population and measuring the same quantities, they would get different results every time. This is because while each sample is from the same population, each sample will contain different individuals. Each sample is random!
+
+
 
 ## Stuff lifted that used to be in ch2 (may or may not be useful still?)
 
