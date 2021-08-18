@@ -86,3 +86,12 @@ maybe-cognitive-bias-placebo-stuff
 review
 fig:example
 fig:statFramework
+def:unlabeled-div-1
+def:unlabeled-div-3
+plotting-the-pmf-delete
+ch2_s1
+tab:unnamed-chunk-12
+ch2_s2
+tab:unnamed-chunk-11
+tab:unnamed-chunk-10
+tab:unnamed-chunk-8

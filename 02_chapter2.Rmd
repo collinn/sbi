@@ -1,14 +1,22 @@
 ---
 output: html_document
 ---
-# What is Data? {#ch2}
+# Data Summaries and Presentation {#ch2}
 
 > "Numerical quantities focus on expected values, graphical summaries on unexpected values." 
 >
 > --- John Tukey
 
+<div class="objective-container">
+<div class="objectives"> Learning objectives </div>
+1. Define data and categorize and identify different types of data
+2. Understand and calculate numerical summaries of different data types
+3. Learn about different types of graphs and how they can be interpreted
+</div>
+
 ```{r, include = FALSE, echo = FALSE}
 library(magrittr)
+library(dplyr)
 library(knitr)
 library(ggplot2)
 library(gridExtra)
@@ -21,72 +29,259 @@ knitr::opts_chunk$set(echo = FALSE, fig.align = 'center')
 ```
 
 
-For our purposes here, we may consider two broad categories of statistical analysis: **descriptive statistics**, which deals with methods for summarizing and/or presenting data and **inferential statistics**, which deals with methods for making generalizations about a population based on information in the sample. The focus of the present chapter will be on descriptive statistics, utilizing both numerical and graphical summaries of various types of data. 
+## Introduction to Data {#ch2_s1}
+
+Data can be virtually anything that is observed and recorded, including how 
+tall you are, the color of all the cars in a town, or the time it takes to drive to work. 
+Just as the different types of data can vary considerably, so can the amount. 
+There is a natural tension between the quantity of data available and our 
+abilities to make sense of it. It is difficult to sort through large streams of 
+data and make any meaningful conclusions. Instead, we can better understand data 
+by condensing it into human readable mediums through the use of *data summaries*,
+often displayed in the forms of *tables* and *figures*. However, in doing so,
+information is often be lost in the process. A good data summary will seek to 
+strike a balance between clarity and completeness of information. The focus of 
+this chapter will be on descriptive statistics, utilizing both numerical and 
+graphical summaries of various types of data. 
+
+The optimal summary and presentation of data depends on the data's type. There
+are two broad types of data that we may see in the wild, which we will call 
+**categorical data** and **continuous data**. As the name suggests, categorical data 
+(sometimes called *qualitative* or *discrete* data) are data that fall into 
+distinct categories. Categorical data can further be classified into two distinct types:
+
+* **Nominal data**: data that exists without any sort of natural or apparent ordering,
+  e.g., colors (red, green, blue), gender (male, female), and type of motor vehicle (car, truck, SUV).  
+* **Ordinal data**: data that does have a natural ordering, e.g., education 
+  (high school, some college, college) and injury severity (low, medium, high)
+
+Continuous data (sometimes called *quantitative* data), on the other hand, are 
+data that can take on any numeric value on some interval or on a continuum. 
+Examples of continuous data include height, weight, and temperature. Categorical
+and continuous data are summarized differently, and we'll explore a number of 
+ways to summarize both types of data.
 
 
-## Outline
 
-- Introduction
-- Summaries (this maybe unnecessary?)
-  - What is a plot/figure?
-  - What is a table?
-- Types of Data
-  - Categorical
-  - Continuous
-- Categorical
-  - visual summary
-  - numerical summary 
-- Continuous
-  - Visual summary
-  - Numerical Summary
-- Summary of Info
+<div class="definition-container">
+<div class="definition"> &nbsp; </div>
+**Categorical data: ** <em> Data that takes on a distinct value (i.e., falls into categories) </em>
 
-Headers in this document need a LOT of work
+**Continuous data: ** <em> Data that takes on numeric values </em>
+
+**Nominal data: ** <em> A type of categorical data where the categories do not have any apparent ordering </em>
+
+**Ordinal data: ** <em> A type of categorical data where there is a natural ordering </em>
+</div>
 
 
+## Categorical Data {#ch2_s2}
 
-Data can be virtually anything that can be observed and recorded, including how tall you are, the number of cars of a particular color in town, or how many words are in each of the books in the Library of Congress. Just as the different types of data can vary considerably, so can the amount. There is a natural tension here between the quantity of data available and our abilities to make sense of it. We can condense large quantities of data into human readable mediums through the use of **data summary methods**, often displayed in the forms of **tables** and **figures**. However, in doing so, information is often be lost in the process. A good data summary will seek to strike a balance between clarity and completeness of information. 
+Let's begin by considering a dataset of survey responses for 592 students 
+responding with their sex, hair color, and eye color. This data includes 
+responses from male and female students, with hair colors that are black, brown, 
+red, or blond, and eyes that are brown, blue, hazel, or green. Note that these 
+are *qualitative* measures, suggesting that are dealing with categorical data. 
+Let's take a look at the data for the first 20 subjects.
+
+```{r}
+data(HairEyeColor)
+haireyecolor <- as.data.frame(HairEyeColor)
+
+haireyecolorExpanded <- haireyecolor[rep(1:nrow(haireyecolor), haireyecolor$Freq),]
+
+haireyecolorExpanded <- haireyecolorExpanded[,-4]
+
+
+# shuffle around
+set.seed(1)
+haireyecolorExpanded<- haireyecolorExpanded[sample(nrow(haireyecolorExpanded), nrow(haireyecolorExpanded)),]
+rownames(haireyecolorExpanded) <- 1:nrow(haireyecolorExpanded)
+
+haireyecolorExpanded$SubjectID <-  1:nrow(haireyecolorExpanded)
+haireyecolorExpanded <- haireyecolorExpanded[,c('SubjectID','Sex', 'Hair', 'Eye')]
+
+dt <- haireyecolorExpanded
+
+kable(haireyecolorExpanded[1:20,], align = 'c')
+```
+
+Each row indicates a subject possessing the indicated sex, hair, and eye color. 
+For example, the first row indicates a male with brown hair and blue eyes. Trying 
+to make sense of 592 such observations is a daunting task, so we can begin by
+taking the data we have and summarizing it in a useful way. For categorical data, 
+like we have here, summarizing the data is pretty straightforward - you just 
+count how many times each category occurs. For example, we can count how many
+of each hair color was observed in our data.
+
+```{r}
+tab <- table(dt$Hair)
+nn <- names(tab)
+tab <- as.numeric(tab)
+names(tab) <- nn
+t(tab) %>% kable %>% kable_classic(full_width = F)
+```
+
+This kind of counting is known as **absolute frequency**, which gives us a single 
+value indicating the total number of observations. In looking at the table above, 
+it is clear that there are far more observations with brown hair than black, 
+blond, and red. We gather this information by looking at the total number of 
+observations with brown hair, and noticing that this number is quite a bit larger 
+than any of the other observations.
+
+However, suppose somebody asks you how common brown hair is relative to other 
+colors. Does it make sense to respond, "Oh, there are 286 individuals with 
+brown hair"? Without knowing the values for the other hair colors, this number 
+alone doesn't carry much meaning. Is 286 observations a lot? It depends. Were 
+300 people examined? 3,000? Without knowing anything about the rest of the data, 
+the absolute frequency may not be very useful.
+
+In addition to actual counts of observations in categorical data, we may often 
+be interested in **rates**. A rate can be as simple as taking the total number 
+of a single category observed, and stating it in terms of the total number of 
+observations. For example, instead of saying, "286 subjects who were
+observed had brown hair," we might instead say, "286 of 592 subjects surveyed
+had brown hair." More commonly, we use **percentages**, also known as 
+**proportions**, which are a special type of rate - the count per 100 observations.
+We calculate percentages using division. That is, 286 of 592 subjects becomes
+$286/592 = 0.4831 = 48.31\%$. We can now show the same table above, this time
+in terms of percentages.
+
+```{r}
+t(scales::percent(prop.table(tab))) %>%  kable() %>% kable_classic(full_width = F)
+```
+
+
+By considering all observations as rates per one hundred, we can quickly compare 
+the relative counts of our observations. For example, we can quickly note that 
+about half of the observations collected had brown hair, and almost twice as many 
+had blond hair compared to red. 
+
+In addition to tables, we can also summarize categorical data visually. The most
+common figure used to represent categorical data is the **bar plot**. Below is a 
+demonstration of a bar plot for the percentages of hair color in our data.
+
+```{r}
+ggplot(dt, aes(Hair, fill = Hair)) + 
+  geom_bar(aes(y = (..count..)/sum(..count..))) + 
+  geom_text(aes(label = scales::percent((..count..)/sum(..count..)),
+                   y= (..count..)/sum(..count..) ), 
+            stat= "count", vjust = -.5) +
+  scale_y_continuous(labels=scales::percent, limits = c(0, 0.55)) +
+  ylab("Percent") + 
+  ggtitle("Percentages by Hair Color") +
+  scale_fill_manual(values = c('black', 'saddlebrown', 'brown3', 'lightgoldenrod1'))
+```
+
+Numerical and visual summaries become even more useful as our data becomes more 
+complicated. Let's continue with the example we had before, but now let us also 
+break down observations with each hair color by sex as well. This process is 
+known as **stratification**.
+
+```{r}
+table2 <- with(dt, table(Sex, Hair))
+addmargins(t(table2) , FUN= list(Total = sum), quiet = T) %>% 
+  kable() %>% kable_classic(full_width = F)
+```
+
+First, we notice that by taking sums across the rows, we arrive at the same 
+numbers that we had when only hair color was considered. Adding up all of the 
+counts in the table gives us 592, the total number of observations
+in our data. If we sum vertically down the columns, we also get the total number
+of observations of each sex. Note that the sum of both margin totals add up to 
+592, the total number of observations, as indicated by the bottom right corner.
+By stratifying the hair color counts by sex, we haven't lost any information related to the 
+hair color, but we have *added information* to our summary about sex. 
+
+Getting stratified counts is straightforward, however, we now have several ways 
+in which we might compute the percentages. For the table above, there are three
+ways we could compute percents.
+
+- How many in each category, relative to the entire population
+- How many of each sex, within hair color
+- How many in each hair color, within sex
+
+```{r}
+# by population
+tt <- prop.table(t(table2)) 
+tt <- apply(tt, c(1,2), percent)
+kable(tt, caption = "Relative to population") %>% kable_classic(full_width = F)
+
+# by hair color
+tt <- prop.table(t(table2), margin = 2) %>%
+  addmargins(1, FUN= list(Total = sum), quiet = T) 
+tt <- apply(tt, c(1,2), percent)
+kable(tt, caption = "Proportion of sex, relative to hair color") %>% kable_classic(full_width = F)
+
+# by eye color
+tt <- prop.table(t(table2), margin = 1) %>% 
+  addmargins(2, FUN= list(Total = sum), quiet = T) 
+tt <- apply(tt[, -5], c(1,2), percent)
+kable(tt, caption = "Proportion of hair color, by sex") %>% kable_classic(full_width = F)
+```
+
+words about the tables
+
+```{r, fig.width = 10}
 
 
 
-## Types of Data
 
-Let's consider the two broad types of data that we may see in the wild, which we will call **categorical data** and **continuous data**. 
+ggplot(dt, aes(Hair, fill = Sex)) + 
+  geom_bar(position = "dodge") + 
+  geom_text(aes(label = scales::percent((..count..)/sum(..count..)),
+                   y= (..count..)/sum(..count..) ), 
+            stat= "count", vjust = -.5, position = position_dodge(.9)) +
+  scale_y_continuous(labels=scales::percent, limits = c(0, 0.55)) +
+  ylab("Percent") + 
+  ggtitle("Percentages by Hair Color") +
+  scale_fill_manual(values = c('purple', 'orange'))
 
-1. **Categorical data**, as the name suggets, is data that falls into *discrete* categorie and is often measure *qualitatively*. Categorical data can further be classified into two distinct types:
-    - **Nominal data**: data that exists without any sort of natural or apparent ordering, e.g., colors (red, green, blue), gender (male, female), and type of motor vehicle (car, truck, SUV).
-    - **Ordinal data**: data that does have a natural ordering, e.g., education (high school, some college, college) and injury severity (low, medium, high)
+ggplot(dt, aes(Sex, fill = Hair)) + 
+  geom_bar(aes(y = (..count..)/sum(..count..)), position = "dodge") + 
+  geom_text(aes(label = scales::percent((..count..)/sum(..count..)),
+                   y= (..count..)/sum(..count..) ), 
+            stat= "count", vjust = -.5, position = 'dodge') +
+  scale_y_continuous(labels=scales::percent, limits = c(0, 0.55)) +
+  ylab("Percent") + 
+  ggtitle("Percentages by Hair Color") +
+  scale_fill_manual(values = c('black', 'saddlebrown', 'brown3', 'lightgoldenrod1'))
 
 
-2. **Continuous data**, on the other hand, is data that can be any numeric value on some interval or on a continuum. This generally includes things that can be measured quantitatively, such as height, weight, and temperature. 
 
-Different types of data can be summarized in a number of ways, which we'll explore in the next section. (not true)
+p1 <- ggplot(dt, aes(Hair, fill = Sex)) + 
+  geom_bar(position = "dodge") +
+  ggtitle("Frequency of Hair Color")
+p2 <- ggplot(dt, aes(Sex, fill = Hair)) + 
+  geom_bar(position = "dodge") +
+  ggtitle("Frequency of Eye Color")
+grid.arrange(p1, p2, ncol = 2)
 
-[[This can either be split up plot/tables or categorical/continuous. I'm going to go with former, but these can be rearranged if needed]]
+# barplot(table2, beside = TRUE, main = "By Hair Color")
+# barplot(t(table2), beside = TRUE, main = "By Eye Color")
+```
 
-[[but, before either of those, we should talk about *what* we are looking for. This could be mean, median, skew, mode, etc., and also rates, frequency, proprotion, percentages, etc. ]]
 
-## Summaries
 
-Before getting into some of the summaries themselves, it will be helpful to ask, "What does it mean to summarize our data?" By analogy, we may consider the process of summarizing a chapter from a book. While a reader will surely know every minute detail there is to know by reading the chapter themselves, the most salient aspects can be recovered by recounting the list of characters and major events. So it is with data that often 
+
+<div class="definition-container">
+<div class="definition"> &nbsp; </div>
+**Absolute frequency: ** <em> The number of observations in a category </em>
+
+**Rate: ** <em> The number of observations in a category relative to any other quantity </em>
+
+**Percent/Proportion: ** <em> The number of observations per 100 </em>
+
+**Bar plot: ** <em> Visualization of categorical data which uses bars to represent each category, 
+with counts or percents giving the height of each bar </em>
+
+**Stratification: ** <em> The process of sorting data into categories prior to summarizing </em>
+</div>
 
 
 ## Visual Summaries
 
 Visual summaries are those in which the data is represented through graphics. Presented in this way, we can often identify trends in the *structure* of the data. This may describe idk relationships, points of aggregation, spread, all topics that will be discussed later. Maybe note that visual summaries are a first good step. different for categorical/continuous
-
-### Categorical Data
-
-The first dataset we will consider is a tabulation of hair and eye color, collected from students at the University of Delaware (1974). This data contains survey responses from 592 students, indicating their hair color, eye color, and sex. This includes male and female students,  with hair colors that are black, brown, red, and blond, and eye color that is either brown, blue, hazel, or green. Note that these are *qualitative* measures, indicating to us that this is a cateogrical dataset. Let's see what this dataset looks like prior to making any summaires:
-
-```{r}
-library(knitr)
-data(HairEyeColor)
-haireyecolor <- as.data.frame(HairEyeColor)
-haireyecolor
-```
-
-Note that each row indicates an observation possessing the indicated sex, hair, and eye color. For example, the first row indicates that there are 32 observations who are male with black hair and brown eyes. Summing each of the numbers in the frequency column lands us at 592 observations.
 
 
 
@@ -94,33 +289,6 @@ Note that each row indicates an observation possessing the indicated sex, hair, 
 
 ## Categorical Data
 
-- Titanic dataset might also be good here? <- probably too complicated. In fact, we should probably reduce the dataset below to make it simpler
-
-- I am also wondering if I should not rearrange the order in which this is presented? That is, maybe we should start with plots rather than tables. For categorical data, leading with either seems fine, but for continuous data, plots seem far more intuitive to begin with, and numerical summaries coming next
-
-
-Let's begin by considering a dataset of survey responses for 592 students responding with their hair color, eye color, and sex. This dataset includes responses from male and female students, with hair colors that are black, brown, red, and blond, and eyes that are brown, blue, hazel, and green. Note that these are *qualitative* measures, suggesting that are dealing with **categorical data**. 
-
-Trying to make sense of 592 observations is a daunting task, so we can being by taking the data we have and *summarizing* it in a useful way. For **categorical data**, this is often as simple as counting the number of times an observation falls into a category. For example, how many observations were male with brown hair and green eyes? Or females with red hair and blue eyes?
-
-Let's take a look at this dataset with pairs counted together in the `Freq` column:
-
-```{r}
-library(ggplot2)
-library(knitr)
-data(HairEyeColor)
-haireyecolor <- as.data.frame(HairEyeColor)
-haireyecolor
-
-
-freq <- haireyecolor$Freq
-idx <- rep(seq_along(freq), times = freq)
-dt <- haireyecolor[idx, c("Hair", "Eye", "Sex")]
-```
-
-By simply adding like values together, we have reduced 592 observations into 32 data points, indicating that pairing of sex, hair and eye color, as well as the number of subjects with each. Note here that in this summary of the data, no data/information was lost. That is, with these 32 rows, we could just as easily expand this out to having one row for each observation, with the number indicated in the `Freq` column. 
-
-Something about how summarizing data doesn't *always* preserve everything.
 
 <!-- ------- -->
 
@@ -164,97 +332,6 @@ Something about how summarizing data doesn't *always* preserve everything.
 <!-- (I'll do that here below, and we can just rearrange later) -->
 
 <!-- -------------------------- -->
-
-Suppose first we are only interested in a portion of this data, that is, we are only interested in asking questions about hair color. The first thing we might do, then, is count how many of each hair color was observed in our dataset
-
-```{r}
-# hair <- dt$Hair
-# eye <- dt$Eye
-# sex <- dt$Sex
-# why does rmarkdown insist on pissing me off always?
-tab <- table(dt$Hair)
-nn <- names(tab)
-tab <- as.numeric(tab)
-names(tab) <- nn
-t(tab) %>% kable %>% kable_classic(full_width = F)
-```
-
-This kind of counting is known as **absolute frequency**, which gives us a single value indicating the total number of observations. In looking at the table above, it is clear that there are far more observations with brown hair than black, blond, and red. We gather this information by looking at the total number of observations with brown hair, and noticing that this number is quite a bit larger than any of the other observations.
-
-However, suppose somebody asks you how common brown hair is relative to others. Does it make sense to response "Oh, there are 286 individuals with brown hair"? Without knowing the values for the other hair colors, this number alone doesn't carry much meaning. Is 286 observations a lot? It depends. Were 300 people examined? 3,000? Without knowing anything about the rest of the data, the absolute frequency may not be very useful.
-
-In addition to actual counts of observations in categorical data, we may often be interested in **rates**. A rate can be as simple as taking the total number of a single category observed, and stating it in terms of the total number of observations. For example, instead of simplying saying "286 subjects who were observed had brown hair," we might instead say "286 of 592 subjects examined had brown hair." Perhaps more familiar to use is a **percentage**, also known as a **proportion**, which is a special type of rate, specified as the number of instances per 100 observations. We determine this by evaluating the rate with division. That is, 286 of 592 subjects becomes $286/592 = 0.4831 = 48.31\%$. We can now show the same table above, in terms of percentages
-
-```{r}
-t(scales::percent(prop.table(tab))) %>%  kable() %>% kable_classic(full_width = F)
-```
-
-By considering all observations as rates per one hundred, we can quickly compare the relative counts of our observations. For example, we can quickly note that about half of the observations collected had brown hair, and almost twice as many had blond hair compared to red. This kind of counting, as opposted to the raw numbers, is known as **relative frequency**. 
-
-This has given us a few ways to provide numerical summaries of the data through the use of tables, but we can just as easily obtain visual summaries as well with the use of figures and plots. 
-
-For categorical data, visual summaries often come in the form of **bar plots**. Below is a demonstration of a bar plot for the absolute frequencies of hair color found above
-
-```{r}
-ggplot(dt, aes(Hair, fill = Hair)) + geom_bar() + ylab("Frequency") + 
-  ggtitle("Absolute Frequency of Hair Color")
-```
-
-
-Numerical and visual summaries become even more useful as our data becomes more complicated. Let's continue with the example we had before, but now let us also break down observations with each hair color by sex as well. This process is known as **stratification**
-
-```{r}
-table2 <- with(dt, table(Sex, Hair))
-t(table2) %>% kable  %>% kable_classic(full_width = F)
-```
-
-First, we notice that by taking sums down the columns, we arrive at the same numbers that we had when only hair color was considered. If we were to sum these numbers up, they would add to 592, the total number of observations in our dataset. In other words, we haven't lost any information related to the number of observations with each hair color, but we have *added information* to our summary by including sex as well. 
-
-One will also notice that if we sum horizontally, we also get the total number of observations of each sex as well. This is done in the margins in the table below. Note that the sum of both margin totals add up to 592, the total number of observations, as indicated by the bottom right corner.
-
-```{r}
-addmargins(table2) %>% kable() %>% kable_classic(full_width = F)
-```
-
-Similar to our previous example, these numbers represent the *absolute frequencies* of our observations.
-
-Unlike the previous example, however, we now have several ways in which we might compute the *relative frequencies*. In particular, this asks the question "relative to what?" For the table above, there are three "whats" that may be of interest
-
-- How many in each category, relative to the entire population
-- How many of each sex, within hair color
-- How many in each hair color, within sex
-
-
-```{r}
-library(magrittr)
-
-# by population
-tt <- prop.table(table2) 
-tt <- apply(tt, c(1,2), percent)
-kable(tt, caption = "Relative to population") %>% kable_classic(full_width = F)
-
-# by hair color
-tt <- prop.table(table2, margin = 2) %>% addmargins(1) %>% `[`(-3,)
-tt <- apply(tt, c(1,2), percent)
-kable(tt, caption = "Proportion of sex, relative to hair color") %>% kable_classic(full_width = F)
-
-# by eye color
-tt <- prop.table(table2, margin = 1) %>% addmargins(2) 
-tt <- apply(tt[, -5], c(1,2), percent)
-kable(tt, caption = "Proportion of hair color, by sex") %>% kable_classic(full_width = F)
-```
-words about the tables
-
-```{r, fig.width = 10}
-p1 <- ggplot(dt, aes(Hair, fill = Sex)) + geom_bar(position = "dodge") +
-  ggtitle("Frequency of Hair Color")
-p2 <- ggplot(dt, aes(Sex, fill = Hair)) + geom_bar(position = "dodge") +
-  ggtitle("Frequency of Eye Color")
-grid.arrange(p1, p2, ncol = 2)
-
-# barplot(table2, beside = TRUE, main = "By Hair Color")
-# barplot(t(table2), beside = TRUE, main = "By Eye Color")
-```
 
 
 
