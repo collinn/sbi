@@ -10,6 +10,13 @@ output: html_document
 > --- Florence Nightingale
 
 
+<div class="objective-container">
+<div class="objectives"> Learning objectives </div>
+1. Describe the field of statistics and its importance in scientific inquiry  
+2. Learn the scientific method, its purpose, and its connection to statistics
+3. Understand the concepts in the general statistical framework
+</div>
+
 ## Statistics and Evidence-based Research {#ch1_s1}
 
 Dr. Anne Ecdote bases all her decisions off things she's observed. Dr. Eva Dense 
@@ -58,7 +65,7 @@ inquiry to help answer important questions:
 
 These questions are too important to be left to opinion, superstition, and 
 conjecture. Thus, there has been a tremendous push for objective, 
-*evidence-based* decision making in medicine, public health, and policy making. 
+**evidence-based** decision making in medicine, public health, and policy making. 
 Statistics and biostatistics are the sciences that allows us to mSake these 
 decisions. When studying humans, we can't control every aspect of their life, 
 such as what they eat or where they work. There are ethical considerations - if 
@@ -69,6 +76,12 @@ issues, there is a moral imperative to make decisions on potentially life-saving
 therapies as fast as possible. To make evidence-based conclusions, we need to 
 collect, process, analyze, and interpret data in order to draw conclusions in an 
 objective manner. 
+
+<div class="definition-container">
+<div class="definition"> &nbsp; </div>
+**Evidence-based practice:** <em> Using sound research findings based on observed 
+  or collected data to make decisions</em>
+</div>
 
 ## Scientific Method {#ch1_s2}
 
@@ -81,34 +94,86 @@ of observations. We also find it difficult to sort out the effects of multiple
 factors occurring simultaneously and we are subject to all sorts of biases 
 depending on our personalities, emotions, and past experiences.
 
-Some examples of these would be good.
-
-The **scientific method** is the process used to answer scientific questions.
+In order to mitigate any of our own personal biases when answering important 
+questions about the way the world works (i.e., to do good science), we must be
+careful to be rigorous in the way we proceed. The **scientific method** is the 
+process used to answer scientific questions.
  
 1) Ask a question
-2) Do background research
-3) Construct a hypothesis
-4) Test your hypothesis with a study or an experiment
-5) Analyze data and draw conclusions
-6) How do the results align with your hypothesis?
-7) Communicate results
+2) Construct a hypothesis
+3) Test your hypothesis with a study or an experiment
+4) Analyze data and draw conclusions
+5) Communicate results
+
+As an example of the scientific method, consider that you would like to start a
+garden, but you are not sure which type of fertilizer is best. If there are three
+types of fertilizer you cannot decided between, you might proceed through the 
+scientific method as follows:
+
+1) Ask a question
+
+Of fertilizers A, B, and C, which will yield the fastest plant growth in my garden?
+
+2) Construct a hypothesis
+
+You may have read some reviews for each type of fertilizer online. Fertilizer A
+has 4.5 stars, fertilizer B as 4.2 stars, and fertilizer C has 4.6 stars. Thus,
+you may hypothesize that fertilizer C leads to the fastest plant growth, followed
+by fertilizer A, and that fertilizer B has the slowest plant growth.
+
+3) Test your hypothesis with a study or an experiment
+
+To test your hypothesis, you can section off three areas of your garden. In each 
+area, you use one of the three fertilizers and plant the same number and type of
+plants. In order for your experiment to be fair, you will want to make sure each
+of the three areas is equal-size, gets the same amount of sunlight, is watered 
+the same amount, etc.
+
+4) Analyze data and draw conclusions
+
+After 5 weeks, you measure the height of each plant which use each type of 
+fertilizer. Taking the average plant height from each of the three sections of 
+your garden, you find that when fertilizer A was used, the average plant height 
+was the tallest and thus you conclude that fertilizer A is the best for your
+garden.
+
+5) Communicate results
+
+Other gardeners in your area may be interested in your results. You may share
+with them your recommendation for fertilizer A, which is backed by a 
+well-controlled experiment.
+
+Even in this relatively simple example, you can see how much care is required to
+have a valid experiment. There are many other factors that may also influence
+your decision on the best fertilizer, such as the price and availability. It's
+also possible that fertilizer A ended up with the fastest average plant growth
+just due to random chance, and if you repeated the entire experiment again you
+might find fertilizer B or C to result in taller plants. 
 
 
+<div class="definition-container">
+<div class="definition"> &nbsp; </div>
+**Scientific method:** <em> Five steps that can be used to acquire knowledge 
+  without incorporating personal opinion </em>
+</div>
 
 
+## Statistical framework {#ch1_s3}
 
-## Statistical framework {#ch1_s4}
-
-There are three basic questions in statistics:  
-
-1) How should I collect my data?  
-2) How should I describe and summarize the data I've collected?
-3) What does my data tell me about the way the world works?  
-
-Throughout the book, we will cover different ways of analyzing data and making conclusions about the way the world works. Depending on the type of data, there are different methods of analysis.
-
-
-In general, scientists use the scientific method to make generalizations about classes of people on the basis of their studies. The class of people that they are trying to make generalizations about is called the **population**. Most of the time, it is impratical and expensive to study all individuals in a population - although the United States government does do the best they can every 10 years. Instead of sampling everyone in the population, or taking a **census**, typically we study only a portion of th the population called the **sample**. In order to determine how best to obtain a sample to answer the research questions, we must be cautious about the **study design**. Then, researchers make generalizations, or **inference**, about the entire population based on studying the sample. We can visualize the statistical framework using this diagram:
+As we saw in the fertilizer example, collecting and analyzing data can be complicated.
+Statistics helps us design studies, test hypotheses, and use data to make scientifically
+valid conclusions about the world. In general, scientists use the scientific method 
+to make generalizations about classes of people on the basis of their studies. 
+The class of people that they are trying to make generalizations about is called 
+the **population**. Most of the time, it is impractical and expensive to study 
+all individuals in a population - although many governments do  the best they 
+can every 10 years. Instead of sampling everyone in the population, or taking a 
+**census**, typically we study only a portion of the population called the
+**sample**. In order to determine how best to obtain a sample to answer the 
+research questions, we must be cautious about the **study design**. Then, 
+researchers make generalizations, or **inference**, about the entire population 
+based on studying the sample. We can visualize the statistical framework using 
+this diagram:
 
 ```{tikz statFramework, fig.cap = "Statistical Framework", fig.ext = 'png', echo = F}
 \usetikzlibrary{decorations.pathreplacing,positioning, arrows, shapes, calc,shapes.multipart}
@@ -139,8 +204,30 @@ In general, scientists use the scientific method to make generalizations about c
         \end{tikzpicture}
 ```
 
+Throughout this book, we will dive deeper in to each aspect of the statistical
+framework. We consider two broad categories of statistical 
+analysis: **descriptive statistics**, which deals with methods for summarizing 
+and/or presenting data and **inferential statistics**.
 
 
+
+<div class="definition-container">
+<div class="definition"> &nbsp; </div>
+**Population: ** <em> The group which scientists would like to generalize to </em>
+
+**Census: ** <em> A study which includes all members of the population </em>
+
+**Sample: ** <em> A portion of the population which is part of the study </em>
+
+**Study design: ** <em> The process of obtaining the best sample to answer the research questions </em>
+
+**Inference: ** <em> The process of making generalizations about the population </em>
+
+**Descriptive statistics: ** <em> Methods for summarizing and/or presenting data </em>
+
+**Inferential statistics: ** <em> Methods for making generalizations about a population
+  using information contained in the sample </em>
+</div>
 
 
 

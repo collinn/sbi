@@ -81,7 +81,19 @@ https://bookdown.org/yihui/rmarkdown-cookbook/custom-blocks.html
 
 
 
+
 ### What is a simulation? {#ch15_s5}
+
+There are three basic questions in statistics:  
+
+1) How should I collect my data?  
+2) How should I describe and summarize the data I've collected?
+3) What does my data tell me about the way the world works?  
+
+Throughout this book, we will cover different ways of analyzing data and making 
+conclusions about the way the world works. Depending on the type of data, there 
+are different methods of analysis.
+
 
 
 Many times in this book, we will illustrate or investigate a concept with a **simulation**. A simulation is a computer generated experiment where the user gets to specify the true mechanism for generating data. For example, we *could* flip a fair coin over and over again and record whether each flip results in heads or tails. OR, we could tell a computer to simulate a pre-specified number of flips with the probability of heads being 50% and get our results in a fraction of a second.
@@ -111,6 +123,31 @@ This is exactly what happens when scientists conduct a research study. If they w
 
 ## Stuff lifted that used to be in ch2 (may or may not be useful still?)
 
+## Outline
+
+- Introduction
+- Summaries (this maybe unnecessary?)
+  - What is a plot/figure?
+  - What is a table?
+- Types of Data
+  - Categorical
+  - Continuous
+- Categorical
+  - visual summary
+  - numerical summary 
+- Continuous
+  - Visual summary
+  - Numerical Summary
+- Summary of Info
+
+Headers in this document need a LOT of work
+
+
+## Summaries
+
+Before getting into some of the summaries themselves, it will be helpful to ask, "What does it mean to summarize our data?" By analogy, we may consider the process of summarizing a chapter from a book. While a reader will surely know every minute detail there is to know by reading the chapter themselves, the most salient aspects can be recovered by recounting the list of characters and major events. So it is with data that often 
+
+
 
 We can also have R code
 
@@ -139,6 +176,63 @@ But that's boring and dumb when we can also have Shiny, though a few things of n
   - Scrolly window
   - Yihui recommends miniUI for embedded shiny apps, but still
   - Not yet sure what other options might exist
+  
+  
+
+We can also compute the counts and percents for the other variables in our data. 
+
+Sex:
+
+```{r}
+data(HairEyeColor)
+haireyecolor <- as.data.frame(HairEyeColor)
+
+haireyecolorExpanded <- haireyecolor[rep(1:nrow(haireyecolor), haireyecolor$Freq),]
+
+haireyecolorExpanded <- haireyecolorExpanded[,-4]
+
+
+# shuffle around
+set.seed(1)
+haireyecolorExpanded<- haireyecolorExpanded[sample(nrow(haireyecolorExpanded), nrow(haireyecolorExpanded)),]
+rownames(haireyecolorExpanded) <- 1:nrow(haireyecolorExpanded)
+
+haireyecolorExpanded$SubjectID <-  1:nrow(haireyecolorExpanded)
+haireyecolorExpanded <- haireyecolorExpanded[,c('SubjectID','Sex', 'Hair', 'Eye')]
+
+dt <- haireyecolorExpanded
+
+tab <- table(dt$Sex)
+prop <- prop.table(tab)
+nn <- names(tab)
+tab <- as.numeric(tab)
+prop <- as.numeric(prop)
+names(tab) <- nn
+tab <- rbind(tab, prop*100)
+toPrint <- data.frame(t(tab))
+colnames(toPrint) <- c('Count', 'Percent')
+toPrint$Percent <- paste0(round(toPrint$Percent, 2), '%')
+toPrint %>% kable %>% kable_classic(full_width = F)
+```
+
+Eye color:
+
+```{r}
+tab <- table(dt$Eye)
+prop <- prop.table(tab)
+nn <- names(tab)
+tab <- as.numeric(tab)
+prop <- as.numeric(prop)
+names(tab) <- nn
+tab <- rbind(tab, prop*100)
+toPrint <- data.frame(t(tab))
+colnames(toPrint) <- c('Count', 'Percent')
+toPrint$Percent <- paste0(round(toPrint$Percent, 2), '%')
+toPrint %>% kable %>% kable_classic(full_width = F)
+```
+
+
+This kind of counting, as opposted to the raw numbers, is known as **relative frequency**. 
 
 ## Chapter 4 dump
 
