@@ -2,7 +2,7 @@
 output: html_document
 ---
 
-# Dump Chapter {#ch14}
+# Dump Chapter {#ch16}
 
 
 ::: {.infobox .hazard data-latex="hazard"}
@@ -81,7 +81,7 @@ https://bookdown.org/yihui/rmarkdown-cookbook/custom-blocks.html
 
 
 
-### What is a simulation? {#ch1_s5}
+### What is a simulation? {#ch15_s5}
 
 
 Many times in this book, we will illustrate or investigate a concept with a **simulation**. A simulation is a computer generated experiment where the user gets to specify the true mechanism for generating data. For example, we *could* flip a fair coin over and over again and record whether each flip results in heads or tails. OR, we could tell a computer to simulate a pre-specified number of flips with the probability of heads being 50% and get our results in a fraction of a second.
@@ -143,7 +143,7 @@ But that's boring and dumb when we can also have Shiny, though a few things of n
 ## Chapter 4 dump
 
 
-## Understanding Randomness { #ch4_s1}
+## Understanding Randomness { #ch16_s1}
 
 If statistics is the science of uncertainty, then probability is the mechanism that allows us to quantify our uncertainty. In other words, probability tells us how likely something is to happen. People talk loosely about probability all the time. For example, "what's the chance of rain tomorrow?" or "how likely is it that drug A is better than drug B?" However, for scientific purposes, we need to be more specific in terms of defining and using probabilities. 
 

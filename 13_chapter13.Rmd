@@ -2,7 +2,7 @@
 output: html_document
 ---
 
-# Introduction to Simulations {#ch12}
+# Introduction to Simulations {#ch13}
 
 <div class="objective-container">
 <div class="objectives"> Learning objectives </div>
@@ -12,7 +12,7 @@ output: html_document
 4. Conceptual understanding of randomness and a simulation
 </div>
 
-## What is a simulation? {#ch12_s1}
+## What is a simulation? {#ch13_s1}
 
 In the statistics world, when we use the word simulation we are not talking about 
 *The Matrix* or *Westworld,* where humans exist in some simulated reality. Statistical simulations

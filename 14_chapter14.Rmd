@@ -7,7 +7,7 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 
-# Introduction to Simulations {#ch13}
+# Introduction to Simulations {#ch14}
 
 <div class="objective-container">
 <div class="objectives"> Learning objectives </div>
@@ -17,7 +17,7 @@ knitr::opts_chunk$set(echo = TRUE)
 4. Conceptual understanding of randomness and a simulation
 </div>
 
-## Introduction {#ch13_intro}
+## Introduction {#ch14_intro}
 
 Throughout this text, we will often describe simulations in terms of coins and dice. While these examples may feel contrived, they do serve to illustrate the components of probability, randomness, and simulation in a way that is free from unnecessary complication. For example, flipping a coin has exactly two outcomes with equal probability; the goal here is not to bore you with unmotivating examples ("When am I ever going to flip 10,000 coins?") but rather to allow the focus of the discussion to be on the primary conceptual elements:
 
@@ -29,7 +29,7 @@ Throughout this text, we will often describe simulations in terms of coins and d
 Keeping this in mind will help the reader keep narrow center their focus on the relevant information, if at the slight expense of imaginative creativity.
 
 
-## What is a simulation? {#ch13_s1}
+## What is a simulation? {#ch14_s1}
 
 For most of its history, nearly all of statistics were done in an analytic fashion, with the use of concise formulas and tedious calculation. However, with the ubiquity of modern computers, something something something
 
@@ -88,7 +88,7 @@ It is important to note that the experiment itself is unchanged -- just as befor
 </div>
 
 
-## Why Simulation {#ch13_s2}
+## Why Simulation {#ch14_s2}
 
 In the previous section, we learned that a simulation is a random process (of $n$ events) that can be performed an arbitrary number of ($N$) times. Our next step will be to understand how this process can empower us to better understand key concepts in statistics. The next section will contain a number of terms and concepts that will be formally introduced in later chapters, but for now will serve to give context to the usefulness of simulations.
 

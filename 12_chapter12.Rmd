@@ -2,6 +2,6 @@
 output: html_document
 ---
 
-# Correlation and Regression {#ch11}
+# Correlation and Regression {#ch12}
 
 Learning objectives  

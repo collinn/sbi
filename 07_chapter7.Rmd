@@ -2,15 +2,12 @@
 output: html_document
 ---
 
-# Sampling Distributions and the <br/> Central Limit Theorem {#ch6}
+# Sampling Distributions and the <br/> Central Limit Theorem {#ch7}
 
-> "While nothing is more uncertain than a single life, nothing is more certain than the average duration of a thousand lives."  
->
-> --- Elizur Wright
+> "While nothing is more uncertain than a single life, nothing is more certain than the average duration of a thousand lives." - Elizur Wright
 
-> "Everything that can be counted does not necessarily count; everything that counts cannot necessarily be counted." 
->
-> --- Albert Einstein
+> "Everything that can be counted does not necessarily count; everything that counts cannot necessarily be counted." - Albert Einstein
+
 
 <div class="objective-container">
 <div class="objectives"> Learning objectives </div>
@@ -21,19 +18,19 @@ output: html_document
 
 ## Introduction to Sampling
 
-Suppose policy makers and public health experts in Iowa are concerned with Iowans' fast food intake. To understand this further, officials want to determine the average monthly spending on fast food for all Iowans. However, it would be very expensive to have all 3.2 million Iowans track and report their total monthly fast food expenses. Whatsmore, many Iowans would not be willing to share personal financial details with public health researchers or government officials. These are but a few of the challenges making it practically impossible for officials to ever determine the true average spent by Iowans each month on fast food. 
+Suppose policy makers and public health experts in Iowa are concerned with Iowans' fast food intake. To understand this further, officials want to determine the average monthly spending on fast food for all Iowans. It would be very expensive, however, to have all 3.2 million Iowans track and report their total monthly fast food expenses. Whatsmore, many Iowans would not be willing to share personal financial details with public health researchers or government officials. These are but a few of the challenges making it practically impossible for officials to ever determine the true average spent by Iowans each month on fast food. 
 
-A true numeric quantity about the population, here assumed to be the mean, is known as a **population parameter**. While we may never know the truth, there are still options. The officials can take a sample of Iowans and have those that consent to share their information report their monthly spending on fast food. Then, they can take the sample mean, which gives them an estimate of the average monthly spending on fast food. The sample mean is an example of a **sample statistic**, which is a numerical quantity about the sample. In other words, statistics are what investigators know, and parameters are what investigators want to know. 
+A true numeric quantity about the population, here assumed to be the mean, is known as a **population parameter**. While we may never know the exact value of a population parameter, we have tools at our disposal to estimate it. For example, officials can determine a *representative sample* of Iowans and have those consenting to share their information report their monthly fast food spending. The average spending of this group is the *sample mean*, which can then be used approximate the population mean. The sample mean is an example of a **sample statistic**, which is a numerical quantity about the sample. In other words, statistics are what investigators know, and parameters are what investigators want to know. 
 
-The statistical framework (pictured below) allows us to make **inference** about population parameters using sample statistics. This means the researchers can use a random sample of Iowans' monthly fast food spending to make generalizations about the average monthly spending for all Iowans. The numerical quantities of interest can be many different things - means, proportions, standard deviations, etc.In the fast food example, the parameter of interest was a population mean and the sample statistic was the sample mean. In this chapter, we will specifically focusing on estimating means.
+The statistical framework (pictured below) demonstrates the process of making **inference** about population parameters with the use of sample statistics, as was done in the example above. The numerical quantities of interest can be many different things - means, proportions, standard deviations, etc.,. While the methods of estimation are similar in each case, the present chapter will focus specifically on estimations of the mean. (maybe mention here that this is general discussion with mathematical derivations saved for a later chapter)
 
 
 ```{tikz statFramework2, fig.cap = "Statistical Framework", fig.ext = 'png', echo = F, fig.align= 'center'}
 
 \usetikzlibrary{decorations.pathreplacing,positioning, arrows, shapes, calc,shapes.multipart}
-\tikzstyle{block1} = [rectangle, draw, fill=yellow!20, 
+\tikzstyle{block1} = [rectangle, draw, fill=yellow!20,
     text width=10em, text centered, rounded corners, minimum height=6em]
-\tikzstyle{block2} = [rectangle, draw, fill=yellow!20, 
+\tikzstyle{block2} = [rectangle, draw, fill=yellow!20,
     text width=5em, text centered, rounded corners, minimum height=3em]
 \tikzset{
     %Define standard arrow tip
@@ -50,41 +47,40 @@ The statistical framework (pictured below) allows us to make **inference** about
             % Place nodes
             \node [block1] (pop) {Population \\ (Parameters)};
             \node [block2, below of=pop] (samp) {Sample \\ (Statistics)};
-            
+
             % Draw edges
             \draw[->, >=latex, shorten >=2pt, shorten <=2pt, bend right=45, thick]  (pop.west) to node[auto, swap] {Study Design}(samp.west);
-            \draw[->, >=latex, shorten >=2pt, shorten <=2pt, bend right=45, thick] (samp.east) to node[auto, swap] {Inference}(pop.east); 
-            
+            \draw[->, >=latex, shorten >=2pt, shorten <=2pt, bend right=45, thick] (samp.east) to node[auto, swap] {Inference}(pop.east);
+
         \end{tikzpicture}
 ```
 
-The statistical framework outlines the process of making inference using sample statistics to estimate population parameters. Later chapters in this textbook will cover the mathematical details of this process. In trying to make proper inference, we also want to ensure our estimated statistic is measuring the parameter well. To that end, there are two major statistical issues we concern ourselves with: 
+
+The statistical framework outlines the general process of making inference using sample statistics to estimate population parameters. In trying to make proper inference, we want to ensure our that our calculated statistic is a valid estimate of the population parameter of interest. To that end, there are two major statistical issues we concern ourselves with: 
 
 * On average, does our estimate tend to be centered around the true answer, or is it *biased*?  
 * How much *variability* is there likely to be in our sample? 
 
-The difference between our estimate and our parameter is called **bias**. **Variance** describes the spread of our data, and is sometimes called noise. Sometimes we talk about spread in terms of **precision**, which is the inverse of variance. The more precision we have, the less variance, and vice versa. A good statistic will have little or no bias and would have minimal variability. We can visualize both bias and variability using a dart board analogy.
+The difference between our estimate and our parameter is called **bias**[[eh]]. **Variance** (or "noise") is a description of the spread of our data. Sometimes we talk about spread in terms of **precision**, which is the reciprocal of variance. The more precision we have, the less variance, and vice versa. A good statistic will have little or no bias and would have minimal variability. We can visualize both bias and variability using a dart board analogy:
 
 ```{r image-ref-for-in-text2, fig.align ='center', fig.cap='Bias and Variability Illustration', fig.pos='H', message = FALSE, echo=FALSE, fig.height=7, fig.width=9}
 knitr::include_graphics("./images/biasVariabilityTargets2.png")
 ```
 
-
-On the upper left target, the darts are hitting the bullseye with low bias and low variability, shown by the darts having minimal spread and all hitting the bullseye. This is the most desirable outcome when the goal is to hit the bullseye. In the upper right target, we see a lot more variability, as the darts are no longer highly concentrated on the bullseye. However, the dart locations are still centered around the bullseye, and this is why we consider this target to have low bias. This situation is less ideal than having low bias and low variance, but is still preferable to targets in the bottom row, where we have high bias. In the bottom left target, we have high bias and low variability, evidenced by the high concentration of darts that are not hitting the bullseye. The consistency is why we saw there is low variability, but if our goal is to hit the bullseye, we are not going to achieve that goal. Finally, the bottom right target is the worst possible outcome - high bias *and* high variability. We are not hitting the bullseye and the darts are landing erratically. Statisticians work hard to develop inferential and sampling procedures that allow us to estimate population parameters with little to no bias and low variability.
+In terms of priority, having a low bias is generally more desirable than low variance, and this is represented in the top row above. Having low bias indicates that our sample statistic is correctly estimating the population parameter of interest, even if our statistic is considered "noisy". Variance, illustrated in the columns, gives an idea of how "consistent" our estimate is. One way to think of it is to consider the throwing of a dart to the collection of a sample; comparing the top right and bottom left corners, we might say it is better generally throw close to the target that to consistently miss it entirely. Statisticians work hard to develop sampling and inferential procedures that allow us to estimate population parameters with little to no bias and low amounts of variability.
 
 
 <div class="definition-container">
 <div class="definition"> &nbsp; </div>
-**Population Parameter: ** <em> The true numeric quantity about a population </em>
+**Population Parameter: ** <em> The true numeric quantity describing a population (i.e., the population mean) </em>
 
-**Sample Statistic: ** <em> A numerical quantity about the sample </em>
+**Sample Statistic: ** <em> A numerical quantity about the sample, often used to estimate a population parameter </em>
 
-**Inference: ** <em> The process of making generalizations about the population </em>
+**Inference: ** <em> The process of making generalizations about the population based on sampling statistics </em>
 
 **Bias: ** <em> The systematic difference between our estimate and our parameter </em>
 
-**Variability: ** <em> The spread or error in the data </em>
-
+**Variability: ** <em> The spread or noise in the data </em>
 
 **Precision: ** <em> Inverse of variance, how narrow the data is   </em>
 
@@ -95,19 +91,24 @@ On the upper left target, the darts are hitting the bullseye with low bias and l
 
 ## Sampling Distributions 
 
+In order to make inference, we must be able to quantify our uncertainty about the population parameter based on our sample data. To illustrate this uncertainty, consider again our example above in estimating the average expenditures of Iowans on fast food, and suppose that researchers decide to sample 500 individuals from the population and calculate the sample mean, $\overline{x}$. Now suppose that those same researchers go out and collect a *second* sample of 500 individuals from the population and calculate the sample mean again, which me might call $\overline{x}_2$. Should we expect $\overline{x}$ and $\overline{x}_2$ to be exactly the same? What if they did this again and calculated $\overline{x}_3$? Or $\overline{x}_4$?
 
-In order to make inference, we must be able to quantify our uncertainty about the population parameter based on our sample data. To quantify our uncertainty, we must first establish where it comes from - the sampling process. Any time we take a sample from the population, we will get a different sample mean $\overline{x}$. In other words, $\overline{x}$ is a numeric quantity which assumes a value based on the outcome of a random experiment - the process of drawing a sample at random from the population. This should sound familiar - this is the definition of a random variable! We can use this logic for any statistic of interest. As we've described in the past, random variables have probability distributions. When the random variable is a statistic, this probability distribution is called the sampling distribution. Sampling distributions reflect which values of the statistic are likely and which values are improbable. As we will see later in this chapter, this uncertainty depends on how many individuals we sample and how variable the data we measure is. 
+As we might expect, it is very unlikely that any of these will be equal to any of the others. Perhaps even more worrisome, if none of these sample means are equal to each other, how accurate might we expect any of them to be with regards to estimating our population parameter? Herein lies the question of quantifying our uncertainty. Fortunately, statisticians have created powerful methods for being able to do so accurately, even when only a single sample statistic has been obtained.
+
+We might first begin by recognizing that the process of sampling from a population is itself a *random experiment*, with the sample mean $\overline{x}$ being a numeric quantity which assumes a value based on the outcome of that experiment. This should sound familiar -- this is precisely the definition of a random variable! Just as with other random variables, sample statistics themselves also follow a probability distribution. When the random variable itself is a statistic, we call the probability distribution a **sampling distribution**. Sampling distributions reflect which values of the statistic are likely if we were to repeat the sampling process (that is, likely values for $\overline{x}_2$, $\overline{x}_3$, etc.,), and which values are improbable. We might then expect that likely values of the true population parameter will fall somewhere within the range of likely values. [[As we will see later in this chapter, this uncertainty depends on the number of individuals sampled and the variability of the data we measure.]]
 
 
+<div class="exercise"> Exercises </div>
 <div class="exercise-container">
-<div class="exercise"> &nbsp; </div>
 
-The applet below is designed to help you get familiar with the concept of random sampling. The plot on the left side gives the population distribution. Each subject in the population is represented by one box, and the population consist of 26 people. The x-axis represents the value of the outcome variable for each individual, and when multiple people have the same value, their boxes are stacked on top of each other. For example, we have one subject in the population with a value of 0, three subjects with values of 1, and so on. The plot on the right displays the values for the subjects in our sample, and these subjects are indicated by green coloring in both the population and sample distributions. We can take samples from our population of various sizes by changing the value of the slider at the top and clicking on the "Sample" button.
+The applet below is designed to help you get familiar with the concept of random sampling. The plot on the left side gives a population distribution consisting of 25 people, where each subject in the population is represented by one box. The x-axis represents the value of the outcome variable for each individual, with stacked boxes indicating that multiple people have the same value. For example, we have one subject in the population with a value of zero, three subjects with values of one, and so on. 
+
+The plot on the right displays values for the subjects collected in our random sample, with the same subjects being highlighted in green on the left. We can take samples from our population of various sizes by changing the value of the slider at the top and clicking on the "Sample" button.
 
 
 </div>
 <!-- frameBorder="0" -->
-<iframe src="https://ph-ivshiny.iowa.uiowa.edu/ceward/textbook/shinyApps/sampling" width = "100%" height = "800"> 
+<iframe src="https://ph-ivshiny.iowa.uiowa.edu/ceward/textbook/shinyApps/sampling/" width = "100%" height = "800"> 
 </iframe>
 
 <div class="exercise-container">
@@ -189,9 +190,11 @@ The applet below is designed to help you get familiar with the concept of random
 
 </div>
 
+Following the conventions used previously, we will use upper-case letters to denote random variables and lower-case letters to denote values that have been observed (that is, they are no longer random). Regarding the sampling distribution of the mean, $\overline{X}$ represents the random variable which arises from the repeated random sampling from the population, while $\overline{x}$ represents an *observed* sample mean from an already collected sample.
 
-As we've seen earlier in this book, we will use upper-case letters to denote random variables, and lower-case letters to denote values once they have been observed (that is, they are no longer random). When it comes to the sampling distribution of the mean, $\overline{X}$ is the random variable, which arises from repeated random sampling from the population and then taking a sample mean, and $\overline{x}$ is an observed sample mean we might see. In describing a sampling distribution, we are often interested in the mean and standard deviation - this gives information about typical values the statistic might take on as well as how spread out the distribution is. We refer to the mean of a statistic as the **expected value** and the standard deviation as the **standard error**. For the random variable describing the sample mean, these are denoted as $E(\overline{X})$ and $SE(\overline{X}) = \sqrt{Var(\overline{X})}$, respectively.
+In describing the sampling distribution, we are often interested in the mean and the *standard deviation* which, together, describe the size of the interval of probable values for our population parameter. When describing statistics with a sampling distribution, we refer to the sample mean as the **expected value** of our statistic, while the standard deviation is referred to as the **standard error**. For the random variable describing the sample mean, these are denoted as $E(\overline{X})$ and $SE(\overline{X}) = \sqrt{Var(\overline{X})}$, respectively.
 
+---
 
 Let's return to the fast food scenario to motivate our development, but for now let's assume there are only five individuals in the entire population. The monthly spending for those five individuals (rounded to the nearest dollar) is as follows:
 
@@ -283,15 +286,15 @@ But wait! That *is* the population mean. This illustrates an extremely powerful 
 
 
 <div class="definition-container">
-<div class="definition"> &nbsp; </div>
+<div class="definition"> Definitions </div>
+**Sampling Distribution: ** <em> A probability distribution associated with a sample statistic </em>
+
 **Expected Value: ** <em> The mean value of a statistic in repeated sampling </em>
 
 **Standard Error: ** <em> The standard deviation of a statistic (including the mean) in repeated sampling </em>
 
 **Unbiased Estimator: ** <em> The statistic with an expected value equal to the true population parameter</em>
 </div>
-
-
 
 
 
@@ -320,8 +323,9 @@ While the term "large enough" will inevitably depend on the context of the probl
 
 
 
+
+<div class="exercise"> Exercises </div>
 <div class="exercise-container">
-<div class="exercise"> &nbsp; </div>
 
 The applet below is designed to help your conceptual understanding of the CLT. You can change the underlying population distribution, the size of the samples taken ($n$), and the number of experiments performed. Each experiment consists of taking a sample of the specified size from the population and calculating the sample mean. The top left panel (blue) shows the underlying population distribution. The top right panel (red) shows the data from the most recent sample, with the sample mean from that specific sample indicated by the dashed black line. The bottom panel (gold) shows us the distribution of sample means from all the experiments, with the observed mean of the sample means indicated by the dashed black line and the true underlying population mean indicated by the solid blue line. Once you select the parameters to the values you want, click "Run Simulation" to tabulate the results.
 
@@ -329,7 +333,7 @@ The applet below is designed to help your conceptual understanding of the CLT. Y
 
 
 <!-- frameBorder="0" -->
-<iframe src="https://ph-ivshiny.iowa.uiowa.edu/ceward/textbook/shinyApps/CLT" width = "100%" height = "800"> 
+<iframe src="https://ph-ivshiny.iowa.uiowa.edu/ceward/textbook/shinyApps/CLT/" width = "100%" height = "800"> 
 </iframe>
 
 

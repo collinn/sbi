@@ -174,7 +174,7 @@ While there are many complicated analysis techniques that exist to control for c
 
 In a matched study at the individual level, for each subject in the treatment group, a subject matching on potentially confounding variables is also placed. For example, age and sex are both common confounders. If, during the process of enrolling patients, a 40 year old male is assigned to the treatment group, the next 40 year old male would then be assigned to the control, or placebo, group.
 
-When used at the group level, matching seeks to ensure that the *distributions* of the counfoundning variables are the same in each group. Consider again the coffee/cancer example, matching at the group level would ensure that a similar proportion of smokers are included in the coffee drinking group as in the non-coffee drinking group.
+When used at the group level, matching seeks to ensure that the *distributions* of the confounding variables are the same in each group. Consider again the coffee/cancer example, matching at the group level would ensure that a similar proportion of smokers are included in the coffee drinking group as in the non-coffee drinking group.
 
 #### Maybe cognitive bias? placebo stuff?
 

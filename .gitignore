@@ -1,4 +1,6 @@
-.html
+*.html
 .Rhistory
-.png
-
+*.png
+*.json
+/docs
+*.js

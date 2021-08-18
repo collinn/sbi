@@ -2,7 +2,7 @@
 output: html_document
 ---
 
-# Introduction to Inference {#ch7}
+# Introduction to Inference {#ch8}
 
 ```{r, echo = FALSE, warning=F, message=F}
 library(markdown)
@@ -25,7 +25,7 @@ library(markdown)
 
 Up until this point, we have introduced probability, which allows us to quantify our uncertainty, we have discussed the concept of random variables and two widely used probability distributions (binomial and normal), and we have seen the most powerful result in statistics, the Central Limit Theorem which gives us the distribution of the sample mean in repeated samples. Let’s take a step back and remind ourselves of the goal of a statistical analysis. There is some population level numerical quantity we are interested in (parameter). This could be a mean or a proportion, or it could be something more complicated. Because we can (almost) never measure something in the entire population, we are restricted to taking a sample. Our goal is to use the data we collect in our sample to make inference, or generalizations, about the parameter, which is the unknown quantity of interest. In particular, we want to use probability distributions and the observed data to quantify what values of the parameter are plausible and which are not plausible and we would like to determine if the trends we observe in our data are “significant” or if it is simply a result of chance. 
 
-## Confidence Intervals { #ch7_s1}
+## Confidence Intervals { #ch8_s1}
 
 We will first turn our attention to parameter estimation, of which there are two general approaches. These approaches are **point estimation**, which is a single statistic computed from the sample data used to estimate the parameter and **interval estimation**, which is an interval computed from the sample data to give a range of plausible values that is likely to contain the true population parameter. Point estimation is straightforward and is as simple as using the sample mean as an estimate of the population mean. While straightforward, this approach is problematic. In the last chapter we saw that every time we take a sample from a population and compute the sample mean, it changes. And we saw an example in which no matter how we took a sample, the sample mean could never possibly equal the population mean. This is because the act of taking a sample is a random process, which means that for any estimate from our sample it is highly unlikely (or straight up impossible) that we got the exact correct answer. Instead, it would be nice to have an interval that we could be reasonably confident contained the true parameter.
 
@@ -92,7 +92,7 @@ The applet below is designed to help you get familiar with some of the important
 </ol>
 </div>
 
-## Hypothesis Tests { #ch7_s2}
+## Hypothesis Tests { #ch8_s2}
 
 Along with parameter estimation, a cornerstone of statistical inference is significance testing. Confidence intervals allow us to construct a range of plausible values for the parameter, and significance tests allow us to determine the likelihood of a parameter taking a certain value. A **hypothesis test** uses sample data to assess the plausibility of each of two competing hypotheses regarding an unknown parameter (or set of parameters). A **statistical hypothesis** is a statement or claim about an unknown parameter. The **null hypothesis** generally represents what is assumed to be true before the experiment is conducted. This hypothesis is typically denoted $H_0$. The **alternative hypothesis** represents what the investigator is interested in establishing. This hypothesis is typically denoted $H_A$. Oftentimes when people refer to the "scientific hypothesis," this in reference to the alternative hypothesis - it is what the investigators think will happen or what they want to show. The goal of a hypothesis test is to determine which hypothesis is the most plausible - the null or the alternative. 
 
@@ -198,7 +198,7 @@ The simulation involves replicating the 20 flip experiment 10,000 times. For eac
 
 
 
-## P-values { #ch7_s3}
+## P-values { #ch8_s3}
 
 All hypothesis tests are based on quantifying the probability of the study results assuming the null hypothesis is true. This probability is so important that it has a special name, the **p-value**. In technical terms, the p-value gives the probability of obtaining results as extreme or more extreme than the ones observed in the sample, *given* that the null hypothesis is true. A less technical way to describe a p-value is that assuming there is truly nothing going on, what's the chances of obtaining results similar in opposition to the null hypothesis as our study? 
 

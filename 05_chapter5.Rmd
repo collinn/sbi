@@ -4,7 +4,7 @@ header-includes:
     \usepackage{multirow}
 ---
 
-# Advanced Probability {#ch4}
+# Advanced Probability {#ch5}
 
 > "The most important questions of life are, for the most part, really only problems of probability." 
 >
@@ -24,7 +24,7 @@ header-includes:
 
 
 
-## Probability Operations { #ch4_s1}
+## Probability Operations { #ch5_s1}
 
 It's straightforward to talk about probability of one event, i.e. the probability of rolling a 2, but often we are interested in quantifying probabilities about more complicated combinations of multiple events. For example, if we consider a family with two parents and one child, instead of the probability of one parent getting the flu, we might be interested in the probability that *both* parents get the flu. Or we might be interested in the probability *anyone* in the family gets the flu. Finally, we might want to quantify the probability that one parent gets the flu and the other does not. In order to succinctly describe these probabilities, we use some mathematical notation. Before you get totally scared, this notation is just to simplify the writing of probability statements - the underlying concept does not change!
 
@@ -371,7 +371,7 @@ No matter how many times we repeat the experiment, the intersection is always 0,
 
 
 
-## Conditional Probability { #ch4_s2}
+## Conditional Probability { #ch5_s2}
 
 Many times we are interested in the probability of an event occurring, given that another event has occurred, such as "What is the probability of an individual getting lung cancer, given that they are a smoker?" If we didn't know if the individual was a smoker or not, we would probably guess the probability of lung cancer is pretty low, maybe 1%. Once we gain the knowledge that the individual smokes, our estimate of the probability of lung cancer increases, maybe up to 20%. **Conditional probability** refers to the probability of one event occurring *given* that another event has already taken place. For events $A$ and $B$, the conditional probability that $B$ will occur *given* that $A$ has already taken place is denoted $P(B|A)$. 
 
@@ -419,7 +419,7 @@ Now consider a fair six-sided die, where even-numbered faces are blue and odd-nu
 
 If your answer to the first question is no, then the events must be mutually exclusive. If the answer to the first question is yes, but the answer to the second question is no, then the events are independent.
 
-## Probabilities from tables (needs a different example) { #ch4_s4}
+## Probabilities from tables (needs a different example) { #ch5_s4}
 
 When discussing and interpreting probability relationships between two or more events, it is often helpful to use tables. Consider the following table of representing Japanese men aged 45-69 (1975). The entries in the table are the probabilities of outcomes for a person selected randomly from the population.
 
@@ -449,7 +449,7 @@ This is the same formula we defined previously. When the data is in a table, we 
 
 Finally, we can get conditional probabilities from the table. For example, we might be interested in the probability of having high blood pressure for overweight men, or in other words, the probability of a man having high blood pressure, given that they are overweight ($P(H|O)$). When calculation conditional probabilities from a table, we only have to focus on the part of the table that we condition on - since that information is given to us. Given that a man is overweight, we know that we are only concerned with the second row in the table as that is the only part of the table concerning overweight men. Then to get $P(H|O)$ we take the ratio of the probability of men with high blood pressure out of the probability that they are overweight $P(H|O) = 0.1 / 0.3 = 1/3$. Similarly, if we wanted to get the probability of being a reasonable weight blood pressure, given a man has normal blood pressure, we would get $P(R|N) = 0.6 / 0.8 = 0.75$.
 
-## Bayes' Rule { #ch4_s5}
+## Bayes' Rule { #ch5_s5}
 
 SHOULD PROBABLY THINK OF ANOTHER EXAMPLE
 

@@ -2,7 +2,7 @@
 output: html_document
 ---
 
-# Probability Distributions {#ch5}
+# Probability Distributions {#ch6}
 
 > "Statistics is the grammar of science." 
 >

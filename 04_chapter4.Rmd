@@ -193,7 +193,7 @@ conditions will remain exactly the same.
 
 
 
-## Probability {#ch15_s2}
+## Probability {#ch4_s2}
 
 Statistical inference is founded in the ability to quantify uncertainty. Probability
 is the mechanism that allows us to do so, by telling us how likely something is to happen.
@@ -365,7 +365,7 @@ at 0.5, which translates to half of the flips resulting in heads.
 </div>
 
 
-## Methods for Computing Probabilities {#ch15_s3}
+## Methods for Computing Probabilities {#ch4_s3}
 
 There are several methods that can be used to compute probabilities. We will
 introduce these methods in the context of coin flipping and seeking to answer 
