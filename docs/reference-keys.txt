@@ -95,3 +95,16 @@ ch2_s2
 tab:unnamed-chunk-11
 tab:unnamed-chunk-10
 tab:unnamed-chunk-8
+tab:unnamed-chunk-7
+ch4_s3
+ch5_s1
+ch5_s2
+ch5_s4
+ch5_s5
+ch8
+ch8_s1
+ch8_s2
+ch8_s3
+ch2_s2_ss1
+ch2_s2_ss2
+ch2_s3

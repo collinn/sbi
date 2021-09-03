@@ -16,12 +16,15 @@ output: html_document
 
 ```{r, include = FALSE, echo = FALSE}
 library(magrittr)
+library(plyr)
 library(dplyr)
 library(knitr)
 library(ggplot2)
 library(gridExtra)
 library(kableExtra)
 library(scales)
+library(truncnorm)
+
 
 theme_set(theme_bw())
 
@@ -77,12 +80,14 @@ ways to summarize both types of data.
 
 ## Categorical Data {#ch2_s2}
 
+### Basic Categorical Summaries {#ch2_s2_ss1}
+
 Let's begin by considering a dataset of survey responses for 592 students 
 responding with their sex, hair color, and eye color. This data includes 
 responses from male and female students, with hair colors that are black, brown, 
 red, or blond, and eyes that are brown, blue, hazel, or green. Note that these 
 are *qualitative* measures, suggesting that are dealing with categorical data. 
-Let's take a look at the data for the first 20 subjects.
+Let's take a look at the data for the first 10 subjects.
 
 ```{r}
 data(HairEyeColor)
@@ -103,7 +108,7 @@ haireyecolorExpanded <- haireyecolorExpanded[,c('SubjectID','Sex', 'Hair', 'Eye'
 
 dt <- haireyecolorExpanded
 
-kable(haireyecolorExpanded[1:20,], align = 'c')
+kable(haireyecolorExpanded[1:10,], align = 'c')
 ```
 
 Each row indicates a subject possessing the indicated sex, hair, and eye color. 
@@ -141,8 +146,10 @@ be interested in **rates**. A rate can be as simple as taking the total number
 of a single category observed, and stating it in terms of the total number of 
 observations. For example, instead of saying, "286 subjects who were
 observed had brown hair," we might instead say, "286 of 592 subjects surveyed
-had brown hair." More commonly, we use **percentages**, also known as 
-**proportions**, which are a special type of rate - the count per 100 observations.
+had brown hair." Rates are also known as **relative frequencies**, because
+they are relative to a specific number of observations. More commonly, we use
+**percentages**, also known as **proportions**, which are a special type of rate/
+relative frequency - the count per 100 observations.
 We calculate percentages using division. That is, 286 of 592 subjects becomes
 $286/592 = 0.4831 = 48.31\%$. We can now show the same table above, this time
 in terms of percentages.
@@ -173,8 +180,11 @@ ggplot(dt, aes(Hair, fill = Hair)) +
   scale_fill_manual(values = c('black', 'saddlebrown', 'brown3', 'lightgoldenrod1'))
 ```
 
+
+### Advanced Categorical Summaries {#ch2_s2_ss2}
+
 Numerical and visual summaries become even more useful as our data becomes more 
-complicated. Let's continue with the example we had before, but now let us also 
+complicated. Let's continue with the data we've been using, but now let us also 
 break down observations with each hair color by sex as well. This process is 
 known as **stratification**.
 
@@ -185,80 +195,88 @@ addmargins(t(table2) , FUN= list(Total = sum), quiet = T) %>%
 ```
 
 First, we notice that by taking sums across the rows, we arrive at the same 
-numbers that we had when only hair color was considered. Adding up all of the 
-counts in the table gives us 592, the total number of observations
-in our data. If we sum vertically down the columns, we also get the total number
-of observations of each sex. Note that the sum of both margin totals add up to 
-592, the total number of observations, as indicated by the bottom right corner.
-By stratifying the hair color counts by sex, we haven't lost any information related to the 
-hair color, but we have *added information* to our summary about sex. 
+numbers that we had when only hair color was considered. If we sum vertically 
+down the columns, we also get the total number of observations of each sex. Note
+that the sum of both margin totals add up to 592, the total number of observations,
+as indicated by the bottom right corner. In other words, y stratifying the hair 
+color counts by sex, we haven't lost any information related to the hair color,
+but we have *added information* to our summary about sex. 
 
 Getting stratified counts is straightforward, however, we now have several ways 
 in which we might compute the percentages. For the table above, there are three
 ways we could compute percents.
 
-- How many in each category, relative to the entire population
-- How many of each sex, within hair color
-- How many in each hair color, within sex
+- How many in each category, relative to the entire sample
 
 ```{r}
 # by population
 tt <- prop.table(t(table2)) 
-tt <- apply(tt, c(1,2), percent)
+tt <- apply(tt, c(1,2), percent, accuracy = 0.1)
 kable(tt, caption = "Relative to population") %>% kable_classic(full_width = F)
+```
 
+Here, the percentages are computed by diving the count in each inner cell by the
+total sample size, 592. For example, there were 56 male respondents with black 
+hair. Relative to the total sample, this means 56/592 = 0.095 = 9.5% of the sample
+consists of black-haired males. Adding up all of the percentages gives us $\approx$ 100% (due to rounding to the first decimal place we actually get 100.1% here).
+
+- How many of each hair color, within sex
+
+```{r}
 # by hair color
 tt <- prop.table(t(table2), margin = 2) %>%
   addmargins(1, FUN= list(Total = sum), quiet = T) 
-tt <- apply(tt, c(1,2), percent)
-kable(tt, caption = "Proportion of sex, relative to hair color") %>% kable_classic(full_width = F)
-
-# by eye color
-tt <- prop.table(t(table2), margin = 1) %>% 
-  addmargins(2, FUN= list(Total = sum), quiet = T) 
-tt <- apply(tt[, -5], c(1,2), percent)
+tt <- apply(tt, c(1,2), percent, accuracy =0.1)
 kable(tt, caption = "Proportion of hair color, by sex") %>% kable_classic(full_width = F)
 ```
 
-words about the tables
+Now our table looks very different. The percentages in the inner cells to not add up to 100%. Instead, the percentages have been computed relative to the total number of respondents in each sex. For example, we still have 56 male subjects with black hair, but relative to the total number of male subjects (279), this is 56/279 = 0.201 = 20.1%. There are 52 black-haired female respondents out of 313 total females, which gives us 53/313 = 0.166 = 16.6%. Since the percentages are computed relative to sex, we now see the percentages in *each column* add up to 100%. In other words, we have information about distribution of hair colors within sex.
+
+- How many in each sex, within hair color
+
+```{r}
+# by eye color
+tt <- prop.table(t(table2), margin = 1) %>% 
+  addmargins(2, FUN= list(Total = sum), quiet = T) 
+tt <- apply(tt[, -5], c(1,2), percent, accuracy = 0.1)
+kable(tt, caption = "Proportion of sex, by hair color") %>% kable_classic(full_width = F)
+```
+
+Similarly, we can also look at the relative frequencies of each sex within the 
+four hair color categories. We have 56 black-haired males and 52 black-haired 
+females, so 56/108 = 0.519 = 51.9% of the black-haired respondents are male and
+53/108 = 0.481 = 48.1% are female. Since hair color is given in the rows of our
+table, we now have percentages that add up to 100% in each *row*.
+
+All three of these tables are correct and informative. When deciding the best 
+way to calculate percentages for tables like this, it will depend on the 
+research question and the data at hand. We can also use stratification graphically,
+by creating multiple bar plots for each category of the stratification variable.
+
+
 
 ```{r, fig.width = 10}
+ggplot(dt, aes(x=Hair, fill=Sex))+
+  geom_bar(aes( y=..count../tapply(..count.., ..x.. ,sum)[..x..]), position="dodge" ) +
+  geom_text(aes( y=..count../tapply(..count.., ..x.. ,sum)[..x..],
+                 label=scales::percent(..count../tapply(..count.., ..x.. ,sum)[..x..]) ),
+            stat="count", position=position_dodge(0.9), vjust=-0.5)+
+  ggtitle('Percent of Sex within Hair Color') +
+  ylab('Percent') +
+  scale_y_continuous(labels = scales::percent) +
+  scale_fill_manual(values = c('steelblue2', 'coral'))
 
 
-
-
-ggplot(dt, aes(Hair, fill = Sex)) + 
-  geom_bar(position = "dodge") + 
-  geom_text(aes(label = scales::percent((..count..)/sum(..count..)),
-                   y= (..count..)/sum(..count..) ), 
-            stat= "count", vjust = -.5, position = position_dodge(.9)) +
-  scale_y_continuous(labels=scales::percent, limits = c(0, 0.55)) +
-  ylab("Percent") + 
-  ggtitle("Percentages by Hair Color") +
-  scale_fill_manual(values = c('purple', 'orange'))
-
-ggplot(dt, aes(Sex, fill = Hair)) + 
-  geom_bar(aes(y = (..count..)/sum(..count..)), position = "dodge") + 
-  geom_text(aes(label = scales::percent((..count..)/sum(..count..)),
-                   y= (..count..)/sum(..count..) ), 
-            stat= "count", vjust = -.5, position = 'dodge') +
-  scale_y_continuous(labels=scales::percent, limits = c(0, 0.55)) +
-  ylab("Percent") + 
-  ggtitle("Percentages by Hair Color") +
+ggplot(dt, aes(x=Sex, fill=Hair))+
+  geom_bar(aes( y=..count../tapply(..count.., ..x.. ,sum)[..x..]), position="dodge" ) +
+  geom_text(aes( y=..count../tapply(..count.., ..x.. ,sum)[..x..],
+                 label=scales::percent(..count../tapply(..count.., ..x.. ,sum)[..x..]) ),
+            stat="count", position=position_dodge(0.9), vjust=-0.5)+
+  ggtitle('Percent of Hair Color within Sex') +
+  ylab('Percent') +
+  scale_y_continuous(labels = scales::percent) +
   scale_fill_manual(values = c('black', 'saddlebrown', 'brown3', 'lightgoldenrod1'))
 
-
-
-p1 <- ggplot(dt, aes(Hair, fill = Sex)) + 
-  geom_bar(position = "dodge") +
-  ggtitle("Frequency of Hair Color")
-p2 <- ggplot(dt, aes(Sex, fill = Hair)) + 
-  geom_bar(position = "dodge") +
-  ggtitle("Frequency of Eye Color")
-grid.arrange(p1, p2, ncol = 2)
-
-# barplot(table2, beside = TRUE, main = "By Hair Color")
-# barplot(t(table2), beside = TRUE, main = "By Eye Color")
 ```
 
 
@@ -268,7 +286,7 @@ grid.arrange(p1, p2, ncol = 2)
 <div class="definition"> &nbsp; </div>
 **Absolute frequency: ** <em> The number of observations in a category </em>
 
-**Rate: ** <em> The number of observations in a category relative to any other quantity </em>
+**Rate/Relative frequency: ** <em> The number of observations in a category relative to any other quantity </em>
 
 **Percent/Proportion: ** <em> The number of observations per 100 </em>
 
@@ -279,240 +297,260 @@ with counts or percents giving the height of each bar </em>
 </div>
 
 
-## Visual Summaries
 
-Visual summaries are those in which the data is represented through graphics. Presented in this way, we can often identify trends in the *structure* of the data. This may describe idk relationships, points of aggregation, spread, all topics that will be discussed later. Maybe note that visual summaries are a first good step. different for categorical/continuous
+## Continuous Data {#ch2_s3}
 
-
-
-### Continuous Data
-
-## Categorical Data
-
-
-<!-- ------- -->
-
-<!-- There is the line directly above this and one below. Everything between these should be moved/heavily edited and/or deleted -->
-
-<!-- This is more useful than what we started with, but it's still a lot of information for a human brain to take in all at once. It may often be the case that we aren't interest in all of the data we have, but rather, certain aspects of it that are relevant to our question. For example, suppose we are curious to know more about the relationship between sex and hair color.  -->
-
-<!-- For example, suppose that we are less concerned with eye color, but are curious to know more about the relationship with hair color and sex. Let's begin by constructing a table that counts the number of observed hair colors within each sex -->
-
-<!-- ```{r} -->
-<!-- (tab1 <- with(dt, table(Sex, Hair))) -->
-<!-- ``` -->
-
-<!-- <spent too much time trying to work this into correct form, skipping for now> -->
-
-<!-- <Will turn these into latex tables similar to notes> -->
-
-<!-- This is an example of **absolute frequency**, which gives us a number of recorded observations in each category. -->
-
-<!-- ```{r} -->
-<!-- proportions(tab1, "Hair") -->
-<!-- ``` -->
-<!-- This gives us percentages of each gender *within* hair color. 48% of those with black hair are female, 52% are male. Also see that females are disproportionately blond. -->
-
-<!-- - These sum up to 100% when adding by column -->
-<!-- - What questions does this help us answer -->
-<!-- - The comparison here for frequency is *hair color* -->
-
-<!-- Compare to a similarl table below, *within* gender. -->
-
-<!-- ```{r} -->
-<!-- proportions(tab1, "Sex") -->
-<!-- ``` -->
-
-<!-- - Sum to 100% when adding a cross rows -->
-<!-- - What questions can we answer with this? How is this different than the table above? -->
-<!-- - Now we are answering questions *within gender*. That is, we can compare hair colors here, but we cannot make statements comparing genders -->
-
-<!-- The two tables above are known as *relative frequency*, or the percentage of observations within each category (where the categories above are different). Is it possibly too complicated to start with two variables? Maybe it makes sense to start with just hair color, and then move on. -->
-
-<!-- (I'll do that here below, and we can just rearrange later) -->
-
-<!-- -------------------------- -->
-
-
-
-[[It might be easier if we find something with less categories. Maybe I could do sex instead of eye color? I wish I would have thought of that before doing everything above]]
-
-## Continuous data
-
-- `faithful` data cool because it's bimodal, but that also makes transition into measures of center, spread, and skewness more difficult.
-- Possibly not bad is `airquality` It has
-  - Ozone (skew)
-  - Solar radiation (skew but closer to uniform)
-  - Wind in mph (bimodal)
-  - Temp (normal)
-- Note: also option to not use formal data set and just use distributions to control skew
-
-While tables of frequencies and barcharts are great for data that can be counted and categorized, it does not give us much in terms of dealing with *continuous data*, which could have potentially an infinite number of different values. Like categorical date, continuous data is typically summarized in two ways:
-
-- Graphical Visualizations
-- Numerical Summaries
-
-Let's begin by looking at each of these in turn. 
-
-### Graphical Summaries
-
-Let's begin by considering a hypothetical dataset in which we have collected the age, in years, of 50 subjects.
+To explore graphical and numerical summaries of continuous data, let's consider
+a dataset which contains daily air quality measurements in New York from May to
+September 1973. Let's look at the first 10 rows of the data:
 
 ```{r}
-## Idk, I wanted something maybe not uniform? This can be changed
-set.seed(123)
-age <- c(sample(20:29, 25, replace = TRUE), sample(30:60, 25, replace = TRUE))
-age
+data("airquality")
+aq <- airquality[,-which(colnames(airquality) %in% c('Solar.R'))]
+aq <- aq[,c('Month', 'Day', 'Temp', 'Wind', 'Ozone')]
+kable(head(aq, 10), align = 'c')
 ```
 
-Now, we could consider counting the number of subjects at each age and, similar to the plots in categorical data, create a plot demonstrating what our sample looks like
+This data contains continuous measurements on the air quality:
+
+- maximum daily temperature in degrees Fahrenheit at La Guardia Airport (Temp)  
+- average wind speed in miles per hour (mph) at La Guardia Airport (Wind)
+- average ozone in parts per billion (ppb) from 1:00pm - 3:00pm at Roosevelt Island (Ozone)
+
+The tables and bar charts we introduced in Section \@ref(ch2_s2) are great summaries when
+the data can be categorized and counted. However, with continuous data, we can 
+have a potentially infinite number of values and counting each unique value would
+not be very informative. Instead, one way we can visualize the data is by first 
+creating *bins* which cover an interval of possible values and then counting the
+number of observations that fall into each bin. Plotting the absolute or relative
+frequency of observations in each bin gives us a **histogram**. A histogram
+of the maximum daily temperature from our New York data looks like this:
 
 ```{r}
-table(age)
-barplot(table(age))
+hist(aq$Temp, main = 'Histogram of Maximum Daily Temperature at La Guardia',
+     xlab = 'Temperature (degrees F)', ylab = 'Count',
+     col = 'salmon1')
 ```
 
-While this is slightly more helpful than the raw numerical values, it's not by much. We can see that some ages are more prevelant than others, but we still have 40 separate values that we are looking at on our graph.
-
-As an alternative, we can consider a *histogram* which, similar to a barplot, aggregates values into bins. Let's look at the same data above, but now binning our observations into sets of ten years (25-34, 35-44, etc)
+Histograms provide a nice picture of the *distribution* of the observed data. In
+the histogram of temperature, we can readily see that on most days between May and 
+September, the maximum temperature at La Guardia was between 75 - 85 degrees. Some
+days were particularly chilly, with temperatures below 60 degrees and some days
+were quite hot, with temperatures above 90 degrees. When creating a histogram,
+it is important to be careful in selecting the size of each bin. Bins that are 
+too large can over-simplify the data, but bins that are too small can make the 
+figure unnecessarily complex. 
 
 ```{r}
-hist(age, breaks = seq(min(age), max(age), by = 10))
+par(mfrow = c(1, 2))
+hist(aq$Temp, main = 'Too few bins',
+     xlab = 'Temperature (degrees F)', ylab = 'Count',
+     col = 'salmon1', breaks = 2)
+hist(aq$Temp, main = 'Too many bins',
+     xlab = 'Temperature (degrees F)', ylab = 'Count',
+     col = 'salmon1', breaks = 150)
 ```
 
-Notice how this paints a slightly different picture than the barplot above. Whereas the first plot gave us counts for each individual age, the histogram gives us a *graphical summary* of the ages, indicating the number of subjects in each decade. From this histogram, then, we quickly see that there are far more subjects in the 20-29 range, than each of the others. We may have come to a similar conclusion looking at the original bar chart. However, what we also see here is that the number of subject in the 30-39 range is larger and 40-49, and so on. An observation like this is not as immediately avaiable when looking at the original bar chart.
 
-### Numerical Summaries
+Histograms can come in a variety of shapes and are often described by the number
+of peaks shown and by their *skewness*. In
+our temperature histogram, we see only one peak, so we call the distribution 
+**unimodal**. When there are two peaks, we say the distribution is **bimodal**, 
+and for any number of peaks of three or more, we call the histogram **multimodal**.
+Looking at the histogram of temperature, we also see that the observed temperatures
+are fairly evenly distributed around the peak. When a histogram has equal tails on
+both sides of the peak, it is considered to be **symmetric**. Otherwise, the 
+histogram is considered to be skewed. We can further describe the skew by the side
+of the histogram with a longer tail - if there is a large tail to the right of the 
+histogram we call it **skewed right** and if there is a large tail to the left of
+the histogram we call it **skewed left**. Let's look at a few different histogram
+shapes to illustrate these definitions.
 
-While looking at a graphical summary can often give us quick insight into patterns in our data, the use of *numerical summaries* can allow us to be much more precise. Typically with continuous data, we can reduce all of the data to a few numerical values that describe the data in detail. These include:
+```{r, echo = FALSE, fig.height=5, fig.width = 7}
+set.seed(2)
+x1 <- rbeta(10000,5,5)
+x2 <- rbeta(10000,2,5)
+x3 <- rbeta(10000,5,2)
+bimodal <- c(rtruncnorm(7500, a=0, b=1, mean=.2, sd=.1),
+                 rtruncnorm(4000, a=0, b=1, mean=.75, sd=.1))
 
-- Center
-- Spread
-- Skewness
+histCol <- 'plum1'
 
-We look at each of these in turn
+par(mfrow= c(2, 2))
+hist(x1, col = histCol, 
+     main = 'Unimodal and Symmetric', xlab = '', 
+     ylab = '', axes = F)
+hist(x2, col = histCol, 
+     main = 'Unimodal and Skewed Right', xlab = '', 
+     ylab = '', axes = F)
+hist(x3, col = histCol, 
+     main = 'Unimodal and Skewed Left', xlab = '', 
+     ylab = '', axes = F)
+hist(bimodal, col = histCol, 
+     main = 'Bimodal', xlab = '', 
+     ylab = '', axes = F)
 
-#### Center
+```
 
-Numbers designed to reflect the center of a dataset are called *Measures of Central Tendancy*. There are three popular arithmetic measures used to caputre the center of a ((distribution)), namely
+While nothing can replace a picture, sometimes it is preferable to summarize our
+data with one or two numbers which characterize the most important information 
+about the distribution. Often, we are most interested in the location of the
+peak (center) and how spread out the data is around that peak. There are two 
+popular methods to describe the center of a distribution:
 
-  - Mean
-  - Median
-  - Mode
-  
-Before moving onto these in detail, let's take a moment for a brief review of Summation Notation (((Would be cool to have a div element for "Review" or "Btw". We could also include an appendix where all of this is explained in more detail that they can click to visit, with an actual "quick review" done here)))
+- Mean
+- Median
 
------
-
-[[Probably ought to start with N then move to n]]
-
-In general, we will let lowercase $n$ represent the total number of observations that we have collected. We can express these observations as 
-
-$$
-x_1, x_2, \dots, x_n
-$$
-where the subscript values are used to identify each observation. We can represent the sum of all of these observations using the abbreviated *Sigma* notation, 
-
-
-$$
-x_1 + x_2 + \dots + x_n = \sum_{i=1}^n x_i
-$$
-On the right hand side, note that the value of $x$ has a subscript $x_i$, while the Sigma notation has $i=1$ on the bottom and $n$ on the top. This is to indicate that we are to go through each value of $i = 1, 2, \dots, n$, for each value of $x_i$. In other words, where we might say $x_1$ is the first observation, we would say that $x_i$ is the $i$th observation. This is convenient when we want to describe any $x$ value, but it is not important which one we choose. 
-
------
-
-[[Yeah, but what do we mean by 'center' of a distribution?]]
-
-The *mean* is the most commonly used measure to find the center of a distribution. Simply enough, the mean can be found by taking the sum of all of the observations, and dividing by the total number. We can express this concisely in the following way
+The **mean** is the most commonly used measure of the center of a distribution. 
+Simply enough, the mean can be found by taking the sum of all of the observations,
+and dividing by the total number. With $n$ observations, $x_1, x_2, ..., x_n$, 
+we can express the mean mathematically in the following way:
 
 $$
 \frac{x_1 + x_2 + \dots + x_n}{n} = \frac1n \sum_{i=1}^n x_i
 $$
-Note how this is similar to the Sigma summation expression above. Here, we are taking the sum of each $x_i$, and then dividing this total by $n$. 
-
-Now, in statistics, we often talk about the mean in two different ways, which we will illustrate here. Consider, for example, the case in which we want to know the mean height of each individual living in the state of Iowa. We will present the number of people in Iowa, also known as the $population$, as $N$. That is, there are $N$ people living in Iowa. The mean of this entire population, known as the *population mean* is designated by the Greek later $\mu$ (called *mu*). Mathematically, we would write this as 
-
-$$
-\mu = \frac1N \sum_{i=1}^N x_i
-$$
-Now, finding the height of each person in Iowa is likely to be very difficult, if not impossible. Often, we can get a reasonable estimate of the population mean by taking a sample of people and treating them as an approximation of the entire population. This sample will represent the actual observations we collect, and we will represent this as we did above with the lower case $n$, where generally, $n < N$ (often by quite a bit). The *sample mean*, which we denote $\bar{x}$ (called x-bar), can be expressed similarly
-
-$$
-\bar{x} = \frac1n \sum_{i=1}^n x_i
-$$
-There are two major differences here between these two values that are worth giving a second consideration to
-
-- The population mean has $N$ observations, which is always larger than the $n$ observations in the sample
-- While there is only one way to select $N$ observations from $N$ subjects, there are many ways to select $n$ observations from $N$ subjects. For example, if you have five different cookies, there is only one way to select all five cookies, while there are ten different ways to select only three (I know childish example, maybe we could have a picture? Though this also introduces some benefit to non-rigorous introduction of combinations, which could be useful in explaining variance in samples?)
-
-In general, we have that $\bar{x} \approx \mu$, with this approximation being better the closer $n$ is to $N$. This is a topic we will return to shortly. 
-
-----
-
-Median
-
-The *median*, similar to the mean, is another common measure of the center of a distribution. In particular, for a set of observations, the median is an observed value that is both larger than half of the observations, as well as smaller than half of the observations. Formally, we say that the median is the 50th percentile of a dataset. Informally, we say it's the value in the middle (I don't like this).
-
-To find the median, we begin by arranging our data from smallest to largest. If the total number of observations, $n$, is odd, then the median is simply the middle observation. If $n$ is even, it is the mean of the middle two.
+The **median** is another common measure of the center of a distribution. In 
+particular, for a set of observations, the median is an observed value that is 
+both larger than half of the observations, as well as smaller than half of the 
+observations. Formally, we say that the median is the 50th percentile of the 
+data. Informally, we say it's the middle value. To find the median, we begin by 
+arranging our data from smallest to largest. If the total number of observations,
+$n$, is odd, then the median is simply the middle observation. If $n$ is even, 
+it is the mean of the middle two.
 
 Examples:
 
 - $1, 2, 2, 3, {\color{red} 5}, 7, 9, 10, 11 \quad \Rightarrow \quad \text{Median} = 5$
 - $1,2,2,3, {\color{red} 5}, {\color{red} 6}, 7, 9, 10, 11, \quad \Rightarrow \quad \text{Median} = \frac{(5+6)}{2} = 5.5$
 
-If both the mean and the median are both measures of central tendency, should we expect them to give us similar impressions about the center of a data set? [[Maybe we should have commentary on why we might be interested in center, somewhere near the beginning of this chapter. Like, maybe all of the high level ideas first, THEN do statistics and discrete/continuous plots?]]
+For the New York temperature data, the mean is `r round(mean(aq$Temp), 1)` and 
+the median is `r round(median(aq$Temp), 1)`. These values are very similar to 
+each other and fall near the peak in the histogram.
 
-Let's consider an example where we collect $n = 10$ samples of salaries for University of Iowa employees:
+```{r}
+hist(aq$Temp, main = 'Histogram of Maximum Daily Temperature at La Guardia',
+     xlab = 'Temperature (degrees F)', ylab = 'Count',
+     col = 'salmon1')
+abline(v = mean(aq$Temp), lty = 2, lwd = 2)
+abline(v = median(aq$Temp), lty = 3, lwd = 2)
+legend('topright', 
+       c(paste0(c('Mean', 'Median'), ' = ', round(c(mean(aq$Temp), median(aq$Temp)), 1))),
+       lwd = 2, lty = c(2, 3))
+```
 
-[[gross table for now]]
+However, it is not always the case that the mean and median will be similar. Let's
+consider an example where we collect $n = 10$ samples of salaries for University 
+of Iowa employees:
+
 ```{r, echo = FALSE}
 sals <- c("$31,176", "$50,879", "$34,619", "$103,000", "$36,549", "$130,000", "$37,876", "$144,600", "$48,962", "$5,075,000")
 kable(matrix(sals, ncol = 2), format = "html")
 ```
 
-<!-- $$ -->
-<!-- \begin{center} -->
-<!-- \begin{tabular}{ c c } -->
-<!-- \$ 31,176 & \$50,879  -->
-<!-- \end{tabular} -->
-<!-- \end{center} -->
-<!-- $$ -->
+For our sample, we find that the mean is \$569,266, but the median is
+(48,962 + 50,879) / 2 = \$49,921. It turns out, our sample included the highest
+paid university employee - the head football coach. This extremely high salary 
+has caused the mean to be very large - larger than 9/10 of the salaries in our 
+sample. On the other hand, the median is not impacted by the football coach's 
+salary and is thus a much better reflection of the typically University employee's
+salary.
 
-With regards to salaries, we find that
+This one high salary, which is not representative of most of the salaries 
+collected, is known as an **outlier**. From the example above, we have seen that 
+the mean is highly sensitive to the presence of outliers, while the median is not. 
+Measures that are not sensitive to outliers are known as **robust**. We see, then,
+that the median is a robust estimator of the center of the data. 
 
-- Mean = $569,266
-- Median = (48,962 + 50,879) / 2 = $49,921
+We have seen an example where the mean and median are quite close, and an example
+where they are wildly different. This begs the broader question - when might we 
+expect these measures of central tendency to be the same, and when might we expect 
+them to differ?
 
-Due to one extremely high salary in our observation, the median is a much better reflection of the typical UI salary.
 
-This one high salary, not representative of most of the salaries collected, is known as an **outlier**. From the example above, we see that the mean is highly sensitive to the presence of outliers, while the median is not. Measures that are not sensitive to outliers are known as **robust**, or *resistant*. We see, then, that the median is a robust estimator of the center of the data. 
+```{r, echo = FALSE, fig.height=5, fig.width = 7}
 
-[[As mentioned above, we should maybe introduce skewness earlier?]]
+set.seed(2)
+x1 <- rbeta(10000,5,5)
+x2 <- rbeta(10000,2,5)
+x3 <- rbeta(10000,5,2)
+bimodal <- c(rtruncnorm(7500, a=0, b=1, mean=.2, sd=.1),
+                 rtruncnorm(4000, a=0, b=1, mean=.75, sd=.1))
 
-We see above a case in which the mean and median are widely different, owing thanks to the outlier. This begs the broader question, when might we expect these measures of central tendancy to be the same, and when might we expect them to differ?
+histCol <- 'plum1'
+lineCols <- c('grey20', 'grey20')
+ltys <- c(5, 3)
 
-Below, we consider a collection of plots illustrating common "shapes" we might see in our data. 
+par(mfrow= c(2, 2))
+hist(x1, col = histCol, 
+     main = 'Unimodal and Symmetric', xlab = '', 
+     ylab = '', axes = F)
+abline(v = mean(x1), col = lineCols[1], lwd = 2, lty = ltys[1])
+abline(v = median(x1), col = lineCols[2], lwd = 2, lty = ltys[2])
 
-```{r, echo = FALSE}
-n <- 500
-x1 <- rbeta(n, 5, 5)
-x2 <- rbeta(n, 8, 2)
-#x3 <- c(rbeta(n/2, 2, 8), rep(0.8, 30)) # add outlier?
-x3 <- rbeta(n/2, 2, 8)
-x4 <- c(x2, x3)
-titles <- c("Unimodal and Symmetric", "Unimodal and Skewed Left",
-            "Unimodal and Skewed Right", "Bimodal")
-x <- list(x1, x2, x3, x4)
+hist(x2, col = histCol, 
+     main = 'Unimodal and Skewed Right', xlab = '', 
+     ylab = '', axes = F, breaks = 20)
+abline(v = mean(x2), col = lineCols[1], lwd = 2, lty = ltys[1])
+abline(v = median(x2)-0.04, col = lineCols[2], lwd = 2, lty = ltys[2])
 
-par(mfrow = c(2,2)) 
-for (i in seq_along(x)) {
-  hist(x[[i]], breaks = 20, xlim = c(0, 1), main = titles[[i]])
-  abline(v = mean(x[[i]]), col = 'blue')
-  abline(v = median(x[[i]]), col = 'green')
-  if (i == 2) legend("topleft", legend = c("Mean", "Median"), col = c("blue", "green"), lty = 1)
-}
+hist(x3, col = histCol, 
+     main = 'Unimodal and Skewed Left', xlab = '', 
+     ylab = '', axes = F)
+abline(v = mean(x3), col = lineCols[1], lwd = 2, lty = ltys[1])
+abline(v = median(x3), col = lineCols[2], lwd = 2, lty = ltys[2])
+
+hist(bimodal, col = histCol, 
+     main = 'Bimodal', xlab = '', 
+     ylab = '', axes = F)
+abline(v = mean(bimodal), col = lineCols[1], lwd = 2, lty = ltys[1])
+abline(v = median(bimodal), col = lineCols[2], lwd = 2, lty = ltys[2])
+
+legend(-.5,3200, legend = c("Mean", "Median"),
+       col = lineCols, lty = ltys, lwd = 2,
+       title = "Measure of Center",xpd=NA)
 
 ```
+
+When the data is unimodal and symmetric, the mean and median are indistinguishable.
+However, when there is skew or multiple peaks, we see the mean and median start 
+to differ. When the distribution is skewed, the mean is pulled towards the tail. 
+On the other hand, the number of very large/small observations is relatively small,
+so the median remains closer to the peak where the majority of data lies. When
+the distribution is bimodal, neither the mean or median can capture the distribution
+well. In that case, it might be better to summarize each peak individually.
+
+
+<div class="definition-container">
+<div class="definition"> &nbsp; </div>
+**Histogram: ** <em> Visualization of continuous data which divides the continuous 
+  variable into bins and plots the number of observations in each bin</em>
+
+**Unimodal: ** <em> Characterization of a distribution with one peak</em>
+  
+**Bimodal: ** <em> Characterization of a distribution with two peaks</em>
+  
+**Multimodal: ** <em> Characterization of a distribution with three or more peaks</em>
+  
+**Symmetric: ** <em> Characterization of a distribution with equal tails on both  
+  sides of the peak</em>
+  
+**Skewed right: ** <em> Characterization of a distribution with a large tail to 
+  the right of the peak</em>
+   
+**Skewed left: ** <em> Characterization of a distribution with a large tail to 
+  the left of the peak</em>
+  
+**Mean: ** <em> </em>
+
+**Median: ** <em> </em>
+
+**Mode: ** <em> </em>
+
+**Outlier: ** <em> </em>
+
+**Robust: ** <em> Measures that are not sensitive to outliers </em>
+</div>
+
 
 
 [[Do we need discussion on mode? Skipping for now]]
@@ -703,6 +741,9 @@ Box plots also allow us to determine if the distribution of the data is skewed o
 [[review]]
 
 
+```{r}
+plot(aq$Ozone, aq$Temp, pch = 16)
+```
 
 
 

@@ -234,6 +234,66 @@ toPrint %>% kable %>% kable_classic(full_width = F)
 
 This kind of counting, as opposted to the raw numbers, is known as **relative frequency**. 
 
+
+
+#### Center
+
+Numbers designed to reflect the center of a dataset are called *Measures of Central Tendancy*. There are three popular arithmetic measures used to caputre the center of a ((distribution)), namely
+
+  - Mean
+  - Median
+  - Mode
+  
+Before moving onto these in detail, let's take a moment for a brief review of Summation Notation (((Would be cool to have a div element for "Review" or "Btw". We could also include an appendix where all of this is explained in more detail that they can click to visit, with an actual "quick review" done here)))
+
+-----
+
+[[Probably ought to start with N then move to n]]
+
+In general, we will let lowercase $n$ represent the total number of observations that we have collected. We can express these observations as 
+
+$$
+x_1, x_2, \dots, x_n
+$$
+where the subscript values are used to identify each observation. We can represent the sum of all of these observations using the abbreviated *Sigma* notation, 
+
+
+$$
+x_1 + x_2 + \dots + x_n = \sum_{i=1}^n x_i
+$$
+On the right hand side, note that the value of $x$ has a subscript $x_i$, while the Sigma notation has $i=1$ on the bottom and $n$ on the top. This is to indicate that we are to go through each value of $i = 1, 2, \dots, n$, for each value of $x_i$. In other words, where we might say $x_1$ is the first observation, we would say that $x_i$ is the $i$th observation. This is convenient when we want to describe any $x$ value, but it is not important which one we choose. 
+
+-----
+
+[[Yeah, but what do we mean by 'center' of a distribution?]]
+
+Now, in statistics, we often talk about the mean in two different ways, which we will illustrate here. Consider, for example, the case in which we want to know the mean height of each individual living in the state of Iowa. We will present the number of people in Iowa, also known as the $population$, as $N$. That is, there are $N$ people living in Iowa. The mean of this entire population, known as the *population mean* is designated by the Greek later $\mu$ (called *mu*). Mathematically, we would write this as 
+
+$$
+\mu = \frac1N \sum_{i=1}^N x_i
+$$
+Now, finding the height of each person in Iowa is likely to be very difficult, if not impossible. Often, we can get a reasonable estimate of the population mean by taking a sample of people and treating them as an approximation of the entire population. This sample will represent the actual observations we collect, and we will represent this as we did above with the lower case $n$, where generally, $n < N$ (often by quite a bit). The *sample mean*, which we denote $\bar{x}$ (called x-bar), can be expressed similarly
+
+$$
+\bar{x} = \frac1n \sum_{i=1}^n x_i
+$$
+There are two major differences here between these two values that are worth giving a second consideration to
+
+- The population mean has $N$ observations, which is always larger than the $n$ observations in the sample
+- While there is only one way to select $N$ observations from $N$ subjects, there are many ways to select $n$ observations from $N$ subjects. For example, if you have five different cookies, there is only one way to select all five cookies, while there are ten different ways to select only three (I know childish example, maybe we could have a picture? Though this also introduces some benefit to non-rigorous introduction of combinations, which could be useful in explaining variance in samples?)
+
+In general, we have that $\bar{x} \approx \mu$, with this approximation being better the closer $n$ is to $N$. This is a topic we will return to shortly. 
+
+
+
+
+
+
+
+
+
+
+
 ## Chapter 4 dump
 
 
