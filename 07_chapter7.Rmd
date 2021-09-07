@@ -67,7 +67,7 @@ The difference between our estimate and our parameter is called **bias**[[eh]]. 
 knitr::include_graphics("./images/biasVariabilityTargets2.png")
 ```
 
-In terms of priority, having a low bias is generally more desirable than low variance, and this is represented in the top row above. Having low bias indicates that our sample statistic is correctly estimating the population parameter of interest, even if our statistic is considered "noisy". Variance, illustrated in the columns, gives an idea of how "consistent" our estimate is. One way to think of it is to consider the throwing of a dart to the collection of a sample; comparing the top right and bottom left corners, we might say it is better generally throw close to the target that to consistently miss it entirely. Statisticians work hard to develop sampling and inferential procedures that allow us to estimate population parameters with little to no bias and low amounts of variability.
+In terms of priority, having a low bias is generally more desirable than low variance, and this is represented in the top row above. Having low bias indicates that our sample statistic is correctly estimating the population parameter of interest, even if our statistic is considered "noisy". Variance, illustrated in the columns, gives an idea of how "consistent" our estimate is. One way to think of it is to consider the throwing of a dart to the collection of a sample; comparing the top right and bottom left corners, we might say it is better throw generally close to the target than to consistently miss it entirely. Statisticians work hard to develop sampling and inferential procedures that allow us to estimate population parameters with little low variability and little to no bias.
 
 
 <div class="definition-container">
@@ -93,9 +93,9 @@ In terms of priority, having a low bias is generally more desirable than low var
 
 In order to make inference, we must be able to quantify our uncertainty about the population parameter based on our sample data. To illustrate this uncertainty, consider again our example above in estimating the average expenditures of Iowans on fast food, and suppose that researchers decide to sample 500 individuals from the population and calculate the sample mean, $\overline{x}$. Now suppose that those same researchers go out and collect a *second* sample of 500 individuals from the population and calculate the sample mean again, which me might call $\overline{x}_2$. Should we expect $\overline{x}$ and $\overline{x}_2$ to be exactly the same? What if they did this again and calculated $\overline{x}_3$? Or $\overline{x}_4$?
 
-As we might expect, it is very unlikely that any of these will be equal to any of the others. Perhaps even more worrisome, if none of these sample means are equal to each other, how accurate might we expect any of them to be with regards to estimating our population parameter? Herein lies the question of quantifying our uncertainty. Fortunately, statisticians have created powerful methods for being able to do so accurately, even when only a single sample statistic has been obtained.
+As we might expect, it is very unlikely that any of these will be exactly equal to any of the others, though they might be close. But if none of these sample means are equal to each other, how accurate might we expect any of them to be with regards to estimating our population parameter? Herein lies the question of quantifying our uncertainty. Fortunately, statisticians have created powerful methods for being able to do so accurately, even when only a single sample statistic has been obtained.
 
-We might first begin by recognizing that the process of sampling from a population is itself a *random experiment*, with the sample mean $\overline{x}$ being a numeric quantity which assumes a value based on the outcome of that experiment. This should sound familiar -- this is precisely the definition of a random variable! Just as with other random variables, sample statistics themselves also follow a probability distribution. When the random variable itself is a statistic, we call the probability distribution a **sampling distribution**. Sampling distributions reflect which values of the statistic are likely if we were to repeat the sampling process (that is, likely values for $\overline{x}_2$, $\overline{x}_3$, etc.,), and which values are improbable. We might then expect that likely values of the true population parameter will fall somewhere within the range of likely values. [[As we will see later in this chapter, this uncertainty depends on the number of individuals sampled and the variability of the data we measure.]]
+We might first begin by recognizing that the process of sampling from a population is itself a *random experiment*, with the sample mean $\overline{x}$ being a numeric quantity which assumes a value based on the outcome of that experiment. This should sound familiar -- this is precisely the definition of a random variable! Just as with other random variables, sample statistics themselves also follow a probability distribution. When the random variable itself is a statistic, we call the probability distribution a **sampling distribution**. Sampling distributions reflect which values of the statistic are likely if we were to repeat the sampling process (that is, likely values for $\overline{x}_2$, $\overline{x}_3$, etc.,), and which values are improbable. We might then expect that the value of the true population parameter will fall somewhere within the range of likely values. [[As we will see later in this chapter, this uncertainty depends on the number of individuals sampled and the variability of the data we measure.]]
 
 
 <div class="exercise"> Exercises </div>
@@ -192,9 +192,13 @@ The plot on the right displays values for the subjects collected in our random s
 
 Following the conventions used previously, we will use upper-case letters to denote random variables and lower-case letters to denote values that have been observed (that is, they are no longer random). Regarding the sampling distribution of the mean, $\overline{X}$ represents the random variable which arises from the repeated random sampling from the population, while $\overline{x}$ represents an *observed* sample mean from an already collected sample.
 
-In describing the sampling distribution, we are often interested in the mean and the *standard deviation* which, together, describe the size of the interval of probable values for our population parameter. When describing statistics with a sampling distribution, we refer to the sample mean as the **expected value** of our statistic, while the standard deviation is referred to as the **standard error**. For the random variable describing the sample mean, these are denoted as $E(\overline{X})$ and $SE(\overline{X}) = \sqrt{Var(\overline{X})}$, respectively.
+[[we don't refer to sample mean as expected value, but rather the expected value of sample mean is mean. idk, reword]]
+
+In describing the sampling distribution, we are often interested in the mean and the standard deviation which, together, describe the size of the interval of probable values for our population parameter. When describing statistics with a sampling distribution, we refer to the sample mean as the **expected value** of our statistic, while the standard deviation is referred to as the **standard error**. For the random variable describing the sample mean, these are denoted as $E(\overline{X})$ and $SE(\overline{X}) = \sqrt{Var(\overline{X})}$, respectively.
 
 ---
+
+[[this section makes me uneasy]]
 
 Let's return to the fast food scenario to motivate our development, but for now let's assume there are only five individuals in the entire population. The monthly spending for those five individuals (rounded to the nearest dollar) is as follows:
 
@@ -297,7 +301,7 @@ But wait! That *is* the population mean. This illustrates an extremely powerful 
 </div>
 
 
-
+---
 
 ## Central Limit Theorem
 
@@ -308,18 +312,32 @@ $$E(\overline{X}_n) = \mu$$
 2) The variance of the sampling distribution is
 $$Var(\overline{X}_n) = \frac{\sigma^2}{n}$$
 
-Using these formulas we are able to describe the typical value of the sample mean and how variable the sample mean is in repeated sampling. Notice that the expected value does not depend on the sample size, $n$, but the variance does. This means regardless of the sample size, the sample mean is an unbiased estimator of the population mean. But, as the sample size increases, the variance decreases, and we get a more precise estimate of the population mean. As we've seen in the past, it is more common to talk about the standard deviation than the variance and the standard deviation is the square root of the variance. The quantity $\sqrt{Var(\overline{X}_n)} = \sigma / \sqrt{n}$ is primarily called the **standard error** of the mean, and is denoted by $SE(\overline{X}_n)$. We use the term standard error to make it really clear that it is referencing the sampling distribution of the mean, but all standard errors could be referred to as standard deviations. Conversely, not all standard deviations could be referred to as a standard error - the term is only used in describing the distribution of the sample mean.
+Together, these expressions are used to describe the typical value of the sample mean as well as the expected amount of variability in the sample mean under repeated sampling. From this, there are two further observations that are worth noting:
 
+1) The expected value of the sample mean is always equal to $\mu$, regardless of the size of the sample: this property makes the sample mean an *unbiased* estimator of the population mean.
 
-In addition to knowing the mean and standard error of our statistic, we can also describe the *distribution* of sample means in repeated sampling. As we discussed in the last chapter on probability distributions, a distribution for the sample mean provides us with a way to quantify which sample mean values are likely and which values are unlikely. As it turns out, when we repeatedly sample from a population, and continue to calculate the sample mean from each sample, the distribution of the sample means will be normally distributed. This brings us what is largely considered the "fundamental theorem of statistics"
+2) Whereas the expected value of the sample mean does not depend on $n$, the variance of the sampling distribution does. Indeed, this should match our intuition; as the size of our sample increases, the variability of $\overline{X}_n$ decreases, giving us a more precise estimate of the population mean.
+
+As we've seen already, it is more common to discuss the standard deviation of a statistic than the variance. In the context of sampling distributions, this quantity is called the **standard error** (to emphasize that we are discussing a sampling distribution) and is denoted
+
+$$SE(\overline{X}_n) = \sqrt{Var(\overline{X}_n)} = \sigma / \sqrt{n}$$
+
+Note that while all standard errors could be referred to as standard deviations, the converse does not hold -- standard deviations not associated with a sampling distribution are never referred to as standard errors. 
+
+<!-- Using these formulas we are able to describe the typical value of the sample mean and how variable the sample mean is in repeated sampling. Notice that the expected value does not depend on the sample size, $n$, but the variance does. This means regardless of the sample size, the sample mean is an unbiased estimator of the population mean. But, as the sample size increases, the variance decreases, and we get a more precise estimate of the population mean. As we've seen in the past, it is more common to talk about the standard deviation than the variance and the standard deviation is the square root of the variance. The quantity $\sqrt{Var(\overline{X}_n)} = \sigma / \sqrt{n}$ is primarily called the **standard error** of the mean, and is denoted by $SE(\overline{X}_n)$. We use the term standard error to make it really clear that it is referencing the sampling distribution of the mean, but all standard errors could be referred to as standard deviations. Conversely, not all standard deviations could be referred to as a standard error - the term is only used in describing the distribution of the sample mean. -->
+
+Until now, we have discussed the mean and standard error of a random statistic without having described the sampling *distribution* itself. Why might having the distribution of a statistic be useful? Recall from the previous chapter that we defined a distribution as a method of associating an event or outcome with its corresponding probability. As we shall see, the sample mean, along with its standard error, will help us in constructing a range of "likely" values that may contain the true parameter. With the use of a sampling distribution, we will now be able to assign a probability to the range of these likely values.
+
+As it turns out, the process of randomly collecting a sample from a population and computing its sample means has a truly amazing property -- the sampling distribution will always be normally distributed. This brings us to what is largely considered the "fundamental theorem of statistics". 
+
 
 **Central Limit Theorem**
 
-If the sample size is "large," the sampling distribution of $\overline{X}$ is approximately normal, regardless of the characteristics of the underlying population.
+What the Central Limit Theorem (CLT) states is this: so long as the size of our sample is "large enough", the sampling distribution of $\overline{X}$ will be approximately normal, regardless of the characteristics of the underlying distribuiton. That is, we have
 
-$$\overline{X}_n \sim N(\mu, \sigma^2/n)$$
+$$\overline{X}_n \sim N(\mu, \sigma^2/n).$$
 
-While the term "large enough" will inevitably depend on the context of the problem at hand, a typical rule of thumb puts this value at $n \geq 30$. Because the variance of $\overline{X}$ is inversely related to the sample size, as the $n$ increases, the variance decreases and the distribution becomes more concentrated around its mean value. This is one of the most important, remarkable, and powerful results in all of statistics. In the real world, we rarely know the underlying population distribution of our data, however, the Central Limit Theorem (CLT) says: we don't have to!
+While the term "large enough" will inevitably depend on the context of the problem at hand, a typical rule of thumb puts this value at $n \geq 30$. Because the variance of $\overline{X}$ is inversely related to the sample size, as the $n$ increases, the variance decreases and the distribution becomes more concentrated around its mean value. This is one of the most important, remarkable, and powerful results in all of statistics. In the real world, we rarely know the underlying population distribution of our data, yet the CLT assures us that this is not an issue. In the next chapter, we will investigate how the consequences of the CLT create an immensely powerful tool in performing statistical inference. 
 
 
 
@@ -339,7 +357,7 @@ The applet below is designed to help your conceptual understanding of the CLT. Y
 
 <div class="exercise-container">
 <ol>
-  <li>Set the population distribution to Normal, the sample size to 30, and perform 100 experiments to collect 100 sample means. 
+  <li>Set the population distribution to Normal, the sample size to 30 and perform 100 experiments to collect 100 sample means. 
   <ol style="list-style-type: lower-alpha;">
   <li>Describe the histogram of the the data from the last experiment. Comment on the modality and skew. </li>
   <li>Describe the histogram of the distribution of sample means from all experiments. </li>
@@ -349,7 +367,7 @@ The applet below is designed to help your conceptual understanding of the CLT. Y
   <li>Now adjust the sample size to 100. Perform 100 experiments.
   <ol style="list-style-type: lower-alpha;" >
   <li>What is the range of values observed for the distribution of sample means? How does this compare to the range observed when the sample size was 30? </li>
-  <li>What about the range of values observed in the data from the last experiment - did this change much when the sample size was increased? </li>
+  <li>What about the range of values observed in the data from the last experiment -- did this change much when the sample size was increased? </li>
   <li>Play around with various sample sizes. How does changing the sample size effect the spread of the distribution of sample means? </li>
   </ol>
   </li>
