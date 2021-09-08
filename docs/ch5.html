@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>3 Probability Distributions | Seriously Interesting Statistics Textbook</title>
+  <meta name="description" content="First template!" />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="3 Probability Distributions | Seriously Interesting Statistics Textbook" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="First template!" />
+  <meta name="github-repo" content="ceward/introTextbook" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="3 Probability Distributions | Seriously Interesting Statistics Textbook" />
+  
+  <meta name="twitter:description" content="First template!" />
+  
+
+<meta name="author" content="Caitlin Ward and Collin Nolte" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="ch4.html"/>
+<link rel="next" href="ch6.html"/>
+<script src="libs/header-attrs-2.8/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a>
+<ul>
+<li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#acknowledgements"><i class="fa fa-check"></i><b>0.1</b> Acknowledgements</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="ch15.html"><a href="ch15.html"><i class="fa fa-check"></i><b>1</b> Introduction to Probability and Simulation</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="ch15.html"><a href="ch15.html#ch15_s1"><i class="fa fa-check"></i><b>1.1</b> Randomness and Simulation</a></li>
+<li class="chapter" data-level="1.2" data-path="ch15.html"><a href="ch15.html#ch15_s2"><i class="fa fa-check"></i><b>1.2</b> Probability</a></li>
+<li class="chapter" data-level="1.3" data-path="ch15.html"><a href="ch15.html#ch15_s3"><i class="fa fa-check"></i><b>1.3</b> Methods for Computing Probabilities</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="ch4.html"><a href="ch4.html"><i class="fa fa-check"></i><b>2</b> Advanced Probability</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="ch4.html"><a href="ch4.html#ch4_s1"><i class="fa fa-check"></i><b>2.1</b> Probability Operations</a></li>
+<li class="chapter" data-level="2.2" data-path="ch4.html"><a href="ch4.html#ch4_s2"><i class="fa fa-check"></i><b>2.2</b> Conditional Probability</a></li>
+<li class="chapter" data-level="2.3" data-path="ch4.html"><a href="ch4.html#ch4_s4"><i class="fa fa-check"></i><b>2.3</b> Probabilities from tables (needs a different example)</a></li>
+<li class="chapter" data-level="2.4" data-path="ch4.html"><a href="ch4.html#ch4_s5"><i class="fa fa-check"></i><b>2.4</b> Bayes’ Rule</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="ch5.html"><a href="ch5.html"><i class="fa fa-check"></i><b>3</b> Probability Distributions</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="ch5.html"><a href="ch5.html#introduction-to-probability-distributions"><i class="fa fa-check"></i><b>3.1</b> Introduction to Probability Distributions</a></li>
+<li class="chapter" data-level="3.2" data-path="ch5.html"><a href="ch5.html#binomial-distribution"><i class="fa fa-check"></i><b>3.2</b> Binomial Distribution</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="ch5.html"><a href="ch5.html#possibly-tiny-aside-with-binomial-where-we-pull-marbles-from-bag-so-that-probability-is-not-12"><i class="fa fa-check"></i><b>3.2.1</b> possibly tiny aside with binomial where we pull marbles from bag so that probability is not 1/2</a></li>
+<li class="chapter" data-level="3.2.2" data-path="ch5.html"><a href="ch5.html#plotting-the-pmf"><i class="fa fa-check"></i><b>3.2.2</b> Plotting the PMF</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="ch5.html"><a href="ch5.html#normal-distribution"><i class="fa fa-check"></i><b>3.3</b> Normal Distribution</a></li>
+<li class="chapter" data-level="3.4" data-path="ch5.html"><a href="ch5.html#measuring-heights"><i class="fa fa-check"></i><b>3.4</b> Measuring Heights</a></li>
+<li class="chapter" data-level="3.5" data-path="ch5.html"><a href="ch5.html#other-common-distributions"><i class="fa fa-check"></i><b>3.5</b> Other Common Distributions</a>
+<ul>
+<li class="chapter" data-level="3.5.1" data-path="ch5.html"><a href="ch5.html#poisson-distribution"><i class="fa fa-check"></i><b>3.5.1</b> Poisson Distribution</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="ch6.html"><a href="ch6.html"><i class="fa fa-check"></i><b>4</b> Sampling Distributions and the <br/> Central Limit Theorem</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="ch6.html"><a href="ch6.html#introduction-to-sampling"><i class="fa fa-check"></i><b>4.1</b> Introduction to Sampling</a></li>
+<li class="chapter" data-level="4.2" data-path="ch6.html"><a href="ch6.html#sampling-distributions"><i class="fa fa-check"></i><b>4.2</b> Sampling Distributions</a></li>
+<li class="chapter" data-level="4.3" data-path="ch6.html"><a href="ch6.html#central-limit-theorem"><i class="fa fa-check"></i><b>4.3</b> Central Limit Theorem</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="ch7.html"><a href="ch7.html"><i class="fa fa-check"></i><b>5</b> Introduction to Inference</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="ch7.html"><a href="ch7.html#ch7_s1"><i class="fa fa-check"></i><b>5.1</b> Confidence Intervals</a></li>
+<li class="chapter" data-level="5.2" data-path="ch7.html"><a href="ch7.html#ch7_s2"><i class="fa fa-check"></i><b>5.2</b> Hypothesis Tests</a></li>
+<li class="chapter" data-level="5.3" data-path="ch7.html"><a href="ch7.html#ch7_s3"><i class="fa fa-check"></i><b>5.3</b> P-values</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Seriously Interesting Statistics Textbook</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="ch5" class="section level1" number="3">
+<h1><span class="header-section-number">3</span> Probability Distributions</h1>
+<div class="objective-container">
+<div class="objectives">
+Learning Objectives
+</div>
+<ol style="list-style-type: decimal">
+<li>Understand how a distribution represents a random process that creates data that is then observed</li>
+<li>Understand how the parameters of a distribution govern how the data is generated [and with what probability]</li>
+<li>Be able to identify which distributions underlying a given real world random process.</li>
+</ol>
+</div>
+<p>In the previous chapter, we introduced the idea of random processes, situations in which the outcome can not be determined perfectly in advance. We encounter random processes all the time in our lives, from the exact amount of time it takes to get to class from your home, to determining the winner of a football game [maybe simpler examples?]. In any case, the random process is defined in terms of the <em>collection of possible events</em> and their <em>associated probabilities</em>. What is needed is a method for relating these events to their probabilities, motivating the goal of this chapter.</p>
+<p>[maybe have new goals given updated (limited) scope of the chapter]</p>
+<p>notes:</p>
+<ul>
+<li>removed pretty much all technical stuff</li>
+<li>removed idea of pdf <em>generating</em> stuff. leave that to simulation chapter, if at all</li>
+<li>instead of continuous/discrete, just doing binomial/normal. bring up pmf/pdf?</li>
+<li>remove idea of mean/variance. Just limit pdf to relationship between events and probs</li>
+</ul>
+<div id="introduction-to-probability-distributions" class="section level2" number="3.1">
+<h2><span class="header-section-number">3.1</span> Introduction to Probability Distributions</h2>
+<p>Most simply, a <strong>probability distribution</strong> (often just called a distribution) is a method for taking a possible event as input, and giving us the corresponding probability as output; the corresponding probability tells us how likely it is that the specific event will occur, out of all of the possible events.</p>
+<ol style="list-style-type: decimal">
+<li>Understand how a distribution represents a random process that creates data that is then observed</li>
+<li>Understand how the parameters of a distribution govern how the data is generated [and with what probability]</li>
+<li>Be able to identify which distributions underlying a given real world random process.</li>
+</ol>
+<div class="definition-container">
+<div class="definition">
+<span id="def:unlabeled-div-9" class="definition"><strong>Definition 3.1  </strong></span> 
+</div>
+<p><strong>Probability Distribution: </strong> <em> A method for assigning probabilities to all possible events </em></p>
+<p><strong>Distribution Parameters: </strong> <em> Values associated with a probability distribution that determine how the data is generated </em></p>
+</div>
+</div>
+<div id="binomial-distribution" class="section level2" number="3.2">
+<h2><span class="header-section-number">3.2</span> Binomial Distribution</h2>
+<p>In the previous chapter, we examined the possible events and associated probabilities with flipping a coin three times, where each side could land with equal probability. In particular, we noted the collection of possible events was given by</p>
+<p><span class="math display">\[\mathcal{S} = \{HHH, HHT, HTH, THH, TTH, THT, HTT, TTT\},\]</span>
+and the respective probabilities for the number of heads were</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center;">
+# Heads
+</th>
+<th style="text-align:center;">
+Probability
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+1/8
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+1
+</td>
+<td style="text-align:center;">
+3/8
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+2
+</td>
+<td style="text-align:center;">
+3/8
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+3
+</td>
+<td style="text-align:center;">
+1/8
+</td>
+</tr>
+</tbody>
+</table>
+<p>Might we consider this table a probability distribution? Perhaps, as it does give us a method for determining a probability for any given event. However, the usefulness of such a method comes into question as our experiment changes. What if instead we had flipped our coin 50 times? Or 100? What is needed instead is a method that is more robust to changes in the experiment.</p>
+<p>Here, we introduce the <em>binomial distribution</em>, a probability distribution in which:</p>
+<ol style="list-style-type: decimal">
+<li>The total number of trials (or flips) is fixed in advance at some value, <span class="math inline">\(n\)</span></li>
+<li>There are two possible events or outcomes within each trial</li>
+<li>Each trial has the same probability of success (heads), which we will denote <span class="math inline">\(p\)</span></li>
+<li>Each trial is independent of all other trials. Whatever result occurs on the first flip will have no impact on the second, and so on.</li>
+</ol>
+<p>Notationally, the binomial distribution is expressed as <span class="math inline">\(X \sim Bin(n,p)\)</span>, or “The random variable <span class="math inline">\(X\)</span> follows a binomial distribution with <span class="math inline">\(n\)</span> trials and probability of success, <span class="math inline">\(p\)</span>.” We can also express this with the following formula:</p>
+<p><span class="math display">\[
+P(X = x) = \binom{n}{x} p^x (1-p)^{n-x}
+\]</span>
+where <span class="math inline">\(n\)</span> and <span class="math inline">\(p\)</span> are the <em>parameters</em> of our distribution, and <span class="math inline">\(X\)</span> can take any of the values <span class="math inline">\(x = 0, 1, \dots, n\)</span>. Perhaps unfamiliar to us here is the leading term in the expression above, <span class="math inline">\(\binom{n}{x}\)</span>, called the <em>binomial coefficient</em>, which can be written as</p>
+<p><span class="math display">\[
+\binom{n}{x} = \frac{n!}{x!(n-x)!}
+\]</span>
+where <span class="math inline">\(n! = n \times (n-1) \times \dots \times 2 \times 1\)</span> (known as a factorial). By convention, we have that <span class="math inline">\(0! = 1\)</span>. In words, we might say <span class="math inline">\(\binom{n}{x}\)</span> as “<span class="math inline">\(n\)</span> choose <span class="math inline">\(x\)</span>” or “given that we have <span class="math inline">\(n\)</span> total trials, in how many ways might the outcome <span class="math inline">\(x\)</span> appear?” While this may seem daunting at first, the need for it is quite reasonable. Consider again our coin flipping experiment, where the possible outcomes were listed as</p>
+<p><span class="math display">\[
+\mathcal{S} = \{HHH, HHT, HTH, THH, TTH, THT, HTT, TTT\}.
+\]</span></p>
+<p>If we are interested in determining the probability of observing two heads, we note that there are multiple ways in which this occurs. We might ask ourselves, “If we have <span class="math inline">\(n = 3\)</span> flips, how many ways might we <em>choose</em> <span class="math inline">\(x = 2\)</span> heads?” Writing this with our binomial coefficient, we find that</p>
+<p><span class="math display">\[
+\binom{3}{2} = \frac{3!}{2!(3-2)!} = \frac{3 \times 2 \times 1}{2 \times 1 \cdot(1 \times 1)} = \frac62 = 3,
+\]</span>
+and indeed, 3 is precisely the number of outcomes in <span class="math inline">\(\mathcal{S}\)</span> in which two heads occur.</p>
+<p>Now that we have <em>the number</em> of ways in which we might have two heads, we move on to determining the probability of such an event. Being a fair coin, we know that the probability of heads is <span class="math inline">\(p = 0.5\)</span>, and because these events are independent, we know that the probability <span class="math inline">\(P(HHT) = P(HTH) = P(THH)\)</span>. Consequently, we need only determine the probability for one of them and then multiply this number by 3, the number we found from the binomial coefficient. See that</p>
+<p><span class="math display">\[
+\begin{align*}
+P(HHT) &amp;= P(H) \cdot P(H) \cdot P(T) \\
+&amp;= \underbrace{(0.5)(0.5)}_{P(H) P(H)} \cdot \underbrace{(0.5)}_{{P(T)}} \\
+&amp;= 0.125
+\end{align*}
+\]</span>
+Putting these pieces together, we arrive precisely at the binomial distribution:</p>
+<p><span class="math display">\[
+\begin{align*}
+P(X = 2) &amp;= \binom{3}{2} (0.5)^2 (0.5)^{3-2} \\
+&amp;= 3 \times 0.125 \\
+&amp;= 0.375
+\end{align*}
+\]</span>
+which we note is precisely the value we computed [(in the table above)/(in chapter 4)]</p>
+<div class="exercise-container">
+<div class="exercise">
+<span id="exr:unlabeled-div-10" class="exercise"><strong>Exercise 3.1  </strong></span> 
+</div>
+<ol>
+<li>
+Using the binomial probability distribution above, verify the correct values for <span class="math inline">\(X = 0,1,2,3\)</span> in table [number]
+</li>
+</ol>
+</div>
+<div id="possibly-tiny-aside-with-binomial-where-we-pull-marbles-from-bag-so-that-probability-is-not-12" class="section level3" number="3.2.1">
+<h3><span class="header-section-number">3.2.1</span> possibly tiny aside with binomial where we pull marbles from bag so that probability is not 1/2</h3>
+<p>ALSO need to do cumulative probabilities. “probability of AT LEAST two heads”</p>
+<p>visualizing important? if so, can include right before app (but then do it after the exercises), then make new exercises using app</p>
+<p>and if so, demonstrate with like 3/4 then do exercises with 2/3 (or w/e)</p>
+<p>Here is the app related to the exercise</p>
+<iframe src="https://ph-ivshiny.iowa.uiowa.edu/collin/textbook/distribution/binomial/" width="100%" height="800">
+</iframe>
+<p>[Include binomial app here. See that clicking bars adds to something. Explain changing settings, clicking bars, selecting different things. Come up with exercises below, i.e., prob that even if n = 8, prob if even n = 4, etc.]</p>
+</div>
+<div id="plotting-the-pmf" class="section level3" number="3.2.2">
+<h3><span class="header-section-number">3.2.2</span> Plotting the PMF</h3>
+<p>It is often useful to create a visual representation of a pmf as well. Doing so quickly gives us an idea of where data tend to aggregate and how the data are dispersed. Below are two plots representing two different sets of parameters for the binomials distribution. What do you notice in how they differ? How are they similar? What impacts do the different parameters have on the distribution of the data?</p>
+<p><img src="introTextbookTemplate_files/figure-html/unnamed-chunk-12-1.png" width="960" style="display: block; margin: auto;" /></p>
+<p>Of particular note here, we recall from the previous chapter that the sum of all possible probabilities must be equal to one. Visually, this is represented by the total area of the bars in our plot. Given that our bars our rectangles, we can find the area by considering that the width of each bar is equal to 1, and it’s height is given by the probability of <span class="math inline">\(X = x\)</span>, which can be found using the PMF. On the left hand side, for example, from left to right, we have</p>
+<p><span class="math display">\[
+\begin{align}
+\text{Total Area } &amp;= \text{ \{Area of Heads = 0\} + \{Area of Heads = 1\} + } \\
+&amp; \quad \ \ \text{\{Area of Heads = 2\} + \{Area of Heads = 3\}} \\
+&amp;= (1 \times P(X = 0)) + (1 \times P(X = 1)) + (1 \times P(X = 2)) + (1 \times P(X = 3)) \\
+&amp;= 0.125+0.375+0.375+0.125 \\
+&amp;= 1
+\end{align}
+\]</span>
+If, say, we are interested in the probability that <span class="math inline">\(X = 2\)</span> or <span class="math inline">\(X = 3\)</span>, we can add the area of the two corresponding bars. In this case, we find <span class="math inline">\(P(X = 2, 3) = 0.75\)</span>.</p>
+<iframe src="https://ph-ivshiny.iowa.uiowa.edu/collin/textbook/distribution/binomial/" width="100%" height="800">
+</iframe>
+<p>[Include binomial app here. See that clicking bars adds to something. Explain changing settings, clicking bars, selecting different things. Come up with exercises below, i.e., prob that even if n = 8, prob if even n = 4, etc.]</p>
+</div>
+</div>
+<div id="normal-distribution" class="section level2" number="3.3">
+<h2><span class="header-section-number">3.3</span> Normal Distribution</h2>
+<p>Included below are histograms of the depth of Lake Huron from 1875-1972, the annual flow of the Nile river in cubic meters from 1871-1970, and the height in feet of 31 black cherry trees. What do these histograms seem to have in common?</p>
+<p><img src="introTextbookTemplate_files/figure-html/unnamed-chunk-13-1.png" width="960" style="display: block; margin: auto;" /></p>
+<p>What we see here are examples of a <em>normal distribution</em> (also known as a bell curve), one of the most ubiquitous distributions in all of statistics. The normal distribution is characterized by the “bell shape” that is symmetric about it’s mean [but maybe don’t say mean].</p>
+<p>Like the binomial, the normal distribution is characterized by two parameters, <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\sigma^2\)</span>, representing the mean and the variance, respectively. The mean value, <span class="math inline">\(\mu\)</span>, indicates the location of the peak on the x-axis, whereas the variance, <span class="math inline">\(\sigma^2\)</span>, indicates the amount of dispersion about the mean. A random variable <span class="math inline">\(X\)</span> that follows a normal distribution can be expressed <span class="math inline">\(X \sim N(\mu, \sigma^2)\)</span>, or, “The random variable <span class="math inline">\(X\)</span> follows a normal distribution with mean <span class="math inline">\(\mu\)</span> and variance <span class="math inline">\(\sigma^2\)</span>.” The formula for the normal distribution is given as</p>
+<p><span class="math display">\[
+\begin{align*}
+f(x) = \frac{1}{\sqrt{2 \pi \sigma^2}} \ e^{- \frac{(x-\mu)^2}{2\sigma^2}}.
+\end{align*}
+\]</span></p>
+<p>Consider the two normal distributions below, with different values for <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\sigma^2\)</span>. Although they are centered at different locations and have different amounts of dispersion around the mean, they are both bell-shaped curves characteristic of the normal distribution:</p>
+<p><img src="introTextbookTemplate_files/figure-html/unnamed-chunk-14-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>Given that the normal distribution appears so frequently in statistics, it is common practice to <em>standardize</em> a normal distribution so that it has a mean value of <span class="math inline">\(\mu = 0\)</span> and variance <span class="math inline">\(\sigma^2 = 1\)</span>. A normal random variable that has been standardized is called a <em>standard normal distribution</em> and is often written <span class="math inline">\(Z \sim N(0,1)\)</span>. We can consider again the histograms above, once they’ve been standardized:</p>
+<p><img src="introTextbookTemplate_files/figure-html/unnamed-chunk-15-1.png" width="960" style="display: block; margin: auto;" /></p>
+<p>Unlike the binomial distribution, in which there are <span class="math inline">\(n\)</span> possible values that our random variable can take, the normal distribution represents a random variable that is <em>continuous</em> over a range of values. Instead of asking the probability of a specific value, say, <span class="math inline">\(Z = 0\)</span>, probabilities are given as the area under the curve for a certain interval. We might ask, “What is the probability that <span class="math inline">\(Z\)</span> is one standard deviation (<span class="math inline">\(\sigma\)</span>) away from 0?” pr perhaps, “What is the probability that <span class="math inline">\(Z &lt; 0\)</span>?”</p>
+<p><img src="introTextbookTemplate_files/figure-html/unnamed-chunk-16-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>Because probabilities for continuous distributions are described as areas under the curve, their values are computed with integrals. [do we introduce probability tables or just go with the app?]</p>
+<p>also maybe include</p>
+<ul>
+<li>subtract cdf?</li>
+<li>probability that |Z| &gt; z?</li>
+<li>what else?</li>
+</ul>
+</div>
+<div id="measuring-heights" class="section level2" number="3.4">
+<h2><span class="header-section-number">3.4</span> Measuring Heights</h2>
+<p>Often, our data will not fit nicely into a finite number of discrete categories, leaving us with <em>continuous data</em> that are described with a <em>probability distribution function</em>, or <em>pdf</em>. As our data does not fit neatly into categorical bins, many of the techniques described above will not work in the same way here. Rest assured, the idea is exactly the same. While we will spare the technical details here, interested readers may consider what follows to be analogous to the cases presented above when the number of “bins” becomes infinite.</p>
+<p>Our motivating example here will consider the process of determining the height of individuals within a population. Unlike the binomial distribution, where the underlying process and associated parameters were easily teased apart, the components here are less obvious, and some care will be needed to identify them. Height data, like many things in the natural world, tend to follow a symmetric distribution, where most observations tend to gather around a mean value, with observations deviating from the mean being equally likely to fall some distance above the mean as below, their frequencies becoming smaller as this distance increases. That is to say, if the mean height of a population is 68 inches, an individual is equally likely to be 67 inches tall as they are 69 inches. Similarly, an individual is equally likely to be 64 inches as they are 82. However, given their proximity to the mean value, an individual is far more likely to be either 67 or 69 inches (1 inch from the mean) than they are to be either 64 or 82 inches (4 inches from the mean).</p>
+<p>The process described above describes what is known as a <em>normal distribution</em>, colloquially referred to as a “bell curve.” There are a number of properties that together characterize a normal distribution</p>
+<ol style="list-style-type: decimal">
+<li>There are two parameters for the normal distribution, the mean <span class="math inline">\(\mu\)</span> (pronounced “myu”) and the variance <span class="math inline">\(\sigma^2\)</span> (“sigma squared”)</li>
+<li><span class="math inline">\(\mu\)</span> is the mean, or expected value, and represents the most probable value of the distribution. That is, observations from a normal distribution are more likely to be close to <span class="math inline">\(\mu\)</span> than away from it</li>
+<li>Observations are equally likely to be the same magnitude above <span class="math inline">\(\mu\)</span> as they are below it. In other words, the distribution is centered around <span class="math inline">\(\mu\)</span>. We see this concept expressed in everyday language when we offer estimates of some value: “The cost is ‘x,’ plus or minus ‘y’”</li>
+<li>The second parameter, <span class="math inline">\(\sigma^2\)</span>, describes how concentrated values are around the mean. The smaller the value of <span class="math inline">\(\sigma^2\)</span>, the more observations that will be close to <span class="math inline">\(\mu\)</span>. Likewise, larger values of <span class="math inline">\(\sigma^2\)</span> result in higher dispersion, or more values further away from <span class="math inline">\(\mu\)</span>.</li>
+</ol>
+<p>Notationally, if a random variable <span class="math inline">\(X\)</span> follows a normal distribution with mean <span class="math inline">\(\mu\)</span> and variance <span class="math inline">\(\sigma^2\)</span>, we write <span class="math inline">\(X \sim N(\mu, \sigma^2)\)</span>. A special case of this that will be explored in following chapters is known as a <em>standard normal distribution</em>, which arises when the mean value is <span class="math inline">\(\mu = 0\)</span>, and the variances is <span class="math inline">\(\sigma^2 = 1\)</span>. This distribution is often written with its own letter <span class="math inline">\(Z\)</span>, as in <span class="math inline">\(Z \sim N(0, 1)\)</span>.</p>
+<p>Another critical difference between a continuous and discrete random variable is the way in which we determine probability. In the discrete case, we could enumerate all of the events and determine their relative frequency. Alternatively, we could run a simulation and simply count how often each outcome occurred. In the continuous case, however, there is no finite set of possibilities (i.e., somebody could be 68" tall, 68.1" tall, 68.01", …), and any attempts to enumerate these will only terminate in frustration; we will determine the implications of this below. In the meantime, however, we will rejoice in knowing that a normal distribution can be mathematically represented by it’s probability function:</p>
+<p><span class="math display">\[
+f(x) = \frac{1}{\sqrt{2\pi \sigma^2}} \ e^{- \frac{(x-\mu)^2}{2\sigma^2}}
+\]</span>
+As we can see, the pdf contains both of the distribution parameters, <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\sigma^2\)</span>. As we saw at the beginning of the chapter, different values for these parameters gives us different curves:</p>
+<p><img src="introTextbookTemplate_files/figure-html/unnamed-chunk-17-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>Of particular interest above, notice how the value of <span class="math inline">\(\mu\)</span> changes where the data are aggregated, and similarly, note how larger values of <span class="math inline">\(\sigma^2\)</span> results in a greater amount of dispersion.</p>
+<p>Let’s now return to the issue of determining the probability of a particular event. In the discrete case, we saw that we could examine the plot of the pmf and multiply the width of each bin (which was equal to 1), with the height of the bin, given by the pmf While the pdf here does indeed give us the “height,” we quickly run into an issue when considering the width: the only way we can have an “infinite” number of bins for each outcome is to assign each bin a width of 0. As such, the probability of any particular event is unintuitively assigned a probability of zero.</p>
+<p>This apparent shortcoming can thankfully be remedied with the tools of calculus. Where discrete observations allow us to take a sum, the analogous case for continuous intervals is satisfied by the use of the integral. As it no longer makes sense to consider the probability of specific events (all of which will be zero), we instead consider the probability that an observation falls within a <em>range</em> of events. For example, if we have a random variable with <span class="math inline">\(X \sim N(\mu, \sigma^2)\)</span>, the probability that <span class="math inline">\(X &gt; 3\)</span> can be written</p>
+<p><span class="math display">\[
+P(X &gt; 3) = \int_3^{\infty} \frac{1}{\sqrt{2\pi \sigma^2}} \ e^{- \frac{(x-\mu)^2}{2\sigma^2}} \ dx
+\]</span>
+Similarly, if we were curious to know the probability that <span class="math inline">\(X\)</span> was between a range of values, say <span class="math inline">\(2 &lt; X &lt; 5\)</span>, we would write</p>
+<p><span class="math display">\[
+P(2 &lt; X &lt; 5) = \int_2^{5} \frac{1}{\sqrt{2\pi \sigma^2}} \ e^{- \frac{(x-\mu)^2}{2\sigma^2}} \ dx
+\]</span>
+Fortunately for us today, this no longer need be computed by hand. A number of computational resources are able to compute this for us with minimal effort.</p>
+<p>[Using app below, explore different parameter values. Use slider to select a range of probabilities. Note that the area of interest is highlighted. Do exercises with it]</p>
+<iframe src="https://ph-ivshiny.iowa.uiowa.edu/collin/textbook/distribution/normal/" width="100%" height="800">
+</iframe>
+<div class="definition-container">
+<div class="definition">
+<span id="def:unlabeled-div-11" class="definition"><strong>Definition 3.2  </strong></span> 
+</div>
+<p><strong>Binomial Distribution: </strong> <em> A discrete distribution in which there are two possible outcomes, “events” and “non-events.” There parameters are <span class="math inline">\(n\)</span>, which dictate the number of trials, and <span class="math inline">\(p\)</span>, determining the probability of an event </em></p>
+<p><strong>Normal Distribution: </strong> <em> A continuous distribution with two parameters that is symmetric about a mean value, <span class="math inline">\(\mu\)</span>, with a variance <span class="math inline">\(\sigma^2\)</span>. Many real world processes follow a normal distribution. </em></p>
+<p><strong>Standard Normal Distribution: </strong> <em> A special case of the normal distribution, <span class="math inline">\(Z \sim N(0, 1)\)</span> </em></p>
+<p><strong>Probability Mass Function: </strong> <em> A probability function used for discrete random variables. The probability of outcomes is given as a sum </em></p>
+<p><strong>Probability Distribution Function: </strong> <em> A probability function used for continuous random variables. The probabilities of outcomes are taken over a range, given as an integral. </em></p>
+</div>
+</div>
+<div id="other-common-distributions" class="section level2" number="3.5">
+<h2><span class="header-section-number">3.5</span> Other Common Distributions</h2>
+<p>Having examined in detail both discrete and properties distributions, demonstrated with the binomial and normal distributions, respectively, we consider below a brief overview of other common distributions and their properites.</p>
+<div id="poisson-distribution" class="section level3" number="3.5.1">
+<h3><span class="header-section-number">3.5.1</span> Poisson Distribution</h3>
+<p>The Poisson distribution, like the binomial, is a <em>discrete</em> distribution, in that it concerns itself with count data. Specifically, a Poisson distribution describes the number of independent events that may occur within a fixed interval of time. For example, we may be interested in the number of cars that pass through a busy intersection from noon to 1pm every day, or the number of major floods that occur in an area every 100 years. Perhaps the most famous example of the Poisson distribution comes courtesy of Ladislaus Bortkiewicz, a Russian statistician who, in 1898, showed that the number of Prussian soldiers killed by being kicked by a horse in a twenty year period followed a Poisson distribution (also child suicides, but that’s less fun).</p>
+<p>The Poisson distribution has a single parameter, <span class="math inline">\(\lambda\)</span>, which describes the rate at which events occur, and a random variable following a Poisson distribution may be expressed as <span class="math inline">\(X \sim Pois(\lambda)\)</span> (People who write <span class="math inline">\(X \sim Po(\lambda)\)</span> are heathens). A random variable following a Poisson distribution has the following assumptions:</p>
+<ol style="list-style-type: decimal">
+<li>The value of <span class="math inline">\(X\)</span>, being a count, can be any non-negative integer, i.e., <span class="math inline">\(0, 1, 2, \dots\)</span> with no upper bound</li>
+<li>The occurrence of one event in a time interval is independent of another event. One soldier being kicked by a horse has no impact on the probability of another solider being kicked by a horse.</li>
+<li><span class="math inline">\(\lambda\)</span>, which may be any number greater than <span class="math inline">\(0\)</span>, describes the rate at which events occur</li>
+<li>[Two events cannot occur at the exact same time, though they probably don’t need this]</li>
+</ol>
+<p>The distribution function of a Poisson random variable with rate <span class="math inline">\(\lambda\)</span> can be expressed</p>
+<p><span class="math display">\[
+P(X = x) = \frac{\lambda^x e^{-\lambda}}{x!}
+\]</span>
+One surprisingly detail about the Poisson distribution is the relationship between the mean and the variance. For both, we have that <span class="math inline">\(E(X) = Var(X) = \lambda\)</span>.</p>
+<div id="plots-for-poisson" class="section level4" number="3.5.1.1">
+<h4><span class="header-section-number">3.5.1.1</span> Plots for Poisson</h4>
+<p>As we look at the plot for the Poisson, we will notice one aspect in particular that distinguishes it from the plots of both the binomial and normal distributions: it is no longer symmetric. This is a consequence of the range of values that a Poisson random variable can take on. Whereas a binomial random variable was bounded between <span class="math inline">\(0\)</span> and <span class="math inline">\(n\)</span>, the number of trials conducted, and where the normal distribution allowed any real number, the Poisson is bounded below by <span class="math inline">\(0\)</span>, while having no theoretical upper bound. Given below is a plot of the distribution with <span class="math inline">\(\lambda = 2\)</span> and <span class="math inline">\(\lambda = 4\)</span> (it’s obvious here that choosing a specific value is inadequate. We can replace these plots with distribution exploration apps)</p>
+<p><img src="introTextbookTemplate_files/figure-html/unnamed-chunk-18-1.png" width="960" style="display: block; margin: auto;" /></p>
+<p>Just as with the binomial distribution, we can determine the probability of an event or collection of events by determining the area of the bars in our plot. Below is an interactive app to do stuff. Exercises</p>
+<iframe src="https://ph-ivshiny.iowa.uiowa.edu/collin/textbook/distribution/poisson/" width="100%" height="800">
+</iframe>
+
+</div>
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="ch4.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="ch6.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
