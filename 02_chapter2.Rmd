@@ -24,6 +24,7 @@ library(gridExtra)
 library(kableExtra)
 library(scales)
 library(truncnorm)
+library(pBrackets)
 
 
 theme_set(theme_bw())
@@ -308,6 +309,12 @@ September 1973. Let's look at the first 10 rows of the data:
 data("airquality")
 aq <- airquality[,-which(colnames(airquality) %in% c('Solar.R'))]
 aq <- aq[,c('Month', 'Day', 'Temp', 'Wind', 'Ozone')]
+
+# fill in missing values of Ozone using imputation
+imputeOzone <- lm(Ozone ~ Temp + I(Temp^2) + Day + Wind, data = aq)
+missingOzone <- which(is.na(aq$Ozone))
+aq$Ozone[missingOzone] <- round(predict(imputeOzone, newdata = aq[missingOzone,]))
+
 kable(head(aq, 10), align = 'c')
 ```
 
@@ -402,12 +409,12 @@ popular methods to describe the center of a distribution:
 - Median
 
 The **mean** is the most commonly used measure of the center of a distribution. 
-Simply enough, the mean can be found by taking the sum of all of the observations,
+Simply enough, the mean is found by taking the sum of all of the observations,
 and dividing by the total number. With $n$ observations, $x_1, x_2, ..., x_n$, 
-we can express the mean mathematically in the following way:
+we can express the mean, denoted as $\bar{x}$ (x-bar), mathematically in the following way:
 
 $$
-\frac{x_1 + x_2 + \dots + x_n}{n} = \frac1n \sum_{i=1}^n x_i
+\bar{x} = \frac{x_1 + x_2 + \dots + x_n}{n} = \frac1n \sum_{i=1}^n x_i
 $$
 The **median** is another common measure of the center of a distribution. In 
 particular, for a set of observations, the median is an observed value that is 
@@ -423,8 +430,8 @@ Examples:
 - $1, 2, 2, 3, {\color{red} 5}, 7, 9, 10, 11 \quad \Rightarrow \quad \text{Median} = 5$
 - $1,2,2,3, {\color{red} 5}, {\color{red} 6}, 7, 9, 10, 11, \quad \Rightarrow \quad \text{Median} = \frac{(5+6)}{2} = 5.5$
 
-For the New York temperature data, the mean is `r round(mean(aq$Temp), 1)` and 
-the median is `r round(median(aq$Temp), 1)`. These values are very similar to 
+For the New York temperature data, the mean is `r round(mean(aq$Temp), 1)` $^{\circ}$F and 
+the median is `r round(median(aq$Temp), 1)` $^{\circ}$F. These values are very similar to 
 each other and fall near the peak in the histogram.
 
 ```{r}
@@ -478,7 +485,7 @@ bimodal <- c(rtruncnorm(7500, a=0, b=1, mean=.2, sd=.1),
 
 histCol <- 'plum1'
 lineCols <- c('grey20', 'grey20')
-ltys <- c(5, 3)
+ltys <- c(2, 3)
 
 par(mfrow= c(2, 2))
 hist(x1, col = histCol, 
@@ -497,7 +504,7 @@ hist(x3, col = histCol,
      main = 'Unimodal and Skewed Left', xlab = '', 
      ylab = '', axes = F)
 abline(v = mean(x3), col = lineCols[1], lwd = 2, lty = ltys[1])
-abline(v = median(x3), col = lineCols[2], lwd = 2, lty = ltys[2])
+abline(v = median(x3)+0.04, col = lineCols[2], lwd = 2, lty = ltys[2])
 
 hist(bimodal, col = histCol, 
      main = 'Bimodal', xlab = '', 
@@ -516,8 +523,320 @@ However, when there is skew or multiple peaks, we see the mean and median start
 to differ. When the distribution is skewed, the mean is pulled towards the tail. 
 On the other hand, the number of very large/small observations is relatively small,
 so the median remains closer to the peak where the majority of data lies. When
-the distribution is bimodal, neither the mean or median can capture the distribution
-well. In that case, it might be better to summarize each peak individually.
+the distribution is bimodal, neither the mean or median can summarize the distribution
+well. In that case, it might be better to characterize the center of each peak individually.
+
+
+In addition to measuring the center of the distribution, we are also interested
+in the *spread* or *dispersion* of the data. Two distributions could have the
+same mean and median, but that does not guarantee that they have the same shape.
+For example, consider the two distributions of data shown below. Each distribution
+represents a sample of 1,000 observations with mean of 100.
+
+```{r, echo = FALSE}
+n <- 1e3
+set.seed(69)
+x1 <- rnorm(n, mean = 100, sd = 15)
+x2 <- rnorm(n, mean = 100, sd = 30)
+brks <- seq(-10, 210, by = 10)
+ylims <- c(0, 300)
+
+par(mfrow = c(1, 2))
+aa <- hist(x1, main = "Data 1", breaks = brks, 
+           ylim = ylims, col = 'aquamarine3',
+           xlab = '')
+bb <- hist(x2, main = "Data 2", breaks = brks, 
+           ylim = ylims, col = 'darkmagenta',
+           xlab = '')
+```
+
+From the histograms above, we visually confirm that both data distributions 
+have peaks centered around 100. Despite this, these data are not quite as similar 
+as one might have thought. For the data on the left, nearly all of the values
+fall in the range of (50, 150), while for the second distribution, this range 
+appears to be closer to (0, 200). We know each set of data contains the same 
+number of observations, but the first distribution is much more concentrated around
+the mean. On the other hand, the second distribution is much flatter and more 
+spread out. In order to more accurately capture these differences, we need a 
+second numerical summary which describes the degree of spread or variability in 
+each set of data. There are several measures which are commonly used for this 
+purpose:
+
+- Variance
+- Standard deviation
+- Interquartile Range (IQR)
+
+The **variance** and the **standard deviation** are numerical summaries which 
+quantify how spread out the distribution is around its mean. This is done by 
+calculating how far away each observation is from the mean, squaring that difference,
+and then taking an average over all observations. For a sample of $n$ observations
+$x_1, x_2, ..., x_n$,  the variance, denoted by $s^2$, is calculated as:
+
+
+$$
+s^2 = \frac{1}{n-1} \sum_{i=1}^n (x_i - \bar{x})^2
+$$
+
+The standard deviation, denoted by $s$, is a function of the variance. 
+Specifically, it is the square root of the variance $s = \sqrt{s^2}$. Because the
+variance uses the squared differences between each observation and the mean, its
+units are the square of the units of the original data. For example, the
+New York temperature measurements have a mean of 77.9 $^{\circ}$F and a variance 
+of 89.6 $^{\circ}$F$^2$. The standard deviation takes the square root, which puts
+the units back on the original scale. For the temperature data, the standard 
+deviation is 9.5 $^{\circ}$F. Because of this, the standard deviation is often
+preferred as a measure of spread over the variance, although if you know the variance
+you can compute the standard deviation (by taking the square root) and vice versa.
+
+<div class="exercise"> Exercises </div>
+<div class="exercise-container">
+
+The applet below is designed to help illustrate the properties of the mean and 
+standard deviation. You can vary the mean between -10 and 10 and the standard 
+deviation between 1 and 20. The histogram on the right displays the unimodal and
+symmetric distribution of data with the specified mean and standard deviation.
+
+<iframe src="https://ph-ivshiny.iowa.uiowa.edu/ceward/textbook/shinyApps/meanVar/" width = "100%" height = "800"> 
+</iframe>
+
+<ol>
+
+  <li> Set the standard deviation to 8 and use the slider to vary the mean of the 
+  distribution. What properties of the histogram change as the mean is varied? 
+  What stays the same? </li>
+
+  <li> Now, set the mean to 0 and vary the standard deviation. What properties of 
+  the histogram change as the standard deviation is varied? What stays the same? </li>
+  
+  <li> Let's examine more closely how the standard deviation affects the distribution
+  of data. Keep the mean at 0, and set the standard deviation to 4, 8, 12, 16, 
+  and 20. 
+    <ol style="list-style-type: lower-alpha;">
+      <li> For each standard deviation, fill out the following table with the 
+    approximate minimum and maximum values of the data. </li>
+    <table style="width:70%; "text-align:center" class="center">
+      <tr>
+        <th style="text-align:center">Standard deviation</th>
+        <th>Minimum and maximum</th>
+      </tr>
+      <tr>
+        <td style="text-align:center">4</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td style="text-align:center">8</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td style="text-align:center">12</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td style="text-align:center">16</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td style="text-align:center">20</td>
+        <td></td>
+      </tr>
+    </table>
+    <li> What do you notice about the relationship between the standard deviation
+        and the minimum/maximum values observed in the data? Is there any noticeable
+        pattern in your table?</li>
+    </ol>
+  </li>
+</ol>
+</div>
+
+
+The variance and standard deviation measure the spread of the data around the mean.
+Therefore, these summaries should only be used when the mean is chosen to reflect the data.
+We learned previously that the mean is a good measure of the center of data that 
+has a unimodal and symmetric distribution, but when the distribution is skewed, 
+the median is more accurate. In general, when data is skewed and not accurately
+summarized with the mean and standard deviation, we often turn to 
+**percentile**-based summaries. Formally, the $p$th percentile is a value $V_p$ such that
+
+- $p\%$ of observations are below $V_p$
+- $(100 - p)\%$ of observations are greater than $V_p$
+
+More informally, percentiles quantify where observations fall, relative to all 
+the other observations in the data. 
+
+Suppose, that we are looking for the $20$th percentile of the (already sorted)
+sample below. The 20th percentile will be the number such that it is greater 
+than or equal to 20% of the data, but smaller than the remaining 80%. 
+
+$$
+2,\ 3,\ 5,\ 5\ ,\ 6 ,\ 7,\ 10,\ 23,\ 26,\ 28.
+$$
+
+For this sample of 10 observations, the $20$th percentile would be 3, as 20% of 
+the observations $\{2, \ 3\}$ are less than or equal to it, while the remaining 
+80%, $\{5,\ 5\ ,\ 6 ,\ 7,\ 10,\ 23,\ 26,\ 28 \}$ are greater than it. 
+
+As you can imagine, this definition can get a little complicated when we have 
+small sample sizes or tied values. With 10 observations, it is straightforward to
+discuss percentiles that are multiples of 10 (e.g., 10th, 20th, etc.), but what 
+about the 28th percentile? Additionally, in our sample there are two observations
+with the value 5. Does this mean 5 is the 30th percentile or the 40th? There are
+a number of different methods for defining and calculating percentiles in these 
+more complicated cases, but for the intent of this book, we will focus more on 
+the conceptual interpretation of the percentile, rather than it's precise definition. 
+
+
+There are a number of specific percentiles that are especially useful to us.
+For example, we have already seen the median, which can also be referred to as 
+the $50$th percentile of a dataset. In addition to the median, we are also often
+interested in determining the $25$th and $75$th percentile as well. These three 
+percentiles make up the *quartiles* of the data, denoted
+
+$$
+\begin{align*}
+Q_1 &= 25^{th} \text{ percentile} = 1^{st} \text{ or lower quartile} \\
+Q_2 &= 50^{th} \text{ percentile} = 2^{nd} \text{quartile or median} \\
+Q_3 &= 75^{th} \text{ percentile} = 3^{rd} \text{ or upper quartile}
+\end{align*}
+$$
+We know the median $M$, is the value such that 50% of observations are less than 
+it and 50% are greater than it. $Q_1$ can be said to represent the median of the 
+smaller 50% of all observations, while $Q_3$ can be said to be the median of 
+larger 50%. In other words, 25% of thedata is below $Q_1$, 25% of the data is 
+between $Q_1$ and $M$, 25% of the data is between $M$ and $Q_3$, and the 
+remaining 25% of the data is larger than $Q_3$.
+
+A commonly used percentile-based measure of spread is the **interquartile range (IQR)**,
+defined as 
+
+$$\text{IRQ} = Q_3 - Q_1$$ 
+
+Because it is the difference between the upper and lower quartile, it represents
+the distance covering the middle 50% of the data. We may also report the range 
+as an interval as $(Q_1, Q_3)$. For the New York temperature data, $Q_1 = 72$, $Q_3 = 85$, and the 
+median is 79. The IQR is therefore $85 - 72 = 13$ and tells us that 50% of the days
+between May and September had temperatures between 72$^{\circ}$F and 85$^{\circ}$F.
+
+```{r}
+hist(aq$Temp, main = 'Histogram of Maximum Daily Temperature at La Guardia',
+     xlab = 'Temperature (degrees F)', ylab = 'Count',
+     col = 'salmon1', ylim = c(0, 40))
+abline(v = quantile(aq$Temp, probs = 0.25), lty = 3, lwd = 3)
+abline(v = median(aq$Temp), lty = 3, lwd = 3)
+abline(v = quantile(aq$Temp, probs = 0.75), lty = 3, lwd = 3)
+text(69, 30, 'Q1 = 72')
+text(76.5, 37, 'M = 79')
+text(88, 34, 'Q3 = 85')
+```
+
+The IQR is not impacted by the presence of outliers, so it is considered a robust
+measure of the spread of the data. As mentioned previously, the standard deviation
+is based on the mean. Since the mean is not a robust summary, neither is the 
+standard deviation. This tells us that for unimodal and symmetric data, the choice
+between the mean/standard deviation and the median/IQR is only a matter of personal
+preference. However, when the data is skewed or has large outliers, robust summaries
+are preferred, meaning that the median/IQR will be a better representation of the data.
+
+Percentiles are also used to create another common visual representation of 
+continuous data: the **boxplot**, also known as a **box-and-whisker plot**. A 
+boxplot consist of the following elements:
+
+- A box, indicating the Interquartile Range (IQR), bounded by the values $Q_1$ and $Q_3$
+- The median, or $Q_2$, represented by the line drawn within the box
+- The "whiskers", extending out of the box, which can be defined in a number of 
+  ways. Commonly, the whiskers are 1.5 times the length of the IQR from either 
+  $Q_1$ or $Q_3$.
+- Outliers, presented as small circles or dots, and are values in the data that
+  are not present within the bounds set by either the box or whiskers.
+
+
+```{r, fig.width=7.5}
+set.seed(1234)
+x <- rt(100,df = 6)
+m <- median(x)
+q1 <- quantile(x, probs = 0.25)
+q3 <- quantile(x, probs = 0.75)
+minx <- min(x)
+maxx <- max(x)
+iqrx <- q3-q1
+
+boxplot(x, horizontal = T, ylim = c(-3.1, 3.1), pch = 16, 
+        col = 'tomato', outcol="blue", cex = 1.2)
+text(m, 0.6, 'Median')
+arrows(m, 0.65, m, 0.78, length = 0.1, angle = 30)
+
+text(q1, 0.6, 'Q1')
+arrows(q1, 0.65, q1, 0.78, length = 0.1, angle = 30)
+
+text(q3, 0.6, 'Q3')
+arrows(q3, 0.65, q3, 0.78, length = 0.1, angle = 30)
+
+
+brackets(q1, 1.22, q3, 1.22, h = 0.05, ticks = q3-m, curvature = 0.4, type = 1)
+text(m, 1.38, 'Interquartile range\n(IQR)')
+
+text(minx, 1.2, 'Outliers')
+arrows(minx, 1.15, minx, 1.05, length = 0.1, angle = 30)
+
+text(maxx, 1.2, 'Outliers')
+arrows(maxx, 1.15, maxx, 1.05, length = 0.1, angle = 30)
+
+text(q1 - 1.5*iqrx + 0.2, 0.82, '(Q1 - 1.5 * IQR)')
+text(q3 + 1.5*iqrx - 0.3, 0.82, '(Q3 + 1.5 * IQR)')
+```
+
+
+Just like histograms, boxplots can also illustrate the skew of a data. In a 
+histogram, the skewed was named after the location of the tail and in a boxplot,
+this corresponds to the side with a longer whisker. Here we can see histograms
+and boxplots for various distributions of data. 
+
+```{r}
+set.seed(2)
+x1 <- rbeta(10000,5,5)
+x2 <- rbeta(10000,2,5)
+x3 <- rbeta(10000,5,2)
+bimodal <- c(rtruncnorm(7500, a=0, b=1, mean=.2, sd=.1),
+                 rtruncnorm(4000, a=0, b=1, mean=.75, sd=.1))
+
+histCol <- 'plum1'
+
+layout(matrix(c(1, 2, 5, 6, 3, 4, 7, 8), ncol = 2),  height = c(1,3, 1, 3))
+
+# unimodal and symmetric
+
+par(mar=c(0, 3.1, 1.1, 2.1))
+boxplot(x1 , horizontal=TRUE,  xaxt="n" , col=histCol, frame=F, pch = 16)
+par(mar=c(4, 3.1, 1.1, 2.1))
+hist(x1 , col = histCol, 
+     main = 'Unimodal and Symmetric', xlab = '', 
+     ylab = '', axes = F, border = F)
+
+# Unimodal and Skewed Right
+par(mar=c(0, 3.1, 1.1, 2.1))
+boxplot(x2 , horizontal=TRUE,  xaxt="n" , col=histCol, frame=F, pch = 16)
+par(mar=c(4, 3.1, 1.1, 2.1))
+hist(x2 , col = histCol, 
+     main = 'Unimodal and Skewed Right', xlab = '', 
+     ylab = '', axes = F, border = F)
+
+# Unimodal and Skewed Left
+par(mar=c(0, 3.1, 1.1, 2.1))
+boxplot(x3 , horizontal=TRUE,  xaxt="n" , col=histCol, frame=F, pch = 16)
+par(mar=c(4, 3.1, 1.1, 2.1))
+hist(x3 , col = histCol, 
+     main = 'Unimodal and Skewed Left', xlab = '', 
+     ylab = '', axes = F, border = F)
+
+
+# Bimodal
+par(mar=c(0, 3.1, 1.1, 2.1))
+boxplot(bimodal , horizontal=TRUE,  xaxt="n" , col=histCol, frame=F, pch = 16)
+par(mar=c(4, 3.1, 1.1, 2.1))
+hist(bimodal , col = histCol, 
+     main = 'Bimodal', xlab = '', 
+     ylab = '', axes = F, border = F)
+
+```
 
 
 <div class="definition-container">
@@ -540,211 +859,120 @@ well. In that case, it might be better to summarize each peak individually.
 **Skewed left: ** <em> Characterization of a distribution with a large tail to 
   the left of the peak</em>
   
-**Mean: ** <em> </em>
+**Mean: ** <em> The average value, denoted $\bar{x}$ and computed as the sum of the observations divided by the number of obervations </em>
 
-**Median: ** <em> </em>
+**Median: ** <em> The middle value or 50th percentile, the value such that half the observations lie below it and half above </em>
 
-**Mode: ** <em> </em>
-
-**Outlier: ** <em> </em>
+**Outlier: ** <em> Extreme observations that fall far away from the rest of the data</em>
 
 **Robust: ** <em> Measures that are not sensitive to outliers </em>
+
+**Variance: ** <em> The average of the squared differences between each data value and the mean, denoted $s^2$ </em>
+
+**Standard deviation: ** <em> The square root of the variance, denoted $s$ </em>
+
+**Interquartile range (IQR): ** <em> The middle 50% of the data, the difference between the upper and lower quartiles</em>
+
+**Boxplot/box-and-whisker plot: ** <em> Visualization of continuous data which is based on percentiles </em>
 </div>
 
 
+## Advanced Data Visualizations {#ch2_s4}
 
-[[Do we need discussion on mode? Skipping for now]]
-
-
-### Measures of Spread
-This is just getting these on paper. Serious reorganization needs to occur
-
-Suppose that we have two datasets, each with 1,000 observations, and each with both a common mean and median of 100:
-
-```{r, echo = FALSE}
-n <- 1e3
-set.seed(69)
-x1 <- rnorm(n, mean = 100, sd = 10)
-x2 <- rnorm(n, mean = 100, sd = 25)
-par(mfrow = c(1, 2))
-aa <- hist(x1, main = "Dataset 1", breaks = seq(-25, 200, by = 5), ylim = c(0, 210))
-abline(v = mean(x1), col = 'blue')
-abline(v = median(x1), col = 'green')
-bb <- hist(x2, main = "Dataset 2", breaks = seq(-25, 200, by = 5), ylim = c(0, 210))
-abline(v = mean(x2), col = 'blue')
-abline(v = median(x2), col = 'green')
-```
-
-
-From the histograms above, we visually confirm that both datasets have a mean and median of 100. Despite this, however, it would appear as if these datasets are not quite as similar as one might have thought
-
-- First, we see that for the first dataset, nearly all of the values fall in the range of (50, 150), while for the second dataset, this range appears to be closer to (0, 200)
-
-- Recalling that each dataset has the same number of observations, it appears as if the first dataset has nearly twice as many observations near the mean value of 100 than the second dataset
-
-Suppose, then, you are approached by a researcher who wants to select a single observation from each dataset at random, and you are asked to anticipate what value that observation will have. Without having seen them, the best guess you can offer is our measure of center, which is 100. From which dataset do you suspect the random observation will have a value closer to 100? Which do you suspect will be further away?
-
-What we are observing here is two datasets with a common center that have different *spread* or *dispersion*.
-
-Next to the center, this is the second most important piece of information informing us on the shape of our data. Roughly speaking, the spread of the data informs us of the degree to which our observations tend to lie close to the center or scattered away from it. Just as we have multiple ways to determine the center of a dataset, so we have several methods for quantifying the variability of the data. These numeric summaries are known as *Measures of Dispersion*. Measures that we will investigate here include
-
-- Variance
-- Standard deviation
-- Range
-- Interquartile Range (IQR)
-
-##### Variance and Standard Deviation
-
-In mathematical terms, we describe the **variance** of a dataset to be *the average of the squared differences between each data value and the sample mean*. The **standard deviation** is defined as the *square root of the variance*. 
-
-[[something something clever way of inuiting what variance is]]
-[[https://assessingpsyche.wordpress.com/2014/07/10/two-visualizations-for-explaining-variance-explained/]]
-
-
-As before, consider a population with $N$ observations denoted as 
-
-$$ 
-x_1, x_2, \dots, x_N
-$$
-To tie into our definition, note that $(x_i - \mu)$ represents the difference between an observation and the population mean, while $(x_i - \mu)^2$ represents the squared difference. The **population variance**, defined as the average of these squared differences, is denoted as $\sigma^2$, where
-
-$$
-\sigma^2 = \frac{1}{N} \sum_{i=1}^N (x_i - \mu)^2
-$$
-
-The **population standard deviation**, being the square root of the population variance, is denoted $\sigma = \sqrt{\sigma^2}$.
-
-Like our measure for the mean, we can have both a population variance, as well as a **sample variance**. That is, suppose we have a sample of $n < N$ observations, 
-
-$$
-x_1, x_2, \dots, x_n
-$$
-The sample variance, denoted $s^2$, is nearly identical to the population variance, with the exception of the fact that we now subtract the sample mean, rather than the population mean
-
-$$
-s^2 = \frac{1}{n-1} \sum_{i=1}^n (x_i - \bar{x})^2
-$$
-Similarly, the **sample standard deviation** is written as the square root, $s = \sqrt{s^2}$. A few things to be on the lookout for:
-
-- See that the sample variance finds the average by multiplying by $\frac{1}{n-1}$ rather than $\frac1n$. This is because there is no God, and ironically, the world is doomed to end in eternal darkness after being engulfed by our only source of light, the sun
-
-- Be extra careful when finding standard deviations. It is the *square root* of the sum, rather than the square root of terms inside of the sum. that is, 
-
-$$
-\sigma = \sqrt{\frac{1}{N} \sum_{i=1}^N (x_i - \mu)^2} \not= \frac{1}{N} \sum_{i=1}^N \sqrt{(x_i - \mu)^2} = \ ?? \ _{_{(\text{mean absolute deviation})}}
-$$
-[[Maybe we should describe high level properties of sd/var before their formulas]]
-
-As we are discussing measures of "spread", it is important to consider the point in our data about which the observations are dispersed. In examining the mathematical definitions of both variance and standard deviation, we see that this point is the mean, as indicated by the $(x_i - \mu)$ term within the expression. Somewhat implicit in this definition [[why?]], we assume that the observations fall symmetrically on both sides of the mean. It is this assumption that gives informative value to expressions like $\bar{x} \pm s$, which implies that an observation is just as likely to be in the interval $(\bar{x} - s)$ as it is in $(\bar{x}+ s)$. I bet a visual would be nice here. Another fun fact to be worked in here is that sd > 0, and only equal zero when all observations are  equal to the mean. This might be a good place to start? If, for example, we assume each $x_i = \bar{x}$, then we can see simultaneously how there is no variation in our data AND how this would result in zero in the expressions above. Also, SD is not robust.
-
-[[shiny app showing sd/var with symmetric/nonsymmetric and with and without outliers?]]
-
-[[appendix entry for difference and use between sd/var]]
-
-Just as we had multiple methods for determining the center of a dataset, we have multiple ways with which to determine the spread of our data. The simplest method of spread, the **range**, gives us the difference between the largest and smallest values in the data, computed simply as 
-
-$$
-\text{maximum value} - \text{minimum value}
-$$
-We may also report the range as an interval. That is, we may say that all of our observations fall in the interval $(\text{min val}, \ \text{max val})$.
-
-The range, however, should be used with care; a single outlier in either maximum or minimum direction can give a false sense of spread for our observations. [[example]]. In other words, the range is not robust.
-
-[[Introduce quartiles, percentiles, etc.]] <- this is actually done later in text. I will put it down there and we can rearrange things later. Man, this chapter is tricky
-
-As an alternative to the range, which determines the difference between the largest and smallest values, we also have the **interquartile range (IQR)**, which determines the differnce between the 75th percentile (third quartile, Q~3~) and the 25th percentile (first quartile, Q~1~), i.e., 
-
-$$
-\text{IQR} = \text{Q}_3 - \text{Q}_1
-$$
-
-In other words, the IQR is the length of the interval containing the middle 50% of observations, where the smallest 25% and largest 25% are not included. As this helps protect against a handful of outliers in either direction, we have that the IQR is a robust measure of spread. [[Not sure how to nicely tie in here, but good place to note that the median is also included in this (and in fact is the center of it).]]
-
-[[May be interesting to show to histograms of data and their summaries. For one, use mean and sd, for others, use median and IQR. Compare and contrast]]
-
-### Percentiles and Quartiles
-
-As the data that we can collect can come in a variety of different shapes and sizes, it is important that we use tools and definitions that will mean the same thing, regardless of what the data is, or where it comes from. Often, it is useful to know how large or small an observation is, relative to all of the others. We might say, for example, "Captain Public Health is the fourth tallest person in the class." Notice how this can mean one thing if Captain Public Health is in a class of 500 students, but something entirely different were he in a class of only 5.
-
-A useful way around this is to use a concept known as a **percentile**, which allows us to determine where in a dataset an observation would fall relative to all other values. More precisely, the $p$th percentile is a value $V_p$ such that
-
-- $p\%$ of observations are below $V_p$
-- $(100 - p)\%$ of observations are greater than $V_p$
-
-
-[[chose to use 20 instead of ten, since I think it allows us to "see" observations on the other side of the percentile. If we chose 10, there would be nothing to the left of it]]
-
-Suppose, for example that we are looking for the $20$th percentile of a dataset, which we denote $V_{20}$. This will be the number such that it is greater than or equal to 20% of the data, but smaller than the remaining 80%. If our sample data consisted of ten observations, 
-
-$$
-2,\ 3,\ 5,\ 5\ ,\ 6 ,\ 7,\ 10,\ 23,\ 26,\ 28.
-$$
-Then the $20$th percentile would be $V_{20} = 3$, as 20% of the observations $\{2, \ 3\}$ are less than or equal to it, while the remaining 80%, $\{5,\ 5\ ,\ 6 ,\ 7,\ 10,\ 23,\ 26,\ 28 \}$ are greater than it. 
-
-There are, however, a few difficulties that may arise with this definition. The largest of these are
-
-- The sample size is too small
-- There may be tied values
-- The percentiles may not be unique 
-
-For example, what if we had been asked to find the $20$th percentile of an altered version of the dataset above, where 3 is repeated several times?
-
-$$
-2,\ 3,\ {\color{red} 3},\ {\color{red} 3}\ ,\ 6 ,\ 7,\ 10,\ 23,\ 26,\ 28.
-$$
-There are a number of different methods for defining and calculating percentiles in these cases, but for the intent of this course, we will focus more on the interpretation of the percentile, rather than it's definition. 
-
-There are a number of specific percentiles that are especially useful to us. For example, we have already seen the median, which can also be referred to as the $50$th percentile of a dataset. In addition to the median, we are also often interested in determining the $25$th and $75$th percentile as well. These three percentiles make up the **quartiles** of the data, denoted
-
-$$
-\begin{align*}
-Q_1 &= 25^{th} \text{ percentile} = 1^{st} \text{ or lower quartile} \\
-Q_2 &= 50^{th} \text{ percentile} = 2^{nd} \text{quartile or median} \\
-Q_3 &= 75^{th} \text{ percentile} = 3^{rd} \text{ or upper quartile}
-\end{align*}
-$$
-Here is a helpful thing to note: suppose that we begin with the median $M$, such that 50% of observations are less than this value and 50% are greater than it. $Q_1$ can be said to represent the median of the smaller 50% of all observations, while $Q_3$ can be said to be the median of larger 50%. With some effort, I can maybe find a way to articulate this better. 
-
-It is the difference between the upper and lower quartile that we define as the interquartile range, or $\text{IRQ} = Q_3 - Q_1$.
-
-[[Thinking about box plots here, used to depict information on skewness, percentiles, outliers, etc. It might be good to lead this chapter with all of the different characteristics we might want to know about (i.e., including center, spread, etc)]]
-
-[[Numeric example with UI salaries]]
-
-While it is common to report the mean and standard deviation as a two-number summary of continuous data, as we have seen in this chapter, neither of these measures are robust to extreme observations or outliers. An alternative approach, known as a five-number summary, makes use of the percentiles of the data, consisting of: (1) the minimum, (2) the first quartile, (3) the median, (4) the third quartile, (5) and the maximum.
-
-In addition to the numerical presentation of the five-number summary, we can also present important percentiles with the use of a plot. The **box plot**, also known as a **box-and-whisker plot**, is one such visual summary. In addition to information regarding the quartiles, the box plot also depicts information about skewness and the presence of outliers. 
-
-
-[[reproduce plot from slides, which was nicely labeled]]
-
-In general, we can expect a box plot to consist of the following elements:
-
-- A box, indicating the Interquartile Range (IQR), bounded by the values $Q_1$ and $Q_3$
-- The median, or $Q_2$, represented by the line drawn within the IQR
-- The "whiskers", extending out of the box, which can be defined in a number of ways. In the plot above, the length of the whiskers is determined to be 1.5 times the length of the IQR from either $Q_1$ or $Q_3$. Variations may include (but are not limited to) the minimum and maximum of the data, the length of one standard deviation above and below the mean (not median) of the data, or pre-specified percentiles in addition to those given by $Q_1, \ Q_2, \ \text{and} \ Q_3$.
-- Outliers. These are typically presented as small circles or dots, and are values in the data that are not present within the bounds set by either the box or whiskers.
-
-Box plots also allow us to determine if the distribution of the data is skewed or symmetric. We say a distribution is **symmetric** if the left side of the box plot is identical to the right, mirrored around the median. We say that a distribution is **skewed left** if the majority of the area of the box plot is on the right, and the area gradually trails off on the left. Finally, we say that a distribution is **skewed right** if the majority of the area for the box is on the left, gradually tailing to the right. 
-
-[[Depending on how this is used in the course, I almost prefer positive and negative skew because this shit is confusing. Sort of how f(x - c) is a right shift of the plot compared to f(x)]]
-
-[[Wait, do those definitions above match what is presented in the slides for the box plots on the next page?]]
-
-
-[[Introduce questions to guide learning. i.e., where is median, is this skewed, are there outliers, etc]]
-
-[[ Box plots to compare multiple distributions]]
-
-[[Data presentation in the wild + common errors]]
-
-[[review]]
-
+As we saw in the last section, histograms and boxplots are useful when describing the distribution of one continuous measurement. What if we have both categorical and continuous measurements or multiple continuous measurements? Let's return to the New York air quality data:
 
 ```{r}
-plot(aq$Ozone, aq$Temp, pch = 16)
+kable(head(aq, 10), align = 'c')
 ```
 
+One thing we might be interested in is the distribution of temperatures in each month. Month can be considered an ordinal categorical variable, and temperature is continuous. When we want to see the distribution of a continuous variable across multiple categories, we can look at side-by-side boxplots.
+
+```{r}
+aq$monthName <- month.abb[aq$Month]
+boxplot(aq$Temp~ aq$Month, 
+        xlab = 'Month', ylab = 'Temperature (degrees Fahrenheit)',
+        main = 'Maximum Daily Temperature at La Guardia by Month',
+        xaxt = 'n',pch = 16, col = rainbow(5))
+axis(1, at=1:5, labels=month.abb[5:9])
+```
+
+By putting all of the boxplots next to each other with the same temperature range,
+we can quickly detect trends and differences in temperature in the five months.
+Median temperature peaks in July/August and is lowest in May. Temperatures in
+May and September are more variable, whereas the range of temperatures in July is
+less spread out. There is some overlap between all of these boxplots, which means 
+that although July and August have higher temperatures more often, there are days
+in the other months that are just as hot or days in July that are cooler.
+
+Now, let's consider the case where we have two continuous variables. Our first
+step may be to look at the distribution of each variable separately. For example,
+we can visualize the distribution of both temperature and ozone in the New York
+air quality data, using histograms or boxplots.
+
+```{r, fig.height=8, fig.width=7}
+par(mfrow = c(2, 1))
+hist(aq$Temp, main = 'Histogram of Maximum Daily Temperature at La Guardia',
+     xlab = 'Temperature (degrees F)', ylab = 'Count',
+     col = 'salmon1')
+
+hist(aq$Ozone, main = 'Histogram of Mean Ozone at Roosevelt Island',
+     xlab = 'Ozone (ppm)', ylab = 'Count',
+     col = 'steelblue2')
+```
+
+While temperature is unimodal and symmetric in distribution, the ozone concentration
+measurements are skewed right. These plots are useful, but do not provide any 
+information about the relationship between temperature and ozone concentration, 
+which may be highly related. 
+
+To look at the relationship between two continuous variables, a common 
+visualization is the **scatter plot**. A scatter
+plot is a two-dimensional plot of data pairs. One variable is represented on the
+**x-axis**, which is the horizontal range of the plot. The other variable is 
+represented on the **y-axis** which is the vertical range of the plot. Each dot 
+on a scatterplot represent one observation. In the plot below, we have put
+the mean ozone on the x-axis and temperature on the y-axis. Each dot represents 
+one day between May and September. For example, on August 25th, the maximum 
+temperature was 81 $^\circ$F, and the mean ozone concentration was 168ppm. This
+day is colored red on the scatter plot.
+
+```{r}
+aq$col <- as.numeric(aq$Ozone > 150)
+plot(aq$Ozone, aq$Temp, pch = 16,
+     xlab = 'Ozone (ppm)', ylab = 'Temperature (degrees Fahrenheit)',
+     main = 'Mean Ozone vs Maximum Daily Temperature',
+     col = c('black', 'red')[aq$col + 1])
+```
+
+We see that there is a relationship between ozone concentration and temperature.
+Higher temperatures tend to occur simultaneously with higher ozone concentrations, 
+and lower temperatures tend to occur simultaneously with lower ozone concentrations.
+The scatter plot is able to illustrate an important relationship that wouldn't be
+detectable just by looking at histograms of each variable separately.
+
+We may further describe our data by including a third categorical variable. In our
+scatter plot of ozone and temperature, we could also color the points by the month
+on which they occurred.
+
+```{r}
+plot(aq$Ozone, aq$Temp, pch = 16,
+     xlab = 'Ozone (ppm)', ylab = 'Temperature (degrees Fahrenheit)',
+     main = 'Mean Ozone vs Maximum Daily Temperature',
+     col =  rainbow(5)[aq$Month - 4])
+legend('bottomright', month.abb[5:9],
+       col = rainbow(5), pch = 16)
+```
+
+
+<div class="definition-container">
+<div class="definition"> &nbsp; </div>
+**Scatter plot: ** <em> Visualization of two continuous measures which uses dots 
+  to represent each data pair</em>
+  
+**x-axis: ** <em> The horizontal axis of a two-dimensional plot</em>
+  
+**y-axis: ** <em> The vertical axis of a two-dimensional plot</em>
+</div>
 
 
 

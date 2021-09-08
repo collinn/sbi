@@ -121,9 +121,9 @@ This is exactly what happens when scientists conduct a research study. If they w
 
 
 
-## Stuff lifted that used to be in ch2 (may or may not be useful still?)
+## Data summaries dump
 
-## Outline
+### Outline
 
 - Introduction
 - Summaries (this maybe unnecessary?)
@@ -143,7 +143,7 @@ This is exactly what happens when scientists conduct a research study. If they w
 Headers in this document need a LOT of work
 
 
-## Summaries
+### Summaries
 
 Before getting into some of the summaries themselves, it will be helpful to ask, "What does it mean to summarize our data?" By analogy, we may consider the process of summarizing a chapter from a book. While a reader will surely know every minute detail there is to know by reading the chapter themselves, the most salient aspects can be recovered by recounting the list of characters and major events. So it is with data that often 
 
@@ -246,8 +246,6 @@ Numbers designed to reflect the center of a dataset are called *Measures of Cent
   
 Before moving onto these in detail, let's take a moment for a brief review of Summation Notation (((Would be cool to have a div element for "Review" or "Btw". We could also include an appendix where all of this is explained in more detail that they can click to visit, with an actual "quick review" done here)))
 
------
-
 [[Probably ought to start with N then move to n]]
 
 In general, we will let lowercase $n$ represent the total number of observations that we have collected. We can express these observations as 
@@ -262,8 +260,6 @@ $$
 x_1 + x_2 + \dots + x_n = \sum_{i=1}^n x_i
 $$
 On the right hand side, note that the value of $x$ has a subscript $x_i$, while the Sigma notation has $i=1$ on the bottom and $n$ on the top. This is to indicate that we are to go through each value of $i = 1, 2, \dots, n$, for each value of $x_i$. In other words, where we might say $x_1$ is the first observation, we would say that $x_i$ is the $i$th observation. This is convenient when we want to describe any $x$ value, but it is not important which one we choose. 
-
------
 
 [[Yeah, but what do we mean by 'center' of a distribution?]]
 
@@ -286,6 +282,14 @@ In general, we have that $\bar{x} \approx \mu$, with this approximation being be
 
 
 
+As the data that we can collect can come in a variety of different shapes and 
+sizes, it is important that we use tools and definitions that will mean the same
+thing, regardless of what the data is, or where it comes from. Often, it is 
+useful to know how large or small an observation is, relative to all of the others.
+We might say, for example, "Captain Public Health is the fourth tallest person 
+in the class." Notice how this can mean one thing if Captain Public Health is 
+in a class of 500 students, but something entirely different were he in a class 
+of only 5.
 
 
 
@@ -294,10 +298,7 @@ In general, we have that $\bar{x} \approx \mu$, with this approximation being be
 
 
 
-## Chapter 4 dump
-
-
-## Understanding Randomness { #ch16_s1}
+## Probability dump
 
 If statistics is the science of uncertainty, then probability is the mechanism that allows us to quantify our uncertainty. In other words, probability tells us how likely something is to happen. People talk loosely about probability all the time. For example, "what's the chance of rain tomorrow?" or "how likely is it that drug A is better than drug B?" However, for scientific purposes, we need to be more specific in terms of defining and using probabilities. 
 
@@ -462,12 +463,12 @@ Now let users play with a similar app illustrating coin flips (or something) and
 ## Shiny test
 
 
-## Regular UI
+### Regular UI
 <!-- frameBorder="0" -->
 <iframe src="https://ph-ivshiny.iowa.uiowa.edu/collin/textbook/confidenceIntervals/" width = "800" height = "750"> 
 </iframe>
 
-## Editing text
+### Editing text
 
 ```diff
 Here are some things that were written that seem fine
@@ -485,7 +486,7 @@ But the actual code above looks like this
     ```
 
 
-## Idea
+### Idea
 
 Not sure where else to write this - for running a simulation at home. Consider heating a pan, throwing on 10 corn kernels, and figuring out how many have popped after certain number of time. Pretend 3 minutes is 50%. Well, have them do ten for 3 minutes, then count how many popped. Repeat.
 
@@ -519,7 +520,7 @@ $$
 </div>
 
 
-## Chapter 5 dump (probability distributions)
+## Probability distributions dump 
 
 
 <div class="objective-container">
@@ -531,7 +532,7 @@ $$
 
 In the previous chapter, we introduced the idea of random processes, which are situations where the outcome can not be determined perfectly in advance. We encounter random processes all the time in our lives, from the exact amount of time it takes to get to class from your home, to determining the winner of a football game. In any case, the random process is defined in terms of the *collection of possible events* and their *associated probabilities*. While the number of unique outcomes of a random process may be impossible to count, we will find that many of them have a very similar underlying structure dictating how these events occur. Formally recognizing the properties of these structures, as well as understanding how they can be used to make predictions, motivates the goals of this chapter. 
 
-## Introduction to Probability Distributions 
+### Introduction to Probability Distributions 
 
 Most simply, a **probability distribution** (often just called a distribution) is a method for taking a possible event as input, and giving us the corresponding probability as output. The corresponding probability tells us how likely it is that the specific event will occur, out of all of the possible events. A helpful metaphor is to consider a machine that produces these events at random frequencies corresponding to their associated probabilities. That is, if our machine only creates green marbles and red marbles, and the probability of producing a green marble is 75%, then *on average*, our machine will make 3 green marbles for each red one. In this sense, we can think of distributions as "data generating mechanisms" - the distributions govern how the machine which generates data works. 
 
@@ -561,7 +562,7 @@ As we can see, these two curves are quite similar, and indeed, the underlying pr
 
 </div>
 
-## Flipping Coins
+### Flipping Coins
 
 In the previous chapter, we examined the possible events and associated probabilities with flipping a fair coin three times. In particular, we noted the collection of possible events was given by 
 
@@ -584,7 +585,7 @@ $$ X \sim Bin(n, p)$$
 
 or, "the random variable $X$ follows a binomial distribution with $n = 3$ and probability of event $p = 0.5$". Our coin flipping example would then be expressed as $X \sim Bin(n = 3, p = 0.5)$, where $X$ is our experiment.
 
-## Functional Representation of Probability Distributions
+### Functional Representation of Probability Distributions
 
 We turn our attention now to the practical problem of determining how we might relate the idea of a probability distribution to determine the actual probabilities of given outcomes. From our definition above, we see that at a minimum, all we need is a method to assign a probability to a given event; within these bounds, we have a number of options available. 
 
@@ -678,7 +679,7 @@ If, say, we are interested in the probability that $X = 2$ or $X = 3$, we can ad
 
 [Include binomial app here. See that clicking bars adds to something. Explain changing settings, clicking bars, selecting different things. Come up with exercises below, i.e., prob that even if n = 8, prob if even n = 4, etc.]
 
-## Measuring Heights
+### Measuring Heights
 
 Often, our data will not fit nicely into a finite number of discrete categories, leaving us with *continuous data* that are described with a *probability distribution function*, or *pdf*. As our data does not fit neatly into categorical bins, many of the techniques described above will not work in the same way here. Rest assured, the idea is exactly the same. While we will spare the technical details here, interested readers may consider what follows to be analogous to the cases presented above when the number of "bins" becomes infinite. 
 
@@ -746,7 +747,7 @@ Fortunately for us today, this no longer need be computed by hand. A number of c
 
 </div>
 
-## Other Common Distributions
+### Other Common Distributions
 
 Having examined in detail both discrete and properties distributions, demonstrated with the binomial and normal distributions, respectively, we consider below a brief overview of other common distributions and their properites. 
 
@@ -789,4 +790,10 @@ Just as with the binomial distribution, we can determine the probability of an e
 
 <iframe src="https://ph-ivshiny.iowa.uiowa.edu/collin/textbook/distribution/poisson/" width = "100%" height = "800"> 
 </iframe>
+
+
+
+## Regression dump
+
+[[https://assessingpsyche.wordpress.com/2014/07/10/two-visualizations-for-explaining-variance-explained/]]
 

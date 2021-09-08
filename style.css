@@ -136,4 +136,9 @@ div.equation {
     background-image: url("images/thinkaboutit.png")
 }
 
+table.center {
+    margin-left:auto; 
+    margin-right:auto;
+  }
+
 .book .book-body .page-wrapper .page-inner{max-width:1000px;margin:0 auto;padding:20px 0 40px}
