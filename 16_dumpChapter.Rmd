@@ -298,6 +298,81 @@ of only 5.
 
 
 
+
+## Study design dump
+
+
+
+[[We have a scientific question, as well as statistical question, and each of these is subtly different from what we will call hypothesis in context of statistics. Should iron out how we want to use these words]]
+
+As mentioned in Chapter 1, statistics is the science that allows us to provide objective, evidenced-based answers to questions that we have about the world. Doing this effectively is tantamount to correctly establishing our inquiry within the statistical framework. Inquiry in hand, we now go about answering the three basic questions in statistics:
+
+1) How should I collect my data?  
+2) How should I describe and summarize the data I've collected?
+3) What does my data tell me about the way the world works?  
+
+The goal of this chapter is to address the first of these questions. Formally, **study design** is the process of identifying a relevant population, collecting a representative sample, and asking our question in such a way that the answer of this little question will ultimately give us insight to the *scientific question* at hand. Aside: for example, if we are looking at polio vaccine, our science question may be something sciency like "does this vaccine prevent polio" but that has to be translated to the *statistical question*, akin to "is the incidence of polio in control group statistically different than that of the treatment group." Maybe we should say something more about this translation process, but I don't know enough about regular science to do so. 
+
+
+## Designing the Study
+
+Mentioned above, the primary goal of statistics is to ultimately provide an answer to a scientific question. Before this can be done, we need to begin by translating the *scientific* question into a *statistical* one. 
+
+The first step of this is to idenfity the collection of individuals about whom the question is asked. For example, when considering questions about the long-term effects of smoking, we will want to limit our investigation to only those people who smoke. For any scientific question that we may ask, the group of individuals we are inquiring about is known as the **population**.
+
+It is often impractical to be able to study every single individual in a population. Instead, we concern ourselves with collecting a **random sample** of the population, chosen in such a way that the random sample is *representative* of the population from which it was collected. By representative, we mean that anything that we can learn about the random sample will very likely also be true about the entire population (of course, we can never be *entirely* certain unless we ask each individual within a population, in which case we are no longer doing statistics).
+
+Sample in hand, we now proceed to the process of *asking* the question. In particular, we want to be confident that we are answering the question that we are intending to ask. Often in medical studies and biostatistics, we concern ourselves with evaluating a new treatment or therapy, and the question is, "Is this treatment effective *within our population of interest*?" This further begs the question: "effective *within our population of interest*, relative to what?" Frequently, the only meaningful way to answer this is to compare treatment or therapy to *something else*. 
+
+For our puposes, this *something else* will be members of the population who have not been exposed to the treatment or therapy. This natural dichotomy suggets two groups into which we may divide our random sample:
+
+1. The **treatment group**, representing the portion of our sample who receives the treatment or therapy
+2. The **control group**, representing the portion of our sample who is not treated. This group makes up the *something else* to which we will compare
+
+Just as our sample was collected randomly as to be sure that it was representative of the population, care is needed to be sure that subjects in our sample are **randomly assigned** to either the treatment group or the control. This is critical to be sure that the makeup of each group continues to be representative of the population at large. 
+
+[[maybe only briefly introduce here, then go into more detail in the bias section]]
+
+Having ensured that we have collected a sample that is representative of the population and randomly assigned subjects in this sample to either a treatment or control group, we are well on our way to conducting a successful study. There is, however, one more variable that we need to account for: human psychology. In particular, there are two ways in which human bias (define bias before) can affect the outcome of an experiment:
+
+1. The first issue is with subject bias. Subject bias can result from stuff
+2. also experimenter bias
+
+We can effectively control for each of these by concealing from both subjects and experimenters whether subjects were assigned to either the treatment or control group through a process known as **blinding**. something something placebo effect.
+
+Taken together, these procedures help ensure that we are correctly asking the question that we intend to ask. However, as we will see in the next section, there are a number of ways in which [things can still go wrong (havent' introduced bias formally yet)].
+
+
+[[Illustration?]]  Population -> Sample -> (Treatment, Control) -> experiment 
+
+<div class="definition-container">
+<div class="definition"> Definitions </div>
+**Population: ** <em> The collection of individuals or objects about which the scientific question is addressed. </em>
+
+**Random Sample: ** <em> A collection of individuals or objects selected at random from a population in such a way that the sample is *representative* of the population </em>
+
+**Treatment Group: ** <em> The portion of our sample who receives the treatment or therapy </em>
+
+**Control Group: ** <em> The portion of our sample who is not treated, used as our baseline comparison </em>
+
+**Random Assignment: ** <em> The process by which members of our sample are randomly assigned to either a treatment or control group </em>
+
+**Double Blind: ** <em> A procedure whereby neither the subject or researcher knows the treatment status of the subject </em>
+
+**Placebo: ** <em> A form of treatment or therapy that is designed to mimic treatment while having no therapeutic value, i.e., sugar pills </em>
+
+</div>
+
+
+  
+## Bias
+
+What is bias? Like many terms in statistics, the concept of bias has meaning that is not what we mean, etc.,. For our purposes here, we define bias to be any process or technique whereby the actual outcome is systematically different from the true value(s) for which it is intended to estimate. [[words]]
+
+In the context of this textbook, there are primarily two sources of bias, each of which has various types/flavors. The first type of bias is known as **sampling bias**, which describes the various ways in which our collected sample is *not* representative of the population from which it was sampled. The second type, known as **study design bias**, is concerned with the ways in which the study itself can bias the answer to the question we are trying to ask.
+
+
+
 ## Probability dump
 
 If statistics is the science of uncertainty, then probability is the mechanism that allows us to quantify our uncertainty. In other words, probability tells us how likely something is to happen. People talk loosely about probability all the time. For example, "what's the chance of rain tomorrow?" or "how likely is it that drug A is better than drug B?" However, for scientific purposes, we need to be more specific in terms of defining and using probabilities. 

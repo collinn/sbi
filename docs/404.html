@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Page not found | An Intuitive, Interactive, Introduction to Biostatistics</title>
   <meta name="description" content="First template!" />
-  <meta name="generator" content="bookdown 0.23 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Page not found | An Intuitive, Interactive, Introduction to Biostatistics" />
   <meta property="og:type" content="book" />
@@ -32,8 +32,9 @@
   
 
 
-<script src="libs/header-attrs-2.10/header-attrs.js"></script>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -41,7 +42,6 @@
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
-
 
 
 
@@ -94,13 +94,18 @@
 </ul></li>
 <li class="chapter" data-level="3" data-path="ch3.html"><a href="ch3.html"><i class="fa fa-check"></i><b>3</b> Study Design</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="ch3.html"><a href="ch3.html#designing-the-study"><i class="fa fa-check"></i><b>3.1</b> Designing the Study</a></li>
-<li class="chapter" data-level="3.2" data-path="ch3.html"><a href="ch3.html#bias"><i class="fa fa-check"></i><b>3.2</b> Bias</a>
+<li class="chapter" data-level="3.1" data-path="ch3.html"><a href="ch3.html#ch3_s1"><i class="fa fa-check"></i><b>3.1</b> Importance of Study Design</a></li>
+<li class="chapter" data-level="3.2" data-path="ch3.html"><a href="ch3.html#ch3_s2"><i class="fa fa-check"></i><b>3.2</b> Sampling Bias</a>
 <ul>
-<li class="chapter" data-level="3.2.1" data-path="ch3.html"><a href="ch3.html#sampling-bias"><i class="fa fa-check"></i><b>3.2.1</b> Sampling Bias</a></li>
-<li class="chapter" data-level="3.2.2" data-path="ch3.html"><a href="ch3.html#study-design-bias"><i class="fa fa-check"></i><b>3.2.2</b> Study Design Bias</a></li>
+<li class="chapter" data-level="3.2.1" data-path="ch3.html"><a href="ch3.html#ch3_s2_ss1"><i class="fa fa-check"></i><b>3.2.1</b> Selection Bias</a></li>
+<li class="chapter" data-level="3.2.2" data-path="ch3.html"><a href="ch3.html#ch3_s2_ss2"><i class="fa fa-check"></i><b>3.2.2</b> Non-response Bias</a></li>
 </ul></li>
-<li class="chapter" data-level="3.3" data-path="ch3.html"><a href="ch3.html#review"><i class="fa fa-check"></i><b>3.3</b> Review</a></li>
+<li class="chapter" data-level="3.3" data-path="ch3.html"><a href="ch3.html#ch3_s3"><i class="fa fa-check"></i><b>3.3</b> Study Design Bias</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="ch3.html"><a href="ch3.html#ch3_s3_ss1"><i class="fa fa-check"></i><b>3.3.1</b> Extrapolation Bias</a></li>
+<li class="chapter" data-level="3.3.2" data-path="ch3.html"><a href="ch3.html#ch3_s3_ss3"><i class="fa fa-check"></i><b>3.3.2</b> Maybe cognitive bias? placebo stuff?</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="ch3.html"><a href="ch3.html#review"><i class="fa fa-check"></i><b>3.4</b> Review</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="ch4.html"><a href="ch4.html"><i class="fa fa-check"></i><b>4</b> Introduction to Probability and Simulation</a>
 <ul>
@@ -174,7 +179,6 @@ the table of contents to find the page you are looking for.</p>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -215,7 +219,7 @@ gitbook.start({
 },
 "download": null,
 "search": {
-"engine": "lunr",
+"engine": "fuse",
 "options": null
 },
 "toc": {

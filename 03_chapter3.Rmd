@@ -8,15 +8,108 @@ output: html_document
 >
 > --- J. D. Petruccelli
 
-[[We have a scientific question, as well as statistical question, and each of these is subtly different from what we will call hypothesis in context of statistics. Should iron out how we want to use these words]]
+<div class="objective-container">
+<div class="objectives"> Learning objectives </div>
+1. Understand how poor study design can bias results
+2. Learn about various sampling biases, such as selection and non-response bias
+3. Be familiar with other types of bias, such as extrapolation and confounding
+4. Know what a randomized controlled double-blind experiment is and why it is the gold standard
+</div>
 
-As mentioned in Chapter 1, statistics is the science that allows us to provide objective, evidenced-based answers to questions that we have about the world. Doing this effectively is tantamount to correctly establishing our inquiry within the statistical framework. Inquiry in hand, we now go about answering the three basic questions in statistics:
+## Importance of Study Design {#ch3_s1}
 
-1) How should I collect my data?  
-2) How should I describe and summarize the data I've collected?
-3) What does my data tell me about the way the world works?  
+In chapter 1, we defined statistics by its ability to quantify our uncertainty
+about a potential outcome, e.g. the effectiveness of a drug. In order for us to 
+effectively do this and make accurate inference, we must remove other sources of 
+uncertainty. This is accomplished via high-quality study design and execution.
+Despite statisticians best efforts, fancy statistical methods cannot save a poorly 
+designed study. However, a well-designed study can make the statistics much simpler
+and put researchers in the best position to answer their research questions and
+advance science.
 
-The goal of this chapter is to address the first of these questions. Formally, **study design** is the process of identifying a relevant population, collecting a representative sample, and asking our question in such a way that the answer of this little question will ultimately give us insight to the *scientific question* at hand. Aside: for example, if we are looking at polio vaccine, our science question may be something sciency like "does this vaccine prevent polio" but that has to be translated to the *statistical question*, akin to "is the incidence of polio in control group statistically different than that of the treatment group." Maybe we should say something more about this translation process, but I don't know enough about regular science to do so. 
+As a critical piece of the statistical framework, **study design** is the process that
+allows us to collect data on the best sample from the population to achieve our research goals.
+There are many types of study designs with various strengths and limitations. 
+The entirety of the science of study design couldn't possible be covered in a 
+single chapter of an introductory statistics textbook, instead we will focus on
+some of the main considerations when designing a study, as well as the common
+ways study design can go wrong and the statistical implications.
+
+```{tikz statFramework2, fig.cap = "Statistical Framework", fig.ext = 'png', echo = F}
+\usetikzlibrary{decorations.pathreplacing,positioning, arrows, shapes, calc,shapes.multipart}
+\tikzstyle{block1} = [rectangle, draw, fill=yellow!20, 
+    text width=10em, text centered, rounded corners, minimum height=6em]
+\tikzstyle{block2} = [rectangle, draw, fill=yellow!20, 
+    text width=5em, text centered, rounded corners, minimum height=3em]
+\tikzset{
+    %Define standard arrow tip
+    >=stealth,
+    % Define arrow style
+    pil/.style={
+           ->,
+           thick,
+           shorten <=2pt,
+           shorten >=2pt,}
+}
+\tikzstyle{line} = [draw, -latex]
+\begin{tikzpicture}[node distance = 3cm, auto]
+            % Place nodes
+            \node [block1] (pop) {Population};
+            \node [block2, below of=pop] (samp) {Sample};
+            
+            % Draw edges
+            \draw[->, >=latex, shorten >=2pt, shorten <=2pt, bend right=45, thick]  (pop.west) to node[auto, swap] {Study Design}(samp.west);
+            \draw[->, >=latex, shorten >=2pt, shorten <=2pt, bend right=45, thick] (samp.east) to node[auto, swap] {Inference}(pop.east); 
+            
+        \end{tikzpicture}
+```
+
+In an ideal world, the study design process might look a little bit like this: 
+
+1. We start with a list of everyone in our population of interest. 
+2. Each person in this population is equally easy to sample, and the cost of sampling everyone is the same
+3. We use our list to randomly select a proportion of individuals in the population who will participate in our study
+4. Everybody sampled is eager to help us with our study, and nobody refuses to participate
+5. The outcome of interest can be accurately measured on each subject and directly answers the research question.
+
+Unfortunately, things are rarely perfect, and this can lead to what we call **bias**.
+In our day to day life, we think about bias as some type of prejudice in favor or against
+a person or group. For example, if you are given two identical cupcakes and are told
+that one was made by a professional chef and the other was not, you may
+think that one cupcake tastes much better than the other one. Scientific or 
+research bias is not all that different. We define bias as the process or technique 
+whereby the actual outcome is systematically different from the true value it 
+is intended to estimate. As an over-the-top example, imagine you were trying to
+estimate the percent of voters that will support the Democrat party in the 
+next election. If you only asked voters who are registered Democrats, you would
+most certainly overestimate the actual percent you are interested in.
+
+Bias can occur at various points during a research study and materialize
+in many forms. The ability to identify bias is a crucial skills for researchers
+to have when designing their own studies as well as evaluating the merit of 
+other studies in the literature. In this chapter, we focus on defining several
+common types of bias, how each type can impact study results, and how they can
+be avoided. This is not meant to be an exhaustive list - if you are interested in
+learning about other types of bias, check out the [Catalogue of Biases](https://catalogofbias.org/biases/).
+
+
+<div class="definition-container">
+<div class="definition"> &nbsp; </div>
+**Study design: ** <em> The process of obtaining the best sample to answer the research questions </em>
+
+**Bias: ** <em> Any process or technique whereby the actual outcome is
+  systematically different from the true value it is intended to estimate </em>
+</div>
+
+
+## Sampling Bias {#ch3_s2}
+
+and the consequence is that we may end up with a sample that is *not* representative of our population. The ways and magnitudes with which these difference exist are known as **sampling biases**. Fortunately, the most common biases occur in rather predictable ways. Broadly speaking, the two most common forms of sampling bias are **selection bias** and **non-response bias**.
+
+
+
+
+In the last chapter, we 
 
 Also, thinking something like the study design process and challenges are
 
@@ -30,63 +123,6 @@ Also, thinking something like the study design process and challenges are
   iii. Diagnostics and Perception bias
   iv. Randomization
 
-  
-## Designing the Study
-
-Mentioned above, the primary goal of statistics is to ultimately provide an answer to a scientific question. Before this can be done, we need to begin by translating the *scientific* question into a *statistical* one. 
-
-The first step of this is to idenfity the collection of individuals about whom the question is asked. For example, when considering questions about the long-term effects of smoking, we will want to limit our investigation to only those people who smoke. For any scientific question that we may ask, the group of individuals we are inquiring about is known as the **population**.
-
-It is often impractical to be able to study every single individual in a population. Instead, we concern ourselves with collecting a **random sample** of the population, chosen in such a way that the random sample is *representative* of the population from which it was collected. By representative, we mean that anything that we can learn about the random sample will very likely also be true about the entire population (of course, we can never be *entirely* certain unless we ask each individual within a population, in which case we are no longer doing statistics).
-
-Sample in hand, we now proceed to the process of *asking* the question. In particular, we want to be confident that we are answering the question that we are intending to ask. Often in medical studies and biostatistics, we concern ourselves with evaluating a new treatment or therapy, and the question is, "Is this treatment effective *within our population of interest*?" This further begs the question: "effective *within our population of interest*, relative to what?" Frequently, the only meaningful way to answer this is to compare treatment or therapy to *something else*. 
-
-For our puposes, this *something else* will be members of the population who have not been exposed to the treatment or therapy. This natural dichotomy suggets two groups into which we may divide our random sample:
-
-1. The **treatment group**, representing the portion of our sample who receives the treatment or therapy
-2. The **control group**, representing the portion of our sample who is not treated. This group makes up the *something else* to which we will compare
-
-Just as our sample was collected randomly as to be sure that it was representative of the population, care is needed to be sure that subjects in our sample are **randomly assigned** to either the treatment group or the control. This is critical to be sure that the makeup of each group continues to be representative of the population at large. 
-
-[[maybe only briefly introduce here, then go into more detail in the bias section]]
-
-Having ensured that we have collected a sample that is representative of the population and randomly assigned subjects in this sample to either a treatment or control group, we are well on our way to conducting a successful study. There is, however, one more variable that we need to account for: human psychology. In particular, there are two ways in which human bias (define bias before) can affect the outcome of an experiment:
-
-1. The first issue is with subject bias. Subject bias can result from stuff
-2. also experimenter bias
-
-We can effectively control for each of these by concealing from both subjects and experimenters whether subjects were assigned to either the treatment or control group through a process known as **blinding**. something something placebo effect.
-
-Taken together, these procedures help ensure that we are correctly asking the question that we intend to ask. However, as we will see in the next section, there are a number of ways in which [things can still go wrong (havent' introduced bias formally yet)].
-
-
-[[Illustration?]]  Population -> Sample -> (Treatment, Control) -> experiment 
-
-<div class="definition-container">
-<div class="definition"> Definitions </div>
-**Population: ** <em> The collection of individuals or objects about which the scientific question is addressed. </em>
-
-**Random Sample: ** <em> A collection of individuals or objects selected at random from a population in such a way that the sample is *representative* of the population </em>
-
-**Treatment Group: ** <em> The portion of our sample who receives the treatment or therapy </em>
-
-**Control Group: ** <em> The portion of our sample who is not treated, used as our baseline comparison </em>
-
-**Random Assignment: ** <em> The process by which members of our sample are randomly assigned to either a treatment or control group </em>
-
-**Double Blind: ** <em> A procedure whereby neither the subject or researcher knows the treatment status of the subject </em>
-
-**Placebo: ** <em> A form of treatment or therapy that is designed to mimic treatment while having no therapeutic value, i.e., sugar pills </em>
-
-</div>
-
-## Bias
-
-What is bias? Like many terms in statistics, the concept of bias has meaning that is not what we mean, etc.,. For our purposes here, we define bias to be any process or technique whereby the actual outcome is systematically different from the true value(s) for which it is intended to estimate. [[words]]
-
-In the context of this textbook, there are primarily two sources of bias, each of which has various types/flavors. The first type of bias is known as **sampling bias**, which describes the various ways in which our collected sample is *not* representative of the population from which it was sampled. The second type, known as **study design bias**, is concerned with the ways in which the study itself can bias the answer to the question we are trying to ask.
-
-### Sampling Bias
 
 Let's begin by considering an ideal world. In such a case, the sampling stage of our study design process might look a little bit like this: 
 
@@ -97,7 +133,7 @@ Let's begin by considering an ideal world. In such a case, the sampling stage of
 
 Unfortunately, things are rarely perfect (with a rare exception being the authors of this textbook), and the consequence is that we may end up with a sample that is *not* representative of our population. The ways and magnitudes with which these difference exist are known as **sampling biases**. Fortunately, the most common biases occur in rather predictable ways. Broadly speaking, the two most common forms of sampling bias are **selection bias** and **non-response bias**.
 
-#### Selection Bias
+### Selection Bias {#ch3_s2_ss1}
 
 Often, a population of interest is not made up of a single homogenous group of individuals, but rather a heterogenous collection of smaller *sub-populations*. For example, if our population of interest was citizens of the United States, we could easily identify a number of sub-populations that make it up. This could include men and women, children and adults, people in rural or urban environments, etc.,. In order for our sample to be representative of the population, caution must be taken to ensure that these sub-populations are taken into account. **Selection bias** is the phenomenon in which this is not what happens.[[transition sentence to next paragraph]]
 
@@ -110,7 +146,7 @@ In conducting it's poll, the *Digest* mailed 10 million questionnaires to addres
 1. Slides mention 10 million surveys and only 2.4 responses, but we don't have any information on the non-response bias other than the fact that some didn't respond.
 2. A similar thing happened in the 1948 election with [Thomas Dewey vs Harry Truman](https://medium.com/@ODSC/dewey-defeats-truman-how-sampling-bias-can-ruin-your-model-f4f67989709e) 
 
-#### Non-response Bias
+### Non-response Bias {#ch3_s2_ss2}
 
 In the previous example, we noted that 10 million questionnaires had been sent out, but only 2.4 million responses were returned. While it would certainly be nice if everybody complied with our requests for information, it is often unrealistic to expect that each inquiry will be returned. In and of itself, this is not a problem. Indeed, so long as non-response is random and the samples collected continue to be representative of the population, our sample population will still be valid. However, what if non-response is not random? In other words, what happens if one sub-group of the population is more likely to respond to a survey than another? More specifically, **non-response bias** is the phenomenon in which willingness to respond to a survey (or selection) is related to the scientific question [[i don't like this paragraph at all]]
 
@@ -118,15 +154,27 @@ In 2017, the University of Iowa conducted the Speak Out Iowa campus climate surv
 
 [[not happy with concluding paragraph either. maybe ask a question, maybe phrase it differently, idk]]
 
-Given that 54% of the total student body idenfies as female, does it seem that our collected sample is representative of the population? In what ways might a student's willingness to respond be related to the outcome of interest? In your opinion, does it appear as if we are dealing with a case of non-response bias?
+Given that 54% of the total student body identifies as female, does it seem that our collected sample is representative of the population? In what ways might a student's willingness to respond be related to the outcome of interest? In your opinion, does it appear as if we are dealing with a case of non-response bias?
 
-### Study Design Bias
+
+<div class="definition-container">
+<div class="definition"> Definitions </div>
+
+**Sampling Bias: ** <em> A type of bias in which the collected sample *is not* representative of the study population </em>
+
+**Selection Bias: ** <em> A type of sampling bias in which subgroups of the population were more likely to be included than others </em>
+
+**Non-response Bias: ** <em> A type of sampling bias in which the probability of being sampled is related to the scientific question. In this case, the sampling is no longer completely random </em>
+
+</div>
+
+## Study Design Bias {#ch3_s3}
 
 [[maybe could also move placebo/observer effect here? even though we mention double blind above. perhaps here we can go into more detail]]
 
 
 
-#### Extrapolation Bias
+### Extrapolation Bias  {#ch3_s3_ss1}
 
 What do we call this section?
 
@@ -138,7 +186,7 @@ By way of example, we consider here the drug propofol, a sedative that has consi
 As we can see, the safety of propofol, which had been consistently demonstrated to be effective in adults, failed to generalize to the wider population, which in this case included children under the age of 16. 
 
 
-#### Confounding
+#### Confounding {#ch3_s3_ss2}
 
 In 1916, a polio epidemic hit the United States, resulting in hundreds of thousands of people, especially children, falling victim to the disease over the next forty years. By the 1950s, several vaccines had been developed. One in particular, developed by Jonas Salk, seemed especially promising based on laboratory studies. In 1954, the Public Health Service organized an experiment to see whether the Salk vaccine would protect children from polio outside of the laboratory. Two million children were selected from the most vulnerable age groups, aged 6 to 9. Of these children, some were vaccinated, some refused treatment, and some were deliberately left unvaccinated.
 
@@ -176,18 +224,10 @@ In a matched study at the individual level, for each subject in the treatment gr
 
 When used at the group level, matching seeks to ensure that the *distributions* of the confounding variables are the same in each group. Consider again the coffee/cancer example, matching at the group level would ensure that a similar proportion of smokers are included in the coffee drinking group as in the non-coffee drinking group.
 
-#### Maybe cognitive bias? placebo stuff?
+### Maybe cognitive bias? placebo stuff? {#ch3_s3_ss3}
 
 <div class="definition-container">
 <div class="definition"> Definitions </div>
-
-**Bias: ** <em> definition </em>
-
-**Sampling Bias: ** <em> A type of bias in which the collected sample *is not* representative of the study population </em>
-
-**Selection Bias: ** <em> A type of sampling bias in which subgroups of the population were more likely to be included than others </em>
-
-**Non-response Bias: ** <em> A type of sampling bias in which the probability of being sampled is related to the scientific question. In this case, the sampling is no longer completely random </em>
 
 **Study Design Bias: ** <em> definition </em>
 

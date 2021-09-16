@@ -1340,7 +1340,7 @@ Q_3 &amp;= 75^{th} \text{ percentile} = 3^{rd} \text{ or upper quartile}
 We know the median <span class="math inline">\(M\)</span>, is the value such that 50% of observations are less than
 it and 50% are greater than it. <span class="math inline">\(Q_1\)</span> can be said to represent the median of the
 smaller 50% of all observations, while <span class="math inline">\(Q_3\)</span> can be said to be the median of
-larger 50%. In other words, 25% of thedata is below <span class="math inline">\(Q_1\)</span>, 25% of the data is
+larger 50%. In other words, 25% of the data is below <span class="math inline">\(Q_1\)</span>, 25% of the data is
 between <span class="math inline">\(Q_1\)</span> and <span class="math inline">\(M\)</span>, 25% of the data is between <span class="math inline">\(M\)</span> and <span class="math inline">\(Q_3\)</span>, and the
 remaining 25% of the data is larger than <span class="math inline">\(Q_3\)</span>.</p>
 <p>A commonly used percentile-based measure of spread is the <strong>interquartile range (IQR)</strong>,
@@ -1404,7 +1404,10 @@ the left of the peak</em></p>
 </div>
 <div id="ch2_s4" class="section level2" number="2.4">
 <h2><span class="header-section-number">2.4</span> Advanced Data Visualizations</h2>
-<p>As we saw in the last section, histograms and boxplots are useful when describing the distribution of one continuous measurement. What if we have both categorical and continuous measurements or multiple continuous measurements? Let’s return to the New York air quality data:</p>
+<p>As we saw in the last section, histograms and boxplots are useful when describing
+the distribution of one continuous measurement. What if we have both categorical
+and continuous measurements or multiple continuous measurements? Let’s return to
+the New York air quality data:</p>
 <table>
 <thead>
 <tr>
@@ -1598,7 +1601,10 @@ Ozone
 </tr>
 </tbody>
 </table>
-<p>One thing we might be interested in is the distribution of temperatures in each month. Month can be considered an ordinal categorical variable, and temperature is continuous. When we want to see the distribution of a continuous variable across multiple categories, we can look at side-by-side boxplots.</p>
+<p>One thing we might be interested in is the distribution of temperatures in each
+month. Month can be considered an ordinal categorical variable, and temperature
+is continuous. When we want to see the distribution of a continuous variable
+across multiple categories, we can look at side-by-side boxplots.</p>
 <p><img src="introTextbookTemplate_files/figure-html/unnamed-chunk-23-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>By putting all of the boxplots next to each other with the same temperature range,
 we can quickly detect trends and differences in temperature in the five months.
@@ -1615,19 +1621,19 @@ air quality data, using histograms or boxplots.</p>
 <p>While temperature is unimodal and symmetric in distribution, the ozone concentration
 measurements are skewed right. These plots are useful, but do not provide any
 information about the relationship between temperature and ozone concentration,
-which may be highly related.</p>
+which we may expect to be related.</p>
 <p>To look at the relationship between two continuous variables, a common
 visualization is the <strong>scatter plot</strong>. A scatter
 plot is a two-dimensional plot of data pairs. One variable is represented on the
 <strong>x-axis</strong>, which is the horizontal range of the plot. The other variable is
 represented on the <strong>y-axis</strong> which is the vertical range of the plot. Each dot
-on a scatterplot represent one observation. In the plot below, we have put
+on a scatter plot represent one observation. In the plot below, we have put
 the mean ozone on the x-axis and temperature on the y-axis. Each dot represents
 one day between May and September. For example, on August 25th, the maximum
 temperature was 81 <span class="math inline">\(^\circ\)</span>F, and the mean ozone concentration was 168ppm. This
 day is colored red on the scatter plot.</p>
 <p><img src="introTextbookTemplate_files/figure-html/unnamed-chunk-25-1.png" width="672" style="display: block; margin: auto;" /></p>
-<p>We see that there is a relationship between ozone concentration and temperature.
+<p>We see that there is a distinct relationship between ozone concentration and temperature.
 Higher temperatures tend to occur simultaneously with higher ozone concentrations,
 and lower temperatures tend to occur simultaneously with lower ozone concentrations.
 The scatter plot is able to illustrate an important relationship that wouldn’t be

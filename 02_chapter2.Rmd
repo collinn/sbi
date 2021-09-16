@@ -701,7 +701,7 @@ $$
 We know the median $M$, is the value such that 50% of observations are less than 
 it and 50% are greater than it. $Q_1$ can be said to represent the median of the 
 smaller 50% of all observations, while $Q_3$ can be said to be the median of 
-larger 50%. In other words, 25% of thedata is below $Q_1$, 25% of the data is 
+larger 50%. In other words, 25% of the data is below $Q_1$, 25% of the data is 
 between $Q_1$ and $M$, 25% of the data is between $M$ and $Q_3$, and the 
 remaining 25% of the data is larger than $Q_3$.
 
@@ -879,13 +879,19 @@ hist(bimodal , col = histCol,
 
 ## Advanced Data Visualizations {#ch2_s4}
 
-As we saw in the last section, histograms and boxplots are useful when describing the distribution of one continuous measurement. What if we have both categorical and continuous measurements or multiple continuous measurements? Let's return to the New York air quality data:
+As we saw in the last section, histograms and boxplots are useful when describing
+the distribution of one continuous measurement. What if we have both categorical 
+and continuous measurements or multiple continuous measurements? Let's return to
+the New York air quality data:
 
 ```{r}
 kable(head(aq, 10), align = 'c')
 ```
 
-One thing we might be interested in is the distribution of temperatures in each month. Month can be considered an ordinal categorical variable, and temperature is continuous. When we want to see the distribution of a continuous variable across multiple categories, we can look at side-by-side boxplots.
+One thing we might be interested in is the distribution of temperatures in each 
+month. Month can be considered an ordinal categorical variable, and temperature
+is continuous. When we want to see the distribution of a continuous variable 
+across multiple categories, we can look at side-by-side boxplots.
 
 ```{r}
 aq$monthName <- month.abb[aq$Month]
@@ -923,14 +929,14 @@ hist(aq$Ozone, main = 'Histogram of Mean Ozone at Roosevelt Island',
 While temperature is unimodal and symmetric in distribution, the ozone concentration
 measurements are skewed right. These plots are useful, but do not provide any 
 information about the relationship between temperature and ozone concentration, 
-which may be highly related. 
+which we may expect to be related. 
 
 To look at the relationship between two continuous variables, a common 
 visualization is the **scatter plot**. A scatter
 plot is a two-dimensional plot of data pairs. One variable is represented on the
 **x-axis**, which is the horizontal range of the plot. The other variable is 
 represented on the **y-axis** which is the vertical range of the plot. Each dot 
-on a scatterplot represent one observation. In the plot below, we have put
+on a scatter plot represent one observation. In the plot below, we have put
 the mean ozone on the x-axis and temperature on the y-axis. Each dot represents 
 one day between May and September. For example, on August 25th, the maximum 
 temperature was 81 $^\circ$F, and the mean ozone concentration was 168ppm. This
@@ -944,7 +950,7 @@ plot(aq$Ozone, aq$Temp, pch = 16,
      col = c('black', 'red')[aq$col + 1])
 ```
 
-We see that there is a relationship between ozone concentration and temperature.
+We see that there is a distinct relationship between ozone concentration and temperature.
 Higher temperatures tend to occur simultaneously with higher ozone concentrations, 
 and lower temperatures tend to occur simultaneously with lower ozone concentrations.
 The scatter plot is able to illustrate an important relationship that wouldn't be
@@ -962,6 +968,19 @@ plot(aq$Ozone, aq$Temp, pch = 16,
 legend('bottomright', month.abb[5:9],
        col = rainbow(5), pch = 16)
 ```
+
+After coloring the points by month, we can see some clusters forming as temperature
+and ozone concentration on days closer together are more likely to be similar. By
+adding information about a third variable, we are able to illustrate more information
+about our data in one figure.
+
+Numerical summaries and graphical visualizations provide us with tools to  
+capture important features of our data. Understanding the distribution and skew
+of a variable help us know the best way to summarize it numerically. Summaries and
+figures can become increasingly complex as they incorporate more variables, but
+these picture can be informative for answering and producing important research
+questions and hypotheses.
+
 
 
 <div class="definition-container">

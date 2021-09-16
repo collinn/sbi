@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>3 Study Design | Seriously Interesting Statistics Textbook</title>
+  <title>3 Study Design | An Intuitive, Interactive, Introduction to Biostatistics</title>
   <meta name="description" content="First template!" />
-  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="3 Study Design | Seriously Interesting Statistics Textbook" />
+  <meta property="og:title" content="3 Study Design | An Intuitive, Interactive, Introduction to Biostatistics" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="ceward/introTextbook" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="3 Study Design | Seriously Interesting Statistics Textbook" />
+  <meta name="twitter:title" content="3 Study Design | An Intuitive, Interactive, Introduction to Biostatistics" />
   
   <meta name="twitter:description" content="First template!" />
   
@@ -32,8 +32,9 @@
   
 <link rel="prev" href="ch2.html"/>
 <link rel="next" href="ch4.html"/>
-<script src="libs/header-attrs-2.6/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -49,82 +50,11 @@
 
 
 
-
-<script src="libs/htmlwidgets-1.5.3/htmlwidgets.js"></script>
-<link href="libs/tippyjs-3.2.0/themes/google.css" rel="stylesheet" />
-<link href="libs/tippyjs-3.2.0/themes/light-border.css" rel="stylesheet" />
-<link href="libs/tippyjs-3.2.0/themes/light.css" rel="stylesheet" />
-<link href="libs/tippyjs-3.2.0/themes/translucent.css" rel="stylesheet" />
-<script src="libs/tippyjs-3.2.0/tippy.all.min.js"></script>
-<script src="libs/tippy-binding-0.1.0/tippy.js"></script>
-<script src="libs/kePrint-0.0.1/kePrint.js"></script>
-<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 
 
-<style type="text/css">
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-</style>
+
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -145,117 +75,74 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="1" data-path="ch1.html"><a href="ch1.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
 <ul>
-<li class="chapter" data-level="1.1" data-path="ch1.html"><a href="ch1.html#ch1_s1"><i class="fa fa-check"></i><b>1.1</b> Evidence-based Research</a></li>
+<li class="chapter" data-level="1.1" data-path="ch1.html"><a href="ch1.html#ch1_s1"><i class="fa fa-check"></i><b>1.1</b> Statistics and Evidence-based Research</a></li>
 <li class="chapter" data-level="1.2" data-path="ch1.html"><a href="ch1.html#ch1_s2"><i class="fa fa-check"></i><b>1.2</b> Scientific Method</a></li>
-<li class="chapter" data-level="1.3" data-path="ch1.html"><a href="ch1.html#ch1_s3"><i class="fa fa-check"></i><b>1.3</b> Introduction to Biostatistics</a></li>
-<li class="chapter" data-level="1.4" data-path="ch1.html"><a href="ch1.html#ch1_s4"><i class="fa fa-check"></i><b>1.4</b> Statistical framework</a></li>
-<li class="chapter" data-level="1.5" data-path="ch1.html"><a href="ch1.html#ch1_s5"><i class="fa fa-check"></i><b>1.5</b> What is a simulation?</a></li>
+<li class="chapter" data-level="1.3" data-path="ch1.html"><a href="ch1.html#ch1_s3"><i class="fa fa-check"></i><b>1.3</b> Statistical framework</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="ch2.html"><a href="ch2.html"><i class="fa fa-check"></i><b>2</b> What is Data?</a>
+<li class="chapter" data-level="2" data-path="ch2.html"><a href="ch2.html"><i class="fa fa-check"></i><b>2</b> Data Summaries and Presentation</a>
 <ul>
-<li class="chapter" data-level="2.1" data-path="ch2.html"><a href="ch2.html#outline"><i class="fa fa-check"></i><b>2.1</b> Outline</a>
+<li class="chapter" data-level="2.1" data-path="ch2.html"><a href="ch2.html#ch2_s1"><i class="fa fa-check"></i><b>2.1</b> Introduction to Data</a></li>
+<li class="chapter" data-level="2.2" data-path="ch2.html"><a href="ch2.html#ch2_s2"><i class="fa fa-check"></i><b>2.2</b> Categorical Data</a>
 <ul>
-<li class="chapter" data-level="2.1.1" data-path="ch2.html"><a href="ch2.html#summaries"><i class="fa fa-check"></i><b>2.1.1</b> Summaries</a></li>
+<li class="chapter" data-level="2.2.1" data-path="ch2.html"><a href="ch2.html#ch2_s2_ss1"><i class="fa fa-check"></i><b>2.2.1</b> Basic Categorical Summaries</a></li>
+<li class="chapter" data-level="2.2.2" data-path="ch2.html"><a href="ch2.html#ch2_s2_ss2"><i class="fa fa-check"></i><b>2.2.2</b> Advanced Categorical Summaries</a></li>
 </ul></li>
-<li class="chapter" data-level="2.2" data-path="ch2.html"><a href="ch2.html#types-of-data"><i class="fa fa-check"></i><b>2.2</b> Types of Data</a></li>
-<li class="chapter" data-level="2.3" data-path="ch2.html"><a href="ch2.html#categorical-data"><i class="fa fa-check"></i><b>2.3</b> Categorical Data</a></li>
-<li class="chapter" data-level="2.4" data-path="ch2.html"><a href="ch2.html#continuous-data"><i class="fa fa-check"></i><b>2.4</b> Continuous data</a>
-<ul>
-<li class="chapter" data-level="2.4.1" data-path="ch2.html"><a href="ch2.html#graphical-summaries"><i class="fa fa-check"></i><b>2.4.1</b> Graphical Summaries</a></li>
-<li class="chapter" data-level="2.4.2" data-path="ch2.html"><a href="ch2.html#numerical-summaries"><i class="fa fa-check"></i><b>2.4.2</b> Numerical Summaries</a></li>
-<li class="chapter" data-level="2.4.3" data-path="ch2.html"><a href="ch2.html#measures-of-spread"><i class="fa fa-check"></i><b>2.4.3</b> Measures of Spread</a></li>
-<li class="chapter" data-level="2.4.4" data-path="ch2.html"><a href="ch2.html#percentiles-and-quartiles"><i class="fa fa-check"></i><b>2.4.4</b> Percentiles and Quartiles</a></li>
-</ul></li>
+<li class="chapter" data-level="2.3" data-path="ch2.html"><a href="ch2.html#ch2_s3"><i class="fa fa-check"></i><b>2.3</b> Continuous Data</a></li>
+<li class="chapter" data-level="2.4" data-path="ch2.html"><a href="ch2.html#ch2_s4"><i class="fa fa-check"></i><b>2.4</b> Advanced Data Visualizations</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="ch3.html"><a href="ch3.html"><i class="fa fa-check"></i><b>3</b> Study Design</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="ch3.html"><a href="ch3.html#all-strawberry-no-rhubarb"><i class="fa fa-check"></i><b>3.1</b> All Strawberry, no Rhubarb</a>
+<li class="chapter" data-level="3.1" data-path="ch3.html"><a href="ch3.html#ch3_s1"><i class="fa fa-check"></i><b>3.1</b> Importance of Study Design</a></li>
+<li class="chapter" data-level="3.2" data-path="ch3.html"><a href="ch3.html#ch3_s2"><i class="fa fa-check"></i><b>3.2</b> Sampling Bias</a>
 <ul>
-<li class="chapter" data-level="3.1.1" data-path="ch3.html"><a href="ch3.html#selection-bias"><i class="fa fa-check"></i><b>3.1.1</b> Selection Bias</a></li>
-<li class="chapter" data-level="3.1.2" data-path="ch3.html"><a href="ch3.html#non-response-bias"><i class="fa fa-check"></i><b>3.1.2</b> Non-response Bias</a></li>
-<li class="chapter" data-level="3.1.3" data-path="ch3.html"><a href="ch3.html#false-generalization-bias-extrapolation-bias"><i class="fa fa-check"></i><b>3.1.3</b> False Generalization Bias / Extrapolation Bias</a></li>
+<li class="chapter" data-level="3.2.1" data-path="ch3.html"><a href="ch3.html#ch3_s2_ss1"><i class="fa fa-check"></i><b>3.2.1</b> Selection Bias</a></li>
+<li class="chapter" data-level="3.2.2" data-path="ch3.html"><a href="ch3.html#ch3_s2_ss2"><i class="fa fa-check"></i><b>3.2.2</b> Non-response Bias</a></li>
 </ul></li>
-<li class="chapter" data-level="3.2" data-path="ch3.html"><a href="ch3.html#asking-the-question"><i class="fa fa-check"></i><b>3.2</b> Asking the Question</a>
+<li class="chapter" data-level="3.3" data-path="ch3.html"><a href="ch3.html#ch3_s3"><i class="fa fa-check"></i><b>3.3</b> Study Design Bias</a>
 <ul>
-<li class="chapter" data-level="3.2.1" data-path="ch3.html"><a href="ch3.html#confounding"><i class="fa fa-check"></i><b>3.2.1</b> Confounding</a></li>
+<li class="chapter" data-level="3.3.1" data-path="ch3.html"><a href="ch3.html#ch3_s3_ss1"><i class="fa fa-check"></i><b>3.3.1</b> Extrapolation Bias</a></li>
+<li class="chapter" data-level="3.3.2" data-path="ch3.html"><a href="ch3.html#ch3_s3_ss3"><i class="fa fa-check"></i><b>3.3.2</b> Maybe cognitive bias? placebo stuff?</a></li>
 </ul></li>
+<li class="chapter" data-level="3.4" data-path="ch3.html"><a href="ch3.html#review"><i class="fa fa-check"></i><b>3.4</b> Review</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="ch4.html"><a href="ch4.html"><i class="fa fa-check"></i><b>4</b> Probability</a>
+<li class="chapter" data-level="4" data-path="ch4.html"><a href="ch4.html"><i class="fa fa-check"></i><b>4</b> Introduction to Probability and Simulation</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="ch4.html"><a href="ch4.html#ch4_s1"><i class="fa fa-check"></i><b>4.1</b> Understanding Randomness</a></li>
-<li class="chapter" data-level="4.2" data-path="ch4.html"><a href="ch4.html#ch4_s2"><i class="fa fa-check"></i><b>4.2</b> Probability Operations</a></li>
-<li class="chapter" data-level="4.3" data-path="ch4.html"><a href="ch4.html#ch4_s3"><i class="fa fa-check"></i><b>4.3</b> Conditional Probability</a></li>
-<li class="chapter" data-level="4.4" data-path="ch4.html"><a href="ch4.html#ch4_s4"><i class="fa fa-check"></i><b>4.4</b> Probabilities from tables (needs a different example)</a></li>
-<li class="chapter" data-level="4.5" data-path="ch4.html"><a href="ch4.html#ch4_s5"><i class="fa fa-check"></i><b>4.5</b> Bayes’ Rule</a></li>
+<li class="chapter" data-level="4.1" data-path="ch4.html"><a href="ch4.html#ch4_s1"><i class="fa fa-check"></i><b>4.1</b> Randomness and Simulation</a></li>
+<li class="chapter" data-level="4.2" data-path="ch4.html"><a href="ch4.html#ch4_s2"><i class="fa fa-check"></i><b>4.2</b> Probability</a></li>
+<li class="chapter" data-level="4.3" data-path="ch4.html"><a href="ch4.html#ch4_s3"><i class="fa fa-check"></i><b>4.3</b> Methods for Computing Probabilities</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="ch5.html"><a href="ch5.html"><i class="fa fa-check"></i><b>5</b> Probability Distributions</a>
+<li class="chapter" data-level="5" data-path="ch5.html"><a href="ch5.html"><i class="fa fa-check"></i><b>5</b> Advanced Probability</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="ch5.html"><a href="ch5.html#introduction-to-probability-distributions"><i class="fa fa-check"></i><b>5.1</b> Introduction to Probability Distributions</a></li>
-<li class="chapter" data-level="5.2" data-path="ch5.html"><a href="ch5.html#flipping-coins"><i class="fa fa-check"></i><b>5.2</b> Flipping Coins</a></li>
-<li class="chapter" data-level="5.3" data-path="ch5.html"><a href="ch5.html#functional-representation-of-probability-distributions"><i class="fa fa-check"></i><b>5.3</b> Functional Representation of Probability Distributions</a>
-<ul>
-<li class="chapter" data-level="5.3.1" data-path="ch5.html"><a href="ch5.html#plotting-the-pmf"><i class="fa fa-check"></i><b>5.3.1</b> Plotting the PMF</a></li>
+<li class="chapter" data-level="5.1" data-path="ch5.html"><a href="ch5.html#ch5_s1"><i class="fa fa-check"></i><b>5.1</b> Probability Operations</a></li>
+<li class="chapter" data-level="5.2" data-path="ch5.html"><a href="ch5.html#ch5_s2"><i class="fa fa-check"></i><b>5.2</b> Conditional Probability</a></li>
+<li class="chapter" data-level="5.3" data-path="ch5.html"><a href="ch5.html#ch5_s4"><i class="fa fa-check"></i><b>5.3</b> Probabilities from tables (needs a different example)</a></li>
+<li class="chapter" data-level="5.4" data-path="ch5.html"><a href="ch5.html#ch5_s5"><i class="fa fa-check"></i><b>5.4</b> Bayes’ Rule</a></li>
 </ul></li>
-<li class="chapter" data-level="5.4" data-path="ch5.html"><a href="ch5.html#measuring-heights"><i class="fa fa-check"></i><b>5.4</b> Measuring Heights</a></li>
-<li class="chapter" data-level="5.5" data-path="ch5.html"><a href="ch5.html#other-common-distributions"><i class="fa fa-check"></i><b>5.5</b> Other Common Distributions</a>
+<li class="chapter" data-level="6" data-path="ch6.html"><a href="ch6.html"><i class="fa fa-check"></i><b>6</b> Probability Distributions</a>
 <ul>
-<li class="chapter" data-level="5.5.1" data-path="ch5.html"><a href="ch5.html#poisson-distribution"><i class="fa fa-check"></i><b>5.5.1</b> Poisson Distribution</a></li>
+<li class="chapter" data-level="6.1" data-path="ch6.html"><a href="ch6.html#introduction-to-probability-distributions"><i class="fa fa-check"></i><b>6.1</b> Introduction to Probability Distributions</a></li>
+<li class="chapter" data-level="6.2" data-path="ch6.html"><a href="ch6.html#binomial-distribution"><i class="fa fa-check"></i><b>6.2</b> Binomial Distribution</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="ch6.html"><a href="ch6.html#plotting-the-pmf-delete"><i class="fa fa-check"></i><b>6.2.1</b> Plotting the PMF (delete?)</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="ch6.html"><a href="ch6.html#normal-distribution"><i class="fa fa-check"></i><b>6.3</b> Normal Distribution</a></li>
+<li class="chapter" data-level="6.4" data-path="ch6.html"><a href="ch6.html#other-common-distributions"><i class="fa fa-check"></i><b>6.4</b> Other Common Distributions</a>
+<ul>
+<li class="chapter" data-level="6.4.1" data-path="ch6.html"><a href="ch6.html#poisson-distribution"><i class="fa fa-check"></i><b>6.4.1</b> Poisson Distribution</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="ch6.html"><a href="ch6.html"><i class="fa fa-check"></i><b>6</b> Sampling Distributions and the <br/> Central Limit Theorem</a>
+<li class="chapter" data-level="7" data-path="ch7.html"><a href="ch7.html"><i class="fa fa-check"></i><b>7</b> Sampling Distributions and the <br/> Central Limit Theorem</a>
 <ul>
-<li class="chapter" data-level="6.1" data-path="ch6.html"><a href="ch6.html#introduction-to-sampling"><i class="fa fa-check"></i><b>6.1</b> Introduction to Sampling</a></li>
-<li class="chapter" data-level="6.2" data-path="ch6.html"><a href="ch6.html#sampling-distributions"><i class="fa fa-check"></i><b>6.2</b> Sampling Distributions</a></li>
-<li class="chapter" data-level="6.3" data-path="ch6.html"><a href="ch6.html#central-limit-theorem"><i class="fa fa-check"></i><b>6.3</b> Central Limit Theorem</a></li>
+<li class="chapter" data-level="7.1" data-path="ch7.html"><a href="ch7.html#introduction-to-sampling"><i class="fa fa-check"></i><b>7.1</b> Introduction to Sampling</a></li>
+<li class="chapter" data-level="7.2" data-path="ch7.html"><a href="ch7.html#sampling-distributions"><i class="fa fa-check"></i><b>7.2</b> Sampling Distributions</a></li>
+<li class="chapter" data-level="7.3" data-path="ch7.html"><a href="ch7.html#central-limit-theorem"><i class="fa fa-check"></i><b>7.3</b> Central Limit Theorem</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="ch8.html"><a href="ch8.html"><i class="fa fa-check"></i><b>7</b> Tests for Means</a>
+<li class="chapter" data-level="8" data-path="ch8.html"><a href="ch8.html"><i class="fa fa-check"></i><b>8</b> Introduction to Inference</a>
 <ul>
-<li class="chapter" data-level="7.1" data-path="ch8.html"><a href="ch8.html#ch8_s1"><i class="fa fa-check"></i><b>7.1</b> Steps for hypothesis testing</a>
-<ul>
-<li class="chapter" data-level="7.1.1" data-path="ch8.html"><a href="ch8.html#things-about-the-population"><i class="fa fa-check"></i><b>7.1.1</b> Things about the population</a></li>
-<li class="chapter" data-level="7.1.2" data-path="ch8.html"><a href="ch8.html#things-about-the-sample"><i class="fa fa-check"></i><b>7.1.2</b> Things about the sample</a></li>
-<li class="chapter" data-level="7.1.3" data-path="ch8.html"><a href="ch8.html#making-inference"><i class="fa fa-check"></i><b>7.1.3</b> Making inference</a></li>
-</ul></li>
-<li class="chapter" data-level="7.2" data-path="ch8.html"><a href="ch8.html#ch8_s2"><i class="fa fa-check"></i><b>7.2</b> Hypothesis test for a mean</a></li>
-</ul></li>
-<li class="chapter" data-level="8" data-path="ch9.html"><a href="ch9.html"><i class="fa fa-check"></i><b>8</b> Non-normal Continuous Data</a></li>
-<li class="chapter" data-level="9" data-path="ch10.html"><a href="ch10.html"><i class="fa fa-check"></i><b>9</b> Categorical Data</a>
-<ul>
-<li class="chapter" data-level="9.1" data-path="ch10.html"><a href="ch10.html#ch10_s1"><i class="fa fa-check"></i><b>9.1</b> One Sample Proportions</a></li>
-<li class="chapter" data-level="9.2" data-path="ch10.html"><a href="ch10.html#ch10_s2"><i class="fa fa-check"></i><b>9.2</b> Two Sample Proportions</a></li>
-<li class="chapter" data-level="9.3" data-path="ch10.html"><a href="ch10.html#ch10_s3"><i class="fa fa-check"></i><b>9.3</b> Contingency Based tests</a></li>
-<li class="chapter" data-level="9.4" data-path="ch10.html"><a href="ch10.html#ch10_s4"><i class="fa fa-check"></i><b>9.4</b> Paired Categorical Data</a></li>
-</ul></li>
-<li class="chapter" data-level="10" data-path="ch11.html"><a href="ch11.html"><i class="fa fa-check"></i><b>10</b> Correlation and Regression</a></li>
-<li class="chapter" data-level="11" data-path="ch12.html"><a href="ch12.html"><i class="fa fa-check"></i><b>11</b> Introduction to Simulations</a>
-<ul>
-<li class="chapter" data-level="11.1" data-path="ch12.html"><a href="ch12.html#ch12_s1"><i class="fa fa-check"></i><b>11.1</b> What is a simulation?</a></li>
-</ul></li>
-<li class="chapter" data-level="12" data-path="ch13.html"><a href="ch13.html"><i class="fa fa-check"></i><b>12</b> Introduction to Simulations</a>
-<ul>
-<li class="chapter" data-level="12.1" data-path="ch13.html"><a href="ch13.html#ch13_s1"><i class="fa fa-check"></i><b>12.1</b> What is a simulation?</a></li>
-<li class="chapter" data-level="12.2" data-path="ch13.html"><a href="ch13.html#why-simulation"><i class="fa fa-check"></i><b>12.2</b> Why Simulation</a>
-<ul>
-<li class="chapter" data-level="12.2.1" data-path="ch13.html"><a href="ch13.html#non-simulation-methods"><i class="fa fa-check"></i><b>12.2.1</b> Non-simulation Methods</a></li>
-<li class="chapter" data-level="12.2.2" data-path="ch13.html"><a href="ch13.html#simulation-method"><i class="fa fa-check"></i><b>12.2.2</b> Simulation Method</a></li>
-</ul></li>
-<li class="chapter" data-level="12.3" data-path="ch13.html"><a href="ch13.html#chapter-summary"><i class="fa fa-check"></i><b>12.3</b> Chapter Summary</a></li>
-</ul></li>
-<li class="chapter" data-level="13" data-path="ch14.html"><a href="ch14.html"><i class="fa fa-check"></i><b>13</b> Dump Chapter</a></li>
-<li class="chapter" data-level="" data-path="introduction-1.html"><a href="introduction-1.html"><i class="fa fa-check"></i>Introduction</a>
-<ul>
-<li class="chapter" data-level="13.1" data-path="introduction-1.html"><a href="introduction-1.html#stuff-lifted-that-used-to-be-in-ch2-may-or-may-not-be-useful-still"><i class="fa fa-check"></i><b>13.1</b> Stuff lifted that used to be in ch2 (may or may not be useful still?)</a></li>
-<li class="chapter" data-level="13.2" data-path="introduction-1.html"><a href="introduction-1.html#shiny-test"><i class="fa fa-check"></i><b>13.2</b> Shiny test</a></li>
-<li class="chapter" data-level="13.3" data-path="introduction-1.html"><a href="introduction-1.html#regular-ui"><i class="fa fa-check"></i><b>13.3</b> Regular UI</a></li>
-<li class="chapter" data-level="13.4" data-path="introduction-1.html"><a href="introduction-1.html#editing-text"><i class="fa fa-check"></i><b>13.4</b> Editing text</a></li>
-<li class="chapter" data-level="13.5" data-path="introduction-1.html"><a href="introduction-1.html#idea"><i class="fa fa-check"></i><b>13.5</b> Idea</a></li>
-<li class="chapter" data-level="13.6" data-path="introduction-1.html"><a href="introduction-1.html#clt-stuff"><i class="fa fa-check"></i><b>13.6</b> CLT Stuff</a></li>
-</ul></li>
-<li class="chapter" data-level="14" data-path="ch7.html"><a href="ch7.html"><i class="fa fa-check"></i><b>14</b> Introduction to Inference</a>
-<ul>
-<li class="chapter" data-level="14.1" data-path="ch7.html"><a href="ch7.html#ch7_s1"><i class="fa fa-check"></i><b>14.1</b> Confidence Intervals</a></li>
-<li class="chapter" data-level="14.2" data-path="ch7.html"><a href="ch7.html#ch7_s2"><i class="fa fa-check"></i><b>14.2</b> Hypothesis Tests</a></li>
-<li class="chapter" data-level="14.3" data-path="ch7.html"><a href="ch7.html#ch7_s3"><i class="fa fa-check"></i><b>14.3</b> P-values</a></li>
+<li class="chapter" data-level="8.1" data-path="ch8.html"><a href="ch8.html#ch8_s0"><i class="fa fa-check"></i><b>8.1</b> Central Limit Theorem</a></li>
+<li class="chapter" data-level="8.2" data-path="ch8.html"><a href="ch8.html#ch8_s1"><i class="fa fa-check"></i><b>8.2</b> Point Estimation and Confidence Intervals</a></li>
+<li class="chapter" data-level="8.3" data-path="ch8.html"><a href="ch8.html#ch8_s2"><i class="fa fa-check"></i><b>8.3</b> Hypothesis Tests</a></li>
+<li class="chapter" data-level="8.4" data-path="ch8.html"><a href="ch8.html#ch8_s3"><i class="fa fa-check"></i><b>8.4</b> P-values</a></li>
 </ul></li>
 </ul>
 
@@ -266,7 +153,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Seriously Interesting Statistics Textbook</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">An Intuitive, Interactive, Introduction to Biostatistics</a>
           </h1>
         </div>
 
@@ -277,17 +164,82 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="ch3" class="section level1" number="3">
 <h1><span class="header-section-number">3</span> Study Design</h1>
 <blockquote>
-<p>“Randomization is too important to be left to chance.” - J. D. Petruccelli</p>
+<p>“Randomization is too important to be left to chance.”</p>
+<p>— J. D. Petruccelli</p>
 </blockquote>
-<p>[[We have a scientific question, as well as statistical question, and each of these is subtly different from what we will call hypothesis in context of statistics. Should iron out how we want to use these words]]</p>
-<p>As mentioned in Chapter 1, statistics is the science that allows us to provide objective, evidenced-based answers to questions that we have about the world. Doing this effectively is tantamount to correctly establishing our inquiry within the statistical framework. Inquiry in hand, we now go about answering the three basic questions in statistics:</p>
+<div class="objective-container">
+<div class="objectives">
+Learning objectives
+</div>
 <ol style="list-style-type: decimal">
-<li>How should I collect my data?<br />
-</li>
-<li>How should I describe and summarize the data I’ve collected?</li>
-<li>What does my data tell me about the way the world works?</li>
+<li>Understand how poor study design can bias results</li>
+<li>Learn about various sampling biases, such as selection and non-response bias</li>
+<li>Be familiar with other types of bias, such as extrapolation and confounding</li>
+<li>Know what a randomized controlled double-blind experiment is and why it is the gold standard</li>
 </ol>
-<p>The goal of this chapter is to address the first of these questions. Formally, <strong>study design</strong> has a definition that involves the process of identifying a relevant population, collecting a representative sample, and asking our question in such a way that the answer of this little question will ultimately give us insight to the <em>scientific question</em> at hand. Aside: for example, if we are looking at polio vaccine, our science question may be something sciency like “does this vaccine prevent polio” but that has to be translated to the <em>statistical question</em>, akin to “is the incidence of polio in control group statistically different than that of the treatment group.” Maybe we should say something more about this translation process, but I don’t know enough about regular science to do so.</p>
+</div>
+<div id="ch3_s1" class="section level2" number="3.1">
+<h2><span class="header-section-number">3.1</span> Importance of Study Design</h2>
+<p>In chapter 1, we defined statistics by its ability to quantify our uncertainty
+about a potential outcome, e.g. the effectiveness of a drug. In order for us to
+effectively do this and make accurate inference, we must remove other sources of
+uncertainty. This is accomplished via high-quality study design and execution.
+Despite statisticians best efforts, fancy statistical methods cannot save a poorly
+designed study. However, a well-designed study can make the statistics much simpler
+and put researchers in the best position to answer their research questions and
+advance science.</p>
+<p>As a critical piece of the statistical framework, <strong>study design</strong> is the process that
+allows us to collect data on the best sample from the population to achieve our research goals.
+There are many types of study designs with various strengths and limitations.
+The entirety of the science of study design couldn’t possible be covered in a
+single chapter of an introductory statistics textbook, instead we will focus on
+some of the main considerations when designing a study, as well as the common
+ways study design can go wrong and the statistical implications.</p>
+<div class="figure"><span style="display:block;" id="fig:statFramework2"></span>
+<img src="introTextbookTemplate_files/figure-html/statFramework2-1.png" alt="Statistical Framework" width="672" />
+<p class="caption">
+Figure 3.1: Statistical Framework
+</p>
+</div>
+<p>In an ideal world, the study design process might look a little bit like this:</p>
+<ol style="list-style-type: decimal">
+<li>We start with a list of everyone in our population of interest.</li>
+<li>Each person in this population is equally easy to sample, and the cost of sampling everyone is the same</li>
+<li>We use our list to randomly select a proportion of individuals in the population who will participate in our study</li>
+<li>Everybody sampled is eager to help us with our study, and nobody refuses to participate</li>
+<li>The outcome of interest can be accurately measured on each subject and directly answers the research question.</li>
+</ol>
+<p>Unfortunately, things are rarely perfect, and this can lead to what we call <strong>bias</strong>.
+In our day to day life, we think about bias as some type of prejudice in favor or against
+a person or group. For example, if you are given two identical cupcakes and are told
+that one was made by a professional chef and the other was not, you may
+think that one cupcake tastes much better than the other one. Scientific or
+research bias is not all that different. We define bias as the process or technique
+whereby the actual outcome is systematically different from the true value it
+is intended to estimate. As an over-the-top example, imagine you were trying to
+estimate the percent of voters that will support the Democrat party in the
+next election. If you only asked voters who are registered Democrats, you would
+most certainly overestimate the actual percent you are interested in.</p>
+<p>Bias can occur at various points during a research study and materialize
+in many forms. The ability to identify bias is a crucial skills for researchers
+to have when designing their own studies as well as evaluating the merit of
+other studies in the literature. In this chapter, we focus on defining several
+common types of bias, how each type can impact study results, and how they can
+be avoided. This is not meant to be an exhaustive list - if you are interested in
+learning about other types of bias, check out the <a href="https://catalogofbias.org/biases/">Catalogue of Biases</a>.</p>
+<div class="definition-container">
+<div class="definition">
+<span id="def:unlabeled-div-1" class="definition"><strong>Definition 3.1  </strong></span> 
+</div>
+<p><strong>Study design: </strong> <em> The process of obtaining the best sample to answer the research questions </em></p>
+<p><strong>Bias: </strong> <em> Any process or technique whereby the actual outcome is
+systematically different from the true value it is intended to estimate </em></p>
+</div>
+</div>
+<div id="ch3_s2" class="section level2" number="3.2">
+<h2><span class="header-section-number">3.2</span> Sampling Bias</h2>
+<p>and the consequence is that we may end up with a sample that is <em>not</em> representative of our population. The ways and magnitudes with which these difference exist are known as <strong>sampling biases</strong>. Fortunately, the most common biases occur in rather predictable ways. Broadly speaking, the two most common forms of sampling bias are <strong>selection bias</strong> and <strong>non-response bias</strong>.</p>
+<p>In the last chapter, we</p>
 <p>Also, thinking something like the study design process and challenges are</p>
 <ol style="list-style-type: decimal">
 <li>Sample/Population</li>
@@ -306,16 +258,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Diagnostics and Perception bias</li>
 <li>Randomization</li>
 </ol>
-<ol start="3" style="list-style-type: decimal">
-<li>“Ethics”</li>
-</ol>
-<ol style="list-style-type: lower-roman">
-<li>What are a few lives now for the future of all humanity?</li>
-<li>Distinction between child and adult is arbitrary</li>
-<li>Marginalized Populations: Would they even be missed?</li>
-</ol>
-<div id="all-strawberry-no-rhubarb" class="section level2" number="3.1">
-<h2><span class="header-section-number">3.1</span> All Strawberry, no Rhubarb</h2>
 <p>Let’s begin by considering an ideal world. In such a case, the sampling stage of our study design process might look a little bit like this:</p>
 <ol style="list-style-type: decimal">
 <li>We start with a list of everyone in our population of interest.</li>
@@ -323,11 +265,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>We randomly sample this population</li>
 <li>Everybody sampled is eager to help the statistician answer their question, and nobody refuses to participate</li>
 </ol>
-<p>In such a world, we will end up with a sample of people who are <em>representative</em> of the population in question. In other words, anything that we learn about the sample will very likely also be true about the population (but of course, we can never be <em>entirely</em> certain unless we ask everybody, in which case, we are no longer doing statistics).</p>
-<p>Unfortunately, things are rarely perfect, and the consequence is that we may end up with a sample that is <em>not</em> representative of our population. The ways and magnitudes with which this difference exists are known as <strong>sampling biases</strong>. Fortunately for us, the most common imperfections occur in rather predictable ways. Broadly speaking, the two most common forms of sampling bias are <strong>selection bias</strong> and <strong>non-response bias</strong>.</p>
-<div id="selection-bias" class="section level3" number="3.1.1">
-<h3><span class="header-section-number">3.1.1</span> Selection Bias</h3>
-<p>First and foremost, we want to be sure that the individuals that we decide to include in our sample are representative of the population we wish to study. [[Maybe we can have a richer definition of representative above]]. Often what we find is that a given population has a number of <em>sub-populations</em> that make it up. For example, if a given population is 75% female and 25% male, a representative sample population should also be about 75% female and 25% male. Or maybe instead let’s consider a real-world example.</p>
+<p>Unfortunately, things are rarely perfect (with a rare exception being the authors of this textbook), and the consequence is that we may end up with a sample that is <em>not</em> representative of our population. The ways and magnitudes with which these difference exist are known as <strong>sampling biases</strong>. Fortunately, the most common biases occur in rather predictable ways. Broadly speaking, the two most common forms of sampling bias are <strong>selection bias</strong> and <strong>non-response bias</strong>.</p>
+<div id="ch3_s2_ss1" class="section level3" number="3.2.1">
+<h3><span class="header-section-number">3.2.1</span> Selection Bias</h3>
+<p>Often, a population of interest is not made up of a single homogenous group of individuals, but rather a heterogenous collection of smaller <em>sub-populations</em>. For example, if our population of interest was citizens of the United States, we could easily identify a number of sub-populations that make it up. This could include men and women, children and adults, people in rural or urban environments, etc.,. In order for our sample to be representative of the population, caution must be taken to ensure that these sub-populations are taken into account. <strong>Selection bias</strong> is the phenomenon in which this is not what happens.[[transition sentence to next paragraph]]</p>
 <p>The year was 1936, and the United States was still in the midsts of the Great Depression, with nine million people unemployed and real income only two-thirds of it’s 1929 equivalent. Franklin Delano Roosevelt was just completing his first term of office of president, and was up for re-election against Republican candidate Alfred Landon. Roosevelt and Landon had different views about how active the government should be in enacting policies to bring the country out of the depression.</p>
 <p>The <em>Literary Digest</em> magazine had a custom of anticipating the outcome of the election, having successfully predicted the winner in every presidential election since 1916. Having collected samples from 2.4 million people for the upcoming 1936 election, the <em>Digest</em> predicted a landslide victory for Landon: 57% to 43%. The actual election was a landslide indeed, but the victory was to Roosevelt, having collected 62% of the vote to Landon’s 38%. Having had such an enormous sample [[can we mention relationship of size and variability?]], how could this poll have been so incredibly far off?</p>
 <p>In conducting it’s poll, the <em>Digest</em> mailed 10 million questionnaires to addresses that it had collected from telephone books and club membership rosters. At a time when only one in four households owned a telephone, and club membership was a luxury few could afford, the <em>Digest</em> inadvertently tended to screen out of their survey those who were poor. In other words, the sample selected was disproportionately wealthy, resulting in a classic case of selection bias.</p>
@@ -336,47 +277,34 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>A similar thing happened in the 1948 election with <a href="https://medium.com/@ODSC/dewey-defeats-truman-how-sampling-bias-can-ruin-your-model-f4f67989709e">Thomas Dewey vs Harry Truman</a></li>
 </ol>
 </div>
-<div id="non-response-bias" class="section level3" number="3.1.2">
-<h3><span class="header-section-number">3.1.2</span> Non-response Bias</h3>
-<p>In the previous example, we noted that 10 million questionnaires had been sent out, but only 2.4 million responses were returned. While it would certainly be nice if everybody complied with our requests for information, it is often unrealistic to expect that each inquiry will be returned. In and of itself, this is not a problem. Indeed, so long as non-response is random and the samples collected continue to be representative of the population, our sample population will still be valid [[can we mention size/variability? Maybe hint at it? Say something w/o defending it, hoping nobody asks?]]. However, what if non-response is not random? In other words, what happens if one sub-group of the population is more likely to respond to a survey than another?</p>
-<p>In 2017, the University of Iowa conducted the Speak Out Iowa campus climate survey as part of a comprehensive strategy to respond to sexual misconduct, dating violence, and stalking on our campus. All degree-seeking, undergraduate, graduate, and professional students (N=30,458) at the Iowa City and off-campus centers, including those completing online degrees, received an invitation to participate in the Speak Out Iowa survey through an email message sent to their university email address. A total of 6,952 students completed the survey, and of those, 68% identified as female, while 32% identified as male.</p>
-<p>Damn. There aren’t conclusions here. Having written it out, I see why this was left as a question at the end. Ok, we can still do that, but I think we should also investigate another non-response bias</p>
+<div id="ch3_s2_ss2" class="section level3" number="3.2.2">
+<h3><span class="header-section-number">3.2.2</span> Non-response Bias</h3>
+<p>In the previous example, we noted that 10 million questionnaires had been sent out, but only 2.4 million responses were returned. While it would certainly be nice if everybody complied with our requests for information, it is often unrealistic to expect that each inquiry will be returned. In and of itself, this is not a problem. Indeed, so long as non-response is random and the samples collected continue to be representative of the population, our sample population will still be valid. However, what if non-response is not random? In other words, what happens if one sub-group of the population is more likely to respond to a survey than another? More specifically, <strong>non-response bias</strong> is the phenomenon in which willingness to respond to a survey (or selection) is related to the scientific question [[i don’t like this paragraph at all]]</p>
+<p>In 2017, the University of Iowa conducted the Speak Out Iowa campus climate survey as part of a comprehensive strategy to respond to sexual misconduct, dating violence, and stalking on our campus. All degree-seeking, undergraduate, graduate, and professional students (N=30,458) at the Iowa City and off-campus centers, including those completing online degrees, received an invitation to participate in the Speak Out Iowa survey through an email message sent to their university email address. A total of 6,952 students completed the survey, making up the entirety of our sample. Of those, 68% identified as female, while 32% identified as male.</p>
+<p>[[not happy with concluding paragraph either. maybe ask a question, maybe phrase it differently, idk]]</p>
+<p>Given that 54% of the total student body identifies as female, does it seem that our collected sample is representative of the population? In what ways might a student’s willingness to respond be related to the outcome of interest? In your opinion, does it appear as if we are dealing with a case of non-response bias?</p>
+<div class="definition-container">
+<div class="definition">
+<span id="def:unlabeled-div-2" class="definition"><strong>Definition 3.2  </strong></span>Definitions
 </div>
-<div id="false-generalization-bias-extrapolation-bias" class="section level3" number="3.1.3">
-<h3><span class="header-section-number">3.1.3</span> False Generalization Bias / Extrapolation Bias</h3>
+<p><strong>Sampling Bias: </strong> <em> A type of bias in which the collected sample <em>is not</em> representative of the study population </em></p>
+<p><strong>Selection Bias: </strong> <em> A type of sampling bias in which subgroups of the population were more likely to be included than others </em></p>
+<p><strong>Non-response Bias: </strong> <em> A type of sampling bias in which the probability of being sampled is related to the scientific question. In this case, the sampling is no longer completely random </em></p>
+</div>
+</div>
+</div>
+<div id="ch3_s3" class="section level2" number="3.3">
+<h2><span class="header-section-number">3.3</span> Study Design Bias</h2>
+<p>[[maybe could also move placebo/observer effect here? even though we mention double blind above. perhaps here we can go into more detail]]</p>
+<div id="ch3_s3_ss1" class="section level3" number="3.3.1">
+<h3><span class="header-section-number">3.3.1</span> Extrapolation Bias</h3>
 <p>What do we call this section?</p>
 <p>The previous two examples demonstarted ways in which we might incorrectly move from a target population to a non-representative sample. This final case describes movement in the opposite direction: from a specified sample to a more general population. Nonetheless, the cause of the bias is the same.</p>
 <p>The motivation here can be most readily illustrated by considering the issue of pharmaceutical trails and the use of children. For practical, ethical, and economic reasons, clinical trials usually only involve adults - indeed, only about 25% of drugs are subjected to pediatric studies. Physicians, however, are allowed to use any FDA-approved drug in any way that they think is beneficial are are not required to inform parents if the therapy has not been tested on children.
 By way of example, we consider here the drug propofol, a sedative that has consistently proven safe for use in adults. In 1992, however, after several children who received propofol in the ICU died, the British government recommended against using it on patients under the age of 16. Despite this recommendation, propofol continued to be widely used in the U.S.. It wasn’t until 2001 that the manufacturers of propofol conducted a randomized, controlled trial, finding that 9.5% of children on propofol died, compared with 3.8% of children on a different sedative. Although the FDA has now added a warning indicating this, the administration of propofol to children in the ICU is still legal, and subject to controversy.</p>
 <p>As we can see, the safety of propofol, which had been consistently demonstrated to be effective in adults, failed to generalize to the wider population, which in this case included children under the age of 16.</p>
-</div>
-</div>
-<div id="asking-the-question" class="section level2" number="3.2">
-<h2><span class="header-section-number">3.2</span> Asking the Question</h2>
-<p>I think it would be useful here and in other sections to start off with an advance organizer. In other words, let’s begin by telling them</p>
-<ol style="list-style-type: decimal">
-<li>We are going to look at what we are doing here (asking question)</li>
-<li>We are going to look at the correct way to do it</li>
-<li>We are going to look at why we do it this way (random assignment - confounding, double blind - placebo)</li>
-<li>We are going to look at other ways this can go wrong (matching - confounding).</li>
-</ol>
-<hr />
-<p>So far, we have identified ways in which the sampling portion of our study can introduce bias, and we now turn our attention to the questions themselves. More specifically, we concern ourselves here with the idea of “are we correctly answering the question we are meaning to ask?” Often in medical studies and biostatistics, we concern ourselves with a new treatment or therapy, and the question of interest is “is this effective?” This further begs the question “effective relative to what?”</p>
-<p>Often the only meaningful way to answer this is to compare treatment or therapy to something else. Consequently, we find ourselves with two groups:</p>
-<ol style="list-style-type: decimal">
-<li>The <strong>treatment group</strong>, representing the subjects receiving the therapy</li>
-<li>The <strong>control group</strong>, or those subjects who are not treated</li>
-</ol>
-<p>Just as we had to exercise caution is selecting a sample from the population, so must we be careful to appropriately allocate subjects to the groups. At a minimum, our experiment should conform to the following guidelines:</p>
-<ol style="list-style-type: decimal">
-<li>Subjects should be assigned to treatment or control groups at <em>random</em></li>
-<li>The experiment should be <strong>double blinded</strong></li>
-</ol>
-<p>So far, our general process looks like this</p>
-<p>[[Illustration]] Population -&gt; Sample -&gt; (Treatment, Control) -&gt; experiment</p>
-<p>something something something something</p>
-<div id="confounding" class="section level3" number="3.2.1">
-<h3><span class="header-section-number">3.2.1</span> Confounding</h3>
+<div id="ch3_s3_ss2" class="section level4" number="3.3.1.1">
+<h4><span class="header-section-number">3.3.1.1</span> Confounding</h4>
 <p>In 1916, a polio epidemic hit the United States, resulting in hundreds of thousands of people, especially children, falling victim to the disease over the next forty years. By the 1950s, several vaccines had been developed. One in particular, developed by Jonas Salk, seemed especially promising based on laboratory studies. In 1954, the Public Health Service organized an experiment to see whether the Salk vaccine would protect children from polio outside of the laboratory. Two million children were selected from the most vulnerable age groups, aged 6 to 9. Of these children, some were vaccinated, some refused treatment, and some were deliberately left unvaccinated.</p>
 <p>This, of course, raises the issue of medical ethics, which are always a consideration in medical studies: is it ethical to deliberately leave some children unvaccinated? In other words, as some families ultimately chose to refuse vaccination, would a more ethical design not offer the vaccine to all children, leaving those who refused to serve as controls?</p>
 <p>Thinking back to some of the issues raised at the beginning of this chapter, what are some issues that could arise in letting the subjects determine their group assignment? Would we expect the treatment and control groups to both still be representative samples of our population? Or is it possible that that these groups might be different in important ways?</p>
@@ -397,16 +325,29 @@ By way of example, we consider here the drug propofol, a sedative that has consi
 <hr />
 <p>While there are many complicated analysis techniques that exist to control for confounding, <strong>matching</strong> is a technique used in the study design process, which can be done at either the individual or the group level.</p>
 <p>In a matched study at the individual level, for each subject in the treatment group, a subject matching on potentially confounding variables is also placed. For example, age and sex are both common confounders. If, during the process of enrolling patients, a 40 year old male is assigned to the treatment group, the next 40 year old male would then be assigned to the control, or placebo, group.</p>
-<p>When used at the group level, matching seeks to ensure that the <em>distributions</em> of the counfoundning variables are the same in each group. Consider again the coffee/cancer example, matching at the group level would ensure that a similar proportion of smokers are included in the coffee drinking group as in the non-coffee drinking group.</p>
-<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="ch3.html#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tippy)</span>
-<span id="cb39-2"><a href="ch3.html#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tippy</span>(<span class="st">&quot;Hover me!&quot;</span>, <span class="at">tooltip =</span> <span class="st">&quot;Hi, I&#39;m the tooltip!&quot;</span>)</span></code></pre></div>
-<span id="htmlwidget-f77d13153210b6bce8de" class="tippy html-widget" width="672" height="480"></span>
-<script type="application/json" data-for="htmlwidget-f77d13153210b6bce8de">{"x":{"opts":{"content":"Hi, I'm the tooltip!"},"text":"Hover me!"},"evals":[],"jsHooks":[]}</script>
-<p>Here is a</p>
-<span id="htmlwidget-32e8571c52db5619af9e" class="tippy html-widget" width="960" height="500"></span>
-<script type="application/json" data-for="htmlwidget-32e8571c52db5619af9e">{"x":{"opts":{"height":"200px","content":"a thing that we define"},"text":"definition"},"evals":[],"jsHooks":[]}</script>
-
+<p>When used at the group level, matching seeks to ensure that the <em>distributions</em> of the confounding variables are the same in each group. Consider again the coffee/cancer example, matching at the group level would ensure that a similar proportion of smokers are included in the coffee drinking group as in the non-coffee drinking group.</p>
 </div>
+</div>
+<div id="ch3_s3_ss3" class="section level3" number="3.3.2">
+<h3><span class="header-section-number">3.3.2</span> Maybe cognitive bias? placebo stuff?</h3>
+<div class="definition-container">
+<div class="definition">
+<span id="def:unlabeled-div-3" class="definition"><strong>Definition 3.3  </strong></span>Definitions
+</div>
+<p><strong>Study Design Bias: </strong> <em> definition </em></p>
+<p><strong>Extrapolation Bias: </strong> <em> definition </em></p>
+<p><strong>Confounding: </strong> <em> definition </em></p>
+</div>
+</div>
+</div>
+<div id="review" class="section level2" number="3.4">
+<h2><span class="header-section-number">3.4</span> Review</h2>
+<p>We began this chapter with the goal of answering the question, “How should I collect my data?” As this relates to our research/scientific question, this consists of something</p>
+<ol style="list-style-type: decimal">
+<li>Correctly identifying the population and collecting a random, representative sample</li>
+<li>Conducting our study so as to be free from bias</li>
+</ol>
+
 </div>
 </div>
             </section>
@@ -419,7 +360,6 @@ By way of example, we consider here the drug propofol, a sedative that has consi
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -438,6 +378,7 @@ gitbook.start({
 "weibo": false,
 "instapaper": false,
 "vk": false,
+"whatsapp": false,
 "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
@@ -458,6 +399,10 @@ gitbook.start({
 "text": null
 },
 "download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "subsection"
 }
@@ -465,20 +410,6 @@ gitbook.start({
 });
 </script>
 
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:")
-      if (/^https?:/.test(src))
-        src = src.replace(/^https?:/, '');
-    script.src = src;
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script>
 </body>
 
 </html>
