@@ -19,8 +19,8 @@ output: html_document
 
 ## Statistics and Evidence-based Research {#ch1_s1}
 
-Dr. Anne Ecdote bases all her decisions off things she's observed. Dr. Eva Dense 
-bases her practice off well-researched studies. Dr. Opi Yon bases his practice
+Dr. Anne Ecdote bases all of her decisions on things she's observed. Dr. Eva Dense 
+bases her practice off of well-researched studies. Dr. Opi Yon bases his practice
 off his personal beliefs. You visit each doctor with a headache. Dr. Ecdote says
 the last person she saw with a headache had a brain tumor, so you should 
 probably get an MRI. Dr. Yon says headaches are a construct of our imagination 
@@ -36,16 +36,16 @@ There are many definitions of statistics:
 * the mathematics of uncertainty
 * a required college course designed to make everyone miserable
 
-All of these definitions hold some truth (some more than others - we'll let you 
+All of these definitions hold a degree truth (some more than others - we'll let you 
 guess which `r emo::ji("wink")`). Statistics is a highly interdisciplinary field, with methods 
 applicable to and used by a wide variety of disciplines. The importance of the
 field of statistics lies in it's ability to quantify our uncertainty about a 
 potential outcome - such as the most likely cause and treatment for a headache.
 Almost everything in life is associated with some uncertainty - the weather, 
 your career, the connection between your genetics and your response to certain
-medications. However, just because something isn't known with 100% certainty, 
+medications; however, just because something isn't known with 100% certainty 
 doesn't mean we can't understand it better. Statistics helps us understand the 
-world better by allowing us to measure our uncertainty, describe associations 
+world better by allowing us to quantify our uncertainty, describe associations 
 between phenomena, and make informed decisions.
 
 And how exactly do researchers use statistics to quantify their uncertainty? 
@@ -63,10 +63,10 @@ inquiry to help answer important questions:
 * Can we predict the longevity of the national population to inform government decisions regarding Social Security?  
 * What factors increase the risk of an individual developing coronary heart disease?  
 
-These questions are too important to be left to opinion, superstition, and 
-conjecture. Thus, there has been a tremendous push for objective, 
+These questions are too important to be left to opinion, superstition, or 
+conjecture. Consequently, there has been a tremendous push for objective, 
 **evidence-based** decision making in medicine, public health, and policy making. 
-Statistics and biostatistics are the sciences that allows us to mSake these 
+Statistics and biostatistics are the sciences that allows us to make these 
 decisions. When studying humans, we can't control every aspect of their life, 
 such as what they eat or where they work. There are ethical considerations - if 
 we wanted to research the effects of smoking on lung cancer, we would not be 

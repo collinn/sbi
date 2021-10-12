@@ -1,0 +1,86 @@
+---
+output: html_document
+---
+
+# Index of Simulations {#ch15}
+
+
+
+<iframe src="https://ph-ivshiny.iowa.uiowa.edu/ceward/textbook/shinyApps/CLT/" width = "100%" height = "550"> 
+</iframe>
+
+<iframe src="https://ph-ivshiny.iowa.uiowa.edu/ceward/textbook/shinyApps/coinFlipSimulation/" width = "100%" height = "550"> 
+</iframe>
+
+
+<iframe src="https://ph-ivshiny.iowa.uiowa.edu/ceward/textbook/shinyApps/coinFlipStatic/" width = "100%" height = "550"> 
+</iframe>
+
+<iframe src="https://ph-ivshiny.iowa.uiowa.edu/ceward/textbook/shinyApps/confidenceIntervals/" width = "100%" height = "550"> 
+</iframe>
+
+
+---
+
+<iframe src="https://ph-ivshiny.iowa.uiowa.edu/ceward/textbook/shinyApps/distribution/poisson/" width = "100%" height = "550"> 
+</iframe>
+
+<iframe src="https://ph-ivshiny.iowa.uiowa.edu/ceward/textbook/shinyApps/distribution/normal2/" width = "100%" height = "550"> 
+</iframe>
+
+
+<iframe src="https://ph-ivshiny.iowa.uiowa.edu/ceward/textbook/shinyApps/distribution/normal/" width = "100%" height = "550"> 
+</iframe>
+
+<iframe src="https://ph-ivshiny.iowa.uiowa.edu/ceward/textbook/shinyApps/distribution/binomial/" width = "100%" height = "550"> 
+</iframe>
+
+
+<iframe src="https://ph-ivshiny.iowa.uiowa.edu/ceward/textbook/shinyApps/flipCoin/" width = "100%" height = "550"> 
+</iframe>
+
+<iframe src="https://ph-ivshiny.iowa.uiowa.edu/ceward/textbook/shinyApps/flipCoinInter/" width = "100%" height = "550"> 
+</iframe>
+
+
+<iframe src="https://ph-ivshiny.iowa.uiowa.edu/ceward/textbook/shinyApps/long_run_frequency/" width = "100%" height = "550"> 
+</iframe>
+
+<iframe src="https://ph-ivshiny.iowa.uiowa.edu/ceward/textbook/shinyApps/meanVar/" width = "100%" height = "550"> 
+</iframe>
+
+
+
+
+<iframe src="https://ph-ivshiny.iowa.uiowa.edu/ceward/textbook/shinyApps/pickDots/" width = "100%" height = "550"> 
+</iframe>
+
+<iframe src="https://ph-ivshiny.iowa.uiowa.edu/ceward/textbook/shinyApps/probDist/" width = "100%" height = "550"> 
+</iframe>
+
+
+<iframe src="https://ph-ivshiny.iowa.uiowa.edu/ceward/textbook/shinyApps/rollDice/" width = "100%" height = "550"> 
+</iframe>
+
+<iframe src="https://ph-ivshiny.iowa.uiowa.edu/ceward/textbook/shinyApps/mini_confidenceIntervals/" width = "100%" height = "550"> 
+</iframe>
+
+
+
+
+<iframe src="https://ph-ivshiny.iowa.uiowa.edu/ceward/textbook/shinyApps/test/" width = "100%" height = "550"> 
+</iframe>
+
+
+<iframe src="https://ph-ivshiny.iowa.uiowa.edu/ceward/textbook/shinyApps/sampling/" width = "100%" height = "550"> 
+</iframe>
+
+<iframe src="https://ph-ivshiny.iowa.uiowa.edu/ceward/textbook/shinyApps/singleCoinFlip/" width = "100%" height = "550"> 
+</iframe>
+
+
+<iframe src="https://ph-ivshiny.iowa.uiowa.edu/ceward/textbook/shinyApps/singleDieRoll/" width = "100%" height = "550"> 
+</iframe>
+
+<iframe src="https://ph-ivshiny.iowa.uiowa.edu/ceward/textbook/shinyApps/type12Err/" width = "100%" height = "550"> 
+</iframe>

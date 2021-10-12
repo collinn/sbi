@@ -35,7 +35,7 @@ single chapter of an introductory statistics textbook, instead we will focus on
 some of the main considerations when designing a study, as well as the common
 ways study design can go wrong and the statistical implications.
 
-```{tikz statFramework2, fig.cap = "Statistical Framework", fig.ext = 'png', echo = F}
+```{tikz statFramework3, fig.cap = "Statistical Framework", fig.ext = 'png', echo = F}
 \usetikzlibrary{decorations.pathreplacing,positioning, arrows, shapes, calc,shapes.multipart}
 \tikzstyle{block1} = [rectangle, draw, fill=yellow!20, 
     text width=10em, text centered, rounded corners, minimum height=6em]

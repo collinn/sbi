@@ -921,7 +921,7 @@ hist(aq$Temp, main = 'Histogram of Maximum Daily Temperature at La Guardia',
      xlab = 'Temperature (degrees F)', ylab = 'Count',
      col = 'salmon1')
 
-hist(aq$Ozone, main = 'Histogram of Mean Ozone at Roosevelt Island',
+  hist(aq$Ozone, main = 'Histogram of Mean Ozone at La Guardia',
      xlab = 'Ozone (ppm)', ylab = 'Count',
      col = 'steelblue2')
 ```

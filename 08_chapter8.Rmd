@@ -26,7 +26,7 @@ library(markdown)
 
 It may be helpful at this point to quickly review our goals as statisticians, as well as some of the key concepts that we have covered so far:
 
-1. First, let's consider again the primary goal of statistical analysis. We often begin with some population of interest, and in particular, we are generally interested in determining some numerical quantity that describes this population. This may include things such as average monthly spending, or the proportion of individuals who respond positively to some treatment. As it is typically unpractical to measure some quantity within an entire population, we are often limited to collecting a *random sample* of the population from which we hope to make generalizations that apply to the population as a whole.
+1. First, let's consider again the primary goal of statistical analysis. We often begin with some population of interest, and in particular, we are generally interested in determining some numerical quantity that describes this population. This may include things such as average monthly spending, or the proportion of individuals who respond positively to some treatment. As it is typically impractical to measure some quantity within an entire population, we are often limited to collecting a *random sample* of the population from which we hope to make generalizations that apply to the population as a whole.
 
 2. The data that we collect is usually *random*, and we can quantify the amount of uncertainty associated with a particular outcome with a numerical quantity known as a probability. The entire relationship between possible values of our data and their associated probabilities is known as a *distribution*, two of the most widely used being the normal and binomial distributions.
 
@@ -36,17 +36,36 @@ Our goal now is to determine how we might use these ideas to go from information
 
 ## Central Limit Theorem {#ch8_s0}
 
-This may be either moved to previous chapter or merged in with next section
+[[This may be either moved to previous chapter or merged in with next section]]
+
+We ended the previous chapter with an introduction of the Central Limit Theorem (CLT), which stated that as the size of our sample, $n$, increased, the sampling distribution of the sample mean $\overline{X}_n$ would become approximately normal. That is, we had
+
+$$
+\overline{X}_n \sim N(\mu, \sigma^2/n)
+$$
+where $\mu$ is the true value of the population mean and $\sigma^2$ is the variance; $n$, of course, is the size of our sample. Just as the size of our sample increases, so does the amount of variability in our sampling distribution *decrease*, giving us more precise estimates for the true value $\mu$. 
+
+To see how the CLT will be of benefit to us, it may be helpful to explore a little bit more closely how the different portions(?) of the theorem will prove helpful [[hate the wording here. this whol esection needs work]]. In particular, recall that
+
+1. The CLT tells us that as the size of our sample increases, the sampling distribution of $\overline{X}_n$ will become approximately normal. One of the defining characteristics of a normal distribution is that it is unimodal and symmetric about the mean. This means that random values tend to be closer to the mean than not and that values are equally likely to be just above the mean as they are to be just below it. 
+
+2. We saw that $\overline{X}_n$ is an *unbiased estimator* of the mean. In otherwords, given our data, this is the most likely estimate for the true value of $\mu$.
+
+3. The variance of a normal distribution tells us how dispersed these values are about the center This should be the second point.
+
+```{r, echo = FALSE, fig.align='center'}
+
+```
 
 ## Point Estimation and Confidence Intervals { #ch8_s1}
 
-In the previous chapter, we concerned ourselves with calculating a particular value of a statistic, which, in our case, was the sample mean. The process of computing a single statisic from a sample that will be used to estimate a paramter in the population is known as **point estimation**. As we saw, however, the value of a sample statitic is random, meaning that a sample mean computed from two separate samples from the same population are unlikely to be identically equal to each other. To account for both this random variation and the fact that we are often only able to obtain a single point estimate, we might consider instead determining an *interval* of likely values that our point estimate may fall within. This process is known as **interval estimation**, and it is a critical part of performing statistical inference. 
+In the previous chapter, we concerned ourselves with calculating a particular value of a statistic, in our case, the sample mean. The process of computing a single statisic from a sample that will be used to estimate a paramter in the population is known as **point estimation**. As we saw, however, the value of a sample statitic is random, meaning that a sample mean computed from two separate samples from the same population are unlikely to be identically equal to each other. To account for both this random variation and the fact that we are often only able to obtain a single point estimate, we might consider instead determining an *interval* of likely values that our point estimate may fall within. We might consider this our *margin of error* for the point estimate. This process is known as **interval estimation**, and it is a critical part of performing statistical inference. 
 
 <!-- To begin, let's first note that the interval we construct will be determined by the point estimate that we have collected. As this point estimate is itself a random variable, it follows that the interval itself will be random as well. The primary consequence of this fact is that there is some probability that the true -->
 
 We can begin by considering some desireable properties of a good interval. For example, it would be nice if our constructed interval had a high probability of containing the true population parameter. Intuitively, the larger the interval, the more likely that the true parameter falls within this range. However, if an interval is *too* large, it ceases to contain much useful information. If when planning what to wear this weekend we reported that the temperature was supposed to be somewhere between absolute zero and the heat found at the center of the sun, this would mostly likely capture the actual temperature, but it would not be terribly useful.
 
-Perhaps, then, we want our intervals to be very small. whatever. ..
+Perhaps, then, we want our intervals to be very small. whatever...
 
 What we see here is a tension between two competing goals: we would like our intervals to be large enough to capture the true parameter value with high probability, yet small enough to give us a reasonable range of estimates of what this value might be. Fortunately, we have statistical tools available to [[do this right]]
 
