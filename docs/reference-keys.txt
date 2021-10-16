@@ -66,3 +66,11 @@ exr:unlabeled-div-1
 def:unlabeled-div-4
 exr:unlabeled-div-5
 def:unlabeled-div-6
+fig:statFramework3
+ch3_s3_ss4
+ch3_s3_ss5
+ch3_s4
+ch3_s4_ss1
+ch3_s4_ss2
+ch3_s4_ss3
+ch3_s2_ss3

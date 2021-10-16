@@ -93,17 +93,24 @@
 <li class="chapter" data-level="3" data-path="ch3.html"><a href="ch3.html"><i class="fa fa-check"></i><b>3</b> Study Design</a>
 <ul>
 <li class="chapter" data-level="3.1" data-path="ch3.html"><a href="ch3.html#ch3_s1"><i class="fa fa-check"></i><b>3.1</b> Importance of Study Design</a></li>
-<li class="chapter" data-level="3.2" data-path="ch3.html"><a href="ch3.html#ch3_s2"><i class="fa fa-check"></i><b>3.2</b> Sampling Bias</a>
+<li class="chapter" data-level="3.2" data-path="ch3.html"><a href="ch3.html#ch3_s2"><i class="fa fa-check"></i><b>3.2</b> Pre-trial Bias</a>
 <ul>
 <li class="chapter" data-level="3.2.1" data-path="ch3.html"><a href="ch3.html#ch3_s2_ss1"><i class="fa fa-check"></i><b>3.2.1</b> Selection Bias</a></li>
-<li class="chapter" data-level="3.2.2" data-path="ch3.html"><a href="ch3.html#ch3_s2_ss2"><i class="fa fa-check"></i><b>3.2.2</b> Non-response Bias</a></li>
+<li class="chapter" data-level="3.2.2" data-path="ch3.html"><a href="ch3.html#ch3_s2_ss2"><i class="fa fa-check"></i><b>3.2.2</b> Confirmation Bias/Placebo Effect</a></li>
+<li class="chapter" data-level="3.2.3" data-path="ch3.html"><a href="ch3.html#ch3_s2_ss3"><i class="fa fa-check"></i><b>3.2.3</b> Observer Bias</a></li>
 </ul></li>
-<li class="chapter" data-level="3.3" data-path="ch3.html"><a href="ch3.html#ch3_s3"><i class="fa fa-check"></i><b>3.3</b> Study Design Bias</a>
+<li class="chapter" data-level="3.3" data-path="ch3.html"><a href="ch3.html#ch3_s3"><i class="fa fa-check"></i><b>3.3</b> During-trial Bias</a>
 <ul>
-<li class="chapter" data-level="3.3.1" data-path="ch3.html"><a href="ch3.html#ch3_s3_ss1"><i class="fa fa-check"></i><b>3.3.1</b> Extrapolation Bias</a></li>
-<li class="chapter" data-level="3.3.2" data-path="ch3.html"><a href="ch3.html#ch3_s3_ss3"><i class="fa fa-check"></i><b>3.3.2</b> Maybe cognitive bias? placebo stuff?</a></li>
+<li class="chapter" data-level="3.3.1" data-path="ch3.html"><a href="ch3.html#ch3_s3_ss1"><i class="fa fa-check"></i><b>3.3.1</b> Non-response/Participant Bias</a></li>
+<li class="chapter" data-level="3.3.2" data-path="ch3.html"><a href="ch3.html#ch3_s3_ss2"><i class="fa fa-check"></i><b>3.3.2</b> Compliance Bias</a></li>
+<li class="chapter" data-level="3.3.3" data-path="ch3.html"><a href="ch3.html#ch3_s3_ss4"><i class="fa fa-check"></i><b>3.3.3</b> Measurement Bias</a></li>
 </ul></li>
-<li class="chapter" data-level="3.4" data-path="ch3.html"><a href="ch3.html#review"><i class="fa fa-check"></i><b>3.4</b> Review</a></li>
+<li class="chapter" data-level="3.4" data-path="ch3.html"><a href="ch3.html#ch3_s4"><i class="fa fa-check"></i><b>3.4</b> Post-trial Bias</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="ch3.html"><a href="ch3.html#ch3_s4_ss1"><i class="fa fa-check"></i><b>3.4.1</b> Confounding</a></li>
+<li class="chapter" data-level="3.4.2" data-path="ch3.html"><a href="ch3.html#ch3_s4_ss2"><i class="fa fa-check"></i><b>3.4.2</b> Extrapolation Bias</a></li>
+<li class="chapter" data-level="3.4.3" data-path="ch3.html"><a href="ch3.html#ch3_s4_ss3"><i class="fa fa-check"></i><b>3.4.3</b> Publication Bias</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="ch4.html"><a href="ch4.html"><i class="fa fa-check"></i><b>4</b> Introduction to Probability and Simulation</a>
 <ul>
@@ -192,11 +199,11 @@ advance science.</p>
 allows us to collect data on the best sample from the population to achieve our research goals.
 There are many types of study designs with various strengths and limitations.
 The entirety of the science of study design couldn’t possible be covered in a
-single chapter of an introductory statistics textbook, instead we will focus on
+single chapter of an introductory statistics textbook; instead we will focus on
 some of the main considerations when designing a study, as well as the common
 ways study design can go wrong and the statistical implications.</p>
-<div class="figure"><span style="display:block;" id="fig:statFramework2"></span>
-<img src="introTextbookTemplate_files/figure-html/statFramework2-1.png" alt="Statistical Framework" width="672" />
+<div class="figure"><span style="display:block;" id="fig:statFramework3"></span>
+<img src="introTextbookTemplate_files/figure-html/statFramework3-1.png" alt="Statistical Framework" width="672" />
 <p class="caption">
 Figure 3.1: Statistical Framework
 </p>
@@ -210,144 +217,265 @@ Figure 3.1: Statistical Framework
 <li>The outcome of interest can be accurately measured on each subject and directly answers the research question.</li>
 </ol>
 <p>Unfortunately, things are rarely perfect, and this can lead to what we call <strong>bias</strong>.
-In our day to day life, we think about bias as some type of prejudice in favor or against
-a person or group. For example, if you are given two identical cupcakes and are told
-that one was made by a professional chef and the other was not, you may
-think that one cupcake tastes much better than the other one. Scientific or
-research bias is not all that different. We define bias as the process or technique
-whereby the actual outcome is systematically different from the true value it
-is intended to estimate. As an over-the-top example, imagine you were trying to
-estimate the percent of voters that will support the Democrat party in the
-next election. If you only asked voters who are registered Democrats, you would
-most certainly overestimate the actual percent you are interested in.</p>
+In our day to day life, we think about bias as some type of prejudice in favor or
+against a person or group. For example, if you are given two identical cupcakes
+and are told that one was made by a professional chef and the other was not, you
+may think that one cupcake tastes much better than the other one. Scientific or
+research bias is not all that different. We define scientific bias as the process
+or technique whereby the estimated outcome is systematically different from the
+true value it is intended to estimate. As an over-the-top example, imagine you
+were trying to estimate the percent of voters that will support the Democrat
+party in the next election. If you only asked voters who are registered
+Democrats, you would most certainly overestimate the actual percent you are
+interested in.</p>
 <p>Bias can occur at various points during a research study and materialize
-in many forms. The ability to identify bias is a crucial skills for researchers
-to have when designing their own studies as well as evaluating the merit of
+in many forms. The ability to identify bias is a crucial skill for researchers
+to have when designing their own studies, as well as evaluating the merit of
 other studies in the literature. In this chapter, we focus on defining several
 common types of bias, how each type can impact study results, and how they can
 be avoided. This is not meant to be an exhaustive list - if you are interested in
-learning about other types of bias, check out the <a href="https://catalogofbias.org/biases/">Catalogue of Biases</a>.</p>
+learning about other types of bias, check out the <a href="https://catalogofbias.org/biases/">Catalogue of Biases</a>. We will categorize different types
+of bias broadly by when they occur: pre-trial, during trial, and
+post-trial, although all types of bias should be considered when planning
+a study.</p>
 <div class="definition-container">
 <div class="definition">
 <span id="def:unlabeled-div-1" class="definition"><strong>Definition 3.1  </strong></span> 
 </div>
 <p><strong>Study design: </strong> <em> The process of obtaining the best sample to answer the research questions </em></p>
-<p><strong>Bias: </strong> <em> Any process or technique whereby the actual outcome is
+<p><strong>Scientific/Research Bias: </strong> <em> Any process or technique whereby the actual outcome is
 systematically different from the true value it is intended to estimate </em></p>
 </div>
 </div>
 <div id="ch3_s2" class="section level2" number="3.2">
-<h2><span class="header-section-number">3.2</span> Sampling Bias</h2>
-<p>and the consequence is that we may end up with a sample that is <em>not</em> representative of our population. The ways and magnitudes with which these difference exist are known as <strong>sampling biases</strong>. Fortunately, the most common biases occur in rather predictable ways. Broadly speaking, the two most common forms of sampling bias are <strong>selection bias</strong> and <strong>non-response bias</strong>.</p>
-<p>In the last chapter, we</p>
-<p>Also, thinking something like the study design process and challenges are</p>
-<ol style="list-style-type: decimal">
-<li>Sample/Population</li>
-</ol>
-<ol style="list-style-type: lower-roman">
-<li>selection bias</li>
-<li>non-response bias</li>
-<li>Extrapolating sample beyond population</li>
-</ol>
-<ol start="2" style="list-style-type: decimal">
-<li>Asking question</li>
-</ol>
-<ol style="list-style-type: lower-roman">
-<li>Confounding bias</li>
-<li>Placebo bias</li>
-<li>Diagnostics and Perception bias</li>
-<li>Randomization</li>
-</ol>
-<p>Let’s begin by considering an ideal world. In such a case, the sampling stage of our study design process might look a little bit like this:</p>
-<ol style="list-style-type: decimal">
-<li>We start with a list of everyone in our population of interest.</li>
-<li>Each person in this population is equally easy to sample, and the cost of each is the same</li>
-<li>We randomly sample this population</li>
-<li>Everybody sampled is eager to help the statistician answer their question, and nobody refuses to participate</li>
-</ol>
-<p>Unfortunately, things are rarely perfect (with a rare exception being the authors of this textbook), and the consequence is that we may end up with a sample that is <em>not</em> representative of our population. The ways and magnitudes with which these difference exist are known as <strong>sampling biases</strong>. Fortunately, the most common biases occur in rather predictable ways. Broadly speaking, the two most common forms of sampling bias are <strong>selection bias</strong> and <strong>non-response bias</strong>.</p>
+<h2><span class="header-section-number">3.2</span> Pre-trial Bias</h2>
 <div id="ch3_s2_ss1" class="section level3" number="3.2.1">
 <h3><span class="header-section-number">3.2.1</span> Selection Bias</h3>
-<p>Often, a population of interest is not made up of a single homogenous group of individuals, but rather a heterogenous collection of smaller <em>sub-populations</em>. For example, if our population of interest was citizens of the United States, we could easily identify a number of sub-populations that make it up. This could include men and women, children and adults, people in rural or urban environments, etc.,. In order for our sample to be representative of the population, caution must be taken to ensure that these sub-populations are taken into account. <strong>Selection bias</strong> is the phenomenon in which this is not what happens.[[transition sentence to next paragraph]]</p>
-<p>The year was 1936, and the United States was still in the midsts of the Great Depression, with nine million people unemployed and real income only two-thirds of it’s 1929 equivalent. Franklin Delano Roosevelt was just completing his first term of office of president, and was up for re-election against Republican candidate Alfred Landon. Roosevelt and Landon had different views about how active the government should be in enacting policies to bring the country out of the depression.</p>
-<p>The <em>Literary Digest</em> magazine had a custom of anticipating the outcome of the election, having successfully predicted the winner in every presidential election since 1916. Having collected samples from 2.4 million people for the upcoming 1936 election, the <em>Digest</em> predicted a landslide victory for Landon: 57% to 43%. The actual election was a landslide indeed, but the victory was to Roosevelt, having collected 62% of the vote to Landon’s 38%. Having had such an enormous sample [[can we mention relationship of size and variability?]], how could this poll have been so incredibly far off?</p>
-<p>In conducting it’s poll, the <em>Digest</em> mailed 10 million questionnaires to addresses that it had collected from telephone books and club membership rosters. At a time when only one in four households owned a telephone, and club membership was a luxury few could afford, the <em>Digest</em> inadvertently tended to screen out of their survey those who were poor. In other words, the sample selected was disproportionately wealthy, resulting in a classic case of selection bias.</p>
-<ol style="list-style-type: decimal">
-<li>Slides mention 10 million surveys and only 2.4 responses, but we don’t have any information on the non-response bias other than the fact that some didn’t respond.</li>
-<li>A similar thing happened in the 1948 election with <a href="https://medium.com/@ODSC/dewey-defeats-truman-how-sampling-bias-can-ruin-your-model-f4f67989709e">Thomas Dewey vs Harry Truman</a></li>
-</ol>
+<p>The first major consideration when planning a study is who you will ask
+to participate. When selecting your sample, you must ensure the sample is
+representative of the population of interest. Otherwise, your study may be prone to
+<strong>selection bias</strong>, where the study participants differ systematically from the
+population of interest. For example, in the first phase of a vaccine
+trial, the vaccine is often given to young, healthy volunteers to assess its safety
+profile. However, the vaccine is intended for use for both young and older people,
+as well as those that may have underlying medical conditions. If the safety of
+the vaccine was only determined based on the initial studies in healthy
+participants, it would look safer than it really is. This is why these initial
+studies are primarily used to stop development of a vaccine that is unsafe.
+Vaccines that are found to be safe in healthy people proceed to further
+testing in the general population to accurately determine the safety profile.
+Selection bias can be avoided by careful consideration of the make up of the
+population and a sampling method that accounts for various sub-populations that
+may differ in respect to the study outcome.</p>
 </div>
 <div id="ch3_s2_ss2" class="section level3" number="3.2.2">
-<h3><span class="header-section-number">3.2.2</span> Non-response Bias</h3>
-<p>In the previous example, we noted that 10 million questionnaires had been sent out, but only 2.4 million responses were returned. While it would certainly be nice if everybody complied with our requests for information, it is often unrealistic to expect that each inquiry will be returned. In and of itself, this is not a problem. Indeed, so long as non-response is random and the samples collected continue to be representative of the population, our sample population will still be valid. However, what if non-response is not random? In other words, what happens if one sub-group of the population is more likely to respond to a survey than another? More specifically, <strong>non-response bias</strong> is the phenomenon in which willingness to respond to a survey (or selection) is related to the scientific question [[i don’t like this paragraph at all]]</p>
-<p>In 2017, the University of Iowa conducted the Speak Out Iowa campus climate survey as part of a comprehensive strategy to respond to sexual misconduct, dating violence, and stalking on our campus. All degree-seeking, undergraduate, graduate, and professional students (N=30,458) at the Iowa City and off-campus centers, including those completing online degrees, received an invitation to participate in the Speak Out Iowa survey through an email message sent to their university email address. A total of 6,952 students completed the survey, making up the entirety of our sample. Of those, 68% identified as female, while 32% identified as male.</p>
-<p>[[not happy with concluding paragraph either. maybe ask a question, maybe phrase it differently, idk]]</p>
-<p>Given that 54% of the total student body identifies as female, does it seem that our collected sample is representative of the population? In what ways might a student’s willingness to respond be related to the outcome of interest? In your opinion, does it appear as if we are dealing with a case of non-response bias?</p>
+<h3><span class="header-section-number">3.2.2</span> Confirmation Bias/Placebo Effect</h3>
+<p>I hate this.</p>
+<p>To determine if a new treatment is effective, it must be compared to something
+else. This is addressed by splitting the sample into two groups: the
+<strong>treatment group</strong> and the <strong>control group</strong>. Subjects in the treatment group
+are given the vaccine, whereas subjects in the control group are not treated
+and are used for comparison. Subjects must be assigned to receive the treatment
+or control at random to avoid selection bias. In addition, there is the potential
+for bias to arise if the subjects know whether or not they’re being treated. This
+is known as <strong>confirmation bias</strong>, where the knowledge of treatment allocation
+can make study participants perceive the treatment benefit differently. To
+avoid this and ensure that any differences in the outcome are due to the treatment,
+researchers use a <strong>placebo</strong>, or fake treatment (e.g. a sugar pill
+or saline infection).</p>
+<p>through what is called the <strong>placebo effect</strong>. The placebo effect</p>
+<p>Blinding is used to address or control for the placebo effect.</p>
+</div>
+<div id="ch3_s2_ss3" class="section level3" number="3.2.3">
+<h3><span class="header-section-number">3.2.3</span> Observer Bias</h3>
+<p>Researchers often have expectations about how effective their treatment is
+(otherwise they probably wouldn’t be studying it). If the researcher is also
+responsible for recording subjective assessments of the study participants, there
+is the potential for their beliefs about the treatment to influence</p>
 <div class="definition-container">
 <div class="definition">
-<span id="def:unlabeled-div-2" class="definition"><strong>Definition 3.2  </strong></span>Definitions
+<span id="def:unlabeled-div-2" class="definition"><strong>Definition 3.2  </strong></span> 
 </div>
-<p><strong>Sampling Bias: </strong> <em> A type of bias in which the collected sample <em>is not</em> representative of the study population </em></p>
-<p><strong>Selection Bias: </strong> <em> A type of sampling bias in which subgroups of the population were more likely to be included than others </em></p>
-<p><strong>Non-response Bias: </strong> <em> A type of sampling bias in which the probability of being sampled is related to the scientific question. In this case, the sampling is no longer completely random </em></p>
+<p><strong>Selection Bias: </strong> <em> A type of bias in which subgroups of the population were more likely to be included than others </em></p>
+<p><strong>Treatment group: </strong> <em> The part of the sample that receives the treatment </em></p>
+<p><strong>Control Group: </strong> <em> The part of the sample that is not treated for comparison purposes </em></p>
+<p><strong>Confirmation Bias: </strong> <em> Bias due to an individuals prior beliefs</em></p>
+<p><strong>Placebo Effect: </strong> <em> A psychological phenomenon where a fake treatment can produce a positive response </em></p>
+<p><strong>Observer Bias: </strong> <em> Bias arising when observers record subjective data </em></p>
 </div>
 </div>
 </div>
 <div id="ch3_s3" class="section level2" number="3.3">
-<h2><span class="header-section-number">3.3</span> Study Design Bias</h2>
-<p>[[maybe could also move placebo/observer effect here? even though we mention double blind above. perhaps here we can go into more detail]]</p>
+<h2><span class="header-section-number">3.3</span> During-trial Bias</h2>
 <div id="ch3_s3_ss1" class="section level3" number="3.3.1">
-<h3><span class="header-section-number">3.3.1</span> Extrapolation Bias</h3>
-<p>What do we call this section?</p>
-<p>The previous two examples demonstarted ways in which we might incorrectly move from a target population to a non-representative sample. This final case describes movement in the opposite direction: from a specified sample to a more general population. Nonetheless, the cause of the bias is the same.</p>
-<p>The motivation here can be most readily illustrated by considering the issue of pharmaceutical trails and the use of children. For practical, ethical, and economic reasons, clinical trials usually only involve adults - indeed, only about 25% of drugs are subjected to pediatric studies. Physicians, however, are allowed to use any FDA-approved drug in any way that they think is beneficial are are not required to inform parents if the therapy has not been tested on children.
-By way of example, we consider here the drug propofol, a sedative that has consistently proven safe for use in adults. In 1992, however, after several children who received propofol in the ICU died, the British government recommended against using it on patients under the age of 16. Despite this recommendation, propofol continued to be widely used in the U.S.. It wasn’t until 2001 that the manufacturers of propofol conducted a randomized, controlled trial, finding that 9.5% of children on propofol died, compared with 3.8% of children on a different sedative. Although the FDA has now added a warning indicating this, the administration of propofol to children in the ICU is still legal, and subject to controversy.</p>
-<p>As we can see, the safety of propofol, which had been consistently demonstrated to be effective in adults, failed to generalize to the wider population, which in this case included children under the age of 16.</p>
-<div id="ch3_s3_ss2" class="section level4" number="3.3.1.1">
-<h4><span class="header-section-number">3.3.1.1</span> Confounding</h4>
-<p>In 1916, a polio epidemic hit the United States, resulting in hundreds of thousands of people, especially children, falling victim to the disease over the next forty years. By the 1950s, several vaccines had been developed. One in particular, developed by Jonas Salk, seemed especially promising based on laboratory studies. In 1954, the Public Health Service organized an experiment to see whether the Salk vaccine would protect children from polio outside of the laboratory. Two million children were selected from the most vulnerable age groups, aged 6 to 9. Of these children, some were vaccinated, some refused treatment, and some were deliberately left unvaccinated.</p>
-<p>This, of course, raises the issue of medical ethics, which are always a consideration in medical studies: is it ethical to deliberately leave some children unvaccinated? In other words, as some families ultimately chose to refuse vaccination, would a more ethical design not offer the vaccine to all children, leaving those who refused to serve as controls?</p>
-<p>Thinking back to some of the issues raised at the beginning of this chapter, what are some issues that could arise in letting the subjects determine their group assignment? Would we expect the treatment and control groups to both still be representative samples of our population? Or is it possible that that these groups might be different in important ways?</p>
-<p>[[I need to consider past/present tense here, and in general]]</p>
-<p>As it turns out, higher-income parents were generally more likely to consent to treatment, <em>and</em> their children were more likely to suffer from polio. The reason for this latter point is that children from poorer backgrounds were more likely to contract mild cases of polio early in childhood, while still protected by antibodies from their mothers. Consequently, the difference in infection between the treatment and control groups could possibly have been related to parental income, rather than treatment. Family background here is said to be a <strong>confounding</strong> factor, a frequent and potentially major source of bias.</p>
-<p>A <em>confounder</em>, also known as a <em>lurking variable</em>, is a third variable which is related to both exposure and outcome. Because of this relationship, confounders distort the observed relationship between exposure and outcome.</p>
-<p>[[Image]]</p>
-<p>In the case of the polio example, then, we have the following pieces from the diagram above</p>
-<ul>
-<li>Exposure = whether the child gets the vaccine or not</li>
-<li>Outcome = whether the child gets polio or not</li>
-<li>Confounder = child’s socioeconomic status</li>
-</ul>
-<p>Example 2</p>
-<p>Many epidemiologic studies have shown that coffee drinkers have an increased risk of lung cancer. However, researchers also noticed that smokers are more likely to drink coffee</p>
-<p>[[Image]]</p>
-<p>Once researchers <em>controlled</em> for smoking status, they no longer found a change in lung cancer risk due to <a href="https://cebp.aacrjournals.org/content/25/6/951">drinking coffee</a></p>
-<hr />
-<p>While there are many complicated analysis techniques that exist to control for confounding, <strong>matching</strong> is a technique used in the study design process, which can be done at either the individual or the group level.</p>
-<p>In a matched study at the individual level, for each subject in the treatment group, a subject matching on potentially confounding variables is also placed. For example, age and sex are both common confounders. If, during the process of enrolling patients, a 40 year old male is assigned to the treatment group, the next 40 year old male would then be assigned to the control, or placebo, group.</p>
-<p>When used at the group level, matching seeks to ensure that the <em>distributions</em> of the confounding variables are the same in each group. Consider again the coffee/cancer example, matching at the group level would ensure that a similar proportion of smokers are included in the coffee drinking group as in the non-coffee drinking group.</p>
+<h3><span class="header-section-number">3.3.1</span> Non-response/Participant Bias</h3>
+<p>We remarked earlier that in an ideal world, all selected participants would be
+eager to participate in our study. However, this is not always the case. To make
+matters even more difficult, sometimes those that want to participate in our
+study differ in meaningful ways from those that do participate. This is called<br />
+<strong>non-response or participant bias</strong>. This type of bias can occur in many studies,
+but is often a particular concern for studies that send out surveys or election
+polls. For example, consider the end-of-semester teaching evaluations that provide
+students an opportunity to review their instructor anonymously. When students
+are not required to fill out these evaluations, its likely that only students
+with strong opinions about their instructor will take the time to respond. This
+may cause the final evaluations to be a mix of very negative ratings and very
+positive ratings, when the instructors performance is actually somewhere in the
+middle. Participant bias can be avoided when designing a study by reducing the
+survey length and offering incentives for participation. During a study,</p>
 </div>
+<div id="ch3_s3_ss2" class="section level3" number="3.3.2">
+<h3><span class="header-section-number">3.3.2</span> Compliance Bias</h3>
+<p>Despite individuals being willing to participate in a research study, this does
+not always mean they will comply perfectly with their assigned treatment.
+Consider an exercise study designed to help people lose weight. Individuals that
+are heavier and out of shape may tend to skip some of the workouts or drop out
+of the study at a higher rate than individuals that are in better shape prior
+to starting the study. Since compliance is directly tied to the outcome of interest
+(weight loss), bias may occur causing the exercise plan to look less effective
+than it truly is. Bias due to compliant participants differing from non-compliant
+participants is called <strong>compliance bias</strong>. Consider a 1980 study of the drug
+clofibrate, which is designed to reduce blood cholesterol levels to prevent
+coronary heart disease. Participants were randomly assigned to take up to three
+capsules of either clofibrate or placebo three times per day. At follow-up
+visits, the remaining number of capsules were counted to estimate how many each
+participant actually took each day. When comparing those that adhered (took at
+least 80% of their required capsules) to those that did not the study results were:</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="center"># of Clofibrate Patients</th>
+<th align="center">Deaths</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Adherers</td>
+<td align="center">708</td>
+<td align="center">15%</td>
+</tr>
+<tr class="even">
+<td align="left">Non-adherers</td>
+<td align="center">357</td>
+<td align="center">25%</td>
+</tr>
+<tr class="odd">
+<td align="left">Total</td>
+<td align="center">1,103</td>
+<td align="center">20%</td>
+</tr>
+</tbody>
+</table>
+<p>When comparing adherers and non-adherers in the clofibrate group, we see that
+non-adherers were much more likely to die. This seems to provide strong evidence
+that clofibrate is effective, however we have ignored the results of the patients
+in the placebo group.</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="center"># of Clofibrate Patients</th>
+<th align="center">Deaths</th>
+<th align="center"># of Placebo Patients</th>
+<th align="center">Deaths</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Adherers</td>
+<td align="center">708</td>
+<td align="center">15%</td>
+<td align="center">1,813</td>
+<td align="center">15%</td>
+</tr>
+<tr class="even">
+<td align="left">Non-adherers</td>
+<td align="center">357</td>
+<td align="center">25%</td>
+<td align="center">882</td>
+<td align="center">28%</td>
+</tr>
+<tr class="odd">
+<td align="left">Total</td>
+<td align="center">1,103</td>
+<td align="center">20%</td>
+<td align="center">2,789</td>
+<td align="center">21%</td>
+</tr>
+</tbody>
+</table>
+<p>When comparing patients in the clofibrate group to those that were on the placebo,
+we see the same trend of reduced mortality in adherers. Additionally, the death
+rate for adherers taking clofibrate is exactly the same as that for patients
+taking the placebo. This would indicate that clofibrate is not the reason for
+reduced mortality, and instead it is driven by characteristics of those that
+adhere to their medication. One possibility is that adherers are more concerned
+with their health in general, and are thus more likely to take better care of
+themselves. Compliance bias can be avoided by comparing subjects only by the
+groups they were randomized to, despite their adherence to the treatment. This
+is also called <strong>intent to treat analysis</strong>.</p>
 </div>
-<div id="ch3_s3_ss3" class="section level3" number="3.3.2">
-<h3><span class="header-section-number">3.3.2</span> Maybe cognitive bias? placebo stuff?</h3>
+<div id="ch3_s3_ss4" class="section level3" number="3.3.3">
+<h3><span class="header-section-number">3.3.3</span> Measurement Bias</h3>
 <div class="definition-container">
 <div class="definition">
-<span id="def:unlabeled-div-3" class="definition"><strong>Definition 3.3  </strong></span>Definitions
+<span id="def:unlabeled-div-3" class="definition"><strong>Definition 3.3  </strong></span> 
 </div>
-<p><strong>Study Design Bias: </strong> <em> definition </em></p>
-<p><strong>Extrapolation Bias: </strong> <em> definition </em></p>
-<p><strong>Confounding: </strong> <em> definition </em></p>
+<p><strong>Non-response/participant Bias: </strong> <em> A type of bias in which non-participants differ in a
+meaningful way from the participants</em></p>
+<p><strong>Compliance Bias: </strong> <em> Bias arising when those complying to study protocol differ from
+those that do not comply</em></p>
+<p><strong>Intent to treat analysis: </strong> <em> A method of analysis which includes all participants
+as they were randomized despite adherence</em></p>
+<p><strong>Measurement Bias: </strong> <em> Bias arising when data on the outcome is systematically
+inaccurate</em></p>
 </div>
 </div>
 </div>
-<div id="review" class="section level2" number="3.4">
-<h2><span class="header-section-number">3.4</span> Review</h2>
-<p>We began this chapter with the goal of answering the question, “How should I collect my data?” As this relates to our research/scientific question, this consists of something</p>
-<ol style="list-style-type: decimal">
-<li>Correctly identifying the population and collecting a random, representative sample</li>
-<li>Conducting our study so as to be free from bias</li>
-</ol>
+<div id="ch3_s4" class="section level2" number="3.4">
+<h2><span class="header-section-number">3.4</span> Post-trial Bias</h2>
+<div id="ch3_s4_ss1" class="section level3" number="3.4.1">
+<h3><span class="header-section-number">3.4.1</span> Confounding</h3>
+<p>When it is not possible to conduct a randomized controlled double-blind trial,</p>
+<p>A <em>confounder</em>, also known as a <em>lurking variable</em>, is a third variable which is
+related to both exposure and outcome. Because of this relationship, confounders distort the observed relationship between exposure and outcome.</p>
+<p>Many epidemiologic studies have shown that coffee drinkers have an increased
+risk of lung cancer. However, researchers also noticed that smokers are more
+likely to drink coffee</p>
+<div class="figure"><span style="display:block;" id="fig:statFramework"></span>
+<img src="introTextbookTemplate_files/figure-html/statFramework-1.png" alt="Statistical Framework" width="672" />
+<p class="caption">
+Figure 3.2: Statistical Framework
+</p>
+</div>
+<p>Once researchers <em>controlled</em> for smoking status, they no longer found a change
+in lung cancer risk due to <a href="https://cebp.aacrjournals.org/content/25/6/951">drinking coffee</a></p>
+<p>Confounding can be avoided when designing the study by ensuring the treatment
+and control groups have similar distributions of each confounding variable. In
+the coffee and cancer example, this would be analagous to ensuring there were
+similar proportions of smokers in the coffee drinking and non-coffee drinking
+groups. If it is not possible to control for a confounder when designing the
+study, there are many analysis methods (beyond the scope of this course) that
+can be used.</p>
+</div>
+<div id="ch3_s4_ss2" class="section level3" number="3.4.2">
+<h3><span class="header-section-number">3.4.2</span> Extrapolation Bias</h3>
+<p>The previous two examples demonstrated ways in which we might incorrectly move from a target population to a non-representative sample. This final case describes movement in the opposite direction: from a specified sample to a more general population. Nonetheless, the cause of the bias is the same.</p>
+<p>The motivation here can be most readily illustrated by considering the issue of pharmaceutical trails and the use of children. For practical, ethical, and economic reasons, clinical trials usually only involve adults - indeed, only about 25% of drugs are subjected to pediatric studies. Physicians, however, are allowed to use any FDA-approved drug in any way that they think is beneficial are are not required to inform parents if the therapy has not been tested on children.</p>
+</div>
+<div id="ch3_s4_ss3" class="section level3" number="3.4.3">
+<h3><span class="header-section-number">3.4.3</span> Publication Bias</h3>
+<div class="definition-container">
+<div class="definition">
+<span id="def:unlabeled-div-4" class="definition"><strong>Definition 3.4  </strong></span> 
+</div>
+<p><strong>Confounding: </strong> <em> </em></p>
+<p><strong>Extrapolation Bias: </strong> <em> </em></p>
+<p><strong>Publication Bias: </strong> <em> A bias in published research which favors significant findings </em></p>
+</div>
 
+</div>
 </div>
 </div>
             </section>

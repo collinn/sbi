@@ -93,13 +93,24 @@
 <li class="chapter" data-level="3" data-path="ch3.html"><a href="ch3.html"><i class="fa fa-check"></i><b>3</b> Study Design</a>
 <ul>
 <li class="chapter" data-level="3.1" data-path="ch3.html"><a href="ch3.html#ch3_s1"><i class="fa fa-check"></i><b>3.1</b> Importance of Study Design</a></li>
-<li class="chapter" data-level="3.2" data-path="ch3.html"><a href="ch3.html#designing-the-study"><i class="fa fa-check"></i><b>3.2</b> Designing the Study</a></li>
-<li class="chapter" data-level="3.3" data-path="ch3.html"><a href="ch3.html#bias"><i class="fa fa-check"></i><b>3.3</b> Bias</a>
+<li class="chapter" data-level="3.2" data-path="ch3.html"><a href="ch3.html#ch3_s2"><i class="fa fa-check"></i><b>3.2</b> Pre-trial Bias</a>
 <ul>
-<li class="chapter" data-level="3.3.1" data-path="ch3.html"><a href="ch3.html#sampling-bias"><i class="fa fa-check"></i><b>3.3.1</b> Sampling Bias</a></li>
-<li class="chapter" data-level="3.3.2" data-path="ch3.html"><a href="ch3.html#study-design-bias"><i class="fa fa-check"></i><b>3.3.2</b> Study Design Bias</a></li>
+<li class="chapter" data-level="3.2.1" data-path="ch3.html"><a href="ch3.html#ch3_s2_ss1"><i class="fa fa-check"></i><b>3.2.1</b> Selection Bias</a></li>
+<li class="chapter" data-level="3.2.2" data-path="ch3.html"><a href="ch3.html#ch3_s2_ss2"><i class="fa fa-check"></i><b>3.2.2</b> Confirmation Bias/Placebo Effect</a></li>
+<li class="chapter" data-level="3.2.3" data-path="ch3.html"><a href="ch3.html#ch3_s2_ss3"><i class="fa fa-check"></i><b>3.2.3</b> Observer Bias</a></li>
 </ul></li>
-<li class="chapter" data-level="3.4" data-path="ch3.html"><a href="ch3.html#review"><i class="fa fa-check"></i><b>3.4</b> Review</a></li>
+<li class="chapter" data-level="3.3" data-path="ch3.html"><a href="ch3.html#ch3_s3"><i class="fa fa-check"></i><b>3.3</b> During-trial Bias</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="ch3.html"><a href="ch3.html#ch3_s3_ss1"><i class="fa fa-check"></i><b>3.3.1</b> Non-response/Participant Bias</a></li>
+<li class="chapter" data-level="3.3.2" data-path="ch3.html"><a href="ch3.html#ch3_s3_ss2"><i class="fa fa-check"></i><b>3.3.2</b> Compliance Bias</a></li>
+<li class="chapter" data-level="3.3.3" data-path="ch3.html"><a href="ch3.html#ch3_s3_ss4"><i class="fa fa-check"></i><b>3.3.3</b> Measurement Bias</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="ch3.html"><a href="ch3.html#ch3_s4"><i class="fa fa-check"></i><b>3.4</b> Post-trial Bias</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="ch3.html"><a href="ch3.html#ch3_s4_ss1"><i class="fa fa-check"></i><b>3.4.1</b> Confounding</a></li>
+<li class="chapter" data-level="3.4.2" data-path="ch3.html"><a href="ch3.html#ch3_s4_ss2"><i class="fa fa-check"></i><b>3.4.2</b> Extrapolation Bias</a></li>
+<li class="chapter" data-level="3.4.3" data-path="ch3.html"><a href="ch3.html#ch3_s4_ss3"><i class="fa fa-check"></i><b>3.4.3</b> Publication Bias</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="ch4.html"><a href="ch4.html"><i class="fa fa-check"></i><b>4</b> Introduction to Probability and Simulation</a>
 <ul>
@@ -176,8 +187,8 @@ Learning objectives
 </div>
 <div id="ch1_s1" class="section level2" number="1.1">
 <h2><span class="header-section-number">1.1</span> Statistics and Evidence-based Research</h2>
-<p>Dr. Anne Ecdote bases all her decisions off things she’s observed. Dr. Eva Dense
-bases her practice off well-researched studies. Dr. Opi Yon bases his practice
+<p>Dr. Anne Ecdote bases all of her decisions on things she’s observed. Dr. Eva Dense
+bases her practice off of well-researched studies. Dr. Opi Yon bases his practice
 off his personal beliefs. You visit each doctor with a headache. Dr. Ecdote says
 the last person she saw with a headache had a brain tumor, so you should
 probably get an MRI. Dr. Yon says headaches are a construct of our imagination
@@ -192,16 +203,16 @@ would you listen to?</p>
 <li>the mathematics of uncertainty</li>
 <li>a required college course designed to make everyone miserable</li>
 </ul>
-<p>All of these definitions hold some truth (some more than others - we’ll let you
-guess which 😉). Statistics is a highly interdisciplinary field, with methods
+<p>All of these definitions hold a degree truth (some more than others - we’ll let you
+guess which 😉). Statistics is a highly versatile field, with methods
 applicable to and used by a wide variety of disciplines. The importance of the
 field of statistics lies in it’s ability to quantify our uncertainty about a
 potential outcome - such as the most likely cause and treatment for a headache.
 Almost everything in life is associated with some uncertainty - the weather,
 your career, the connection between your genetics and your response to certain
-medications. However, just because something isn’t known with 100% certainty,
+medications; however, just because something isn’t known with 100% certainty
 doesn’t mean we can’t understand it better. Statistics helps us understand the
-world better by allowing us to measure our uncertainty, describe associations
+world better by allowing us to quantify our uncertainty, describe associations
 between phenomena, and make informed decisions.</p>
 <p>And how exactly do researchers use statistics to quantify their uncertainty?
 Well, this is achieved by collecting data, or evidence, about whatever process
@@ -220,10 +231,10 @@ inquiry to help answer important questions:</p>
 </li>
 <li>What factors increase the risk of an individual developing coronary heart disease?</li>
 </ul>
-<p>These questions are too important to be left to opinion, superstition, and
-conjecture. Thus, there has been a tremendous push for objective,
+<p>These questions are too important to be left to opinion, superstition, or
+conjecture. Consequently, there has been a tremendous push for objective,
 <strong>evidence-based</strong> decision making in medicine, public health, and policy making.
-Statistics and biostatistics are the sciences that allows us to mSake these
+Statistics and biostatistics are the sciences that allows us to make these
 decisions. When studying humans, we can’t control every aspect of their life,
 such as what they eat or where they work. There are ethical considerations - if
 we wanted to research the effects of smoking on lung cancer, we would not be

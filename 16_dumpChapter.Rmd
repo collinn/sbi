@@ -430,6 +430,10 @@ In a matched study at the individual level, for each subject in the treatment gr
 When used at the group level, matching seeks to ensure that the *distributions* of the confounding variables are the same in each group. Consider again the coffee/cancer example, matching at the group level would ensure that a similar proportion of smokers are included in the coffee drinking group as in the non-coffee drinking group.
 
 
+In the previous example, we noted that 10 million questionnaires had been sent out, but only 2.4 million responses were returned. While it would certainly be nice if everybody complied with our requests for information, it is often unrealistic to expect that each inquiry will be returned. In and of itself, this is not a problem. Indeed, so long as non-response is random and the samples collected continue to be representative of the population, our sample population will still be valid. However, what if non-response is not random? In other words, what happens if one sub-group of the population is more likely to respond to a survey than another? More specifically, **non-response bias** is the phenomenon in which willingness to respond to a survey (or selection) is related to the scientific question [[i don't like this paragraph at all]]
+
+
+
 ## Probability dump
 
 If statistics is the science of uncertainty, then probability is the mechanism that allows us to quantify our uncertainty. In other words, probability tells us how likely something is to happen. People talk loosely about probability all the time. For example, "what's the chance of rain tomorrow?" or "how likely is it that drug A is better than drug B?" However, for scientific purposes, we need to be more specific in terms of defining and using probabilities. 

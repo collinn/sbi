@@ -91,11 +91,11 @@ to have when designing their own studies, as well as evaluating the merit of
 other studies in the literature. In this chapter, we focus on defining several
 common types of bias, how each type can impact study results, and how they can
 be avoided. This is not meant to be an exhaustive list - if you are interested in
-learning about other types of bias, check out the [Catalogue of Biases](https://catalogofbias.org/biases/). We will categorize different types 
+learning about other types of bias, check out the [Catalogue of Biases](https://catalogofbias.org/biases/).
+We will categorize different types 
 of bias broadly by when they occur: pre-trial, during trial, and 
-post-trial. We will explore different types of bias in the context of a 
-study on a newly developed vaccine seeking to prevent the spread of a novel
-infectious pathogen. 
+post-trial, although all types of bias should be considered when planning 
+a study.
 
 
 <div class="definition-container">
@@ -106,20 +106,6 @@ infectious pathogen.
   systematically different from the true value it is intended to estimate </em>
 </div>
 
-1. Pre-trial
-  * Selection bias
-  * Randomization
-  * Placebo effect????
-2. During-trial
-  * Non-response bias
-  * Recall bias
-  * Measurement bias
-3. Post-trial
-  * Confounding????
-  * Publication bias
-  * Extrapolation bias
-
-
 ## Pre-trial Bias {#ch3_s2}
 
 ### Selection Bias {#ch3_s2_ss1}
@@ -128,8 +114,7 @@ The first major consideration when planning a study is who you will ask
 to participate. When selecting your sample, you must ensure the sample is 
 representative of the population of interest. Otherwise, your study may be prone to
 **selection bias**, where the study participants differ systematically from the
-population of interest. In our hypothetical vaccine trial, there are many 
-possible ways we could observe selection bias. In the first phase of a vaccine 
+population of interest. For example, in the first phase of a vaccine 
 trial, the vaccine is often given to young, healthy volunteers to assess its safety 
 profile. However, the vaccine is intended for use for both young and older people,
 as well as those that may have underlying medical conditions. If the safety  of
@@ -138,10 +123,14 @@ participants, it would look safer than it really is. This is why these initial
 studies are primarily used to stop development of a vaccine that is unsafe.
 Vaccines that are found to be safe in healthy people proceed to further 
 testing in the general population to accurately determine the safety profile. 
-Selection bias can be avoided by...
+Selection bias can be avoided by careful consideration of the make up of the 
+population and a sampling method that accounts for various sub-populations that
+may differ in respect to the study outcome.
 
 
-### Placebo Effect {#ch3_s2_ss2}
+### Confirmation Bias/Placebo Effect {#ch3_s2_ss2}
+
+I hate this.
 
 To determine if a new treatment is effective, it must be compared to something 
 else. This is addressed by splitting the sample into two groups: the 
@@ -149,8 +138,24 @@ else. This is addressed by splitting the sample into two groups: the
 are given the vaccine, whereas subjects in the control group are not treated 
 and are used for comparison. Subjects must be assigned to receive the treatment
 or control at random to avoid selection bias. In addition, there is the potential
-for bias to arise if the subjects know whether or not they're being treated.
+for bias to arise if the subjects know whether or not they're being treated. This
+is known as **confirmation bias**, where the knowledge of treatment allocation 
+can make study participants perceive the treatment benefit differently. To 
+avoid this and ensure that any differences in the outcome are due to the treatment,
+researchers use a **placebo**, or fake treatment (e.g. a sugar pill
+or saline infection). 
 
+
+through what is called the **placebo effect**. The placebo effect
+
+Blinding is used to address or control for the placebo effect.
+
+### Observer Bias {#ch3_s2_ss3}
+
+Researchers often have expectations about how effective their treatment is 
+(otherwise they probably wouldn't be studying it). If the researcher is also 
+responsible for recording subjective assessments of the study participants, there
+is the potential for their beliefs about the treatment to influence 
 
 
 <div class="definition-container">
@@ -160,45 +165,102 @@ for bias to arise if the subjects know whether or not they're being treated.
 **Treatment group: ** <em> The part of the sample that receives the treatment </em>
 
 **Control Group: ** <em> The part of the sample that is not treated for comparison purposes </em>
-
-**Observer Bias: ** <em> Bias arising when observers record subjective data </em>
   
-**Confirmation Bias: ** <em> Any process or technique whereby the actual outcome is
-  systematically different from the true value it is intended to estimate </em>
+**Confirmation Bias: ** <em> Bias due to an individuals prior beliefs</em>
 
-**Placebo Effect: ** <em> Any process or technique whereby the actual outcome is
-  systematically different from the true value it is intended to estimate </em>
+**Placebo Effect: ** <em> A psychological phenomenon where a fake treatment can produce a positive response </em>
+  
+**Observer Bias: ** <em> Bias arising when observers record subjective data </em>
 </div>
 
 
 ## During-trial Bias {#ch3_s3}
 
 
-### Non-response Bias {#ch3_s3_ss1}
+### Non-response/Participant Bias {#ch3_s3_ss1}
 
-In the previous example, we noted that 10 million questionnaires had been sent out, but only 2.4 million responses were returned. While it would certainly be nice if everybody complied with our requests for information, it is often unrealistic to expect that each inquiry will be returned. In and of itself, this is not a problem. Indeed, so long as non-response is random and the samples collected continue to be representative of the population, our sample population will still be valid. However, what if non-response is not random? In other words, what happens if one sub-group of the population is more likely to respond to a survey than another? More specifically, **non-response bias** is the phenomenon in which willingness to respond to a survey (or selection) is related to the scientific question [[i don't like this paragraph at all]]
+We remarked earlier that in an ideal world, all selected participants would be 
+eager to participate in our study. However, this is not always the case. To make
+matters even more difficult, sometimes those that want to participate in our 
+study differ in meaningful ways from those that do participate. This is called  
+**non-response or participant bias**. This type of bias can occur in many studies,
+but is often a particular concern for studies that send out surveys or election 
+polls. For example, consider the end-of-semester teaching evaluations that provide
+students an opportunity to review their instructor anonymously. When students 
+are not required to fill out these evaluations, its likely that only students 
+with strong opinions about their instructor will take the time to respond. This
+may cause the final evaluations to be a mix of very negative ratings and very 
+positive ratings, when the instructors performance is actually somewhere in the 
+middle. Participant bias can be avoided when designing a study by reducing the 
+survey length and offering incentives for participation. 
 
+### Compliance Bias {#ch3_s3_ss2}
 
+Despite individuals being willing to participate in a research study, this does
+not always mean they will comply perfectly with their assigned treatment. 
+Consider an exercise study designed to help people lose weight. Individuals that 
+are heavier and out of shape may tend to skip some of the workouts or drop out
+of the study at a higher rate than individuals that are in better shape prior
+to starting the study. Since compliance is directly tied to the outcome of interest
+(weight loss), bias may occur causing the exercise plan to look less effective
+than it truly is. Bias due to compliant participants differing from non-compliant
+participants is called **compliance bias**. Consider a 1980 study of the drug
+clofibrate, which is designed to reduce blood cholesterol levels to prevent 
+coronary heart disease. Participants were randomly assigned to take up to three 
+capsules of either clofibrate or placebo three times per day. At follow-up 
+visits, the remaining number of capsules were counted to estimate how many each
+participant actually took each day. When comparing those that adhered (took at 
+least 80% of their required capsules) to those that did not the study results were:
 
-### Recall Bias {#ch3_s3_ss2}
+```{r, echo = F}
+library(knitr)
+tmp <- data.frame('Count' = c('708', '357', '1,103'),
+                  'Deaths' = c('15%', '25%', '20%'))
 
-### Measurement Bias {#ch3_s3_ss3}
+rownames(tmp) <- c('Adherers', 'Non-adherers', 'Total')
+kable(tmp, align = 'c', col.names = c('# of Clofibrate Patients', 'Deaths'))
+```
 
-### Observer Bias {#ch3_s3_ss4}
+When comparing adherers and non-adherers in the clofibrate group, we see that
+non-adherers were much more likely to die. This seems to provide strong evidence
+that clofibrate is effective, however we have ignored the results of the patients
+in the placebo group.
+
+```{r, echo = F}
+tmp2 <- data.frame('Count' = c('1,813', '882', '2,789'),
+                  'Deaths' = c('15%', '28%', '21%'))
+
+rownames(tmp2) <- c('Adherers', 'Non-adherers', 'Total')
+
+kable(cbind.data.frame(tmp, tmp2),
+      align = 'c', col.names = c('# of Clofibrate Patients', 'Deaths', 
+                                   '# of Placebo Patients', 'Deaths'))
+```
+
+When comparing patients in the clofibrate group to those that were on the placebo,
+we see the same trend of reduced mortality in adherers. Additionally, the death
+rate for adherers taking clofibrate is exactly the same as that for patients
+taking the placebo. This would indicate that clofibrate is not the reason for
+reduced mortality, and instead it is driven by characteristics of those that 
+adhere to their medication. One possibility is that adherers are more concerned
+with their health in general, and are thus more likely to take better care of 
+themselves. Compliance bias can be avoided by comparing subjects only by the
+groups they were randomized to, despite their adherence to the treatment. This 
+is also called **intent to treat analysis**.
+
 
 <div class="definition-container">
 <div class="definition"> &nbsp; </div>
 
-**Non-response Bias: ** <em> A type of bias in which non-responders differ in a 
-  meaningful way from the resonders</em>
+**Non-response/participant Bias: ** <em> A type of bias in which non-participants differ in a 
+  meaningful way from the participants</em>
+  
+**Compliance Bias: ** <em> Bias arising when those complying to study protocol differ from
+  those that do not comply</em>  
+  
+**Intent to treat analysis: ** <em> A method of analysis which includes all participants
+  as they were randomized despite adherence</em>  
 
-**Recall Bias: ** <em> Bias that occurs when study participants' memories are altered 
-  according to the outcome of interest </em>
-
-**Observer Bias: ** <em> Bias arising when observers record subjective data </em>
-
-**Measurement Bias: ** <em> Bias arising when data on the outcome is systematically 
-  inaccurate</em>  
 </div>
 
 
@@ -207,17 +269,68 @@ In the previous example, we noted that 10 million questionnaires had been sent o
 
 ### Confounding {#ch3_s4_ss1}
 
-A *confounder*, also known as a *lurking variable*, is a third variable which is related to both exposure and outcome. Because of this relationship, confounders distort the observed relationship between exposure and outcome.
+Many epidemiological studies have shown that coffee drinkers have an increased 
+risk of lung cancer. However, upon further investigation, researchers also 
+noticed that smokers are more likely to drink coffee. There is a known association
+between smoking and lung cancer, with people who smoke cigarettes being 15 to 
+30 times more likely to get lung cancer than people who do not smoke. Thus the
+association that was detected between coffee and lung cancer was not due to the 
+coffee, and instead was impacted by smoking status. 
+
+```{tikz coffeeCancer, fig.cap = "Coffee causes cancer?", fig.ext = 'png', echo = F}
+\usetikzlibrary{shapes,decorations,arrows,calc,arrows.meta,fit,positioning}
+\tikzset{
+    -Latex,auto,node distance =1 cm and 1 cm,semithick,
+    state/.style ={ellipse, draw, minimum width = 0.7 cm},
+    point/.style = {circle, draw, inner sep=0.04cm,fill,node contents={}},
+    bidirected/.style={Latex-Latex,dashed},
+    el/.style = {inner sep=2pt, align=left, sloped}
+}
+\begin{tikzpicture}
+                \node[state] (1) at (0,0) {Coffee Drinker};
+                \node[state] (3) at (6, 0) {Lung Cancer};
+                \node[state] (4) at (3, 1.5) {Smoker};
+            
+                \path (1) edge  (3);
+                \path (4) edge (3);
+                \path (4) edge (1);
+            \end{tikzpicture}
+```
+
+Once researchers *controlled* for smoking status, they no longer found a change
+in lung cancer risk due to [drinking coffee](https://cebp.aacrjournals.org/content/25/6/951).
+Smoking status is said to be a *confounder*, also known as a *lurking variable*.
+A confounder is a third variable related to both exposure and outcome. Because 
+of this relationship, confounders distort the observed relationship between 
+exposure and outcome.
+
+Confounding can be avoided when designing the study by ensuring the treatment 
+and control groups have similar distributions of each confounding variable. In 
+the coffee and cancer example, this would be analogous to ensuring there were
+similar proportions of smokers in the coffee drinking and non-coffee drinking 
+groups. If it is not possible to control for a confounder when designing the 
+study, there are many analysis methods (beyond the scope of this course) that
+can be used.
 
 
 ### Extrapolation Bias {#ch3_s4_ss2}
 
-The previous two examples demonstrated ways in which we might incorrectly move from a target population to a non-representative sample. This final case describes movement in the opposite direction: from a specified sample to a more general population. Nonetheless, the cause of the bias is the same.
+The previous two examples demonstrated ways in which we might incorrectly move 
+from a target population to a non-representative sample. This final case 
+describes movement in the opposite direction: from a specified sample to a more 
+general population. Nonetheless, the cause of the bias is the same.
 
-The motivation here can be most readily illustrated by considering the issue of pharmaceutical trails and the use of children. For practical, ethical, and economic reasons, clinical trials usually only involve adults - indeed, only about 25% of drugs are subjected to pediatric studies. Physicians, however, are allowed to use any FDA-approved drug in any way that they think is beneficial are are not required to inform parents if the therapy has not been tested on children. 
+The motivation here can be most readily illustrated by considering the issue of 
+pharmaceutical trails and the use of children. For practical, ethical, and
+economic reasons, clinical trials usually only involve adults - indeed, only 
+about 25% of drugs are subjected to pediatric studies. Physicians, however, are 
+allowed to use any FDA-approved drug in any way that they think is beneficial 
+are are not required to inform parents if the therapy has not been tested on 
+children. 
 
 
 ### Publication Bias {#ch3_s4_ss3}
+
 
 <div class="definition-container">
 <div class="definition"> &nbsp; </div>
