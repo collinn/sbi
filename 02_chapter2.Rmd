@@ -71,11 +71,11 @@ ways to summarize both types of data.
 <div class="definition"> &nbsp; </div>
 **Categorical data: ** <em> Data that takes on a distinct value (i.e., falls into categories) </em>
 
-**Continuous data: ** <em> Data that takes on numeric values </em>
-
 **Nominal data: ** <em> A type of categorical data where the categories do not have any apparent ordering </em>
 
 **Ordinal data: ** <em> A type of categorical data where there is a natural ordering </em>
+
+**Continuous data: ** <em> Data that takes on numeric values, often measured on an interval </em>
 </div>
 
 
@@ -88,7 +88,7 @@ responding with their sex, hair color, and eye color. This data includes
 responses from male and female students, with hair colors that are black, brown, 
 red, or blond, and eyes that are brown, blue, hazel, or green. Note that these 
 are *qualitative* measures, suggesting that are dealing with categorical data. 
-Let's take a look at the data for the first 10 subjects.
+Let's take a look at the data for the first ten subjects.
 
 ```{r}
 data(HairEyeColor)
@@ -116,13 +116,16 @@ Each row indicates a subject possessing the indicated sex, hair, and eye color.
 For example, the first row indicates a male with brown hair and blue eyes. Trying 
 to make sense of 592 such observations is a daunting task, so we can begin by
 taking the data we have and summarizing it in a useful way. For categorical data, 
-like we have here, summarizing the data is pretty straightforward - you just 
+like we have here, summarizing the data is pretty straightforward -- you just 
 count how many times each category occurs. For example, we can count how many
 of each hair color was observed in our data.
 
 ```{r}
+## Adding total column to table for consistency with later tables
 tab <- table(dt$Hair)
+tab <- c(tab, sum(tab))
 nn <- names(tab)
+nn[5] <- "Total"
 tab <- as.numeric(tab)
 names(tab) <- nn
 t(tab) %>% kable %>% kable_classic(full_width = F)
@@ -131,11 +134,9 @@ t(tab) %>% kable %>% kable_classic(full_width = F)
 This kind of counting is known as **absolute frequency**, which gives us a single 
 value indicating the total number of observations. In looking at the table above, 
 it is clear that there are far more observations with brown hair than black, 
-blond, and red. We gather this information by looking at the total number of 
-observations with brown hair, and noticing that this number is quite a bit larger 
-than any of the other observations.
+blond, and red. 
 
-However, suppose somebody asks you how common brown hair is relative to other 
+However, suppose somebody asks you how common brown hair is *relative* to other 
 colors. Does it make sense to respond, "Oh, there are 286 individuals with 
 brown hair"? Without knowing the values for the other hair colors, this number 
 alone doesn't carry much meaning. Is 286 observations a lot? It depends. Were 
@@ -149,14 +150,13 @@ observations. For example, instead of saying, "286 subjects who were
 observed had brown hair," we might instead say, "286 of 592 subjects surveyed
 had brown hair." Rates are also known as **relative frequencies**, because
 they are relative to a specific number of observations. More commonly, we use
-**percentages**, also known as **proportions**, which are a special type of rate/
-relative frequency - the count per 100 observations.
-We calculate percentages using division. That is, 286 of 592 subjects becomes
-$286/592 = 0.4831 = 48.31\%$. We can now show the same table above, this time
-in terms of percentages.
+**percentages**, also known as **proportions**, which are a special type of rate or
+relative frequency -- the count per 100 observations. That is, 286 of 592 subjects becomes
+$286/592 = 0.4831 = 48.31\%$. Let's consider again the same table as above, this time
+in terms of percentages:
 
 ```{r}
-t(scales::percent(prop.table(tab))) %>%  kable() %>% kable_classic(full_width = F)
+t(scales::percent(prop.table(tab[1:4]))) %>%  kable() %>% kable_classic(full_width = F)
 ```
 
 
@@ -190,20 +190,19 @@ break down observations with each hair color by sex as well. This process is
 known as **stratification**.
 
 ```{r}
+## Transposed table to make consistent with previous
 table2 <- with(dt, table(Sex, Hair))
-addmargins(t(table2) , FUN= list(Total = sum), quiet = T) %>% 
+addmargins((table2), FUN= list(Total = sum), quiet = T) %>% 
   kable() %>% kable_classic(full_width = F)
 ```
 
-First, we notice that by taking sums across the rows, we arrive at the same 
-numbers that we had when only hair color was considered. If we sum vertically 
-down the columns, we also get the total number of observations of each sex. Note
-that the sum of both margin totals add up to 592, the total number of observations,
-as indicated by the bottom right corner. In other words, y stratifying the hair 
+First, we notice that by taking sums across the columns, we arrive at the same 
+numbers that we had when only hair color was considered. If we sum horizontally across the rows, we also get the total number of observations of each sex. Note
+that the sum of both marginal totals add up to 592, the total number of observations. In other words, when stratifying the hair 
 color counts by sex, we haven't lost any information related to the hair color,
 but we have *added information* to our summary about sex. 
 
-Getting stratified counts is straightforward, however, we now have several ways 
+Getting stratified counts is straightforward; however, we now have several ways 
 in which we might compute the percentages. For the table above, there are three
 ways we could compute percents.
 
@@ -218,8 +217,7 @@ kable(tt, caption = "Relative to population") %>% kable_classic(full_width = F)
 
 Here, the percentages are computed by diving the count in each inner cell by the
 total sample size, 592. For example, there were 56 male respondents with black 
-hair. Relative to the total sample, this means 56/592 = 0.095 = 9.5% of the sample
-consists of black-haired males. Adding up all of the percentages gives us $\approx$ 100% (due to rounding to the first decimal place we actually get 100.1% here).
+hair, representing 9.5% of the sample. Adding up all of the percentages gives us $\approx$ 100% (due to rounding to the first decimal place we actually get 100.1% here).
 
 - How many of each hair color, within sex
 
@@ -277,7 +275,6 @@ ggplot(dt, aes(x=Sex, fill=Hair))+
   ylab('Percent') +
   scale_y_continuous(labels = scales::percent) +
   scale_fill_manual(values = c('black', 'saddlebrown', 'brown3', 'lightgoldenrod1'))
-
 ```
 
 
@@ -292,9 +289,9 @@ ggplot(dt, aes(x=Sex, fill=Hair))+
 **Percent/Proportion: ** <em> The number of observations per 100 </em>
 
 **Bar plot: ** <em> Visualization of categorical data which uses bars to represent each category, 
-with counts or percents giving the height of each bar </em>
+with counts or percents represented by the height of each bar </em>
 
-**Stratification: ** <em> The process of sorting data into categories prior to summarizing </em>
+**Stratification: ** <em> The process of partitioning data into categories prior to summarizing </em>
 </div>
 
 
@@ -324,14 +321,11 @@ This data contains continuous measurements on the air quality:
 - average wind speed in miles per hour (mph) at La Guardia Airport (Wind)
 - average ozone in parts per billion (ppb) from 1:00pm - 3:00pm at Roosevelt Island (Ozone)
 
-The tables and bar charts we introduced in Section \@ref(ch2_s2) are great summaries when
-the data can be categorized and counted. However, with continuous data, we can 
-have a potentially infinite number of values and counting each unique value would
-not be very informative. Instead, one way we can visualize the data is by first 
-creating *bins* which cover an interval of possible values and then counting the
-number of observations that fall into each bin. Plotting the absolute or relative
-frequency of observations in each bin gives us a **histogram**. A histogram
-of the maximum daily temperature from our New York data looks like this:
+The tables and bar charts we introduced in [Section 2](#ch2_s2) are great summaries when
+the data can be categorized and counted. With continuous data, however, there are no natural discrete categories into which our data can be organized. Instead, one way we can visualize the data is by first 
+creating *bins* which partition an interval of possible values and then counting the
+number of observations that fall into each bin. For example, when considering a range of temperature values from 50&deg;F - 100&deg;F, we might construct bins at intervals of 5&deg;F. Plotting the absolute or relative
+frequency of observations in each bin gives us a **histogram**. Below is an example of a histogram representing the maximum daily temperatures from our New York data:
 
 ```{r}
 hist(aq$Temp, main = 'Histogram of Maximum Daily Temperature at La Guardia',
@@ -339,79 +333,99 @@ hist(aq$Temp, main = 'Histogram of Maximum Daily Temperature at La Guardia',
      col = 'salmon1')
 ```
 
-Histograms provide a nice picture of the *distribution* of the observed data. In
-the histogram of temperature, we can readily see that on most days between May and 
-September, the maximum temperature at La Guardia was between 75 - 85 degrees. Some
-days were particularly chilly, with temperatures below 60 degrees and some days
-were quite hot, with temperatures above 90 degrees. When creating a histogram,
-it is important to be careful in selecting the size of each bin. Bins that are 
-too large can over-simplify the data, but bins that are too small can make the 
-figure unnecessarily complex. 
+In the histogram of temperature, we can readily see that on most days between May and 
+September, the maximum temperature at La Guardia was between 75&deg;F - 85&deg;F. Some
+days were particularly chilly, with temperatures below 60&deg;F and some days
+were quite hot, with temperatures above 90&deg;F. 
 
-```{r}
-par(mfrow = c(1, 2))
-hist(aq$Temp, main = 'Too few bins',
-     xlab = 'Temperature (degrees F)', ylab = 'Count',
-     col = 'salmon1', breaks = 2)
-hist(aq$Temp, main = 'Too many bins',
-     xlab = 'Temperature (degrees F)', ylab = 'Count',
-     col = 'salmon1', breaks = 150)
-```
+<!-- [[This isn't really necessary since students aren't making histograms]] -->
+<!-- When creating a histogram, -->
+<!-- it is important to be careful in selecting the size of each bin. Bins that are  -->
+<!-- too large can over-simplify the data, but bins that are too small can make the  -->
+<!-- figure unnecessarily complex.  -->
 
+<!-- ```{r} -->
+<!-- par(mfrow = c(1, 2)) -->
+<!-- hist(aq$Temp, main = 'Too few bins', -->
+<!--      xlab = 'Temperature (degrees F)', ylab = 'Count', -->
+<!--      col = 'salmon1', breaks = 2) -->
+<!-- hist(aq$Temp, main = 'Too many bins', -->
+<!--      xlab = 'Temperature (degrees F)', ylab = 'Count', -->
+<!--      col = 'salmon1', breaks = 150) -->
+<!-- ``` -->
 
-Histograms can come in a variety of shapes and are often described by the number
-of peaks shown and by their *skewness*. In
-our temperature histogram, we see only one peak, so we call the distribution 
-**unimodal**. When there are two peaks, we say the distribution is **bimodal**, 
-and for any number of peaks of three or more, we call the histogram **multimodal**.
-Looking at the histogram of temperature, we also see that the observed temperatures
-are fairly evenly distributed around the peak. When a histogram has equal tails on
-both sides of the peak, it is considered to be **symmetric**. Otherwise, the 
-histogram is considered to be skewed. We can further describe the skew by the side
-of the histogram with a longer tail - if there is a large tail to the right of the 
-histogram we call it **skewed right** and if there is a large tail to the left of
-the histogram we call it **skewed left**. Let's look at a few different histogram
-shapes to illustrate these definitions.
+Histograms also provide a nice picture of the *distribution* of the observed data. Distributions of data can look very different for different sets of data, and we will consider them in more detail in [Chapter 6](#ch6). For now, its only relevant to know that distributions of data are often summarized with two types of measures -- those that describe where the centers (peaks) of our data are and those that describe how spread out the data is about that peak. As these will be important concepts for the rest of this book, let's take a moment now to go into a bit more detail into each.
 
-```{r, echo = FALSE, fig.height=5, fig.width = 7}
-set.seed(2)
-x1 <- rbeta(10000,5,5)
-x2 <- rbeta(10000,2,5)
-x3 <- rbeta(10000,5,2)
-bimodal <- c(rtruncnorm(7500, a=0, b=1, mean=.2, sd=.1),
-                 rtruncnorm(4000, a=0, b=1, mean=.75, sd=.1))
+<div class="definition-container">
+<div class="definition"> &nbsp; </div>
+**Histogram: ** <em> Visualization of continuous data which divides the continuous 
+  variable into bins and plots the number of observations in each bin</em>
 
-histCol <- 'plum1'
+**Distribution: ** <em> stuff</em>
+  
+**Measures of centrality: ** <em> more stuff </em>
+  
+**Measures of dispersion: ** <em> even more stuff </em>
 
-par(mfrow= c(2, 2))
-hist(x1, col = histCol, 
-     main = 'Unimodal and Symmetric', xlab = '', 
-     ylab = '', axes = F)
-hist(x2, col = histCol, 
-     main = 'Unimodal and Skewed Right', xlab = '', 
-     ylab = '', axes = F)
-hist(x3, col = histCol, 
-     main = 'Unimodal and Skewed Left', xlab = '', 
-     ylab = '', axes = F)
-hist(bimodal, col = histCol, 
-     main = 'Bimodal', xlab = '', 
-     ylab = '', axes = F)
+</div>
 
-```
+### Measures of Centrality {#ch3_centrality}
 
-While nothing can replace a picture, sometimes it is preferable to summarize our
-data with one or two numbers which characterize the most important information 
-about the distribution. Often, we are most interested in the location of the
-peak (center) and how spread out the data is around that peak. There are two 
-popular methods to describe the center of a distribution:
+While nothing can replace a picture, sometimes it is preferable to summarize our data with one or two numbers characterizing the most important information about the distribution. Often, we are most interested in information that describes the 'center' of a distribution, where the bulk of our data tends to aggregate. The two most common ways to describe the center are with the *mean* and the *median*.
 
-- Mean
-- Median
+<!-- Histograms can come in a variety of shapes and are often described by the number -->
+<!-- of peaks shown and by their *skewness*. In -->
+<!-- our temperature histogram, we see only one peak, so we call the distribution  -->
+<!-- **unimodal**. When there are two peaks, we say the distribution is **bimodal**,  -->
+<!-- and for any number of peaks of three or more, we call the histogram **multimodal**. -->
+<!-- Looking at the histogram of temperature, we also see that the observed temperatures -->
+<!-- are fairly evenly distributed around the peak. When a histogram has equal tails on -->
+<!-- both sides of the peak, it is considered to be **symmetric**. Otherwise, the  -->
+<!-- histogram is considered to be skewed. We can further describe the skew by the side -->
+<!-- of the histogram with a longer tail - if there is a large tail to the right of the  -->
+<!-- histogram we call it **skewed right** and if there is a large tail to the left of -->
+<!-- the histogram we call it **skewed left**. Let's look at a few different histogram -->
+<!-- shapes to illustrate these definitions. -->
+
+<!-- ```{r, echo = FALSE, fig.height=5, fig.width = 7} -->
+<!-- set.seed(2) -->
+<!-- x1 <- rbeta(10000,5,5) -->
+<!-- x2 <- rbeta(10000,2,5) -->
+<!-- x3 <- rbeta(10000,5,2) -->
+<!-- bimodal <- c(rtruncnorm(7500, a=0, b=1, mean=.2, sd=.1), -->
+<!--                  rtruncnorm(4000, a=0, b=1, mean=.75, sd=.1)) -->
+
+<!-- histCol <- 'plum1' -->
+
+<!-- par(mfrow= c(2, 2)) -->
+<!-- hist(x1, col = histCol,  -->
+<!--      main = 'Unimodal and Symmetric', xlab = '',  -->
+<!--      ylab = '', axes = F) -->
+<!-- hist(x2, col = histCol,  -->
+<!--      main = 'Unimodal and Skewed Right', xlab = '',  -->
+<!--      ylab = '', axes = F) -->
+<!-- hist(x3, col = histCol,  -->
+<!--      main = 'Unimodal and Skewed Left', xlab = '',  -->
+<!--      ylab = '', axes = F) -->
+<!-- hist(bimodal, col = histCol,  -->
+<!--      main = 'Bimodal', xlab = '',  -->
+<!--      ylab = '', axes = F) -->
+
+<!-- ``` -->
+
+<!-- While nothing can replace a picture, sometimes it is preferable to summarize our -->
+<!-- data with one or two numbers which characterize the most important information  -->
+<!-- about the distribution. Often, we are most interested in the location of the -->
+<!-- peak (center) and how spread out the data is around that peak. There are two  -->
+<!-- popular methods to describe the center of a distribution: -->
+
+<!-- - Mean -->
+<!-- - Median -->
 
 The **mean** is the most commonly used measure of the center of a distribution. 
 Simply enough, the mean is found by taking the sum of all of the observations,
 and dividing by the total number. With $n$ observations, $x_1, x_2, ..., x_n$, 
-we can express the mean, denoted as $\bar{x}$ (x-bar), mathematically in the following way:
+we can mathematically express the mean, denoted as $\bar{x}$ (x-bar), in the following way:
 
 $$
 \bar{x} = \frac{x_1 + x_2 + \dots + x_n}{n} = \frac1n \sum_{i=1}^n x_i
@@ -419,20 +433,19 @@ $$
 The **median** is another common measure of the center of a distribution. In 
 particular, for a set of observations, the median is an observed value that is 
 both larger than half of the observations, as well as smaller than half of the 
-observations. Formally, we say that the median is the 50th percentile of the 
-data. Informally, we say it's the middle value. To find the median, we begin by 
+observations. In other words, if we were to line our data up from smallest to largest, the median value would be right in the middle. Indeed, to find the median, we begin by 
 arranging our data from smallest to largest. If the total number of observations,
-$n$, is odd, then the median is simply the middle observation. If $n$ is even, 
-it is the mean of the middle two.
+$n$, is odd, then the median is simply the middle observation; if $n$ is even, 
+it is the average of the middle two.
 
 Examples:
 
 - $1, 2, 2, 3, {\color{red} 5}, 7, 9, 10, 11 \quad \Rightarrow \quad \text{Median} = 5$
 - $1,2,2,3, {\color{red} 5}, {\color{red} 6}, 7, 9, 10, 11, \quad \Rightarrow \quad \text{Median} = \frac{(5+6)}{2} = 5.5$
 
-For the New York temperature data, the mean is `r round(mean(aq$Temp), 1)` $^{\circ}$F and 
-the median is `r round(median(aq$Temp), 1)` $^{\circ}$F. These values are very similar to 
-each other and fall near the peak in the histogram.
+For the New York temperature data, the mean is `r round(mean(aq$Temp), 1)`&deg;F and 
+the median is `r round(median(aq$Temp), 1)`&deg;F. These values are very similar to 
+each other, and both fall near the peak in the histogram.
 
 ```{r}
 hist(aq$Temp, main = 'Histogram of Maximum Daily Temperature at La Guardia',
@@ -455,21 +468,21 @@ kable(matrix(sals, ncol = 2), format = "html")
 ```
 
 For our sample, we find that the mean is \$569,266, but the median is
-(48,962 + 50,879) / 2 = \$49,921. It turns out, our sample included the highest
+(\$48,962 + \$50,879) / 2 = \$49,921. It turns out, our sample included the highest
 paid university employee - the head football coach. This extremely high salary 
-has caused the mean to be very large - larger than 9/10 of the salaries in our 
-sample. On the other hand, the median is not impacted by the football coach's 
-salary and is thus a much better reflection of the typically University employee's
-salary.
+has caused the mean to be very large - larger than the remaining 90\% of the salaries in our 
+sample *combined*. The median, on the other hand, ignoring the extremes ends of our distribution and focusing on the middle, is not impacted by the football coach's 
+salary. Consequently in this case, it is a much better reflection of the typically university employee's
+salary than the estimate found with the mean.
 
 This one high salary, which is not representative of most of the salaries 
 collected, is known as an **outlier**. From the example above, we have seen that 
-the mean is highly sensitive to the presence of outliers, while the median is not. 
-Measures that are not sensitive to outliers are known as **robust**. We see, then,
+the mean is highly sensitive to the presence of outliers while the median is not. 
+Measures that are less sensitive to outliers are called **robust**. We see, then,
 that the median is a robust estimator of the center of the data. 
 
-We have seen an example where the mean and median are quite close, and an example
-where they are wildly different. This begs the broader question - when might we 
+We have seen an example where the mean and median are quite close and an example
+where they are wildly different. This begs the broader question -- when might we 
 expect these measures of central tendency to be the same, and when might we expect 
 them to differ?
 
@@ -518,6 +531,8 @@ legend(-.5,3200, legend = c("Mean", "Median"),
 
 ```
 
+[[this is where i need to bring back in the prev discussion on skewness, modality, etc.]]
+
 When the data is unimodal and symmetric, the mean and median are indistinguishable.
 However, when there is skew or multiple peaks, we see the mean and median start 
 to differ. When the distribution is skewed, the mean is pulled towards the tail. 
@@ -526,6 +541,33 @@ so the median remains closer to the peak where the majority of data lies. When
 the distribution is bimodal, neither the mean or median can summarize the distribution
 well. In that case, it might be better to characterize the center of each peak individually.
 
+<div class="definition-container">
+<div class="definition"> &nbsp; </div>
+**Mean: ** <em> The average value, denoted $\bar{x}$ and computed as the sum of the observations divided by the number of obervations </em>
+
+**Median: ** <em> The middle value or 50th percentile, the value such that half the observations lie below it and half above </em>
+
+**Outlier: ** <em> Extreme observations that fall far away from the rest of the data</em>
+
+**Robust: ** <em> Measures that are not sensitive to outliers </em>
+
+**Unimodal: ** <em> Characterization of a distribution with one peak</em>
+  
+**Bimodal: ** <em> Characterization of a distribution with two peaks</em>
+  
+**Multimodal: ** <em> Characterization of a distribution with three or more peaks</em>
+  
+**Symmetric: ** <em> Characterization of a distribution with equal tails on both  
+  sides of the peak</em>
+  
+**Skewed right: ** <em> Characterization of a distribution with a large tail to 
+  the right of the peak</em>
+   
+**Skewed left: ** <em> Characterization of a distribution with a large tail to 
+  the left of the peak</em>
+</div>
+
+### Measures of Dispersion {#ch3_dispersion}
 
 In addition to measuring the center of the distribution, we are also interested
 in the *spread* or *dispersion* of the data. Two distributions could have the
@@ -581,10 +623,10 @@ The standard deviation, denoted by $s$, is a function of the variance.
 Specifically, it is the square root of the variance $s = \sqrt{s^2}$. Because the
 variance uses the squared differences between each observation and the mean, its
 units are the square of the units of the original data. For example, the
-New York temperature measurements have a mean of 77.9 $^{\circ}$F and a variance 
-of 89.6 $^{\circ}$F$^2$. The standard deviation takes the square root, which puts
+New York temperature measurements have a mean of 77.9&deg;F and a variance 
+of 89.6&deg;F. The standard deviation takes the square root, which puts
 the units back on the original scale. For the temperature data, the standard 
-deviation is 9.5 $^{\circ}$F. Because of this, the standard deviation is often
+deviation is 9.5&deg;F. Because of this, the standard deviation is often
 preferred as a measure of spread over the variance, although if you know the variance
 you can compute the standard deviation (by taking the square root) and vice versa.
 
@@ -714,7 +756,7 @@ Because it is the difference between the upper and lower quartile, it represents
 the distance covering the middle 50% of the data. We may also report the range 
 as an interval as $(Q_1, Q_3)$. For the New York temperature data, $Q_1 = 72$, $Q_3 = 85$, and the 
 median is 79. The IQR is therefore $85 - 72 = 13$ and tells us that 50% of the days
-between May and September had temperatures between 72$^{\circ}$F and 85$^{\circ}$F.
+between May and September had temperatures between 72&deg;F and 85&deg;F.
 
 ```{r}
 hist(aq$Temp, main = 'Histogram of Maximum Daily Temperature at La Guardia',
@@ -910,10 +952,7 @@ less spread out. There is some overlap between all of these boxplots, which mean
 that although July and August have higher temperatures more often, there are days
 in the other months that are just as hot or days in July that are cooler.
 
-Now, let's consider the case where we have two continuous variables. Our first
-step may be to look at the distribution of each variable separately. For example,
-we can visualize the distribution of both temperature and ozone in the New York
-air quality data, using histograms or boxplots.
+Now let's consider the case in which we have two continuous variables. Suppose, for example, that we are interested in both temperature and ozone levels, as well as the relationship between the two of them. We might first consider them separately; presented below is a visualization of the distribution of both temperature and ozone levels in the New York air quality data:
 
 ```{r, fig.height=8, fig.width=7}
 par(mfrow = c(2, 1))
@@ -927,19 +966,18 @@ hist(aq$Temp, main = 'Histogram of Maximum Daily Temperature at La Guardia',
 ```
 
 While temperature is unimodal and symmetric in distribution, the ozone concentration
-measurements are skewed right. These plots are useful, but do not provide any 
+measurements are skewed right. These plots are useful in studying each of these variables individually, but they do not provide any 
 information about the relationship between temperature and ozone concentration, 
 which we may expect to be related. 
 
 To look at the relationship between two continuous variables, a common 
 visualization is the **scatter plot**. A scatter
-plot is a two-dimensional plot of data pairs. One variable is represented on the
-**x-axis**, which is the horizontal range of the plot. The other variable is 
-represented on the **y-axis** which is the vertical range of the plot. Each dot 
-on a scatter plot represent one observation. In the plot below, we have put
-the mean ozone on the x-axis and temperature on the y-axis. Each dot represents 
+plot is a two-dimensional plot of data pairs, with one variable represented on the
+x-axis, the horizontal range of the plot, and the other variable on the y-axis, or the vertical range. Each dot 
+on a scatter plot represents a single observation. In the plot below, we have put
+the mean ozone on the x-axis and temperature on the y-axis, with each dot representing 
 one day between May and September. For example, on August 25th, the maximum 
-temperature was 81 $^\circ$F, and the mean ozone concentration was 168ppm. This
+temperature was 81&deg;F, and the mean ozone concentration was 168ppm. For illustration, this
 day is colored red on the scatter plot.
 
 ```{r}
@@ -950,10 +988,7 @@ plot(aq$Ozone, aq$Temp, pch = 16,
      col = c('black', 'red')[aq$col + 1])
 ```
 
-We see that there is a distinct relationship between ozone concentration and temperature.
-Higher temperatures tend to occur simultaneously with higher ozone concentrations, 
-and lower temperatures tend to occur simultaneously with lower ozone concentrations.
-The scatter plot is able to illustrate an important relationship that wouldn't be
+Plotted together, the relationship between ozone concentration and temperature becomes apparent -- lower temperatures tend to be associated with lower ozone concentrations while higher temperatures are associated with higher ozone levels. The scatter plot is able to illustrate an important relationship that wouldn't be
 detectable just by looking at histograms of each variable separately.
 
 We may further describe our data by including a third categorical variable. In our
@@ -978,7 +1013,7 @@ Numerical summaries and graphical visualizations provide us with tools to
 capture important features of our data. Understanding the distribution and skew
 of a variable help us know the best way to summarize it numerically. Summaries and
 figures can become increasingly complex as they incorporate more variables, but
-these picture can be informative for answering and producing important research
+these illustrations can be informative for answering and producing important research
 questions and hypotheses.
 
 
@@ -987,10 +1022,7 @@ questions and hypotheses.
 <div class="definition"> &nbsp; </div>
 **Scatter plot: ** <em> Visualization of two continuous measures which uses dots 
   to represent each data pair</em>
-  
-**x-axis: ** <em> The horizontal axis of a two-dimensional plot</em>
-  
-**y-axis: ** <em> The vertical axis of a two-dimensional plot</em>
+
 </div>
 
 
