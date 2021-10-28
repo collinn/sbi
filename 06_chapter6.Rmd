@@ -15,40 +15,143 @@ output: html_document
 3. Be able to identify which distributions underlying a given real world random process.
 </div>
 
-In the previous chapter, we introduced the idea of random processes, situations in which the outcome can not be determined perfectly in advance. We encounter random processes all the time in our lives, from the exact amount of time it takes to get to class from your home, to determining the winner of a football game [maybe simpler examples?]. In any case, the random process is defined in terms of the *collection of possible events* and their *associated probabilities*. What is needed is a method for relating these events to their probabilities, motivating the goal of this chapter. 
-
-[maybe have new goals given updated (limited) scope of the chapter]
-
-notes:
-
-- removed pretty much all technical stuff
-- removed idea of pdf *generating* stuff. leave that to simulation chapter, if at all
-- instead of continuous/discrete, just doing binomial/normal. bring up pmf/pdf?
-- remove idea of mean/variance. Just limit pdf to relationship between events and probs
-
 ## Introduction to Probability Distributions 
 
-Most simply, a **probability distribution** (often just called a distribution) is a method for taking a possible event as input, and giving us the corresponding probability as output; the corresponding probability tells us how likely it is that the specific event will occur, out of all of the possible events. 
+In Chapter 4, we introduced the idea of random processes, i.e. situations
+in which the outcome can not be determined perfectly in advance. Random processes
+are defined in terms of the *collection of possible events* (sample space) and their
+*associated probabilities*. In that chapter, we saw three methods for calculating
+probabilities - the enumeration method, the probability function method, and the
+simulation method. In this chapter we will expand on the probability function 
+method, which uses a known function called a **probability distribution** to
+determine the probability of each event. 
+
+Probability distributions are closely related to **random variables**, a numeric 
+variable that can take on different values depending on the outcome of a random
+process. In previous mathematics courses you may have seen variables such as
+$x$ or $y$ used as placeholder values which are then solved for. For example, 
+you can solve for the variable $x$ in $4x + 5 = 25$, to determine $x = 5$. By 
+contrast, the outcome of a *random* variable cannot be predetermined. Instead, 
+we talk probabilistically about the likelihood of observing each possible outcome.
+Random variables are typically denoted with capital letters, e.g., $X$ or $Y$, 
+whereas the observed outcome of the random process is denoted with lowercase letters
+$x$ or $y$. For example, flipping a coin three times is a random process. We can
+define the random variable $X$ to represent the number of heads we observe 
+between the three flips. $X$ can take on four possible values: 0, 1, 2, or 3. If
+we observe 2 heads, we have $x = 2$.
+
+Most simply, a probability distribution (often just called a distribution) 
+is a method for taking a possible event as input, and giving us the corresponding
+probability as output; the corresponding probability tells us how likely it is 
+that the specific event will occur, out of all of the possible events. We often 
+say random variables have or follow a probability distribution, as the 
+distribution quantifies the probability of observing the possible values a random
+variable can take on. There are many useful probability distributions that have
+been defined by mathematicians and statisticians to describe a variety of scenarios:
+
+* Counting the number of successes in a fixed number of trials that can results 
+in either success or failure
+
+* Counting the number of failures before the first success in a series of success/failure trials
+
+* Describing the length of time between events that occur at a constant rate
+
+* Describing the blood pressure of adults
+
+One can represent a probability distribution visually using a **probability histogram**.
+On the x-axis, we have the possible outcomes of the random process - the values
+the random variable could take on. For each outcome, the bar height represents 
+the probability of observing that value. For the coin flipping example, the 
+probabilities of observing each possible number of heads can be represented as:
+
+
+```{r, echo = F}
+x <- 0:3
+y <- dbinom(x, size = 3, prob = 0.5)
+scaleFac1 <- sum(y) * 0.2
+scaleFac2 <- sum(y) * 0.04
+my_bar <- barplot(y, names.arg = x, col = 'palevioletred1',
+                      ylim = c(0, max(y) + scaleFac1),
+                  xlab = '# of heads',
+                  ylab = 'Probability')
+text(my_bar, y + scaleFac2, y, cex = 2)
+```
 
 
 
 
+The beauty of using probability distributions to describe the likelihood of all
+outcomes of a random process is its simplicity. Probability distributions rely 
+on a small number of **parameters** which determine the distribution's ``shape".  
+
+Something about expected values.
 
 
-1. Understand how a distribution represents a random process that creates data that is then observed
-2. Understand how the parameters of a distribution govern how the data is generated [and with what probability]
-3. Be able to identify which distributions underlying a given real world random process.
+
 
 <div class="definition-container">
 <div class="definition"> &nbsp;  </div>
 
 **Probability Distribution: ** <em> A method for assigning probabilities to all possible events </em>
 
-**Distribution Parameters: ** <em> Values associated with a probability distribution that determine how the data is generated </em>
+**Random Variable: ** <em> A method for assigning probabilities to all possible events </em>
+
+**Probability histogram: ** <em> Values associated with a probability distribution that determine the distributions shape </em>
+
+**Parameters: ** <em> Values associated with a probability distribution that determine the distributions shape </em>
 
 </div>
 
 ## Binomial Distribution
+
+One common probability distribution is the **binomial distribution**, which 
+describes the number of successes in a fixed number of independent trials
+that can result in one of two outcomes (success or failure), when each trial has 
+the same probability of success. We have already seen one example of the
+binomial distribution - flipping a coin three times counting the number of flips
+that result in heads (success). Each flip has two possible outcomes (heads or 
+tails), the same probability of heads (50%), and we have predetermined the number
+of trials (3 flips). Another example of the binomial distribution is rolling a 
+six-sided die 10 times and counting the number of rolls that result in a 5 or 6.
+In this example, each die roll has a 1/3 chance of turning up a 5 or 6 and the 
+die will be rolled 10 times.
+
+As you may have noticed in these binomial distribution examples, the distribution
+can be used for various probabilities of success and numbers of trials. In fact,
+these quantities define the two parameters of the binomial distribution. These
+parameters are denoted as $n$ = the number of trials and $p$ = the probability of 
+success. For any valid value of $n$ and $p$, we can use the binomial distribution
+to compute the probability of observing any possible outcome. To illustrate this,
+we will consider a binomial distribution with $n = 10$ trials. The following 
+figure shows the probability histograms for four different values of $p$.
+
+
+```{r, fig.height=10, fig.width=10, echo = F}
+n <- 10
+p <- c(0.2, 0.5, 0.75, 0.9)
+
+par(mfrow = c(2,2))
+for (i in 1:length(p)) {
+  x <- 0:n
+y <- dbinom(x, size = n, prob = p[i])
+barplot(y, names.arg = x, col = 'palevioletred1',
+                  xlab = '# of successes',
+                  ylab = 'Probability',
+        ylim = c(0, 0.4),
+        main = paste0('p = ', p[i]))
+}
+
+
+```
+
+When $p$ is 0.2, we are more likely to observe a lower number of successes, than
+to observe 8 or more successes. When $p$ is 50%, we are most likely to observe
+5 of the 10 trials resulting in a success, with the probability decreasing as the
+number of successes gets closer to 0 or 10. For a large success probability of 90%,
+there is a very small chance we observe less than 6 successes and a much higher
+probability of observing 9 or 10 successes.
+
+
 
 In the previous chapter, we examined the possible events and associated probabilities with flipping a coin three times, where each side could land with equal probability. In particular, we noted the collection of possible events was given by 
 

@@ -87,7 +87,11 @@
 <li class="chapter" data-level="2.2.1" data-path="ch2.html"><a href="ch2.html#ch2_s2_ss1"><i class="fa fa-check"></i><b>2.2.1</b> Basic Categorical Summaries</a></li>
 <li class="chapter" data-level="2.2.2" data-path="ch2.html"><a href="ch2.html#ch2_s2_ss2"><i class="fa fa-check"></i><b>2.2.2</b> Advanced Categorical Summaries</a></li>
 </ul></li>
-<li class="chapter" data-level="2.3" data-path="ch2.html"><a href="ch2.html#ch2_s3"><i class="fa fa-check"></i><b>2.3</b> Continuous Data</a></li>
+<li class="chapter" data-level="2.3" data-path="ch2.html"><a href="ch2.html#ch2_s3"><i class="fa fa-check"></i><b>2.3</b> Continuous Data</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="ch2.html"><a href="ch2.html#ch3_centrality"><i class="fa fa-check"></i><b>2.3.1</b> Measures of Centrality</a></li>
+<li class="chapter" data-level="2.3.2" data-path="ch2.html"><a href="ch2.html#ch3_dispersion"><i class="fa fa-check"></i><b>2.3.2</b> Measures of Dispersion</a></li>
+</ul></li>
 <li class="chapter" data-level="2.4" data-path="ch2.html"><a href="ch2.html#ch2_s4"><i class="fa fa-check"></i><b>2.4</b> Advanced Data Visualizations</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="ch3.html"><a href="ch3.html"><i class="fa fa-check"></i><b>3</b> Study Design</a>
@@ -103,7 +107,6 @@
 <ul>
 <li class="chapter" data-level="3.3.1" data-path="ch3.html"><a href="ch3.html#ch3_s3_ss1"><i class="fa fa-check"></i><b>3.3.1</b> Non-response/Participant Bias</a></li>
 <li class="chapter" data-level="3.3.2" data-path="ch3.html"><a href="ch3.html#ch3_s3_ss2"><i class="fa fa-check"></i><b>3.3.2</b> Compliance Bias</a></li>
-<li class="chapter" data-level="3.3.3" data-path="ch3.html"><a href="ch3.html#ch3_s3_ss4"><i class="fa fa-check"></i><b>3.3.3</b> Measurement Bias</a></li>
 </ul></li>
 <li class="chapter" data-level="3.4" data-path="ch3.html"><a href="ch3.html#ch3_s4"><i class="fa fa-check"></i><b>3.4</b> Post-trial Bias</a>
 <ul>
@@ -234,6 +237,20 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>

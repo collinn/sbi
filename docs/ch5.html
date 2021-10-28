@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>3 Probability Distributions | Seriously Interesting Statistics Textbook</title>
+  <title>5 Advanced Probability | An Intuitive, Interactive, Introduction to Biostatistics</title>
   <meta name="description" content="First template!" />
-  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="3 Probability Distributions | Seriously Interesting Statistics Textbook" />
+  <meta property="og:title" content="5 Advanced Probability | An Intuitive, Interactive, Introduction to Biostatistics" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="ceward/introTextbook" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="3 Probability Distributions | Seriously Interesting Statistics Textbook" />
+  <meta name="twitter:title" content="5 Advanced Probability | An Intuitive, Interactive, Introduction to Biostatistics" />
   
   <meta name="twitter:description" content="First template!" />
   
@@ -32,8 +32,9 @@
   
 <link rel="prev" href="ch4.html"/>
 <link rel="next" href="ch6.html"/>
-<script src="libs/header-attrs-2.8/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -41,7 +42,6 @@
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
-
 
 
 
@@ -139,45 +139,86 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#acknowledgements"><i class="fa fa-check"></i><b>0.1</b> Acknowledgements</a></li>
 </ul></li>
-<li class="chapter" data-level="1" data-path="ch15.html"><a href="ch15.html"><i class="fa fa-check"></i><b>1</b> Introduction to Probability and Simulation</a>
+<li class="chapter" data-level="1" data-path="ch1.html"><a href="ch1.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
 <ul>
-<li class="chapter" data-level="1.1" data-path="ch15.html"><a href="ch15.html#ch15_s1"><i class="fa fa-check"></i><b>1.1</b> Randomness and Simulation</a></li>
-<li class="chapter" data-level="1.2" data-path="ch15.html"><a href="ch15.html#ch15_s2"><i class="fa fa-check"></i><b>1.2</b> Probability</a></li>
-<li class="chapter" data-level="1.3" data-path="ch15.html"><a href="ch15.html#ch15_s3"><i class="fa fa-check"></i><b>1.3</b> Methods for Computing Probabilities</a></li>
+<li class="chapter" data-level="1.1" data-path="ch1.html"><a href="ch1.html#ch1_s1"><i class="fa fa-check"></i><b>1.1</b> Statistics and Evidence-based Research</a></li>
+<li class="chapter" data-level="1.2" data-path="ch1.html"><a href="ch1.html#ch1_s2"><i class="fa fa-check"></i><b>1.2</b> Scientific Method</a></li>
+<li class="chapter" data-level="1.3" data-path="ch1.html"><a href="ch1.html#ch1_s3"><i class="fa fa-check"></i><b>1.3</b> Statistical framework</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="ch4.html"><a href="ch4.html"><i class="fa fa-check"></i><b>2</b> Advanced Probability</a>
+<li class="chapter" data-level="2" data-path="ch2.html"><a href="ch2.html"><i class="fa fa-check"></i><b>2</b> Data Summaries and Presentation</a>
 <ul>
-<li class="chapter" data-level="2.1" data-path="ch4.html"><a href="ch4.html#ch4_s1"><i class="fa fa-check"></i><b>2.1</b> Probability Operations</a></li>
-<li class="chapter" data-level="2.2" data-path="ch4.html"><a href="ch4.html#ch4_s2"><i class="fa fa-check"></i><b>2.2</b> Conditional Probability</a></li>
-<li class="chapter" data-level="2.3" data-path="ch4.html"><a href="ch4.html#ch4_s4"><i class="fa fa-check"></i><b>2.3</b> Probabilities from tables (needs a different example)</a></li>
-<li class="chapter" data-level="2.4" data-path="ch4.html"><a href="ch4.html#ch4_s5"><i class="fa fa-check"></i><b>2.4</b> Bayes’ Rule</a></li>
+<li class="chapter" data-level="2.1" data-path="ch2.html"><a href="ch2.html#ch2_s1"><i class="fa fa-check"></i><b>2.1</b> Introduction to Data</a></li>
+<li class="chapter" data-level="2.2" data-path="ch2.html"><a href="ch2.html#ch2_s2"><i class="fa fa-check"></i><b>2.2</b> Categorical Data</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="ch2.html"><a href="ch2.html#ch2_s2_ss1"><i class="fa fa-check"></i><b>2.2.1</b> Basic Categorical Summaries</a></li>
+<li class="chapter" data-level="2.2.2" data-path="ch2.html"><a href="ch2.html#ch2_s2_ss2"><i class="fa fa-check"></i><b>2.2.2</b> Advanced Categorical Summaries</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="ch5.html"><a href="ch5.html"><i class="fa fa-check"></i><b>3</b> Probability Distributions</a>
+<li class="chapter" data-level="2.3" data-path="ch2.html"><a href="ch2.html#ch2_s3"><i class="fa fa-check"></i><b>2.3</b> Continuous Data</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="ch5.html"><a href="ch5.html#introduction-to-probability-distributions"><i class="fa fa-check"></i><b>3.1</b> Introduction to Probability Distributions</a></li>
-<li class="chapter" data-level="3.2" data-path="ch5.html"><a href="ch5.html#binomial-distribution"><i class="fa fa-check"></i><b>3.2</b> Binomial Distribution</a>
-<ul>
-<li class="chapter" data-level="3.2.1" data-path="ch5.html"><a href="ch5.html#possibly-tiny-aside-with-binomial-where-we-pull-marbles-from-bag-so-that-probability-is-not-12"><i class="fa fa-check"></i><b>3.2.1</b> possibly tiny aside with binomial where we pull marbles from bag so that probability is not 1/2</a></li>
-<li class="chapter" data-level="3.2.2" data-path="ch5.html"><a href="ch5.html#plotting-the-pmf"><i class="fa fa-check"></i><b>3.2.2</b> Plotting the PMF</a></li>
+<li class="chapter" data-level="2.3.1" data-path="ch2.html"><a href="ch2.html#ch3_centrality"><i class="fa fa-check"></i><b>2.3.1</b> Measures of Centrality</a></li>
+<li class="chapter" data-level="2.3.2" data-path="ch2.html"><a href="ch2.html#ch3_dispersion"><i class="fa fa-check"></i><b>2.3.2</b> Measures of Dispersion</a></li>
 </ul></li>
-<li class="chapter" data-level="3.3" data-path="ch5.html"><a href="ch5.html#normal-distribution"><i class="fa fa-check"></i><b>3.3</b> Normal Distribution</a></li>
-<li class="chapter" data-level="3.4" data-path="ch5.html"><a href="ch5.html#measuring-heights"><i class="fa fa-check"></i><b>3.4</b> Measuring Heights</a></li>
-<li class="chapter" data-level="3.5" data-path="ch5.html"><a href="ch5.html#other-common-distributions"><i class="fa fa-check"></i><b>3.5</b> Other Common Distributions</a>
+<li class="chapter" data-level="2.4" data-path="ch2.html"><a href="ch2.html#ch2_s4"><i class="fa fa-check"></i><b>2.4</b> Advanced Data Visualizations</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="ch3.html"><a href="ch3.html"><i class="fa fa-check"></i><b>3</b> Study Design</a>
 <ul>
-<li class="chapter" data-level="3.5.1" data-path="ch5.html"><a href="ch5.html#poisson-distribution"><i class="fa fa-check"></i><b>3.5.1</b> Poisson Distribution</a></li>
+<li class="chapter" data-level="3.1" data-path="ch3.html"><a href="ch3.html#ch3_s1"><i class="fa fa-check"></i><b>3.1</b> Importance of Study Design</a></li>
+<li class="chapter" data-level="3.2" data-path="ch3.html"><a href="ch3.html#ch3_s2"><i class="fa fa-check"></i><b>3.2</b> Pre-trial Bias</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="ch3.html"><a href="ch3.html#ch3_s2_ss1"><i class="fa fa-check"></i><b>3.2.1</b> Selection Bias</a></li>
+<li class="chapter" data-level="3.2.2" data-path="ch3.html"><a href="ch3.html#ch3_s2_ss2"><i class="fa fa-check"></i><b>3.2.2</b> Confirmation Bias/Placebo Effect</a></li>
+<li class="chapter" data-level="3.2.3" data-path="ch3.html"><a href="ch3.html#ch3_s2_ss3"><i class="fa fa-check"></i><b>3.2.3</b> Observer Bias</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="ch3.html"><a href="ch3.html#ch3_s3"><i class="fa fa-check"></i><b>3.3</b> During-trial Bias</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="ch3.html"><a href="ch3.html#ch3_s3_ss1"><i class="fa fa-check"></i><b>3.3.1</b> Non-response/Participant Bias</a></li>
+<li class="chapter" data-level="3.3.2" data-path="ch3.html"><a href="ch3.html#ch3_s3_ss2"><i class="fa fa-check"></i><b>3.3.2</b> Compliance Bias</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="ch3.html"><a href="ch3.html#ch3_s4"><i class="fa fa-check"></i><b>3.4</b> Post-trial Bias</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="ch3.html"><a href="ch3.html#ch3_s4_ss1"><i class="fa fa-check"></i><b>3.4.1</b> Confounding</a></li>
+<li class="chapter" data-level="3.4.2" data-path="ch3.html"><a href="ch3.html#ch3_s4_ss2"><i class="fa fa-check"></i><b>3.4.2</b> Extrapolation Bias</a></li>
+<li class="chapter" data-level="3.4.3" data-path="ch3.html"><a href="ch3.html#ch3_s4_ss3"><i class="fa fa-check"></i><b>3.4.3</b> Publication Bias</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="ch6.html"><a href="ch6.html"><i class="fa fa-check"></i><b>4</b> Sampling Distributions and the <br/> Central Limit Theorem</a>
+<li class="chapter" data-level="4" data-path="ch4.html"><a href="ch4.html"><i class="fa fa-check"></i><b>4</b> Introduction to Probability and Simulation</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="ch6.html"><a href="ch6.html#introduction-to-sampling"><i class="fa fa-check"></i><b>4.1</b> Introduction to Sampling</a></li>
-<li class="chapter" data-level="4.2" data-path="ch6.html"><a href="ch6.html#sampling-distributions"><i class="fa fa-check"></i><b>4.2</b> Sampling Distributions</a></li>
-<li class="chapter" data-level="4.3" data-path="ch6.html"><a href="ch6.html#central-limit-theorem"><i class="fa fa-check"></i><b>4.3</b> Central Limit Theorem</a></li>
+<li class="chapter" data-level="4.1" data-path="ch4.html"><a href="ch4.html#ch4_s1"><i class="fa fa-check"></i><b>4.1</b> Randomness and Simulation</a></li>
+<li class="chapter" data-level="4.2" data-path="ch4.html"><a href="ch4.html#ch4_s2"><i class="fa fa-check"></i><b>4.2</b> Probability</a></li>
+<li class="chapter" data-level="4.3" data-path="ch4.html"><a href="ch4.html#ch4_s3"><i class="fa fa-check"></i><b>4.3</b> Methods for Computing Probabilities</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="ch7.html"><a href="ch7.html"><i class="fa fa-check"></i><b>5</b> Introduction to Inference</a>
+<li class="chapter" data-level="5" data-path="ch5.html"><a href="ch5.html"><i class="fa fa-check"></i><b>5</b> Advanced Probability</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="ch7.html"><a href="ch7.html#ch7_s1"><i class="fa fa-check"></i><b>5.1</b> Confidence Intervals</a></li>
-<li class="chapter" data-level="5.2" data-path="ch7.html"><a href="ch7.html#ch7_s2"><i class="fa fa-check"></i><b>5.2</b> Hypothesis Tests</a></li>
-<li class="chapter" data-level="5.3" data-path="ch7.html"><a href="ch7.html#ch7_s3"><i class="fa fa-check"></i><b>5.3</b> P-values</a></li>
+<li class="chapter" data-level="5.1" data-path="ch5.html"><a href="ch5.html#ch5_s1"><i class="fa fa-check"></i><b>5.1</b> Probability Operations</a></li>
+<li class="chapter" data-level="5.2" data-path="ch5.html"><a href="ch5.html#ch5_s2"><i class="fa fa-check"></i><b>5.2</b> Conditional Probability</a></li>
+<li class="chapter" data-level="5.3" data-path="ch5.html"><a href="ch5.html#ch5_s4"><i class="fa fa-check"></i><b>5.3</b> Probabilities from tables (needs a different example)</a></li>
+<li class="chapter" data-level="5.4" data-path="ch5.html"><a href="ch5.html#ch5_s5"><i class="fa fa-check"></i><b>5.4</b> Bayes’ Rule</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="ch6.html"><a href="ch6.html"><i class="fa fa-check"></i><b>6</b> Probability Distributions</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="ch6.html"><a href="ch6.html#introduction-to-probability-distributions"><i class="fa fa-check"></i><b>6.1</b> Introduction to Probability Distributions</a></li>
+<li class="chapter" data-level="6.2" data-path="ch6.html"><a href="ch6.html#binomial-distribution"><i class="fa fa-check"></i><b>6.2</b> Binomial Distribution</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="ch6.html"><a href="ch6.html#plotting-the-pmf-delete"><i class="fa fa-check"></i><b>6.2.1</b> Plotting the PMF (delete?)</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="ch6.html"><a href="ch6.html#normal-distribution"><i class="fa fa-check"></i><b>6.3</b> Normal Distribution</a></li>
+<li class="chapter" data-level="6.4" data-path="ch6.html"><a href="ch6.html#other-common-distributions"><i class="fa fa-check"></i><b>6.4</b> Other Common Distributions</a>
+<ul>
+<li class="chapter" data-level="6.4.1" data-path="ch6.html"><a href="ch6.html#poisson-distribution"><i class="fa fa-check"></i><b>6.4.1</b> Poisson Distribution</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="ch7.html"><a href="ch7.html"><i class="fa fa-check"></i><b>7</b> Sampling Distributions and the <br/> Central Limit Theorem</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="ch7.html"><a href="ch7.html#introduction-to-sampling"><i class="fa fa-check"></i><b>7.1</b> Introduction to Sampling</a></li>
+<li class="chapter" data-level="7.2" data-path="ch7.html"><a href="ch7.html#sampling-distributions"><i class="fa fa-check"></i><b>7.2</b> Sampling Distributions</a></li>
+<li class="chapter" data-level="7.3" data-path="ch7.html"><a href="ch7.html#central-limit-theorem"><i class="fa fa-check"></i><b>7.3</b> Central Limit Theorem</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="ch8.html"><a href="ch8.html"><i class="fa fa-check"></i><b>8</b> Introduction to Inference</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="ch8.html"><a href="ch8.html#ch8_s0"><i class="fa fa-check"></i><b>8.1</b> Central Limit Theorem</a></li>
+<li class="chapter" data-level="8.2" data-path="ch8.html"><a href="ch8.html#ch8_s1"><i class="fa fa-check"></i><b>8.2</b> Point Estimation and Confidence Intervals</a></li>
+<li class="chapter" data-level="8.3" data-path="ch8.html"><a href="ch8.html#ch8_s2"><i class="fa fa-check"></i><b>8.3</b> Hypothesis Tests</a></li>
+<li class="chapter" data-level="8.4" data-path="ch8.html"><a href="ch8.html#ch8_s3"><i class="fa fa-check"></i><b>8.4</b> P-values</a></li>
 </ul></li>
 </ul>
 
@@ -188,7 +229,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Seriously Interesting Statistics Textbook</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">An Intuitive, Interactive, Introduction to Biostatistics</a>
           </h1>
         </div>
 
@@ -196,272 +237,368 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="ch5" class="section level1" number="3">
-<h1><span class="header-section-number">3</span> Probability Distributions</h1>
+<div id="ch5" class="section level1" number="5">
+<h1><span class="header-section-number">5</span> Advanced Probability</h1>
+<blockquote>
+<p>“The most important questions of life are, for the most part, really only problems of probability.”</p>
+<p>— Pierre Simon, Marquis de Laplace</p>
+</blockquote>
+<blockquote>
+<p>“How very little can be done under the spirit of fear.”</p>
+<p>— Florence Nightingale</p>
+</blockquote>
 <div class="objective-container">
 <div class="objectives">
-Learning Objectives
+Learning objectives
 </div>
 <ol style="list-style-type: decimal">
-<li>Understand how a distribution represents a random process that creates data that is then observed</li>
-<li>Understand how the parameters of a distribution govern how the data is generated [and with what probability]</li>
-<li>Be able to identify which distributions underlying a given real world random process.</li>
+<li>Understand probability notation and operations</li>
+<li>Learn about conditional probability</li>
+<li>Use probabilities to calculate quantities of interest in diagnostic testing</li>
 </ol>
 </div>
-<p>In the previous chapter, we introduced the idea of random processes, situations in which the outcome can not be determined perfectly in advance. We encounter random processes all the time in our lives, from the exact amount of time it takes to get to class from your home, to determining the winner of a football game [maybe simpler examples?]. In any case, the random process is defined in terms of the <em>collection of possible events</em> and their <em>associated probabilities</em>. What is needed is a method for relating these events to their probabilities, motivating the goal of this chapter.</p>
-<p>[maybe have new goals given updated (limited) scope of the chapter]</p>
-<p>notes:</p>
+<div id="ch5_s1" class="section level2" number="5.1">
+<h2><span class="header-section-number">5.1</span> Probability Operations</h2>
+<p>It’s straightforward to talk about probability of one event, i.e. the probability of rolling a 2, but often we are interested in quantifying probabilities about more complicated combinations of multiple events. For example, if we consider a family with two parents and one child, instead of the probability of one parent getting the flu, we might be interested in the probability that <em>both</em> parents get the flu. Or we might be interested in the probability <em>anyone</em> in the family gets the flu. Finally, we might want to quantify the probability that one parent gets the flu and the other does not. In order to succinctly describe these probabilities, we use some mathematical notation. Before you get totally scared, this notation is just to simplify the writing of probability statements - the underlying concept does not change!</p>
+<p>Probabilities are denoted as <span class="math inline">\(P(Event) = p\)</span>, as in <span class="math inline">\(P(Heads) = 0.5\)</span>. To make things even shorter we often use a capital letter to denote an event of interest, i.e. let <span class="math inline">\(H\)</span> be the event that the outcome of a fair coin flip is heads, we then have <span class="math inline">\(P(H) = 0.5\)</span>. Then, to talk about relationships between events, we define the operations of the <strong>intersection</strong>, <strong>union</strong>, and <strong>complement</strong>. Consider two arbitrary events <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>:</p>
 <ul>
-<li>removed pretty much all technical stuff</li>
-<li>removed idea of pdf <em>generating</em> stuff. leave that to simulation chapter, if at all</li>
-<li>instead of continuous/discrete, just doing binomial/normal. bring up pmf/pdf?</li>
-<li>remove idea of mean/variance. Just limit pdf to relationship between events and probs</li>
+<li>The intersection represents the event that <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> occur and is denoted <span class="math inline">\(A \cap B\)</span><br />
+</li>
+<li>The union represents the event that <span class="math inline">\(A\)</span> or <span class="math inline">\(B\)</span> occur and is denoted <span class="math inline">\(A \cup B\)</span><br />
+</li>
+<li>The complement represents the scenario in which an event does not occur; the complement of <span class="math inline">\(A\)</span> is denoted as <span class="math inline">\(A^C\)</span>. As a corollary to this, for any event <span class="math inline">\(A\)</span>, we could say that <span class="math inline">\(A\)</span> occurs or <span class="math inline">\(A\)</span> does not occur <span class="math inline">\((A^C)\)</span>. As these are the only possible outcomes regarding <span class="math inline">\(A\)</span>, <span class="math inline">\(A \cup A^C\)</span> represents all possible events, or <span class="math inline">\(A \cup A^C = \mathcal{S}\)</span></li>
 </ul>
-<div id="introduction-to-probability-distributions" class="section level2" number="3.1">
-<h2><span class="header-section-number">3.1</span> Introduction to Probability Distributions</h2>
-<p>Most simply, a <strong>probability distribution</strong> (often just called a distribution) is a method for taking a possible event as input, and giving us the corresponding probability as output; the corresponding probability tells us how likely it is that the specific event will occur, out of all of the possible events.</p>
+<p>To illustrate, let’s return to the example of tossing a fair coin three times. Recall, there were eight possible outcomes of this experiment which make up the sample space.</p>
+<p><span class="math display">\[
+\mathcal{S} = \{HHH, HHT, HTH, HTT, THH, TTH, THT, TTT\}
+\]</span></p>
+<p>Define <span class="math inline">\(A = \text{obtaining exactly two heads} = \{HHT, HTH, THH\}\)</span> and <span class="math inline">\(B = \text{obtaining heads on the first toss} = \{HHH, HHT, HTH, HTT\}\)</span>.</p>
+<ul>
+<li><span class="math inline">\(A \cap B = \text{obtaining exactly two heads AND a heads on the first toss} = \{HHT, HTH\}\)</span></li>
+<li><span class="math inline">\(A \cup B = \text{obtaining exactly two heads OR a heads on the first toss}= \{HHH, HHT, HTH, HTT, THH\}\)</span></li>
+<li><span class="math inline">\(B^C = \text{obtaining tails on the first toss} = \{TTH, THT, THH, TTT\}\)</span></li>
+</ul>
+<p>We can visualize these operations with Venn diagrams. A Venn diagram uses overlapping circles and shading to describe the relationship between two events. First, we will visualize the intersection operation. If the left circle denotes the event <span class="math inline">\(A\)</span> and the right circle denotes the event <span class="math inline">\(B\)</span>, then the intersection is the overlapping region where both <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> occur.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-28"></span>
+<img src="introTextbookTemplate_files/figure-html/unnamed-chunk-28-1.png" alt="Venn diagram of intersection" width="480" />
+<p class="caption">
+Figure 5.1: Venn diagram of intersection
+</p>
+</div>
+<p>The union operation includes all outcomes in <span class="math inline">\(A\)</span> or <span class="math inline">\(B\)</span> (or both), so it would include the entire region.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-29"></span>
+<img src="introTextbookTemplate_files/figure-html/unnamed-chunk-29-1.png" alt="Venn diagram of union" width="480" />
+<p class="caption">
+Figure 5.2: Venn diagram of union
+</p>
+</div>
+<p>The complement of <span class="math inline">\(B\)</span>, includes all outcomes that are <em>not</em> part of event <span class="math inline">\(B\)</span>.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-30"></span>
+<img src="introTextbookTemplate_files/figure-html/unnamed-chunk-30-1.png" alt="Venn diagram of the complement of B" width="576" />
+<p class="caption">
+Figure 5.3: Venn diagram of the complement of B
+</p>
+</div>
+<p>Since the probability of all outcomes in the sample space must add to 1 and an
+event must either occur or not, we now have a third property of probability.</p>
+<div class="equation-container">
+<div class="equation">
+Properties of Probability
+</div>
 <ol style="list-style-type: decimal">
-<li>Understand how a distribution represents a random process that creates data that is then observed</li>
-<li>Understand how the parameters of a distribution govern how the data is generated [and with what probability]</li>
-<li>Be able to identify which distributions underlying a given real world random process.</li>
+<li>The sum of probabilities for all outcomes in the sample space, <span class="math inline">\(\mathcal{S}\)</span>,
+must equal 1</li>
+<li>For any event <span class="math inline">\(A\)</span>, the <span class="math inline">\(P(A)\)</span> is the sum of the probabilities
+for all the outcomes which comprise <span class="math inline">\(A\)</span></li>
+<li>For any event <span class="math inline">\(A\)</span>, <span class="math inline">\(P(A^C) = 1 - P(A)\)</span></li>
 </ol>
+</div>
+<p>Consider a family with two parents and one child. Let <span class="math inline">\(A\)</span> denote the event that
+one parent gets the flu, let <span class="math inline">\(B\)</span> denote the event that the other parent gets the
+flu, and let <span class="math inline">\(C\)</span> denote the event that the child gets the flu. Using probability
+notation, we can represent the probability that both parents get the flu as
+<span class="math inline">\(P(A \cap B)\)</span> , the probability that anyone in the family gets the flu as
+<span class="math inline">\(P(A \cup B \cup C)\)</span>, and the probability that one parent gets the flu and
+the other does not as <span class="math inline">\(P(A \cap B^C)\)</span>. We need to consider a few more
+characteristics about random events in order to start calculating probabilities.</p>
+<p>In some cases, there is no overlap between the events, i.e. the events cannot
+happen simultaneously. When two events cannot happen at the same time, they are
+said to be <strong>mutually exclusive</strong>. Mathematically, this means the
+<span class="math inline">\(P(A \cap B) = 0\)</span>. For example, consider the following two events based on your
+final course letter grade: <span class="math inline">\(A\)</span> is the event of getting an <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> is the
+event of getting a <span class="math inline">\(B\)</span>. As only one grade can be given per course, clearly <span class="math inline">\(A\)</span>
+and <span class="math inline">\(B\)</span> are mutually exclusive. Obtaining the probability of at least one of two
+mutually exclusive events happening is straightforward as there is no overlap
+between events. Thus, the probability of <span class="math inline">\(A \cup B\)</span> is simply the sum of the
+probabilities of <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> happening separately.</p>
+<div class="equation-container">
+<div class="equation">
+Equation
+</div>
+<p>For mutually exclusive events:
+<span class="math display">\[P(A \cup B) = P(A) + P(B)\]</span></p>
+</div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-31"></span>
+<img src="introTextbookTemplate_files/figure-html/unnamed-chunk-31-1.png" alt="Venn diagram of mutually exclusive events" width="480" />
+<p class="caption">
+Figure 5.4: Venn diagram of mutually exclusive events
+</p>
+</div>
+<p>If two events are <em>not</em> mutually exclusive, there is overlap in the events and <span class="math inline">\(P(A \cap B) \neq 0\)</span> and we cannot get the probability of the union using the previous formula. If we did, we would be double counting the intersection. As a concrete illustration, suppose that for a married couple, the probability that one spouse contracts the flu (event <span class="math inline">\(A\)</span>) is 0.25, the probability that the other spouse contracts the flu (event <span class="math inline">\(B\)</span>) is 0.20, and the probability that both the spouses contract the flu (<span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>) is 0.15. If we displayed this information in a Venn Diagram, we would have:</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-32"></span>
+<img src="introTextbookTemplate_files/figure-html/unnamed-chunk-32-1.png" alt="Venn diagram of flu probabilities" width="480" />
+<p class="caption">
+Figure 5.5: Venn diagram of flu probabilities
+</p>
+</div>
+<p>At first glance, this might not be what you would expect. If <span class="math inline">\(P(A = 0.25)\)</span>, why do we have <span class="math inline">\(0.10\)</span> in that region? However, the event <span class="math inline">\(A\)</span> is actually divided into two regions - the part that intersects <span class="math inline">\(B\)</span> and the part that doesn’t. This is called the <strong>Law of Total Probability</strong>, and this means that the probability of <span class="math inline">\(A\)</span> consists of both the probability that <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> both happen and the probability that <span class="math inline">\(A\)</span> happens but <span class="math inline">\(B\)</span> doesn’t. This is true since <span class="math inline">\(B\)</span> and <span class="math inline">\(B^C\)</span> are mutually exclusive and together contain all possible outcomes.</p>
+<div class="equation-container">
+<div class="equation">
+Equation
+</div>
+<p>Law of Total Probability:
+<span class="math display">\[P(A) = P(A \cap B) + P(A \cap B^C)\]</span></p>
+</div>
+<p>And in a Venn diagram this looks like:</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-33"></span>
+<img src="introTextbookTemplate_files/figure-html/unnamed-chunk-33-1.png" alt="Venn diagram of the law of total probability" width="480" />
+<p class="caption">
+Figure 5.6: Venn diagram of the law of total probability
+</p>
+</div>
+<p>Getting back to finding the quantity of interest, <span class="math inline">\(P(A \cup B)\)</span>, what all of
+this means is that if two events are not mutually exclusive, then
+<span class="math inline">\(P(A \cup B) \neq P(A) + P(B)\)</span>, because <em>both</em> <span class="math inline">\(P(A)\)</span> and <span class="math inline">\(P(B)\)</span> include the
+intersection regions <span class="math inline">\(P(A \cap B)\)</span>. We do want to include the intersection in
+the union, but only one time. So we can get the correct probability by
+subtracting off <em>one</em> of the intersections:</p>
+<div class="equation-container">
+<div class="equation">
+Equation
+</div>
+<p>For any two events:
+<span class="math display">\[P(A \cup B) = P(A) + P(B) - P(A \cap B)\]</span></p>
+</div>
+<p>This formula does include the mutually exclusive case, since when two events are
+mutually exclusive <span class="math inline">\(P(A \cap B) = 0\)</span>.</p>
+<p>Let’s return to the coin flipping example where
+<span class="math inline">\(A = \text{obtaining exactly two heads} = \{HHT, HTH, THH\}\)</span> and
+<span class="math inline">\(B = \text{obtaining heads on the first toss} = \{HHH, HHT, HTH, HTT\}\)</span>.
+Using the enumeration method, we can compute the probability <span class="math inline">\(P(\A cup B)\)</span> directly.<br />
+We know <span class="math inline">\(A \cup B = \{HHH, HHT, HTH, HTT, THH\}\)</span> contains five possible<br />
+ways we can we can obtain exactly two heads OR obtain heads on the first toss
+and that there are eight total possible outcomes of the three flips. Thus,
+<span class="math inline">\(P(A \cup B) = 5/8 = 0.625\)</span>.</p>
+<p>To use the formula, we need to obtain <span class="math inline">\(P(A)\)</span>, <span class="math inline">\(P(B)\)</span>, and
+<span class="math inline">\(P(A \cap B)\)</span>. We know there are three ways we can obtain
+exactly two heads, so using the enumeration method, <span class="math inline">\(P(A) = 3/8 = 0.375\)</span>.
+Similarly, there are four ways we can obtain heads on the first toss,
+so <span class="math inline">\(P(B) = 4/8 = 0.50\)</span>. There are two ways we can
+obtain exactly two heads AND obtain heads on the first toss, so
+<span class="math inline">\(P(A \cap B) = 2/8 = 0.25\)</span>. Then,</p>
+<p><span class="math display">\[P(A \cup B) = P(A) + P(B) - P(A \cap B) = 0.375 + 0.50 - 0.25 = 0.625\]</span></p>
+<p>The subtraction of <span class="math inline">\(P(A \cap B)\)</span> is necessary to avoid double counting the events
+which are in both <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>: <span class="math inline">\(HHT \text{ and } HTH\)</span>.</p>
+<div class="exercise-container">
+<div class="exercise">
+<span id="exr:unlabeled-div-21" class="exercise"><strong>Exercise 5.1  </strong></span> 
+</div>
+<p>We can also use the simulation method to quickly approximate probabilities of interest.
+The applet below flips a coin three times and tabulates events and operations of interest
+over 10,000 replications of the coin flipping experiment.</p>
+<iframe src="https://ph-ivshiny.iowa.uiowa.edu/ceward/textbook/shinyApps/flipCoin" width="100%" height="900">
+</iframe>
+<ol style="list-style-type: decimal">
+<li>We will start by checking the probability in the previous example. Let <span class="math inline">\(A\)</span> denote
+event of obtaining exactly two heads and <span class="math inline">\(B\)</span> denote the event of obtaining heads
+on the first toss. Set up the applet to tabulate the event <span class="math inline">\(A \cup B\)</span> and simulate
+10,000 experiments.</li>
+</ol>
+<ul>
+<li>What proportion of experiments resulted in exactly two heads? What about the proportion
+resulting in heads on the first toss?</li>
+<li>What proportion did you observe exactly two heads OR heads on the first toss?</li>
+<li>Do these results match what you would have expected? Why or why not?</li>
+</ul>
+<ol start="2" style="list-style-type: decimal">
+<li>Now let’s also consider the event of obtaining exactly two heads (<span class="math inline">\(A\)</span>) and
+the event of obtaining all three flips as tails (<span class="math inline">\(B\)</span>).</li>
+</ol>
+<ul>
+<li>Using the enumeration method, what are <span class="math inline">\(P(B)\)</span> and <span class="math inline">\(P(A \cap B)\)</span>?</li>
+<li>Using the previously defined formulas, how can you calculate <span class="math inline">\(P(A \cup B)\)</span>?
+Perform the calculation and report your answer.</li>
+</ul>
+</div>
+<p>We can run a similar experiment, but now using two mutually exclusive events -
+the event of obtaining exactly two heads, and the event of obtaining three tails.</p>
+<pre><code>##      [,1]         [,2]   
+## [1,] &quot;P(A)&quot;       &quot;0.374&quot;
+## [2,] &quot;P(B)&quot;       &quot;0.121&quot;
+## [3,] &quot;P(A AND B)&quot; &quot;0&quot;    
+## [4,] &quot;P(A OR B)&quot;  &quot;0.495&quot;</code></pre>
+<p>No matter how many times we repeat the experiment, the intersection is always 0, because we can never flip a coin three times and get exactly two heads <em>and</em> three tails.</p>
 <div class="definition-container">
 <div class="definition">
-<span id="def:unlabeled-div-9" class="definition"><strong>Definition 3.1  </strong></span> 
+<span id="def:unlabeled-div-22" class="definition"><strong>Definition 5.1  </strong></span> 
 </div>
-<p><strong>Probability Distribution: </strong> <em> A method for assigning probabilities to all possible events </em></p>
-<p><strong>Distribution Parameters: </strong> <em> Values associated with a probability distribution that determine how the data is generated </em></p>
+<p><strong>Intersection: </strong> <em> When considering two sets, this operation includes only the events common to both sets </em></p>
+<p><strong>Union: </strong> <em> When considering two sets, this operation includes all events in either (or both) sets </em></p>
+<p><strong>Complement: </strong> <em> Everything that is <em>not</em> in the set </em></p>
+<p><strong>Mutually exclusive: </strong> <em> Two events that cannot happen simultaneously</em></p>
+<p><strong>Law of total probability: </strong> <em> A probability can be d </em></p>
 </div>
 </div>
-<div id="binomial-distribution" class="section level2" number="3.2">
-<h2><span class="header-section-number">3.2</span> Binomial Distribution</h2>
-<p>In the previous chapter, we examined the possible events and associated probabilities with flipping a coin three times, where each side could land with equal probability. In particular, we noted the collection of possible events was given by</p>
-<p><span class="math display">\[\mathcal{S} = \{HHH, HHT, HTH, THH, TTH, THT, HTT, TTT\},\]</span>
-and the respective probabilities for the number of heads were</p>
+<div id="ch5_s2" class="section level2" number="5.2">
+<h2><span class="header-section-number">5.2</span> Conditional Probability</h2>
+<p>Many times we are interested in the probability of an event occurring, given that another event has occurred, such as “What is the probability of an individual getting lung cancer, given that they are a smoker?” If we didn’t know if the individual was a smoker or not, we would probably guess the probability of lung cancer is pretty low, maybe 1%. Once we gain the knowledge that the individual smokes, our estimate of the probability of lung cancer increases, maybe up to 20%. <strong>Conditional probability</strong> refers to the probability of one event occurring <em>given</em> that another event has already taken place. For events <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>, the conditional probability that <span class="math inline">\(B\)</span> will occur <em>given</em> that <span class="math inline">\(A\)</span> has already taken place is denoted <span class="math inline">\(P(B|A)\)</span>.</p>
+<p>Important formula!</p>
+<p>Conditional probabilities</p>
+<p><span class="math display">\[P(A|B) = \dfrac{P(A \cap B)}{P(B)}\]</span>
+or rearranging:</p>
+<p><span class="math display">\[P(A \cap B) = P(A|B) P(B)\]</span>
+This formulas may seem like it comes out of nowhere, but let’s see if we can understand the intuition behind the math. Recall that probabilities give us the fraction of time an event occurs, when repeated over and over. Conditional probabilities are calculated assuming we already have knowledge on whether a related event has occurred. In the formula above, we are given that <span class="math inline">\(B\)</span> has occurred, so the denominator includes only probabilities associated with event <span class="math inline">\(B\)</span>. Additionally, since we know <span class="math inline">\(B\)</span> occurred, <span class="math inline">\(A\)</span> can only happen in conjunction with <span class="math inline">\(B\)</span>, so the numerator only includes probabilities associated with <span class="math inline">\(A \cap B\)</span>. We can also think about this concept with our coin flipping example. Consider the events <span class="math inline">\(A\)</span> to be obtaining exactly two heads and <span class="math inline">\(B\)</span> to be obtaining a heads on the first toss (the same events we’ve previously defined as <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>)</p>
+<ul>
+<li><span class="math inline">\(A = \{HHT, HTH, THH\}\)</span><br />
+</li>
+<li><span class="math inline">\(B = \{HHH, HHT, HTH, HTT\}\)</span></li>
+</ul>
+<p>If we condition on <span class="math inline">\(B\)</span>, that means we know that the first flip was heads. With conditional probability, <span class="math inline">\(P(A|B)\)</span>, we are thinking about the probability of obtaining exactly two heads on three flips, given that the first flip resulted in heads. Without knowledge of the first flip, we would have said the probability of exactly two heads is 3/8, because there are eight possible outcomes of flipping a coin three times, and three of those result in exactly two heads. After we condition on the first flip being heads, our sample space is reduced. Now, there are only four outcomes where the first of three flips results in heads. We also know that of those four outcomes, two of them result in exactly two heads: <span class="math inline">\(B = \{HHT, HTH\}\)</span>. So this conditional probability must be <span class="math inline">\(1/2\)</span>. Often, we are not able to enumerate all possible outcomes, which is why the formulas come in handy. In this case, if we had used the formula:</p>
+<p><span class="math display">\[P(A|B) = \dfrac{P(A \cap B)}{P(B)} = \dfrac{2/8}{4/8} = 1/2\]</span></p>
+<p>The idea of conditional probability allows us to talk about the very important property of independence. When an event is not affected by another event, the two events are described as <strong>independent</strong>. Mathematically, we denote this as:</p>
+<p><span class="math display">\[P(A|B) = P(A)\]</span></p>
+<p>In other words, knowing that <span class="math inline">\(B\)</span> has occurred does not change the probability of <span class="math inline">\(A\)</span> occurring. If two events are not independent, they are said to be <strong>dependent</strong>. A simple example of independent events would be each flip of a coin. Whether the last flip was heads or not does not change the probability of heads on the next flip. If we are interested in the probability of two independent events occurring simultaneously (<span class="math inline">\(P(A \cap B)\)</span>), we can use simplify the previous result based on conditional probability:</p>
+<p><span class="math display">\[P(A \cap B) = P(A|B) P(B) = P(A)P(B)\]</span></p>
+<p>This can be a helpful formula - and we’ve actually been implicitly using it when thinking about the probabilities of different outcomes from flipping a coin three times. If the probability of heads is <span class="math inline">\(1/2\)</span> and each flip is independent, then the probability of getting three heads is</p>
+<p><span class="math display">\[P(HHH) = (1/2)(1/2)(1/2) = (1/2)^3 = 1/8 = 12.5\%\]</span>
+Since the probability of heads is identical to the probability of heads, this is the probability of any outcome from the three coin flips.</p>
+<p>It is important to keep in mind that independent and mutually exclusive do not mean the same thing. Consider a fair coin and a fair six-sided die and let <span class="math inline">\(A\)</span> be the event of obtaining heads on one coin flip and <span class="math inline">\(B\)</span> be the event of rolling a 2 on one roll. Clearly, <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are independent, so</p>
+<p><span class="math display">\[P(A \cap B) = P(A)P(B) = (1/2)(1/6) = 1/12\]</span></p>
+<p>Now consider a fair six-sided die, where even-numbered faces are blue and odd-numbered faces are red. Let <span class="math inline">\(A\)</span> be the event of rolling a red face and <span class="math inline">\(B\)</span> be the event of rolling a 2. <span class="math inline">\(P(A) = 1/2)\)</span> and <span class="math inline">\(P(B) = 1/6\)</span> as before, but <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are mutually exclusive, i.e. <span class="math inline">\(P(A \cap B) = 0\)</span>. To determine if events are mutually exclusive or independent, there are two questions you can ask yourself:</p>
+<ol style="list-style-type: decimal">
+<li>Can both events happen at the same time?</li>
+<li>Does one event give me any information about the other event?</li>
+</ol>
+<p>If your answer to the first question is no, then the events must be mutually exclusive. If the answer to the first question is yes, but the answer to the second question is no, then the events are independent.</p>
+</div>
+<div id="ch5_s4" class="section level2" number="5.3">
+<h2><span class="header-section-number">5.3</span> Probabilities from tables (needs a different example)</h2>
+<p>When discussing and interpreting probability relationships between two or more events, it is often helpful to use tables. Consider the following table of representing Japanese men aged 45-69 (1975). The entries in the table are the probabilities of outcomes for a person selected randomly from the population.</p>
 <table>
 <thead>
 <tr>
-<th style="text-align:center;">
-# Heads
+<th style="text-align:left;">
 </th>
 <th style="text-align:center;">
-Probability
+Normal Blood Pressure (N)
+</th>
+<th style="text-align:center;">
+High Blood Pressure (H)
+</th>
+<th style="text-align:center;">
+Total
 </th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center;">
-0
+<td style="text-align:left;">
+Reasonable Weight (R)
 </td>
 <td style="text-align:center;">
-1/8
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-1
+0.6
 </td>
 <td style="text-align:center;">
-3/8
+0.1
+</td>
+<td style="text-align:center;">
+0.7
 </td>
 </tr>
 <tr>
-<td style="text-align:center;">
-2
+<td style="text-align:left;">
+Overweight (O)
 </td>
 <td style="text-align:center;">
-3/8
+0.2
+</td>
+<td style="text-align:center;">
+0.1
+</td>
+<td style="text-align:center;">
+0.3
 </td>
 </tr>
 <tr>
-<td style="text-align:center;">
-3
+<td style="text-align:left;">
+Total
 </td>
 <td style="text-align:center;">
-1/8
+0.8
+</td>
+<td style="text-align:center;">
+0.2
+</td>
+<td style="text-align:center;">
+1.0
 </td>
 </tr>
 </tbody>
 </table>
-<p>Might we consider this table a probability distribution? Perhaps, as it does give us a method for determining a probability for any given event. However, the usefulness of such a method comes into question as our experiment changes. What if instead we had flipped our coin 50 times? Or 100? What is needed instead is a method that is more robust to changes in the experiment.</p>
-<p>Here, we introduce the <em>binomial distribution</em>, a probability distribution in which:</p>
-<ol style="list-style-type: decimal">
-<li>The total number of trials (or flips) is fixed in advance at some value, <span class="math inline">\(n\)</span></li>
-<li>There are two possible events or outcomes within each trial</li>
-<li>Each trial has the same probability of success (heads), which we will denote <span class="math inline">\(p\)</span></li>
-<li>Each trial is independent of all other trials. Whatever result occurs on the first flip will have no impact on the second, and so on.</li>
-</ol>
-<p>Notationally, the binomial distribution is expressed as <span class="math inline">\(X \sim Bin(n,p)\)</span>, or “The random variable <span class="math inline">\(X\)</span> follows a binomial distribution with <span class="math inline">\(n\)</span> trials and probability of success, <span class="math inline">\(p\)</span>.” We can also express this with the following formula:</p>
-<p><span class="math display">\[
-P(X = x) = \binom{n}{x} p^x (1-p)^{n-x}
-\]</span>
-where <span class="math inline">\(n\)</span> and <span class="math inline">\(p\)</span> are the <em>parameters</em> of our distribution, and <span class="math inline">\(X\)</span> can take any of the values <span class="math inline">\(x = 0, 1, \dots, n\)</span>. Perhaps unfamiliar to us here is the leading term in the expression above, <span class="math inline">\(\binom{n}{x}\)</span>, called the <em>binomial coefficient</em>, which can be written as</p>
-<p><span class="math display">\[
-\binom{n}{x} = \frac{n!}{x!(n-x)!}
-\]</span>
-where <span class="math inline">\(n! = n \times (n-1) \times \dots \times 2 \times 1\)</span> (known as a factorial). By convention, we have that <span class="math inline">\(0! = 1\)</span>. In words, we might say <span class="math inline">\(\binom{n}{x}\)</span> as “<span class="math inline">\(n\)</span> choose <span class="math inline">\(x\)</span>” or “given that we have <span class="math inline">\(n\)</span> total trials, in how many ways might the outcome <span class="math inline">\(x\)</span> appear?” While this may seem daunting at first, the need for it is quite reasonable. Consider again our coin flipping experiment, where the possible outcomes were listed as</p>
-<p><span class="math display">\[
-\mathcal{S} = \{HHH, HHT, HTH, THH, TTH, THT, HTT, TTT\}.
-\]</span></p>
-<p>If we are interested in determining the probability of observing two heads, we note that there are multiple ways in which this occurs. We might ask ourselves, “If we have <span class="math inline">\(n = 3\)</span> flips, how many ways might we <em>choose</em> <span class="math inline">\(x = 2\)</span> heads?” Writing this with our binomial coefficient, we find that</p>
-<p><span class="math display">\[
-\binom{3}{2} = \frac{3!}{2!(3-2)!} = \frac{3 \times 2 \times 1}{2 \times 1 \cdot(1 \times 1)} = \frac62 = 3,
-\]</span>
-and indeed, 3 is precisely the number of outcomes in <span class="math inline">\(\mathcal{S}\)</span> in which two heads occur.</p>
-<p>Now that we have <em>the number</em> of ways in which we might have two heads, we move on to determining the probability of such an event. Being a fair coin, we know that the probability of heads is <span class="math inline">\(p = 0.5\)</span>, and because these events are independent, we know that the probability <span class="math inline">\(P(HHT) = P(HTH) = P(THH)\)</span>. Consequently, we need only determine the probability for one of them and then multiply this number by 3, the number we found from the binomial coefficient. See that</p>
-<p><span class="math display">\[
-\begin{align*}
-P(HHT) &amp;= P(H) \cdot P(H) \cdot P(T) \\
-&amp;= \underbrace{(0.5)(0.5)}_{P(H) P(H)} \cdot \underbrace{(0.5)}_{{P(T)}} \\
-&amp;= 0.125
-\end{align*}
-\]</span>
-Putting these pieces together, we arrive precisely at the binomial distribution:</p>
-<p><span class="math display">\[
-\begin{align*}
-P(X = 2) &amp;= \binom{3}{2} (0.5)^2 (0.5)^{3-2} \\
-&amp;= 3 \times 0.125 \\
-&amp;= 0.375
-\end{align*}
-\]</span>
-which we note is precisely the value we computed [(in the table above)/(in chapter 4)]</p>
-<div class="exercise-container">
-<div class="exercise">
-<span id="exr:unlabeled-div-10" class="exercise"><strong>Exercise 3.1  </strong></span> 
+<p>Here we use <span class="math inline">\(N\)</span> to denote the event that a man has normal blood pressure, <span class="math inline">\(H\)</span> to denote the event that a man has high blood pressure, <span class="math inline">\(R\)</span> to denote the event that a man is a reasonable weight, and <span class="math inline">\(O\)</span> to denote the event that a man is overweight (the letters <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> were getting old). Using this table we can get probabilities of events separately, we can get the probability of intersection, union, and complements, and we can get conditional probabilities.</p>
+<p>Let’s start by finding <span class="math inline">\(P(R)\)</span>, or the probability of man being a reasonable weight. This includes both men that have normal blood pressure and men that have high blood pressure, but not men that are overweight. Note that the events of being a reasonable weight and being overweight are mutually exclusive, as are the events of having normal blood pressure and high blood pressure - because a man cannot be in both categories at the same time. Thus, to find <span class="math inline">\(P(R)\)</span> we actually just need to look at the right hand margin of the table, <span class="math inline">\(P(R) = 0.7\)</span>. Because of this, <span class="math inline">\(P(R)\)</span>, <span class="math inline">\(P(O)\)</span>, <span class="math inline">\(P(N)\)</span>, and <span class="math inline">\(P(H)\)</span> are called <strong>marginal probabilities</strong>.</p>
+<p>The inner cells of the table directly give us the intersection probabilities, <span class="math inline">\(P(R \cap N) = 0.6\)</span>, <span class="math inline">\(P(R \cap H) = 0.1\)</span>, <span class="math inline">\(P(O \cap N)=0.2\)</span>, and <span class="math inline">\(P(O \cap H)=0.1\)</span>. To get the probabilities of at least one event happening (the union), we must add up all the cells that correspond to either event - but just like before we have to be careful about double counting the intersection. Let’s consider the probability of a man being overweight or having high blood pressure (<span class="math inline">\(P(O \cup H)\)</span>). The second row of the table corresponds to a man being overweight, and using the margin we have <span class="math inline">\(P(O) = 0.3\)</span>, the second column corresponds to a man having high blood pressure and <span class="math inline">\(P(H) = 0.2\)</span>. So if we want to get the probability of being overweight or having high blood pressure, we can add those together <em>but</em> notice that both of those probabilities include the probability of being overweight and having high blood pressure (<span class="math inline">\(P(O \cap H)\)</span>), so we have to subtract that value. Thus,</p>
+<p><span class="math display">\[P(O \cup H) = P(O) + P(H) - P(O \cap H) = 0.3 + 0.2 - 0.1 = 0.4\]</span>
+This is the same formula we defined previously. When the data is in a table, we could also skip this formula and just add up all the cells where either one event or the other is present. The probability of being overweight or having high blood pressure is <span class="math inline">\(0.2 + 0.1 + 0.1 = 0.4\)</span>. Either way we do it, we get the same answer and you can use whichever method makes the most sense to you.</p>
+<p>Finally, we can get conditional probabilities from the table. For example, we might be interested in the probability of having high blood pressure for overweight men, or in other words, the probability of a man having high blood pressure, given that they are overweight (<span class="math inline">\(P(H|O)\)</span>). When calculation conditional probabilities from a table, we only have to focus on the part of the table that we condition on - since that information is given to us. Given that a man is overweight, we know that we are only concerned with the second row in the table as that is the only part of the table concerning overweight men. Then to get <span class="math inline">\(P(H|O)\)</span> we take the ratio of the probability of men with high blood pressure out of the probability that they are overweight <span class="math inline">\(P(H|O) = 0.1 / 0.3 = 1/3\)</span>. Similarly, if we wanted to get the probability of being a reasonable weight blood pressure, given a man has normal blood pressure, we would get <span class="math inline">\(P(R|N) = 0.6 / 0.8 = 0.75\)</span>.</p>
 </div>
-<ol>
-<li>
-Using the binomial probability distribution above, verify the correct values for <span class="math inline">\(X = 0,1,2,3\)</span> in table [number]
-</li>
-</ol>
-</div>
-<div id="possibly-tiny-aside-with-binomial-where-we-pull-marbles-from-bag-so-that-probability-is-not-12" class="section level3" number="3.2.1">
-<h3><span class="header-section-number">3.2.1</span> possibly tiny aside with binomial where we pull marbles from bag so that probability is not 1/2</h3>
-<p>ALSO need to do cumulative probabilities. “probability of AT LEAST two heads”</p>
-<p>visualizing important? if so, can include right before app (but then do it after the exercises), then make new exercises using app</p>
-<p>and if so, demonstrate with like 3/4 then do exercises with 2/3 (or w/e)</p>
-<p>Here is the app related to the exercise</p>
-<iframe src="https://ph-ivshiny.iowa.uiowa.edu/collin/textbook/distribution/binomial/" width="100%" height="800">
-</iframe>
-<p>[Include binomial app here. See that clicking bars adds to something. Explain changing settings, clicking bars, selecting different things. Come up with exercises below, i.e., prob that even if n = 8, prob if even n = 4, etc.]</p>
-</div>
-<div id="plotting-the-pmf" class="section level3" number="3.2.2">
-<h3><span class="header-section-number">3.2.2</span> Plotting the PMF</h3>
-<p>It is often useful to create a visual representation of a pmf as well. Doing so quickly gives us an idea of where data tend to aggregate and how the data are dispersed. Below are two plots representing two different sets of parameters for the binomials distribution. What do you notice in how they differ? How are they similar? What impacts do the different parameters have on the distribution of the data?</p>
-<p><img src="introTextbookTemplate_files/figure-html/unnamed-chunk-12-1.png" width="960" style="display: block; margin: auto;" /></p>
-<p>Of particular note here, we recall from the previous chapter that the sum of all possible probabilities must be equal to one. Visually, this is represented by the total area of the bars in our plot. Given that our bars our rectangles, we can find the area by considering that the width of each bar is equal to 1, and it’s height is given by the probability of <span class="math inline">\(X = x\)</span>, which can be found using the PMF. On the left hand side, for example, from left to right, we have</p>
-<p><span class="math display">\[
-\begin{align}
-\text{Total Area } &amp;= \text{ \{Area of Heads = 0\} + \{Area of Heads = 1\} + } \\
-&amp; \quad \ \ \text{\{Area of Heads = 2\} + \{Area of Heads = 3\}} \\
-&amp;= (1 \times P(X = 0)) + (1 \times P(X = 1)) + (1 \times P(X = 2)) + (1 \times P(X = 3)) \\
-&amp;= 0.125+0.375+0.375+0.125 \\
-&amp;= 1
-\end{align}
-\]</span>
-If, say, we are interested in the probability that <span class="math inline">\(X = 2\)</span> or <span class="math inline">\(X = 3\)</span>, we can add the area of the two corresponding bars. In this case, we find <span class="math inline">\(P(X = 2, 3) = 0.75\)</span>.</p>
-<iframe src="https://ph-ivshiny.iowa.uiowa.edu/collin/textbook/distribution/binomial/" width="100%" height="800">
-</iframe>
-<p>[Include binomial app here. See that clicking bars adds to something. Explain changing settings, clicking bars, selecting different things. Come up with exercises below, i.e., prob that even if n = 8, prob if even n = 4, etc.]</p>
-</div>
-</div>
-<div id="normal-distribution" class="section level2" number="3.3">
-<h2><span class="header-section-number">3.3</span> Normal Distribution</h2>
-<p>Included below are histograms of the depth of Lake Huron from 1875-1972, the annual flow of the Nile river in cubic meters from 1871-1970, and the height in feet of 31 black cherry trees. What do these histograms seem to have in common?</p>
-<p><img src="introTextbookTemplate_files/figure-html/unnamed-chunk-13-1.png" width="960" style="display: block; margin: auto;" /></p>
-<p>What we see here are examples of a <em>normal distribution</em> (also known as a bell curve), one of the most ubiquitous distributions in all of statistics. The normal distribution is characterized by the “bell shape” that is symmetric about it’s mean [but maybe don’t say mean].</p>
-<p>Like the binomial, the normal distribution is characterized by two parameters, <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\sigma^2\)</span>, representing the mean and the variance, respectively. The mean value, <span class="math inline">\(\mu\)</span>, indicates the location of the peak on the x-axis, whereas the variance, <span class="math inline">\(\sigma^2\)</span>, indicates the amount of dispersion about the mean. A random variable <span class="math inline">\(X\)</span> that follows a normal distribution can be expressed <span class="math inline">\(X \sim N(\mu, \sigma^2)\)</span>, or, “The random variable <span class="math inline">\(X\)</span> follows a normal distribution with mean <span class="math inline">\(\mu\)</span> and variance <span class="math inline">\(\sigma^2\)</span>.” The formula for the normal distribution is given as</p>
-<p><span class="math display">\[
-\begin{align*}
-f(x) = \frac{1}{\sqrt{2 \pi \sigma^2}} \ e^{- \frac{(x-\mu)^2}{2\sigma^2}}.
-\end{align*}
-\]</span></p>
-<p>Consider the two normal distributions below, with different values for <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\sigma^2\)</span>. Although they are centered at different locations and have different amounts of dispersion around the mean, they are both bell-shaped curves characteristic of the normal distribution:</p>
-<p><img src="introTextbookTemplate_files/figure-html/unnamed-chunk-14-1.png" width="672" style="display: block; margin: auto;" /></p>
-<p>Given that the normal distribution appears so frequently in statistics, it is common practice to <em>standardize</em> a normal distribution so that it has a mean value of <span class="math inline">\(\mu = 0\)</span> and variance <span class="math inline">\(\sigma^2 = 1\)</span>. A normal random variable that has been standardized is called a <em>standard normal distribution</em> and is often written <span class="math inline">\(Z \sim N(0,1)\)</span>. We can consider again the histograms above, once they’ve been standardized:</p>
-<p><img src="introTextbookTemplate_files/figure-html/unnamed-chunk-15-1.png" width="960" style="display: block; margin: auto;" /></p>
-<p>Unlike the binomial distribution, in which there are <span class="math inline">\(n\)</span> possible values that our random variable can take, the normal distribution represents a random variable that is <em>continuous</em> over a range of values. Instead of asking the probability of a specific value, say, <span class="math inline">\(Z = 0\)</span>, probabilities are given as the area under the curve for a certain interval. We might ask, “What is the probability that <span class="math inline">\(Z\)</span> is one standard deviation (<span class="math inline">\(\sigma\)</span>) away from 0?” pr perhaps, “What is the probability that <span class="math inline">\(Z &lt; 0\)</span>?”</p>
-<p><img src="introTextbookTemplate_files/figure-html/unnamed-chunk-16-1.png" width="672" style="display: block; margin: auto;" /></p>
-<p>Because probabilities for continuous distributions are described as areas under the curve, their values are computed with integrals. [do we introduce probability tables or just go with the app?]</p>
-<p>also maybe include</p>
-<ul>
-<li>subtract cdf?</li>
-<li>probability that |Z| &gt; z?</li>
-<li>what else?</li>
-</ul>
-</div>
-<div id="measuring-heights" class="section level2" number="3.4">
-<h2><span class="header-section-number">3.4</span> Measuring Heights</h2>
-<p>Often, our data will not fit nicely into a finite number of discrete categories, leaving us with <em>continuous data</em> that are described with a <em>probability distribution function</em>, or <em>pdf</em>. As our data does not fit neatly into categorical bins, many of the techniques described above will not work in the same way here. Rest assured, the idea is exactly the same. While we will spare the technical details here, interested readers may consider what follows to be analogous to the cases presented above when the number of “bins” becomes infinite.</p>
-<p>Our motivating example here will consider the process of determining the height of individuals within a population. Unlike the binomial distribution, where the underlying process and associated parameters were easily teased apart, the components here are less obvious, and some care will be needed to identify them. Height data, like many things in the natural world, tend to follow a symmetric distribution, where most observations tend to gather around a mean value, with observations deviating from the mean being equally likely to fall some distance above the mean as below, their frequencies becoming smaller as this distance increases. That is to say, if the mean height of a population is 68 inches, an individual is equally likely to be 67 inches tall as they are 69 inches. Similarly, an individual is equally likely to be 64 inches as they are 82. However, given their proximity to the mean value, an individual is far more likely to be either 67 or 69 inches (1 inch from the mean) than they are to be either 64 or 82 inches (4 inches from the mean).</p>
-<p>The process described above describes what is known as a <em>normal distribution</em>, colloquially referred to as a “bell curve.” There are a number of properties that together characterize a normal distribution</p>
-<ol style="list-style-type: decimal">
-<li>There are two parameters for the normal distribution, the mean <span class="math inline">\(\mu\)</span> (pronounced “myu”) and the variance <span class="math inline">\(\sigma^2\)</span> (“sigma squared”)</li>
-<li><span class="math inline">\(\mu\)</span> is the mean, or expected value, and represents the most probable value of the distribution. That is, observations from a normal distribution are more likely to be close to <span class="math inline">\(\mu\)</span> than away from it</li>
-<li>Observations are equally likely to be the same magnitude above <span class="math inline">\(\mu\)</span> as they are below it. In other words, the distribution is centered around <span class="math inline">\(\mu\)</span>. We see this concept expressed in everyday language when we offer estimates of some value: “The cost is ‘x,’ plus or minus ‘y’”</li>
-<li>The second parameter, <span class="math inline">\(\sigma^2\)</span>, describes how concentrated values are around the mean. The smaller the value of <span class="math inline">\(\sigma^2\)</span>, the more observations that will be close to <span class="math inline">\(\mu\)</span>. Likewise, larger values of <span class="math inline">\(\sigma^2\)</span> result in higher dispersion, or more values further away from <span class="math inline">\(\mu\)</span>.</li>
-</ol>
-<p>Notationally, if a random variable <span class="math inline">\(X\)</span> follows a normal distribution with mean <span class="math inline">\(\mu\)</span> and variance <span class="math inline">\(\sigma^2\)</span>, we write <span class="math inline">\(X \sim N(\mu, \sigma^2)\)</span>. A special case of this that will be explored in following chapters is known as a <em>standard normal distribution</em>, which arises when the mean value is <span class="math inline">\(\mu = 0\)</span>, and the variances is <span class="math inline">\(\sigma^2 = 1\)</span>. This distribution is often written with its own letter <span class="math inline">\(Z\)</span>, as in <span class="math inline">\(Z \sim N(0, 1)\)</span>.</p>
-<p>Another critical difference between a continuous and discrete random variable is the way in which we determine probability. In the discrete case, we could enumerate all of the events and determine their relative frequency. Alternatively, we could run a simulation and simply count how often each outcome occurred. In the continuous case, however, there is no finite set of possibilities (i.e., somebody could be 68" tall, 68.1" tall, 68.01", …), and any attempts to enumerate these will only terminate in frustration; we will determine the implications of this below. In the meantime, however, we will rejoice in knowing that a normal distribution can be mathematically represented by it’s probability function:</p>
-<p><span class="math display">\[
-f(x) = \frac{1}{\sqrt{2\pi \sigma^2}} \ e^{- \frac{(x-\mu)^2}{2\sigma^2}}
-\]</span>
-As we can see, the pdf contains both of the distribution parameters, <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\sigma^2\)</span>. As we saw at the beginning of the chapter, different values for these parameters gives us different curves:</p>
-<p><img src="introTextbookTemplate_files/figure-html/unnamed-chunk-17-1.png" width="672" style="display: block; margin: auto;" /></p>
-<p>Of particular interest above, notice how the value of <span class="math inline">\(\mu\)</span> changes where the data are aggregated, and similarly, note how larger values of <span class="math inline">\(\sigma^2\)</span> results in a greater amount of dispersion.</p>
-<p>Let’s now return to the issue of determining the probability of a particular event. In the discrete case, we saw that we could examine the plot of the pmf and multiply the width of each bin (which was equal to 1), with the height of the bin, given by the pmf While the pdf here does indeed give us the “height,” we quickly run into an issue when considering the width: the only way we can have an “infinite” number of bins for each outcome is to assign each bin a width of 0. As such, the probability of any particular event is unintuitively assigned a probability of zero.</p>
-<p>This apparent shortcoming can thankfully be remedied with the tools of calculus. Where discrete observations allow us to take a sum, the analogous case for continuous intervals is satisfied by the use of the integral. As it no longer makes sense to consider the probability of specific events (all of which will be zero), we instead consider the probability that an observation falls within a <em>range</em> of events. For example, if we have a random variable with <span class="math inline">\(X \sim N(\mu, \sigma^2)\)</span>, the probability that <span class="math inline">\(X &gt; 3\)</span> can be written</p>
-<p><span class="math display">\[
-P(X &gt; 3) = \int_3^{\infty} \frac{1}{\sqrt{2\pi \sigma^2}} \ e^{- \frac{(x-\mu)^2}{2\sigma^2}} \ dx
-\]</span>
-Similarly, if we were curious to know the probability that <span class="math inline">\(X\)</span> was between a range of values, say <span class="math inline">\(2 &lt; X &lt; 5\)</span>, we would write</p>
-<p><span class="math display">\[
-P(2 &lt; X &lt; 5) = \int_2^{5} \frac{1}{\sqrt{2\pi \sigma^2}} \ e^{- \frac{(x-\mu)^2}{2\sigma^2}} \ dx
-\]</span>
-Fortunately for us today, this no longer need be computed by hand. A number of computational resources are able to compute this for us with minimal effort.</p>
-<p>[Using app below, explore different parameter values. Use slider to select a range of probabilities. Note that the area of interest is highlighted. Do exercises with it]</p>
-<iframe src="https://ph-ivshiny.iowa.uiowa.edu/collin/textbook/distribution/normal/" width="100%" height="800">
-</iframe>
-<div class="definition-container">
-<div class="definition">
-<span id="def:unlabeled-div-11" class="definition"><strong>Definition 3.2  </strong></span> 
-</div>
-<p><strong>Binomial Distribution: </strong> <em> A discrete distribution in which there are two possible outcomes, “events” and “non-events.” There parameters are <span class="math inline">\(n\)</span>, which dictate the number of trials, and <span class="math inline">\(p\)</span>, determining the probability of an event </em></p>
-<p><strong>Normal Distribution: </strong> <em> A continuous distribution with two parameters that is symmetric about a mean value, <span class="math inline">\(\mu\)</span>, with a variance <span class="math inline">\(\sigma^2\)</span>. Many real world processes follow a normal distribution. </em></p>
-<p><strong>Standard Normal Distribution: </strong> <em> A special case of the normal distribution, <span class="math inline">\(Z \sim N(0, 1)\)</span> </em></p>
-<p><strong>Probability Mass Function: </strong> <em> A probability function used for discrete random variables. The probability of outcomes is given as a sum </em></p>
-<p><strong>Probability Distribution Function: </strong> <em> A probability function used for continuous random variables. The probabilities of outcomes are taken over a range, given as an integral. </em></p>
-</div>
-</div>
-<div id="other-common-distributions" class="section level2" number="3.5">
-<h2><span class="header-section-number">3.5</span> Other Common Distributions</h2>
-<p>Having examined in detail both discrete and properties distributions, demonstrated with the binomial and normal distributions, respectively, we consider below a brief overview of other common distributions and their properites.</p>
-<div id="poisson-distribution" class="section level3" number="3.5.1">
-<h3><span class="header-section-number">3.5.1</span> Poisson Distribution</h3>
-<p>The Poisson distribution, like the binomial, is a <em>discrete</em> distribution, in that it concerns itself with count data. Specifically, a Poisson distribution describes the number of independent events that may occur within a fixed interval of time. For example, we may be interested in the number of cars that pass through a busy intersection from noon to 1pm every day, or the number of major floods that occur in an area every 100 years. Perhaps the most famous example of the Poisson distribution comes courtesy of Ladislaus Bortkiewicz, a Russian statistician who, in 1898, showed that the number of Prussian soldiers killed by being kicked by a horse in a twenty year period followed a Poisson distribution (also child suicides, but that’s less fun).</p>
-<p>The Poisson distribution has a single parameter, <span class="math inline">\(\lambda\)</span>, which describes the rate at which events occur, and a random variable following a Poisson distribution may be expressed as <span class="math inline">\(X \sim Pois(\lambda)\)</span> (People who write <span class="math inline">\(X \sim Po(\lambda)\)</span> are heathens). A random variable following a Poisson distribution has the following assumptions:</p>
-<ol style="list-style-type: decimal">
-<li>The value of <span class="math inline">\(X\)</span>, being a count, can be any non-negative integer, i.e., <span class="math inline">\(0, 1, 2, \dots\)</span> with no upper bound</li>
-<li>The occurrence of one event in a time interval is independent of another event. One soldier being kicked by a horse has no impact on the probability of another solider being kicked by a horse.</li>
-<li><span class="math inline">\(\lambda\)</span>, which may be any number greater than <span class="math inline">\(0\)</span>, describes the rate at which events occur</li>
-<li>[Two events cannot occur at the exact same time, though they probably don’t need this]</li>
-</ol>
-<p>The distribution function of a Poisson random variable with rate <span class="math inline">\(\lambda\)</span> can be expressed</p>
-<p><span class="math display">\[
-P(X = x) = \frac{\lambda^x e^{-\lambda}}{x!}
-\]</span>
-One surprisingly detail about the Poisson distribution is the relationship between the mean and the variance. For both, we have that <span class="math inline">\(E(X) = Var(X) = \lambda\)</span>.</p>
-<div id="plots-for-poisson" class="section level4" number="3.5.1.1">
-<h4><span class="header-section-number">3.5.1.1</span> Plots for Poisson</h4>
-<p>As we look at the plot for the Poisson, we will notice one aspect in particular that distinguishes it from the plots of both the binomial and normal distributions: it is no longer symmetric. This is a consequence of the range of values that a Poisson random variable can take on. Whereas a binomial random variable was bounded between <span class="math inline">\(0\)</span> and <span class="math inline">\(n\)</span>, the number of trials conducted, and where the normal distribution allowed any real number, the Poisson is bounded below by <span class="math inline">\(0\)</span>, while having no theoretical upper bound. Given below is a plot of the distribution with <span class="math inline">\(\lambda = 2\)</span> and <span class="math inline">\(\lambda = 4\)</span> (it’s obvious here that choosing a specific value is inadequate. We can replace these plots with distribution exploration apps)</p>
-<p><img src="introTextbookTemplate_files/figure-html/unnamed-chunk-18-1.png" width="960" style="display: block; margin: auto;" /></p>
-<p>Just as with the binomial distribution, we can determine the probability of an event or collection of events by determining the area of the bars in our plot. Below is an interactive app to do stuff. Exercises</p>
-<iframe src="https://ph-ivshiny.iowa.uiowa.edu/collin/textbook/distribution/poisson/" width="100%" height="800">
-</iframe>
+<div id="ch5_s5" class="section level2" number="5.4">
+<h2><span class="header-section-number">5.4</span> Bayes’ Rule</h2>
+<p>SHOULD PROBABLY THINK OF ANOTHER EXAMPLE</p>
+<p>We now know that conditional results allow us to incorporate already observed information into a probability calculation. However, conditional probabilities are often easier to reason through (or collect data for) in one direction or the other. For example, suppose a woman is having twins. Obviously, if she were having identical twins, the probability that the twins would be the same sex would be 1, and if her twins were fraternal, the probability would be 1/2. But what if the woman goes to the doctor, has an ultrasound performed, learns that her twins are the same sex, and wants to know the probability that her twins are identical. Both ways of looking at the probably are in terms of a conditional probability - if <span class="math inline">\(SS\)</span> denotes the event that the twins are the same sex and <span class="math inline">\(I\)</span> denotes the event that the twins are identical, we know <span class="math inline">\(P(SS|I) = 1)\)</span> and <span class="math inline">\(P(SS|I^C) = 1/2\)</span>. But what we want now is <span class="math inline">\(P(I|SS)\)</span>, so the information we are given has changed. The tool we use to “flip” conditional probabilities is called <strong>Bayes’ rule</strong>.</p>
+<p>Important formula!</p>
+<p>Bayes’ rule</p>
+<p>Consider to events <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>, and suppose we know the following probabilities: <span class="math inline">\(P(B|A)\)</span>, <span class="math inline">\(P(B|A^C)\)</span>, <span class="math inline">\(P(A)\)</span>, and <span class="math inline">\(P(A^C)\)</span>. If want to get <span class="math inline">\(P(A|B)\)</span>, we can use:</p>
+<p><span class="math display">\[P(A|B) = \frac{P(B|A)P(A)}{P(B|A)P(A) + P(B|A^C)P(A^C)}\]</span></p>
+We can apply Bayes’ rule to the woman having twins scenario, but we need to know one other piece of information: the probability that a pair of twins will be identical (<span class="math inline">\(P(I)\)</span>). Since the proportion of all twins that are identical is roughly <span class="math inline">\(1/3\)</span>, we will say <span class="math inline">\(P(I = 1/3)\)</span>. Therefore,
+<span class="math display">\[\begin{aligned}
+    P(I|SS) &amp;= \frac{P(SS|I)P(I)}{P(SS|I)P(I) + P(SS|I^C)P(I^C)} \\
+            &amp;= \frac{1 \times \frac{1}{3}}{(1 \times \frac{1}{3}) + (\frac{1}{2} \times \frac{2}{3})} \\
+            &amp;= \frac{1}{2}
+\end{aligned}\]</span>
+<p>Let’s think about what happened. Before the ultrasound, the probability that the twins were identical, <span class="math inline">\(P(I)\)</span>, was <span class="math inline">\(1/3\)</span>. This is called the <strong>prior</strong> probability. After we learned the results of the ultrasound, the probability that the twins were identical, <span class="math inline">\(P(I|SS)\)</span>, is <span class="math inline">\(1/2\)</span>. This is called the <strong>posterior</strong> probability. In fact, this prior/posterior way of thinking can be used to establish an entire statistical framework rather different in philosophy than the one we have presented so far in this course. In this way of thinking, we start out with the idea of the possible values of some unknown facet of the world <span class="math inline">\(\theta\)</span>. This distribution of possibilities <span class="math inline">\(P(\theta)\)</span> is our prior belief about the unknown; then we observe data <span class="math inline">\(D\)</span> and update those beliefs, arriving at our posterior beliefs about the unknown <span class="math inline">\(P(\theta|D)\)</span>. Mathematically, this updating is derived from Bayes’ rule, hence the name for this line of inferential reasoning: <strong>Bayesian statistics</strong>. One clear advantage of Bayesian statistics is that it is a much more natural representation of human thought. Instead of thinking about the proportion of times an event would occur if it was repeated over and over, we think about the belief it will occur given all of the available information. For something like the outcome of a sports match or the weather this is more intuitive, since the game in only played once and as we are not stuck in the movie Groundhog’s Day, we can not experience a day over and over and record the fraction of times that it rains. However, the scientific community has not widely embraced the notion of subjective beliefs as the basis for science; the long-run frequency approach that we will cover in this course has generally proved more marketable. Bayesian statistics is certainly worth being aware of and is widely used and accepted in many fields.</p>
+<p>A common application of Bayes’ rule in biostatistics is in the area of diagnostic testing and routine screening, and this is the main application of Bayes’ rule we will focus on. For example, older women in the United States are recommended to undergo routine X-rays of breast tissue (mammograms) to look for cancer. Even though the vast majority of women will not have developed breast cancer in the year or two since their last mammogram, this routine screening is believed to save lives by catching cancer while it is relatively treatable. The application of a diagnostic to asympotmatic individuals in the hopes of catching a disease in its early stages is called screening. Note that this is different than someone experiencing flu-like symptoms and going to the doctor to get a rapid influenza diagnostic test (RIDT). First let’s think about what characteristics would make a good screening test. Given the following cross-classification table of test results vs. true disease status, do you think this would be a good screening test for diabetes?</p>
+THERES A TABLE HERE THAT WONT SHOW UP
+<p>When creating a good screening test, we want to correctly classify as many individuals with and without the disease as we can. This means if an individual truly has diabetes, we would want a positive test result and if an individual does not have diabetes, we would want a negative test result as often as possible. Another way of looking at it, is that we want to minimize the errors. We want to minimize the number of truly diabetic individuals that get a negative test result, as these individuals would then be missing out on the proper treatment. Similarly, we want to minimize the number of healthy individuals that receive a positive test, as these individuals could potentially get a treatment they don’t need. Which type of error is more important depends on the context of the disease and the potential treatment, although most often people are concerned with correctly classifying the individuals with the disease.</p>
+<p>We can talk about these events in terms of conditional probabilities. Consider an individual selected at random from a certain population who is administered a screening test. Define the following events:</p>
+<span class="math display">\[\begin{aligned}
+        D &amp;= \text{the individual has the disease} \\
+        D^C &amp;= \text{the individual does not have the disease} \\
+        T^+ &amp;= \text{the individual has a positive test result} \\
+        T^- &amp;= \text{the individual has a negative test result}
+\end{aligned}\]</span>
+<p>Then, to assess how well a screening test performs, we consider two important conditional probabilities. <strong>Sensitivity</strong> is the probability of obtaining a positive test result, given that the individual has the disease:
+<span class="math display">\[\text{Sensitivity} = P(T^+|D)\]</span></p>
+<p><strong>Specificity</strong> is the probability of obtaining a negative test result given that the individual does not have the disease:
+<span class="math display">\[\text{Specificity} = P(T^-|D^C)\]</span>
+Sensitivity and specificity are both concerned with correctly classifying individuals, so ideally, both the sensitivity and specificity of a screening test would equal 1. However, diagnostic tests are not perfect, so there is always some misclassification. This leads us to two other conditional probabilities, which are directly related to sensitivity and specificity.A <strong>false positive</strong> occurs when a positive test result is obtained for an individual who does not have the disease:
+<span class="math display">\[\text{False Positive} = P(T^+|D^C) = 1 - P(T^-|D^C) = 1 - \text{Specificity}\]</span></p>
+<p>A <strong>false negative</strong> occurs when a negative test result is obtained for an individual that has the disease:
+<span class="math display">\[\text{False Negative} = P(T^-|D) = 1 - P(T^+|D) = 1 - \text{Sensitivity}\]</span></p>
+<p>Here we are using the rule of conditional probability <span class="math inline">\(P(A^C) = 1 - P(A)\)</span> applied to conditional probabilities. In words, once we condition on the disease status the test result can only be positive or negative and since those are the only two events in the sample space the probability of both occurring must add up to 1. The previously defined quantities are all characteristics of the screening test, i.e. the probability of testing positive or negative given a certain disease status. Often, what is of more interest is the disease characteristics, conditional on the screening test results. In other words, we are interested in the probability of having the disease, given a positive test or the probability of not having the disease given a negative test. These two quantities are called the <strong>positive predictive value (PPV)</strong> and the <strong>negative predictive value (NPV)</strong> and can be calculated from the sensitivity and specificity using Bayes’ rule.</p>
+Both the PPV and the NPV can be written in terms of the test’s sensitivity, specificity, and disease prevalence
+<span class="math display">\[\begin{aligned}
+        PPV &amp;= P(D|T^{+}) \\
+        &amp;= \frac{P(T^+|D)P(D)}{P(T^+|D)P(D) + P(T^+|D^C)P(D^C)} \\
+        &amp;= \frac{\text{Sens}\times \text{Prev}}{\text{Sens}\times \text{Prev} + (1 - \text{Spec}) (1-\text{Prev})}
+    \end{aligned}
+    \begin{aligned}
+        NPV &amp;= P(D^C|T^{-}) \\
+        &amp;= \frac{P(T^-|D^C)P(D^C)}{P(T^-|D^C)P(D^C) + P(T^-|D)P(D)} \\
+        &amp;= \frac{\text{Spec}(1-\text{Prev})}{\text{Spec}(1-\text{Prev}) + (1 - \text{Sens}) \text{Prev}}
+    \end{aligned}\]</span>
+<p>Need to add that we only use prevalence in the case of screenings. If you have symptoms than we have a different prior on the probability of you having the disease.</p>
 
-</div>
-</div>
 </div>
 </div>
             </section>
@@ -474,7 +611,6 @@ One surprisingly detail about the Poisson distribution is the relationship betwe
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -514,6 +650,10 @@ gitbook.start({
 "text": null
 },
 "download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "subsection"
 }

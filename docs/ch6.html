@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>4 Sampling Distributions and the Central Limit Theorem | Seriously Interesting Statistics Textbook</title>
+  <title>6 Probability Distributions | An Intuitive, Interactive, Introduction to Biostatistics</title>
   <meta name="description" content="First template!" />
-  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="4 Sampling Distributions and the Central Limit Theorem | Seriously Interesting Statistics Textbook" />
+  <meta property="og:title" content="6 Probability Distributions | An Intuitive, Interactive, Introduction to Biostatistics" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="ceward/introTextbook" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="4 Sampling Distributions and the Central Limit Theorem | Seriously Interesting Statistics Textbook" />
+  <meta name="twitter:title" content="6 Probability Distributions | An Intuitive, Interactive, Introduction to Biostatistics" />
   
   <meta name="twitter:description" content="First template!" />
   
@@ -32,8 +32,9 @@
   
 <link rel="prev" href="ch5.html"/>
 <link rel="next" href="ch7.html"/>
-<script src="libs/header-attrs-2.8/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -49,77 +50,10 @@
 
 
 
-
 <link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
-<script src="libs/kePrint-0.0.1/kePrint.js"></script>
-<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
 
-<style type="text/css">
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-</style>
 
 
 <link rel="stylesheet" href="style.css" type="text/css" />
@@ -139,45 +73,86 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#acknowledgements"><i class="fa fa-check"></i><b>0.1</b> Acknowledgements</a></li>
 </ul></li>
-<li class="chapter" data-level="1" data-path="ch15.html"><a href="ch15.html"><i class="fa fa-check"></i><b>1</b> Introduction to Probability and Simulation</a>
+<li class="chapter" data-level="1" data-path="ch1.html"><a href="ch1.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
 <ul>
-<li class="chapter" data-level="1.1" data-path="ch15.html"><a href="ch15.html#ch15_s1"><i class="fa fa-check"></i><b>1.1</b> Randomness and Simulation</a></li>
-<li class="chapter" data-level="1.2" data-path="ch15.html"><a href="ch15.html#ch15_s2"><i class="fa fa-check"></i><b>1.2</b> Probability</a></li>
-<li class="chapter" data-level="1.3" data-path="ch15.html"><a href="ch15.html#ch15_s3"><i class="fa fa-check"></i><b>1.3</b> Methods for Computing Probabilities</a></li>
+<li class="chapter" data-level="1.1" data-path="ch1.html"><a href="ch1.html#ch1_s1"><i class="fa fa-check"></i><b>1.1</b> Statistics and Evidence-based Research</a></li>
+<li class="chapter" data-level="1.2" data-path="ch1.html"><a href="ch1.html#ch1_s2"><i class="fa fa-check"></i><b>1.2</b> Scientific Method</a></li>
+<li class="chapter" data-level="1.3" data-path="ch1.html"><a href="ch1.html#ch1_s3"><i class="fa fa-check"></i><b>1.3</b> Statistical framework</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="ch4.html"><a href="ch4.html"><i class="fa fa-check"></i><b>2</b> Advanced Probability</a>
+<li class="chapter" data-level="2" data-path="ch2.html"><a href="ch2.html"><i class="fa fa-check"></i><b>2</b> Data Summaries and Presentation</a>
 <ul>
-<li class="chapter" data-level="2.1" data-path="ch4.html"><a href="ch4.html#ch4_s1"><i class="fa fa-check"></i><b>2.1</b> Probability Operations</a></li>
-<li class="chapter" data-level="2.2" data-path="ch4.html"><a href="ch4.html#ch4_s2"><i class="fa fa-check"></i><b>2.2</b> Conditional Probability</a></li>
-<li class="chapter" data-level="2.3" data-path="ch4.html"><a href="ch4.html#ch4_s4"><i class="fa fa-check"></i><b>2.3</b> Probabilities from tables (needs a different example)</a></li>
-<li class="chapter" data-level="2.4" data-path="ch4.html"><a href="ch4.html#ch4_s5"><i class="fa fa-check"></i><b>2.4</b> Bayes’ Rule</a></li>
+<li class="chapter" data-level="2.1" data-path="ch2.html"><a href="ch2.html#ch2_s1"><i class="fa fa-check"></i><b>2.1</b> Introduction to Data</a></li>
+<li class="chapter" data-level="2.2" data-path="ch2.html"><a href="ch2.html#ch2_s2"><i class="fa fa-check"></i><b>2.2</b> Categorical Data</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="ch2.html"><a href="ch2.html#ch2_s2_ss1"><i class="fa fa-check"></i><b>2.2.1</b> Basic Categorical Summaries</a></li>
+<li class="chapter" data-level="2.2.2" data-path="ch2.html"><a href="ch2.html#ch2_s2_ss2"><i class="fa fa-check"></i><b>2.2.2</b> Advanced Categorical Summaries</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="ch5.html"><a href="ch5.html"><i class="fa fa-check"></i><b>3</b> Probability Distributions</a>
+<li class="chapter" data-level="2.3" data-path="ch2.html"><a href="ch2.html#ch2_s3"><i class="fa fa-check"></i><b>2.3</b> Continuous Data</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="ch5.html"><a href="ch5.html#introduction-to-probability-distributions"><i class="fa fa-check"></i><b>3.1</b> Introduction to Probability Distributions</a></li>
-<li class="chapter" data-level="3.2" data-path="ch5.html"><a href="ch5.html#binomial-distribution"><i class="fa fa-check"></i><b>3.2</b> Binomial Distribution</a>
-<ul>
-<li class="chapter" data-level="3.2.1" data-path="ch5.html"><a href="ch5.html#possibly-tiny-aside-with-binomial-where-we-pull-marbles-from-bag-so-that-probability-is-not-12"><i class="fa fa-check"></i><b>3.2.1</b> possibly tiny aside with binomial where we pull marbles from bag so that probability is not 1/2</a></li>
-<li class="chapter" data-level="3.2.2" data-path="ch5.html"><a href="ch5.html#plotting-the-pmf"><i class="fa fa-check"></i><b>3.2.2</b> Plotting the PMF</a></li>
+<li class="chapter" data-level="2.3.1" data-path="ch2.html"><a href="ch2.html#ch3_centrality"><i class="fa fa-check"></i><b>2.3.1</b> Measures of Centrality</a></li>
+<li class="chapter" data-level="2.3.2" data-path="ch2.html"><a href="ch2.html#ch3_dispersion"><i class="fa fa-check"></i><b>2.3.2</b> Measures of Dispersion</a></li>
 </ul></li>
-<li class="chapter" data-level="3.3" data-path="ch5.html"><a href="ch5.html#normal-distribution"><i class="fa fa-check"></i><b>3.3</b> Normal Distribution</a></li>
-<li class="chapter" data-level="3.4" data-path="ch5.html"><a href="ch5.html#measuring-heights"><i class="fa fa-check"></i><b>3.4</b> Measuring Heights</a></li>
-<li class="chapter" data-level="3.5" data-path="ch5.html"><a href="ch5.html#other-common-distributions"><i class="fa fa-check"></i><b>3.5</b> Other Common Distributions</a>
+<li class="chapter" data-level="2.4" data-path="ch2.html"><a href="ch2.html#ch2_s4"><i class="fa fa-check"></i><b>2.4</b> Advanced Data Visualizations</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="ch3.html"><a href="ch3.html"><i class="fa fa-check"></i><b>3</b> Study Design</a>
 <ul>
-<li class="chapter" data-level="3.5.1" data-path="ch5.html"><a href="ch5.html#poisson-distribution"><i class="fa fa-check"></i><b>3.5.1</b> Poisson Distribution</a></li>
+<li class="chapter" data-level="3.1" data-path="ch3.html"><a href="ch3.html#ch3_s1"><i class="fa fa-check"></i><b>3.1</b> Importance of Study Design</a></li>
+<li class="chapter" data-level="3.2" data-path="ch3.html"><a href="ch3.html#ch3_s2"><i class="fa fa-check"></i><b>3.2</b> Pre-trial Bias</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="ch3.html"><a href="ch3.html#ch3_s2_ss1"><i class="fa fa-check"></i><b>3.2.1</b> Selection Bias</a></li>
+<li class="chapter" data-level="3.2.2" data-path="ch3.html"><a href="ch3.html#ch3_s2_ss2"><i class="fa fa-check"></i><b>3.2.2</b> Confirmation Bias/Placebo Effect</a></li>
+<li class="chapter" data-level="3.2.3" data-path="ch3.html"><a href="ch3.html#ch3_s2_ss3"><i class="fa fa-check"></i><b>3.2.3</b> Observer Bias</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="ch3.html"><a href="ch3.html#ch3_s3"><i class="fa fa-check"></i><b>3.3</b> During-trial Bias</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="ch3.html"><a href="ch3.html#ch3_s3_ss1"><i class="fa fa-check"></i><b>3.3.1</b> Non-response/Participant Bias</a></li>
+<li class="chapter" data-level="3.3.2" data-path="ch3.html"><a href="ch3.html#ch3_s3_ss2"><i class="fa fa-check"></i><b>3.3.2</b> Compliance Bias</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="ch3.html"><a href="ch3.html#ch3_s4"><i class="fa fa-check"></i><b>3.4</b> Post-trial Bias</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="ch3.html"><a href="ch3.html#ch3_s4_ss1"><i class="fa fa-check"></i><b>3.4.1</b> Confounding</a></li>
+<li class="chapter" data-level="3.4.2" data-path="ch3.html"><a href="ch3.html#ch3_s4_ss2"><i class="fa fa-check"></i><b>3.4.2</b> Extrapolation Bias</a></li>
+<li class="chapter" data-level="3.4.3" data-path="ch3.html"><a href="ch3.html#ch3_s4_ss3"><i class="fa fa-check"></i><b>3.4.3</b> Publication Bias</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="ch6.html"><a href="ch6.html"><i class="fa fa-check"></i><b>4</b> Sampling Distributions and the <br/> Central Limit Theorem</a>
+<li class="chapter" data-level="4" data-path="ch4.html"><a href="ch4.html"><i class="fa fa-check"></i><b>4</b> Introduction to Probability and Simulation</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="ch6.html"><a href="ch6.html#introduction-to-sampling"><i class="fa fa-check"></i><b>4.1</b> Introduction to Sampling</a></li>
-<li class="chapter" data-level="4.2" data-path="ch6.html"><a href="ch6.html#sampling-distributions"><i class="fa fa-check"></i><b>4.2</b> Sampling Distributions</a></li>
-<li class="chapter" data-level="4.3" data-path="ch6.html"><a href="ch6.html#central-limit-theorem"><i class="fa fa-check"></i><b>4.3</b> Central Limit Theorem</a></li>
+<li class="chapter" data-level="4.1" data-path="ch4.html"><a href="ch4.html#ch4_s1"><i class="fa fa-check"></i><b>4.1</b> Randomness and Simulation</a></li>
+<li class="chapter" data-level="4.2" data-path="ch4.html"><a href="ch4.html#ch4_s2"><i class="fa fa-check"></i><b>4.2</b> Probability</a></li>
+<li class="chapter" data-level="4.3" data-path="ch4.html"><a href="ch4.html#ch4_s3"><i class="fa fa-check"></i><b>4.3</b> Methods for Computing Probabilities</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="ch7.html"><a href="ch7.html"><i class="fa fa-check"></i><b>5</b> Introduction to Inference</a>
+<li class="chapter" data-level="5" data-path="ch5.html"><a href="ch5.html"><i class="fa fa-check"></i><b>5</b> Advanced Probability</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="ch7.html"><a href="ch7.html#ch7_s1"><i class="fa fa-check"></i><b>5.1</b> Confidence Intervals</a></li>
-<li class="chapter" data-level="5.2" data-path="ch7.html"><a href="ch7.html#ch7_s2"><i class="fa fa-check"></i><b>5.2</b> Hypothesis Tests</a></li>
-<li class="chapter" data-level="5.3" data-path="ch7.html"><a href="ch7.html#ch7_s3"><i class="fa fa-check"></i><b>5.3</b> P-values</a></li>
+<li class="chapter" data-level="5.1" data-path="ch5.html"><a href="ch5.html#ch5_s1"><i class="fa fa-check"></i><b>5.1</b> Probability Operations</a></li>
+<li class="chapter" data-level="5.2" data-path="ch5.html"><a href="ch5.html#ch5_s2"><i class="fa fa-check"></i><b>5.2</b> Conditional Probability</a></li>
+<li class="chapter" data-level="5.3" data-path="ch5.html"><a href="ch5.html#ch5_s4"><i class="fa fa-check"></i><b>5.3</b> Probabilities from tables (needs a different example)</a></li>
+<li class="chapter" data-level="5.4" data-path="ch5.html"><a href="ch5.html#ch5_s5"><i class="fa fa-check"></i><b>5.4</b> Bayes’ Rule</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="ch6.html"><a href="ch6.html"><i class="fa fa-check"></i><b>6</b> Probability Distributions</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="ch6.html"><a href="ch6.html#introduction-to-probability-distributions"><i class="fa fa-check"></i><b>6.1</b> Introduction to Probability Distributions</a></li>
+<li class="chapter" data-level="6.2" data-path="ch6.html"><a href="ch6.html#binomial-distribution"><i class="fa fa-check"></i><b>6.2</b> Binomial Distribution</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="ch6.html"><a href="ch6.html#plotting-the-pmf-delete"><i class="fa fa-check"></i><b>6.2.1</b> Plotting the PMF (delete?)</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="ch6.html"><a href="ch6.html#normal-distribution"><i class="fa fa-check"></i><b>6.3</b> Normal Distribution</a></li>
+<li class="chapter" data-level="6.4" data-path="ch6.html"><a href="ch6.html#other-common-distributions"><i class="fa fa-check"></i><b>6.4</b> Other Common Distributions</a>
+<ul>
+<li class="chapter" data-level="6.4.1" data-path="ch6.html"><a href="ch6.html#poisson-distribution"><i class="fa fa-check"></i><b>6.4.1</b> Poisson Distribution</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="ch7.html"><a href="ch7.html"><i class="fa fa-check"></i><b>7</b> Sampling Distributions and the <br/> Central Limit Theorem</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="ch7.html"><a href="ch7.html#introduction-to-sampling"><i class="fa fa-check"></i><b>7.1</b> Introduction to Sampling</a></li>
+<li class="chapter" data-level="7.2" data-path="ch7.html"><a href="ch7.html#sampling-distributions"><i class="fa fa-check"></i><b>7.2</b> Sampling Distributions</a></li>
+<li class="chapter" data-level="7.3" data-path="ch7.html"><a href="ch7.html#central-limit-theorem"><i class="fa fa-check"></i><b>7.3</b> Central Limit Theorem</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="ch8.html"><a href="ch8.html"><i class="fa fa-check"></i><b>8</b> Introduction to Inference</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="ch8.html"><a href="ch8.html#ch8_s0"><i class="fa fa-check"></i><b>8.1</b> Central Limit Theorem</a></li>
+<li class="chapter" data-level="8.2" data-path="ch8.html"><a href="ch8.html#ch8_s1"><i class="fa fa-check"></i><b>8.2</b> Point Estimation and Confidence Intervals</a></li>
+<li class="chapter" data-level="8.3" data-path="ch8.html"><a href="ch8.html#ch8_s2"><i class="fa fa-check"></i><b>8.3</b> Hypothesis Tests</a></li>
+<li class="chapter" data-level="8.4" data-path="ch8.html"><a href="ch8.html#ch8_s3"><i class="fa fa-check"></i><b>8.4</b> P-values</a></li>
 </ul></li>
 </ul>
 
@@ -188,7 +163,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Seriously Interesting Statistics Textbook</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">An Intuitive, Interactive, Introduction to Biostatistics</a>
           </h1>
         </div>
 
@@ -196,506 +171,302 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="ch6" class="section level1" number="4">
-<h1><span class="header-section-number">4</span> Sampling Distributions and the <br/> Central Limit Theorem</h1>
+<div id="ch6" class="section level1" number="6">
+<h1><span class="header-section-number">6</span> Probability Distributions</h1>
 <blockquote>
-<p>“While nothing is more uncertain than a single life, nothing is more certain than the average duration of a thousand lives.” - Elizur Wright</p>
-</blockquote>
-<blockquote>
-<p>“Everything that can be counted does not necessarily count; everything that counts cannot necessarily be counted.” - Albert Einstein</p>
+<p>“Statistics is the grammar of science.”</p>
+<p>— Karl Pearson</p>
 </blockquote>
 <div class="objective-container">
 <div class="objectives">
-Learning objectives
+Learning Objectives
 </div>
 <ol style="list-style-type: decimal">
-<li>Learn to differentiate between statistics and parameters<br />
-</li>
-<li>Understand the concept of sampling distributions<br />
-</li>
-<li>Conceptual understanding of Central Limit Theorem and how it applies to sample means</li>
+<li>Understand how a distribution represents a random process that creates data that is then observed</li>
+<li>Understand how the parameters of a distribution govern how the data is generated [and with what probability]</li>
+<li>Be able to identify which distributions underlying a given real world random process.</li>
 </ol>
 </div>
-<div id="introduction-to-sampling" class="section level2" number="4.1">
-<h2><span class="header-section-number">4.1</span> Introduction to Sampling</h2>
-<p>Suppose policy makers and public health experts in Iowa are concerned with Iowans’ fast food intake. To understand this further, officials want to determine the average monthly spending on fast food for all Iowans. However, it would be very expensive to have all 3.2 million Iowans track and report their total monthly fast food expenses. Whatsmore, many Iowans would not be willing to share personal financial details with public health researchers or government officials. These are but a few of the challenges making it practically impossible for officials to ever determine the true average spent by Iowans each month on fast food.</p>
-<p>A true numeric quantity about the population, here assumed to be the mean, is known as a <strong>population parameter</strong>. While we may never know the truth, there are still options. The officials can take a sample of Iowans and have those that consent to share their information report their monthly spending on fast food. Then, they can take the sample mean, which gives them an estimate of the average monthly spending on fast food. The sample mean is an example of a <strong>sample statistic</strong>, which is a numerical quantity about the sample. In other words, statistics are what investigators know, and parameters are what investigators want to know.</p>
-<p>The statistical framework (pictured below) allows us to make <strong>inference</strong> about population parameters using sample statistics. This means the researchers can use a random sample of Iowans’ monthly fast food spending to make generalizations about the average monthly spending for all Iowans. The numerical quantities of interest can be many different things - means, proportions, standard deviations, etc.In the fast food example, the parameter of interest was a population mean and the sample statistic was the sample mean. In this chapter, we will specifically focusing on estimating means.</p>
-<div class="figure" style="text-align: center"><span id="fig:statFramework2"></span>
-<img src="introTextbookTemplate_files/figure-html/statFramework2-1.png" alt="Statistical Framework" width="672" />
-<p class="caption">
-Figure 4.1: Statistical Framework
-</p>
-</div>
-<p>The statistical framework outlines the process of making inference using sample statistics to estimate population parameters. Later chapters in this textbook will cover the mathematical details of this process. In trying to make proper inference, we also want to ensure our estimated statistic is measuring the parameter well. To that end, there are two major statistical issues we concern ourselves with:</p>
+<div id="introduction-to-probability-distributions" class="section level2" number="6.1">
+<h2><span class="header-section-number">6.1</span> Introduction to Probability Distributions</h2>
+<p>In Chapter 4, we introduced the idea of random processes, i.e. situations
+in which the outcome can not be determined perfectly in advance. Random processes
+are defined in terms of the <em>collection of possible events</em> (sample space) and their
+<em>associated probabilities</em>. In that chapter, we saw three methods for calculating
+probabilities - the enumeration method, the probability function method, and the
+simulation method. In this chapter we will expand on the probability function
+method, which uses a known function called a <strong>probability distribution</strong> to
+determine the probability of each event.</p>
+<p>Probability distributions are closely related to <strong>random variables</strong>, a numeric
+variable that can take on different values depending on the outcome of a random
+process. In previous mathematics courses you may have seen variables such as
+<span class="math inline">\(x\)</span> or <span class="math inline">\(y\)</span> used as placeholder values which are then solved for. For example,
+you can solve for the variable <span class="math inline">\(x\)</span> in <span class="math inline">\(4x + 5 = 25\)</span>, to determine <span class="math inline">\(x = 5\)</span>. By
+contrast, the outcome of a <em>random</em> variable cannot be predetermined. Instead,
+we talk probabilistically about the likelihood of observing each possible outcome.
+Random variables are typically denoted with capital letters, e.g., <span class="math inline">\(X\)</span> or <span class="math inline">\(Y\)</span>,
+whereas the observed outcome of the random process is denoted with lowercase letters
+<span class="math inline">\(x\)</span> or <span class="math inline">\(y\)</span>. For example, flipping a coin three times is a random process. We can
+define the random variable <span class="math inline">\(X\)</span> to represent the number of heads we observe
+between the three flips. <span class="math inline">\(X\)</span> can take on four possible values: 0, 1, 2, or 3. If
+we observe 2 heads, we have <span class="math inline">\(x = 2\)</span>.</p>
+<p>Most simply, a probability distribution (often just called a distribution)
+is a method for taking a possible event as input, and giving us the corresponding
+probability as output; the corresponding probability tells us how likely it is
+that the specific event will occur, out of all of the possible events. We often
+say random variables have or follow a probability distribution, as the
+distribution quantifies the probability of observing the possible values a random
+variable can take on. There are many useful probability distributions that have
+been defined by mathematicians and statisticians to describe a variety of scenarios:</p>
 <ul>
-<li>On average, does our estimate tend to be centered around the true answer, or is it <em>biased</em>?<br />
-</li>
-<li>How much <em>variability</em> is there likely to be in our sample?</li>
+<li><p>Counting the number of successes in a fixed number of trials that can results
+in either success or failure</p></li>
+<li><p>Counting the number of failures before the first success in a series of success/failure trials</p></li>
+<li><p>Describing the length of time between events that occur at a constant rate</p></li>
+<li><p>Describing the blood pressure of adults</p></li>
 </ul>
-<p>The difference between our estimate and our parameter is called <strong>bias</strong>. <strong>Variance</strong> describes the spread of our data, and is sometimes called noise. Sometimes we talk about spread in terms of <strong>precision</strong>, which is the inverse of variance. The more precision we have, the less variance, and vice versa. A good statistic will have little or no bias and would have minimal variability. We can visualize both bias and variability using a dart board analogy.</p>
-<div class="figure" style="text-align: center"><span id="fig:image-ref-for-in-text2"></span>
-<img src="images/biasVariabilityTargets2.png" alt="Bias and Variability Illustration" width="1000" />
-<p class="caption">
-Figure 4.2: Bias and Variability Illustration
-</p>
-</div>
-<p>On the upper left target, the darts are hitting the bullseye with low bias and low variability, shown by the darts having minimal spread and all hitting the bullseye. This is the most desirable outcome when the goal is to hit the bullseye. In the upper right target, we see a lot more variability, as the darts are no longer highly concentrated on the bullseye. However, the dart locations are still centered around the bullseye, and this is why we consider this target to have low bias. This situation is less ideal than having low bias and low variance, but is still preferable to targets in the bottom row, where we have high bias. In the bottom left target, we have high bias and low variability, evidenced by the high concentration of darts that are not hitting the bullseye. The consistency is why we saw there is low variability, but if our goal is to hit the bullseye, we are not going to achieve that goal. Finally, the bottom right target is the worst possible outcome - high bias <em>and</em> high variability. We are not hitting the bullseye and the darts are landing erratically. Statisticians work hard to develop inferential and sampling procedures that allow us to estimate population parameters with little to no bias and low variability.</p>
+<p>One can represent a probability distribution visually using a <strong>probability histogram</strong>.
+On the x-axis, we have the possible outcomes of the random process - the values
+the random variable could take on. For each outcome, the bar height represents
+the probability of observing that value. For the coin flipping example, the
+probabilities of observing each possible number of heads can be represented as:</p>
+<p><img src="introTextbookTemplate_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+<p>The beauty of using probability distributions to describe the likelihood of all
+outcomes of a random process is its simplicity. Probability distributions rely
+on a small number of <strong>parameters</strong> which determine the distribution’s ``shape".</p>
+<p>Something about expected values.</p>
 <div class="definition-container">
 <div class="definition">
-<span id="def:unlabeled-div-12" class="definition"><strong>Definition 4.1  </strong></span> 
+<span id="def:unlabeled-div-1" class="definition"><strong>Definition 6.1  </strong></span> 
 </div>
-<p><strong>Population Parameter: </strong> <em> The true numeric quantity about a population </em></p>
-<p><strong>Sample Statistic: </strong> <em> A numerical quantity about the sample </em></p>
-<p><strong>Inference: </strong> <em> The process of making generalizations about the population </em></p>
-<p><strong>Bias: </strong> <em> The systematic difference between our estimate and our parameter </em></p>
-<p><strong>Variability: </strong> <em> The spread or error in the data </em></p>
-<p><strong>Precision: </strong> <em> Inverse of variance, how narrow the data is </em></p>
-<p><strong>Precision: (altered def. narrow data maybe confusing?) </strong> <em> Inverse of variance, or how precisely our estimate matches the parameter </em></p>
+<p><strong>Probability Distribution: </strong> <em> A method for assigning probabilities to all possible events </em></p>
+<p><strong>Random Variable: </strong> <em> A method for assigning probabilities to all possible events </em></p>
+<p><strong>Probability histogram: </strong> <em> Values associated with a probability distribution that determine the distributions shape </em></p>
+<p><strong>Parameters: </strong> <em> Values associated with a probability distribution that determine the distributions shape </em></p>
 </div>
 </div>
-<div id="sampling-distributions" class="section level2" number="4.2">
-<h2><span class="header-section-number">4.2</span> Sampling Distributions</h2>
-<p>In order to make inference, we must be able to quantify our uncertainty about the population parameter based on our sample data. To quantify our uncertainty, we must first establish where it comes from - the sampling process. Any time we take a sample from the population, we will get a different sample mean <span class="math inline">\(\overline{x}\)</span>. In other words, <span class="math inline">\(\overline{x}\)</span> is a numeric quantity which assumes a value based on the outcome of a random experiment - the process of drawing a sample at random from the population. This should sound familiar - this is the definition of a random variable! We can use this logic for any statistic of interest. As we’ve described in the past, random variables have probability distributions. When the random variable is a statistic, this probability distribution is called the sampling distribution. Sampling distributions reflect which values of the statistic are likely and which values are improbable. As we will see later in this chapter, this uncertainty depends on how many individuals we sample and how variable the data we measure is.</p>
-<div class="exercise-container">
-<div class="exercise">
-<span id="exr:unlabeled-div-13" class="exercise"><strong>Exercise 4.1  </strong></span> 
-</div>
-<p>The applet below is designed to help you get familiar with the concept of random sampling. The plot on the left side gives the population distribution. Each subject in the population is represented by one box, and the population consist of 26 people. The x-axis represents the value of the outcome variable for each individual, and when multiple people have the same value, their boxes are stacked on top of each other. For example, we have one subject in the population with a value of 0, three subjects with values of 1, and so on. The plot on the right displays the values for the subjects in our sample, and these subjects are indicated by green coloring in both the population and sample distributions. We can take samples from our population of various sizes by changing the value of the slider at the top and clicking on the “Sample” button.</p>
-</div>
-<!-- frameBorder="0" -->
-<iframe src="https://ph-ivshiny.iowa.uiowa.edu/ceward/textbook/shinyApps/sampling" width="100%" height="800">
-</iframe>
-<div class="exercise-container">
-<ol>
-<li>
-Set the sample size to 2 and click the “Sample” button five times. Fill out the following table with the sample means observed in your five samples.
-<table style="width:50%">
-<tr>
-<th style="text-align:center">
-Sample Number
-</th>
-<th>
-Sample mean
-</th>
-</tr>
-<tr>
-<td style="text-align:center">
-1
-</td>
-<td>
-</td>
-</tr>
-<tr>
-<td style="text-align:center">
-2
-</td>
-<td>
-</td>
-</tr>
-<tr>
-<td style="text-align:center">
-3
-</td>
-<td>
-</td>
-</tr>
-<tr>
-<td style="text-align:center">
-4
-</td>
-<td>
-</td>
-</tr>
-<tr>
-<td style="text-align:center">
-5
-</td>
-<td>
-</td>
-</tr>
-</table>
-<ol style="list-style-type: lower-alpha;">
-<li>
-Did you get the same sample mean for any of your five samples?
-</li>
-<li>
-Was the sample mean ever equal to the population mean in any of your five samples? If not, how close were your sample means to the true population mean?
-</li>
-</ol>
-</li>
-<li>
-Now set the sample size to 15 and click the “Sample” button five times. Fill out the following table with the sample means observed in your five samples.
-<table style="width:50%">
-<tr>
-<th style="text-align:center">
-Sample Number
-</th>
-<th>
-Sample mean
-</th>
-</tr>
-<tr>
-<td style="text-align:center">
-1
-</td>
-<td>
-</td>
-</tr>
-<tr>
-<td style="text-align:center">
-2
-</td>
-<td>
-</td>
-</tr>
-<tr>
-<td style="text-align:center">
-3
-</td>
-<td>
-</td>
-</tr>
-<tr>
-<td style="text-align:center">
-4
-</td>
-<td>
-</td>
-</tr>
-<tr>
-<td style="text-align:center">
-5
-</td>
-<td>
-</td>
-</tr>
-</table>
-<ol style="list-style-type: lower-alpha;">
-<li>
-Did any of your five simulations give you a sample mean equal to the population mean?
-</li>
-<li>
-how close were your sample means to the true population mean?
-</li>
-</ol>
-</li>
-<li>
-Compare your results from problem 1 and problem 2.
-<ol style="list-style-type: lower-alpha;">
-<li>
-In either case were you able to obtain a sample mean equal to the population mean?
-</li>
-<li>
-Which one had sample means with more variability? What does this indicate about the relationship between the sample size and the distribution of sample means in the context of repeated sampling?
-</li>
-</ol>
-</li>
-</ol>
-</div>
-<p>As we’ve seen earlier in this book, we will use upper-case letters to denote random variables, and lower-case letters to denote values once they have been observed (that is, they are no longer random). When it comes to the sampling distribution of the mean, <span class="math inline">\(\overline{X}\)</span> is the random variable, which arises from repeated random sampling from the population and then taking a sample mean, and <span class="math inline">\(\overline{x}\)</span> is an observed sample mean we might see. In describing a sampling distribution, we are often interested in the mean and standard deviation - this gives information about typical values the statistic might take on as well as how spread out the distribution is. We refer to the mean of a statistic as the <strong>expected value</strong> and the standard deviation as the <strong>standard error</strong>. For the random variable describing the sample mean, these are denoted as <span class="math inline">\(E(\overline{X})\)</span> and <span class="math inline">\(SE(\overline{X}) = \sqrt{Var(\overline{X})}\)</span>, respectively.</p>
-<p>Let’s return to the fast food scenario to motivate our development, but for now let’s assume there are only five individuals in the entire population. The monthly spending for those five individuals (rounded to the nearest dollar) is as follows:</p>
+<div id="binomial-distribution" class="section level2" number="6.2">
+<h2><span class="header-section-number">6.2</span> Binomial Distribution</h2>
+<p>One common probability distribution is the <strong>binomial distribution</strong>, which
+describes the number of successes in a fixed number of independent trials
+that can result in one of two outcomes (success or failure), when each trial has
+the same probability of success. We have already seen one example of the
+binomial distribution - flipping a coin three times counting the number of flips
+that result in heads (success). Each flip has two possible outcomes (heads or
+tails), the same probability of heads (50%), and we have predetermined the number
+of trials (3 flips). Another example of the binomial distribution is rolling a
+six-sided die 10 times and counting the number of rolls that result in a 5 or 6.
+In this example, each die roll has a 1/3 chance of turning up a 5 or 6 and the
+die will be rolled 10 times.</p>
+<p>As you may have noticed in these binomial distribution examples, the distribution
+can be used for various probabilities of success and numbers of trials. In fact,
+these quantities define the two parameters of the binomial distribution. These
+parameters are denoted as <span class="math inline">\(n\)</span> = the number of trials and <span class="math inline">\(p\)</span> = the probability of
+success. For any valid value of <span class="math inline">\(n\)</span> and <span class="math inline">\(p\)</span>, we can use the binomial distribution
+to compute the probability of observing any possible outcome. To illustrate this,
+we will consider a binomial distribution with <span class="math inline">\(n = 10\)</span> trials. The following
+figure shows the probability histograms for four different values of <span class="math inline">\(p\)</span>.</p>
+<p><img src="introTextbookTemplate_files/figure-html/unnamed-chunk-2-1.png" width="960" /></p>
+<p>When <span class="math inline">\(p\)</span> is 0.2, we are more likely to observe a lower number of successes, than
+to observe 8 or more successes. When <span class="math inline">\(p\)</span> is 50%, we are most likely to observe
+5 of the 10 trials resulting in a success, with the probability decreasing as the
+number of successes gets closer to 0 or 10. For a large success probability of 90%,
+there is a very small chance we observe less than 6 successes and a much higher
+probability of observing 9 or 10 successes.</p>
+<p>In the previous chapter, we examined the possible events and associated probabilities with flipping a coin three times, where each side could land with equal probability. In particular, we noted the collection of possible events was given by</p>
+<p><span class="math display">\[\mathcal{S} = \{HHH, HHT, HTH, THH, TTH, THT, HTT, TTT\},\]</span>
+and the respective probabilities for the number of heads were</p>
 <table>
 <thead>
-<tr>
-<th style="text-align:left;">
-Person
-</th>
-<th style="text-align:left;">
-Monthly Spending
-</th>
+<tr class="header">
+<th align="center"># Heads</th>
+<th align="center">Probability</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td style="text-align:left;">
-A
-</td>
-<td style="text-align:left;">
-8
-</td>
+<tr class="odd">
+<td align="center">0</td>
+<td align="center">1/8</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-B
-</td>
-<td style="text-align:left;">
-22
-</td>
+<tr class="even">
+<td align="center">1</td>
+<td align="center">3/8</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-C
-</td>
-<td style="text-align:left;">
-22
-</td>
+<tr class="odd">
+<td align="center">2</td>
+<td align="center">3/8</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-D
-</td>
-<td style="text-align:left;">
-36
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-E
-</td>
-<td style="text-align:left;">
-50
-</td>
+<tr class="even">
+<td align="center">3</td>
+<td align="center">1/8</td>
 </tr>
 </tbody>
 </table>
-<p>The population mean can be found by taking the average monthly spending of these five individuals, as they are the only people in this population. This means the population mean is 27.6. Now suppose we are taking samples of three individuals from this population. There are <span class="math inline">\(\binom{5}{3}\)</span> = 10 ways we can sample three people from this population. Since this is a small population, we can enumerate all possible samples, the values we would obtain for the monthly spending in each sample, and then the sample mean monthly fast food spending for each sample:</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:left;">
-Sample
-</th>
-<th style="text-align:left;">
-Values
-</th>
-<th style="text-align:right;">
-<span class="math inline">\(\overline{x}\)</span>
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left;">
-(A, B, C)
-</td>
-<td style="text-align:left;">
-(8, 22, 22)
-</td>
-<td style="text-align:right;">
-17.33
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-(A, B, D), (A, C, D)
-</td>
-<td style="text-align:left;">
-(8, 22, 36), (8, 22, 36)
-</td>
-<td style="text-align:right;">
-22.00
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-(A, B, E), (A, C, E), (B, C, D)
-</td>
-<td style="text-align:left;">
-(8, 22, 50), (8, 22, 50), (22, 22, 36)
-</td>
-<td style="text-align:right;">
-22.00
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-(A, D, E), (B, C, E)
-</td>
-<td style="text-align:left;">
-(8, 36, 50), (22, 22, 50)
-</td>
-<td style="text-align:right;">
-26.67
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-(B, D, E), (C, D, E)
-</td>
-<td style="text-align:left;">
-(22, 36, 50), (22, 36, 50)
-</td>
-<td style="text-align:right;">
-36.00
-</td>
-</tr>
-</tbody>
-</table>
-<p>One thing to note is that <em>none</em> of the sample means are actually equal to the population mean. This is often the case! Based on this table, we can construct the sampling distribution of <span class="math inline">\(\overline{X}\)</span> for a sample of size three.</p>
-<div class="infobox think">
-<p>Why is our sample mean often not equal to the population mean?</p>
-</div>
-<table>
-<thead>
-<tr>
-<th style="text-align:left;">
-</th>
-<th style="text-align:left;">
-Probability
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left;">
-P(<span class="math inline">\(\overline{x}\)</span> = 17.33)
-</td>
-<td style="text-align:left;">
-0.1
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-P(<span class="math inline">\(\overline{x}\)</span> = 22)
-</td>
-<td style="text-align:left;">
-0.2
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-P(<span class="math inline">\(\overline{x}\)</span> = 26.67)
-</td>
-<td style="text-align:left;">
-0.3
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-P(<span class="math inline">\(\overline{x}\)</span> = 31.33)
-</td>
-<td style="text-align:left;">
-0.2
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-P(<span class="math inline">\(\overline{x}\)</span> = 36)
-</td>
-<td style="text-align:left;">
-0.2
-</td>
-</tr>
-</tbody>
-</table>
-<p>With this probability distribution, we can get the expected value of the sampling distribution. Whenever we think about probability, we are thinking about long-run frequencies, so when we think about the expected value, we are thinking about the average sample mean if we were to take repeated samples of size three from this population. The probability distribution indicates that if we took samples of size three from this population over and over again (say 1,000 times), we would end up with 10% with a mean of 17.33, 20% with a mean of 22, 30% with a mean of 26.67; and so on. So the expected value (average) we would observed if we kept taking samples over and over would be:</p>
-<p>(0.1 <span class="math inline">\(\times\)</span> 17.33) + (0.2 <span class="math inline">\(\times\)</span> 22) + (0.3 <span class="math inline">\(\times\)</span> 26.67) + (0.2 <span class="math inline">\(\times\)</span> 31.33) + (0.2 <span class="math inline">\(\times\)</span> 36) = 27.6</p>
-<p>But wait! That <em>is</em> the population mean. This illustrates an extremely powerful property of the sample mean - the expected value of the sample mean <span class="math inline">\(\overline{X}\)</span> is equal to the population parameter <span class="math inline">\(\mu\)</span>! Because of this, we say that the sample mean is an <strong>unbiased estimator</strong> of the population mean. While we illustrated the property with a small example, this holds regardless of the population or sample size.</p>
-<div class="definition-container">
-<div class="definition">
-<span id="def:unlabeled-div-14" class="definition"><strong>Definition 4.2  </strong></span> 
-</div>
-<p><strong>Expected Value: </strong> <em> The mean value of a statistic in repeated sampling </em></p>
-<p><strong>Standard Error: </strong> <em> The standard deviation of a statistic (including the mean) in repeated sampling </em></p>
-<p><strong>Unbiased Estimator: </strong> <em> The statistic with an expected value equal to the true population parameter</em></p>
-</div>
-</div>
-<div id="central-limit-theorem" class="section level2" number="4.3">
-<h2><span class="header-section-number">4.3</span> Central Limit Theorem</h2>
-<p>In the last section, we used a toy example to conceptualize repeated sampling and the property of the sample mean being an unbiased estimator. Now we will formalize these properties. For <em>any</em> population distribution which can be described by a random variable <span class="math inline">\(X\)</span> with mean <span class="math inline">\(\mu\)</span> and variance <span class="math inline">\(\sigma^2\)</span>, the sample distribution of the mean based on sample of size <span class="math inline">\(n\)</span>, denoted <span class="math inline">\(\overline{X}_n\)</span>, has the following properties:</p>
+<p>Might we consider this table a probability distribution? Perhaps, as it does give us a method for determining a probability for any given event. However, the usefulness of such a method comes into question as our experiment changes. What if instead we had flipped our coin 50 times? Or 100? What is needed instead is a method that is more robust to changes in the experiment.</p>
+<p>Here, we introduce the <em>binomial distribution</em>, a probability distribution in which:</p>
 <ol style="list-style-type: decimal">
-<li>The expected value of the sampling distribution is <span class="math inline">\(\mu\)</span>
-<span class="math display">\[E(\overline{X}_n) = \mu\]</span></li>
-<li>The variance of the sampling distribution is
-<span class="math display">\[Var(\overline{X}_n) = \frac{\sigma^2}{n}\]</span></li>
+<li>The total number of trials (or flips) is fixed in advance at some value, <span class="math inline">\(n\)</span></li>
+<li>There are two possible events or outcomes within each trial</li>
+<li>Each trial has the same probability of success (heads), which we will denote <span class="math inline">\(p\)</span></li>
+<li>Each trial is independent of all other trials. Whatever result occurs on the first flip will have no impact on the second, and so on.</li>
 </ol>
-<p>Using these formulas we are able to describe the typical value of the sample mean and how variable the sample mean is in repeated sampling. Notice that the expected value does not depend on the sample size, <span class="math inline">\(n\)</span>, but the variance does. This means regardless of the sample size, the sample mean is an unbiased estimator of the population mean. But, as the sample size increases, the variance decreases, and we get a more precise estimate of the population mean. As we’ve seen in the past, it is more common to talk about the standard deviation than the variance and the standard deviation is the square root of the variance. The quantity <span class="math inline">\(\sqrt{Var(\overline{X}_n)} = \sigma / \sqrt{n}\)</span> is primarily called the <strong>standard error</strong> of the mean, and is denoted by <span class="math inline">\(SE(\overline{X}_n)\)</span>. We use the term standard error to make it really clear that it is referencing the sampling distribution of the mean, but all standard errors could be referred to as standard deviations. Conversely, not all standard deviations could be referred to as a standard error - the term is only used in describing the distribution of the sample mean.</p>
-<p>In addition to knowing the mean and standard error of our statistic, we can also describe the <em>distribution</em> of sample means in repeated sampling. As we discussed in the last chapter on probability distributions, a distribution for the sample mean provides us with a way to quantify which sample mean values are likely and which values are unlikely. As it turns out, when we repeatedly sample from a population, and continue to calculate the sample mean from each sample, the distribution of the sample means will be normally distributed. This brings us what is largely considered the “fundamental theorem of statistics”</p>
-<p><strong>Central Limit Theorem</strong></p>
-<p>If the sample size is “large,” the sampling distribution of <span class="math inline">\(\overline{X}\)</span> is approximately normal, regardless of the characteristics of the underlying population.</p>
-<p><span class="math display">\[\overline{X}_n \sim N(\mu, \sigma^2/n)\]</span></p>
-<p>While the term “large enough” will inevitably depend on the context of the problem at hand, a typical rule of thumb puts this value at <span class="math inline">\(n \geq 30\)</span>. Because the variance of <span class="math inline">\(\overline{X}\)</span> is inversely related to the sample size, as the <span class="math inline">\(n\)</span> increases, the variance decreases and the distribution becomes more concentrated around its mean value. This is one of the most important, remarkable, and powerful results in all of statistics. In the real world, we rarely know the underlying population distribution of our data, however, the Central Limit Theorem (CLT) says: we don’t have to!</p>
+<p>Notationally, the binomial distribution is expressed as <span class="math inline">\(X \sim Bin(n,p)\)</span>, or “The random variable <span class="math inline">\(X\)</span> follows a binomial distribution with <span class="math inline">\(n\)</span> trials and probability of success, <span class="math inline">\(p\)</span>.” We can also express this with the following formula:</p>
+<p><span class="math display">\[
+P(X = x) = \binom{n}{x} p^x (1-p)^{n-x}
+\]</span>
+where <span class="math inline">\(n\)</span> and <span class="math inline">\(p\)</span> are the <em>parameters</em> of our distribution, and <span class="math inline">\(X\)</span> can take any of the values <span class="math inline">\(x = 0, 1, \dots, n\)</span>. Perhaps unfamiliar to us here is the leading term in the expression above, <span class="math inline">\(\binom{n}{x}\)</span>, called the <em>binomial coefficient</em>, which can be written as</p>
+<p><span class="math display">\[
+\binom{n}{x} = \frac{n!}{x!(n-x)!}
+\]</span>
+where <span class="math inline">\(n! = n \times (n-1) \times \dots \times 2 \times 1\)</span> (known as a factorial). By convention, we have that <span class="math inline">\(0! = 1\)</span>. In words, we might say <span class="math inline">\(\binom{n}{x}\)</span> as “<span class="math inline">\(n\)</span> choose <span class="math inline">\(x\)</span>” or “given that we have <span class="math inline">\(n\)</span> total trials, in how many ways might the outcome <span class="math inline">\(x\)</span> appear?” While this may seem daunting at first, the need for it is quite reasonable. Consider again our coin flipping experiment, where the possible outcomes were listed as</p>
+<p><span class="math display">\[
+\mathcal{S} = \{HHH, HHT, HTH, THH, TTH, THT, HTT, TTT\}.
+\]</span></p>
+<p>If we are interested in determining the probability of observing two heads, we note that there are multiple ways in which this occurs. We might ask ourselves, “If we have <span class="math inline">\(n = 3\)</span> flips, how many ways might we <em>choose</em> <span class="math inline">\(x = 2\)</span> heads?” Writing this with our binomial coefficient, we find that</p>
+<p><span class="math display">\[
+\binom{3}{2} = \frac{3!}{2!(3-2)!} = \frac{3 \times 2 \times 1}{2 \times 1 \cdot(1 \times 1)} = \frac62 = 3,
+\]</span>
+and indeed, 3 is precisely the number of outcomes in <span class="math inline">\(\mathcal{S}\)</span> in which two heads occur.</p>
+<p>Now that we have <em>the number</em> of ways in which we might have two heads, we move on to determining the probability of such an event. Being a fair coin, we know that the probability of heads is <span class="math inline">\(p = 0.5\)</span>, and because these events are independent, we know that the probability <span class="math inline">\(P(HHT) = P(HTH) = P(THH)\)</span>. Consequently, we need only determine the probability for one of them and then multiply this number by 3, the number we found from the binomial coefficient. See that</p>
+<p><span class="math display">\[
+\begin{align*}
+P(HHT) &amp;= P(H) \cdot P(H) \cdot P(T) \\
+&amp;= \underbrace{(0.5)(0.5)}_{P(H) P(H)} \cdot \underbrace{(1 - 0.5)}_{{P(T)}} \\
+&amp;= 0.125
+\end{align*}
+\]</span>
+Putting these pieces together, we arrive precisely at the binomial distribution:</p>
+<p><span class="math display">\[
+\begin{align*}
+P(X = 2) &amp;= \binom{3}{2} (0.5)^2 (1-0.5)^{3-2} \\
+&amp;= 3 \times 0.125 \\
+&amp;= 0.375
+\end{align*}
+\]</span>
+which we note is precisely the value we computed [(in the table above)/(in chapter 4)]</p>
+<p>Finally, we consider how we might use the probability distribution for the binomial to answer questions like, “If we have <span class="math inline">\(n = 3\)</span> coin flips, what is the probability that we get <em>at least</em> 2 heads?” We can express this as <span class="math inline">\(P(X \leq 2)\)</span>, and the solution becomes immediate once we recognize that</p>
+<p><span class="math display">\[
+\begin{align*}
+P(X \leq 2) &amp;= P(X = 0) + P(X = 1) + P(X=2) \\
+&amp;= 0.125 + 0.375+0.375\\
+&amp;= 0.875.
+\end{align*}
+\]</span>
+In general, the solution to the binomial probability <span class="math inline">\(P(X \leq x)\)</span> for <span class="math inline">\(n\)</span> events can be written</p>
+<p><span class="math display">\[
+P(X \leq x) = \sum_{k=0}^x \binom{n}{k} p^k (1-p)^{n-k}.
+\]</span></p>
 <div class="exercise-container">
 <div class="exercise">
-<span id="exr:unlabeled-div-15" class="exercise"><strong>Exercise 4.2  </strong></span> 
+<span id="exr:unlabeled-div-2" class="exercise"><strong>Exercise 6.1  </strong></span> 
 </div>
-<p>The applet below is designed to help your conceptual understanding of the CLT. You can change the underlying population distribution, the size of the samples taken (<span class="math inline">\(n\)</span>), and the number of experiments performed. Each experiment consists of taking a sample of the specified size from the population and calculating the sample mean. The top left panel (blue) shows the underlying population distribution. The top right panel (red) shows the data from the most recent sample, with the sample mean from that specific sample indicated by the dashed black line. The bottom panel (gold) shows us the distribution of sample means from all the experiments, with the observed mean of the sample means indicated by the dashed black line and the true underlying population mean indicated by the solid blue line. Once you select the parameters to the values you want, click “Run Simulation” to tabulate the results.</p>
-</div>
-<!-- frameBorder="0" -->
-<iframe src="https://ph-ivshiny.iowa.uiowa.edu/ceward/textbook/shinyApps/CLT" width="100%" height="800">
-</iframe>
-<div class="exercise-container">
 <ol>
 <li>
-Set the population distribution to Normal, the sample size to 30, and perform 100 experiments to collect 100 sample means.
-<ol style="list-style-type: lower-alpha;">
-<li>
-Describe the histogram of the the data from the last experiment. Comment on the modality and skew.
+Using the binomial probability distribution above, verify the correct values for <span class="math inline">\(X = 0,1,2,3\)</span> in table [number]
 </li>
 <li>
-Describe the histogram of the distribution of sample means from all experiments.
+Assume that we have a bag of red and blue marbles, with 75% of them being blue and 25% being red. Each time we draw a marble, we will place it back in the bag before drawing again (this is known as <em>sampling with replacement</em>)
+<ol>
+<li>
+If we draw 10 marbles from the bag, what is the probability that at least 4 of them will be blue?
 </li>
 <li>
-What is the range of values observed for the distribution of sample means? How does this compare the the range of values observed in the data from the last experiment?
-</li>
-</ol>
+If we draw 6 marbles from the bag, what is the probability that we will draw an odd number of red marbles?
 </li>
 <li>
-Now adjust the sample size to 100. Perform 100 experiments.
-<ol style="list-style-type: lower-alpha;">
-<li>
-What is the range of values observed for the distribution of sample means? How does this compare to the range observed when the sample size was 30?
-</li>
-<li>
-What about the range of values observed in the data from the last experiment - did this change much when the sample size was increased?
-</li>
-<li>
-Play around with various sample sizes. How does changing the sample size effect the spread of the distribution of sample means?
-</li>
-</ol>
-</li>
-<li>
-Return to a sample size of 30, but change the population distribution to be right skewed. Perform 1,000 experiments.
-<ol style="list-style-type: lower-alpha;">
-<li>
-Describe the histogram of the the data from the last experiment. Comment on the modality and skew.
-</li>
-<li>
-Describe the histogram of the distribution of sample means from all experiments. Does it resemble the population distribution?
-</li>
-<li>
-Re-run the simulation using a sample size of 10. How does this effect the distribution of the sample means? How does this compare to what you observed when taking samples of size 10 with a normal population distribution?
-</li>
-</ol>
-</li>
-<li>
-Change the population distribution to be left skewed, set the sample size to 80, and perform 1,000 experiments.
-<ol style="list-style-type: lower-alpha; ">
-<li>
-Describe the histogram of the the data from the last experiment. Comment on the modality and skew.
-</li>
-<li>
-Describe the histogram of the distribution of sample means from all experiments. Does it resemble the population distribution?
-</li>
-<li>
-Run the simulation with these parameters a few times and pay attention to how the mean of the distribution of sample means compares to the population mean. Is the population mean similar or different from the mean of the sample means? What property does this illustrate?
-</li>
-</ol>
-</li>
-<li>
-Change the parameters of the simulations as needed to answer the following true/false questions. Explain your answers.
-<ol style="list-style-type: lower-alpha; ">
-<li>
-CLT tells us that the distribution of data from any experiment will be normally distributed.
-</li>
-<li>
-With a larger sample size, the data from the last experiment will resemble the population distribution.
-</li>
-<li>
-Performing 10 experiments is enough to see the effect of CLT.
-</li>
-<li>
-Regardless of the underlying population distribution and the sample size, the distribution of the sample means will be normally distributed.
-</li>
-<li>
-Increasing the sample size causes the data from a single experiment to look more and more normally distributed.
-</li>
+What does the binomial distribution function look like assuming that <span class="math inline">\(n = 10\)</span>, when drawing a blue marble is considered a “success?”
 </ol>
 </li>
 </ol>
 </div>
+<iframe src="https://ph-ivshiny.iowa.uiowa.edu/collin/textbook/distribution/binomial/" width="100%" height="800">
+</iframe>
+<div id="plotting-the-pmf-delete" class="section level3" number="6.2.1">
+<h3><span class="header-section-number">6.2.1</span> Plotting the PMF (delete?)</h3>
+<p>It is often useful to create a visual representation of a pmf as well. Doing so quickly gives us an idea of where data tend to aggregate and how the data are dispersed. Below are two plots representing two different sets of parameters for the binomials distribution. What do you notice in how they differ? How are they similar? What impacts do the different parameters have on the distribution of the data?</p>
+<p><img src="introTextbookTemplate_files/figure-html/unnamed-chunk-4-1.png" width="960" style="display: block; margin: auto;" /></p>
+<p>Of particular note here, we recall from the previous chapter that the sum of all possible probabilities must be equal to one. Visually, this is represented by the total area of the bars in our plot. Given that our bars our rectangles, we can find the area by considering that the width of each bar is equal to 1, and it’s height is given by the probability of <span class="math inline">\(X = x\)</span>, which can be found using the PMF. On the left hand side, for example, from left to right, we have</p>
+<p><span class="math display">\[
+\begin{align}
+\text{Total Area } &amp;= \text{ \{Area of Heads = 0\} + \{Area of Heads = 1\} + } \\
+&amp; \quad \ \ \text{\{Area of Heads = 2\} + \{Area of Heads = 3\}} \\
+&amp;= (1 \times P(X = 0)) + (1 \times P(X = 1)) + (1 \times P(X = 2)) + (1 \times P(X = 3)) \\
+&amp;= 0.125+0.375+0.375+0.125 \\
+&amp;= 1
+\end{align}
+\]</span>
+If, say, we are interested in the probability that <span class="math inline">\(X = 2\)</span> or <span class="math inline">\(X = 3\)</span>, we can add the area of the two corresponding bars. In this case, we find <span class="math inline">\(P(X = 2, 3) = 0.75\)</span>.</p>
+<iframe src="https://ph-ivshiny.iowa.uiowa.edu/collin/textbook/distribution/binomial/" width="100%" height="800">
+</iframe>
+<p>[Include binomial app here. See that clicking bars adds to something. Explain changing settings, clicking bars, selecting different things. Come up with exercises below, i.e., prob that even if n = 8, prob if even n = 4, etc.]</p>
+</div>
+</div>
+<div id="normal-distribution" class="section level2" number="6.3">
+<h2><span class="header-section-number">6.3</span> Normal Distribution</h2>
+<p>Included below are histograms of the depth of Lake Huron from 1875-1972, the annual flow of the Nile river in cubic meters from 1871-1970, and the height in feet of 31 black cherry trees. What do these histograms seem to have in common?</p>
+<p><img src="introTextbookTemplate_files/figure-html/unnamed-chunk-5-1.png" width="960" style="display: block; margin: auto;" /></p>
+<p>What we see here are examples of a <em>normal distribution</em> (also known as a bell curve), one of the most ubiquitous distributions in all of statistics. The normal distribution is characterized by the “bell shape” that is symmetric about it’s mean [but maybe don’t say mean].</p>
+<p>Like the binomial, the normal distribution is characterized by two parameters, <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\sigma^2\)</span>, representing the mean and the variance, respectively. The mean value, <span class="math inline">\(\mu\)</span>, indicates the location of the peak on the x-axis, whereas the variance, <span class="math inline">\(\sigma^2\)</span>, indicates the amount of dispersion about the mean. A random variable <span class="math inline">\(X\)</span> that follows a normal distribution can be expressed <span class="math inline">\(X \sim N(\mu, \sigma^2)\)</span>, or, “The random variable <span class="math inline">\(X\)</span> follows a normal distribution with mean <span class="math inline">\(\mu\)</span> and variance <span class="math inline">\(\sigma^2\)</span>.” The formula for the normal distribution is given as</p>
+<p><span class="math display">\[
+\begin{align*}
+f(x) = \frac{1}{\sqrt{2 \pi \sigma^2}} \ e^{- \frac{(x-\mu)^2}{2\sigma^2}}.
+\end{align*}
+\]</span></p>
+<p>Consider the two normal distributions below, with different values for <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\sigma^2\)</span>. Although they are centered at different locations and have different amounts of dispersion around the mean, they are both bell-shaped curves characteristic of the normal distribution:</p>
+<p><img src="introTextbookTemplate_files/figure-html/unnamed-chunk-6-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>Given that the normal distribution appears so frequently in statistics, it is common practice to <em>standardize</em> a normal distribution so that it has a mean value of <span class="math inline">\(\mu = 0\)</span> and variance <span class="math inline">\(\sigma^2 = 1\)</span>. A normal random variable that has been standardized is called a <em>standard normal distribution</em> and is often written <span class="math inline">\(Z \sim N(0,1)\)</span>. We can consider again the histograms above, once they’ve been standardized:</p>
+<p><img src="introTextbookTemplate_files/figure-html/unnamed-chunk-7-1.png" width="960" style="display: block; margin: auto;" /></p>
+<p>Unlike the binomial distribution, in which there are <span class="math inline">\(n\)</span> possible values that our random variable can take, the normal distribution represents a random variable that is <em>continuous</em> over a range of values. Instead of asking the probability of a specific value, say, <span class="math inline">\(Z = 0\)</span>, probabilities are given as the area under the curve for a certain interval. We might ask, “What is the probability that <span class="math inline">\(Z\)</span> is one standard deviation (<span class="math inline">\(\sigma\)</span>) away from 0?” pr perhaps, “What is the probability that <span class="math inline">\(Z &lt; 0\)</span>?”</p>
+<p><img src="introTextbookTemplate_files/figure-html/unnamed-chunk-8-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>Because probabilities for continuous distributions are described as areas under the curve, their values are computed with integrals. [do we introduce probability tables or just go with the app?]</p>
+<p>also maybe include</p>
+<ul>
+<li>subtract cdf?</li>
+<li>probability that |Z| &gt; z?</li>
+<li>what else?</li>
+</ul>
+<p>[Using app below, explore different parameter values. Use slider to select a range of probabilities. Note that the area of interest is highlighted. Do exercises with it]</p>
+<iframe src="https://ph-ivshiny.iowa.uiowa.edu/collin/textbook/distribution/normal/" width="100%" height="800">
+</iframe>
+<div class="definition-container">
+<div class="definition">
+<span id="def:unlabeled-div-3" class="definition"><strong>Definition 6.2  </strong></span> 
+</div>
+<p><strong>Binomial Distribution: </strong> <em> A discrete distribution in which there are two possible outcomes, “events” and “non-events.” There parameters are <span class="math inline">\(n\)</span>, which dictate the number of trials, and <span class="math inline">\(p\)</span>, determining the probability of an event </em></p>
+<p><strong>Normal Distribution: </strong> <em> A continuous distribution with two parameters that is symmetric about a mean value, <span class="math inline">\(\mu\)</span>, with a variance <span class="math inline">\(\sigma^2\)</span>. Many real world processes follow a normal distribution. </em></p>
+<p><strong>Standard Normal Distribution: </strong> <em> A special case of the normal distribution, <span class="math inline">\(Z \sim N(0, 1)\)</span> </em></p>
+<p><strong>Probability Mass Function: </strong> <em> A probability function used for discrete random variables. The probability of outcomes is given as a sum </em></p>
+<p><strong>Probability Distribution Function: </strong> <em> A probability function used for continuous random variables. The probabilities of outcomes are taken over a range, given as an integral. </em></p>
+</div>
+</div>
+<div id="other-common-distributions" class="section level2" number="6.4">
+<h2><span class="header-section-number">6.4</span> Other Common Distributions</h2>
+<p>Having examined in detail both discrete and properties distributions, demonstrated with the binomial and normal distributions, respectively, we consider below a brief overview of other common distributions and their properites.</p>
+<div id="poisson-distribution" class="section level3" number="6.4.1">
+<h3><span class="header-section-number">6.4.1</span> Poisson Distribution</h3>
+<p>The Poisson distribution, like the binomial, is a <em>discrete</em> distribution, in that it concerns itself with count data. Specifically, a Poisson distribution describes the number of independent events that may occur within a fixed interval of time. For example, we may be interested in the number of cars that pass through a busy intersection from noon to 1pm every day, or the number of major floods that occur in an area every 100 years. Perhaps the most famous example of the Poisson distribution comes courtesy of Ladislaus Bortkiewicz, a Russian statistician who, in 1898, showed that the number of Prussian soldiers killed by being kicked by a horse in a twenty year period followed a Poisson distribution (also child suicides, but that’s less fun).</p>
+<p>The Poisson distribution has a single parameter, <span class="math inline">\(\lambda\)</span>, which describes the rate at which events occur, and a random variable following a Poisson distribution may be expressed as <span class="math inline">\(X \sim Pois(\lambda)\)</span> (People who write <span class="math inline">\(X \sim Po(\lambda)\)</span> are heathens). A random variable following a Poisson distribution has the following assumptions:</p>
+<ol style="list-style-type: decimal">
+<li>The value of <span class="math inline">\(X\)</span>, being a count, can be any non-negative integer, i.e., <span class="math inline">\(0, 1, 2, \dots\)</span> with no upper bound</li>
+<li>The occurrence of one event in a time interval is independent of another event. One soldier being kicked by a horse has no impact on the probability of another solider being kicked by a horse.</li>
+<li><span class="math inline">\(\lambda\)</span>, which may be any number greater than <span class="math inline">\(0\)</span>, describes the rate at which events occur</li>
+<li>[Two events cannot occur at the exact same time, though they probably don’t need this]</li>
+</ol>
+<p>The distribution function of a Poisson random variable with rate <span class="math inline">\(\lambda\)</span> can be expressed</p>
+<p><span class="math display">\[
+P(X = x) = \frac{\lambda^x e^{-\lambda}}{x!}
+\]</span>
+One surprisingly detail about the Poisson distribution is the relationship between the mean and the variance. For both, we have that <span class="math inline">\(E(X) = Var(X) = \lambda\)</span>.</p>
+<div id="plots-for-poisson" class="section level4" number="6.4.1.1">
+<h4><span class="header-section-number">6.4.1.1</span> Plots for Poisson</h4>
+<p>As we look at the plot for the Poisson, we will notice one aspect in particular that distinguishes it from the plots of both the binomial and normal distributions: it is no longer symmetric. This is a consequence of the range of values that a Poisson random variable can take on. Whereas a binomial random variable was bounded between <span class="math inline">\(0\)</span> and <span class="math inline">\(n\)</span>, the number of trials conducted, and where the normal distribution allowed any real number, the Poisson is bounded below by <span class="math inline">\(0\)</span>, while having no theoretical upper bound. Given below is a plot of the distribution with <span class="math inline">\(\lambda = 2\)</span> and <span class="math inline">\(\lambda = 4\)</span> (it’s obvious here that choosing a specific value is inadequate. We can replace these plots with distribution exploration apps)</p>
+<p><img src="introTextbookTemplate_files/figure-html/unnamed-chunk-9-1.png" width="960" style="display: block; margin: auto;" /></p>
+<p>Just as with the binomial distribution, we can determine the probability of an event or collection of events by determining the area of the bars in our plot. Below is an interactive app to do stuff. Exercises</p>
+<iframe src="https://ph-ivshiny.iowa.uiowa.edu/collin/textbook/distribution/poisson/" width="100%" height="800">
+</iframe>
 
+</div>
+</div>
 </div>
 </div>
             </section>
@@ -708,7 +479,6 @@ Increasing the sample size causes the data from a single experiment to look more
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -748,6 +518,10 @@ gitbook.start({
 "text": null
 },
 "download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "subsection"
 }

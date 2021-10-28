@@ -421,8 +421,6 @@ Many epidemiologic studies have shown that coffee drinkers have an increased ris
 
 Once researchers *controlled* for smoking status, they no longer found a change in lung cancer risk due to [drinking coffee](https://cebp.aacrjournals.org/content/25/6/951)
 
----
-
 While there are many complicated analysis techniques that exist to control for confounding, **matching** is a technique used in the study design process, which can be done at either the individual or the group level. 
 
 In a matched study at the individual level, for each subject in the treatment group, a subject matching on potentially confounding variables is also placed. For example, age and sex are both common confounders. If, during the process of enrolling patients, a 40 year old male is assigned to the treatment group, the next 40 year old male would then be assigned to the control, or placebo, group.

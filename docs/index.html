@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Seriously Interesting Statistics Textbook</title>
+  <title>An Intuitive, Interactive, Introduction to Biostatistics</title>
   <meta name="description" content="First template!" />
-  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Seriously Interesting Statistics Textbook" />
+  <meta property="og:title" content="An Intuitive, Interactive, Introduction to Biostatistics" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="ceward/introTextbook" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Seriously Interesting Statistics Textbook" />
+  <meta name="twitter:title" content="An Intuitive, Interactive, Introduction to Biostatistics" />
   
   <meta name="twitter:description" content="First template!" />
   
@@ -31,9 +31,10 @@
   
   
 
-<link rel="next" href="ch15.html"/>
-<script src="libs/header-attrs-2.8/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link rel="next" href="ch1.html"/>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -41,7 +42,6 @@
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
-
 
 
 
@@ -139,45 +139,86 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#acknowledgements"><i class="fa fa-check"></i><b>0.1</b> Acknowledgements</a></li>
 </ul></li>
-<li class="chapter" data-level="1" data-path="ch15.html"><a href="ch15.html"><i class="fa fa-check"></i><b>1</b> Introduction to Probability and Simulation</a>
+<li class="chapter" data-level="1" data-path="ch1.html"><a href="ch1.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
 <ul>
-<li class="chapter" data-level="1.1" data-path="ch15.html"><a href="ch15.html#ch15_s1"><i class="fa fa-check"></i><b>1.1</b> Randomness and Simulation</a></li>
-<li class="chapter" data-level="1.2" data-path="ch15.html"><a href="ch15.html#ch15_s2"><i class="fa fa-check"></i><b>1.2</b> Probability</a></li>
-<li class="chapter" data-level="1.3" data-path="ch15.html"><a href="ch15.html#ch15_s3"><i class="fa fa-check"></i><b>1.3</b> Methods for Computing Probabilities</a></li>
+<li class="chapter" data-level="1.1" data-path="ch1.html"><a href="ch1.html#ch1_s1"><i class="fa fa-check"></i><b>1.1</b> Statistics and Evidence-based Research</a></li>
+<li class="chapter" data-level="1.2" data-path="ch1.html"><a href="ch1.html#ch1_s2"><i class="fa fa-check"></i><b>1.2</b> Scientific Method</a></li>
+<li class="chapter" data-level="1.3" data-path="ch1.html"><a href="ch1.html#ch1_s3"><i class="fa fa-check"></i><b>1.3</b> Statistical framework</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="ch4.html"><a href="ch4.html"><i class="fa fa-check"></i><b>2</b> Advanced Probability</a>
+<li class="chapter" data-level="2" data-path="ch2.html"><a href="ch2.html"><i class="fa fa-check"></i><b>2</b> Data Summaries and Presentation</a>
 <ul>
-<li class="chapter" data-level="2.1" data-path="ch4.html"><a href="ch4.html#ch4_s1"><i class="fa fa-check"></i><b>2.1</b> Probability Operations</a></li>
-<li class="chapter" data-level="2.2" data-path="ch4.html"><a href="ch4.html#ch4_s2"><i class="fa fa-check"></i><b>2.2</b> Conditional Probability</a></li>
-<li class="chapter" data-level="2.3" data-path="ch4.html"><a href="ch4.html#ch4_s4"><i class="fa fa-check"></i><b>2.3</b> Probabilities from tables (needs a different example)</a></li>
-<li class="chapter" data-level="2.4" data-path="ch4.html"><a href="ch4.html#ch4_s5"><i class="fa fa-check"></i><b>2.4</b> Bayes’ Rule</a></li>
+<li class="chapter" data-level="2.1" data-path="ch2.html"><a href="ch2.html#ch2_s1"><i class="fa fa-check"></i><b>2.1</b> Introduction to Data</a></li>
+<li class="chapter" data-level="2.2" data-path="ch2.html"><a href="ch2.html#ch2_s2"><i class="fa fa-check"></i><b>2.2</b> Categorical Data</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="ch2.html"><a href="ch2.html#ch2_s2_ss1"><i class="fa fa-check"></i><b>2.2.1</b> Basic Categorical Summaries</a></li>
+<li class="chapter" data-level="2.2.2" data-path="ch2.html"><a href="ch2.html#ch2_s2_ss2"><i class="fa fa-check"></i><b>2.2.2</b> Advanced Categorical Summaries</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="ch5.html"><a href="ch5.html"><i class="fa fa-check"></i><b>3</b> Probability Distributions</a>
+<li class="chapter" data-level="2.3" data-path="ch2.html"><a href="ch2.html#ch2_s3"><i class="fa fa-check"></i><b>2.3</b> Continuous Data</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="ch5.html"><a href="ch5.html#introduction-to-probability-distributions"><i class="fa fa-check"></i><b>3.1</b> Introduction to Probability Distributions</a></li>
-<li class="chapter" data-level="3.2" data-path="ch5.html"><a href="ch5.html#binomial-distribution"><i class="fa fa-check"></i><b>3.2</b> Binomial Distribution</a>
-<ul>
-<li class="chapter" data-level="3.2.1" data-path="ch5.html"><a href="ch5.html#possibly-tiny-aside-with-binomial-where-we-pull-marbles-from-bag-so-that-probability-is-not-12"><i class="fa fa-check"></i><b>3.2.1</b> possibly tiny aside with binomial where we pull marbles from bag so that probability is not 1/2</a></li>
-<li class="chapter" data-level="3.2.2" data-path="ch5.html"><a href="ch5.html#plotting-the-pmf"><i class="fa fa-check"></i><b>3.2.2</b> Plotting the PMF</a></li>
+<li class="chapter" data-level="2.3.1" data-path="ch2.html"><a href="ch2.html#ch3_centrality"><i class="fa fa-check"></i><b>2.3.1</b> Measures of Centrality</a></li>
+<li class="chapter" data-level="2.3.2" data-path="ch2.html"><a href="ch2.html#ch3_dispersion"><i class="fa fa-check"></i><b>2.3.2</b> Measures of Dispersion</a></li>
 </ul></li>
-<li class="chapter" data-level="3.3" data-path="ch5.html"><a href="ch5.html#normal-distribution"><i class="fa fa-check"></i><b>3.3</b> Normal Distribution</a></li>
-<li class="chapter" data-level="3.4" data-path="ch5.html"><a href="ch5.html#measuring-heights"><i class="fa fa-check"></i><b>3.4</b> Measuring Heights</a></li>
-<li class="chapter" data-level="3.5" data-path="ch5.html"><a href="ch5.html#other-common-distributions"><i class="fa fa-check"></i><b>3.5</b> Other Common Distributions</a>
+<li class="chapter" data-level="2.4" data-path="ch2.html"><a href="ch2.html#ch2_s4"><i class="fa fa-check"></i><b>2.4</b> Advanced Data Visualizations</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="ch3.html"><a href="ch3.html"><i class="fa fa-check"></i><b>3</b> Study Design</a>
 <ul>
-<li class="chapter" data-level="3.5.1" data-path="ch5.html"><a href="ch5.html#poisson-distribution"><i class="fa fa-check"></i><b>3.5.1</b> Poisson Distribution</a></li>
+<li class="chapter" data-level="3.1" data-path="ch3.html"><a href="ch3.html#ch3_s1"><i class="fa fa-check"></i><b>3.1</b> Importance of Study Design</a></li>
+<li class="chapter" data-level="3.2" data-path="ch3.html"><a href="ch3.html#ch3_s2"><i class="fa fa-check"></i><b>3.2</b> Pre-trial Bias</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="ch3.html"><a href="ch3.html#ch3_s2_ss1"><i class="fa fa-check"></i><b>3.2.1</b> Selection Bias</a></li>
+<li class="chapter" data-level="3.2.2" data-path="ch3.html"><a href="ch3.html#ch3_s2_ss2"><i class="fa fa-check"></i><b>3.2.2</b> Confirmation Bias/Placebo Effect</a></li>
+<li class="chapter" data-level="3.2.3" data-path="ch3.html"><a href="ch3.html#ch3_s2_ss3"><i class="fa fa-check"></i><b>3.2.3</b> Observer Bias</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="ch3.html"><a href="ch3.html#ch3_s3"><i class="fa fa-check"></i><b>3.3</b> During-trial Bias</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="ch3.html"><a href="ch3.html#ch3_s3_ss1"><i class="fa fa-check"></i><b>3.3.1</b> Non-response/Participant Bias</a></li>
+<li class="chapter" data-level="3.3.2" data-path="ch3.html"><a href="ch3.html#ch3_s3_ss2"><i class="fa fa-check"></i><b>3.3.2</b> Compliance Bias</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="ch3.html"><a href="ch3.html#ch3_s4"><i class="fa fa-check"></i><b>3.4</b> Post-trial Bias</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="ch3.html"><a href="ch3.html#ch3_s4_ss1"><i class="fa fa-check"></i><b>3.4.1</b> Confounding</a></li>
+<li class="chapter" data-level="3.4.2" data-path="ch3.html"><a href="ch3.html#ch3_s4_ss2"><i class="fa fa-check"></i><b>3.4.2</b> Extrapolation Bias</a></li>
+<li class="chapter" data-level="3.4.3" data-path="ch3.html"><a href="ch3.html#ch3_s4_ss3"><i class="fa fa-check"></i><b>3.4.3</b> Publication Bias</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="ch6.html"><a href="ch6.html"><i class="fa fa-check"></i><b>4</b> Sampling Distributions and the <br/> Central Limit Theorem</a>
+<li class="chapter" data-level="4" data-path="ch4.html"><a href="ch4.html"><i class="fa fa-check"></i><b>4</b> Introduction to Probability and Simulation</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="ch6.html"><a href="ch6.html#introduction-to-sampling"><i class="fa fa-check"></i><b>4.1</b> Introduction to Sampling</a></li>
-<li class="chapter" data-level="4.2" data-path="ch6.html"><a href="ch6.html#sampling-distributions"><i class="fa fa-check"></i><b>4.2</b> Sampling Distributions</a></li>
-<li class="chapter" data-level="4.3" data-path="ch6.html"><a href="ch6.html#central-limit-theorem"><i class="fa fa-check"></i><b>4.3</b> Central Limit Theorem</a></li>
+<li class="chapter" data-level="4.1" data-path="ch4.html"><a href="ch4.html#ch4_s1"><i class="fa fa-check"></i><b>4.1</b> Randomness and Simulation</a></li>
+<li class="chapter" data-level="4.2" data-path="ch4.html"><a href="ch4.html#ch4_s2"><i class="fa fa-check"></i><b>4.2</b> Probability</a></li>
+<li class="chapter" data-level="4.3" data-path="ch4.html"><a href="ch4.html#ch4_s3"><i class="fa fa-check"></i><b>4.3</b> Methods for Computing Probabilities</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="ch7.html"><a href="ch7.html"><i class="fa fa-check"></i><b>5</b> Introduction to Inference</a>
+<li class="chapter" data-level="5" data-path="ch5.html"><a href="ch5.html"><i class="fa fa-check"></i><b>5</b> Advanced Probability</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="ch7.html"><a href="ch7.html#ch7_s1"><i class="fa fa-check"></i><b>5.1</b> Confidence Intervals</a></li>
-<li class="chapter" data-level="5.2" data-path="ch7.html"><a href="ch7.html#ch7_s2"><i class="fa fa-check"></i><b>5.2</b> Hypothesis Tests</a></li>
-<li class="chapter" data-level="5.3" data-path="ch7.html"><a href="ch7.html#ch7_s3"><i class="fa fa-check"></i><b>5.3</b> P-values</a></li>
+<li class="chapter" data-level="5.1" data-path="ch5.html"><a href="ch5.html#ch5_s1"><i class="fa fa-check"></i><b>5.1</b> Probability Operations</a></li>
+<li class="chapter" data-level="5.2" data-path="ch5.html"><a href="ch5.html#ch5_s2"><i class="fa fa-check"></i><b>5.2</b> Conditional Probability</a></li>
+<li class="chapter" data-level="5.3" data-path="ch5.html"><a href="ch5.html#ch5_s4"><i class="fa fa-check"></i><b>5.3</b> Probabilities from tables (needs a different example)</a></li>
+<li class="chapter" data-level="5.4" data-path="ch5.html"><a href="ch5.html#ch5_s5"><i class="fa fa-check"></i><b>5.4</b> Bayes’ Rule</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="ch6.html"><a href="ch6.html"><i class="fa fa-check"></i><b>6</b> Probability Distributions</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="ch6.html"><a href="ch6.html#introduction-to-probability-distributions"><i class="fa fa-check"></i><b>6.1</b> Introduction to Probability Distributions</a></li>
+<li class="chapter" data-level="6.2" data-path="ch6.html"><a href="ch6.html#binomial-distribution"><i class="fa fa-check"></i><b>6.2</b> Binomial Distribution</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="ch6.html"><a href="ch6.html#plotting-the-pmf-delete"><i class="fa fa-check"></i><b>6.2.1</b> Plotting the PMF (delete?)</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="ch6.html"><a href="ch6.html#normal-distribution"><i class="fa fa-check"></i><b>6.3</b> Normal Distribution</a></li>
+<li class="chapter" data-level="6.4" data-path="ch6.html"><a href="ch6.html#other-common-distributions"><i class="fa fa-check"></i><b>6.4</b> Other Common Distributions</a>
+<ul>
+<li class="chapter" data-level="6.4.1" data-path="ch6.html"><a href="ch6.html#poisson-distribution"><i class="fa fa-check"></i><b>6.4.1</b> Poisson Distribution</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="ch7.html"><a href="ch7.html"><i class="fa fa-check"></i><b>7</b> Sampling Distributions and the <br/> Central Limit Theorem</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="ch7.html"><a href="ch7.html#introduction-to-sampling"><i class="fa fa-check"></i><b>7.1</b> Introduction to Sampling</a></li>
+<li class="chapter" data-level="7.2" data-path="ch7.html"><a href="ch7.html#sampling-distributions"><i class="fa fa-check"></i><b>7.2</b> Sampling Distributions</a></li>
+<li class="chapter" data-level="7.3" data-path="ch7.html"><a href="ch7.html#central-limit-theorem"><i class="fa fa-check"></i><b>7.3</b> Central Limit Theorem</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="ch8.html"><a href="ch8.html"><i class="fa fa-check"></i><b>8</b> Introduction to Inference</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="ch8.html"><a href="ch8.html#ch8_s0"><i class="fa fa-check"></i><b>8.1</b> Central Limit Theorem</a></li>
+<li class="chapter" data-level="8.2" data-path="ch8.html"><a href="ch8.html#ch8_s1"><i class="fa fa-check"></i><b>8.2</b> Point Estimation and Confidence Intervals</a></li>
+<li class="chapter" data-level="8.3" data-path="ch8.html"><a href="ch8.html#ch8_s2"><i class="fa fa-check"></i><b>8.3</b> Hypothesis Tests</a></li>
+<li class="chapter" data-level="8.4" data-path="ch8.html"><a href="ch8.html#ch8_s3"><i class="fa fa-check"></i><b>8.4</b> P-values</a></li>
 </ul></li>
 </ul>
 
@@ -188,7 +229,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Seriously Interesting Statistics Textbook</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">An Intuitive, Interactive, Introduction to Biostatistics</a>
           </h1>
         </div>
 
@@ -197,7 +238,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
             <section class="normal" id="section-">
 <div id="header">
-<h1 class="title">Seriously Interesting Statistics Textbook</h1>
+<h1 class="title">An Intuitive, Interactive, Introduction to Biostatistics</h1>
 <p class="author"><em>Caitlin Ward and Collin Nolte</em></p>
 </div>
 <div id="introduction" class="section level1 unnumbered">
@@ -230,11 +271,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
         </div>
       </div>
 
-<a href="ch15.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="ch1.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -274,6 +314,10 @@ gitbook.start({
 "text": null
 },
 "download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "subsection"
 }
