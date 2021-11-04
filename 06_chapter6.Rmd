@@ -102,6 +102,7 @@ Something about expected values.
 
 </div>
 
+
 ## Binomial Distribution
 
 One common probability distribution is the **binomial distribution**, which 
@@ -126,7 +127,7 @@ we will consider a binomial distribution with $n = 10$ trials. The following
 figure shows the probability histograms for four different values of $p$.
 
 
-```{r, fig.height=10, fig.width=10, echo = F}
+```{r, fig.height=6, fig.width=8, echo = F}
 n <- 10
 p <- c(0.2, 0.5, 0.75, 0.9)
 
@@ -152,143 +153,62 @@ there is a very small chance we observe less than 6 successes and a much higher
 probability of observing 9 or 10 successes.
 
 
-
-In the previous chapter, we examined the possible events and associated probabilities with flipping a coin three times, where each side could land with equal probability. In particular, we noted the collection of possible events was given by 
-
-$$\mathcal{S} = \{HHH, HHT, HTH, THH, TTH, THT, HTT, TTT\},$$
-and the respective probabilities for the number of heads were
-
-```{r, echo = FALSE}
-## Why does this need cbind?
-knitr::kable(cbind.data.frame('# Heads' = 0:3, 'Probability' = c('1/8', '3/8', '3/8', '1/8')), 
-             align = 'c')
-```
-
-Might we consider this table a probability distribution? Perhaps, as it does give us a method for determining a probability for any given event. However, the usefulness of such a method comes into question as our experiment changes. What if instead we had flipped our coin 50 times? Or 100? What is needed instead is a method that is more robust to changes in the experiment. 
-
-Here, we introduce the *binomial distribution*, a probability distribution in which:
-
-1. The total number of trials (or flips) is fixed in advance at some value, $n$
-2. There are two possible events or outcomes within each trial
-3. Each trial has the same probability of success (heads), which we will denote $p$
-4. Each trial is independent of all other trials. Whatever result occurs on the first flip will have no impact on the second, and so on. 
-
-Notationally, the binomial distribution is expressed as $X \sim Bin(n,p)$, or "The random variable $X$ follows a binomial distribution with $n$ trials and probability of success, $p$." We can also express this with the following formula:
-
 $$
 P(X = x) = \binom{n}{x} p^x (1-p)^{n-x}
 $$
-where $n$ and $p$ are the *parameters* of our distribution, and $X$ can take any of the values $x = 0, 1, \dots, n$. Perhaps unfamiliar to us here is the leading term in the expression above, $\binom{n}{x}$, called the *binomial coefficient*, which can be written as 
 
-$$
-\binom{n}{x} = \frac{n!}{x!(n-x)!}
-$$
-where $n! = n \times (n-1) \times \dots \times 2 \times 1$ (known as a factorial). By convention, we have that $0! = 1$. In words, we might say $\binom{n}{x}$ as "$n$ choose $x$" or "given that we have $n$ total trials, in how many ways might the outcome $x$ appear?" While this may seem daunting at first, the need for it is quite reasonable. Consider again our coin flipping experiment, where the possible outcomes were listed as 
 
-$$
-\mathcal{S} = \{HHH, HHT, HTH, THH, TTH, THT, HTT, TTT\}.
-$$
-
-If we are interested in determining the probability of observing two heads, we note that there are multiple ways in which this occurs. We might ask ourselves, "If we have $n = 3$ flips, how many ways might we *choose* $x = 2$ heads?" Writing this with our binomial coefficient, we find that
-
-$$
-\binom{3}{2} = \frac{3!}{2!(3-2)!} = \frac{3 \times 2 \times 1}{2 \times 1 \cdot(1 \times 1)} = \frac62 = 3,
-$$
-and indeed, 3 is precisely the number of outcomes in $\mathcal{S}$ in which two heads occur.
-
-Now that we have *the number* of ways in which we might have two heads, we move on to determining the probability of such an event. Being a fair coin, we know that the probability of heads is $p = 0.5$, and because these events are independent, we know that the probability $P(HHT) = P(HTH) = P(THH)$. Consequently, we need only determine the probability for one of them and then multiply this number by 3, the number we found from the binomial coefficient. See that
-
-$$
-\begin{align*}
-P(HHT) &= P(H) \cdot P(H) \cdot P(T) \\
-&= \underbrace{(0.5)(0.5)}_{P(H) P(H)} \cdot \underbrace{(1 - 0.5)}_{{P(T)}} \\
-&= 0.125
-\end{align*}
-$$
-Putting these pieces together, we arrive precisely at the binomial distribution:
-
-$$
-\begin{align*}
-P(X = 2) &= \binom{3}{2} (0.5)^2 (1-0.5)^{3-2} \\
-&= 3 \times 0.125 \\
-&= 0.375
-\end{align*}
-$$
-which we note is precisely the value we computed [(in the table above)/(in chapter 4)]
-
-Finally, we consider how we might use the probability distribution for the binomial to answer questions like, "If we have $n = 3$ coin flips, what is the probability that we get *at least* 2 heads?" We can express this as $P(X \leq 2)$, and the solution becomes immediate once we recognize that
-
-$$
-\begin{align*}
-P(X \leq 2) &= P(X = 0) + P(X = 1) + P(X=2) \\
-&= 0.125 + 0.375+0.375\\
-&= 0.875.
-\end{align*}
-$$
-In general, the solution to the binomial probability $P(X \leq x)$ for $n$ events can be written
-
-$$
-P(X \leq x) = \sum_{k=0}^x \binom{n}{k} p^k (1-p)^{n-k}.
-$$
-
+<div class="exercise"> Exercises </div>
 <div class="exercise-container">
-<div class="exercise"> &nbsp; </div>
 
- <ol>
- <li> Using the binomial probability distribution above, verify the correct values for $X = 0,1,2,3$ in table [number]</li>
- 
- <li> Assume that we have a bag of red and blue marbles, with 75% of them being blue and 25% being red. Each time we draw a marble, we will place it back in the bag before drawing again (this is known as *sampling with replacement*)
- <ol>
- <li> If we draw 10 marbles from the bag, what is the probability that at least 4 of them will be blue?  </li>
- <li> If we draw 6 marbles from the bag, what is the probability that we will draw an odd number of red marbles? </li>
- <li> What does the binomial distribution function look like assuming that $n = 10$, when drawing a blue marble is considered a "success"?
- </ol>
- </li>
- 
- </ol>
+The applet below is designed to help you get familiar with the parameters of the
+binomial distribution. You can change the values of the number of trials $n$, and
+the probability of success $p$, and the app will display the associated distribution
+in a probability histogram.
+
 </div>
 
-<iframe src="https://ph-ivshiny.iowa.uiowa.edu/collin/textbook/distribution/binomial/" width = "100%" height = "800"> 
+<iframe src="https://ph-ivshiny.iowa.uiowa.edu/ceward/textbook/shinyApps/binomial/" width = "100%" height = "500"> 
+</iframe>
+
+<div class="exercise-container">
+
+Use the applet to answer the following questions:
+
+1. 
+
+</div>
+
+
+
+<div class="exercise"> Exercises </div>
+<div class="exercise-container">
+
+The applet below is designed to familiarize you with data generated from the 
+binomial distribution. You can change the values of the number of trials $n$, and
+the probability of success $p$ to specify the parameters of the population 
+distribution. Then, 
+
+</div>
+
+<iframe src="https://ph-ivshiny.iowa.uiowa.edu/ceward/textbook/shinyApps/binomialData/" width = "100%" height = "600"> 
 </iframe>
 
 
+<div class="definition-container">
+<div class="definition"> &nbsp;  </div>
 
-### Plotting the PMF (delete?)
+**Binomial Distribution: ** <em> A probability distribution that characterizes the
+  probabilities of observing some number of successes in a fixed number of 
+  trials, each with two possible outcomes and the same probability of success. </em>
 
-It is often useful to create a visual representation of a pmf as well. Doing so quickly gives us an idea of where data  tend to aggregate and how the data are dispersed. Below are two plots representing two different sets of parameters for the binomials distribution. What do you notice in how they differ? How are they similar? What impacts do the different parameters have on the distribution of the data?
+**Discrete Distribution: ** <em> Any probability distribution that depicts the 
+  occurrence of countable values.</em>
+</em>
 
-```{r, fig.align = 'center', echo = FALSE, fig.width=10}
-par(mfrow = c(1, 2))
-x <- 0:3
-y <- dbinom(x, 3, 0.5)
-barplot(y, names.arg = x, xlab = 'Number of Heads Observed on Three Flips', ylab = 'Probability', yaxt='n', 
-        main = "X ~ Bin(n = 3, p = 0.5)")
-axis(side = 2, at = seq(0, 0.45, by = 0.05), pos = c(0, 0), labels = seq(0, 0.45, by = 0.05))
+</div>
 
-x <- 0:10
-y <- dbinom(x, max(x), 0.8)
-barplot(y, names.arg = x, xlab = 'Number of Heads Observed on Six Flips', ylab = 'Probability', 
-        main = "X ~  Bin(n = 6, p = 0.8)", yaxt='n')
-axis(side = 2, at = seq(0, 0.45, by = 0.05), pos = c(0, 0), labels = seq(0, 0.45, by = 0.05))
-```
 
-Of particular note here, we recall from the previous chapter that the sum of all possible probabilities must be equal to one. Visually, this is represented by the total area of the bars in our plot. Given that our bars our rectangles, we can find the area by considering that the width of each bar is equal to 1, and it's height is given by the probability of $X = x$, which can be found using the PMF. On the left hand side, for example, from left to right, we have
-
-$$
-\begin{align}
-\text{Total Area } &= \text{ \{Area of Heads = 0\} + \{Area of Heads = 1\} + } \\
-& \quad \ \ \text{\{Area of Heads = 2\} + \{Area of Heads = 3\}} \\
-&= (1 \times P(X = 0)) + (1 \times P(X = 1)) + (1 \times P(X = 2)) + (1 \times P(X = 3)) \\
-&= 0.125+0.375+0.375+0.125 \\
-&= 1
-\end{align}
-$$
-If, say, we are interested in the probability that $X = 2$ or $X = 3$, we can add the area of the two corresponding bars. In this case, we find $P(X = 2, 3) = 0.75$. 
-
-<iframe src="https://ph-ivshiny.iowa.uiowa.edu/collin/textbook/distribution/binomial/" width = "100%" height = "800"> 
-</iframe>
-
-[Include binomial app here. See that clicking bars adds to something. Explain changing settings, clicking bars, selecting different things. Come up with exercises below, i.e., prob that even if n = 8, prob if even n = 4, etc.]
 
 ## Normal Distribution
 
@@ -387,73 +307,22 @@ also maybe include
 
 [Using app below, explore different parameter values. Use slider to select a range of probabilities. Note that the area of interest is highlighted. Do exercises with it]
 
-<iframe src="https://ph-ivshiny.iowa.uiowa.edu/collin/textbook/distribution/normal/" width = "100%" height = "800"> 
+<iframe src="https://ph-ivshiny.iowa.uiowa.edu/ceward/textbook/shinyApps/normal/" width = "100%" height = "500"> 
+</iframe>
+
+<iframe src="https://ph-ivshiny.iowa.uiowa.edu/ceward/textbook/shinyApps/normalData/" width = "100%" height = "600"> 
 </iframe>
 
 
 <div class="definition-container">
 <div class="definition"> &nbsp;  </div>
-**Binomial Distribution: ** <em> A discrete distribution in which there are two possible outcomes, "events" and "non-events". There parameters are $n$, which dictate the number of trials, and $p$, determining the probability of an event </em>
+**Normal Distribution: ** <em> A continuous bell-shaped distribution with two parameters that are the mean value, $\mu$, with a variance $\sigma^2$.  </em>
 
-**Normal Distribution: ** <em> A continuous distribution with two parameters that is symmetric about a mean value, $\mu$, with a variance $\sigma^2$. Many real world processes follow a normal distribution.  </em>
+**Continuous Distribution: ** <em> A special case of the normal distribution, $Z \sim N(0, 1)$ </em>
 
 **Standard Normal Distribution: ** <em> A special case of the normal distribution, $Z \sim N(0, 1)$ </em>
 
-**Probability Mass Function: ** <em> A probability function used for discrete random variables. The probability of outcomes is given as a sum </em>
-
-**Probability Distribution Function: ** <em> A probability  function used for continuous random variables. The probabilities of outcomes are taken over a range, given as an integral. </em>
-
 </div>
-
-## Other Common Distributions
-
-Having examined in detail both discrete and properties distributions, demonstrated with the binomial and normal distributions, respectively, we consider below a brief overview of other common distributions and their properites. 
-
-
-### Poisson Distribution
-
-The Poisson distribution, like the binomial, is a *discrete* distribution, in that it concerns itself with count data. Specifically, a Poisson distribution describes the number of independent events that may occur within a fixed interval of time. For example, we may be interested in the number of cars that pass through a busy intersection from noon to 1pm every day, or the number of major floods that occur in an area every 100 years. Perhaps the most famous example of the Poisson distribution comes courtesy of Ladislaus Bortkiewicz, a Russian statistician who, in 1898, showed that the number of Prussian soldiers killed by being kicked by a horse in a twenty year period followed a Poisson distribution (also child suicides, but that's less fun).
-
-The Poisson distribution has a single parameter, $\lambda$, which describes the rate at which events occur, and a random variable following a Poisson distribution may be expressed as $X \sim Pois(\lambda)$ (People who write $X \sim Po(\lambda)$ are heathens). A random variable following a Poisson distribution has the following assumptions:
-
-1. The value of $X$, being a count, can be any non-negative integer, i.e., $0, 1, 2, \dots$ with no upper bound
-2. The occurrence of one event in a time interval is independent of another event. One soldier being kicked by a horse has no impact on the probability of another solider being kicked by a horse. 
-3. $\lambda$, which may be any number greater than $0$, describes the rate at which events occur 
-4. [Two events cannot occur at the exact same time, though they probably don't need this]
-
-The distribution function of a Poisson random variable with rate $\lambda$ can be expressed
-
-$$
-P(X = x) = \frac{\lambda^x e^{-\lambda}}{x!}
-$$
-One surprisingly detail about the Poisson distribution is the relationship between the mean and the variance. For both, we have that $E(X) = Var(X) = \lambda$.
-
-#### Plots for Poisson
-
-As we look at the plot for the Poisson, we will notice one aspect in particular that distinguishes it from the plots of both the binomial and normal distributions: it is no longer symmetric. This is a consequence of the range of values that a Poisson random variable can take on. Whereas a binomial random variable was bounded between $0$ and $n$, the number of trials conducted, and where the normal distribution allowed any real number, the Poisson is bounded below by $0$, while having no theoretical upper bound. Given below is a plot of the distribution with $\lambda = 2$ and $\lambda = 4$ (it's obvious here that choosing a specific value is inadequate. We can replace these plots with distribution exploration apps)
-
-```{r, fig.align = 'center', fig.width = 10, echo = FALSE}
-par(mfrow = c(1, 2))
-x <- 0:9
-y <- dpois(x, lambda = 2)
-barplot(y, names.arg = x, xlab = 'Number of Events Observed in Interval', ylab = 'Probability', main = expression(paste("Poisson distribution with ", lambda, " = 2")))
-
-x <- 0:15
-y <- dpois(x, lambda = 4)
-barplot(y, names.arg = x, xlab = 'Number of Events Observed in Interval', ylab = 'Probability', main = expression(paste("Poisson distribution with ", lambda, " = 4")))
-```
-
-Just as with the binomial distribution, we can determine the probability of an event or collection of events by determining the area of the bars in our plot. Below is an interactive app to do stuff. Exercises
-
-
-<iframe src="https://ph-ivshiny.iowa.uiowa.edu/collin/textbook/distribution/poisson/" width = "100%" height = "800"> 
-</iframe>
-
-
-
-
-
-
 
 
 

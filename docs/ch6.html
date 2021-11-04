@@ -131,15 +131,8 @@
 <li class="chapter" data-level="6" data-path="ch6.html"><a href="ch6.html"><i class="fa fa-check"></i><b>6</b> Probability Distributions</a>
 <ul>
 <li class="chapter" data-level="6.1" data-path="ch6.html"><a href="ch6.html#introduction-to-probability-distributions"><i class="fa fa-check"></i><b>6.1</b> Introduction to Probability Distributions</a></li>
-<li class="chapter" data-level="6.2" data-path="ch6.html"><a href="ch6.html#binomial-distribution"><i class="fa fa-check"></i><b>6.2</b> Binomial Distribution</a>
-<ul>
-<li class="chapter" data-level="6.2.1" data-path="ch6.html"><a href="ch6.html#plotting-the-pmf-delete"><i class="fa fa-check"></i><b>6.2.1</b> Plotting the PMF (delete?)</a></li>
-</ul></li>
+<li class="chapter" data-level="6.2" data-path="ch6.html"><a href="ch6.html#binomial-distribution"><i class="fa fa-check"></i><b>6.2</b> Binomial Distribution</a></li>
 <li class="chapter" data-level="6.3" data-path="ch6.html"><a href="ch6.html#normal-distribution"><i class="fa fa-check"></i><b>6.3</b> Normal Distribution</a></li>
-<li class="chapter" data-level="6.4" data-path="ch6.html"><a href="ch6.html#other-common-distributions"><i class="fa fa-check"></i><b>6.4</b> Other Common Distributions</a>
-<ul>
-<li class="chapter" data-level="6.4.1" data-path="ch6.html"><a href="ch6.html#poisson-distribution"><i class="fa fa-check"></i><b>6.4.1</b> Poisson Distribution</a></li>
-</ul></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="ch7.html"><a href="ch7.html"><i class="fa fa-check"></i><b>7</b> Sampling Distributions and the <br/> Central Limit Theorem</a>
 <ul>
@@ -266,145 +259,60 @@ success. For any valid value of <span class="math inline">\(n\)</span> and <span
 to compute the probability of observing any possible outcome. To illustrate this,
 we will consider a binomial distribution with <span class="math inline">\(n = 10\)</span> trials. The following
 figure shows the probability histograms for four different values of <span class="math inline">\(p\)</span>.</p>
-<p><img src="introTextbookTemplate_files/figure-html/unnamed-chunk-2-1.png" width="960" /></p>
+<p><img src="introTextbookTemplate_files/figure-html/unnamed-chunk-2-1.png" width="768" /></p>
 <p>When <span class="math inline">\(p\)</span> is 0.2, we are more likely to observe a lower number of successes, than
 to observe 8 or more successes. When <span class="math inline">\(p\)</span> is 50%, we are most likely to observe
 5 of the 10 trials resulting in a success, with the probability decreasing as the
 number of successes gets closer to 0 or 10. For a large success probability of 90%,
 there is a very small chance we observe less than 6 successes and a much higher
 probability of observing 9 or 10 successes.</p>
-<p>In the previous chapter, we examined the possible events and associated probabilities with flipping a coin three times, where each side could land with equal probability. In particular, we noted the collection of possible events was given by</p>
-<p><span class="math display">\[\mathcal{S} = \{HHH, HHT, HTH, THH, TTH, THT, HTT, TTT\},\]</span>
-and the respective probabilities for the number of heads were</p>
-<table>
-<thead>
-<tr class="header">
-<th align="center"># Heads</th>
-<th align="center">Probability</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="center">0</td>
-<td align="center">1/8</td>
-</tr>
-<tr class="even">
-<td align="center">1</td>
-<td align="center">3/8</td>
-</tr>
-<tr class="odd">
-<td align="center">2</td>
-<td align="center">3/8</td>
-</tr>
-<tr class="even">
-<td align="center">3</td>
-<td align="center">1/8</td>
-</tr>
-</tbody>
-</table>
-<p>Might we consider this table a probability distribution? Perhaps, as it does give us a method for determining a probability for any given event. However, the usefulness of such a method comes into question as our experiment changes. What if instead we had flipped our coin 50 times? Or 100? What is needed instead is a method that is more robust to changes in the experiment.</p>
-<p>Here, we introduce the <em>binomial distribution</em>, a probability distribution in which:</p>
-<ol style="list-style-type: decimal">
-<li>The total number of trials (or flips) is fixed in advance at some value, <span class="math inline">\(n\)</span></li>
-<li>There are two possible events or outcomes within each trial</li>
-<li>Each trial has the same probability of success (heads), which we will denote <span class="math inline">\(p\)</span></li>
-<li>Each trial is independent of all other trials. Whatever result occurs on the first flip will have no impact on the second, and so on.</li>
-</ol>
-<p>Notationally, the binomial distribution is expressed as <span class="math inline">\(X \sim Bin(n,p)\)</span>, or “The random variable <span class="math inline">\(X\)</span> follows a binomial distribution with <span class="math inline">\(n\)</span> trials and probability of success, <span class="math inline">\(p\)</span>.” We can also express this with the following formula:</p>
 <p><span class="math display">\[
 P(X = x) = \binom{n}{x} p^x (1-p)^{n-x}
-\]</span>
-where <span class="math inline">\(n\)</span> and <span class="math inline">\(p\)</span> are the <em>parameters</em> of our distribution, and <span class="math inline">\(X\)</span> can take any of the values <span class="math inline">\(x = 0, 1, \dots, n\)</span>. Perhaps unfamiliar to us here is the leading term in the expression above, <span class="math inline">\(\binom{n}{x}\)</span>, called the <em>binomial coefficient</em>, which can be written as</p>
-<p><span class="math display">\[
-\binom{n}{x} = \frac{n!}{x!(n-x)!}
-\]</span>
-where <span class="math inline">\(n! = n \times (n-1) \times \dots \times 2 \times 1\)</span> (known as a factorial). By convention, we have that <span class="math inline">\(0! = 1\)</span>. In words, we might say <span class="math inline">\(\binom{n}{x}\)</span> as “<span class="math inline">\(n\)</span> choose <span class="math inline">\(x\)</span>” or “given that we have <span class="math inline">\(n\)</span> total trials, in how many ways might the outcome <span class="math inline">\(x\)</span> appear?” While this may seem daunting at first, the need for it is quite reasonable. Consider again our coin flipping experiment, where the possible outcomes were listed as</p>
-<p><span class="math display">\[
-\mathcal{S} = \{HHH, HHT, HTH, THH, TTH, THT, HTT, TTT\}.
 \]</span></p>
-<p>If we are interested in determining the probability of observing two heads, we note that there are multiple ways in which this occurs. We might ask ourselves, “If we have <span class="math inline">\(n = 3\)</span> flips, how many ways might we <em>choose</em> <span class="math inline">\(x = 2\)</span> heads?” Writing this with our binomial coefficient, we find that</p>
-<p><span class="math display">\[
-\binom{3}{2} = \frac{3!}{2!(3-2)!} = \frac{3 \times 2 \times 1}{2 \times 1 \cdot(1 \times 1)} = \frac62 = 3,
-\]</span>
-and indeed, 3 is precisely the number of outcomes in <span class="math inline">\(\mathcal{S}\)</span> in which two heads occur.</p>
-<p>Now that we have <em>the number</em> of ways in which we might have two heads, we move on to determining the probability of such an event. Being a fair coin, we know that the probability of heads is <span class="math inline">\(p = 0.5\)</span>, and because these events are independent, we know that the probability <span class="math inline">\(P(HHT) = P(HTH) = P(THH)\)</span>. Consequently, we need only determine the probability for one of them and then multiply this number by 3, the number we found from the binomial coefficient. See that</p>
-<p><span class="math display">\[
-\begin{align*}
-P(HHT) &amp;= P(H) \cdot P(H) \cdot P(T) \\
-&amp;= \underbrace{(0.5)(0.5)}_{P(H) P(H)} \cdot \underbrace{(1 - 0.5)}_{{P(T)}} \\
-&amp;= 0.125
-\end{align*}
-\]</span>
-Putting these pieces together, we arrive precisely at the binomial distribution:</p>
-<p><span class="math display">\[
-\begin{align*}
-P(X = 2) &amp;= \binom{3}{2} (0.5)^2 (1-0.5)^{3-2} \\
-&amp;= 3 \times 0.125 \\
-&amp;= 0.375
-\end{align*}
-\]</span>
-which we note is precisely the value we computed [(in the table above)/(in chapter 4)]</p>
-<p>Finally, we consider how we might use the probability distribution for the binomial to answer questions like, “If we have <span class="math inline">\(n = 3\)</span> coin flips, what is the probability that we get <em>at least</em> 2 heads?” We can express this as <span class="math inline">\(P(X \leq 2)\)</span>, and the solution becomes immediate once we recognize that</p>
-<p><span class="math display">\[
-\begin{align*}
-P(X \leq 2) &amp;= P(X = 0) + P(X = 1) + P(X=2) \\
-&amp;= 0.125 + 0.375+0.375\\
-&amp;= 0.875.
-\end{align*}
-\]</span>
-In general, the solution to the binomial probability <span class="math inline">\(P(X \leq x)\)</span> for <span class="math inline">\(n\)</span> events can be written</p>
-<p><span class="math display">\[
-P(X \leq x) = \sum_{k=0}^x \binom{n}{k} p^k (1-p)^{n-k}.
-\]</span></p>
-<div class="exercise-container">
 <div class="exercise">
-<span id="exr:unlabeled-div-2" class="exercise"><strong>Exercise 6.1  </strong></span> 
+<span id="exr:unlabeled-div-2" class="exercise"><strong>Exercise 6.1  </strong></span>Exercises
 </div>
-<ol>
-<li>
-Using the binomial probability distribution above, verify the correct values for <span class="math inline">\(X = 0,1,2,3\)</span> in table [number]
-</li>
-<li>
-Assume that we have a bag of red and blue marbles, with 75% of them being blue and 25% being red. Each time we draw a marble, we will place it back in the bag before drawing again (this is known as <em>sampling with replacement</em>)
-<ol>
-<li>
-If we draw 10 marbles from the bag, what is the probability that at least 4 of them will be blue?
-</li>
-<li>
-If we draw 6 marbles from the bag, what is the probability that we will draw an odd number of red marbles?
-</li>
-<li>
-What does the binomial distribution function look like assuming that <span class="math inline">\(n = 10\)</span>, when drawing a blue marble is considered a “success?”
-</ol>
-</li>
+<div class="exercise-container">
+<p>The applet below is designed to help you get familiar with the parameters of the
+binomial distribution. You can change the values of the number of trials <span class="math inline">\(n\)</span>, and
+the probability of success <span class="math inline">\(p\)</span>, and the app will display the associated distribution
+in a probability histogram.</p>
+</div>
+<iframe src="https://ph-ivshiny.iowa.uiowa.edu/ceward/textbook/shinyApps/binomial/" width="100%" height="500">
+</iframe>
+<div class="exercise-container">
+<p>Use the applet to answer the following questions:</p>
+<ol style="list-style-type: decimal">
+<li></li>
 </ol>
 </div>
-<iframe src="https://ph-ivshiny.iowa.uiowa.edu/collin/textbook/distribution/binomial/" width="100%" height="800">
+<div class="exercise">
+<span id="exr:unlabeled-div-3" class="exercise"><strong>Exercise 6.2  </strong></span>Exercises
+</div>
+<div class="exercise-container">
+<p>The applet below is designed to familiarize you with data generated from the
+binomial distribution. You can change the values of the number of trials <span class="math inline">\(n\)</span>, and
+the probability of success <span class="math inline">\(p\)</span> to specify the parameters of the population
+distribution. Then,</p>
+</div>
+<iframe src="https://ph-ivshiny.iowa.uiowa.edu/ceward/textbook/shinyApps/binomialData/" width="100%" height="600">
 </iframe>
-<div id="plotting-the-pmf-delete" class="section level3" number="6.2.1">
-<h3><span class="header-section-number">6.2.1</span> Plotting the PMF (delete?)</h3>
-<p>It is often useful to create a visual representation of a pmf as well. Doing so quickly gives us an idea of where data tend to aggregate and how the data are dispersed. Below are two plots representing two different sets of parameters for the binomials distribution. What do you notice in how they differ? How are they similar? What impacts do the different parameters have on the distribution of the data?</p>
-<p><img src="introTextbookTemplate_files/figure-html/unnamed-chunk-4-1.png" width="960" style="display: block; margin: auto;" /></p>
-<p>Of particular note here, we recall from the previous chapter that the sum of all possible probabilities must be equal to one. Visually, this is represented by the total area of the bars in our plot. Given that our bars our rectangles, we can find the area by considering that the width of each bar is equal to 1, and it’s height is given by the probability of <span class="math inline">\(X = x\)</span>, which can be found using the PMF. On the left hand side, for example, from left to right, we have</p>
-<p><span class="math display">\[
-\begin{align}
-\text{Total Area } &amp;= \text{ \{Area of Heads = 0\} + \{Area of Heads = 1\} + } \\
-&amp; \quad \ \ \text{\{Area of Heads = 2\} + \{Area of Heads = 3\}} \\
-&amp;= (1 \times P(X = 0)) + (1 \times P(X = 1)) + (1 \times P(X = 2)) + (1 \times P(X = 3)) \\
-&amp;= 0.125+0.375+0.375+0.125 \\
-&amp;= 1
-\end{align}
-\]</span>
-If, say, we are interested in the probability that <span class="math inline">\(X = 2\)</span> or <span class="math inline">\(X = 3\)</span>, we can add the area of the two corresponding bars. In this case, we find <span class="math inline">\(P(X = 2, 3) = 0.75\)</span>.</p>
-<iframe src="https://ph-ivshiny.iowa.uiowa.edu/collin/textbook/distribution/binomial/" width="100%" height="800">
-</iframe>
-<p>[Include binomial app here. See that clicking bars adds to something. Explain changing settings, clicking bars, selecting different things. Come up with exercises below, i.e., prob that even if n = 8, prob if even n = 4, etc.]</p>
+<div class="definition-container">
+<div class="definition">
+<span id="def:unlabeled-div-4" class="definition"><strong>Definition 6.2  </strong></span> 
+</div>
+<p><strong>Binomial Distribution: </strong> <em> A probability distribution that characterizes the
+probabilities of observing some number of successes in a fixed number of
+trials, each with two possible outcomes and the same probability of success. </em></p>
+<p><strong>Discrete Distribution: </strong> <em> Any probability distribution that depicts the
+occurrence of countable values.</em>
+</em></p>
 </div>
 </div>
 <div id="normal-distribution" class="section level2" number="6.3">
 <h2><span class="header-section-number">6.3</span> Normal Distribution</h2>
 <p>Included below are histograms of the depth of Lake Huron from 1875-1972, the annual flow of the Nile river in cubic meters from 1871-1970, and the height in feet of 31 black cherry trees. What do these histograms seem to have in common?</p>
-<p><img src="introTextbookTemplate_files/figure-html/unnamed-chunk-5-1.png" width="960" style="display: block; margin: auto;" /></p>
+<p><img src="introTextbookTemplate_files/figure-html/unnamed-chunk-3-1.png" width="960" style="display: block; margin: auto;" /></p>
 <p>What we see here are examples of a <em>normal distribution</em> (also known as a bell curve), one of the most ubiquitous distributions in all of statistics. The normal distribution is characterized by the “bell shape” that is symmetric about it’s mean [but maybe don’t say mean].</p>
 <p>Like the binomial, the normal distribution is characterized by two parameters, <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\sigma^2\)</span>, representing the mean and the variance, respectively. The mean value, <span class="math inline">\(\mu\)</span>, indicates the location of the peak on the x-axis, whereas the variance, <span class="math inline">\(\sigma^2\)</span>, indicates the amount of dispersion about the mean. A random variable <span class="math inline">\(X\)</span> that follows a normal distribution can be expressed <span class="math inline">\(X \sim N(\mu, \sigma^2)\)</span>, or, “The random variable <span class="math inline">\(X\)</span> follows a normal distribution with mean <span class="math inline">\(\mu\)</span> and variance <span class="math inline">\(\sigma^2\)</span>.” The formula for the normal distribution is given as</p>
 <p><span class="math display">\[
@@ -413,11 +321,11 @@ f(x) = \frac{1}{\sqrt{2 \pi \sigma^2}} \ e^{- \frac{(x-\mu)^2}{2\sigma^2}}.
 \end{align*}
 \]</span></p>
 <p>Consider the two normal distributions below, with different values for <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\sigma^2\)</span>. Although they are centered at different locations and have different amounts of dispersion around the mean, they are both bell-shaped curves characteristic of the normal distribution:</p>
-<p><img src="introTextbookTemplate_files/figure-html/unnamed-chunk-6-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="introTextbookTemplate_files/figure-html/unnamed-chunk-4-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>Given that the normal distribution appears so frequently in statistics, it is common practice to <em>standardize</em> a normal distribution so that it has a mean value of <span class="math inline">\(\mu = 0\)</span> and variance <span class="math inline">\(\sigma^2 = 1\)</span>. A normal random variable that has been standardized is called a <em>standard normal distribution</em> and is often written <span class="math inline">\(Z \sim N(0,1)\)</span>. We can consider again the histograms above, once they’ve been standardized:</p>
-<p><img src="introTextbookTemplate_files/figure-html/unnamed-chunk-7-1.png" width="960" style="display: block; margin: auto;" /></p>
+<p><img src="introTextbookTemplate_files/figure-html/unnamed-chunk-5-1.png" width="960" style="display: block; margin: auto;" /></p>
 <p>Unlike the binomial distribution, in which there are <span class="math inline">\(n\)</span> possible values that our random variable can take, the normal distribution represents a random variable that is <em>continuous</em> over a range of values. Instead of asking the probability of a specific value, say, <span class="math inline">\(Z = 0\)</span>, probabilities are given as the area under the curve for a certain interval. We might ask, “What is the probability that <span class="math inline">\(Z\)</span> is one standard deviation (<span class="math inline">\(\sigma\)</span>) away from 0?” pr perhaps, “What is the probability that <span class="math inline">\(Z &lt; 0\)</span>?”</p>
-<p><img src="introTextbookTemplate_files/figure-html/unnamed-chunk-8-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="introTextbookTemplate_files/figure-html/unnamed-chunk-6-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>Because probabilities for continuous distributions are described as areas under the curve, their values are computed with integrals. [do we introduce probability tables or just go with the app?]</p>
 <p>also maybe include</p>
 <ul>
@@ -426,47 +334,19 @@ f(x) = \frac{1}{\sqrt{2 \pi \sigma^2}} \ e^{- \frac{(x-\mu)^2}{2\sigma^2}}.
 <li>what else?</li>
 </ul>
 <p>[Using app below, explore different parameter values. Use slider to select a range of probabilities. Note that the area of interest is highlighted. Do exercises with it]</p>
-<iframe src="https://ph-ivshiny.iowa.uiowa.edu/collin/textbook/distribution/normal/" width="100%" height="800">
+<iframe src="https://ph-ivshiny.iowa.uiowa.edu/ceward/textbook/shinyApps/normal/" width="100%" height="500">
+</iframe>
+<iframe src="https://ph-ivshiny.iowa.uiowa.edu/ceward/textbook/shinyApps/normalData/" width="100%" height="600">
 </iframe>
 <div class="definition-container">
 <div class="definition">
-<span id="def:unlabeled-div-3" class="definition"><strong>Definition 6.2  </strong></span> 
+<span id="def:unlabeled-div-5" class="definition"><strong>Definition 6.3  </strong></span> 
 </div>
-<p><strong>Binomial Distribution: </strong> <em> A discrete distribution in which there are two possible outcomes, “events” and “non-events.” There parameters are <span class="math inline">\(n\)</span>, which dictate the number of trials, and <span class="math inline">\(p\)</span>, determining the probability of an event </em></p>
 <p><strong>Normal Distribution: </strong> <em> A continuous distribution with two parameters that is symmetric about a mean value, <span class="math inline">\(\mu\)</span>, with a variance <span class="math inline">\(\sigma^2\)</span>. Many real world processes follow a normal distribution. </em></p>
+<p><strong>Continuous Distribution: </strong> <em> A special case of the normal distribution, <span class="math inline">\(Z \sim N(0, 1)\)</span> </em></p>
 <p><strong>Standard Normal Distribution: </strong> <em> A special case of the normal distribution, <span class="math inline">\(Z \sim N(0, 1)\)</span> </em></p>
-<p><strong>Probability Mass Function: </strong> <em> A probability function used for discrete random variables. The probability of outcomes is given as a sum </em></p>
-<p><strong>Probability Distribution Function: </strong> <em> A probability function used for continuous random variables. The probabilities of outcomes are taken over a range, given as an integral. </em></p>
 </div>
-</div>
-<div id="other-common-distributions" class="section level2" number="6.4">
-<h2><span class="header-section-number">6.4</span> Other Common Distributions</h2>
-<p>Having examined in detail both discrete and properties distributions, demonstrated with the binomial and normal distributions, respectively, we consider below a brief overview of other common distributions and their properites.</p>
-<div id="poisson-distribution" class="section level3" number="6.4.1">
-<h3><span class="header-section-number">6.4.1</span> Poisson Distribution</h3>
-<p>The Poisson distribution, like the binomial, is a <em>discrete</em> distribution, in that it concerns itself with count data. Specifically, a Poisson distribution describes the number of independent events that may occur within a fixed interval of time. For example, we may be interested in the number of cars that pass through a busy intersection from noon to 1pm every day, or the number of major floods that occur in an area every 100 years. Perhaps the most famous example of the Poisson distribution comes courtesy of Ladislaus Bortkiewicz, a Russian statistician who, in 1898, showed that the number of Prussian soldiers killed by being kicked by a horse in a twenty year period followed a Poisson distribution (also child suicides, but that’s less fun).</p>
-<p>The Poisson distribution has a single parameter, <span class="math inline">\(\lambda\)</span>, which describes the rate at which events occur, and a random variable following a Poisson distribution may be expressed as <span class="math inline">\(X \sim Pois(\lambda)\)</span> (People who write <span class="math inline">\(X \sim Po(\lambda)\)</span> are heathens). A random variable following a Poisson distribution has the following assumptions:</p>
-<ol style="list-style-type: decimal">
-<li>The value of <span class="math inline">\(X\)</span>, being a count, can be any non-negative integer, i.e., <span class="math inline">\(0, 1, 2, \dots\)</span> with no upper bound</li>
-<li>The occurrence of one event in a time interval is independent of another event. One soldier being kicked by a horse has no impact on the probability of another solider being kicked by a horse.</li>
-<li><span class="math inline">\(\lambda\)</span>, which may be any number greater than <span class="math inline">\(0\)</span>, describes the rate at which events occur</li>
-<li>[Two events cannot occur at the exact same time, though they probably don’t need this]</li>
-</ol>
-<p>The distribution function of a Poisson random variable with rate <span class="math inline">\(\lambda\)</span> can be expressed</p>
-<p><span class="math display">\[
-P(X = x) = \frac{\lambda^x e^{-\lambda}}{x!}
-\]</span>
-One surprisingly detail about the Poisson distribution is the relationship between the mean and the variance. For both, we have that <span class="math inline">\(E(X) = Var(X) = \lambda\)</span>.</p>
-<div id="plots-for-poisson" class="section level4" number="6.4.1.1">
-<h4><span class="header-section-number">6.4.1.1</span> Plots for Poisson</h4>
-<p>As we look at the plot for the Poisson, we will notice one aspect in particular that distinguishes it from the plots of both the binomial and normal distributions: it is no longer symmetric. This is a consequence of the range of values that a Poisson random variable can take on. Whereas a binomial random variable was bounded between <span class="math inline">\(0\)</span> and <span class="math inline">\(n\)</span>, the number of trials conducted, and where the normal distribution allowed any real number, the Poisson is bounded below by <span class="math inline">\(0\)</span>, while having no theoretical upper bound. Given below is a plot of the distribution with <span class="math inline">\(\lambda = 2\)</span> and <span class="math inline">\(\lambda = 4\)</span> (it’s obvious here that choosing a specific value is inadequate. We can replace these plots with distribution exploration apps)</p>
-<p><img src="introTextbookTemplate_files/figure-html/unnamed-chunk-9-1.png" width="960" style="display: block; margin: auto;" /></p>
-<p>Just as with the binomial distribution, we can determine the probability of an event or collection of events by determining the area of the bars in our plot. Below is an interactive app to do stuff. Exercises</p>
-<iframe src="https://ph-ivshiny.iowa.uiowa.edu/collin/textbook/distribution/poisson/" width="100%" height="800">
-</iframe>
 
-</div>
-</div>
 </div>
 </div>
             </section>
