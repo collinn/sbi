@@ -109,7 +109,8 @@ haireyecolorExpanded <- haireyecolorExpanded[,c('SubjectID','Sex', 'Hair', 'Eye'
 
 dt <- haireyecolorExpanded
 
-kable(haireyecolorExpanded[1:10,], align = 'c')
+kable(haireyecolorExpanded[1:10,], align = 'c') |> 
+  kable_styling(full_width = FALSE)
 ```
 
 Each row indicates a subject possessing the indicated sex, hair, and eye color. 
@@ -312,7 +313,8 @@ imputeOzone <- lm(Ozone ~ Temp + I(Temp^2) + Day + Wind, data = aq)
 missingOzone <- which(is.na(aq$Ozone))
 aq$Ozone[missingOzone] <- round(predict(imputeOzone, newdata = aq[missingOzone,]))
 
-kable(head(aq, 10), align = 'c')
+kable(head(aq, 10), align = 'c')|> 
+  kable_styling(full_width = FALSE)
 ```
 
 This data contains continuous measurements on the air quality:
@@ -354,7 +356,7 @@ were quite hot, with temperatures above 90&deg;F.
 <!--      col = 'salmon1', breaks = 150) -->
 <!-- ``` -->
 
-Histograms also provide a nice picture of the *distribution* of the observed data. Distributions of data can look very different for different sets of data, and we will consider them in more detail in [Chapter 6](#ch6). For now, its only relevant to know that distributions of data are often summarized with two types of measures -- those that describe where the centers (peaks) of our data are and those that describe how spread out the data is about that peak. As these will be important concepts for the rest of this book, let's take a moment now to go into a bit more detail into each.
+Histograms also provide a nice picture of the *distribution*, or "shape", of the observed data. Distributions of data can look very different for different sets of data, and we will consider them in more detail in [Chapter 6](#ch6). For now, its only relevant to know that distributions of data are often summarized with two types of measures -- those that describe where the centers (peaks) of our data are and those that describe how spread out the data is about that peak. As these will be important concepts for the rest of this book, let's take a moment now to go into a bit more detail into each.
 
 <div class="definition-container">
 <div class="definition"> &nbsp; </div>
@@ -424,7 +426,7 @@ While nothing can replace a picture, sometimes it is preferable to summarize our
 
 The **mean** is the most commonly used measure of the center of a distribution. 
 Simply enough, the mean is found by taking the sum of all of the observations,
-and dividing by the total number. With $n$ observations, $x_1, x_2, ..., x_n$, 
+and dividing by the total. With $n$ observations, $x_1, x_2, ..., x_n$, 
 we can mathematically express the mean, denoted as $\bar{x}$ (x-bar), in the following way:
 
 $$
@@ -459,35 +461,37 @@ legend('topright',
 ```
 
 However, it is not always the case that the mean and median will be similar. Let's
-consider an example where we collect $n = 10$ samples of salaries for University 
+consider an example in Table 2.4 where we collect $n = 10$ samples of salaries for University 
 of Iowa employees:
 
 ```{r, echo = FALSE}
 sals <- c("$31,176", "$50,879", "$34,619", "$103,000", "$36,549", "$130,000", "$37,876", "$144,600", "$48,962", "$5,075,000")
-kable(matrix(sals, ncol = 2), format = "html")
+kable(matrix(sals, ncol = 2),  caption = "University of Iowa Salaries", padding = 2) |>
+  kable_styling(full_width = FALSE, position = "float_right")
+# kbl(matrix(sals, ncol = 2)) |> 
+#   kable_styling(full_width = "F", position = "float_right")
 ```
 
 For our sample, we find that the mean is \$569,266, but the median is
-(\$48,962 + \$50,879) / 2 = \$49,921. It turns out, our sample included the highest
-paid university employee - the head football coach. This extremely high salary 
-has caused the mean to be very large - larger than the remaining 90\% of the salaries in our 
+(\$48,962 + \$50,879) / 2 = \$49,921. It turns out our sample included the highest
+paid university employee -- the head football coach. This extremely high salary 
+has caused the mean to be very large -- larger than the remaining 90\% of the salaries in our 
 sample *combined*. The median, on the other hand, ignoring the extremes ends of our distribution and focusing on the middle, is not impacted by the football coach's 
-salary. Consequently in this case, it is a much better reflection of the typically university employee's
+salary. Consequently, in this case, it is a much better reflection of the typically university employee's
 salary than the estimate found with the mean.
 
 This one high salary, which is not representative of most of the salaries 
 collected, is known as an **outlier**. From the example above, we have seen that 
 the mean is highly sensitive to the presence of outliers while the median is not. 
-Measures that are less sensitive to outliers are called **robust**. We see, then,
-that the median is a robust estimator of the center of the data. 
+Measures that are less sensitive to outliers are called **robust** measures. Tthe median is a robust estimator of the center of the data. 
 
 We have seen an example where the mean and median are quite close and an example
 where they are wildly different. This begs the broader question -- when might we 
 expect these measures of central tendency to be the same, and when might we expect 
-them to differ?
+them to differ? Here, we consider a collection of histograms showing us different "shapes" that the distributions of our data may take.
 
 
-```{r, echo = FALSE, fig.height=5, fig.width = 7}
+```{r, echo = FALSE, fig.height=5, fig.width = 7, fig.cap="Examples of modality and skew"}
 
 set.seed(2)
 x1 <- rbeta(10000,5,5)
@@ -531,7 +535,8 @@ legend(-.5,3200, legend = c("Mean", "Median"),
 
 ```
 
-[[this is where i need to bring back in the prev discussion on skewness, modality, etc.]]
+
+The shape of a distribution is often characterized by its **modality** and its **skew**. The modality of a distribution is a statement about its modes, or "peaks". Distributions with a single peak are called *unimodal*, whereas distributions with two peaks are call *bimodal*. *Multimodal* distributions are those with three or more peaks. The skew on the other hand describes how our data relates to those peaks. Distributions in which the data is dispersed evenly on either side of a peak are called *symmetric distributions*; otherwise, the distribution is considered skewed. The direction of the skew is towards the side in which the tail is longest. Examples of modality and skew are presented in Figure 2.1.
 
 When the data is unimodal and symmetric, the mean and median are indistinguishable.
 However, when there is skew or multiple peaks, we see the mean and median start 
@@ -557,21 +562,18 @@ well. In that case, it might be better to characterize the center of each peak i
   
 **Multimodal: ** <em> Characterization of a distribution with three or more peaks</em>
   
-**Symmetric: ** <em> Characterization of a distribution with equal tails on both  
-  sides of the peak</em>
+**Symmetric: ** <em> Characterization of a distribution with equal tails on both sides of the peak</em>
   
-**Skewed right: ** <em> Characterization of a distribution with a large tail to 
-  the right of the peak</em>
+**Skewed right: ** <em> Characterization of a distribution with a large tail to the right of the peak</em>
    
-**Skewed left: ** <em> Characterization of a distribution with a large tail to 
-  the left of the peak</em>
+**Skewed left: ** <em> Characterization of a distribution with a large tail to the left of the peak</em>
 </div>
 
 ### Measures of Dispersion {#ch3_dispersion}
 
 In addition to measuring the center of the distribution, we are also interested
 in the *spread* or *dispersion* of the data. Two distributions could have the
-same mean and median, but that does not guarantee that they have the same shape.
+same mean or median without necessarily having the same shape.
 For example, consider the two distributions of data shown below. Each distribution
 represents a sample of 1,000 observations with mean of 100.
 
@@ -592,146 +594,60 @@ bb <- hist(x2, main = "Data 2", breaks = brks,
            xlab = '')
 ```
 
-From the histograms above, we visually confirm that both data distributions 
-have peaks centered around 100. Despite this, these data are not quite as similar 
-as one might have thought. For the data on the left, nearly all of the values
-fall in the range of (50, 150), while for the second distribution, this range 
-appears to be closer to (0, 200). We know each set of data contains the same 
-number of observations, but the first distribution is much more concentrated around
-the mean. On the other hand, the second distribution is much flatter and more 
-spread out. In order to more accurately capture these differences, we need a 
-second numerical summary which describes the degree of spread or variability in 
-each set of data. There are several measures which are commonly used for this 
-purpose:
-
-- Variance
-- Standard deviation
-- Interquartile Range (IQR)
-
-The **variance** and the **standard deviation** are numerical summaries which 
-quantify how spread out the distribution is around its mean. This is done by 
-calculating how far away each observation is from the mean, squaring that difference,
-and then taking an average over all observations. For a sample of $n$ observations
-$x_1, x_2, ..., x_n$,  the variance, denoted by $s^2$, is calculated as:
+Despite the mean values of each of these distributions being the same, we can clearly see that they are different.  On the left, we see that nearly the entire range of the observed data falls between 50 and 150. For the distribution on the right, the data is much more spread out, taking on values near 0 and 200. In order to accurately capture these differences, we need a second numerical summary describing the degree to which the data is spread about its center. Here, we consider two broad categories -- those based on percentiles and those based on the variance.
 
 
-$$
-s^2 = \frac{1}{n-1} \sum_{i=1}^n (x_i - \bar{x})^2
-$$
+#### Percentiles and IQR
 
-The standard deviation, denoted by $s$, is a function of the variance. 
-Specifically, it is the square root of the variance $s = \sqrt{s^2}$. Because the
-variance uses the squared differences between each observation and the mean, its
-units are the square of the units of the original data. For example, the
-New York temperature measurements have a mean of 77.9&deg;F and a variance 
-of 89.6&deg;F. The standard deviation takes the square root, which puts
-the units back on the original scale. For the temperature data, the standard 
-deviation is 9.5&deg;F. Because of this, the standard deviation is often
-preferred as a measure of spread over the variance, although if you know the variance
-you can compute the standard deviation (by taking the square root) and vice versa.
+Perhaps the most intuitive methods of describing the dispersion of our data are those associated with **percentile**-based summaries. Formally, the $p$th percentile is some value $V_p$ such that
 
-<div class="exercise"> Exercises </div>
-<div class="exercise-container">
+1. $p\%$ of observations are less than or equal to $V_p$
+2. $(100 - p)\%$ of observations are greater than or equal to $V_p$.
 
-The applet below is designed to help illustrate the properties of the mean and 
-standard deviation. You can vary the mean between -10 and 10 and the standard 
-deviation between 1 and 20. The histogram on the right displays the unimodal and
-symmetric distribution of data with the specified mean and standard deviation.
-
-<iframe src="https://ph-ivshiny.iowa.uiowa.edu/ceward/textbook/shinyApps/meanVar/" width = "100%" height = "800"> 
-</iframe>
-
-<ol>
-
-  <li> Set the standard deviation to 8 and use the slider to vary the mean of the 
-  distribution. What properties of the histogram change as the mean is varied? 
-  What stays the same? </li>
-
-  <li> Now, set the mean to 0 and vary the standard deviation. What properties of 
-  the histogram change as the standard deviation is varied? What stays the same? </li>
-  
-  <li> Let's examine more closely how the standard deviation affects the distribution
-  of data. Keep the mean at 0, and set the standard deviation to 4, 8, 12, 16, 
-  and 20. 
-    <ol style="list-style-type: lower-alpha;">
-      <li> For each standard deviation, fill out the following table with the 
-    approximate minimum and maximum values of the data. </li>
-    <table style="width:70%; "text-align:center" class="center">
-      <tr>
-        <th style="text-align:center">Standard deviation</th>
-        <th>Minimum and maximum</th>
-      </tr>
-      <tr>
-        <td style="text-align:center">4</td>
-        <td></td>
-      </tr>
-      <tr>
-        <td style="text-align:center">8</td>
-        <td></td>
-      </tr>
-      <tr>
-        <td style="text-align:center">12</td>
-        <td></td>
-      </tr>
-      <tr>
-        <td style="text-align:center">16</td>
-        <td></td>
-      </tr>
-      <tr>
-        <td style="text-align:center">20</td>
-        <td></td>
-      </tr>
-    </table>
-    <li> What do you notice about the relationship between the standard deviation
-        and the minimum/maximum values observed in the data? Is there any noticeable
-        pattern in your table?</li>
-    </ol>
-  </li>
-</ol>
-</div>
+Informally, percentiles quantify where observations fall, relative to all of the other observations in the data. Two of the best known percentiles are the $1^{st}$ and $99^{th}$ percentiles, more commonly referred to as the minimum and maximum values. Together, these two numbers describe the **range** of our data. The next most common value is the $50^{th}$ percentile -- the median -- which we recall describes the value for which half of our observations and greater (or lesser) than. We are also often interested in determining the $25^{th}$ and $75^{th}$ as well, which, respectively, mark the midpoints between the minimum and the median and the median and the maximum. Along with the median, these three percentiles make up the *quartiles* of our data, denoted
 
 
-The variance and standard deviation measure the spread of the data around the mean.
-Therefore, these summaries should only be used when the mean is chosen to reflect the data.
-We learned previously that the mean is a good measure of the center of data that 
-has a unimodal and symmetric distribution, but when the distribution is skewed, 
-the median is more accurate. In general, when data is skewed and not accurately
-summarized with the mean and standard deviation, we often turn to 
-**percentile**-based summaries. Formally, the $p$th percentile is a value $V_p$ such that
+<!-- The variance and standard deviation measure the spread of the data around the mean. -->
+<!-- Therefore, these summaries should only be used when the mean is chosen to reflect the data. -->
+<!-- We learned previously that the mean is a good measure of the center of data that  -->
+<!-- has a unimodal and symmetric distribution, but when the distribution is skewed,  -->
+<!-- the median is more accurate. In general, when data is skewed and not accurately -->
+<!-- summarized with the mean and standard deviation, we often turn to  -->
+<!-- **percentile**-based summaries. Formally, the $p$th percentile is a value $V_p$ such that -->
 
-- $p\%$ of observations are below $V_p$
-- $(100 - p)\%$ of observations are greater than $V_p$
+<!-- - $p\%$ of observations are below $V_p$ -->
+<!-- - $(100 - p)\%$ of observations are greater than $V_p$ -->
 
-More informally, percentiles quantify where observations fall, relative to all 
-the other observations in the data. 
+<!-- More informally, percentiles quantify where observations fall, relative to all  -->
+<!-- the other observations in the data.  -->
 
-Suppose, that we are looking for the $20$th percentile of the (already sorted)
-sample below. The 20th percentile will be the number such that it is greater 
-than or equal to 20% of the data, but smaller than the remaining 80%. 
+<!-- Suppose, that we are looking for the $20$th percentile of the (already sorted) -->
+<!-- sample below. The 20th percentile will be the number such that it is greater  -->
+<!-- than or equal to 20% of the data, but smaller than the remaining 80%.  -->
 
-$$
-2,\ 3,\ 5,\ 5\ ,\ 6 ,\ 7,\ 10,\ 23,\ 26,\ 28.
-$$
+<!-- $$ -->
+<!-- 2,\ 3,\ 5,\ 5\ ,\ 6 ,\ 7,\ 10,\ 23,\ 26,\ 28. -->
+<!-- $$ -->
 
-For this sample of 10 observations, the $20$th percentile would be 3, as 20% of 
-the observations $\{2, \ 3\}$ are less than or equal to it, while the remaining 
-80%, $\{5,\ 5\ ,\ 6 ,\ 7,\ 10,\ 23,\ 26,\ 28 \}$ are greater than it. 
+<!-- For this sample of 10 observations, the $20$th percentile would be 3, as 20% of  -->
+<!-- the observations $\{2, \ 3\}$ are less than or equal to it, while the remaining  -->
+<!-- 80%, $\{5,\ 5\ ,\ 6 ,\ 7,\ 10,\ 23,\ 26,\ 28 \}$ are greater than it.  -->
 
-As you can imagine, this definition can get a little complicated when we have 
-small sample sizes or tied values. With 10 observations, it is straightforward to
-discuss percentiles that are multiples of 10 (e.g., 10th, 20th, etc.), but what 
-about the 28th percentile? Additionally, in our sample there are two observations
-with the value 5. Does this mean 5 is the 30th percentile or the 40th? There are
-a number of different methods for defining and calculating percentiles in these 
-more complicated cases, but for the intent of this book, we will focus more on 
-the conceptual interpretation of the percentile, rather than it's precise definition. 
+<!-- As you can imagine, this definition can get a little complicated when we have  -->
+<!-- small sample sizes or tied values. With 10 observations, it is straightforward to -->
+<!-- discuss percentiles that are multiples of 10 (e.g., 10th, 20th, etc.), but what  -->
+<!-- about the 28th percentile? Additionally, in our sample there are two observations -->
+<!-- with the value 5. Does this mean 5 is the 30th percentile or the 40th? There are -->
+<!-- a number of different methods for defining and calculating percentiles in these  -->
+<!-- more complicated cases, but for the intent of this book, we will focus more on  -->
+<!-- the conceptual interpretation of the percentile, rather than it's precise definition.  -->
 
 
-There are a number of specific percentiles that are especially useful to us.
-For example, we have already seen the median, which can also be referred to as 
-the $50$th percentile of a dataset. In addition to the median, we are also often
-interested in determining the $25$th and $75$th percentile as well. These three 
-percentiles make up the *quartiles* of the data, denoted
+<!-- There are a number of specific percentiles that are especially useful to us. -->
+<!-- For example, we have already seen the median, which can also be referred to as  -->
+<!-- the $50$th percentile of a dataset. In addition to the median, we are also often -->
+<!-- interested in determining the $25$th and $75$th percentile as well. These three  -->
+<!-- percentiles make up the *quartiles* of the data, denoted -->
 
 $$
 \begin{align*}
@@ -883,39 +799,108 @@ hist(bimodal , col = histCol,
 
 <div class="definition-container">
 <div class="definition"> &nbsp; </div>
-**Histogram: ** <em> Visualization of continuous data which divides the continuous 
-  variable into bins and plots the number of observations in each bin</em>
 
-**Unimodal: ** <em> Characterization of a distribution with one peak</em>
-  
-**Bimodal: ** <em> Characterization of a distribution with two peaks</em>
-  
-**Multimodal: ** <em> Characterization of a distribution with three or more peaks</em>
-  
-**Symmetric: ** <em> Characterization of a distribution with equal tails on both  
-  sides of the peak</em>
-  
-**Skewed right: ** <em> Characterization of a distribution with a large tail to 
-  the right of the peak</em>
-   
-**Skewed left: ** <em> Characterization of a distribution with a large tail to 
-  the left of the peak</em>
-  
-**Mean: ** <em> The average value, denoted $\bar{x}$ and computed as the sum of the observations divided by the number of obervations </em>
+**Percentile: ** <em> The square root of the variance, denoted $s$ </em>
 
-**Median: ** <em> The middle value or 50th percentile, the value such that half the observations lie below it and half above </em>
+**Range: ** <em> The distance between the minimum and maximum values in a dataset </em>
 
-**Outlier: ** <em> Extreme observations that fall far away from the rest of the data</em>
+**Interquartile range (IQR): ** <em> The middle 50% of the data, the difference between the upper and lower quartiles</em>
 
-**Robust: ** <em> Measures that are not sensitive to outliers </em>
+**Boxplot/box-and-whisker plot: ** <em> Visualization of continuous data which is based on percentiles </em>
+</div>
+
+
+#### Variance and Standard Deviation
+
+The **variance** and the **standard deviation** are numerical summaries which 
+quantify how spread out the distribution is around its mean. This is done by 
+calculating how far away each observation is from the mean, squaring that difference,
+and then taking an average over all observations. For a sample of $n$ observations
+$x_1, x_2, ..., x_n$, the variance, denoted by $s^2$, is calculated as:
+
+
+$$
+s^2 = \frac{1}{n-1} \sum_{i=1}^n (x_i - \bar{x})^2
+$$
+
+The standard deviation, denoted $s$, is a function of the variance. 
+Specifically, it is the square root of the variance $s = \sqrt{s^2}$. Because the
+variance uses the squared differences between each observation and the mean, its
+units are the square of the units of the original data. For example, the
+New York temperature measurements have a mean of 77.9&deg;F and a variance 
+of 89.6&deg;F^2^, a value that does not readily lend itself to interpretation. The standard deviation, on the other hand, takes the square root, putting
+the units back on the original scale. For the temperature data, the standard 
+deviation is 9.5&deg;F. Because of this, the standard deviation is often
+preferred as a measure of spread over the variance.
+
+<div class="exercise"> Exercises </div>
+<div class="exercise-container">
+
+The applet below is designed to help illustrate the properties of the mean and 
+standard deviation. You can vary the mean between -10 and 10 and the standard 
+deviation between 1 and 20. The histogram on the right displays the unimodal and
+symmetric distribution of data with the specified mean and standard deviation.
+
+<iframe src="https://ph-ivshiny.iowa.uiowa.edu/ceward/textbook/shinyApps/meanVar/" width = "100%" height = "800"> 
+</iframe>
+
+<ol>
+
+  <li> Set the standard deviation to 8 and use the slider to vary the mean of the 
+  distribution. What properties of the histogram change as the mean is varied? 
+  What stays the same? </li>
+
+  <li> Now, set the mean to 0 and vary the standard deviation. What properties of 
+  the histogram change as the standard deviation is varied? What stays the same? </li>
+  
+  <li> Let's examine more closely how the standard deviation affects the distribution
+  of data. Keep the mean at 0, and set the standard deviation to 4, 8, 12, 16, 
+  and 20. 
+    <ol style="list-style-type: lower-alpha;">
+      <li> For each standard deviation, fill out the following table with the 
+    approximate minimum and maximum values of the data. </li>
+    <table style="width:70%; "text-align:center" class="center">
+      <tr>
+        <th style="text-align:center">Standard deviation</th>
+        <th>Minimum and maximum</th>
+      </tr>
+      <tr>
+        <td style="text-align:center">4</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td style="text-align:center">8</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td style="text-align:center">12</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td style="text-align:center">16</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td style="text-align:center">20</td>
+        <td></td>
+      </tr>
+    </table>
+    <li> What do you notice about the relationship between the standard deviation
+        and the minimum/maximum values observed in the data? Is there any noticeable
+        pattern in your table?</li>
+    </ol>
+  </li>
+</ol>
+</div>
+
+
+<div class="definition-container">
+<div class="definition"> &nbsp; </div>
 
 **Variance: ** <em> The average of the squared differences between each data value and the mean, denoted $s^2$ </em>
 
 **Standard deviation: ** <em> The square root of the variance, denoted $s$ </em>
 
-**Interquartile range (IQR): ** <em> The middle 50% of the data, the difference between the upper and lower quartiles</em>
-
-**Boxplot/box-and-whisker plot: ** <em> Visualization of continuous data which is based on percentiles </em>
 </div>
 
 
@@ -927,7 +912,7 @@ and continuous measurements or multiple continuous measurements? Let's return to
 the New York air quality data:
 
 ```{r}
-kable(head(aq, 10), align = 'c')
+kable(head(aq, 10), align = 'c') |> kable_styling(full_width = FALSE)
 ```
 
 One thing we might be interested in is the distribution of temperatures in each 

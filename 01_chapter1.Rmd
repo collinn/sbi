@@ -175,7 +175,7 @@ researchers make generalizations, or **inference**, about the entire population
 based on studying the sample. We can visualize the statistical framework using 
 this diagram:
 
-```{tikz statFramework, fig.cap = "Statistical Framework", fig.ext = 'png', echo = F}
+```{tikz statFramework, fig.cap = "Statistical Framework", fig.ext = 'png', echo = F, fig.align='center'}
 \usetikzlibrary{decorations.pathreplacing,positioning, arrows, shapes, calc,shapes.multipart}
 \tikzstyle{block1} = [rectangle, draw, fill=yellow!20, 
     text width=10em, text centered, rounded corners, minimum height=6em]
