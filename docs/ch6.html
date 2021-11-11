@@ -54,6 +54,70 @@
 <script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 
 
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
 
 
 <link rel="stylesheet" href="style.css" type="text/css" />
@@ -209,7 +273,9 @@ probability as output; the corresponding probability tells us how likely it is
 that the specific event will occur, out of all of the possible events. We often
 say random variables have or follow a probability distribution, as the
 distribution quantifies the probability of observing the possible values a random
-variable can take on. There are many useful probability distributions that have
+variable can take on. We can denote a probability distribution as <span class="math inline">\(P(X = x)\)</span>, or
+the probability that the random variable, <span class="math inline">\(X\)</span>, takes on a generic value, <span class="math inline">\(x\)</span>.</p>
+<p>There are many useful probability distributions that have
 been defined by mathematicians and statisticians to describe a variety of scenarios:</p>
 <ul>
 <li><p>Counting the number of successes in a fixed number of trials that can results
@@ -226,16 +292,79 @@ probabilities of observing each possible number of heads can be represented as:<
 <p><img src="introTextbookTemplate_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
 <p>The beauty of using probability distributions to describe the likelihood of all
 outcomes of a random process is its simplicity. Probability distributions rely
-on a small number of <strong>parameters</strong> which determine the distribution’s ``shape".</p>
-<p>Something about expected values.</p>
+on a small number of <strong>parameters</strong> which determine the distribution’s “shape.”<br />
+In the coin flipping example, one of the parameters is the probability of obtaining
+heads. We assume that we have a fair coin and that this probability is 50%. If,
+instead, we had a weighted coin with a 60% chance of landing on heads, the
+probability distribution would change.</p>
+<p><img src="introTextbookTemplate_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<p>With a higher chance of the coin resulting in heads, we now see that the three
+flips are more likely to result in 2 or 3 heads, and much less likely to result
+in 0 heads. Because these probabilities can be described by a distribution
+function, which depends on the probability of heads, we can easily compute and
+compare the probabilities of each outcome depending on the coin’s true chance at
+turning up as heads.</p>
+<p>Another key concept related to probability distributions and random variables, is
+the idea of the <strong>expected value</strong>. The expected value of a random variable, often
+denoted as <span class="math inline">\(E(X)\)</span>, is a weighted average which provides a measure of the central
+mass of the probability distribution. The expected value averages over all possible
+outcomes of the random variable with each outcome weighted according to its
+probability. Returning to the coin flipping example, with a fair coin we have
+seen that the probability distribution is:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="ch6.html#cb1-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">3</span></span>
+<span id="cb1-2"><a href="ch6.html#cb1-2" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">dbinom</span>(x, <span class="dv">3</span>, <span class="fl">0.5</span>)</span>
+<span id="cb1-3"><a href="ch6.html#cb1-3" aria-hidden="true" tabindex="-1"></a>tmp <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(x, y)</span>
+<span id="cb1-4"><a href="ch6.html#cb1-4" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(tmp, <span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">&#39;x&#39;</span>, <span class="st">&#39;P(X = x)&#39;</span>), <span class="at">align =</span> <span class="st">&#39;c&#39;</span>)</span></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="center">x</th>
+<th align="center">P(X = x)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">0</td>
+<td align="center">0.125</td>
+</tr>
+<tr class="even">
+<td align="center">1</td>
+<td align="center">0.375</td>
+</tr>
+<tr class="odd">
+<td align="center">2</td>
+<td align="center">0.375</td>
+</tr>
+<tr class="even">
+<td align="center">3</td>
+<td align="center">0.125</td>
+</tr>
+</tbody>
+</table>
+<p>So the expected value is</p>
+<p><span class="math display">\[(0 \times 0.125) + (1 \times 0.375) + (2 \times 0.375) + (3 \times 0.125) = 1.5.\]</span></p>
+<p>Looking at the probability histogram, this value should make sense as it falls
+right in the center of the distribution.</p>
+<p>Expected values are more easily conceptualized in terms of a game or bet. For
+example, consider the following game. You flip a fair coin; if the coin lands on
+heads, you win $20 and if the coin lands on tails, you lose $1. Would you play
+this game? Assuming you have a spare dollar, the answer is probably yes. Since
+you have equal chances of the coin landing on heads or tails, you are just as
+likely to win $20 as you are to lose $1. In terms of the expected value, it
+would be</p>
+<p><span class="math display">\[(20 \times 0.5) + (-1 \times 0.5) = 9.5\]</span></p>
+<p>The expected value tells us that if you were to play this game over and over,
+you would be expected to win $9.5 per game. If instead the game was that for
+heads you won $1 and for tails you lost $1, would you still want to play?</p>
 <div class="definition-container">
 <div class="definition">
 <span id="def:unlabeled-div-1" class="definition"><strong>Definition 6.1  </strong></span> 
 </div>
-<p><strong>Probability Distribution: </strong> <em> A method for assigning probabilities to all possible events </em></p>
-<p><strong>Random Variable: </strong> <em> A method for assigning probabilities to all possible events </em></p>
+<p><strong>Probability distribution: </strong> <em> A method for assigning probabilities to all possible events </em></p>
+<p><strong>Random variable: </strong> <em> A method for assigning probabilities to all possible events </em></p>
 <p><strong>Probability histogram: </strong> <em> Values associated with a probability distribution that determine the distributions shape </em></p>
 <p><strong>Parameters: </strong> <em> Values associated with a probability distribution that determine the distributions shape </em></p>
+<p><strong>Expected value: </strong> <em> The weighted average of the outcomes of a random variable, with weights determined by their probability. </em></p>
 </div>
 </div>
 <div id="binomial-distribution" class="section level2" number="6.2">
@@ -255,26 +384,31 @@ die will be rolled 10 times.</p>
 can be used for various probabilities of success and numbers of trials. In fact,
 these quantities define the two parameters of the binomial distribution. These
 parameters are denoted as <span class="math inline">\(n\)</span> = the number of trials and <span class="math inline">\(p\)</span> = the probability of
-success. For any valid value of <span class="math inline">\(n\)</span> and <span class="math inline">\(p\)</span>, we can use the binomial distribution
+success. The binomial distribution is written as a function of these parameters</p>
+<p><span class="math display">\[
+P(X = x) = \binom{n}{x} p^x (1-p)^{n-x}.
+\]</span></p>
+<p>While this may look like a nasty formula, it can be easily computed by any
+statistical software so there is no need to calculate the probability by hand.</p>
+<p>For any valid value of <span class="math inline">\(n\)</span> and <span class="math inline">\(p\)</span>, we can use the binomial distribution
 to compute the probability of observing any possible outcome. To illustrate this,
 we will consider a binomial distribution with <span class="math inline">\(n = 10\)</span> trials. The following
 figure shows the probability histograms for four different values of <span class="math inline">\(p\)</span>.</p>
-<p><img src="introTextbookTemplate_files/figure-html/unnamed-chunk-2-1.png" width="768" /></p>
+<p><img src="introTextbookTemplate_files/figure-html/unnamed-chunk-4-1.png" width="768" /></p>
 <p>When <span class="math inline">\(p\)</span> is 0.2, we are more likely to observe a lower number of successes, than
 to observe 8 or more successes. When <span class="math inline">\(p\)</span> is 50%, we are most likely to observe
 5 of the 10 trials resulting in a success, with the probability decreasing as the
 number of successes gets closer to 0 or 10. For a large success probability of 90%,
 there is a very small chance we observe less than 6 successes and a much higher
 probability of observing 9 or 10 successes.</p>
-<p><span class="math display">\[
-P(X = x) = \binom{n}{x} p^x (1-p)^{n-x}
-\]</span></p>
+<p>The expected value of the binomial distribution is given by <span class="math inline">\(E(X) = np\)</span></p>
 <div class="exercise">
-<span id="exr:unlabeled-div-2" class="exercise"><strong>Exercise 6.1  </strong></span>Exercises
+<span id="exr:unlabeled-div-2" class="exercise"><strong>Exercise 6.1  </strong></span> 
 </div>
 <div class="exercise-container">
 <p>The applet below is designed to help you get familiar with the parameters of the
-binomial distribution. You can change the values of the number of trials <span class="math inline">\(n\)</span>, and
+binomial distribution, and how they impact the probability distribution.
+You can change the values of the number of trials <span class="math inline">\(n\)</span>, and
 the probability of success <span class="math inline">\(p\)</span>, and the app will display the associated distribution
 in a probability histogram.</p>
 </div>
@@ -283,7 +417,14 @@ in a probability histogram.</p>
 <div class="exercise-container">
 <p>Use the applet to answer the following questions:</p>
 <ol style="list-style-type: decimal">
-<li></li>
+<li><p>Set <span class="math inline">\(n = 10\)</span>, and change the value of <span class="math inline">\(p\)</span> (note: you can press the triangular
+“play” button to have the app vary <span class="math inline">\(p\)</span> automatically). What happens to the shape of the
+distribution as <span class="math inline">\(p\)</span> gets closer to 0? What about when <span class="math inline">\(p\)</span> gets closer to 1?</p></li>
+<li><p>Now, set <span class="math inline">\(p = 0.4\)</span> and vary <span class="math inline">\(n\)</span> over the range of possible inputs. What do
+you notice about the x-axis as <span class="math inline">\(n\)</span> is changing? Explain this trend by referring
+back to what <span class="math inline">\(n\)</span> represents.</p></li>
+<li><p>Keeping <span class="math inline">\(p\)</span> constant, as <span class="math inline">\(n\)</span> changes between 20 - 50, does the shape of the
+distribution change? What about the location of the distribution?</p></li>
 </ol>
 </div>
 <div class="exercise">
@@ -312,7 +453,7 @@ occurrence of countable values.</em>
 <div id="normal-distribution" class="section level2" number="6.3">
 <h2><span class="header-section-number">6.3</span> Normal Distribution</h2>
 <p>Included below are histograms of the depth of Lake Huron from 1875-1972, the annual flow of the Nile river in cubic meters from 1871-1970, and the height in feet of 31 black cherry trees. What do these histograms seem to have in common?</p>
-<p><img src="introTextbookTemplate_files/figure-html/unnamed-chunk-3-1.png" width="960" style="display: block; margin: auto;" /></p>
+<p><img src="introTextbookTemplate_files/figure-html/unnamed-chunk-5-1.png" width="960" style="display: block; margin: auto;" /></p>
 <p>What we see here are examples of a <em>normal distribution</em> (also known as a bell curve), one of the most ubiquitous distributions in all of statistics. The normal distribution is characterized by the “bell shape” that is symmetric about it’s mean [but maybe don’t say mean].</p>
 <p>Like the binomial, the normal distribution is characterized by two parameters, <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\sigma^2\)</span>, representing the mean and the variance, respectively. The mean value, <span class="math inline">\(\mu\)</span>, indicates the location of the peak on the x-axis, whereas the variance, <span class="math inline">\(\sigma^2\)</span>, indicates the amount of dispersion about the mean. A random variable <span class="math inline">\(X\)</span> that follows a normal distribution can be expressed <span class="math inline">\(X \sim N(\mu, \sigma^2)\)</span>, or, “The random variable <span class="math inline">\(X\)</span> follows a normal distribution with mean <span class="math inline">\(\mu\)</span> and variance <span class="math inline">\(\sigma^2\)</span>.” The formula for the normal distribution is given as</p>
 <p><span class="math display">\[
@@ -321,11 +462,11 @@ f(x) = \frac{1}{\sqrt{2 \pi \sigma^2}} \ e^{- \frac{(x-\mu)^2}{2\sigma^2}}.
 \end{align*}
 \]</span></p>
 <p>Consider the two normal distributions below, with different values for <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\sigma^2\)</span>. Although they are centered at different locations and have different amounts of dispersion around the mean, they are both bell-shaped curves characteristic of the normal distribution:</p>
-<p><img src="introTextbookTemplate_files/figure-html/unnamed-chunk-4-1.png" width="672" style="display: block; margin: auto;" /></p>
-<p>Given that the normal distribution appears so frequently in statistics, it is common practice to <em>standardize</em> a normal distribution so that it has a mean value of <span class="math inline">\(\mu = 0\)</span> and variance <span class="math inline">\(\sigma^2 = 1\)</span>. A normal random variable that has been standardized is called a <em>standard normal distribution</em> and is often written <span class="math inline">\(Z \sim N(0,1)\)</span>. We can consider again the histograms above, once they’ve been standardized:</p>
-<p><img src="introTextbookTemplate_files/figure-html/unnamed-chunk-5-1.png" width="960" style="display: block; margin: auto;" /></p>
-<p>Unlike the binomial distribution, in which there are <span class="math inline">\(n\)</span> possible values that our random variable can take, the normal distribution represents a random variable that is <em>continuous</em> over a range of values. Instead of asking the probability of a specific value, say, <span class="math inline">\(Z = 0\)</span>, probabilities are given as the area under the curve for a certain interval. We might ask, “What is the probability that <span class="math inline">\(Z\)</span> is one standard deviation (<span class="math inline">\(\sigma\)</span>) away from 0?” pr perhaps, “What is the probability that <span class="math inline">\(Z &lt; 0\)</span>?”</p>
 <p><img src="introTextbookTemplate_files/figure-html/unnamed-chunk-6-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>Given that the normal distribution appears so frequently in statistics, it is common practice to <em>standardize</em> a normal distribution so that it has a mean value of <span class="math inline">\(\mu = 0\)</span> and variance <span class="math inline">\(\sigma^2 = 1\)</span>. A normal random variable that has been standardized is called a <em>standard normal distribution</em> and is often written <span class="math inline">\(Z \sim N(0,1)\)</span>. We can consider again the histograms above, once they’ve been standardized:</p>
+<p><img src="introTextbookTemplate_files/figure-html/unnamed-chunk-7-1.png" width="960" style="display: block; margin: auto;" /></p>
+<p>Unlike the binomial distribution, in which there are <span class="math inline">\(n\)</span> possible values that our random variable can take, the normal distribution represents a random variable that is <em>continuous</em> over a range of values. Instead of asking the probability of a specific value, say, <span class="math inline">\(Z = 0\)</span>, probabilities are given as the area under the curve for a certain interval. We might ask, “What is the probability that <span class="math inline">\(Z\)</span> is one standard deviation (<span class="math inline">\(\sigma\)</span>) away from 0?” pr perhaps, “What is the probability that <span class="math inline">\(Z &lt; 0\)</span>?”</p>
+<p><img src="introTextbookTemplate_files/figure-html/unnamed-chunk-8-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>Because probabilities for continuous distributions are described as areas under the curve, their values are computed with integrals. [do we introduce probability tables or just go with the app?]</p>
 <p>also maybe include</p>
 <ul>
@@ -342,7 +483,7 @@ f(x) = \frac{1}{\sqrt{2 \pi \sigma^2}} \ e^{- \frac{(x-\mu)^2}{2\sigma^2}}.
 <div class="definition">
 <span id="def:unlabeled-div-5" class="definition"><strong>Definition 6.3  </strong></span> 
 </div>
-<p><strong>Normal Distribution: </strong> <em> A continuous distribution with two parameters that is symmetric about a mean value, <span class="math inline">\(\mu\)</span>, with a variance <span class="math inline">\(\sigma^2\)</span>. Many real world processes follow a normal distribution. </em></p>
+<p><strong>Normal Distribution: </strong> <em> A continuous bell-shaped distribution with two parameters that are the mean value, <span class="math inline">\(\mu\)</span>, with a variance <span class="math inline">\(\sigma^2\)</span>. </em></p>
 <p><strong>Continuous Distribution: </strong> <em> A special case of the normal distribution, <span class="math inline">\(Z \sim N(0, 1)\)</span> </em></p>
 <p><strong>Standard Normal Distribution: </strong> <em> A special case of the normal distribution, <span class="math inline">\(Z \sim N(0, 1)\)</span> </em></p>
 </div>

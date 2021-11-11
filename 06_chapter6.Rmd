@@ -46,7 +46,10 @@ probability as output; the corresponding probability tells us how likely it is
 that the specific event will occur, out of all of the possible events. We often 
 say random variables have or follow a probability distribution, as the 
 distribution quantifies the probability of observing the possible values a random
-variable can take on. There are many useful probability distributions that have
+variable can take on. We can denote a probability distribution as $P(X = x)$, or 
+the probability that the random variable, $X$, takes on a generic value, $x$.
+
+There are many useful probability distributions that have
 been defined by mathematicians and statisticians to describe a variety of scenarios:
 
 * Counting the number of successes in a fixed number of trials that can results 
@@ -78,27 +81,84 @@ text(my_bar, y + scaleFac2, y, cex = 2)
 ```
 
 
-
-
 The beauty of using probability distributions to describe the likelihood of all
 outcomes of a random process is its simplicity. Probability distributions rely 
-on a small number of **parameters** which determine the distribution's ``shape".  
+on a small number of **parameters** which determine the distribution's "shape".  
+In the coin flipping example, one of the parameters is the probability of obtaining
+heads. We assume that we have a fair coin and that this probability is 50%. If,
+instead, we had a weighted coin with a 60% chance of landing on heads, the 
+probability distribution would change.
 
-Something about expected values.
+```{r, echo = F}
+x <- 0:3
+y <- dbinom(x, size = 3, prob = 0.6)
+scaleFac1 <- sum(y) * 0.2
+scaleFac2 <- sum(y) * 0.04
+my_bar <- barplot(y, names.arg = x, col = 'palevioletred1',
+                      ylim = c(0, max(y) + scaleFac1),
+                  xlab = '# of heads',
+                  ylab = 'Probability',
+                  main = '60% chance of heads')
+text(my_bar, y + scaleFac2, y, cex = 2)
+```
 
+With a higher chance of the coin resulting in heads, we now see that the three 
+flips are more likely to result in 2 or 3 heads, and much less likely to result
+in 0 heads. Because these probabilities can be described by a distribution 
+function, which depends on the probability of heads, we can easily compute and 
+compare the probabilities of each outcome depending on the coin's true chance at
+turning up as heads.
+
+Another key concept related to probability distributions and random variables, is
+the idea of the **expected value**. The expected value of a random variable, often
+denoted as $E(X)$, is a weighted average which provides a measure of the central
+mass of the probability distribution. The expected value averages over all possible
+outcomes of the random variable with each outcome weighted according to its 
+probability. Returning to the coin flipping example, with a fair coin we have 
+seen that the probability distribution is:
+
+```{r}
+x <- 0:3
+y <- dbinom(x, 3, 0.5)
+tmp <- data.frame(x, y)
+knitr::kable(tmp, col.names = c('x', 'P(X = x)'), align = 'c')
+```
+
+So the expected value is 
+
+$$(0 \times 0.125) + (1 \times 0.375) + (2 \times 0.375) + (3 \times 0.125) = 1.5.$$
+
+Looking at the probability histogram, this value should make sense as it falls
+right in the center of the distribution.
+
+Expected values are more easily conceptualized in terms of a game or bet. For 
+example, consider the following game. You flip a fair coin; if the coin lands on 
+heads, you win \$20 and if the coin lands on tails, you lose \$1. Would you play 
+this game? Assuming you have a spare dollar, the answer is probably yes. Since
+you have equal chances of the coin landing on heads or tails, you are just as 
+likely to win \$20 as you are to lose \$1. In terms of the expected value, it 
+would be
+
+$$(20 \times 0.5) + (-1 \times 0.5) = 9.5$$
+
+The expected value tells us that if you were to play this game over and over, 
+you would be expected to win \$9.5 per game. If instead the game was that for 
+heads you won \$1 and for tails you lost \$1, would you still want to play?
 
 
 
 <div class="definition-container">
 <div class="definition"> &nbsp;  </div>
 
-**Probability Distribution: ** <em> A method for assigning probabilities to all possible events </em>
+**Probability distribution: ** <em> A method for assigning probabilities to all possible events </em>
 
-**Random Variable: ** <em> A method for assigning probabilities to all possible events </em>
+**Random variable: ** <em> A method for assigning probabilities to all possible events </em>
 
 **Probability histogram: ** <em> Values associated with a probability distribution that determine the distributions shape </em>
 
 **Parameters: ** <em> Values associated with a probability distribution that determine the distributions shape </em>
+
+**Expected value: ** <em> The weighted average of the outcomes of a random variable, with weights determined by their probability. </em>
 
 </div>
 
@@ -121,7 +181,16 @@ As you may have noticed in these binomial distribution examples, the distributio
 can be used for various probabilities of success and numbers of trials. In fact,
 these quantities define the two parameters of the binomial distribution. These
 parameters are denoted as $n$ = the number of trials and $p$ = the probability of 
-success. For any valid value of $n$ and $p$, we can use the binomial distribution
+success. The binomial distribution is written as a function of these parameters
+
+$$
+P(X = x) = \binom{n}{x} p^x (1-p)^{n-x}.
+$$
+
+While this may look like a nasty formula, it can be easily computed by any 
+statistical software so there is no need to calculate the probability by hand.
+
+For any valid value of $n$ and $p$, we can use the binomial distribution
 to compute the probability of observing any possible outcome. To illustrate this,
 we will consider a binomial distribution with $n = 10$ trials. The following 
 figure shows the probability histograms for four different values of $p$.
@@ -152,17 +221,15 @@ number of successes gets closer to 0 or 10. For a large success probability of 9
 there is a very small chance we observe less than 6 successes and a much higher
 probability of observing 9 or 10 successes.
 
-
-$$
-P(X = x) = \binom{n}{x} p^x (1-p)^{n-x}
-$$
+The expected value of the binomial distribution is given by $E(X) = np$
 
 
-<div class="exercise"> Exercises </div>
+<div class="exercise"> &nbsp;  </div>
 <div class="exercise-container">
 
 The applet below is designed to help you get familiar with the parameters of the
-binomial distribution. You can change the values of the number of trials $n$, and
+binomial distribution, and how they impact the probability distribution.
+You can change the values of the number of trials $n$, and
 the probability of success $p$, and the app will display the associated distribution
 in a probability histogram.
 
@@ -175,7 +242,16 @@ in a probability histogram.
 
 Use the applet to answer the following questions:
 
-1. 
+1. Set $n = 10$, and change the value of $p$ (note: you can press the triangular 
+"play" button to have the app vary $p$ automatically). What happens to the shape of the
+distribution as $p$ gets closer to 0? What about when $p$ gets closer to 1?
+
+2. Now, set $p = 0.4$ and vary $n$ over the range of possible inputs. What do
+you notice about the x-axis as $n$ is changing? Explain this trend by referring
+back to what $n$ represents.
+
+3. Keeping $p$ constant, as $n$ changes between 20 - 50, does the shape of the 
+distribution change? What about the location of the distribution?
 
 </div>
 
