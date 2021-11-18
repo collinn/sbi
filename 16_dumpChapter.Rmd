@@ -791,6 +791,42 @@ $$
  </ol>
 </div>
 
+
+To illustrate this,
+we will consider a binomial distribution with $n = 10$ trials. The following 
+figure shows the probability histograms for four different values of $p$.
+
+
+```{r, fig.height=6, fig.width=8, echo = F}
+n <- 10
+p <- c(0.2, 0.5, 0.75, 0.9)
+
+par(mfrow = c(2,2))
+for (i in 1:length(p)) {
+  x <- 0:n
+y <- dbinom(x, size = n, prob = p[i])
+barplot(y, names.arg = x, col = 'palevioletred1',
+                  xlab = '# of successes',
+                  ylab = 'Probability',
+        ylim = c(0, 0.4),
+        main = paste0('p = ', p[i]))
+}
+
+
+```
+
+When $p$ is 0.2, we are more likely to observe a lower number of successes, than
+to observe 8 or more successes. When $p$ is 50%, we are most likely to observe
+5 of the 10 trials resulting in a success, with the probability decreasing as the
+number of successes gets closer to 0 or 10. For a large success probability of 90%,
+there is a very small chance we observe less than 6 successes and a much higher
+probability of observing 9 or 10 successes.
+
+
+
+
+
+
 ### Plotting the PMF (delete?)
 
 It is often useful to create a visual representation of a pmf as well. Doing so quickly gives us an idea of where data  tend to aggregate and how the data are dispersed. Below are two plots representing two different sets of parameters for the binomials distribution. What do you notice in how they differ? How are they similar? What impacts do the different parameters have on the distribution of the data?
