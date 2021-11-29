@@ -142,6 +142,22 @@ This is exactly what happens when scientists conduct a research study. If they w
 
 Headers in this document need a LOT of work
 
+**Unimodal: ** <em> Characterization of a distribution with one peak</em>
+
+ 
+**Bimodal: ** <em> Characterization of a distribution with two peaks</em>
+  
+**Multimodal: ** <em> Characterization of a distribution with three or more peaks</em>
+  
+**Symmetric: ** <em> Characterization of a distribution with equal tails on both  
+  sides of the peak</em>
+  
+**Skewed right: ** <em> Characterization of a distribution with a large tail to 
+  the right of the peak</em>
+   
+**Skewed left: ** <em> Characterization of a distribution with a large tail to 
+  the left of the peak</em>
+
 
 ### Summaries
 
@@ -301,6 +317,9 @@ of only 5.
 
 ## Study design dump
 
+**Extrapolation Bias: ** <em>  </em>
+
+**Publication Bias: ** <em> A bias in published research which favors significant findings. </em>
 
 
 [[We have a scientific question, as well as statistical question, and each of these is subtly different from what we will call hypothesis in context of statistics. Should iron out how we want to use these words]]
@@ -626,6 +645,29 @@ Not sure where else to write this - for running a simulation at home. Consider h
 
 
 ## CLT Stuff
+
+### Central Limit Theorem {#ch8_s0}
+
+[[This may be either moved to previous chapter or merged in with next section]]
+
+We ended the previous chapter with an introduction of the Central Limit Theorem (CLT), which stated that as the size of our sample, $n$, increased, the sampling distribution of the sample mean $\overline{X}_n$ would become approximately normal. That is, we had
+
+$$
+\overline{X}_n \sim N(\mu, \sigma^2/n)
+$$
+where $\mu$ is the true value of the population mean and $\sigma^2$ is the variance; $n$, of course, is the size of our sample. Just as the size of our sample increases, so does the amount of variability in our sampling distribution *decrease*, giving us more precise estimates for the true value $\mu$. 
+
+To see how the CLT will be of benefit to us, it may be helpful to explore a little bit more closely how the different portions(?) of the theorem will prove helpful [[hate the wording here. this whol esection needs work]]. In particular, recall that
+
+1. The CLT tells us that as the size of our sample increases, the sampling distribution of $\overline{X}_n$ will become approximately normal. One of the defining characteristics of a normal distribution is that it is unimodal and symmetric about the mean. This means that random values tend to be closer to the mean than not and that values are equally likely to be just above the mean as they are to be just below it. 
+
+2. We saw that $\overline{X}_n$ is an *unbiased estimator* of the mean. In otherwords, given our data, this is the most likely estimate for the true value of $\mu$.
+
+3. The variance of a normal distribution tells us how dispersed these values are about the center This should be the second point.
+
+```{r, echo = FALSE, fig.align='center'}
+
+```
 
 https://iwant2study.org/lookangejss/math/ejss_model_GaltonBoardwee/GaltonBoardwee_Simulation.xhtml
 

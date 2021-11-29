@@ -12,9 +12,6 @@ library(markdown)
 >
 > --- Gertrude Mary Cox
 
-
-!!! Recurring issue in this chapter -- be extra cautious in wording interpretation of confidence intervals
-
 <div class="objective-container">
 <div class="objectives"> Learning objectives </div>
 1. Understand conceptually how confidence intervals are constructed
@@ -24,56 +21,48 @@ library(markdown)
 5. Definition of p-value and how to interpret
 </div>
 
+## Statistical Inference { #ch8_s1}
+
 It may be helpful at this point to quickly review our goals as statisticians, as well as some of the key concepts that we have covered so far:
 
 1. First, let's consider again the primary goal of statistical analysis. We often begin with some population of interest, and in particular, we are generally interested in determining some numerical quantity that describes this population. This may include things such as average monthly spending, or the proportion of individuals who respond positively to some treatment. As it is typically impractical to measure some quantity within an entire population, we are often limited to collecting a *random sample* of the population from which we hope to make generalizations that apply to the population as a whole.
 
-2. The data that we collect is usually *random*, and we can quantify the amount of uncertainty associated with a particular outcome with a numerical quantity known as a probability. The entire relationship between possible values of our data and their associated probabilities is known as a *distribution*, two of the most widely used being the normal and binomial distributions.
+2. The data that we collect is usually *random*, and we can quantify the amount of uncertainty associated with a particular outcome with a numerical quantity known as a probability. The relationship between possible values of our data and their associated probabilities is known as a *probability distribution*, two of the most widely used being the normal and binomial distributions.
 
 3. The act of collecting a sample and computing a statistic is itself a random process and, as such, also follows a probability distribution known as a *sampling distribution*. As we saw in the previous chapter, as the number of individuals collected in our sample increases, the computed statistic will approximately follow a normal distribution, thanks to the Central Limit Theorem. In our case, the sampling distribution will depend on the value of the sample mean, as well as the size of the standard error
 
 Our goal now is to determine how we might use these ideas to go from information in our random sample to statements about the broader population. This process is known as statistical inference and is the focus of the present chapter. 
 
-## Central Limit Theorem {#ch8_s0}
 
-[[This may be either moved to previous chapter or merged in with next section]]
 
-We ended the previous chapter with an introduction of the Central Limit Theorem (CLT), which stated that as the size of our sample, $n$, increased, the sampling distribution of the sample mean $\overline{X}_n$ would become approximately normal. That is, we had
+## Point Estimation and Confidence Intervals { #ch8_s2}
 
-$$
-\overline{X}_n \sim N(\mu, \sigma^2/n)
-$$
-where $\mu$ is the true value of the population mean and $\sigma^2$ is the variance; $n$, of course, is the size of our sample. Just as the size of our sample increases, so does the amount of variability in our sampling distribution *decrease*, giving us more precise estimates for the true value $\mu$. 
-
-To see how the CLT will be of benefit to us, it may be helpful to explore a little bit more closely how the different portions(?) of the theorem will prove helpful [[hate the wording here. this whol esection needs work]]. In particular, recall that
-
-1. The CLT tells us that as the size of our sample increases, the sampling distribution of $\overline{X}_n$ will become approximately normal. One of the defining characteristics of a normal distribution is that it is unimodal and symmetric about the mean. This means that random values tend to be closer to the mean than not and that values are equally likely to be just above the mean as they are to be just below it. 
-
-2. We saw that $\overline{X}_n$ is an *unbiased estimator* of the mean. In otherwords, given our data, this is the most likely estimate for the true value of $\mu$.
-
-3. The variance of a normal distribution tells us how dispersed these values are about the center This should be the second point.
-
-```{r, echo = FALSE, fig.align='center'}
-
-```
-
-## Point Estimation and Confidence Intervals { #ch8_s1}
-
-In the previous chapter, we concerned ourselves with calculating a particular value of a statistic, in our case, the sample mean. The process of computing a single statisic from a sample that will be used to estimate a paramter in the population is known as **point estimation**. As we saw, however, the value of a sample statitic is random, meaning that a sample mean computed from two separate samples from the same population are unlikely to be identically equal to each other. To account for both this random variation and the fact that we are often only able to obtain a single point estimate, we might consider instead determining an *interval* of likely values that our point estimate may fall within. We might consider this our *margin of error* for the point estimate. This process is known as **interval estimation**, and it is a critical part of performing statistical inference. 
+In the previous chapter, we concerned ourselves with calculating a particular value of a statistic, in our case, the sample mean. The process of computing a single statistic from a sample that will be used to estimate a parameter in the population is known as **point estimation**. As we saw, however, the value of a sample statistic is random, meaning that a sample mean computed from two separate samples from the same population are unlikely to be identically equal to each other. To account for both this random variation and the fact that we are often only able to obtain a single point estimate, we might consider instead determining an *interval* of likely values that our point estimate may fall within. We might consider this our *margin of error* for the point estimate. This process is known as **interval estimation**, and it is a critical part of performing statistical inference. 
 
 <!-- To begin, let's first note that the interval we construct will be determined by the point estimate that we have collected. As this point estimate is itself a random variable, it follows that the interval itself will be random as well. The primary consequence of this fact is that there is some probability that the true -->
 
-We can begin by considering some desireable properties of a good interval. For example, it would be nice if our constructed interval had a high probability of containing the true population parameter. Intuitively, the larger the interval, the more likely that the true parameter falls within this range. However, if an interval is *too* large, it ceases to contain much useful information. If when planning what to wear this weekend we reported that the temperature was supposed to be somewhere between absolute zero and the heat found at the center of the sun, this would mostly likely capture the actual temperature, but it would not be terribly useful.
+We can begin by considering some desirable properties of a good interval. For example, it would be nice if our constructed interval had a high probability of containing the true population parameter. Intuitively, the larger the interval, the more likely that the true parameter falls within this range. However, if an interval is *too* large, it ceases to contain much useful information. If when planning what to wear this weekend we reported that the temperature was supposed to be somewhere between absolute zero and the heat found at the center of the sun, this would mostly likely capture the actual temperature, but it would not be terribly useful.
 
-Perhaps, then, we want our intervals to be very small. whatever...
+What we see here is a tension between two competing goals: we would like our 
+intervals to be large enough to capture the true parameter value with high 
+probability, yet small enough to give us a reasonable range of estimates of what
+this value might be. Fortunately, we have statistical tools available to do this.
 
-What we see here is a tension between two competing goals: we would like our intervals to be large enough to capture the true parameter value with high probability, yet small enough to give us a reasonable range of estimates of what this value might be. Fortunately, we have statistical tools available to [[do this right]]
+In the above discussion, the quality of an interval estimate with which we are 
+concerned is known as the **coverage probability**, the probability that the 
+interval that we construct contains or covers the parameter of interest. The 
+coverage probability is often expressed as the term $1 - \alpha$, where $\alpha$
+is some value between 0 and 1. Just as $1 - \alpha$ represents the probability 
+that our interval does cover the true value, the value of $\alpha$ represents 
+the probability that it *does not*. In other words, $\alpha$ represents the 
+probability that we are incorrect. It is often convenient to convert these 
+decimal values to percentages, which can be done by multiplying the value by 
+100. This value, expressed as $100(1 - \alpha)\%$, is called the 
+**confidence interval**. As we can see, the smaller the value of $\alpha$, 
+the more likely our interval estimate contains the true value of the parameter 
+of interest. 
 
-[[this section might be a bit abstract]]
-
-In the above discussion, the quality of an interval estimate with which we are concerned is known as the **coverage probability**, the probability that the interval that we construct contains or covers the parameter of interest. The coverage probability is often experssed as the term $1 - \alpha$, where $\alpha$ is some term between 0 and 1. Just as $1 - \alpha$ represents the probability that our interval does cover the true value, the value of $\alpha$ represents the probability that it *does not*. In other words, $\alpha$ represents the probability that we are incorrect. It is often convenient to convert these decimal values to percentages, which can be done by multiplying the value by 100. This value, expressed as $100(1 - \alpha)\%$, is called the **confidence interval**. As we can see, the smaller the value of $\alpha$, the more likely our interval estimate contains the true value of the parameter of interest. 
-
-[[need to add either here or above this paragraph information relating mean, SE, and sampling distribution to show interval idea]]
+<!--[[need to add either here or above this paragraph information relating mean, SE, and sampling distribution to show interval idea]] -->
 
 <!-- We will first turn our attention to parameter estimation, of which there are two general approaches. These approaches are **point estimation**, which is a single statistic computed from the sample data used to estimate the parameter and **interval estimation**, which is an interval computed from the sample data to give a range of plausible values that is likely to contain the true population parameter. Point estimation is straightforward and is as simple as using the sample mean as an estimate of the population mean. While straightforward, this approach is problematic. In the last chapter we saw that every time we take a sample from a population and compute the sample mean, it changes. And we saw an example in which no matter how we took a sample, the sample mean could never possibly equal the population mean. This is because the act of taking a sample is a random process, which means that for any estimate from our sample it is highly unlikely (or straight up impossible) that we got the exact correct answer. Instead, it would be nice to have an interval that we could be reasonably confident contained the true parameter. -->
 
@@ -81,26 +70,33 @@ In the above discussion, the quality of an interval estimate with which we are c
 
 <!-- With an interval estimate, we are concerned with **coverage probability**, the probability that the interval contains or covers the parameter of interest. Typically, coverage probability is denoted by $1 - \alpha$. As the interval covers the parameter with probability $1 - \alpha$, the interval *does not* cover the parameter with probability $\alpha$ (because covering and not covering the parameter are complements and cover the entire sample space). In that sense, $\alpha$ is the probability that we are wrong. We will discuss $\alpha$ in more specific terms later in the chapter, but for now let’s just note that $\alpha$ is a small number, maybe 0.05 or 0.01. If we convert from decimal format to percentage format (multiplying by 100), we have $100(1 - \alpha)$%, which is called the **confidence level**. -->
 
----
 
-The mathematical details of constructing a confidence interval depends on the parameter of interest and how the study was designed, and we will see various formulas for constructing confidence intervals throughout the rest of this book. In this chapter, we will focus on conceptual understanding and interpretation. To construct a $100(1 - \alpha)$% confidence interval, we use sample data and sampling distributions as we know that sampling is a random process. For example, the Central Limit Theorem tells us the sampling distribution of the mean is normally distributed and gives us the mean and standard deviation of that distribution. Once we have a normal distribution for which we know the mean and standard deviation, we can calculate probabilistic quantities using software.
+The mathematical details of constructing a confidence interval depends on the 
+parameter of interest and how the study was designed. In this chapter, we will 
+focus on conceptual understanding and interpretation. To construct a
+$100(1 - \alpha)$% confidence interval, we use sample data and sampling 
+distributions as we know that sampling is a random process. For example,
+the Central Limit Theorem tells us the sampling distribution of the mean is 
+normally distributed and gives us the mean and standard deviation of that 
+distribution. Once we have a normal distribution for which we know the mean 
+and standard deviation, we can calculate probabilistic quantities using software.
 
-<div class="definition-container">
-<div class="definition"> &nbsp; </div>
-**Point Estimation: ** <em> def </em>
-
-**Interval Estimation: ** <em> def </em>
-
-**Coverage Probability: ** <em> def </em>
-
-**Confidence Interval: ** <em> def </em>
-
-</div>
-
-[[strong dislike this section below]]
-
-It’s extremely important that we remember what is random and what the probability distribution is specifying when we are interpreting confidence intervals. The sampling distribution describes which values of the sample statistic are likely and which are not likely. The random process is drawing a sample. The population parameter is a fixed quantity – we don’t know what it is, but it does not change. Confidence intervals are constructed from the information we do know – the observed data from the sample. Because sampling is a random process and confidence intervals are constructed using the sample data, the confidence interval will vary from sample to sample. However, we formulate confidence intervals mathematically to ensure that the probability that the interval contains the true probability is $1 - \alpha$. And as we’ve seen probabilities are long-run frequencies. So any given confidence interval may or may not cover the true parameter, but in the long run if we take samples over and over and compute a confidence interval based on the data from each sample, we are guaranteed that $100(1 - \alpha)$% of the confidence intervals constructed will cover the truth. This is quite appealing. Lets explore this concept further by using the following applet.
-
+It’s extremely important that we remember what is random and what the probability 
+distribution is specifying when we are interpreting confidence intervals. The 
+sampling distribution describes which values of the sample statistic are likely 
+and which are not likely. The random process is drawing a sample. The population
+parameter is a fixed quantity – we don’t know what it is, but it does not change.
+Confidence intervals are constructed from the information we do know – the
+observed data from the sample. Because sampling is a random process and confidence
+intervals are constructed using the sample data, the confidence interval will
+vary from sample to sample. However, we formulate confidence intervals
+mathematically to ensure that the probability that the interval contains the 
+true probability is $1 - \alpha$. And as we’ve seen probabilities are long-run 
+frequencies. So any given confidence interval may or may not cover the true 
+parameter, but in the long run if we take samples over and over and compute a 
+confidence interval based on the data from each sample, we are guaranteed that 
+$100(1 - \alpha)$% of the confidence intervals constructed will cover the truth.
+This is quite appealing. Lets explore this concept further by using the following applet.
 
 
 <div class="exercise-container">
@@ -156,11 +152,27 @@ The applet below is designed to help you get familiar with some of the important
 </ol>
 </div>
 
+
+
+<div class="definition-container">
+<div class="definition"> &nbsp; </div>
+**Point Estimation: ** <em> Using a single numeric quantity to estimate a population parameter. </em>
+
+**Interval Estimation: ** <em> Using a range of numeric values to estimate a population parameter. </em>
+
+**Coverage Probability: ** <em> The probability that a constructed confidence interval contains the true population parameter. </em>
+
+**Confidence Interval: ** <em> An interval estimate which contains the true population parameter according to a 
+  specified confidence level. </em>
+
+</div>
+
 ## Hypothesis Tests { #ch8_s2}
 
-Often, the motivation for performing a particular experiment is to answer a scientific question about a population.
-
-We have just seen that, along with the CLT, the collection of a sample mean along with a standard error allows us to construct an intervals of values representing likely values of the true parameter. 
+Often, the motivation for performing a particular experiment is to answer a
+scientific question about a population. We have just seen that, along with the
+CLT, the collection of a sample mean along with a standard error allows us to
+construct an intervals of values representing likely values of the true parameter. 
 
 Along with parameter estimation, a cornerstone of statistical inference is significance testing. Confidence intervals allow us to construct a range of plausible values for the parameter, and significance tests allow us to determine the likelihood of a parameter taking a certain value. A **hypothesis test** uses sample data to assess the plausibility of each of two competing hypotheses regarding an unknown parameter (or set of parameters). A **statistical hypothesis** is a statement or claim about an unknown parameter. The **null hypothesis** generally represents what is assumed to be true before the experiment is conducted. This hypothesis is typically denoted $H_0$. The **alternative hypothesis** represents what the investigator is interested in establishing. This hypothesis is typically denoted $H_A$. Oftentimes when people refer to the "scientific hypothesis," this in reference to the alternative hypothesis - it is what the investigators think will happen or what they want to show. The goal of a hypothesis test is to determine which hypothesis is the most plausible - the null or the alternative. 
 
@@ -185,9 +197,9 @@ The hypothesis testing procedure uses probability to quantify the amount of evid
 
 We are really focusing on steps 3-5. In step 3, we construct the "scientific hypothesis" and in step 4, we test that hypothesis. In order to produce rigorous scientific results we cannot assume that the scientific hypothesis is true, as that is the goal of our study. We must assume the current state of knowledge (null hypothesis) and then if we are to prove that our hypothesis is correct, we would show that if the current knowledge was true, it would be really unlikely that our experiment would have ended up how it did. 
 
-A great analogy to the concept of hypothesis testing is our judicial system. In court, the legal principle is that everyone is "innocent until proven guilty" and the prosecution must prove that the accused is guilty beyond a reasonable doubt. In many cases, there may not be definitive evidence if the defendant is actually innocent or guilty. But, if the prosecution can show that the likelihood of the accused individual being guilty is high (or equivalently, that the likelihood of the accuwsed individual being innocent is low), then the defendant will be convicted. In hypothesis testing researchers are like the prosecution and must use data to prove that the null hypothesis (current state of knowledge) is false beyond a reasonable doubt. The next several chapters will go through how we can use different types of data to quantify our evidence against the null hypothesis.
+A great analogy to the concept of hypothesis testing is our judicial system. In court, the legal principle is that everyone is "innocent until proven guilty" and the prosecution must prove that the accused is guilty beyond a reasonable doubt. In many cases, there may not be definitive evidence if the defendant is actually innocent or guilty. But, if the prosecution can show that the likelihood of the accused individual being guilty is high (or equivalently, that the likelihood of the accused individual being innocent is low), then the defendant will be convicted. In hypothesis testing researchers are like the prosecution and must use data to prove that the null hypothesis (current state of knowledge) is false beyond a reasonable doubt. The next several chapters will go through how we can use different types of data to quantify our evidence against the null hypothesis.
 
-With this set up in mind, we have two possible outcomes of a hypothesis test. Either we conclude that we do not have a lot of evidence against the null hypothesis, i.e. the null hyptohesis looks reasonable, and we **fail to reject the null** *or* we conclude that we have enough evidence against the null and we **reject the null**. It is extremely important to note here that we NEVER accept the null or accept the alternative. Many people find this annoying because we can never say anything with 100\% certainty. But this is exactly the point! Remember that statistics is all about quantifying our uncertainty. Think back to our drug development example. There will never ever ever be a drug that works exactly the same in every person that takes it. People are too variable and many aspects of a person's life impacts how a drug works in their body. So it would be completely unreasonable to say that a new drug works all the time. However, there can be a drug that improves outcomes for the average person or that this drug is likely to improve outcomes in a randomly selected person who takes it.
+With this set up in mind, we have two possible outcomes of a hypothesis test. Either we conclude that we do not have a lot of evidence against the null hypothesis, i.e. the null hypothesis looks reasonable, and we *fail to reject the null* or we conclude that we have enough evidence against the null and we *reject the null*. It is extremely important to note here that we NEVER accept the null or accept the alternative. Many people find this annoying because we can never say anything with 100\% certainty. But this is exactly the point! Remember that statistics is all about quantifying our uncertainty. Think back to our drug development example. There will never ever ever be a drug that works exactly the same in every person that takes it. People are too variable and many aspects of a person's life impacts how a drug works in their body. So it would be completely unreasonable to say that a new drug works all the time. However, there can be a drug that improves outcomes for the average person or that this drug is likely to improve outcomes in a randomly selected person who takes it.
 
 We can create a two by two table for the results of any hypothesis test. In the rows we have the two possible outcomes from our test - fail to reject $H_0$ and reject $H_0$. In the columns we have the true underlying state of nature - either $H_0$ is true or false. 
 
@@ -217,7 +229,7 @@ If we were looking to create a good hypothesis test, we would want to minimize t
 
 In this experiment, we are looking to determine if a coin is fair, i.e. whether or not the probability of heads is 50%. A type 1 error in this context would be concluding that the coin is not fair, when it actually is. A type 2 error in this context would be concluding that the coin is fair when it is actually not. Each experiment consists of flipping a coin 20 times and observing the proportion of the 20 flips that result in heads. If the coin is fair, we would expect around 10 of the 20 flip to result in heads. However, if we observed 11 or 12 heads in one experiment, would you be convinced the coin isn't fair? What about if you observed 19/20 of the flips resulting in heads?
 
-This applet allows the user to specify the "Rejection Threshold" to determine the cutoff where the app will reject the null hypothesis. This is specified in terms of how far off the proportion of heads in the experiment is from 50%. Since we have no way to determine if the coin is more prone to heads or tails, we consider this distance in both directions. If the observed proportion of the 20 flips that result in heads is beyond the specified threshold, the null hypothesis will be rejected. For example, if you choose a threshold of 10%, then any experiment where there are 60% (12/20) or more flips resulting in heads **OR** 40% (8/20) or less flips resulting in heads, then the null hypothesis is rejected and the coin is determined to not be fair. 
+This applet allows the user to specify the "Rejection Threshold" to determine the cutoff where the app will reject the null hypothesis. This is specified in terms of how far off the proportion of heads in the experiment is from 50%. Since we have no way to determine if the coin is more prone to heads or tails, we consider this distance in both directions. If the observed proportion of the 20 flips that result in heads is beyond the specified threshold, the null hypothesis will be rejected. For example, if you choose a threshold of 10%, then any experiment where there are 60% (12/20) or more flips resulting in heads *or* 40% (8/20) or less flips resulting in heads, then the null hypothesis is rejected and the coin is determined to not be fair. 
 
 The simulation involves replicating the 20 flip experiment 10,000 times. For each experiment, a coin is flipped 20 times and the proportion of heads is calculated. If that proportion exceeds the specified threshold it is counted as "Reject." If the proportion does not exceed the threshold, that experiment is considered a "Fail to Reject." The barchart shows the proportion of 10,000 experiments in which the null hypothesis was and was not rejected. Note: Since we are replicating the experiment 10,000 times, we don't expect the results to change much if the simulation is re-ran. However, you may see small changes in the proportion of rejects/fail to rejects for the same input values. 
 
@@ -264,7 +276,22 @@ The simulation involves replicating the 20 flip experiment 10,000 times. For eac
 </ol>
 </div>
 
+<div class="definition-container">
+<div class="definition"> &nbsp; </div>
+**Hypothesis test: ** <em> A decision making technique which assesses the plausibility
+  of two competing hypotheses.</em>
 
+**Statistical hypothesis: ** <em> A statement about the value of an unknown parameter. </em>
+
+**Null hypothesis: ** <em> The assumed state of truth prior to running the experiment. Denoted $H_0$. </em>
+
+**Alternative hypothesis: ** <em> Range of values for the parameter we might believe are true. Denoted $H_A$. </em>
+
+**Type I error: ** <em> Rejecting a true null hypothesis. False positive. </em>
+
+**Type II error: ** <em> Failing to reject a false null hypothesis. False negative. </em>
+
+</div>
 
 ## P-values { #ch8_s3}
 
@@ -294,7 +321,16 @@ While p-values are widely used, have a distinct purpose, and can be informative 
 
 
 
+<div class="definition-container">
+<div class="definition"> &nbsp; </div>
+**p-value: ** <em> The probability of observing data as extreme or more extreme than 
+  what was observed in the sample, given the null hypothesis is true.</em>
 
+**Statistically significant: ** <em> When the p-value is $<$ 0.05. Not necessarily related to clinical significance.</em>
+
+**Significance level: ** <em> The p-value cutoff used to determine if the null hypothesis is rejected. 
+  Denoted $\alpha$ and often considered to be 0.01, 0.05, or 0.1. </em>
+</div>
 
 
 
