@@ -82,7 +82,7 @@ https://bookdown.org/yihui/rmarkdown-cookbook/custom-blocks.html
 
 
 
-### What is a simulation? {#ch15_s5}
+<!-- ### What is a simulation? {#ch15_s5} -->
 
 There are three basic questions in statistics:  
 

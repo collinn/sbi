@@ -483,7 +483,7 @@ salary than the estimate found with the mean.
 This one high salary, which is not representative of most of the salaries 
 collected, is known as an **outlier**. From the example above, we have seen that 
 the mean is highly sensitive to the presence of outliers while the median is not. 
-Measures that are less sensitive to outliers are called **robust** measures. Tthe median is a robust estimator of the center of the data. 
+Measures that are less sensitive to outliers are called **robust** measures. The median is a robust estimator of the center of the data. 
 
 We have seen an example where the mean and median are quite close and an example
 where they are wildly different. This begs the broader question -- when might we 
@@ -656,22 +656,21 @@ Q_2 &= 50^{th} \text{ percentile} = 2^{nd} \text{quartile or median} \\
 Q_3 &= 75^{th} \text{ percentile} = 3^{rd} \text{ or upper quartile}
 \end{align*}
 $$
-We know the median $M$, is the value such that 50% of observations are less than 
-it and 50% are greater than it. $Q_1$ can be said to represent the median of the 
+We know the median, $M$, is the value such that 50% of observations are less than 
+the median and 50% are greater than it. $Q_1$ can be said to represent the median of the 
 smaller 50% of all observations, while $Q_3$ can be said to be the median of 
 larger 50%. In other words, 25% of the data is below $Q_1$, 25% of the data is 
 between $Q_1$ and $M$, 25% of the data is between $M$ and $Q_3$, and the 
 remaining 25% of the data is larger than $Q_3$.
 
-A commonly used percentile-based measure of spread is the **interquartile range (IQR)**,
+A commonly used percentile-based measure of spread combining these measures is the **interquartile range (IQR)**,
 defined as 
 
 $$\text{IRQ} = Q_3 - Q_1$$ 
 
 Because it is the difference between the upper and lower quartile, it represents
 the distance covering the middle 50% of the data. We may also report the range 
-as an interval as $(Q_1, Q_3)$. For the New York temperature data, $Q_1 = 72$, $Q_3 = 85$, and the 
-median is 79. The IQR is therefore $85 - 72 = 13$ and tells us that 50% of the days
+as an interval as $(Q_1, Q_3)$. For the New York temperature data, $Q_1 = 72$, $Q_3 = 85$. The IQR is therefore $85 - 72 = 13$ and tells us that 50% of the days
 between May and September had temperatures between 72&deg;F and 85&deg;F.
 
 ```{r}
@@ -686,13 +685,18 @@ text(76.5, 37, 'M = 79')
 text(88, 34, 'Q3 = 85')
 ```
 
+
 The IQR is not impacted by the presence of outliers, so it is considered a robust
-measure of the spread of the data. As mentioned previously, the standard deviation
-is based on the mean. Since the mean is not a robust summary, neither is the 
-standard deviation. This tells us that for unimodal and symmetric data, the choice
-between the mean/standard deviation and the median/IQR is only a matter of personal
-preference. However, when the data is skewed or has large outliers, robust summaries
-are preferred, meaning that the median/IQR will be a better representation of the data.
+measure of the spread of the data. So, like the median, it enjoys the quality of being a robust measure of the data.
+
+<!-- [[This paragraph was moved to the var/sd section]] -->
+<!-- The IQR is not impacted by the presence of outliers, so it is considered a robust -->
+<!-- measure of the spread of the data. As mentioned previously, the standard deviation -->
+<!-- is based on the mean. Since the mean is not a robust summary, neither is the  -->
+<!-- standard deviation. This tells us that for unimodal and symmetric data, the choice -->
+<!-- between the mean/standard deviation and the median/IQR is only a matter of personal -->
+<!-- preference. However, when the data is skewed or has large outliers, robust summaries -->
+<!-- are preferred, meaning that the median/IQR will be a better representation of the data. -->
 
 Percentiles are also used to create another common visual representation of 
 continuous data: the **boxplot**, also known as a **box-and-whisker plot**. A 
@@ -832,6 +836,8 @@ of 89.6&deg;F^2^, a value that does not readily lend itself to interpretation. T
 the units back on the original scale. For the temperature data, the standard 
 deviation is 9.5&deg;F. Because of this, the standard deviation is often
 preferred as a measure of spread over the variance.
+
+Finally, unlike the median and the IQR, which are based the percentiles of the observed data, both the variance and standard deviation are calculated based on the mean. Recall that the mean is *not* a robust outlier and is highly sensitive to skew or the presence of outliers. Consequently, the variance and the standard deviation are also very sensitive. When the data are unimodal and symmetric, choosing between the mean/standard deviation and the median/IQR is largely a matter of preference. However, when the data is skewed or has large outliers, more robust statistics such as the median and IQR are preferred.
 
 <div class="exercise"> Exercises </div>
 <div class="exercise-container">
