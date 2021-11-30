@@ -10,9 +10,12 @@ output: html_document
 
 <div class="objective-container">
 <div class="objectives"> Learning Objectives </div>
-1. Understand how a distribution represents a random process that creates data that is then observed
-2. Understand how the parameters of a distribution govern how the data is generated [and with what probability]
-3. Be able to identify which distributions underlying a given real world random process.
+1. Learn the definitions of random variables, probability distributions,
+and expected values and the connections between them.
+2. Understand how the parameters of a distribution govern the shape of the distribution
+3. Relate probability distributions to data generated according to a distribution
+4. Learn about the binomial and normal distributions, their parameters, and how 
+their distribution shape is related to those parameters.
 </div>
 
 ## Introduction to Probability Distributions 
@@ -46,7 +49,10 @@ probability as output; the corresponding probability tells us how likely it is
 that the specific event will occur, out of all of the possible events. We often 
 say random variables have or follow a probability distribution, as the 
 distribution quantifies the probability of observing the possible values a random
-variable can take on. There are many useful probability distributions that have
+variable can take on. We can denote a probability distribution as $P(X = x)$, or 
+the probability that the random variable, $X$, takes on a generic value, $x$.
+
+There are many useful probability distributions that have
 been defined by mathematicians and statisticians to describe a variety of scenarios:
 
 * Counting the number of successes in a fixed number of trials that can results 
@@ -77,35 +83,97 @@ my_bar <- barplot(y, names.arg = x, col = 'palevioletred1',
 text(my_bar, y + scaleFac2, y, cex = 2)
 ```
 
-
-
+When looking at a probability histogram, we can characterize the shape of the 
+distribution analogously to how we talk about a histogram of observed data. We
+often use *unimodal* distributions, which may or may not be *skewed*. For example, 
+the above probability histogram shows a unimodal and symmetric distribution.
 
 The beauty of using probability distributions to describe the likelihood of all
 outcomes of a random process is its simplicity. Probability distributions rely 
-on a small number of **parameters** which determine the distribution's ``shape".  
+on a small number of **parameters** which determine the distribution's shape. In 
+the coin flipping example, we could consider one of the parameters to be the 
+probability of obtaining heads. We assume that we have a fair coin and that this 
+probability is 50%. If, instead, we had a weighted coin with a 60% chance of 
+landing on heads, the probability distribution would change.
 
-Something about expected values.
+```{r, echo = F}
+x <- 0:3
+y <- dbinom(x, size = 3, prob = 0.6)
+scaleFac1 <- sum(y) * 0.2
+scaleFac2 <- sum(y) * 0.04
+my_bar <- barplot(y, names.arg = x, col = 'palevioletred1',
+                      ylim = c(0, max(y) + scaleFac1),
+                  xlab = '# of heads',
+                  ylab = 'Probability',
+                  main = '60% chance of heads')
+text(my_bar, y + scaleFac2, y, cex = 2)
+```
 
+With a higher chance of the coin resulting in heads, we now see that the three 
+flips are more likely to result in 2 or 3 heads, and much less likely to result
+in 0 heads. In other words, the distribution is now slightly skewed left.
+Because these probabilities can be described by a distribution 
+function, which depends on the probability of heads, we can easily compute and 
+compare the probabilities of each outcome depending on the coin's true chance at
+turning up as heads.
+
+Another key concept related to probability distributions and random variables, is
+the idea of the **expected value**. The expected value of a random variable, often
+denoted as $E(X)$, is a weighted average which provides a measure of the central
+mass of the probability distribution. The expected value averages over all possible
+outcomes of the random variable with each outcome weighted according to its 
+probability. Returning to the coin flipping example, with a fair coin we have 
+seen that the probability distribution is:
+
+```{r, echo = F}
+x <- 0:3
+y <- dbinom(x, 3, 0.5)
+tmp <- data.frame(x, y)
+knitr::kable(tmp, col.names = c('x', 'P(X = x)'), align = 'c')
+```
+
+So the expected value is 
+
+$$(0 \times 0.125) + (1 \times 0.375) + (2 \times 0.375) + (3 \times 0.125) = 1.5.$$
+
+Looking at the probability histogram, this value should make sense as it falls
+right in the center of the distribution.
+
+Expected values are more easily conceptualized in terms of a game or bet. For 
+example, consider the following game. You flip a fair coin; if the coin lands on 
+heads, you win \$20 and if the coin lands on tails, you lose \$1. Would you play 
+this game? Assuming you have a spare dollar, the answer is probably yes. Since
+you have equal chances of the coin landing on heads or tails, you are just as 
+likely to win \$20 as you are to lose \$1. In terms of the expected value, it 
+would be
+
+$$(20 \times 0.5) + (-1 \times 0.5) = 9.5$$
+
+The expected value tells us that if you were to play this game over and over, 
+you would be expected to win \$9.5 per game. If instead the game was that for 
+heads you won \$1 and for tails you lost \$1, would you still want to play?
 
 
 
 <div class="definition-container">
 <div class="definition"> &nbsp;  </div>
 
-**Probability Distribution: ** <em> A method for assigning probabilities to all possible events </em>
+**Probability distribution: ** <em> A method for assigning probabilities to all possible events. </em>
 
-**Random Variable: ** <em> A method for assigning probabilities to all possible events </em>
+**Random variable: ** <em> A numeric variable whose value depends on the outcome of a random process. </em>
 
-**Probability histogram: ** <em> Values associated with a probability distribution that determine the distributions shape </em>
+**Probability histogram: ** <em> A graphical display of a probability distribution. </em>
 
-**Parameters: ** <em> Values associated with a probability distribution that determine the distributions shape </em>
+**Parameters: ** <em> Values associated with a probability distribution that determine the distributions shape. </em>
+
+**Expected value: ** <em> The weighted average of the outcomes of a random variable, with weights determined by their probability. </em>
 
 </div>
 
 
 ## Binomial Distribution
 
-One common probability distribution is the **binomial distribution**, which 
+The first distribution we will examine in depth is the **binomial distribution**, which 
 describes the number of successes in a fixed number of independent trials
 that can result in one of two outcomes (success or failure), when each trial has 
 the same probability of success. We have already seen one example of the
@@ -117,52 +185,36 @@ six-sided die 10 times and counting the number of rolls that result in a 5 or 6.
 In this example, each die roll has a 1/3 chance of turning up a 5 or 6 and the 
 die will be rolled 10 times.
 
-As you may have noticed in these binomial distribution examples, the distribution
-can be used for various probabilities of success and numbers of trials. In fact,
+As you may have noticed from these two examples, the binomial distribution
+can be used for various success probabilities and numbers of trials. In fact,
 these quantities define the two parameters of the binomial distribution. These
-parameters are denoted as $n$ = the number of trials and $p$ = the probability of 
-success. For any valid value of $n$ and $p$, we can use the binomial distribution
-to compute the probability of observing any possible outcome. To illustrate this,
-we will consider a binomial distribution with $n = 10$ trials. The following 
-figure shows the probability histograms for four different values of $p$.
-
-
-```{r, fig.height=6, fig.width=8, echo = F}
-n <- 10
-p <- c(0.2, 0.5, 0.75, 0.9)
-
-par(mfrow = c(2,2))
-for (i in 1:length(p)) {
-  x <- 0:n
-y <- dbinom(x, size = n, prob = p[i])
-barplot(y, names.arg = x, col = 'palevioletred1',
-                  xlab = '# of successes',
-                  ylab = 'Probability',
-        ylim = c(0, 0.4),
-        main = paste0('p = ', p[i]))
-}
-
-
-```
-
-When $p$ is 0.2, we are more likely to observe a lower number of successes, than
-to observe 8 or more successes. When $p$ is 50%, we are most likely to observe
-5 of the 10 trials resulting in a success, with the probability decreasing as the
-number of successes gets closer to 0 or 10. For a large success probability of 90%,
-there is a very small chance we observe less than 6 successes and a much higher
-probability of observing 9 or 10 successes.
-
+parameters are typically denoted as $n$ = the number of trials and $p$ = the probability of 
+success. The binomial distribution can be written as a function of these parameters
 
 $$
-P(X = x) = \binom{n}{x} p^x (1-p)^{n-x}
+P(X = x) = \binom{n}{x} p^x (1-p)^{n-x}.
 $$
 
+While this may look like a nasty formula, don't be afraid! Probabilities following
+a binomial distribution can be easily computed by any statistical software. For
+this reason, we will focus on the distribution properties, as opposed to performing
+calculations.
 
-<div class="exercise"> Exercises </div>
+For any valid value of $n$ and $p$, we can use the binomial distribution
+to compute the probability of observing any possible outcome. Valid values of $n$
+and $p$ simply mean that the number of trials conducted must be a positive integer 
+(e.g., 1, 2, 3, ...) and that $p$ is between 0 and 1 (it is a probability after all).
+The expected value of the binomial distribution is given by $E(X) = np$.
+To gain an understanding of how these parameters impact the shape of the distribution,
+we will use the following applet.
+
+
+<div class="exercise"> &nbsp;  </div>
 <div class="exercise-container">
 
 The applet below is designed to help you get familiar with the parameters of the
-binomial distribution. You can change the values of the number of trials $n$, and
+binomial distribution, and how they impact the probability distribution.
+You can change the values of the number of trials $n$, and
 the probability of success $p$, and the app will display the associated distribution
 in a probability histogram.
 
@@ -175,19 +227,31 @@ in a probability histogram.
 
 Use the applet to answer the following questions:
 
-1. 
+1. Set $n = 10$, and change the value of $p$ (note: you can press the triangular 
+"play" button to have the app vary $p$ automatically). What happens to the shape of the
+distribution as $p$ gets closer to 0? What about when $p$ gets closer to 1?
+
+2. Now, set $p = 0.4$ and vary $n$ over the range of possible inputs. What do
+you notice about the x-axis as $n$ is changing? Explain this trend by referring
+back to what $n$ represents.
+
+3. Keeping $p$ constant and varying $n$ between 20 - 50, does the shape of the 
+distribution change? What about the location of the distribution?
 
 </div>
 
 
 
-<div class="exercise"> Exercises </div>
+
+
+
+<div class="exercise"> &nbsp; </div>
 <div class="exercise-container">
 
 The applet below is designed to familiarize you with data generated from the 
 binomial distribution. You can change the values of the number of trials $n$, and
 the probability of success $p$ to specify the parameters of the population 
-distribution. Then, 
+distribution. Then, you can take a random sample from the distribution.
 
 </div>
 
@@ -203,7 +267,7 @@ distribution. Then,
   trials, each with two possible outcomes and the same probability of success. </em>
 
 **Discrete Distribution: ** <em> Any probability distribution that depicts the 
-  occurrence of countable values.</em>
+  occurrence of countable values. </em>
 </em>
 
 </div>
@@ -212,16 +276,19 @@ distribution. Then,
 
 ## Normal Distribution
 
-Included below are histograms of the depth of Lake Huron from 1875-1972, the annual flow of the Nile river in cubic meters from 1871-1970, and the height in feet of 31 black cherry trees. What do these histograms seem to have in common?
+Below are three histograms describing various continuous data sources. First, we
+have the annual depth of Lake Huron from 1875-1972 in feet. Second, the annual
+flow of the river Nile from 1871-1970 in cubic meters. Lastly, we have the recorded
+height in feet of 31 black cherry trees. What do these histograms seem to have in common?
 
 ```{r, echo = FALSE, fig.align='center', fig.width=10}
 par(mfrow = c(1, 3))
-hist(LakeHuron)
-hist(Nile)
-hist(trees$Height)
+hist(LakeHuron, xlab = 'Annual depth (feet)', main = 'Lake Huron Depth')
+hist(Nile, xlab = 'Annual flow (cubic meters)', main = 'Nile River Flow')
+hist(trees$Height, xlab = 'Height (feet)', main = 'Black Cherry Tree Height')
 ```
 
-What we see here are examples of a *normal distribution* (also known as a bell curve), one of the most ubiquitous distributions in all of statistics. The normal distribution is characterized by the "bell shape" that is symmetric about it's mean [but maybe don't say mean]. 
+What we see here are examples of a **normal distribution** (also known as a bell curve), one of the most ubiquitous distributions in all of statistics. The normal distribution is characterized by the "bell shape" that is symmetric about it's mean [but maybe don't say mean]. 
 
 Like the binomial, the normal distribution is characterized by two parameters, $\mu$ and $\sigma^2$, representing the mean and the variance, respectively. The mean value, $\mu$, indicates the location of the peak on the x-axis, whereas the variance, $\sigma^2$, indicates the amount of dispersion about the mean. A random variable $X$ that follows a normal distribution can be expressed $X \sim N(\mu, \sigma^2)$, or, "The random variable $X$ follows a normal distribution with mean $\mu$ and variance $\sigma^2$." The formula for the normal distribution is given as 
 
@@ -243,7 +310,7 @@ legend(x = 6.5, y = 0.35, legend = c(expression(N(0,1)),
        lwd = 4, col = c("steelblue", "tomato"))
 ```
 
-Given that the normal distribution appears so frequently in statistics, it is common practice to *standardize* a normal distribution so that it has a mean value of $\mu = 0$ and variance $\sigma^2 = 1$. A normal random variable that has been standardized is called a *standard normal distribution* and is often written $Z \sim N(0,1)$. We can consider again the histograms above, once they've been standardized:
+Given that the normal distribution appears so frequently in statistics, it is common practice to *standardize* a normal distribution so that it has a mean value of $\mu = 0$ and variance $\sigma^2 = 1$. A normal random variable that has been standardized is called a **standard normal distribution** and is often written $Z \sim N(0,1)$. We can consider again the histograms above, once they've been standardized:
 
 ```{r, echo = FALSE, fig.align='center', fig.width=10}
 par(mfrow = c(1, 3))
@@ -256,7 +323,7 @@ hist(mkstd(trees$Height), freq = FALSE)
 curve(dnorm(x), add = TRUE, col = 'steelblue', lwd = 4)
 ```
 
-Unlike the binomial distribution, in which there are $n$ possible values that our random variable can take, the normal distribution represents a random variable that is *continuous* over a range of values. Instead of asking the probability of a specific value, say, $Z = 0$, probabilities are given as the area under the curve for a certain interval. We might ask, "What is the probability that $Z$ is one standard deviation ($\sigma$) away from 0?" pr perhaps, "What is the probability that $Z < 0$?"
+Unlike the binomial distribution, in which there are $n$ possible values that our random variable can take, the normal distribution represents a random variable that is **continuous** over a range of values. Instead of asking the probability of a specific value, say, $Z = 0$, probabilities are given as the area under the curve for a certain interval. We might ask, "What is the probability that $Z$ is one standard deviation ($\sigma$) away from 0?" or perhaps, "What is the probability that $Z < 0$?"
 
 ```{r, fig.align='center', echo = FALSE, width = 12}
 par(mfrow = c(1, 2))
@@ -295,20 +362,31 @@ text(2, 0.325, cex = 1.15,
 
 ```
 
-Because probabilities for continuous distributions are described as areas under the curve, their values are computed with integrals. [do we introduce probability tables or just go with the app?]
 
-also maybe include
+<div class="exercise"> &nbsp; </div>
+<div class="exercise-container">
 
-- subtract  cdf?
-- probability that |Z| > z?
-- what else?
+The applet below is designed to help you get familiar with the parameters of the
+normal distribution, and how they impact the probability distribution.
+You can change the values of the mean $\mu$, and
+the standard deviation $\sigma$, and the app will display the associated distribution
+in a probability histogram.
 
-
-
-[Using app below, explore different parameter values. Use slider to select a range of probabilities. Note that the area of interest is highlighted. Do exercises with it]
+</div>
 
 <iframe src="https://ph-ivshiny.iowa.uiowa.edu/ceward/textbook/shinyApps/normal/" width = "100%" height = "500"> 
 </iframe>
+
+<div class="exercise"> &nbsp; </div>
+<div class="exercise-container">
+
+The applet below is designed to familiarize you with data generated from the 
+normal distribution. You can change the values of the mean $\mu$, and
+the standard deviation $\sigma$ to specify the parameters of the population 
+distribution. Then, you can take a random sample from the distribution.
+
+
+</div>
 
 <iframe src="https://ph-ivshiny.iowa.uiowa.edu/ceward/textbook/shinyApps/normalData/" width = "100%" height = "600"> 
 </iframe>
@@ -316,11 +394,13 @@ also maybe include
 
 <div class="definition-container">
 <div class="definition"> &nbsp;  </div>
-**Normal Distribution: ** <em> A continuous bell-shaped distribution with two parameters that are the mean value, $\mu$, with a variance $\sigma^2$.  </em>
+**Normal Distribution: ** <em> A continuous bell-shaped distribution with
+two parameters that are the mean value, $\mu$, with a variance $\sigma^2$.  </em>
 
-**Continuous Distribution: ** <em> A special case of the normal distribution, $Z \sim N(0, 1)$ </em>
+**Continuous Distribution: ** <em> Any probability distribution that depicts the 
+  occurrence of a random variable that can take an infinite set of possible values. </em>
 
-**Standard Normal Distribution: ** <em> A special case of the normal distribution, $Z \sim N(0, 1)$ </em>
+**Standard Normal Distribution: ** <em> A special case of the normal distribution, $Z \sim N(0, 1)$. </em>
 
 </div>
 

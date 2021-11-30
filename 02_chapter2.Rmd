@@ -69,13 +69,13 @@ ways to summarize both types of data.
 
 <div class="definition-container">
 <div class="definition"> &nbsp; </div>
-**Categorical data: ** <em> Data that takes on a distinct value (i.e., falls into categories) </em>
+**Categorical data: ** <em> Data that takes on a distinct value (i.e., falls into categories). </em>
 
-**Nominal data: ** <em> A type of categorical data where the categories do not have any apparent ordering </em>
+**Nominal data: ** <em> A type of categorical data where the categories do not have any apparent ordering. </em>
 
-**Ordinal data: ** <em> A type of categorical data where there is a natural ordering </em>
+**Ordinal data: ** <em> A type of categorical data where there is a natural ordering. </em>
 
-**Continuous data: ** <em> Data that takes on numeric values, often measured on an interval </em>
+**Continuous data: ** <em> Data that takes on numeric values, often measured on an interval. </em>
 </div>
 
 
@@ -283,16 +283,16 @@ ggplot(dt, aes(x=Sex, fill=Hair))+
 
 <div class="definition-container">
 <div class="definition"> &nbsp; </div>
-**Absolute frequency: ** <em> The number of observations in a category </em>
+**Absolute frequency: ** <em> The number of observations in a category. </em>
 
-**Rate/Relative frequency: ** <em> The number of observations in a category relative to any other quantity </em>
+**Rate/Relative frequency: ** <em> The number of observations in a category relative to any other quantity. </em>
 
-**Percent/Proportion: ** <em> The number of observations per 100 </em>
+**Percent/Proportion: ** <em> The number of observations per 100. </em>
 
 **Bar plot: ** <em> Visualization of categorical data which uses bars to represent each category, 
-with counts or percents represented by the height of each bar </em>
+with counts or percents represented by the height of each bar. </em>
 
-**Stratification: ** <em> The process of partitioning data into categories prior to summarizing </em>
+**Stratification: ** <em> The process of partitioning data into categories prior to summarizing. </em>
 </div>
 
 
@@ -358,18 +358,7 @@ were quite hot, with temperatures above 90&deg;F.
 
 Histograms also provide a nice picture of the *distribution*, or "shape", of the observed data. Distributions of data can look very different for different sets of data, and we will consider them in more detail in [Chapter 6](#ch6). For now, its only relevant to know that distributions of data are often summarized with two types of measures -- those that describe where the centers (peaks) of our data are and those that describe how spread out the data is about that peak. As these will be important concepts for the rest of this book, let's take a moment now to go into a bit more detail into each.
 
-<div class="definition-container">
-<div class="definition"> &nbsp; </div>
-**Histogram: ** <em> Visualization of continuous data which divides the continuous 
-  variable into bins and plots the number of observations in each bin</em>
 
-**Distribution: ** <em> stuff</em>
-  
-**Measures of centrality: ** <em> more stuff </em>
-  
-**Measures of dispersion: ** <em> even more stuff </em>
-
-</div>
 
 ### Measures of Centrality {#ch3_centrality}
 
@@ -536,6 +525,7 @@ legend(-.5,3200, legend = c("Mean", "Median"),
 ```
 
 
+
 The shape of a distribution is often characterized by its **modality** and its **skew**. The modality of a distribution is a statement about its modes, or "peaks". Distributions with a single peak are called *unimodal*, whereas distributions with two peaks are call *bimodal*. *Multimodal* distributions are those with three or more peaks. The skew on the other hand describes how our data relates to those peaks. Distributions in which the data is dispersed evenly on either side of a peak are called *symmetric distributions*; otherwise, the distribution is considered skewed. The direction of the skew is towards the side in which the tail is longest. Examples of modality and skew are presented in Figure 2.1.
 
 When the data is unimodal and symmetric, the mean and median are indistinguishable.
@@ -546,28 +536,30 @@ so the median remains closer to the peak where the majority of data lies. When
 the distribution is bimodal, neither the mean or median can summarize the distribution
 well. In that case, it might be better to characterize the center of each peak individually.
 
+
 <div class="definition-container">
 <div class="definition"> &nbsp; </div>
-**Mean: ** <em> The average value, denoted $\bar{x}$ and computed as the sum of the observations divided by the number of obervations </em>
+**Mean: ** <em> The average value, denoted $\bar{x}$ and computed as the sum of the observations divided by the number of obervations. </em>
 
-**Median: ** <em> The middle value or 50th percentile, the value such that half the observations lie below it and half above </em>
+**Median: ** <em> The middle value or 50th percentile, the value such that half the observations lie below it and half above. </em>
 
-**Outlier: ** <em> Extreme observations that fall far away from the rest of the data</em>
+**Outlier: ** <em> Extreme observations that fall far away from the rest of the data. </em>
 
-**Robust: ** <em> Measures that are not sensitive to outliers </em>
+**Robust: ** <em> Measures that are not sensitive to outliers. </em>
 
-**Unimodal: ** <em> Characterization of a distribution with one peak</em>
+**Unimodal: ** <em> Characterization of a distribution with one peak.</em>
   
-**Bimodal: ** <em> Characterization of a distribution with two peaks</em>
+**Bimodal: ** <em> Characterization of a distribution with two peaks.</em>
   
-**Multimodal: ** <em> Characterization of a distribution with three or more peaks</em>
+**Multimodal: ** <em> Characterization of a distribution with three or more peaks.</em>
   
-**Symmetric: ** <em> Characterization of a distribution with equal tails on both sides of the peak</em>
+**Symmetric: ** <em> Characterization of a distribution with equal tails on both sides of the peak.</em>
   
-**Skewed right: ** <em> Characterization of a distribution with a large tail to the right of the peak</em>
+**Skewed right: ** <em> Characterization of a distribution with a large tail to the right of the peak.</em>
    
-**Skewed left: ** <em> Characterization of a distribution with a large tail to the left of the peak</em>
+**Skewed left: ** <em> Characterization of a distribution with a large tail to the left of the peak.</em>
 </div>
+
 
 ### Measures of Dispersion {#ch3_dispersion}
 
@@ -803,14 +795,15 @@ hist(bimodal , col = histCol,
 
 <div class="definition-container">
 <div class="definition"> &nbsp; </div>
+<<<<<<< HEAD
 
-**Percentile: ** <em> The square root of the variance, denoted $s$ </em>
+**Percentile: ** <em> A value, $V_p$ such that $p$\% of observations are smaller than $V_p$ and $1-p$\% of observations are larger than $V_p$. </em>
 
-**Range: ** <em> The distance between the minimum and maximum values in a dataset </em>
+**Range: ** <em> The distance between the minimum and maximum values in a dataset. </em>
 
-**Interquartile range (IQR): ** <em> The middle 50% of the data, the difference between the upper and lower quartiles</em>
+**Interquartile range (IQR): ** <em> The middle 50% of the data, the difference between the upper and lower quartiles. </em>
 
-**Boxplot/box-and-whisker plot: ** <em> Visualization of continuous data which is based on percentiles </em>
+**Boxplot/box-and-whisker plot: ** <em> Visualization of continuous data which is based on percentiles. </em>
 </div>
 
 
@@ -902,12 +895,14 @@ symmetric distribution of data with the specified mean and standard deviation.
 
 <div class="definition-container">
 <div class="definition"> &nbsp; </div>
+**Variance: ** <em> The average of the squared differences between each data value and the mean, denoted $s^2$. </em>
 
-**Variance: ** <em> The average of the squared differences between each data value and the mean, denoted $s^2$ </em>
+**Standard deviation: ** <em> The square root of the variance, denoted $s$. </em>
 
-**Standard deviation: ** <em> The square root of the variance, denoted $s$ </em>
+**Percentile: ** <em> Summaries providing the location of observations relative to all other observations in the data. </em>
 
 </div>
+
 
 
 ## Advanced Data Visualizations {#ch2_s4}
@@ -1007,13 +1002,10 @@ figures can become increasingly complex as they incorporate more variables, but
 these illustrations can be informative for answering and producing important research
 questions and hypotheses.
 
-
-
 <div class="definition-container">
 <div class="definition"> &nbsp; </div>
 **Scatter plot: ** <em> Visualization of two continuous measures which uses dots 
-  to represent each data pair</em>
-
+  to represent each data pair. </em>
 </div>
 
 

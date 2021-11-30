@@ -360,7 +360,7 @@ at 0.5, which translates to half of the flips resulting in heads.
 <div class="definition-container">
 <div class="definition"> &nbsp;  </div>
 
-**Probability: ** <em> The fraction of times an event occurs when a random process is repeated indefinitely</em>
+**Probability: ** <em> The fraction of times an event occurs when a random process is repeated indefinitely.</em>
 
 </div>
 

@@ -19,16 +19,6 @@ output: html_document
 
 ## Statistics and Evidence-based Research {#ch1_s1}
 
-Dr. Anne Ecdote bases all of her decisions on things she's observed. Dr. Eva Dense 
-bases her practice off of well-researched studies. Dr. Opi Yon bases his practice
-off his personal beliefs. You visit each doctor with a headache. Dr. Ecdote says
-the last person she saw with a headache had a brain tumor, so you should 
-probably get an MRI. Dr. Yon says headaches are a construct of our imagination 
-and that if you would just stop thinking about it, it will go away. Dr. Dense
-recommends a pain reliever that has been studied in several large clinical 
-trials and repeatedly shown to be effective at reducing headaches. Which doctor 
-would you listen to?
-
 There are many definitions of statistics: 
 
 * the science of learning from experiences
@@ -80,7 +70,7 @@ objective manner.
 <div class="definition-container">
 <div class="definition"> &nbsp; </div>
 **Evidence-based practice:** <em> Using sound research findings based on observed 
-  or collected data to make decisions</em>
+  or collected data to make decisions.</em>
 </div>
 
 ## Scientific Method {#ch1_s2}
@@ -154,7 +144,7 @@ might find fertilizer B or C to result in taller plants.
 <div class="definition-container">
 <div class="definition"> &nbsp; </div>
 **Scientific method:** <em> Five steps that can be used to acquire knowledge 
-  without incorporating personal opinion </em>
+  without incorporating personal opinion. </em>
 </div>
 
 
@@ -213,20 +203,20 @@ and/or presenting data and **inferential statistics**.
 
 <div class="definition-container">
 <div class="definition"> &nbsp; </div>
-**Population: ** <em> The group which scientists would like to generalize to </em>
+**Population: ** <em> The group which scientists would like to generalize to. </em>
 
-**Census: ** <em> A study which includes all members of the population </em>
+**Census: ** <em> A study which includes all members of the population. </em>
 
-**Sample: ** <em> A portion of the population which is part of the study </em>
+**Sample: ** <em> A portion of the population which is part of the study. </em>
 
-**Study design: ** <em> The process of obtaining the best sample to answer the research questions </em>
+**Study design: ** <em> The process of obtaining the best sample to answer the research questions. </em>
 
-**Inference: ** <em> The process of making generalizations about the population </em>
+**Inference: ** <em> The process of making generalizations about the population. </em>
 
-**Descriptive statistics: ** <em> Methods for summarizing and/or presenting data </em>
+**Descriptive statistics: ** <em> Methods for summarizing and/or presenting data. </em>
 
 **Inferential statistics: ** <em> Methods for making generalizations about a population
-  using information contained in the sample </em>
+  using information contained in the sample. </em>
 </div>
 
 
