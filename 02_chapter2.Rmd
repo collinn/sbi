@@ -65,17 +65,19 @@ Examples of continuous data include height, weight, and temperature. Categorical
 and continuous data are summarized differently, and we'll explore a number of 
 ways to summarize both types of data.
 
-
+---
 
 <div class="definition-container">
 <div class="definition"> &nbsp; </div>
-**Categorical data: ** <em> Data that takes on a distinct value (i.e., falls into categories). </em>
+<div class="text">
+**Categorical data: ** <em> Data that takes on a distinct value (i.e., falls into categories) </em>
 
-**Nominal data: ** <em> A type of categorical data where the categories do not have any apparent ordering. </em>
+**Nominal data: ** <em> A type of categorical data where the categories do not have any apparent ordering </em>
 
-**Ordinal data: ** <em> A type of categorical data where there is a natural ordering. </em>
+**Ordinal data: ** <em> A type of categorical data where there is a natural ordering </em>
 
-**Continuous data: ** <em> Data that takes on numeric values, often measured on an interval. </em>
+**Continuous data: ** <em> Data that takes on numeric values, often measured on an interval </em>
+</div>
 </div>
 
 
@@ -279,20 +281,22 @@ ggplot(dt, aes(x=Sex, fill=Hair))+
 ```
 
 
-
+---
 
 <div class="definition-container">
 <div class="definition"> &nbsp; </div>
-**Absolute frequency: ** <em> The number of observations in a category. </em>
+<div class="text">
+**Absolute frequency: ** <em> The number of observations in a category </em>
 
-**Rate/Relative frequency: ** <em> The number of observations in a category relative to any other quantity. </em>
+**Rate/Relative frequency: ** <em> The number of observations in a category relative to any other quantity </em>
 
-**Percent/Proportion: ** <em> The number of observations per 100. </em>
+**Percent/Proportion: ** <em> The number of observations per 100 </em>
 
 **Bar plot: ** <em> Visualization of categorical data which uses bars to represent each category, 
-with counts or percents represented by the height of each bar. </em>
+with counts or percents represented by the height of each bar </em>
 
-**Stratification: ** <em> The process of partitioning data into categories prior to summarizing. </em>
+**Stratification: ** <em> The process of partitioning data into categories prior to summarizing </em>
+</div>
 </div>
 
 
@@ -536,28 +540,31 @@ so the median remains closer to the peak where the majority of data lies. When
 the distribution is bimodal, neither the mean or median can summarize the distribution
 well. In that case, it might be better to characterize the center of each peak individually.
 
+---
 
 <div class="definition-container">
 <div class="definition"> &nbsp; </div>
-**Mean: ** <em> The average value, denoted $\bar{x}$ and computed as the sum of the observations divided by the number of obervations. </em>
+<div class="text">
+**Mean: ** <em> The average value, denoted $\bar{x}$ and computed as the sum of the observations divided by the number of obervations </em>
 
-**Median: ** <em> The middle value or 50th percentile, the value such that half the observations lie below it and half above. </em>
+**Median: ** <em> The middle value or 50th percentile, the value such that half the observations lie below it and half above </em>
 
-**Outlier: ** <em> Extreme observations that fall far away from the rest of the data. </em>
+**Outlier: ** <em> Extreme observations that fall far away from the rest of the data </em>
 
-**Robust: ** <em> Measures that are not sensitive to outliers. </em>
+**Robust: ** <em> Measures that are not sensitive to outliers </em>
 
-**Unimodal: ** <em> Characterization of a distribution with one peak.</em>
+**Unimodal: ** <em> Characterization of a distribution with one peak </em>
   
-**Bimodal: ** <em> Characterization of a distribution with two peaks.</em>
+**Bimodal: ** <em> Characterization of a distribution with two peaks </em>
   
-**Multimodal: ** <em> Characterization of a distribution with three or more peaks.</em>
+**Multimodal: ** <em> Characterization of a distribution with three or more peaks </em>
   
-**Symmetric: ** <em> Characterization of a distribution with equal tails on both sides of the peak.</em>
+**Symmetric: ** <em> Characterization of a distribution with equal tails on both sides of the peak </em>
   
-**Skewed right: ** <em> Characterization of a distribution with a large tail to the right of the peak.</em>
+**Skewed right: ** <em> Characterization of a distribution with a large tail to the right of the peak </em>
    
-**Skewed left: ** <em> Characterization of a distribution with a large tail to the left of the peak.</em>
+**Skewed left: ** <em> Characterization of a distribution with a large tail to the left of the peak </em>
+</div>
 </div>
 
 
@@ -594,7 +601,7 @@ Despite the mean values of each of these distributions being the same, we can cl
 Perhaps the most intuitive methods of describing the dispersion of our data are those associated with **percentile**-based summaries. Formally, the $p$th percentile is some value $V_p$ such that
 
 1. $p\%$ of observations are less than or equal to $V_p$
-2. $(100 - p)\%$ of observations are greater than or equal to $V_p$.
+2. $(100 - p)\%$ of observations are greater than or equal to $V_p$
 
 Informally, percentiles quantify where observations fall, relative to all of the other observations in the data. Two of the best known percentiles are the $1^{st}$ and $99^{th}$ percentiles, more commonly referred to as the minimum and maximum values. Together, these two numbers describe the **range** of our data. The next most common value is the $50^{th}$ percentile -- the median -- which we recall describes the value for which half of our observations and greater (or lesser) than. We are also often interested in determining the $25^{th}$ and $75^{th}$ as well, which, respectively, mark the midpoints between the minimum and the median and the median and the maximum. Along with the median, these three percentiles make up the *quartiles* of our data, denoted
 
@@ -655,10 +662,9 @@ larger 50%. In other words, 25% of the data is below $Q_1$, 25% of the data is
 between $Q_1$ and $M$, 25% of the data is between $M$ and $Q_3$, and the 
 remaining 25% of the data is larger than $Q_3$.
 
-A commonly used percentile-based measure of spread combining these measures is the **interquartile range (IQR)**,
-defined as 
+A commonly used percentile-based measure of spread combining these measures is the **interquartile range (IQR)**, defined as 
 
-$$\text{IRQ} = Q_3 - Q_1$$ 
+$$\text{IRQ} = Q_3 - Q_1.$$ 
 
 Because it is the difference between the upper and lower quartile, it represents
 the distance covering the middle 50% of the data. We may also report the range 
@@ -698,9 +704,8 @@ boxplot consist of the following elements:
 - The median, or $Q_2$, represented by the line drawn within the box
 - The "whiskers", extending out of the box, which can be defined in a number of 
   ways. Commonly, the whiskers are 1.5 times the length of the IQR from either 
-  $Q_1$ or $Q_3$.
-- Outliers, presented as small circles or dots, and are values in the data that
-  are not present within the bounds set by either the box or whiskers.
+  $Q_1$ or $Q_3$
+- Outliers, presented as small circles or dots, and are values in the data that are not present within the bounds set by either the box or whiskers
 
 
 ```{r, fig.width=7.5}
@@ -792,18 +797,19 @@ hist(bimodal , col = histCol,
 
 ```
 
+---
 
 <div class="definition-container">
 <div class="definition"> &nbsp; </div>
-<<<<<<< HEAD
+<div class="text">
+**Percentile: ** <em> A value, $V_p$ such that $p$\% of observations are smaller than $V_p$ and $1-p$\% of observations are larger than $V_p$ </em>
 
-**Percentile: ** <em> A value, $V_p$ such that $p$\% of observations are smaller than $V_p$ and $1-p$\% of observations are larger than $V_p$. </em>
+**Range: ** <em> The distance between the minimum and maximum values in a dataset </em>
 
-**Range: ** <em> The distance between the minimum and maximum values in a dataset. </em>
+**Interquartile range (IQR): ** <em> The middle 50% of the data, the difference between the upper and lower quartiles </em>
 
-**Interquartile range (IQR): ** <em> The middle 50% of the data, the difference between the upper and lower quartiles. </em>
-
-**Boxplot/box-and-whisker plot: ** <em> Visualization of continuous data which is based on percentiles. </em>
+**Boxplot/box-and-whisker plot: ** <em> Visualization of continuous data which is based on percentiles </em>
+</div>
 </div>
 
 
@@ -817,7 +823,7 @@ $x_1, x_2, ..., x_n$, the variance, denoted by $s^2$, is calculated as:
 
 
 $$
-s^2 = \frac{1}{n-1} \sum_{i=1}^n (x_i - \bar{x})^2
+s^2 = \frac{1}{n-1} \sum_{i=1}^n (x_i - \bar{x})^2.
 $$
 
 The standard deviation, denoted $s$, is a function of the variance. 
@@ -832,17 +838,18 @@ preferred as a measure of spread over the variance.
 
 Finally, unlike the median and the IQR, which are based the percentiles of the observed data, both the variance and standard deviation are calculated based on the mean. Recall that the mean is *not* a robust outlier and is highly sensitive to skew or the presence of outliers. Consequently, the variance and the standard deviation are also very sensitive. When the data are unimodal and symmetric, choosing between the mean/standard deviation and the median/IQR is largely a matter of preference. However, when the data is skewed or has large outliers, more robust statistics such as the median and IQR are preferred.
 
-<div class="exercise"> Exercises </div>
 <div class="exercise-container">
-
+<div class="exercise"> Exercises </div>
+<div class="text">
 The applet below is designed to help illustrate the properties of the mean and 
 standard deviation. You can vary the mean between -10 and 10 and the standard 
 deviation between 1 and 20. The histogram on the right displays the unimodal and
 symmetric distribution of data with the specified mean and standard deviation.
-
+</div>
 <iframe src="https://ph-ivshiny.iowa.uiowa.edu/ceward/textbook/shinyApps/meanVar/" width = "100%" height = "800"> 
 </iframe>
 
+<div class="text">
 <ol>
 
   <li> Set the standard deviation to 8 and use the slider to vary the mean of the 
@@ -891,18 +898,22 @@ symmetric distribution of data with the specified mean and standard deviation.
   </li>
 </ol>
 </div>
+</div>
+</div>
 
+---
 
 <div class="definition-container">
 <div class="definition"> &nbsp; </div>
-**Variance: ** <em> The average of the squared differences between each data value and the mean, denoted $s^2$. </em>
+<div class="text">
+**Variance: ** <em> The average of the squared differences between each data value and the mean, denoted $s^2$ </em>
 
-**Standard deviation: ** <em> The square root of the variance, denoted $s$. </em>
+**Standard deviation: ** <em> The square root of the variance, denoted $s$ </em>
 
-**Percentile: ** <em> Summaries providing the location of observations relative to all other observations in the data. </em>
+**Percentile: ** <em> Summaries providing the location of observations relative to all other observations in the data </em>
 
 </div>
-
+</div>
 
 
 ## Advanced Data Visualizations {#ch2_s4}
@@ -1002,12 +1013,15 @@ figures can become increasingly complex as they incorporate more variables, but
 these illustrations can be informative for answering and producing important research
 questions and hypotheses.
 
+---
+
 <div class="definition-container">
 <div class="definition"> &nbsp; </div>
+<div class="text">
 **Scatter plot: ** <em> Visualization of two continuous measures which uses dots 
-  to represent each data pair. </em>
+  to represent each data pair </em>
 </div>
-
+</div>
 
 
 

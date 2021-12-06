@@ -147,29 +147,30 @@ you have equal chances of the coin landing on heads or tails, you are just as
 likely to win \$20 as you are to lose \$1. In terms of the expected value, it 
 would be
 
-$$(20 \times 0.5) + (-1 \times 0.5) = 9.5$$
+$$(20 \times 0.5) + (-1 \times 0.5) = 9.5.$$
 
 The expected value tells us that if you were to play this game over and over, 
 you would be expected to win \$9.5 per game. If instead the game was that for 
 heads you won \$1 and for tails you lost \$1, would you still want to play?
 
-
+---
 
 <div class="definition-container">
 <div class="definition"> &nbsp;  </div>
+<div class="text">
 
-**Probability distribution: ** <em> A method for assigning probabilities to all possible events. </em>
+**Probability distribution: ** <em> A method for assigning probabilities to all possible events </em>
 
-**Random variable: ** <em> A numeric variable whose value depends on the outcome of a random process. </em>
+**Random variable: ** <em> A numeric variable whose value depends on the outcome of a random process </em>
 
-**Probability histogram: ** <em> A graphical display of a probability distribution. </em>
+**Probability histogram: ** <em> A graphical display of a probability distribution </em>
 
-**Parameters: ** <em> Values associated with a probability distribution that determine the distributions shape. </em>
+**Parameters: ** <em> Values associated with a probability distribution that determine the distributions shape </em>
 
-**Expected value: ** <em> The weighted average of the outcomes of a random variable, with weights determined by their probability. </em>
+**Expected value: ** <em> The weighted average of the outcomes of a random variable, with weights determined by their probability </em>
 
 </div>
-
+</div>
 
 ## Binomial Distribution
 
@@ -209,22 +210,23 @@ To gain an understanding of how these parameters impact the shape of the distrib
 we will use the following applet.
 
 
-<div class="exercise"> &nbsp;  </div>
 <div class="exercise-container">
+<div class="exercise"> &nbsp;  </div>
+<div class="text">
 
 The applet below is designed to help you get familiar with the parameters of the
 binomial distribution, and how they impact the probability distribution.
 You can change the values of the number of trials $n$, and
 the probability of success $p$, and the app will display the associated distribution
 in a probability histogram.
-
+</div>
 </div>
 
 <iframe src="https://ph-ivshiny.iowa.uiowa.edu/ceward/textbook/shinyApps/binomial/" width = "100%" height = "500"> 
 </iframe>
 
 <div class="exercise-container">
-
+<div class="text">
 Use the applet to answer the following questions:
 
 1. Set $n = 10$, and change the value of $p$ (note: you can press the triangular 
@@ -239,37 +241,39 @@ back to what $n$ represents.
 distribution change? What about the location of the distribution?
 
 </div>
+</div>
 
 
 
 
-
-
-<div class="exercise"> &nbsp; </div>
 <div class="exercise-container">
-
+<div class="exercise"> &nbsp; </div>
+<div class="text">
 The applet below is designed to familiarize you with data generated from the 
 binomial distribution. You can change the values of the number of trials $n$, and
 the probability of success $p$ to specify the parameters of the population 
 distribution. Then, you can take a random sample from the distribution.
 
 </div>
+</div>
 
 <iframe src="https://ph-ivshiny.iowa.uiowa.edu/ceward/textbook/shinyApps/binomialData/" width = "100%" height = "600"> 
 </iframe>
 
+---
 
 <div class="definition-container">
 <div class="definition"> &nbsp;  </div>
-
+<div class="text">
 **Binomial Distribution: ** <em> A probability distribution that characterizes the
   probabilities of observing some number of successes in a fixed number of 
-  trials, each with two possible outcomes and the same probability of success. </em>
+  trials, each with two possible outcomes and the same probability of success </em>
 
 **Discrete Distribution: ** <em> Any probability distribution that depicts the 
-  occurrence of countable values. </em>
+  occurrence of countable values </em>
 </em>
 
+</div>
 </div>
 
 
@@ -363,45 +367,48 @@ text(2, 0.325, cex = 1.15,
 ```
 
 
-<div class="exercise"> &nbsp; </div>
 <div class="exercise-container">
-
+<div class="exercise"> &nbsp; </div>
+<div class="text">
 The applet below is designed to help you get familiar with the parameters of the
 normal distribution, and how they impact the probability distribution.
 You can change the values of the mean $\mu$, and
 the standard deviation $\sigma$, and the app will display the associated distribution
 in a probability histogram.
-
+</div>
 </div>
 
 <iframe src="https://ph-ivshiny.iowa.uiowa.edu/ceward/textbook/shinyApps/normal/" width = "100%" height = "500"> 
 </iframe>
 
-<div class="exercise"> &nbsp; </div>
 <div class="exercise-container">
-
+<div class="exercise"> &nbsp; </div>
+<div class="text">
 The applet below is designed to familiarize you with data generated from the 
 normal distribution. You can change the values of the mean $\mu$, and
 the standard deviation $\sigma$ to specify the parameters of the population 
 distribution. Then, you can take a random sample from the distribution.
 
-
+</div>
 </div>
 
 <iframe src="https://ph-ivshiny.iowa.uiowa.edu/ceward/textbook/shinyApps/normalData/" width = "100%" height = "600"> 
 </iframe>
 
+---
 
 <div class="definition-container">
 <div class="definition"> &nbsp;  </div>
+<div class="text">
 **Normal Distribution: ** <em> A continuous bell-shaped distribution with
-two parameters that are the mean value, $\mu$, with a variance $\sigma^2$.  </em>
+two parameters that are the mean value, $\mu$, with a variance $\sigma^2$  </em>
 
 **Continuous Distribution: ** <em> Any probability distribution that depicts the 
-  occurrence of a random variable that can take an infinite set of possible values. </em>
+  occurrence of a random variable that can take an infinite set of possible values </em>
 
-**Standard Normal Distribution: ** <em> A special case of the normal distribution, $Z \sim N(0, 1)$. </em>
+**Standard Normal Distribution: ** <em> A special case of the normal distribution, $Z \sim N(0, 1)$ </em>
 
+</div>
 </div>
 
 

@@ -47,10 +47,11 @@ possible ways to roll the two die:
 
 <div class="exercise-container">
 <div class="exercise"> &nbsp; </div>
+<div class="text">
 
 There are 11 possible sum totals you can achieve when rolling two six-sided dies,
 {2, 3, 4, ..., 11, 12}. In this game, you win if your roll adds up to 7.
-
+</div>
 1.	Out of the 36 possible rolls listed above, how many rolls result in a win? What does this tell you about the chance of winning the game?
 
 2.	Using the applet, play the game 30 times and fill out the table below with whether you won and rolled a 7 (W) or lost and rolled any other total (L).
@@ -174,23 +175,24 @@ it has two important implications:we were able to exactly specify the simulation
 parameters, and we are able to repeat *this exact same experiment* knowing all 
 conditions will remain exactly the same.
 
+---
 
 <div class="definition-container">
 <div class="definition"> &nbsp;  </div>
+<div class="text">
+**Random Process: ** <em> An act or process that results in an outcome that cannot be predicted with certainty </em>
 
-**Random Process: ** <em> An act or process that results in an outcome that cannot be predicted with certainty. </em>
+**Deterministic Process: ** <em> An act or process that results in an outcome that is not random </em>
 
-**Deterministic Process: ** <em> An act or process that results in an outcome that is not random. </em>
+**Sample Space: ** <em> The set of all possible outcomes from a random process </em>
 
-**Sample Space: ** <em> The set of all possible outcomes from a random process. </em>
+**Event: ** <em> An outcome or collection of outcomes from a random process </em>
 
-**Event: ** <em> An outcome or collection of outcomes from a random process. </em>
+**Simulation: ** <em> A tool to replicate random processes an arbitrary number of times </em>
 
-**Simulation: ** <em> A tool to replicate random processes an arbitrary number of times. </em>
-
-**Simulation Parameters: ** <em> Values which change the behavior of the simulation. </em>
+**Simulation Parameters: ** <em> Values which change the behavior of the simulation </em>
 </div>
-
+</div>
 
 
 ## Probability {#ch4_s2}
@@ -243,14 +245,14 @@ cover in this chapter, although we don't always think about them explicitly.
 
 <div class="exercise-container">
 <div class="exercise"> &nbsp; </div>
-
+<div class="text">
 
 We will now investigate the long-run frequency definition of probability using
 an applet which simulates coin flipping. Internally, the simulation parameters
 specify that each coin flip has a 50\% chance of heads. As a user, you are able
 to determine how many coin flips you would like to perform. The simulation 
 results are summarized in three figures:
-
+</div>
 1. (Top right) the flip results are shown with a blue "T" indicating the flip 
 resulted in tails and a pink "H" indicating the flip resulted in heads.
 
@@ -356,14 +358,15 @@ at 0.5, which translates to half of the flips resulting in heads.
 
 </div>
 
+---
 
 <div class="definition-container">
 <div class="definition"> &nbsp;  </div>
-
-**Probability: ** <em> The fraction of times an event occurs when a random process is repeated indefinitely.</em>
+<div class="text">
+**Probability: ** <em> The fraction of times an event occurs when a random process is repeated indefinitely</em>
 
 </div>
-
+</div>
 
 ## Methods for Computing Probabilities {#ch4_s3}
 
@@ -456,8 +459,6 @@ a result closer and closer to the true answer.
 
 </ol>
 
-
-
 <div class="exercise-container">
 <div class="exercise"> &nbsp; </div>
 
@@ -466,22 +467,23 @@ a result closer and closer to the true answer.
 
 </div>
 
+---
 
 <div class="definition-container">
 <div class="definition"> &nbsp;  </div>
-
+<div class="text">
 **Enumeration method: ** <em> A method to exactly compute probabilities by dividing 
-  the number of ways an event can occur by the total number of possible outcomes. </em>
+  the number of ways an event can occur by the total number of possible outcomes </em>
 
 **Probability function method: ** <em> A method to exactly compute probabilities
-  by using a known function. </em>
+  by using a known function </em>
 
 **Simulation method: ** <em> A method to approximately compute probabilities by
   repeatedly simulating experiments and taking the proportion of simulations where
-  the event occurs.</em>
+  the event occurs </em>
 
 </div>
-
+</div>
 
 
 

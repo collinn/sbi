@@ -101,9 +101,9 @@ This is quite appealing. Lets explore this concept further by using the followin
 
 <div class="exercise-container">
 <div class="exercise"> &nbsp; </div>
-
+<div class="text">
 The applet below is designed to help you get familiar with some of the important concepts related to confidence intervals. The inputs to the simulation are the sample size, number of experiments, and the confidence level. The simulation proceeds by taking a sample of the specified size and constructing a confidence interval based on that sample with the specified level of confidence. This process is one experiment. Each sample is drawn from the same population. For a specified number of experiments, the sampling and confidence interval construction is repeated either 10, 50, 100, or 1000 times. The plot shows all the confidence intervals constructed from each experiment - the number of intervals shown is equal to the "Number of Experiments." The true population parameter in this case is 0 (only for simplicity). Intervals are shaded in blue if they cover the true population parameter and red if they do not contain the true parameter. The applet also reports the "observed coverage" from all experiments, this is the proportion of all the intervals shown that did contain the truth. Clicking "Run Simulation" will redo the specified number of experiments using the inputs provided.
-
+</div>
 </div>
 
 <!-- frameBorder="0" -->
@@ -152,19 +152,20 @@ The applet below is designed to help you get familiar with some of the important
 </ol>
 </div>
 
-
+---
 
 <div class="definition-container">
 <div class="definition"> &nbsp; </div>
-**Point Estimation: ** <em> Using a single numeric quantity to estimate a population parameter. </em>
+<div class="text">
+**Point Estimation: ** <em> Using a single numeric quantity to estimate a population parameter </em>
 
-**Interval Estimation: ** <em> Using a range of numeric values to estimate a population parameter. </em>
+**Interval Estimation: ** <em> Using a range of numeric values to estimate a population parameter </em>
 
-**Coverage Probability: ** <em> The probability that a constructed confidence interval contains the true population parameter. </em>
+**Coverage Probability: ** <em> The probability that a constructed confidence interval contains the true population parameter </em>
 
-**Confidence Interval: ** <em> An interval estimate which contains the true population parameter according to a 
-  specified confidence level. </em>
+**Confidence Interval: ** <em> An interval estimate which contains the true population parameter according to a specified confidence level </em>
 
+</div>
 </div>
 
 ## Hypothesis Tests { #ch8_s3}
@@ -215,7 +216,7 @@ rownames(toOutput) <- c('Fail to reject $H_0$', 'Reject $H_0$')
 kbl(toOutput) %>%
   kable_paper(full_width = F) %>%
   column_spec(2, width = "4em") %>%
-  column_spec(3, width = "6em")
+  column_spec(3, width = "6em")|> kable_styling(full_width=FALSE)
 ```
 
 In the upper-left and bottom-right cells of the table we are making the correct decision based on our test. When the null hypothesis is true, failing to reject $H_0$ is the correct decision and when the null hypothesis is false, rejecting $H_0$ is the correct decision. However, the other two cells correspond to a mistake being made. Because statisticians are not creative, these mistakes are referred to as **type 1 error** and **type 2 error**. A type 1 error is equivalent to a false alarm or a false positive - the null hypothesis was rejected, when in fact it was true. A type 2 error can be thought of as a missed opportunity or a false negative - the null hypothesis was false, but it was not rejected. Typically, the type 1 error rate is symbolically denoted with $\alpha$ and the type 2 error rate is denoted by $\beta$ (again the statisticians of the past were not creative).
@@ -226,14 +227,14 @@ If we were looking to create a good hypothesis test, we would want to minimize t
 
 <div class="exercise-container">
 <div class="exercise"> &nbsp; </div>
-
+<div class="text">
 In this experiment, we are looking to determine if a coin is fair, i.e. whether or not the probability of heads is 50%. A type 1 error in this context would be concluding that the coin is not fair, when it actually is. A type 2 error in this context would be concluding that the coin is fair when it is actually not. Each experiment consists of flipping a coin 20 times and observing the proportion of the 20 flips that result in heads. If the coin is fair, we would expect around 10 of the 20 flip to result in heads. However, if we observed 11 or 12 heads in one experiment, would you be convinced the coin isn't fair? What about if you observed 19/20 of the flips resulting in heads?
 
 This applet allows the user to specify the "Rejection Threshold" to determine the cutoff where the app will reject the null hypothesis. This is specified in terms of how far off the proportion of heads in the experiment is from 50%. Since we have no way to determine if the coin is more prone to heads or tails, we consider this distance in both directions. If the observed proportion of the 20 flips that result in heads is beyond the specified threshold, the null hypothesis will be rejected. For example, if you choose a threshold of 10%, then any experiment where there are 60% (12/20) or more flips resulting in heads *or* 40% (8/20) or less flips resulting in heads, then the null hypothesis is rejected and the coin is determined to not be fair. 
 
 The simulation involves replicating the 20 flip experiment 10,000 times. For each experiment, a coin is flipped 20 times and the proportion of heads is calculated. If that proportion exceeds the specified threshold it is counted as "Reject." If the proportion does not exceed the threshold, that experiment is considered a "Fail to Reject." The barchart shows the proportion of 10,000 experiments in which the null hypothesis was and was not rejected. Note: Since we are replicating the experiment 10,000 times, we don't expect the results to change much if the simulation is re-ran. However, you may see small changes in the proportion of rejects/fail to rejects for the same input values. 
 
-
+</div>
 </div>
 
 <!-- frameBorder="0" -->
@@ -276,21 +277,25 @@ The simulation involves replicating the 20 flip experiment 10,000 times. For eac
 </ol>
 </div>
 
+---
+
 <div class="definition-container">
 <div class="definition"> &nbsp; </div>
+<div class="text">
 **Hypothesis test: ** <em> A decision making technique which assesses the plausibility
-  of two competing hypotheses.</em>
+  of two competing hypotheses </em>
 
-**Statistical hypothesis: ** <em> A statement about the value of an unknown parameter. </em>
+**Statistical hypothesis: ** <em> A statement about the value of an unknown parameter </em>
 
-**Null hypothesis: ** <em> The assumed state of truth prior to running the experiment. Denoted $H_0$. </em>
+**Null hypothesis: ** <em> The assumed state of truth prior to running the experiment, denoted $H_0$ </em>
 
-**Alternative hypothesis: ** <em> Range of values for the parameter we might believe are true. Denoted $H_A$. </em>
+**Alternative hypothesis: ** <em> Range of values for the parameter we might believe are true,  denoted $H_A$ </em>
 
-**Type I error: ** <em> Rejecting a true null hypothesis. False positive. </em>
+**Type I error: ** <em> Rejecting a true null hypothesis, i.e., false positive </em>
 
-**Type II error: ** <em> Failing to reject a false null hypothesis. False negative. </em>
+**Type II error: ** <em> Failing to reject a false null hypothesis i.e., false negative </em>
 
+</div>
 </div>
 
 ## P-values { #ch8_s4}
@@ -303,7 +308,7 @@ If we are thinking about hypothesis testing as a court case, p-values are the wa
 p <- c('0.1', '0.05', '0.025', '0.01', '0.001')
 strength <- c('Borderline', 'Moderate', 'Substantial', 'Strong', 'Overwhelming')
 toPrint <- cbind.data.frame('p-value'=p, 'Evidence against null' = strength)
-knitr::kable(toPrint)
+knitr::kable(toPrint) |> kable_styling(full_width=FALSE)
 ```
 
 Often, the term "**statistically significant**" is used to describe p-values below 0.05, possibly with a descriptive modifier.
@@ -319,17 +324,19 @@ A fundamental property of p-values is that if we use $p < \alpha$ as cutoff for 
 
 While p-values are widely used, have a distinct purpose, and can be informative they also have a number of limitations. 
 
-
+---
 
 <div class="definition-container">
 <div class="definition"> &nbsp; </div>
+<div class="text">
 **p-value: ** <em> The probability of observing data as extreme or more extreme than 
-  what was observed in the sample, given the null hypothesis is true.</em>
+  what was observed in the sample, given the null hypothesis is true</em>
 
-**Statistically significant: ** <em> When the p-value is $<$ 0.05. Not necessarily related to clinical significance.</em>
+**Statistically significant: ** <em> When the p-value is $<$ 0.05. Not necessarily related to clinical significance</em>
 
-**Significance level: ** <em> The p-value cutoff used to determine if the null hypothesis is rejected. 
-  Denoted $\alpha$ and often considered to be 0.01, 0.05, or 0.1. </em>
+**Significance level: ** <em> The p-value cutoff used to determine if the null hypothesis is rejected 
+  Denoted $\alpha$ and often considered to be 0.01, 0.05, or 0.1 </em>
+</div>
 </div>
 
 

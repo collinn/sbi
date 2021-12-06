@@ -84,13 +84,16 @@ of bias broadly by when they occur: pre-trial, during trial, and
 post-trial, although all types of bias should be considered when planning 
 a study.
 
+---
 
 <div class="definition-container">
 <div class="definition"> &nbsp; </div>
-**Study design: ** <em> The process of obtaining the best sample to answer the research questions. </em>
+<div class="text">
+**Study design: ** <em> The process of obtaining the best sample to answer the research questions </em>
 
 **Scientific/Research Bias: ** <em> Any process or technique whereby the actual outcome is
-  systematically different from the true value it is intended to estimate. </em>
+  systematically different from the true value it is intended to estimate </em>
+</div>
 </div>
 
 
@@ -187,26 +190,28 @@ or saline infection).
 
 <!-- Blinding is used to address or control for the placebo effect. -->
 
+---
 
 <div class="definition-container">
 <div class="definition"> &nbsp; </div>
-**Selection Bias: ** <em> A type of bias in which subgroups of the population were more likely to be included than others. </em>
+<div class="text">
+**Selection Bias: ** <em> A type of bias in which subgroups of the population were more likely to be included than others.</em>
 
 **Non-response/participant Bias: ** <em> A type of bias in which non-participants differ in a 
-  meaningful way from the participants.</em>
+  meaningful way from the participants </em>
 
-**Treatment group: ** <em> The part of the sample that receives the treatment. </em>
+**Treatment group: ** <em> The part of the sample that receives the treatment </em>
 
-**Control Group: ** <em> The part of the sample that is not treated for comparison purposes. </em>
+**Control Group: ** <em> The part of the sample that is not treated for comparison purposes </em>
   
-**Confirmation Bias: ** <em> Bias due to an individuals prior beliefs.</em>
+**Confirmation Bias: ** <em> Bias due to an individuals prior beliefs </em>
 
-**Placebo Effect: ** <em> A psychological phenomenon where an inactive treatment can produce a positive response. </em>
+**Placebo Effect: ** <em> A psychological phenomenon where an inactive treatment can produce a positive response </em>
 
 <!-- **Observer Bias: ** <em> Bias arising when observers record subjective data. </em> -->
 
 </div>
-
+</div>
 
 ### During-trial Bias {#ch3_s3}
 
@@ -262,12 +267,15 @@ Researchers often have expectations about how effective their treatment is
 responsible for recording subjective assessments of the study participants, there
 is the potential for their beliefs about the treatment to influence either they perceive a subject's progress during follow-up.
 
+---
 
 <div class="definition-container">
 <div class="definition"> &nbsp; </div>
-**Confounding: ** <em> A third variable related to both exposure and outcome.  </em>
+<div class="text">
+**Confounding: ** <em> A third variable related to both exposure and outcome  </em>
   
-**Observer Bias: ** <em> Bias arising when observers record subjective data. </em>
+**Observer Bias: ** <em> Bias arising when observers record subjective data </em>
+</div>
 </div>
 
 
@@ -405,13 +413,13 @@ children.
 
 <div class="definition-container">
 <div class="definition"> &nbsp; </div>
-  
+<div class="text">
 **Compliance Bias: ** <em> Bias arising when those complying to study protocol differ from
-  those that do not comply.</em>  
+  those that do not comply </em>  
   
 **Intent-to-treat (ITT) analysis: ** <em> A method of analysis which includes all participants
-  as they were randomized despite adherence.</em>  
+  as they were randomized despite adherence </em>  
 
 </div>
-
+</div>
 

@@ -56,6 +56,70 @@
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
 
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
 
 
 <link rel="stylesheet" href="style.css" type="text/css" />
@@ -73,7 +137,7 @@
 <ul class="summary">
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a>
 <ul>
-<li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#acknowledgements"><i class="fa fa-check"></i><b>0.1</b> Acknowledgements</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#acknowledgements"><i class="fa fa-check"></i>Acknowledgements</a></li>
 </ul></li>
 <li class="chapter" data-level="1" data-path="ch1.html"><a href="ch1.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
 <ul>
@@ -204,14 +268,17 @@ data that can take on any numeric value on some interval or on a continuum.
 Examples of continuous data include height, weight, and temperature. Categorical
 and continuous data are summarized differently, and we’ll explore a number of
 ways to summarize both types of data.</p>
+<hr />
 <div class="definition-container">
 <div class="definition">
-<span id="def:unlabeled-div-1" class="definition"><strong>Definition 2.1  </strong></span> 
+<span id="def:unlabeled-div-4" class="definition"><strong>Definition 2.1  </strong></span> 
 </div>
-<p><strong>Categorical data: </strong> <em> Data that takes on a distinct value (i.e., falls into categories). </em></p>
-<p><strong>Nominal data: </strong> <em> A type of categorical data where the categories do not have any apparent ordering. </em></p>
-<p><strong>Ordinal data: </strong> <em> A type of categorical data where there is a natural ordering. </em></p>
-<p><strong>Continuous data: </strong> <em> Data that takes on numeric values, often measured on an interval. </em></p>
+<div class="text">
+<p><strong>Categorical data: </strong> <em> Data that takes on a distinct value (i.e., falls into categories) </em></p>
+<p><strong>Nominal data: </strong> <em> A type of categorical data where the categories do not have any apparent ordering </em></p>
+<p><strong>Ordinal data: </strong> <em> A type of categorical data where there is a natural ordering </em></p>
+<p><strong>Continuous data: </strong> <em> Data that takes on numeric values, often measured on an interval </em></p>
+</div>
 </div>
 </div>
 <div id="ch2_s2" class="section level2" number="2.2">
@@ -493,7 +560,7 @@ had blond hair compared to red.</p>
 <p>In addition to tables, we can also summarize categorical data visually. The most
 common figure used to represent categorical data is the <strong>bar plot</strong>. Below is a
 demonstration of a bar plot for the percentages of hair color in our data.</p>
-<p><img src="introTextbookTemplate_files/figure-html/unnamed-chunk-5-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="introTextbookTemplate_files/figure-html/unnamed-chunk-7-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
 <div id="ch2_s2_ss2" class="section level3" number="2.2.2">
 <h3><span class="header-section-number">2.2.2</span> Advanced Categorical Summaries</h3>
@@ -599,7 +666,7 @@ ways we could compute percents.</p>
 </ul>
 <table class=" lightable-classic" style="font-family: &quot;Arial Narrow&quot;, &quot;Source Sans Pro&quot;, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;">
 <caption>
-<span id="tab:unnamed-chunk-7">Table 2.1: </span>Relative to population
+<span id="tab:unnamed-chunk-9">Table 2.1: </span>Relative to population
 </caption>
 <thead>
 <tr>
@@ -668,7 +735,7 @@ hair, representing 9.5% of the sample. Adding up all of the percentages gives us
 </ul>
 <table class=" lightable-classic" style="font-family: &quot;Arial Narrow&quot;, &quot;Source Sans Pro&quot;, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;">
 <caption>
-<span id="tab:unnamed-chunk-8">Table 2.2: </span>Proportion of hair color, by sex
+<span id="tab:unnamed-chunk-10">Table 2.2: </span>Proportion of hair color, by sex
 </caption>
 <thead>
 <tr>
@@ -746,7 +813,7 @@ Total
 </ul>
 <table class=" lightable-classic" style="font-family: &quot;Arial Narrow&quot;, &quot;Source Sans Pro&quot;, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;">
 <caption>
-<span id="tab:unnamed-chunk-9">Table 2.3: </span>Proportion of sex, by hair color
+<span id="tab:unnamed-chunk-11">Table 2.3: </span>Proportion of sex, by hair color
 </caption>
 <thead>
 <tr>
@@ -831,17 +898,20 @@ table, we now have percentages that add up to 100% in each <em>row</em>.</p>
 way to calculate percentages for tables like this, it will depend on the
 research question and the data at hand. We can also use stratification graphically,
 by creating multiple bar plots for each category of the stratification variable.</p>
-<p><img src="introTextbookTemplate_files/figure-html/unnamed-chunk-10-1.png" width="960" style="display: block; margin: auto;" /><img src="introTextbookTemplate_files/figure-html/unnamed-chunk-10-2.png" width="960" style="display: block; margin: auto;" /></p>
+<p><img src="introTextbookTemplate_files/figure-html/unnamed-chunk-12-1.png" width="960" style="display: block; margin: auto;" /><img src="introTextbookTemplate_files/figure-html/unnamed-chunk-12-2.png" width="960" style="display: block; margin: auto;" /></p>
+<hr />
 <div class="definition-container">
 <div class="definition">
-<span id="def:unlabeled-div-2" class="definition"><strong>Definition 2.2  </strong></span> 
+<span id="def:unlabeled-div-5" class="definition"><strong>Definition 2.2  </strong></span> 
 </div>
-<p><strong>Absolute frequency: </strong> <em> The number of observations in a category. </em></p>
-<p><strong>Rate/Relative frequency: </strong> <em> The number of observations in a category relative to any other quantity. </em></p>
-<p><strong>Percent/Proportion: </strong> <em> The number of observations per 100. </em></p>
+<div class="text">
+<p><strong>Absolute frequency: </strong> <em> The number of observations in a category </em></p>
+<p><strong>Rate/Relative frequency: </strong> <em> The number of observations in a category relative to any other quantity </em></p>
+<p><strong>Percent/Proportion: </strong> <em> The number of observations per 100 </em></p>
 <p><strong>Bar plot: </strong> <em> Visualization of categorical data which uses bars to represent each category,
-with counts or percents represented by the height of each bar. </em></p>
-<p><strong>Stratification: </strong> <em> The process of partitioning data into categories prior to summarizing. </em></p>
+with counts or percents represented by the height of each bar </em></p>
+<p><strong>Stratification: </strong> <em> The process of partitioning data into categories prior to summarizing </em></p>
+</div>
 </div>
 </div>
 </div>
@@ -1055,7 +1125,7 @@ the data can be categorized and counted. With continuous data, however, there ar
 creating <em>bins</em> which partition an interval of possible values and then counting the
 number of observations that fall into each bin. For example, when considering a range of temperature values from 50°F - 100°F, we might construct bins at intervals of 5°F. Plotting the absolute or relative
 frequency of observations in each bin gives us a <strong>histogram</strong>. Below is an example of a histogram representing the maximum daily temperatures from our New York data:</p>
-<p><img src="introTextbookTemplate_files/figure-html/unnamed-chunk-12-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="introTextbookTemplate_files/figure-html/unnamed-chunk-14-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>In the histogram of temperature, we can readily see that on most days between May and
 September, the maximum temperature at La Guardia was between 75°F - 85°F. Some
 days were particularly chilly, with temperatures below 60°F and some days
@@ -1142,13 +1212,13 @@ it is the average of the middle two.</p>
 <p>For the New York temperature data, the mean is 77.9°F and
 the median is 79°F. These values are very similar to
 each other, and both fall near the peak in the histogram.</p>
-<p><img src="introTextbookTemplate_files/figure-html/unnamed-chunk-13-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="introTextbookTemplate_files/figure-html/unnamed-chunk-15-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>However, it is not always the case that the mean and median will be similar. Let’s
 consider an example in Table 2.4 where we collect <span class="math inline">\(n = 10\)</span> samples of salaries for University
 of Iowa employees:</p>
 <table class="table" style="width: auto !important; float: right; margin-left: 10px;">
 <caption>
-<span id="tab:unnamed-chunk-14">Table 2.4: </span>University of Iowa Salaries
+<span id="tab:unnamed-chunk-16">Table 2.4: </span>University of Iowa Salaries
 </caption>
 <tbody>
 <tr>
@@ -1208,8 +1278,8 @@ Measures that are less sensitive to outliers are called <strong>robust</strong> 
 where they are wildly different. This begs the broader question – when might we
 expect these measures of central tendency to be the same, and when might we expect
 them to differ? Here, we consider a collection of histograms showing us different “shapes” that the distributions of our data may take.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-15"></span>
-<img src="introTextbookTemplate_files/figure-html/unnamed-chunk-15-1.png" alt="Examples of modality and skew" width="672" />
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-17"></span>
+<img src="introTextbookTemplate_files/figure-html/unnamed-chunk-17-1.png" alt="Examples of modality and skew" width="672" />
 <p class="caption">
 Figure 2.1: Examples of modality and skew
 </p>
@@ -1222,20 +1292,23 @@ On the other hand, the number of very large/small observations is relatively sma
 so the median remains closer to the peak where the majority of data lies. When
 the distribution is bimodal, neither the mean or median can summarize the distribution
 well. In that case, it might be better to characterize the center of each peak individually.</p>
+<hr />
 <div class="definition-container">
 <div class="definition">
-<span id="def:unlabeled-div-3" class="definition"><strong>Definition 2.3  </strong></span> 
+<span id="def:unlabeled-div-6" class="definition"><strong>Definition 2.3  </strong></span> 
 </div>
-<p><strong>Mean: </strong> <em> The average value, denoted <span class="math inline">\(\bar{x}\)</span> and computed as the sum of the observations divided by the number of obervations. </em></p>
-<p><strong>Median: </strong> <em> The middle value or 50th percentile, the value such that half the observations lie below it and half above. </em></p>
-<p><strong>Outlier: </strong> <em> Extreme observations that fall far away from the rest of the data. </em></p>
-<p><strong>Robust: </strong> <em> Measures that are not sensitive to outliers. </em></p>
-<p><strong>Unimodal: </strong> <em> Characterization of a distribution with one peak.</em></p>
-<p><strong>Bimodal: </strong> <em> Characterization of a distribution with two peaks.</em></p>
-<p><strong>Multimodal: </strong> <em> Characterization of a distribution with three or more peaks.</em></p>
-<p><strong>Symmetric: </strong> <em> Characterization of a distribution with equal tails on both sides of the peak.</em></p>
-<p><strong>Skewed right: </strong> <em> Characterization of a distribution with a large tail to the right of the peak.</em></p>
-<p><strong>Skewed left: </strong> <em> Characterization of a distribution with a large tail to the left of the peak.</em></p>
+<div class="text">
+<p><strong>Mean: </strong> <em> The average value, denoted <span class="math inline">\(\bar{x}\)</span> and computed as the sum of the observations divided by the number of obervations </em></p>
+<p><strong>Median: </strong> <em> The middle value or 50th percentile, the value such that half the observations lie below it and half above </em></p>
+<p><strong>Outlier: </strong> <em> Extreme observations that fall far away from the rest of the data </em></p>
+<p><strong>Robust: </strong> <em> Measures that are not sensitive to outliers </em></p>
+<p><strong>Unimodal: </strong> <em> Characterization of a distribution with one peak </em></p>
+<p><strong>Bimodal: </strong> <em> Characterization of a distribution with two peaks </em></p>
+<p><strong>Multimodal: </strong> <em> Characterization of a distribution with three or more peaks </em></p>
+<p><strong>Symmetric: </strong> <em> Characterization of a distribution with equal tails on both sides of the peak </em></p>
+<p><strong>Skewed right: </strong> <em> Characterization of a distribution with a large tail to the right of the peak </em></p>
+<p><strong>Skewed left: </strong> <em> Characterization of a distribution with a large tail to the left of the peak </em></p>
+</div>
 </div>
 </div>
 <div id="ch3_dispersion" class="section level3" number="2.3.2">
@@ -1245,14 +1318,14 @@ in the <em>spread</em> or <em>dispersion</em> of the data. Two distributions cou
 same mean or median without necessarily having the same shape.
 For example, consider the two distributions of data shown below. Each distribution
 represents a sample of 1,000 observations with mean of 100.</p>
-<p><img src="introTextbookTemplate_files/figure-html/unnamed-chunk-16-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="introTextbookTemplate_files/figure-html/unnamed-chunk-18-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>Despite the mean values of each of these distributions being the same, we can clearly see that they are different. On the left, we see that nearly the entire range of the observed data falls between 50 and 150. For the distribution on the right, the data is much more spread out, taking on values near 0 and 200. In order to accurately capture these differences, we need a second numerical summary describing the degree to which the data is spread about its center. Here, we consider two broad categories – those based on percentiles and those based on the variance.</p>
 <div id="percentiles-and-iqr" class="section level4" number="2.3.2.1">
 <h4><span class="header-section-number">2.3.2.1</span> Percentiles and IQR</h4>
 <p>Perhaps the most intuitive methods of describing the dispersion of our data are those associated with <strong>percentile</strong>-based summaries. Formally, the <span class="math inline">\(p\)</span>th percentile is some value <span class="math inline">\(V_p\)</span> such that</p>
 <ol style="list-style-type: decimal">
 <li><span class="math inline">\(p\%\)</span> of observations are less than or equal to <span class="math inline">\(V_p\)</span></li>
-<li><span class="math inline">\((100 - p)\%\)</span> of observations are greater than or equal to <span class="math inline">\(V_p\)</span>.</li>
+<li><span class="math inline">\((100 - p)\%\)</span> of observations are greater than or equal to <span class="math inline">\(V_p\)</span></li>
 </ol>
 <p>Informally, percentiles quantify where observations fall, relative to all of the other observations in the data. Two of the best known percentiles are the <span class="math inline">\(1^{st}\)</span> and <span class="math inline">\(99^{th}\)</span> percentiles, more commonly referred to as the minimum and maximum values. Together, these two numbers describe the <strong>range</strong> of our data. The next most common value is the <span class="math inline">\(50^{th}\)</span> percentile – the median – which we recall describes the value for which half of our observations and greater (or lesser) than. We are also often interested in determining the <span class="math inline">\(25^{th}\)</span> and <span class="math inline">\(75^{th}\)</span> as well, which, respectively, mark the midpoints between the minimum and the median and the median and the maximum. Along with the median, these three percentiles make up the <em>quartiles</em> of our data, denoted</p>
 <!-- The variance and standard deviation measure the spread of the data around the mean. -->
@@ -1301,14 +1374,13 @@ smaller 50% of all observations, while <span class="math inline">\(Q_3\)</span> 
 larger 50%. In other words, 25% of the data is below <span class="math inline">\(Q_1\)</span>, 25% of the data is
 between <span class="math inline">\(Q_1\)</span> and <span class="math inline">\(M\)</span>, 25% of the data is between <span class="math inline">\(M\)</span> and <span class="math inline">\(Q_3\)</span>, and the
 remaining 25% of the data is larger than <span class="math inline">\(Q_3\)</span>.</p>
-<p>A commonly used percentile-based measure of spread combining these measures is the <strong>interquartile range (IQR)</strong>,
-defined as</p>
-<p><span class="math display">\[\text{IRQ} = Q_3 - Q_1\]</span></p>
+<p>A commonly used percentile-based measure of spread combining these measures is the <strong>interquartile range (IQR)</strong>, defined as</p>
+<p><span class="math display">\[\text{IRQ} = Q_3 - Q_1.\]</span></p>
 <p>Because it is the difference between the upper and lower quartile, it represents
 the distance covering the middle 50% of the data. We may also report the range
 as an interval as <span class="math inline">\((Q_1, Q_3)\)</span>. For the New York temperature data, <span class="math inline">\(Q_1 = 72\)</span>, <span class="math inline">\(Q_3 = 85\)</span>. The IQR is therefore <span class="math inline">\(85 - 72 = 13\)</span> and tells us that 50% of the days
 between May and September had temperatures between 72°F and 85°F.</p>
-<p><img src="introTextbookTemplate_files/figure-html/unnamed-chunk-17-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="introTextbookTemplate_files/figure-html/unnamed-chunk-19-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>The IQR is not impacted by the presence of outliers, so it is considered a robust
 measure of the spread of the data. So, like the median, it enjoys the quality of being a robust measure of the data.</p>
 <!-- [[This paragraph was moved to the var/sd section]] -->
@@ -1327,25 +1399,26 @@ boxplot consist of the following elements:</p>
 <li>The median, or <span class="math inline">\(Q_2\)</span>, represented by the line drawn within the box</li>
 <li>The “whiskers,” extending out of the box, which can be defined in a number of
 ways. Commonly, the whiskers are 1.5 times the length of the IQR from either
-<span class="math inline">\(Q_1\)</span> or <span class="math inline">\(Q_3\)</span>.</li>
-<li>Outliers, presented as small circles or dots, and are values in the data that
-are not present within the bounds set by either the box or whiskers.</li>
+<span class="math inline">\(Q_1\)</span> or <span class="math inline">\(Q_3\)</span></li>
+<li>Outliers, presented as small circles or dots, and are values in the data that are not present within the bounds set by either the box or whiskers</li>
 </ul>
-<p><img src="introTextbookTemplate_files/figure-html/unnamed-chunk-18-1.png" width="720" style="display: block; margin: auto;" /></p>
+<p><img src="introTextbookTemplate_files/figure-html/unnamed-chunk-20-1.png" width="720" style="display: block; margin: auto;" /></p>
 <p>Just like histograms, boxplots can also illustrate the skew of a data. In a
 histogram, the skewed was named after the location of the tail and in a boxplot,
 this corresponds to the side with a longer whisker. Here we can see histograms
 and boxplots for various distributions of data.</p>
-<p><img src="introTextbookTemplate_files/figure-html/unnamed-chunk-19-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="introTextbookTemplate_files/figure-html/unnamed-chunk-21-1.png" width="672" style="display: block; margin: auto;" /></p>
+<hr />
 <div class="definition-container">
 <div class="definition">
-<span id="def:unlabeled-div-4" class="definition"><strong>Definition 2.4  </strong></span> 
+<span id="def:unlabeled-div-7" class="definition"><strong>Definition 2.4  </strong></span> 
 </div>
-<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</p>
-<p><strong>Percentile: </strong> <em> A value, <span class="math inline">\(V_p\)</span> such that <span class="math inline">\(p\)</span>% of observations are smaller than <span class="math inline">\(V_p\)</span> and <span class="math inline">\(1-p\)</span>% of observations are larger than <span class="math inline">\(V_p\)</span>. </em></p>
-<p><strong>Range: </strong> <em> The distance between the minimum and maximum values in a dataset. </em></p>
-<p><strong>Interquartile range (IQR): </strong> <em> The middle 50% of the data, the difference between the upper and lower quartiles. </em></p>
-<p><strong>Boxplot/box-and-whisker plot: </strong> <em> Visualization of continuous data which is based on percentiles. </em></p>
+<div class="text">
+<p><strong>Percentile: </strong> <em> A value, <span class="math inline">\(V_p\)</span> such that <span class="math inline">\(p\)</span>% of observations are smaller than <span class="math inline">\(V_p\)</span> and <span class="math inline">\(1-p\)</span>% of observations are larger than <span class="math inline">\(V_p\)</span> </em></p>
+<p><strong>Range: </strong> <em> The distance between the minimum and maximum values in a dataset </em></p>
+<p><strong>Interquartile range (IQR): </strong> <em> The middle 50% of the data, the difference between the upper and lower quartiles </em></p>
+<p><strong>Boxplot/box-and-whisker plot: </strong> <em> Visualization of continuous data which is based on percentiles </em></p>
+</div>
 </div>
 </div>
 <div id="variance-and-standard-deviation" class="section level4" number="2.3.2.2">
@@ -1356,7 +1429,7 @@ calculating how far away each observation is from the mean, squaring that differ
 and then taking an average over all observations. For a sample of <span class="math inline">\(n\)</span> observations
 <span class="math inline">\(x_1, x_2, ..., x_n\)</span>, the variance, denoted by <span class="math inline">\(s^2\)</span>, is calculated as:</p>
 <p><span class="math display">\[
-s^2 = \frac{1}{n-1} \sum_{i=1}^n (x_i - \bar{x})^2
+s^2 = \frac{1}{n-1} \sum_{i=1}^n (x_i - \bar{x})^2.
 \]</span></p>
 <p>The standard deviation, denoted <span class="math inline">\(s\)</span>, is a function of the variance.
 Specifically, it is the square root of the variance <span class="math inline">\(s = \sqrt{s^2}\)</span>. Because the
@@ -1368,16 +1441,19 @@ the units back on the original scale. For the temperature data, the standard
 deviation is 9.5°F. Because of this, the standard deviation is often
 preferred as a measure of spread over the variance.</p>
 <p>Finally, unlike the median and the IQR, which are based the percentiles of the observed data, both the variance and standard deviation are calculated based on the mean. Recall that the mean is <em>not</em> a robust outlier and is highly sensitive to skew or the presence of outliers. Consequently, the variance and the standard deviation are also very sensitive. When the data are unimodal and symmetric, choosing between the mean/standard deviation and the median/IQR is largely a matter of preference. However, when the data is skewed or has large outliers, more robust statistics such as the median and IQR are preferred.</p>
-<div class="exercise">
-<span id="exr:unlabeled-div-5" class="exercise"><strong>Exercise 2.1  </strong></span>Exercises
-</div>
 <div class="exercise-container">
+<div class="exercise">
+<span id="exr:unlabeled-div-8" class="exercise"><strong>Exercise 2.1  </strong></span>Exercises
+</div>
+<div class="text">
 <p>The applet below is designed to help illustrate the properties of the mean and
 standard deviation. You can vary the mean between -10 and 10 and the standard
 deviation between 1 and 20. The histogram on the right displays the unimodal and
 symmetric distribution of data with the specified mean and standard deviation.</p>
+</div>
 <iframe src="https://ph-ivshiny.iowa.uiowa.edu/ceward/textbook/shinyApps/meanVar/" width="100%" height="800">
 </iframe>
+<div class="text">
 <ol>
 <li>
 Set the standard deviation to 8 and use the slider to vary the mean of the
@@ -1432,13 +1508,18 @@ pattern in your table?
 </li>
 </ol>
 </div>
+</div>
+</div>
+<hr />
 <div class="definition-container">
 <div class="definition">
-<span id="def:unlabeled-div-6" class="definition"><strong>Definition 2.5  </strong></span> 
+<span id="def:unlabeled-div-9" class="definition"><strong>Definition 2.5  </strong></span> 
 </div>
-<p><strong>Variance: </strong> <em> The average of the squared differences between each data value and the mean, denoted <span class="math inline">\(s^2\)</span>. </em></p>
-<p><strong>Standard deviation: </strong> <em> The square root of the variance, denoted <span class="math inline">\(s\)</span>. </em></p>
-<p><strong>Percentile: </strong> <em> Summaries providing the location of observations relative to all other observations in the data. </em></p>
+<div class="text">
+<p><strong>Variance: </strong> <em> The average of the squared differences between each data value and the mean, denoted <span class="math inline">\(s^2\)</span> </em></p>
+<p><strong>Standard deviation: </strong> <em> The square root of the variance, denoted <span class="math inline">\(s\)</span> </em></p>
+<p><strong>Percentile: </strong> <em> Summaries providing the location of observations relative to all other observations in the data </em></p>
+</div>
 </div>
 </div>
 </div>
@@ -1646,7 +1727,7 @@ Ozone
 month. Month can be considered an ordinal categorical variable, and temperature
 is continuous. When we want to see the distribution of a continuous variable
 across multiple categories, we can look at side-by-side boxplots.</p>
-<p><img src="introTextbookTemplate_files/figure-html/unnamed-chunk-21-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="introTextbookTemplate_files/figure-html/unnamed-chunk-23-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>By putting all of the boxplots next to each other with the same temperature range,
 we can quickly detect trends and differences in temperature in the five months.
 Median temperature peaks in July/August and is lowest in May. Temperatures in
@@ -1655,7 +1736,7 @@ less spread out. There is some overlap between all of these boxplots, which mean
 that although July and August have higher temperatures more often, there are days
 in the other months that are just as hot or days in July that are cooler.</p>
 <p>Now let’s consider the case in which we have two continuous variables. Suppose, for example, that we are interested in both temperature and ozone levels, as well as the relationship between the two of them. We might first consider them separately; presented below is a visualization of the distribution of both temperature and ozone levels in the New York air quality data:</p>
-<p><img src="introTextbookTemplate_files/figure-html/unnamed-chunk-22-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="introTextbookTemplate_files/figure-html/unnamed-chunk-24-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>While temperature is unimodal and symmetric in distribution, the ozone concentration
 measurements are skewed right. These plots are useful in studying each of these variables individually, but they do not provide any
 information about the relationship between temperature and ozone concentration,
@@ -1669,13 +1750,13 @@ the mean ozone on the x-axis and temperature on the y-axis, with each dot repres
 one day between May and September. For example, on August 25th, the maximum
 temperature was 81°F, and the mean ozone concentration was 168ppm. For illustration, this
 day is colored red on the scatter plot.</p>
-<p><img src="introTextbookTemplate_files/figure-html/unnamed-chunk-23-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="introTextbookTemplate_files/figure-html/unnamed-chunk-25-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>Plotted together, the relationship between ozone concentration and temperature becomes apparent – lower temperatures tend to be associated with lower ozone concentrations while higher temperatures are associated with higher ozone levels. The scatter plot is able to illustrate an important relationship that wouldn’t be
 detectable just by looking at histograms of each variable separately.</p>
 <p>We may further describe our data by including a third categorical variable. In our
 scatter plot of ozone and temperature, we could also color the points by the month
 on which they occurred.</p>
-<p><img src="introTextbookTemplate_files/figure-html/unnamed-chunk-24-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="introTextbookTemplate_files/figure-html/unnamed-chunk-26-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>After coloring the points by month, we can see some clusters forming as temperature
 and ozone concentration on days closer together are more likely to be similar. By
 adding information about a third variable, we are able to illustrate more information
@@ -1686,12 +1767,15 @@ of a variable help us know the best way to summarize it numerically. Summaries a
 figures can become increasingly complex as they incorporate more variables, but
 these illustrations can be informative for answering and producing important research
 questions and hypotheses.</p>
+<hr />
 <div class="definition-container">
 <div class="definition">
-<span id="def:unlabeled-div-7" class="definition"><strong>Definition 2.6  </strong></span> 
+<span id="def:unlabeled-div-10" class="definition"><strong>Definition 2.6  </strong></span> 
 </div>
+<div class="text">
 <p><strong>Scatter plot: </strong> <em> Visualization of two continuous measures which uses dots
-to represent each data pair. </em></p>
+to represent each data pair </em></p>
+</div>
 </div>
 
 </div>

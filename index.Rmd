@@ -54,12 +54,12 @@ At this point in time, we provide chapters on:
 
 
 
-## Acknowledgements
+## Acknowledgements {-}
 
 We would like to acknowledge the funding which made the creation of this 
 resource possible, provided by a University of Iowa Libraries OpenHawks grant.
 
-We would also like to thank Patrick Breheny, Knute Carter, and Jacob Oleson 
+We would also like to thank Patrick Breheny, Knute Carter, and Jacob Oleson, 
 whose course notes helped inform some of the material covered in this textbook.
 
 

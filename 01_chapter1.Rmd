@@ -26,12 +26,12 @@ There are many definitions of statistics:
 * the mathematics of uncertainty
 * a required college course designed to make everyone miserable
 
-All of these definitions hold a degree truth (some more than others - we'll let you 
+All of these definitions hold a degree truth (some more than others -- we'll let you 
 guess which `r emo::ji("wink")`). Statistics is a highly versatile field, with methods 
 applicable to and used by a wide variety of disciplines. The importance of the
 field of statistics lies in it's ability to quantify our uncertainty about a 
-potential outcome - such as the most likely cause and treatment for a headache.
-Almost everything in life is associated with some uncertainty - the weather, 
+potential outcome -- such as the most likely cause and treatment for a headache.
+Almost everything in life is associated with some uncertainty -- the weather, 
 your career, the connection between your genetics and your response to certain
 medications; however, just because something isn't known with 100% certainty 
 doesn't mean we can't understand it better. Statistics helps us understand the 
@@ -67,11 +67,15 @@ therapies as fast as possible. To make evidence-based conclusions, we need to
 collect, process, analyze, and interpret data in order to draw conclusions in an 
 objective manner. 
 
+---
+
 <div class="definition-container">
 <div class="definition"> &nbsp; </div>
-**Evidence-based practice:** <em> Using sound research findings based on observed 
-  or collected data to make decisions.</em>
+<div class="text">
+**Evidence-based practice:** <em> Using sound research findings based on observed or collected data to make decisions </em>
 </div>
+</div>
+
 
 ## Scientific Method {#ch1_s2}
 
@@ -140,11 +144,14 @@ also possible that fertilizer A ended up with the fastest average plant growth
 just due to random chance, and if you repeated the entire experiment again you
 might find fertilizer B or C to result in taller plants. 
 
+---
 
 <div class="definition-container">
 <div class="definition"> &nbsp; </div>
+<div class="text">
 **Scientific method:** <em> Five steps that can be used to acquire knowledge 
-  without incorporating personal opinion. </em>
+  without incorporating personal opinion </em>
+</div>
 </div>
 
 
@@ -199,24 +206,26 @@ framework. We consider two broad categories of statistical
 analysis: **descriptive statistics**, which deals with methods for summarizing 
 and/or presenting data and **inferential statistics**.
 
-
+---
 
 <div class="definition-container">
 <div class="definition"> &nbsp; </div>
-**Population: ** <em> The group which scientists would like to generalize to. </em>
+<div class="text">
+**Population: ** <em> The group towards which scientists attempt to generalize </em>
 
-**Census: ** <em> A study which includes all members of the population. </em>
+**Census: ** <em> A study which includes all members of the population </em>
 
-**Sample: ** <em> A portion of the population which is part of the study. </em>
+**Sample: ** <em> A portion of the population which is part of the study </em>
 
-**Study design: ** <em> The process of obtaining the best sample to answer the research questions. </em>
+**Study design: ** <em> The process of obtaining the best sample to answer the research questions </em>
 
-**Inference: ** <em> The process of making generalizations about the population. </em>
+**Inference: ** <em> The process of making generalizations about the population </em>
 
-**Descriptive statistics: ** <em> Methods for summarizing and/or presenting data. </em>
+**Descriptive statistics: ** <em> Methods for summarizing and/or presenting data </em>
 
 **Inferential statistics: ** <em> Methods for making generalizations about a population
-  using information contained in the sample. </em>
+  using information contained in the sample </em>
+</div>
 </div>
 
 

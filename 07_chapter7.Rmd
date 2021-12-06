@@ -69,23 +69,25 @@ knitr::include_graphics("./images/biasVariabilityTargets2.png")
 
 In terms of priority, having a low bias is generally more desirable than low variance, and this is represented in the top row above. Having low bias indicates that our sample statistic is correctly estimating the population parameter of interest, even if our statistic is considered "noisy". Variance, illustrated in the columns, gives an idea of how "consistent" our estimate is. One way to think of it is to consider the throwing of a dart to the collection of a sample; comparing the top right and bottom left corners, we might say it is better throw generally close to the target than to consistently miss it entirely. Statisticians work hard to develop sampling and inferential procedures that allow us to estimate population parameters with little low variability and little to no bias.
 
+---
 
 <div class="definition-container">
 <div class="definition"> &nbsp; </div>
-**Population Parameter: ** <em> The true numeric quantity describing a population (i.e., the population mean). </em>
+<div class="text">
+**Population Parameter: ** <em> The true numeric quantity describing a population (i.e., the population mean) </em>
 
-**Sample Statistic: ** <em> A numerical quantity about the sample, often used to estimate a population parameter. </em>
+**Sample Statistic: ** <em> A numerical quantity about the sample, often used to estimate a population parameter </em>
 
-**Inference: ** <em> The process of making generalizations about the population based on sampling statistics. </em>
+**Inference: ** <em> The process of making generalizations about the population based on sampling statistics </em>
 
-**Bias: ** <em> The systematic difference between our estimate and our parameter. </em>
+**Bias: ** <em> The systematic difference between our estimate and our parameter </em>
 
-**Variability: ** <em> The spread or noise in the data. </em>
+**Variability: ** <em> The spread or noise in the data </em>
 
-**Precision: ** <em> Inverse of variance, how narrow the data is.   </em>
+**Precision: ** <em> Inverse of variance, how narrow the data is   </em>
 
 </div>
-
+</div>
 
 ## Sampling Distributions 
 
@@ -96,14 +98,14 @@ As we might expect, it is very unlikely that any of these will be exactly equal 
 We might first begin by recognizing that the process of sampling from a population is itself a *random experiment*, with the sample mean $\overline{x}$ being a numeric quantity which assumes a value based on the outcome of that experiment. This should sound familiar -- this is precisely the definition of a random variable! Just as with other random variables, sample statistics themselves also follow a probability distribution. When the random variable itself is a statistic, we call the probability distribution a **sampling distribution**. Sampling distributions reflect which values of the statistic are likely if we were to repeat the sampling process (that is, likely values for $\overline{x}_2$, $\overline{x}_3$, etc.,), and which values are improbable. We might then expect that the value of the true population parameter will fall somewhere within the range of likely values. [[As we will see later in this chapter, this uncertainty depends on the number of individuals sampled and the variability of the data we measure.]]
 
 
-<div class="exercise"> &nbsp; </div>
 <div class="exercise-container">
+<div class="exercise"> &nbsp; </div>
+<div class="text">
 
 The applet below is designed to help you get familiar with the concept of random sampling. The plot on the left side gives a population distribution consisting of 25 people, where each subject in the population is represented by one box. The x-axis represents the value of the outcome variable for each individual, with stacked boxes indicating that multiple people have the same value. For example, we have one subject in the population with a value of zero, three subjects with values of one, and so on. 
 
 The plot on the right displays values for the subjects collected in our random sample, with the same subjects being highlighted in green on the left. We can take samples from our population of various sizes by changing the value of the slider at the top and clicking on the "Sample" button.
-
-
+</div>
 </div>
 <!-- frameBorder="0" -->
 <iframe src="https://ph-ivshiny.iowa.uiowa.edu/ceward/textbook/shinyApps/sampling/" width = "100%" height = "800"> 
@@ -141,11 +143,11 @@ The plot on the right displays values for the subjects collected in our random s
 </table>
   
   <ol style="list-style-type: lower-alpha;">
-  <li>Did you get the same sample mean for any of your five samples?</li>
-  <li>Was the sample mean ever equal to the population mean in any of your five samples? If not, how close were your sample means to the true population mean?</li>
+  <li> Did you get the same sample mean for any of your five samples?</li>
+  <li> Was the sample mean ever equal to the population mean in any of your five samples? If not, how close were your sample means to the true population mean?</li>
   </ol>
   </li>
-  <li>Now set the sample size to 15 and click the "Sample" button five times. Fill out the following table with the sample means observed in your five samples.
+  <li> Now set the sample size to 15 and click the "Sample" button five times. Fill out the following table with the sample means observed in your five samples.
   <table style="width:50%">
   <tr>
     <th style="text-align:center">Sample Number</th>
@@ -174,11 +176,11 @@ The plot on the right displays values for the subjects collected in our random s
 </table>
 
   <ol style="list-style-type: lower-alpha;">
-  <li>Did any of your five simulations give you a sample mean equal to the population mean?</li>
-  <li>how close were your sample means to the true population mean?</li>
+  <li> Did any of your five simulations give you a sample mean equal to the population mean?</li>
+  <li> How close were your sample means to the true population mean?</li>
   </ol>
   </li>
-  <li> Compare your results from problem 1 and problem 2. 
+  <li> Compare your results from problems 1 and 2. 
   <ol style="list-style-type: lower-alpha;">
     <li> In either case were you able to obtain a sample mean equal to the population mean?</li>
     <li> Which one had sample means with more variability? What does this indicate about the relationship between the sample size and the distribution of sample means in the context of repeated sampling?</li>
@@ -205,7 +207,7 @@ dat <- cbind(Person = person, 'Monthly Spending'= monthlySpending)
 popSize <- length(person)
 sampSize <- 3
 nSamples <- choose(popSize, sampSize)
-kable(dat)
+kable(dat) |> kable_styling(full_width=FALSE)
 ```
 
 
@@ -254,7 +256,7 @@ combDat2 <- data.frame(Sample = combSamples,
 
 toKeep <- which(!duplicated(combDat[,3]))
 combDat2 <- combDat2[toKeep,]
-kable(combDat2, row.names = F, col.names = c('Sample', 'Values', '$\\overline{x}$'), escape =F)
+kable(combDat2, row.names = F, col.names = c('Sample', 'Values', '$\\overline{x}$'), escape =F) |> kable_styling(full_width=FALSE)
 
 ```
 
@@ -272,7 +274,7 @@ col2 <- prop.table(countMeans)
 toPrint <- cbind(col1, col2)
 expValue <- sum(as.numeric(names(countMeans))*col2)
 
-kable(toPrint, col.names = c('', 'Probability'), row.names = F, escape = F)
+kable(toPrint, col.names = c('', 'Probability'), row.names = F, escape = F) |> kable_styling(full_width=FALSE)
 ```
 
 With this probability distribution, we can get the expected value of the sampling distribution. Whenever we think about probability, we are thinking about long-run frequencies, so when we think about the expected value, we are thinking about the average sample mean if we were to take repeated samples of size three from this population. The probability distribution indicates that if we took samples of size three from this population over and over again (say 1,000 times), we would end up with `r col2[1]*100`% with a mean of `r names(countMeans)[1]`, `r col2[2]*100`% with a mean of `r names(countMeans)[2]`, `r col2[3]*100`% with a mean of `r names(countMeans)[3]`; and so on. So the expected value (average) we would observed if we kept taking samples over and over would be:
@@ -281,18 +283,20 @@ With this probability distribution, we can get the expected value of the samplin
 
 But wait! That *is* the population mean. This illustrates an extremely powerful property of the sample mean - the expected value of the sample mean $\overline{X}$ is equal to the population parameter $\mu$! Because of this, we say that the sample mean is an **unbiased estimator** of the population mean. While we illustrated the property with a small example, this holds regardless of the population or sample size. 
 
+---
 
 <div class="definition-container">
 <div class="definition"> &nbsp; </div>
-**Sampling Distribution: ** <em> A probability distribution associated with a sample statistic. </em>
+<div class="text">
+**Sampling Distribution: ** <em> A probability distribution associated with a sample statistic </em>
 
-**Expected Value: ** <em> The mean value of a statistic in repeated sampling. </em>
+**Expected Value: ** <em> The mean value of a statistic in repeated sampling </em>
 
-**Standard Error: ** <em> The standard deviation of a statistic (including the mean) in repeated sampling. </em>
+**Standard Error: ** <em> The standard deviation of a statistic (including the mean) in repeated sampling </em>
 
-**Unbiased Estimator: ** <em> The statistic with an expected value equal to the true population parameter.</em>
+**Unbiased Estimator: ** <em> The statistic with an expected value equal to the true population parameter</em>
 </div>
-
+</div>
 
 
 ## Central Limit Theorem
@@ -348,12 +352,11 @@ While the term "large enough" will inevitably depend on the context of the probl
 
 
 
-
-<div class="exercise"> &nbsp; </div>
 <div class="exercise-container">
-
+<div class="exercise"> &nbsp; </div>
+<div class="text">
 The applet below is designed to help your conceptual understanding of the CLT. You can change the underlying population distribution, the size of the samples taken ($n$), and the number of experiments performed. Each experiment consists of taking a sample of the specified size from the population and calculating the sample mean. The top left panel (blue) shows the underlying population distribution. The top right panel (red) shows the data from the most recent sample, with the sample mean from that specific sample indicated by the dashed black line. The bottom panel (gold) shows us the distribution of sample means from all the experiments, with the observed mean of the sample means indicated by the dashed black line and the true underlying population mean indicated by the solid blue line. Once you select the parameters to the values you want, click "Run Simulation" to tabulate the results.
-
+</div>
 </div>
 
 
@@ -406,13 +409,15 @@ The applet below is designed to help your conceptual understanding of the CLT. Y
 
 
 
-
+---
 
 <div class="definition-container">
 <div class="definition"> &nbsp; </div>
+<div class="text">
 **Central Limit Theorem: ** <em> A mathematical theorem that provides us with the sampling
-distribution of the mean. </em>
+distribution of the mean </em>
 
+</div>
 </div>
 
 
