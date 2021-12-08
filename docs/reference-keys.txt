@@ -3,12 +3,12 @@ def:unlabeled-div-2
 fig:statFramework
 def:unlabeled-div-3
 def:unlabeled-div-4
+tab:unnamed-chunk-8
 tab:unnamed-chunk-9
 tab:unnamed-chunk-10
-tab:unnamed-chunk-11
 def:unlabeled-div-5
-tab:unnamed-chunk-16
-fig:unnamed-chunk-17
+tab:unnamed-chunk-15
+fig:unnamed-chunk-16
 def:unlabeled-div-6
 def:unlabeled-div-7
 exr:unlabeled-div-8
@@ -26,6 +26,7 @@ exr:unlabeled-div-17
 def:unlabeled-div-18
 exr:unlabeled-div-19
 def:unlabeled-div-20
+fig:statFramework6
 def:unlabeled-div-21
 exr:unlabeled-div-22
 exr:unlabeled-div-23

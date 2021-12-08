@@ -285,7 +285,7 @@ On the x-axis, we have the possible outcomes of the random process - the values
 the random variable could take on. For each outcome, the bar height represents
 the probability of observing that value. For the coin flipping example, the
 probabilities of observing each possible number of heads can be represented as:</p>
-<p><img src="introTextbookTemplate_files/figure-html/unnamed-chunk-29-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="introTextbookTemplate_files/figure-html/unnamed-chunk-28-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>When looking at a probability histogram, we can characterize the shape of the
 distribution analogously to how we talk about a histogram of observed data. We
 often use <em>unimodal</em> distributions, which may or may not be <em>skewed</em>. For example,
@@ -297,7 +297,7 @@ the coin flipping example, we could consider one of the parameters to be the
 probability of obtaining heads. We assume that we have a fair coin and that this
 probability is 50%. If, instead, we had a weighted coin with a 60% chance of
 landing on heads, the probability distribution would change.</p>
-<p><img src="introTextbookTemplate_files/figure-html/unnamed-chunk-30-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="introTextbookTemplate_files/figure-html/unnamed-chunk-29-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>With a higher chance of the coin resulting in heads, we now see that the three
 flips are more likely to result in 2 or 3 heads, and much less likely to result
 in 0 heads. In other words, the distribution is now slightly skewed left.
@@ -373,6 +373,17 @@ would be</p>
 <p>The expected value tells us that if you were to play this game over and over,
 you would be expected to win $9.5 per game. If instead the game was that for
 heads you won $1 and for tails you lost $1, would you still want to play?</p>
+<p>Probability distributions describe the true chances of observing different
+quantities, and we associate this with the distribution in the
+<em>population</em>.</p>
+<p>and when we sample data according to some distribution we generally
+expect it to have a similar shape. However,</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:statFramework6"></span>
+<img src="introTextbookTemplate_files/figure-html/statFramework6-1.png" alt="Statistical Framework (again)" width="672" />
+<p class="caption">
+Figure 5.1: Statistical Framework (again)
+</p>
+</div>
 <hr />
 <div class="definition-container">
 <div class="definition">
@@ -482,7 +493,7 @@ occurrence of countable values </em>
 have the annual depth of Lake Huron from 1875-1972 in feet. Second, the annual
 flow of the river Nile from 1871-1970 in cubic meters. Lastly, we have the recorded
 height in feet of 31 black cherry trees. What do these histograms seem to have in common?</p>
-<p><img src="introTextbookTemplate_files/figure-html/unnamed-chunk-32-1.png" width="960" style="display: block; margin: auto;" /></p>
+<p><img src="introTextbookTemplate_files/figure-html/unnamed-chunk-31-1.png" width="960" style="display: block; margin: auto;" /></p>
 <p>What we see here are examples of a <strong>normal distribution</strong> (also known as a bell curve), one of the most ubiquitous distributions in all of statistics. The normal distribution is characterized by the “bell shape” that is symmetric about it’s mean [but maybe don’t say mean].</p>
 <p>Like the binomial, the normal distribution is characterized by two parameters, <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\sigma^2\)</span>, representing the mean and the variance, respectively. The mean value, <span class="math inline">\(\mu\)</span>, indicates the location of the peak on the x-axis, whereas the variance, <span class="math inline">\(\sigma^2\)</span>, indicates the amount of dispersion about the mean. A random variable <span class="math inline">\(X\)</span> that follows a normal distribution can be expressed <span class="math inline">\(X \sim N(\mu, \sigma^2)\)</span>, or, “The random variable <span class="math inline">\(X\)</span> follows a normal distribution with mean <span class="math inline">\(\mu\)</span> and variance <span class="math inline">\(\sigma^2\)</span>.” The formula for the normal distribution is given as</p>
 <p><span class="math display">\[
@@ -491,11 +502,11 @@ f(x) = \frac{1}{\sqrt{2 \pi \sigma^2}} \ e^{- \frac{(x-\mu)^2}{2\sigma^2}}.
 \end{align*}
 \]</span></p>
 <p>Consider the two normal distributions below, with different values for <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\sigma^2\)</span>. Although they are centered at different locations and have different amounts of dispersion around the mean, they are both bell-shaped curves characteristic of the normal distribution:</p>
-<p><img src="introTextbookTemplate_files/figure-html/unnamed-chunk-33-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="introTextbookTemplate_files/figure-html/unnamed-chunk-32-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>Given that the normal distribution appears so frequently in statistics, it is common practice to <em>standardize</em> a normal distribution so that it has a mean value of <span class="math inline">\(\mu = 0\)</span> and variance <span class="math inline">\(\sigma^2 = 1\)</span>. A normal random variable that has been standardized is called a <strong>standard normal distribution</strong> and is often written <span class="math inline">\(Z \sim N(0,1)\)</span>. We can consider again the histograms above, once they’ve been standardized:</p>
-<p><img src="introTextbookTemplate_files/figure-html/unnamed-chunk-34-1.png" width="960" style="display: block; margin: auto;" /></p>
+<p><img src="introTextbookTemplate_files/figure-html/unnamed-chunk-33-1.png" width="960" style="display: block; margin: auto;" /></p>
 <p>Unlike the binomial distribution, in which there are <span class="math inline">\(n\)</span> possible values that our random variable can take, the normal distribution represents a random variable that is <strong>continuous</strong> over a range of values. Instead of asking the probability of a specific value, say, <span class="math inline">\(Z = 0\)</span>, probabilities are given as the area under the curve for a certain interval. We might ask, “What is the probability that <span class="math inline">\(Z\)</span> is one standard deviation (<span class="math inline">\(\sigma\)</span>) away from 0?” or perhaps, “What is the probability that <span class="math inline">\(Z &lt; 0\)</span>?”</p>
-<p><img src="introTextbookTemplate_files/figure-html/unnamed-chunk-35-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="introTextbookTemplate_files/figure-html/unnamed-chunk-34-1.png" width="672" style="display: block; margin: auto;" /></p>
 <div class="exercise-container">
 <div class="exercise">
 <span id="exr:unlabeled-div-25" class="exercise"><strong>Exercise 5.3  </strong></span> 
