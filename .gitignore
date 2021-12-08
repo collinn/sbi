@@ -1,6 +1,5 @@
 *.html
 .Rhistory
 *.json
-/docs
 *.js
 .Rproj.user
