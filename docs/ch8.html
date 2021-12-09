@@ -56,70 +56,6 @@
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
 
-<style type="text/css">
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-</style>
 
 
 <link rel="stylesheet" href="style.css" type="text/css" />
@@ -248,6 +184,291 @@ Learning objectives
 <li><p>The act of collecting a sample and computing a statistic is itself a random process and, as such, also follows a probability distribution known as a <em>sampling distribution</em>. As we saw in the previous chapter, as the number of individuals collected in our sample increases, the computed statistic will approximately follow a normal distribution, thanks to the Central Limit Theorem. In our case, the sampling distribution will depend on the value of the sample mean, as well as the size of the standard error</p></li>
 </ol>
 <p>Our goal now is to determine how we might use these ideas to go from information in our random sample to statements about the broader population. This process is known as statistical inference and is the focus of the present chapter.</p>
+<p>Let’s start by playing a simple game.</p>
+<div class="exercise-container">
+<div class="exercise">
+<span id="exr:unlabeled-div-1" class="exercise"><strong>Exercise 7.1  </strong></span> 
+</div>
+<div class="text">
+<p>The applet below is designed to provide some intuition into inferential thinking,
+though a game-like process. There are six game modes, each specified by the sample
+size of the data that will be simulated. In each game mode, the population
+distribution is different and the goal of the game is to determine the true
+population mean. Each time the user presses the “Simulate Data” button, a new
+dataset will be generated from the true underlying distribution and the sample
+mean and sample standard deviation are recomputed. After you go through the process
+to make your guess at the true mean, you can get the truth by selecting the
+“Get True Mean” button and subsequently hide the truth by selecting the “Hide True Mean”
+button. DO NOT look at the true mean until you are done with all of the exercises,
+or you will ruin the game!</p>
+</div>
+</div>
+<!-- frameBorder="0" -->
+<iframe src="https://ph-ivshiny.iowa.uiowa.edu/ceward/textbook/shinyApps/inferenceGame/" width="100%" height="550">
+</iframe>
+<div class="exercise-container">
+<ol>
+<li>
+<p>Select your game mode by selecting the sample size you would like to start with.
+Once you’ve selected your sample size, draw at least five samples and record the sample
+means and sample standard deviations (SD) you observe as in the table below.</p>
+<table style="width:50%">
+<tr>
+<th style="text-align:center">
+Sample
+</th>
+<th>
+Sample mean
+</th>
+<th>
+Sample SD
+</th>
+</tr>
+<tr>
+<td style="text-align:center">
+1
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:center">
+2
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:center">
+3
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:center">
+4
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:center">
+5
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+</table>
+</li>
+<li>
+Based on what you have observed in your samples, what do you think
+is a range of values that would have a good chance of containing the true population
+mean? How did you select this interval?
+</li>
+<li>
+If you could only select one value, what is your best guess for the true
+population mean? How did you determine your guess?
+</li>
+<li>
+Now look at the true mean, how close was your best guess? Was the true mean
+contained in your interval?
+</li>
+<li>
+<p>Repeat exercises (1-3) for each game mode, until you have a range and your best
+guess of the true mean for all six sample sizes and can fill in the following table.</p>
+<table style="width:50%">
+<tr>
+<th style="text-align:center">
+Sample size
+</th>
+<th>
+Interval
+</th>
+<th>
+Best guess
+</th>
+<th>
+Truth
+</th>
+</tr>
+<tr>
+<td style="text-align:center">
+10
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:center">
+30
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:center">
+50
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:center">
+100
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:center">
+200
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:center">
+500
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+</table>
+<ol style="list-style-type: lower-alpha;">
+<li>
+Were some of the game modes easier than others? Why do you think this was?
+</li>
+<li>
+What does the Central Limit Theorem tell us about the variation we would expect
+in the sample mean as the sample size increases?
+</li>
+</ol>
+</li>
+</ol>
+<ol style="list-style-type: decimal">
+<li>asdf</li>
+</ol>
+<table style="width:50%">
+<tr>
+<th style="text-align:center">
+Sample size
+</th>
+<th>
+Interval
+</th>
+<th>
+Best guess
+</th>
+<th>
+Truth
+</th>
+</tr>
+<tr>
+<td style="text-align:center">
+10
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:center">
+30
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:center">
+50
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:center">
+100
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:center">
+200
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:center">
+500
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+</table>
+<ol start="2" style="list-style-type: decimal">
+<li>sdalfk</li>
+</ol>
+</div>
 </div>
 <div id="ch8_s2" class="section level2" number="7.2">
 <h2><span class="header-section-number">7.2</span> Point Estimation and Confidence Intervals</h2>
@@ -302,7 +523,7 @@ confidence interval based on the data from each sample, we are guaranteed that
 This is quite appealing. Lets explore this concept further by using the following applet.</p>
 <div class="exercise-container">
 <div class="exercise">
-<span id="exr:unlabeled-div-33" class="exercise"><strong>Exercise 7.1  </strong></span> 
+<span id="exr:unlabeled-div-2" class="exercise"><strong>Exercise 7.2  </strong></span> 
 </div>
 <div class="text">
 <p>The applet below is designed to help you get familiar with some of the important concepts related to confidence intervals. The inputs to the simulation are the sample size, number of experiments, and the confidence level. The simulation proceeds by taking a sample of the specified size and constructing a confidence interval based on that sample with the specified level of confidence. This process is one experiment. Each sample is drawn from the same population. For a specified number of experiments, the sampling and confidence interval construction is repeated either 10, 50, 100, or 1000 times. The plot shows all the confidence intervals constructed from each experiment - the number of intervals shown is equal to the “Number of Experiments.” The true population parameter in this case is 0 (only for simplicity). Intervals are shaded in blue if they cover the true population parameter and red if they do not contain the true parameter. The applet also reports the “observed coverage” from all experiments, this is the proportion of all the intervals shown that did contain the truth. Clicking “Run Simulation” will redo the specified number of experiments using the inputs provided.</p>
@@ -397,7 +618,7 @@ If a researcher wants a narrower confidence interval, they should decrease the c
 <hr />
 <div class="definition-container">
 <div class="definition">
-<span id="def:unlabeled-div-34" class="definition"><strong>Definition 7.1  </strong></span> 
+<span id="def:unlabeled-div-3" class="definition"><strong>Definition 7.1  </strong></span> 
 </div>
 <div class="text">
 <p><strong>Point Estimation: </strong> <em> Using a single numeric quantity to estimate a population parameter </em></p>
@@ -478,7 +699,7 @@ Correct (1 - <span class="math inline">\(\beta\)</span>)
 <p>If we were looking to create a good hypothesis test, we would want to minimize type 1 and type 2 errors. In other words, if we were to conduct our study over and over again and there was something to be found, we would want to reject the null hypothesis (find something) at a high rate and fail to reject the null hypothesis at a low rate. If there was truly nothing to be found, we wouldn’t want to find anything and if there is something to be found we want to find it. However, there is a trade-off between type 1 and type 2 error. Let us illustrate this point with a simulation.</p>
 <div class="exercise-container">
 <div class="exercise">
-<span id="exr:unlabeled-div-35" class="exercise"><strong>Exercise 7.2  </strong></span> 
+<span id="exr:unlabeled-div-4" class="exercise"><strong>Exercise 7.3  </strong></span> 
 </div>
 <div class="text">
 <p>In this experiment, we are looking to determine if a coin is fair, i.e. whether or not the probability of heads is 50%. A type 1 error in this context would be concluding that the coin is not fair, when it actually is. A type 2 error in this context would be concluding that the coin is fair when it is actually not. Each experiment consists of flipping a coin 20 times and observing the proportion of the 20 flips that result in heads. If the coin is fair, we would expect around 10 of the 20 flip to result in heads. However, if we observed 11 or 12 heads in one experiment, would you be convinced the coin isn’t fair? What about if you observed 19/20 of the flips resulting in heads?</p>
@@ -568,7 +789,7 @@ What can you conclude about the relationship between type 1 and type 2 errors?
 <hr />
 <div class="definition-container">
 <div class="definition">
-<span id="def:unlabeled-div-36" class="definition"><strong>Definition 7.2  </strong></span> 
+<span id="def:unlabeled-div-5" class="definition"><strong>Definition 7.2  </strong></span> 
 </div>
 <div class="text">
 <p><strong>Hypothesis test: </strong> <em> A decision making technique which assesses the plausibility
@@ -652,7 +873,7 @@ Overwhelming
 <hr />
 <div class="definition-container">
 <div class="definition">
-<span id="def:unlabeled-div-37" class="definition"><strong>Definition 7.3  </strong></span> 
+<span id="def:unlabeled-div-6" class="definition"><strong>Definition 7.3  </strong></span> 
 </div>
 <div class="text">
 <p><strong>p-value: </strong> <em> The probability of observing data as extreme or more extreme than

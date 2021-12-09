@@ -153,12 +153,15 @@ The expected value tells us that if you were to play this game over and over,
 you would be expected to win \$9.5 per game. If instead the game was that for 
 heads you won \$1 and for tails you lost \$1, would you still want to play?
 
-Probability distributions describe the true chances of observing different 
-quantities, and we associate this with the distribution in the 
-*population*.
+Finally, let's discuss how probability distributions relate back to our general statistical
+framework. In our framework we have some unknown parameters which describe the 
+population. These are exactly the same parameters that govern our probability 
+distributions. In other words, probability distributions describe the true 
+chances of observing different quantities in the *population*. When we collect a 
+sample, we expect the data to have a distribution similar to the true population
+distribution
 
-and when we sample data according to some distribution we generally
-expect it to have a similar shape. However, 
+
 
 ```{tikz statFramework6, fig.cap = "Statistical Framework (again)", fig.ext = 'png', echo = F, fig.align='center'}
 
@@ -181,7 +184,7 @@ expect it to have a similar shape. However,
 \begin{tikzpicture}[node distance = 3cm, auto]
             % Place nodes
             \node [block1] (pop) {Population \\ (Parameters)};
-            \node [block2, below of=pop] (samp) {Sample \\ (Statistics)};
+            \node [block2, below of=pop] (samp) {Sample};
             
             % Draw edges
             \draw[->, >=latex, shorten >=2pt, shorten <=2pt, bend right=45, thick]  (pop.west) to node[auto, swap] {Study Design}(samp.west);

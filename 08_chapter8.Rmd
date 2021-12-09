@@ -34,10 +34,145 @@ It may be helpful at this point to quickly review our goals as statisticians, as
 Our goal now is to determine how we might use these ideas to go from information in our random sample to statements about the broader population. This process is known as statistical inference and is the focus of the present chapter. 
 
 
+Let's start by playing a simple game.
+
+
+<div class="exercise-container">
+<div class="exercise"> &nbsp; </div>
+<div class="text">
+The applet below is designed to provide some intuition into inferential thinking, 
+though a game-like process. There are six game modes, each specified by the sample
+size of the data that will be simulated. In each game mode, the population 
+distribution is different and the goal of the game is to determine the true 
+population mean. Each time the user presses the "Simulate Data" button, a new
+dataset will be generated from the true underlying distribution and the sample
+mean and sample standard deviation are recomputed. After you go through the process
+to make your guess at the true mean, you can get the truth by selecting the 
+"Get True Mean" button and subsequently hide the truth by selecting the "Hide True Mean"
+button. DO NOT look at the true mean until you are done with all of the exercises, 
+or you will ruin the game!
+</div>
+</div>
+
+<!-- frameBorder="0" -->
+<iframe src="https://ph-ivshiny.iowa.uiowa.edu/ceward/textbook/shinyApps/inferenceGame/" width = "100%" height = "550"> 
+</iframe>
+
+<div class="exercise-container">
+
+<ol>
+<li>Select your game mode by selecting the sample size you would like to start with.
+Once you've selected your sample size, draw at least five samples and record the sample
+means and sample standard deviations (SD) you observe as in the table below. 
+
+<table style="width:50%">
+  <tr>
+    <th style="text-align:center">Sample</th>
+    <th>Sample mean</th>
+     <th>Sample SD</th>
+  </tr>
+  <tr>
+    <td style="text-align:center">1</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td style="text-align:center">2</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td style="text-align:center">3</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td style="text-align:center">4</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td style="text-align:center">5</td>
+    <td></td>
+    <td></td>
+  </tr>
+</table>
+</li>
+
+<li>Based on what you have observed in your samples, what do you think
+is a range of values that would have a good chance of containing the true population
+mean? How did you select this interval?</li>
+
+<li>If you could only select one value, what is your best guess for the true
+population mean? How did you determine your guess?</li>
+
+<li>Now look at the true mean, how close was your best guess? Was the true mean
+contained in your interval?</li>
+
+<li>Repeat exercises (1-3) for each game mode, until you have a range and your best
+guess of the true mean for all six sample sizes and can fill in the following table.
+
+<table style="width:50%">
+  <tr>
+    <th style="text-align:center">Sample size</th>
+    <th>Interval</th>
+     <th>Best guess</th>
+     <th>Truth</th>
+  </tr>
+  <tr>
+    <td style="text-align:center">10</td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td style="text-align:center">30</td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td style="text-align:center">50</td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td style="text-align:center">100</td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td style="text-align:center">200</td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td style="text-align:center">500</td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+</table>
+
+  <ol style="list-style-type: lower-alpha;">
+    <li>Were some of the game modes easier than others? Why do you think this was?</li>
+    <li>What does the Central Limit Theorem tell us about the variation we would expect
+        in the sample mean as the sample size increases?</li>
+  </ol>
+
+</li>
+
+</ol>
+
+
+</div>
 
 ## Point Estimation and Confidence Intervals { #ch8_s2}
 
-In the previous chapter, we concerned ourselves with calculating a particular value of a statistic, in our case, the sample mean. The process of computing a single statistic from a sample that will be used to estimate a parameter in the population is known as **point estimation**. As we saw, however, the value of a sample statistic is random, meaning that a sample mean computed from two separate samples from the same population are unlikely to be identically equal to each other. To account for both this random variation and the fact that we are often only able to obtain a single point estimate, we might consider instead determining an *interval* of likely values that our point estimate may fall within. We might consider this our *margin of error* for the point estimate. This process is known as **interval estimation**, and it is a critical part of performing statistical inference. 
+In the previous chapter, we concerned ourselves with calculating a particular value of a statistic, in our case, the sample mean. The process of computing a single statistic from a sample that will be used to estimate a parameter in the population is known as **point estimation**. As we saw, however, the value of a sample statistic is random, meaning that a sample mean computed from two separate samples from the same population are unlikely to be identically equal to each other. To account for both this random variation and the fact that we are often only able to obtain a single point estimate, we might consider instead determining an *interval* of likely values that our point estimate may fall within. We might consider this our *margin of error* for the point estimate. This process is known as **interval estimation**, and it is a critical part of performing statistical inference.
 
 <!-- To begin, let's first note that the interval we construct will be determined by the point estimate that we have collected. As this point estimate is itself a random variable, it follows that the interval itself will be random as well. The primary consequence of this fact is that there is some probability that the true -->
 
