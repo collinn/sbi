@@ -247,7 +247,7 @@ Learning objectives
 </div>
 <div id="ch3_s22" class="section level2" number="3.2">
 <h2><span class="header-section-number">3.2</span> Variability and Bias</h2>
-<p>In Chapter 1, we defined statistics by its ability to quanitfy uncertainty regarding the potential outcome of a random process. In order to do this most effectively and make accurate inference, researchers and statisticians do their best to remove potential sources of variability. Variability can manifest in a number of ways, ranging from the standard biological variability associated with a given population (genetic variation), as well as imprecision associated with measurement (measuring blood pressure, weight, etc.,). While these sources of variation do impact the ability to make precise inference, the effects associated with this kind of variability often “even out” in the end. In other words, though it may make inference less certain, it does not make it incorrect.</p>
+<p>In Chapter 1, we defined statistics by its ability to quantify uncertainty regarding the potential outcome of a random process. In order to do this most effectively and make accurate inference, researchers and statisticians do their best to remove potential sources of variability. Variability can manifest in a number of ways, ranging from the standard biological variability associated with a given population (genetic variation), as well as imprecision associated with measurement (measuring blood pressure, weight, etc.,). While these sources of variation do impact the ability to make precise inference, the effects associated with this kind of variability often “even out” in the end. In other words, though it may make inference less certain, it does not make it incorrect.</p>
 <p>Similar to variability is the concept of <strong>bias</strong>. Whereas variability is used to describe the effects of random variation and imprecision, bias refers to a characteristics of a process or technique in which the measured outcome is <em>systematically different</em> from the true value it is meant to represent. For example, a researcher may be interested in taking the weight of patients at different times during the day. Due to fluctuations in metabolism, an individual patient may have a slightly different weight at different times of the day, resulting in variability. However, if the scale that is used is miscalibrated and always reports a weight that is ten pounds less than the true value, this would be bias. Unfortunately, there are very few tools at a statisticians disposal to address bias, and there is frequently no way to test if it is present or not. However, a well designed study can reduce this risk and put researchers and statisticians in the best possible place to perform successful science.</p>
 <p>As a critical piece of the statistical framework, <strong>study design</strong> is the process of organizing, conducting, and analyzing a scientific experiment with the intention of resolving a hypothesis or achieving research goals. There are many types of study designs with various strengths and limitations, the entirety of which could not possibly be covered here. Instead, we will focus on some of the main considerations when designing a study, as well as the statistical implications associated with common ways in which study design can go wrong.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:statFramework3"></span>
@@ -302,7 +302,18 @@ systematically different from the true value it is intended to estimate </em></p
 </div>
 <div id="control-groups-and-randomization" class="section level3 unnumbered">
 <h3>Control Groups and Randomization</h3>
-<p>In order to correctly estimate the efficacy of a treatment, it is vital to have a <em>control group</em> with which to evaluate it. In some cases, the control group may receive an existing method of treatment; in others, it may be a <em>placebo</em>, or inactive form of a drug or intervention. By collecting a study sample prior to assigning subjects to either a treatment or control group, researchers can minimize the risk that groups we are comparing differ in significant ways. To further minimize this risk, it is also necessary that a subject’s assignment to one group or another be conducted through a process known as <em>randomization</em>. If, for example, a study was to assign all participants at one clinic to the treatment group, and all participants from another clinic to the placebo group, there may be underlying differences between these groups that impact the results of the study.</p>
+<p>In order to correctly estimate the efficacy of a treatment, it is vital to have
+a <em>control group</em> with which to evaluate it. In some cases, the control group
+may receive an existing method of treatment; in others, it may be a <em>placebo</em>,
+or inactive form of a drug or intervention. By collecting a study sample prior
+to assigning subjects to either a treatment or control group, researchers can
+minimize the risk that groups we are comparing differ in significant ways. To
+further minimize this risk, it is also necessary that a subject’s assignment to
+one group or another be conducted through a process known as <em>randomization</em>.
+If, for example, a study was to assign all participants at one clinic to the
+treatment group, and all participants from another clinic to the placebo group,
+there may be underlying differences between these groups that impact the results
+of the study.</p>
 <p>For many clinical trials, researchers may choose to create sub-groups before initiating randomization to help control for any potential confounding effects. This process helps ensure that both treatment and control groups are similar in composition, for example, balancing the number of men and women or subjects within particular age groups. This is known as <em>stratified randomization</em>.</p>
 </div>
 <div id="blinding" class="section level3 unnumbered">
@@ -311,7 +322,13 @@ systematically different from the true value it is intended to estimate </em></p
 </div>
 <div id="compliance-and-intent-to-treat-itt" class="section level3 unnumbered">
 <h3>Compliance and Intent-To-Treat (ITT)</h3>
-<p>Not infrequently, external circumstances or lack of compliance can alter the treatment that a subject in a clinial trial actually receives. As such, it is important that the study protocol outlines in advance exactly how such cases should be handled. Common practices utilizes what is known as <em>intent-to-treat</em> (ITT), whereby a subject is analyzed as being a member of the group to which they were assigned at randomization, regardless of the treatment that is actually received.</p>
+<p>Not infrequently, external circumstances or lack of compliance can alter the
+treatment that a subject in a clinical trial actually receives. As such, it is
+important that the study protocol outlines in advance exactly how such cases
+should be handled. Common practices utilizes what is known as <em>intent-to-treat</em>
+(ITT), whereby a subject is analyzed as being a member of the group to which
+they were assigned at randomization, regardless of the treatment that is
+actually received.</p>
 </div>
 </div>
 <div id="biases" class="section level2" number="3.4">
@@ -343,7 +360,9 @@ may differ in respect to the study outcome.</p>
 <p>We remarked earlier that in an ideal world, all selected participants would be
 eager to participate in our study. However, this is not always the case. To make
 matters even more difficult, sometimes those that want to participate in our
-study differ in meaningful ways from those that do participate. This type of bias, known as <strong>non-response or participant bias</strong>, can occur in many studies, but is often a particular concern for studies that send out surveys or election
+study differ in meaningful ways from those that do participate. This type of bias,
+known as <strong>non-response or participant bias</strong>, can occur in many studies, but is
+often a particular concern for studies that send out surveys or election
 polls. For example, consider the end-of-semester teaching evaluations that provide
 students an opportunity to review their instructor anonymously. When students
 are not required to fill out these evaluations, it is likely that only students
@@ -424,7 +443,8 @@ study, there may be other analytical methods that can be used.</p>
 <p>Researchers often have expectations about how effective their treatment is
 (otherwise they probably wouldn’t be studying it). If the researcher is also
 responsible for recording subjective assessments of the study participants, there
-is the potential for their beliefs about the treatment to influence either they perceive a subject’s progress during follow-up.</p>
+is the potential for their beliefs about the treatment to influence either they
+perceive a subject’s progress during follow-up.</p>
 <hr />
 <div class="definition-container">
 <div class="definition">

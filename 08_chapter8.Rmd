@@ -34,23 +34,22 @@ It may be helpful at this point to quickly review our goals as statisticians, as
 Our goal now is to determine how we might use these ideas to go from information in our random sample to statements about the broader population. This process is known as statistical inference and is the focus of the present chapter. 
 
 
-Let's start by playing a simple game.
+Let's start by playing a simple "game" in the exercise below.
 
 
 <div class="exercise-container">
 <div class="exercise"> &nbsp; </div>
 <div class="text">
-The applet below is designed to provide some intuition into inferential thinking, 
-though a game-like process. There are six game modes, each specified by the sample
-size of the data that will be simulated. In each game mode, the population 
-distribution is different and the goal of the game is to determine the true 
-population mean. Each time the user presses the "Simulate Data" button, a new
-dataset will be generated from the true underlying distribution and the sample
-mean and sample standard deviation are recomputed. After you go through the process
-to make your guess at the true mean, you can get the truth by selecting the 
-"Get True Mean" button and subsequently hide the truth by selecting the "Hide True Mean"
-button. DO NOT look at the true mean until you are done with all of the exercises, 
-or you will ruin the game!
+This applet is designed to provide some intuition into inferential thinking. The
+goal of the game is to determine the true population mean. There are six game 
+modes, each differentiated by the size of the sample collected. Each game mode 
+has a different true distribution (different population parameters). Each time 
+the user presses the "Simulate Data" button, a new dataset will be generated 
+from the true underlying distribution and the sample mean and sample standard 
+deviation are computed. AFTER you make your guess at the true mean, you can get 
+the truth by selecting the "Get True Mean" button and subsequently hide the 
+truth by selecting the "Hide True Mean" button. DO NOT look at the true mean 
+until you are done with all of the exercises, or you will ruin the game!
 </div>
 </div>
 
@@ -61,9 +60,9 @@ or you will ruin the game!
 <div class="exercise-container">
 
 <ol>
-<li>Select your game mode by selecting the sample size you would like to start with.
-Once you've selected your sample size, draw at least five samples and record the sample
-means and sample standard deviations (SD) you observe as in the table below. 
+<li>Start with the game mode corresponding to a sample size of 10. Draw at least
+five samples and record the sample means and sample standard deviations (SD) 
+you observe as in the table below. 
 
 <table style="width:50%">
   <tr>
@@ -106,22 +105,31 @@ mean? How did you select this interval?</li>
 <li>If you could only select one value, what is your best guess for the true
 population mean? How did you determine your guess?</li>
 
+<li>Based on what you observed, do you think it is likely or unlikely that the 
+true population mean is -6? Explain your reasoning.</li>
+
 <li>Now look at the true mean, how close was your best guess? Was the true mean
 contained in your interval?</li>
 
-<li>Repeat exercises (1-3) for each game mode, until you have a range and your best
-guess of the true mean for all six sample sizes and can fill in the following table.
+<li>Repeat exercises (1-5) for each game mode, until you have a range and your best
+guess of the true mean for all six sample sizes. Determine if the given comparison
+value for each scenario is likely or unlikely. Summarize your work in the following
+table.
 
 <table style="width:50%">
   <tr>
     <th style="text-align:center">Sample size</th>
-    <th>Interval</th>
-     <th>Best guess</th>
-     <th>Truth</th>
+    <th style="text-align:center">Interval</th>
+     <th style="text-align:center">Best guess</th>
+     <th style="text-align:center">Comparison value</th>
+     <th style="text-align:center">Likely/unlikely?</th>
+     <th style="text-align:center">Truth</th>
   </tr>
   <tr>
     <td style="text-align:center">10</td>
     <td></td>
+    <td></td>
+    <td style="text-align:center">-6</td>
     <td></td>
     <td></td>
   </tr>
@@ -129,11 +137,15 @@ guess of the true mean for all six sample sizes and can fill in the following ta
     <td style="text-align:center">30</td>
     <td></td>
     <td></td>
+    <td style="text-align:center">3</td>
+    <td></td>
     <td></td>
   </tr>
   <tr>
     <td style="text-align:center">50</td>
     <td></td>
+    <td></td>
+    <td style="text-align:center">0.2</td>
     <td></td>
     <td></td>
   </tr>
@@ -141,17 +153,23 @@ guess of the true mean for all six sample sizes and can fill in the following ta
     <td style="text-align:center">100</td>
     <td></td>
     <td></td>
+    <td style="text-align:center">70</td>
+    <td></td>
     <td></td>
   </tr>
   <tr>
     <td style="text-align:center">200</td>
     <td></td>
     <td></td>
+    <td style="text-align:center">0</td>
+    <td></td>
     <td></td>
   </tr>
   <tr>
     <td style="text-align:center">500</td>
     <td></td>
+    <td></td>
+    <td style="text-align:center">20</td>
     <td></td>
     <td></td>
   </tr>
@@ -167,54 +185,178 @@ guess of the true mean for all six sample sizes and can fill in the following ta
 
 </ol>
 
-
 </div>
+
+How good were you at guessing the truth? To play the game, you had to come up with 
+some method to make your best guess, an interval of plausible values, and to determine
+how likely it was that a given value was the truth. These are some of the 
+foundational goals of statistical inference, which help us answer questions like:
+
+* By how much can you expect your blood pressure to be reduced after starting
+  a blood pressure medication?  
+* How likely is it that a new cancer treatment will lead to fewer deaths than
+  the current gold standard?
+* After getting the flu, around how many days is someone infectious?
+
+
+<!-- You may have noticed that your guesses were better when you took more samples  -->
+<!-- from the population. What if you could only use one sample? How would your  -->
+<!-- methods for making your guesses work? In real studies, typically only one sample -->
+<!-- is collected, so that is what we must use to make inference. Luckily, statisticians -->
+<!-- and mathematicians have derived formulas using one sample of data to make -->
+<!-- optimal guesses and decisions. -->
+
+In the rest of this chapter, we will further explore these ideas.
+
 
 ## Point Estimation and Confidence Intervals { #ch8_s2}
 
-In the previous chapter, we concerned ourselves with calculating a particular value of a statistic, in our case, the sample mean. The process of computing a single statistic from a sample that will be used to estimate a parameter in the population is known as **point estimation**. As we saw, however, the value of a sample statistic is random, meaning that a sample mean computed from two separate samples from the same population are unlikely to be identically equal to each other. To account for both this random variation and the fact that we are often only able to obtain a single point estimate, we might consider instead determining an *interval* of likely values that our point estimate may fall within. We might consider this our *margin of error* for the point estimate. This process is known as **interval estimation**, and it is a critical part of performing statistical inference.
+The idea of coming up with one best guess at a population parameter is more
+formally known as **point estimation**. An example of point estimation would be
+using the sample mean to estimate a population mean. It is a single number 
+computed from the sample data that is used to infer the value of the population 
+parameter. However, as we have seen, the process of obtaining a sample is random,
+which means that sample means computed from two separate samples taken from the same 
+population will not be identical. To account for both this random variation and
+the fact that we are generally only able to obtain one sample, we might consider instead
+determining an interval of likely values that our point estimate may fall
+within. We might consider this our *margin of error* for the point estimate. 
+This process is known as **interval estimation**, and it is often more informative
+than point estimation, making it a critical part of performing statistical inference.
 
 <!-- To begin, let's first note that the interval we construct will be determined by the point estimate that we have collected. As this point estimate is itself a random variable, it follows that the interval itself will be random as well. The primary consequence of this fact is that there is some probability that the true -->
 
-We can begin by considering some desirable properties of a good interval. For example, it would be nice if our constructed interval had a high probability of containing the true population parameter. Intuitively, the larger the interval, the more likely that the true parameter falls within this range. However, if an interval is *too* large, it ceases to contain much useful information. If when planning what to wear this weekend we reported that the temperature was supposed to be somewhere between absolute zero and the heat found at the center of the sun, this would mostly likely capture the actual temperature, but it would not be terribly useful.
+Let's consider some desirable properties of a good interval. For 
+example, it would be nice if our constructed interval had a high chance of 
+containing the true population parameter. Intuitively, the larger the interval, 
+the more likely that the true parameter falls within this range. However, if an 
+interval is *too* large, it ceases to contain much useful information. If, when
+planning what to wear this weekend, we reported that the temperature was supposed
+to be somewhere between absolute zero and the heat found at the center of the 
+sun, this would surely capture the actual temperature, but it would not 
+be terribly useful. What we see here is a tension between two competing goals: 
+we would like our intervals to be large enough to capture the true parameter 
+value with high probability, yet small enough to give us a reasonable range of 
+estimates of what this value might be. Fortunately, we have statistical tools 
+available to do this - namely, the Central Limit Theorem.
 
-What we see here is a tension between two competing goals: we would like our 
-intervals to be large enough to capture the true parameter value with high 
-probability, yet small enough to give us a reasonable range of estimates of what
-this value might be. Fortunately, we have statistical tools available to do this.
+How does the Central Limit Theorem help us construct confidence intervals? Well, the
+CLT tells us that the distribution of the sample mean is normally distributed, 
+and it gives us the parameters (mean and standard deviation) of said distribution.
+In particular, it tell us that the distribution is symmetric around the true
+population mean. Once we know the distribution of the sample mean, we can compute 
+probabilities - and we can use this to determine the probability that the true 
+mean is contained within some range of values. This is done by splitting the
+normal curve into three parts, as shown in the figure below. The x-axis cutoffs 
+$-z_{\alpha/2}$ and $z_{\alpha/2}$, divide the curve symmetrically, such that 
+$1- \alpha$ probability lies in the middle and $\alpha/2$ probability lies in 
+each tail. We call $1- \alpha$ the **coverage probability**, as it is the
+probability covering the true mean. Just as $1 - \alpha$ represents the 
+probability of covering the true value, the value of $\alpha$ represents the
+probability *not* covering the true mean. The cutoff point $z_{\alpha/2}$ is 
+called the **critical value**.
 
-In the above discussion, the quality of an interval estimate with which we are 
-concerned is known as the **coverage probability**, the probability that the 
-interval that we construct contains or covers the parameter of interest. The 
-coverage probability is often expressed as the term $1 - \alpha$, where $\alpha$
-is some value between 0 and 1. Just as $1 - \alpha$ represents the probability 
-that our interval does cover the true value, the value of $\alpha$ represents 
-the probability that it *does not*. In other words, $\alpha$ represents the 
-probability that we are incorrect. It is often convenient to convert these 
-decimal values to percentages, which can be done by multiplying the value by 
-100. This value, expressed as $100(1 - \alpha)\%$, is called the 
-**confidence interval**. As we can see, the smaller the value of $\alpha$, 
-the more likely our interval estimate contains the true value of the parameter 
-of interest. 
 
-<!--[[need to add either here or above this paragraph information relating mean, SE, and sampling distribution to show interval idea]] -->
 
-<!-- We will first turn our attention to parameter estimation, of which there are two general approaches. These approaches are **point estimation**, which is a single statistic computed from the sample data used to estimate the parameter and **interval estimation**, which is an interval computed from the sample data to give a range of plausible values that is likely to contain the true population parameter. Point estimation is straightforward and is as simple as using the sample mean as an estimate of the population mean. While straightforward, this approach is problematic. In the last chapter we saw that every time we take a sample from a population and compute the sample mean, it changes. And we saw an example in which no matter how we took a sample, the sample mean could never possibly equal the population mean. This is because the act of taking a sample is a random process, which means that for any estimate from our sample it is highly unlikely (or straight up impossible) that we got the exact correct answer. Instead, it would be nice to have an interval that we could be reasonably confident contained the true parameter. -->
 
-<!-- What properties would make a good interval estimate? Well, on one hand we desire an interval that we can have a high degree of confidence of including the true parameter, but on the other hand, a narrow interval is much more informative. I can tell you with 100% confidence that the interval from $-\infty$ to $\infty$ covers the true population parameter, and I don’t even need to know anything about what you’re studying or what numerical quantity is being estimated and I don’t even need any data! I’ve achieved the first goal of having a high degree of confidence, but this interval is clearly not informative. I can make the interval smaller (I will need some data to do that), but the probability that the interval contains the true parameter will decrease. As a compromise, scientists and statisticians decided that intervals with a 95% probability of containing the true parameter was a satisfactory balance between the desire for high confidence and narrow intervals. This gives way to the most common confidence interval – the 95% confidence interval. Although we are getting a little bit ahead of ourselves here (we will have plenty of chances to calculate 95% confidence intervals). Let’s back up with some important definitions and notation. -->
+```{r, echo = F, fig.width = 8}
+curve(dnorm(x, 0, 1), from = -3, to = 3, lwd = 5, col = 'steelblue',
+      ylab = 'Density', main = "", xlab = '')
+bnd <- 3
+x <- seq(-bnd, bnd, 0.01)
+y <- dnorm(x)
+z <- 1.2
 
-<!-- With an interval estimate, we are concerned with **coverage probability**, the probability that the interval contains or covers the parameter of interest. Typically, coverage probability is denoted by $1 - \alpha$. As the interval covers the parameter with probability $1 - \alpha$, the interval *does not* cover the parameter with probability $\alpha$ (because covering and not covering the parameter are complements and cover the entire sample space). In that sense, $\alpha$ is the probability that we are wrong. We will discuss $\alpha$ in more specific terms later in the chapter, but for now let’s just note that $\alpha$ is a small number, maybe 0.05 or 0.01. If we convert from decimal format to percentage format (multiplying by 100), we have $100(1 - \alpha)$%, which is called the **confidence level**. -->
+polygon(c(-bnd, x[x > -bnd & x < -z], -z ),
+        c(0, y[x > -bnd & x < -z], 0), 
+        col = 'pink',angle = 45, density = 85,
+        border = FALSE)
+polygon(c(z, x[x > z & x < bnd], bnd ),
+        c(0, y[x > z & x < bnd], 0), 
+        col = 'pink',angle = 45, density = 85,
+        border = FALSE)
+curve(dnorm(x, 0, 1), from = -3, to = 3, lwd = 5, col = 'steelblue',
+      ylab = 'density', main = "Standard Normal", add = TRUE) 
+
+text(c(-1, 1)*(z + 0.5), 0.03, cex = 1.15,
+     labels = expression(paste(alpha/2)))
+text(0, 0.15, cex = 1.15,
+     labels = expression(paste(1 - alpha)))
+abline(v = c(-z, z), lty  = 2)
+text(z + 0.4, 0.25, cex = 1.15, labels = expression(paste(z[alpha/2])), xpd = T)
+text(-z - 0.4, 0.25, cex = 1.15, labels = expression(paste(-z[alpha/2])), xpd = T)
+```
+
+The coverage probability and critical values depend on one variable - $\alpha$,
+which is some value between 0 and 1. By decreasing $\alpha$, we trap more
+probability in the center of the distribution and less in the tails. We can see
+this in action by comparing two different alpha values: 0.05 and 0.2.
+
+
+```{r, echo = F, fig.width = 10}
+
+par(mfrow = c(1,2))
+curve(dnorm(x, 0, 1), from = -3, to = 3, lwd = 5, col = 'steelblue',
+      ylab = 'Density', main = expression(paste(alpha, ' = 0.05')), xlab = '')
+bnd <- 3
+x <- seq(-bnd, bnd, 0.01)
+y <- dnorm(x)
+z <- qnorm(0.975)
+
+polygon(c(-bnd, x[x > -bnd & x < -z], -z ),
+        c(0, y[x > -bnd & x < -z], 0), 
+        col = 'pink',angle = 45, density = 85,
+        border = FALSE)
+polygon(c(z, x[x > z & x < bnd], bnd ),
+        c(0, y[x > z & x < bnd], 0), 
+        col = 'pink',angle = 45, density = 85,
+        border = FALSE)
+curve(dnorm(x, 0, 1), from = -3, to = 3, lwd = 5, col = 'steelblue',
+      ylab = 'density', main = "Standard Normal", add = TRUE) 
+
+text(c(-1, 1)*(z + 0.55), 0.06, cex = 1.15,
+     labels = '2.5%')
+arrows(-z - 0.55, 0.045, x1 = -z - 0.35, y1 = 0.01, length = 0.05)
+arrows(z + 0.55, 0.045, x1 = z + 0.35, y1 = 0.01, length = 0.05)
+text(0, 0.15, cex = 1.15, labels = '95%')
+abline(v = c(-z, z), lty  = 2)
+text(z + 0.45, 0.25, cex = 1.15, labels = '1.96', xpd = T)
+text(-z - 0.45, 0.25, cex = 1.15, labels = '-1.96', xpd = T)
+
+############################################################
+curve(dnorm(x, 0, 1), from = -3, to = 3, lwd = 5, col = 'steelblue',
+      ylab = 'Density', main = expression(paste(alpha, ' = 0.2')), xlab = '')
+bnd <- 3
+x <- seq(-bnd, bnd, 0.01)
+y <- dnorm(x)
+z <- qnorm(0.90)
+
+polygon(c(-bnd, x[x > -bnd & x < -z], -z ),
+        c(0, y[x > -bnd & x < -z], 0), 
+        col = 'pink',angle = 45, density = 85,
+        border = FALSE)
+polygon(c(z, x[x > z & x < bnd], bnd ),
+        c(0, y[x > z & x < bnd], 0), 
+        col = 'pink',angle = 45, density = 85,
+        border = FALSE)
+curve(dnorm(x, 0, 1), from = -3, to = 3, lwd = 5, col = 'steelblue',
+      ylab = 'density', main = "Standard Normal", add = TRUE) 
+
+text(c(-1, 1)*(z + 0.5), 0.03, cex = 1.15,
+     labels = '10%')
+text(0, 0.15, cex = 1.15, labels = '80%')
+abline(v = c(-z, z), lty  = 2)
+text(z + 0.45, 0.25, cex = 1.15, labels = '1.28', xpd = T)
+text(-z - 0.45, 0.25, cex = 1.15, labels = '-1.28', xpd = T)
+```
+
 
 
 The mathematical details of constructing a confidence interval depends on the 
 parameter of interest and how the study was designed. In this chapter, we will 
 focus on conceptual understanding and interpretation. To construct a
 $100(1 - \alpha)$% confidence interval, we use sample data and sampling 
-distributions as we know that sampling is a random process. For example,
-the Central Limit Theorem tells us the sampling distribution of the mean is 
-normally distributed and gives us the mean and standard deviation of that 
-distribution. Once we have a normal distribution for which we know the mean 
-and standard deviation, we can calculate probabilistic quantities using software.
+distributions as we know that sampling is a random process. 
 
 It’s extremely important that we remember what is random and what the probability 
 distribution is specifying when we are interpreting confidence intervals. The 
@@ -297,6 +439,9 @@ The applet below is designed to help you get familiar with some of the important
 **Interval Estimation: ** <em> Using a range of numeric values to estimate a population parameter </em>
 
 **Coverage Probability: ** <em> The probability that a constructed confidence interval contains the true population parameter </em>
+
+**Critical Value: ** <em> The cutoff value that defines the upper and lower bounds 
+of the interval </em>
 
 **Confidence Interval: ** <em> An interval estimate which contains the true population parameter according to a specified confidence level </em>
 

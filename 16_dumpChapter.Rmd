@@ -333,7 +333,7 @@ As mentioned in Chapter 1, statistics is the science that allows us to provide o
 The goal of this chapter is to address the first of these questions. Formally, **study design** is the process of identifying a relevant population, collecting a representative sample, and asking our question in such a way that the answer of this little question will ultimately give us insight to the *scientific question* at hand. Aside: for example, if we are looking at polio vaccine, our science question may be something sciency like "does this vaccine prevent polio" but that has to be translated to the *statistical question*, akin to "is the incidence of polio in control group statistically different than that of the treatment group." Maybe we should say something more about this translation process, but I don't know enough about regular science to do so. 
 
 
-## Designing the Study
+### Designing the Study
 
 Mentioned above, the primary goal of statistics is to ultimately provide an answer to a scientific question. Before this can be done, we need to begin by translating the *scientific* question into a *statistical* one. 
 
@@ -1184,3 +1184,26 @@ Just as with the binomial distribution, we can determine the probability of an e
 
 [[https://assessingpsyche.wordpress.com/2014/07/10/two-visualizations-for-explaining-variance-explained/]]
 
+
+
+## Confidence intervals dump
+
+[[need to add either here or above this paragraph information relating mean, SE, and sampling distribution to show interval idea]]
+
+We will first turn our attention to parameter estimation, of which there are two general approaches. These approaches are **point estimation**, which is a single statistic computed from the sample data used to estimate the parameter and **interval estimation**, which is an interval computed from the sample data to give a range of plausible values that is likely to contain the true population parameter. Point estimation is straightforward and is as simple as using the sample mean as an estimate of the population mean. While straightforward, this approach is problematic. In the last chapter we saw that every time we take a sample from a population and compute the sample mean, it changes. And we saw an example in which no matter how we took a sample, the sample mean could never possibly equal the population mean. This is because the act of taking a sample is a random process, which means that for any estimate from our sample it is highly unlikely (or straight up impossible) that we got the exact correct answer. Instead, it would be nice to have an interval that we could be reasonably confident contained the true parameter.
+
+What properties would make a good interval estimate? Well, on one hand we desire an interval that we can have a high degree of confidence of including the true parameter, but on the other hand, a narrow interval is much more informative. I can tell you with 100% confidence that the interval from $-\infty$ to $\infty$ covers the true population parameter, and I don’t even need to know anything about what you’re studying or what numerical quantity is being estimated and I don’t even need any data! I’ve achieved the first goal of having a high degree of confidence, but this interval is clearly not informative. I can make the interval smaller (I will need some data to do that), but the probability that the interval contains the true parameter will decrease. As a compromise, scientists and statisticians decided that intervals with a 95% probability of containing the true parameter was a satisfactory balance between the desire for high confidence and narrow intervals. This gives way to the most common confidence interval – the 95% confidence interval. Although we are getting a little bit ahead of ourselves here (we will have plenty of chances to calculate 95% confidence intervals). Let’s back up with some important definitions and notation.
+
+With an interval estimate, we are concerned with **coverage probability**, the probability that the interval contains or covers the parameter of interest. Typically, coverage probability is denoted by $1 - \alpha$. As the interval covers the parameter with probability $1 - \alpha$, the interval *does not* cover the parameter with probability $\alpha$ (because covering and not covering the parameter are complements and cover the entire sample space). In that sense, $\alpha$ is the probability that we are wrong. We will discuss $\alpha$ in more specific terms later in the chapter, but for now let’s just note that $\alpha$ is a small number, maybe 0.05 or 0.01. If we convert from decimal format to percentage format (multiplying by 100), we have $100(1 - \alpha)$%, which is called the **confidence level**.
+
+In the above discussion, the quality of an interval estimate with which we are 
+concerned is known as the **coverage probability**, i.e., the probability that the 
+constructed interval contains (or covers) the true parameter of interest. The 
+coverage probability is often expressed as the term $1 - \alpha$, where $\alpha$
+is some value between 0 and 1.  In other words, $\alpha$ represents the 
+probability that we are incorrect. It is often convenient to convert these 
+decimal values to percentages, which can be done by multiplying the value by 
+100. This value, expressed as $100(1 - \alpha)\%$, is called the 
+**confidence interval**. As we can see, the smaller the value of $\alpha$, 
+the more likely our interval estimate contains the true value of the parameter 
+of interest. 
