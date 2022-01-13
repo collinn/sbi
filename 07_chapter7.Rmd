@@ -18,11 +18,11 @@ output: html_document
 
 ## Introduction to Sampling
 
-Suppose policy makers and public health experts in Iowa are concerned with Iowans' fast food intake. To understand this further, officials want to determine the average monthly spending on fast food for all Iowans. It would be very expensive, however, to have all 3.2 million Iowans track and report their total monthly fast food expenses. Whats more, many Iowans would not be willing to share personal financial details with public health researchers or government officials. These are but a few of the challenges making it practically impossible for officials to ever determine the true average spent by Iowans each month on fast food. 
+Suppose policy makers and public health experts in Iowa are concerned with Iowans' fast food intake. To understand this further, officials want to determine the average monthly spending on fast food for all Iowans. It would be very expensive, however, to have all 3.2 million Iowans track and report their total monthly fast food expenses. Whatsmore, many Iowans would not be willing to share personal financial details with public health researchers or government officials. These are but a few of the challenges making it practically impossible for officials to ever determine the true average spent by Iowans each month on fast food. 
 
 A true numeric quantity about the population, here assumed to be the mean, is known as a **population parameter**. While we may never know the exact value of a population parameter, we have tools at our disposal to estimate it. For example, officials can determine a *representative sample* of Iowans and have those consenting to share their information report their monthly fast food spending. The average spending of this group is the *sample mean*, which can then be used approximate the population mean. The sample mean is an example of a **sample statistic**, which is a numerical quantity about the sample. In other words, statistics are what investigators know, and parameters are what investigators want to know. 
 
-The statistical framework (pictured below) demonstrates the process of making **inference** about population parameters with the use of sample statistics, as was done in the example above. The numerical quantities of interest can be many different things - means, proportions, standard deviations, etc.,. While the methods of estimation are similar in each case, the present chapter will focus specifically on estimations of the mean. (maybe mention here that this is general discussion with mathematical derivations saved for a later chapter)
+The statistical framework (pictured below) demonstrates the process of making **inference** about population parameters with the use of sample statistics, as was done in the example above. The numerical quantities of interest can be many different things -- means, proportions, standard deviations, etc.,. While the methods of estimation are similar in each case, the present chapter will focus specifically on estimations of the mean. (maybe mention here that this is general discussion with mathematical derivations saved for a later chapter)
 
 
 ```{tikz statFramework2, fig.cap = "Statistical Framework", fig.ext = 'png', echo = F, fig.align= 'center'}
@@ -67,7 +67,7 @@ The difference between our estimate and our parameter is called **bias**. **Vari
 knitr::include_graphics("./images/biasVariabilityTargets2.png")
 ```
 
-In terms of priority, having a low bias is generally more desirable than low variance, and this is represented in the top row above. Having low bias indicates that our sample statistic is correctly estimating the population parameter of interest, even if our statistic is considered "noisy". Variance, illustrated in the columns, gives an idea of how "consistent" our estimate is. One way to think of it is to consider the throwing of a dart to the collection of a sample; comparing the top right and bottom left corners, we might say it is better throw generally close to the target than to consistently miss it entirely. Statisticians work hard to develop sampling and inferential procedures that allow us to estimate population parameters with little low variability and little to no bias.
+In terms of priority, having a low bias is generally more desirable than low variance, and this is represented in the top row above. Having low bias indicates that our sample statistic is correctly estimating the population parameter of interest, even if our statistic is considered "noisy". Variance, illustrated in the columns, gives an idea of how "consistent" our estimate is. One way to think of it is to consider the throwing of a dart to the collection of a sample; comparing the top right and bottom left corners, we might say it is better throw generally close to the target than to consistently miss it entirely. Statisticians work hard to develop sampling and inferential procedures that allow us to estimate population parameters with low variability and little to no bias.
 
 ---
 
@@ -80,11 +80,11 @@ In terms of priority, having a low bias is generally more desirable than low var
 
 **Inference: ** <em> The process of making generalizations about the population based on sampling statistics </em>
 
-**Bias: ** <em> The systematic difference between our estimate and our parameter </em>
+**Bias: ** <em> The systematic difference between our estimate and the true parameter </em>
 
 **Variability: ** <em> The spread or noise in the data </em>
 
-**Precision: ** <em> Inverse of variance, how narrow the data is   </em>
+**Precision: ** <em> Inverse of variance, how "narrow" the data is   </em>
 
 </div>
 </div>
@@ -199,6 +199,7 @@ Let's return to the fast food scenario to motivate our development, but for now 
 
 ```{r, echo = F}
 library(knitr)
+library(kableExtra)
 library(scales)
 person <- c('A', 'B', 'C', 'D', 'E')
 monthlySpending <- c(8, 22, 22, 36, 50)

@@ -255,7 +255,7 @@ a coin some number of times and counting the number of flips result in heads (su
 Each flip has two possible outcomes (heads or tails), the same probability of heads 
 on each flip (50%), and a predetermined the number of trials (three flips). 
 
-To illustrate another examplea of the binomial distribution, we might consider 
+To illustrate another example of the binomial distribution, we might consider 
 rolling a six-sided die a number of times, counting the number of rolls that result
 in either a 5 or 6. That is, we would consider a success to be rolling a 5 or 6, and
 a failure to be rolling a 1, 2, 3, or 5. As there are six equally likely outcomes, 
@@ -328,8 +328,8 @@ distribution change? What about the location of the distribution?
 <div class="exercise-container">
 <div class="exercise"> &nbsp; </div>
 <div class="text">
-The applet below is designed to familiarize you with data generated from the 
-binomial distribution. You can change the values of the number of trials $n$, and
+The applet below is designed to familiarize you with data *generated* from the 
+binomial distribution. That is, we are interested in exploring the relationship between an underlying theoretical distribution and data that is observed. You can change the values of the number of trials $n$, and
 the probability of success $p$ to specify the parameters of the population 
 distribution. Then, you can take a random sample from the distribution.
 
@@ -338,6 +338,21 @@ distribution. Then, you can take a random sample from the distribution.
 
 <iframe src="https://ph-ivshiny.iowa.uiowa.edu/ceward/textbook/shinyApps/binomialData/" width = "100%" height = "600"> 
 </iframe>
+
+<div class="exercise-container">
+<div class="text">
+Use the applet to answer the following questions:
+
+1. Set $n = 10$ and $p = 0.5$. Starting with a sample size of 10, simulate data a number of times and observe the histogram of the observed data. What do you notice? Is the observed data typically centered around the same value as the probability distribution? Does it have the same shape? Try again with a sample size of 50. What has changed? What stays the same? Do this once more with a sample size of 100.
+
+2. What are some general observations that can be made from the results in saw in (1)? How consistently does a histogram of the observed data match that from the theoretical distribution? What effect does sample size have on this consistency?
+
+3. Play around with different values of $n$ and $p$, as well as with different sample sizes. What are some trends that you notice? Are there values of $n$ and $p$ that seem to produce more consistent results? If you were to only look at the observed data, how confident do you feel that you could guess the shape of the underlying distribution? How close might you be?
+
+4. In general, how would you describe the histogram of the binomial distribution? Does it tend to be symmetric? How do different values of $p$ change the skew of the distribution? How about different values of $n$?
+
+</div>
+</div>
 
 ---
 
@@ -498,6 +513,26 @@ in a probability histogram.
 <iframe src="https://ph-ivshiny.iowa.uiowa.edu/ceward/textbook/shinyApps/normal/" width = "100%" height = "500"> 
 </iframe>
 
+
+<div class="exercise-container">
+<div class="text">
+Use the applet to answer the following questions:
+
+1. Start by setting $\mu = 0$ and $\sigma = 1$. How would you describe the shape of the distribution? Is it symmetric? How concentrated are the range of values around zero? 
+
+2. Now set $\sigma = 2$. What has changed? Reset the value back to $\sigma = 1$ and press the "Play" button. How does the normal distribution change with $\sigma$?
+
+3. Repeat exercise 2, this time setting $\sigma = 1$ and allowing $\mu$ to change over a range of values. How does the distribution change? How does it change compared with what we saw in exercise 2?
+
+4. Play around with different values of $\mu$ and $\sigma$. What impact does changing $\mu$ have on the concentration of values? How does changing $\sigma$ impact where the distribution is centered? How would you describe the relationship between $\mu$ and $\sigma$?
+
+5. Compare your answers from this exercise with those from the binomial distribution. How do these distributions differ in their relationship to their parameters?
+
+
+</div>
+</div>
+
+
 <div class="exercise-container">
 <div class="exercise"> &nbsp; </div>
 <div class="text">
@@ -511,6 +546,17 @@ distribution. Then, you can take a random sample from the distribution.
 
 <iframe src="https://ph-ivshiny.iowa.uiowa.edu/ceward/textbook/shinyApps/normalData/" width = "100%" height = "600"> 
 </iframe>
+
+<div class="exercise-container">
+<div class="text">
+Use the applet to answer the following questions:
+
+1. Start again by setting $\mu = 0$ and $\sigma = 1$, and simulate data several times with a sample size of 10. How does the observed data compare to the probability distribution? Does it have the same shape? What changes when we set our sample size to 50?
+
+2. Compared with the binomial distribution, how well does data generated from a normal distribution tend to match the probability distribution? Given only the observed data, how close do you think your estimate would be of the underlying distribution?
+
+</div>
+</div>
 
 ---
 

@@ -25,11 +25,11 @@ library(markdown)
 
 It may be helpful at this point to quickly review our goals as statisticians, as well as some of the key concepts that we have covered so far:
 
-1. First, let's consider again the primary goal of statistical analysis. We often begin with some population of interest, and in particular, we are generally interested in determining some numerical quantity that describes this population. This may include things such as average monthly spending, or the proportion of individuals who respond positively to some treatment. As it is typically impractical to measure some quantity within an entire population, we are often limited to collecting a *random sample* of the population from which we hope to make generalizations that apply to the population as a whole.
+1. First, let's consider again the primary goal of statistical analysis. We often begin with some population of interest, and in particular, we are generally interested in determining some numerical quantity that describes this population. This may include things such as average monthly spending or the proportion of individuals who respond positively to some treatment. As it is typically impractical to measure some quantity within an entire population, we are often limited to collecting a *random sample* of the population from which we hope to make generalizations that apply to the population as a whole.
 
-2. The data that we collect is usually *random*, and we can quantify the amount of uncertainty associated with a particular outcome with a numerical quantity known as a probability. The relationship between possible values of our data and their associated probabilities is known as a *probability distribution*, two of the most widely used being the normal and binomial distributions.
+2. The data that we collect is usually *random*, and we can quantify the amount of uncertainty associated with a particular outcome with a numerical quantity known as a probability. The relationship between possible values of our data and their associated probabilities is known as a *probability distribution*, two of the most widely used being the normal and binomial distributions, covered in chapter 5.
 
-3. The act of collecting a sample and computing a statistic is itself a random process and, as such, also follows a probability distribution known as a *sampling distribution*. As we saw in the previous chapter, as the number of individuals collected in our sample increases, the computed statistic will approximately follow a normal distribution, thanks to the Central Limit Theorem. In our case, the sampling distribution will depend on the value of the sample mean, as well as the size of the standard error
+3. The act of collecting a sample and computing a statistic is itself a random process and, as such, also follows a probability distribution known as a *sampling distribution*. As we saw with the Central Limit Theorem introduced in the  last chapter, as the number of individuals collected in our sample increases, the computed statistic will increasingly approximate a normal distribution. In our case, the sampling distribution will depend on the value of the sample mean, as well as the size of the standard error
 
 Our goal now is to determine how we might use these ideas to go from information in our random sample to statements about the broader population. This process is known as statistical inference and is the focus of the present chapter. 
 
@@ -188,15 +188,15 @@ table.
 </div>
 
 How good were you at guessing the truth? To play the game, you had to come up with 
-some method to make your best guess, an interval of plausible values, and to determine
+some method to make your best guess, an interval of plausible values, and determine
 how likely it was that a given value was the truth. These are some of the 
 foundational goals of statistical inference, which help us answer questions like:
 
 * By how much can you expect your blood pressure to be reduced after starting
   a blood pressure medication?  
 * How likely is it that a new cancer treatment will lead to fewer deaths than
-  the current gold standard?
-* After getting the flu, around how many days is someone infectious?
+  the current treatment standard?
+* After getting the flu, for approximately how many days is someone infectious?
 
 
 <!-- You may have noticed that your guesses were better when you took more samples  -->
@@ -211,41 +211,48 @@ In the rest of this chapter, we will further explore these ideas.
 
 ## Point Estimation and Confidence Intervals { #ch8_s2}
 
-The idea of coming up with one best guess at a population parameter is more
-formally known as **point estimation**. An example of point estimation would be
-using the sample mean to estimate a population mean. It is a single number 
-computed from the sample data that is used to infer the value of the population 
-parameter. However, as we have seen, the process of obtaining a sample is random,
+The idea of coming up with a single best guess at a population parameter is more
+formally known as **point estimation**. For example, using the mean value of a sample 
+to estimate the mean value of the population is a form of point estimation. In other words, it is a single number computed from the sample data that is used to infer the value of the population 
+parameter. 
+
+As we have seen in the probability distribution exercises of chapter 5, the process 
+of obtaining a sample is random,
 which means that sample means computed from two separate samples taken from the same 
 population will not be identical. To account for both this random variation and
 the fact that we are generally only able to obtain one sample, we might consider instead
 determining an interval of likely values that our point estimate may fall
-within. We might consider this our *margin of error* for the point estimate. 
-This process is known as **interval estimation**, and it is often more informative
-than point estimation, making it a critical part of performing statistical inference.
+within. We might consider this our *margin of error* for the point estimate. A wider interval around a point estimate is associated with a higher margin of error, which may also serve as a measure of our uncertainty
+This process is known as **interval estimation**. By including a measure of uncertainty, interval estimation is a more informative metric than a point estimation alone, making it a critical part of performing statistical inference.
 
 <!-- To begin, let's first note that the interval we construct will be determined by the point estimate that we have collected. As this point estimate is itself a random variable, it follows that the interval itself will be random as well. The primary consequence of this fact is that there is some probability that the true -->
 
-Let's consider some desirable properties of a good interval. For 
-example, it would be nice if our constructed interval had a high chance of 
-containing the true population parameter. Intuitively, the larger the interval, 
-the more likely that the true parameter falls within this range. However, if an 
-interval is *too* large, it ceases to contain much useful information. If, when
-planning what to wear this weekend, we reported that the temperature was supposed
-to be somewhere between absolute zero and the heat found at the center of the 
-sun, this would surely capture the actual temperature, but it would not 
-be terribly useful. What we see here is a tension between two competing goals: 
-we would like our intervals to be large enough to capture the true parameter 
-value with high probability, yet small enough to give us a reasonable range of 
-estimates of what this value might be. Fortunately, we have statistical tools 
-available to do this - namely, the Central Limit Theorem.
+Constructing a desirable interval consists in suitably resolving the tension between 
+two competing values:
+
+1. The interval should be large enough that it contains the *true* parameter value with high probability
+
+2. The interval should be narrow enough to remain useful.
+
+We might consider with an example how these two goals compete: suppose that we are 
+preparing for a trip and trying to anticipate the weather so that we know how
+to pack. On one hand, there is a clear utility in having an estimate of the temperature
+range that contains the true value, suggesting the a larger interval may be appropriate. 
+On the other hand, however, having a range of temperatures between 0&deg;F and 100&deg;F
+hardly tells us if we need to pack a swimming suit or a parka. Fortunately for us, 
+we have statistical tools available to remove much of this guesswork -- namely, 
+through an application of the Central Limit Theorem.
+
+
+
+
 
 How does the Central Limit Theorem help us construct confidence intervals? Well, the
 CLT tells us that the distribution of the sample mean is normally distributed, 
 and it gives us the parameters (mean and standard deviation) of said distribution.
 In particular, it tell us that the distribution is symmetric around the true
 population mean. Once we know the distribution of the sample mean, we can compute 
-probabilities - and we can use this to determine the probability that the true 
+probabilities -- and we can use this to determine the probability that the true 
 mean is contained within some range of values. This is done by splitting the
 normal curve into three parts, as shown in the figure below. The x-axis cutoffs 
 $-z_{\alpha/2}$ and $z_{\alpha/2}$, divide the curve symmetrically, such that 
@@ -256,6 +263,9 @@ probability of covering the true value, the value of $\alpha$ represents the
 probability *not* covering the true mean. The cutoff point $z_{\alpha/2}$ is 
 called the **critical value**.
 
+<center>
+![normal distribution stuff](images/sd_diagram_wikipedia_smaller.png)
+</center>
 
 
 
@@ -287,7 +297,7 @@ text(z + 0.4, 0.25, cex = 1.15, labels = expression(paste(z[alpha/2])), xpd = T)
 text(-z - 0.4, 0.25, cex = 1.15, labels = expression(paste(-z[alpha/2])), xpd = T)
 ```
 
-The coverage probability and critical values depend on one variable - $\alpha$,
+The coverage probability and critical values depend on one variable -- $\alpha$,
 which is some value between 0 and 1. By decreasing $\alpha$, we trap more
 probability in the center of the distribution and less in the tails. We can see
 this in action by comparing two different alpha values: 0.05 and 0.2.
@@ -457,7 +467,7 @@ construct an intervals of values representing likely values of the true paramete
 
 Along with parameter estimation, a cornerstone of statistical inference is significance testing. Confidence intervals allow us to construct a range of plausible values for the parameter, and significance tests allow us to determine the likelihood of a parameter taking a certain value. A **hypothesis test** uses sample data to assess the plausibility of each of two competing hypotheses regarding an unknown parameter (or set of parameters). A **statistical hypothesis** is a statement or claim about an unknown parameter. The **null hypothesis** generally represents what is assumed to be true before the experiment is conducted. This hypothesis is typically denoted $H_0$. The **alternative hypothesis** represents what the investigator is interested in establishing. This hypothesis is typically denoted $H_A$. Oftentimes when people refer to the "scientific hypothesis," this in reference to the alternative hypothesis - it is what the investigators think will happen or what they want to show. The goal of a hypothesis test is to determine which hypothesis is the most plausible - the null or the alternative. 
 
-As an example, consider researchers that have developed a new drug to treat cancer. In order for the drug to be approved for use, the investigators must prove that it is more effective in treating cancer than the current gold standard treatment. To do this, the investigators gather a  sample of cancer patients and randomize half of them to receive their new drug and half to receive the current treatment. Then they determine how many patients improved in both groups. In this scenario, the null hypothesis would be that the new drug and the current drug result in the same improvement. Why? Well, the null hypothesis is what is believed before the data was collected. The key is *whose* beliefs we are talking about. While the scientists that developed the drug most likely believe that their new drug is more effective, the rest of the scientific community remains in a state of uncertainty. The null hypothesis reflects the general beliefs of the scientific community. The alternative hypothesis in this scenario is that the drugs differ in their effectiveness on treating cancer. This is what the researchers hope to show, specifically, they hope to show that their drug is more effective, however, when the study is conducted there is no evidence in either direction, so we leave the alternative hypothesis to also encompass the possibility of the new drug being worse.
+As an example, consider researchers that have developed a new drug to treat cancer. In order for the drug to be approved for use, the investigators must prove that it is more effective in treating cancer than the current  treatment options. To do this, the investigators gather a sample of cancer patients and randomize half of them to receive their new drug and half to receive the current treatment. Then they determine how many patients improved in both groups. In this scenario, the null hypothesis would be that the new drug and the current drug result in the same improvement. Why? Well, the null hypothesis is what is believed before the data was collected. The key is *whose* beliefs we are talking about. While the scientists that developed the drug most likely believe that their new drug is more effective, the rest of the scientific community remains in a state of uncertainty. The null hypothesis reflects the general beliefs of the scientific community. The alternative hypothesis in this scenario is that the drugs differ in their effectiveness on treating cancer. This is what the researchers hope to show, specifically, they hope to show that their drug is more effective, however, when the study is conducted there is no evidence in either direction, so we leave the alternative hypothesis to also encompass the possibility of the new drug being worse.
 
 In general, we can think about the null hypothesis as being the "baseline," "boring," "nothing to see here" hypothesis. The exact specification will depend on the study context and the type of data being measured (categorical or continuous):
 
