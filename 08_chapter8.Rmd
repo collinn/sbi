@@ -25,11 +25,11 @@ library(markdown)
 
 It may be helpful at this point to quickly review our goals as statisticians, as well as some of the key concepts that we have covered so far:
 
-1. First, let's consider again the primary goal of statistical analysis. We often begin with some population of interest, and in particular, we are generally interested in determining some numerical quantity that describes this population. This may include things such as average monthly spending or the proportion of individuals who respond positively to some treatment. As it is typically impractical to measure some quantity within an entire population, we are often limited to collecting a *random sample* of the population from which we hope to make generalizations that apply to the population as a whole.
+1. First, let's consider again the primary goal of statistical analysis. We often begin with some population of interest. In particular, we are generally interested in determining some numerical quantity that describes this population. This may include things such as average monthly spending or the proportion of individuals who respond positively to some treatment. As it is typically impractical to measure some quantity within an entire population, we are often limited to collecting a *random sample* of the population from which we hope to make generalizations that apply to the population as a whole.
 
 2. The data that we collect is usually *random*, and we can quantify the amount of uncertainty associated with a particular outcome with a numerical quantity known as a probability. The relationship between possible values of our data and their associated probabilities is known as a *probability distribution*, two of the most widely used being the normal and binomial distributions, covered in chapter 5.
 
-3. The act of collecting a sample and computing a statistic is itself a random process and, as such, also follows a probability distribution known as a *sampling distribution*. As we saw with the Central Limit Theorem introduced in the  last chapter, as the number of individuals collected in our sample increases, the computed statistic will increasingly approximate a normal distribution. In our case, the sampling distribution will depend on the value of the sample mean, as well as the size of the standard error
+3. The act of collecting a sample and computing a statistic is itself a random process and, as such, also follows a probability distribution known as a *sampling distribution*. As we saw with the Central Limit Theorem introduced in the  last chapter, as the number of individuals collected in our sample increases, the computed statistic will increasingly approximate a normal distribution. As with the normal distribution, the sampling distribution will depend on the value of the sample mean, as well as the size of the standard error
 
 Our goal now is to determine how we might use these ideas to go from information in our random sample to statements about the broader population. This process is known as statistical inference and is the focus of the present chapter. 
 
@@ -249,27 +249,54 @@ through an application of the Central Limit Theorem.
 
 How does the Central Limit Theorem help us construct confidence intervals? Well, the
 CLT tells us that the distribution of the sample mean is normally distributed, 
-and it gives us the parameters (mean and standard deviation) of said distribution.
-In particular, it tell us that the distribution is symmetric around the true
-population mean. Once we know the distribution of the sample mean, we can compute 
-probabilities -- and we can use this to determine the probability that the true 
-mean is contained within some range of values. This is done by splitting the
-normal curve into three parts, as shown in the figure below. The x-axis cutoffs 
-$-z_{\alpha/2}$ and $z_{\alpha/2}$, divide the curve symmetrically, such that 
-$1- \alpha$ probability lies in the middle and $\alpha/2$ probability lies in 
-each tail. We call $1- \alpha$ the **coverage probability**, as it is the
-probability covering the true mean. Just as $1 - \alpha$ represents the 
-probability of covering the true value, the value of $\alpha$ represents the
-probability *not* covering the true mean. The cutoff point $z_{\alpha/2}$ is 
-called the **critical value**.
+and it gives us the parameters (mean and standard deviation) of said distribution. As
+we saw in Chapter 5, (we need to add this to ch 5) the standard deviation gives us
+a useful metric in determining how dispersed our data is around the mean. The highlighted
+sections in the image below detail what proportion of our data lies within a standard
+deviation of the mean in the case when $\mu = 0$:
 
 <center>
 ![normal distribution stuff](images/sd_diagram_wikipedia_smaller.png)
 </center>
 
+For example, knowing that 34.1\% of our data will be within one standard deviation ($\sigma$)
+above the mean and 34.1\% will be within one standard deviation below. Together, 
+this tells us that the interval generated by $\mu \pm \sigma$ should contain about
+68.2\% of the total observations. That is, 
 
+$$
+(\mu - \sigma, \mu + \sigma) = \text{interval with 68.2% of data}
+$$
+As our sampling distribution is approximately normal, we can approximate this interval 
+with the statistics generated from our sample mean:
 
-```{r, echo = F, fig.width = 8}
+$$
+(\overline{x} - \hat{\sigma}, \overline{x} + \hat{\sigma}) \approx  \text{interval with 68.2% of data}
+$$
+
+Fortunately, this process also works in reverse: once we have determined the probability
+we want for our interval to contain the true value, we can work backwards to find
+the appropriate values. A common interval size used in statistics is to capture the
+true mean with a probability of 95\%, also called a 95\% **confidence interval**. The
+probability itself, in this case 95\%, is known as the **coverage probability**. For
+the normal distribution, a 95\% coverage probability is given with the interval 
+$\overline{x} \pm 1.96 \hat{\sigma}$. It is important to note here that, just like 
+the normal distribution itself, the confidence interval is *also* symmetric around the mean.
+
+Of course, other values can be used, generating confidence intervals of different sizes.
+To introduce this more general case (that is, without specifying a value), we need
+a few variables in the previous example. Let's begin with coverage probability. We use
+the value $1 - \alpha$ to describe the coverage probability, where $\alpha$ represents 
+the probability that our interval *does not* contain the true mean. This may seem a 
+bit backwards at first, but our reasons for doing so will be clear shortly.
+
+If $1 - \alpha$ represents our coverage probability, then $\alpha$ must represent
+the probability of our interval not containing the true value. And, as our interval 
+is symmetric about the sample mean, this means that there is a probability of $\alpha/2$
+that the true value is *above* the sample mean, and a probability of $\alpha/2$ that
+it lies *below* the sample mean. This concept is illustrated below:
+
+```{r, echo = F, fig.width = 8, fig.align='center'}
 curve(dnorm(x, 0, 1), from = -3, to = 3, lwd = 5, col = 'steelblue',
       ylab = 'Density', main = "", xlab = '')
 bnd <- 3
@@ -294,16 +321,22 @@ text(0, 0.15, cex = 1.15,
      labels = expression(paste(1 - alpha)))
 abline(v = c(-z, z), lty  = 2)
 text(z + 0.4, 0.25, cex = 1.15, labels = expression(paste(z[alpha/2])), xpd = T)
-text(-z - 0.4, 0.25, cex = 1.15, labels = expression(paste(-z[alpha/2])), xpd = T)
+text(-z - 0.4, 0.25, cex = 1.15, labels = expression(paste(z[1-alpha/2])), xpd = T)
 ```
 
-The coverage probability and critical values depend on one variable -- $\alpha$,
-which is some value between 0 and 1. By decreasing $\alpha$, we trap more
-probability in the center of the distribution and less in the tails. We can see
-this in action by comparing two different alpha values: 0.05 and 0.2.
+As you may have guessed, the lines at $z_{1-\alpha/2}$ and $z_{\alpha/2}$ represent
+the endpoints of our confidence interval. These values are known as **critical values**.
+In particular, $z_{1-\alpha/2}$ gives us the value for which $\alpha/2\%$ of the 
+distribution is less than $z_{1-\alpha/2}$, and $z_{\alpha/2}$ gives us the value for
+which $\alpha/2\%$ is greater. In the case of a 95\% confidence interval, we have that
+$\alpha = 0.05$, and our critical values are denoted $z_{0.025}$ and $z_{0.975}$
 
+By changing the values of $\alpha$, we are able to change the probability that our
+generated interval contains the true value and, as a consequence, change the size
+of the interval itself. We illustrate this below by considering two different
+commonly used values for $\alpha$ and the intervals that are generated:
 
-```{r, echo = F, fig.width = 10}
+```{r, echo = F, fig.width = 10, fig.align='center'}
 
 par(mfrow = c(1,2))
 curve(dnorm(x, 0, 1), from = -3, to = 3, lwd = 5, col = 'steelblue',
@@ -363,27 +396,44 @@ text(-z - 0.45, 0.25, cex = 1.15, labels = '-1.28', xpd = T)
 
 
 The mathematical details of constructing a confidence interval depends on the 
-parameter of interest and how the study was designed. In this chapter, we will 
-focus on conceptual understanding and interpretation. To construct a
-$100(1 - \alpha)$% confidence interval, we use sample data and sampling 
-distributions as we know that sampling is a random process. 
+parameter of interest and how the study was designed. Here, however, we will 
+focus on conceptual understanding and interpretation, using sample data and
+sampling distributions to construct our $100(1-\alpha)$% confidence intervals.
 
-It’s extremely important that we remember what is random and what the probability 
-distribution is specifying when we are interpreting confidence intervals. The 
-sampling distribution describes which values of the sample statistic are likely 
-and which are not likely. The random process is drawing a sample. The population
-parameter is a fixed quantity – we don’t know what it is, but it does not change.
-Confidence intervals are constructed from the information we do know – the
-observed data from the sample. Because sampling is a random process and confidence
-intervals are constructed using the sample data, the confidence interval will
-vary from sample to sample. However, we formulate confidence intervals
-mathematically to ensure that the probability that the interval contains the 
-true probability is $1 - \alpha$. And as we’ve seen probabilities are long-run 
-frequencies. So any given confidence interval may or may not cover the true 
-parameter, but in the long run if we take samples over and over and compute a 
-confidence interval based on the data from each sample, we are guaranteed that 
-$100(1 - \alpha)$% of the confidence intervals constructed will cover the truth.
-This is quite appealing. Lets explore this concept further by using the following applet.
+Before moving on, let's take a moment to review where we are and what we know:
+
+1. We are interested in constructing an interval that captures a fixed but unknown
+quantity about our population, in this case, $\mu$. This value is *not* random.
+
+2. What is random, however, are the values used to construct this interval, namely
+$\overline{X}$ and $\hat{\sigma}$. These values come from our *random sample* and, 
+as such, follow a sampling distribution.
+
+3. In practice, we are generally only able to collect a single random sample, giving
+us single estimates of $\overline{X}$ and $\hat{\sigma}$ and, consequently, a
+single confidence interval.
+
+An important question to ask ourselves at this point is: *If there is a single true
+parameter whose value we do not know, and if we can only construct a single confidence
+interval from our sample data, what does it mean for a confidence interval to have
+a coverage probability of 95%?*
+
+The answer to this lies in the sampling process itself. Specifically, what we mean
+when we say that an interval has a coverage probability of 95% is:
+
+1. If we were to continuously collect samples from our population in the exact same way and
+
+2. for each sample, we compute the sample mean and standard error and
+
+3. use these values to construct our confidence interval then
+
+4. 95% of the time, our computed confidence interval will contain the true parameter value.
+
+In other words, although we will never know for certain if our particular interval
+contains the true value, we can take confidence (see what we did there?) in knowing
+that the *process* will give us a valid interval 95% of the time. Let's explore
+this concept a little further by playing with the following applet.
+
 
 
 <div class="exercise-container">
