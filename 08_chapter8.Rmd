@@ -465,25 +465,27 @@ The applet below is designed to help you get familiar with some of the important
   <li>How do the intervals differ from those constructed from experiments using a sample size of 30?  </li>
   <li>What is the observed coverage? What would you expect the coverage to be based on the specifications used?</li>
   <li>Across the 100 confidence intervals shown, how do the widths of the confidence intervals compare? Is there any difference in the confidence interval widths between intervals that do contain the true parameter and those that do not? </li>
-  <li>Now change the sample size to 100. How do these intervals compare to those using sample sizes of 30 or 50? </li>
-  <li>Change the number of experiments to be 1000. Play around with various sample sizes. How does changing the sample size effect the observed coverage? </li>
+  <li>Now change the sample size to 100. How do these intervals compare to those using sample sizes of 30 or 50? Does the sample size seem to impact the coverage probability? </li>
+  <li> Change the confidence level to 50% and again run several simulations with sample sizes of 30, 50, or 100. How do these compare to other simulations we have seen? What appears to be the relationship between sample size, the confidence level, and the width of the intervals?
   </ol>
   </li>
-  <li>Return to a sample size of 30. Now we will simulate 1000 experiments. Simulating more experiments makes things harder to visualize (we can no longer easily count the intervals that did not contain the truth), but the coverage is more stable when the simulation is re-ran.
+  <li>Return to a sample size of 30 and set the number of experiments to be 1000. 
   <ol style="list-style-type: lower-alpha; ">
-  <li>With a confidence level of 95%, what is the observed coverage? </li>
-  <li>Re-run the simulation with a sample size of 100. How do these intervals compare to those using sample sizes of 30 or 50? </li>
+  <li>Run the simulation once with a confidence level of 95%. What is the observed coverage? </li>
+  <li>Re-run the simulation several more times withi 1000 experiments each. What are the coverage probabilities? How do these compare to (f) in question 1? </li>
   <li>Re-run the simulation using a confidence level of 50%. 
-        How do these intervals compare to those using a confidence level of 95%? What is the observed coverage? </li>
+        How do these intervals compare to those using a confidence level of 95%? How does this change with different sample sizes? </li>
   </ol>
   </li>
+
+  
   <li>Change the parameters of the simulations as needed to answer the following true/false questions. Explain your answers. 
   <ol style="list-style-type: lower-alpha; ">
   <li>As the sample size increases, the coverage probability increases.</li>
   <li>As the confidence level decreases, the width of the confidence intervals decreases,</li>
   <li>As the sample size increases, the width of the confidence intervals increases.</li>
   <li>If a researcher wants a narrower confidence interval, they should obtain a larger sample.</li>
-  <li>If a researcher wants a narrower confidence interval, they should decrease the confidence level. </li>
+  <li>If a researcher wants a wider confidence interval, they should increase the confidence level. </li>
   </ol>
   </li>
 </ol>
