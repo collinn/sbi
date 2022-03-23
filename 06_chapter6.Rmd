@@ -24,17 +24,17 @@ In Chapter 4, we introduced the idea of random processes, i.e. situations
 in which the outcome can not be determined perfectly in advance. Random processes
 are defined in terms of the *collection of possible events* (sample space) and their
 *associated probabilities*. In that chapter, we saw three methods for calculating
-probabilities - the enumeration method, the probability function method, and the
+probabilities -- the enumeration method, the probability function method, and the
 simulation method. In this chapter we will expand on the probability function 
 method, which uses a known function called a **probability distribution** to
 determine the probability of each event. 
 
-Probability distributions are closely related to **random variables**, a numeric 
-variable that can take on different values depending on the outcome of a random
+Probability distributions are closely related to **random variables**, numeric 
+variables that can take on different values depending on the outcome of a random
 process. In previous mathematics courses you may have seen variables such as
 $x$ or $y$ used as placeholder values which are then solved for. For example, 
 you can solve for the variable $x$ in $4x + 5 = 25$, to determine $x = 5$. By 
-contrast, the outcome of a *random* variable cannot be predetermined. Instead, 
+contrast, the outcome of a *random* variable is not be predetermined. Instead, 
 we talk probabilistically about the likelihood of observing each possible outcome.
 Random variables are typically denoted with capital letters, e.g., $X$ or $Y$, 
 whereas the observed outcome of the random process is denoted with lowercase letters
@@ -44,7 +44,7 @@ between the three flips. $X$ can take on four possible values: 0, 1, 2, or 3. If
 we observe 2 heads, we have $x = 2$.
 
 Most simply, a probability distribution (often just called a distribution) 
-is a method for taking a possible event as input, and giving us the corresponding
+is a method for taking a possible event as input and giving us the corresponding
 probability as output; the corresponding probability tells us how likely it is 
 that the specific event will occur, out of all of the possible events. We often 
 say random variables have or follow a probability distribution, as the 
@@ -60,7 +60,7 @@ in either success or failure, such as counting the number of heads when flipping
 coin three times
 
 * Counting the number of successes before the first failure in a series of 
-success/failure trials, such as counting the number of days before a lightbulb 
+success/failure trials, such as counting the number of days before a light bulb 
 burns out
 
 * Describing the length of time between events that occur at a constant rate, such 
@@ -98,7 +98,7 @@ outcomes of a random process is its simplicity. Probability distributions rely
 on a small number of **parameters** which determine the distribution's shape. In 
 the coin flipping example, we could consider one of the parameters to be the 
 probability of obtaining heads. We assume that we have a fair coin and that this 
-probability is 50%. If, instead, we had a weighted coin with a 60% chance of 
+probability is 50%. If instead we had a weighted coin with a 60% chance of 
 landing on heads, the probability distribution would change. That is, the probability
 associated with each possible outcome would be different.
 
@@ -128,9 +128,7 @@ the idea of the **expected value**, often denoted $E(X)$. The expected value of 
 denoted as $E(X)$, is a weighted average which provides a measure of the central
 mass of the probability distribution. The expected value averages over all possible
 outcomes of the random variable with each outcome weighted according to its 
-probability. 
-
-Most simply, we can think of the expected value of a random variable as its average
+probability. We can also think of the expected value of a random variable as its average
 value. In more technical terms, we might say that the expected value is a weighted 
 average which provides a measure of the central mass of the probability distribution, 
 averaging over all possible outcomes of the random variable with each outcome weighted 
@@ -236,17 +234,17 @@ the binomial and the normal.
 **Expected value: ** <em> The weighted average of the outcomes of a random variable, with weights determined by their probability </em>
 
 **Statistics: ** <em> Values computed from a sample that serve as estimates of the 
-population parameters. </em>
+population parameters </em>
 
 </div>
 </div>
 
 ## Binomial Distribution
 
-The first distribution we will examine in depth is the **binomial distribution**, which 
-describes the number of successes in a fixed number of independent trials
+The first distribution we will examine in depth is the **binomial distribution**, 
+describing the number of successes in a fixed number of independent trials
 that can result in one of two outcomes (success or failure), where the probability
-of success is the same between trials. Notably, as the data from a binomial distribution
+of success is the same between trials. As the data from a binomial distribution
 fall into distinct categories, the binomial distribution is also a member of a category
 of distributions known as **discrete distributions**.
 
@@ -258,7 +256,7 @@ on each flip (50%), and a predetermined the number of trials (three flips).
 To illustrate another example of the binomial distribution, we might consider 
 rolling a six-sided die a number of times, counting the number of rolls that result
 in either a 5 or 6. That is, we would consider a success to be rolling a 5 or 6, and
-a failure to be rolling a 1, 2, 3, or 5. As there are six equally likely outcomes, 
+a failure to be rolling a 1, 2, 3, or 4. As there are six equally likely outcomes, 
 with two of these being considered a success, we note that for any particular roll
 (trial), the probability of success is 2/6, or 1/3. The takeaway here is that, even
 though there are six possible values for a given roll, we can still posit a binary
@@ -267,8 +265,8 @@ outcome and determine the associated probabilities.
 As you may have noticed from these two examples, the binomial distribution
 can be used for various success probabilities and numbers of trials. In fact,
 these quantities define the two parameters of the binomial distribution. These
-parameters are typically denoted as $n$ = the number of trials and $p$ = the probability of 
-success. The binomial distribution can be written as a function of these parameters
+parameters are typically denoted as $n$, the number of trials, and $p$, the probability of 
+success. The binomial distribution can be written as a function of these parameters:
 
 $$
 P(X = x) = \binom{n}{x} p^x (1-p)^{n-x}.
@@ -374,9 +372,9 @@ Use the applet to answer the following questions:
 
 ## Normal Distribution
 Let's begin by considering three histograms, each describing a set of continuous 
-data, collected from various sources. First, we have the annual depth of Lake Huron 
-from 1875-1972 in feet. Next, the annual flow of the river Nile from 1871-1970 
-measured in cubic meters. Lastly, the recorded height, in feet, of 31 black cherry 
+data collected from various sources. First, we have the annual depth of Lake Huron 
+from 1875-1972 measured in feet. Next, the annual flow of the river Nile from 1871-1970 
+measured in cubic meters, and lastly, the recorded height, in feet, of 31 black cherry 
 trees. What do all of these histograms seem to have in common?
 
 ```{r, echo = FALSE, fig.align='center', fig.width=10}
@@ -406,7 +404,7 @@ $$
 
 Consider the two normal distributions below, with different values for $\mu$ and
 $\sigma^2$. Although they are centered at different locations and have different 
-amounts of dispersion around the mean, they are both bell-shaped curves, characteristic 
+amounts of dispersion around the mean, they are both bell-shaped curves characteristic 
 of the normal distribution:
 
 ```{r, fig.align='center', echo = FALSE}
@@ -444,7 +442,7 @@ curve(dnorm(x), add = TRUE, col = 'steelblue', lwd = 4)
 Unlike the binomial distribution, in which there are $n$ possible values that our 
 random variable can take, the normal distribution represents a random variable that 
 is **continuous** over a range of values, making the normal distribution a member 
-of the family of **continuous distribtuions**. Instead of asking the probability 
+of the family of **continuous distributions**. Instead of asking the probability 
 of a specific value, say, $Z = 0$, probabilities are given as the area under the 
 curve for a certain interval. We might ask, "What is the probability that $Z$ is 
 one standard deviation ($\sigma$) away from $0$?" or perhaps, "What is the probability 
@@ -452,7 +450,7 @@ that $Z < 0 ?$"
 
 ```{r, fig.align='center', echo = FALSE, fig.width = 14}
 ## note, for each plot, the first curve effectively sets the frame, 
-# then the polygon is drawn, then the curve again to be over the polygone.
+# then the polygon is drawn, then the curve again to be over the polygon.
 # probably neater way to do this but oh well ¯\_(ツ)_/¯
 
 par(mfrow = c(1, 2))

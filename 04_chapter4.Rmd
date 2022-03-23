@@ -20,13 +20,14 @@ output: html_document
 
 ## Randomness and Simulation {#ch4_s1}
 
-In this section, we seek to understand randomness and how we can use the computer 
-to quickly simulate an outcome. To do this, we will start with a dice game in which two dies are
-rolled. Rolling dice is an example of a **random process**, because we cannot 
-predict the outcome with certainty. By contrast, a process that is not random is 
-known as **deterministic**, as the outcome is determined beforehand. An example 
-of a deterministic process would be computing the area of a triangle from its
-base and height - the area is always $\frac{1}{2} * base * height$.
+In this section, we will work to both understand randomness and how it can be used 
+with a computer to quickly simulate an outcome. To do this, we will start with a 
+game in which two dice are rolled. Because we cannot predict the outcome of a particular
+roll with certainty, rolling dice is an example of a **random process**. In contrast, 
+a process in which the outcome can be determined beforehand is known as **deterministic**. 
+An example of a deterministic process would be computing the area of a given triangle 
+from its base and height -- no matter how many times this process is repeated, the 
+area is always $\frac{1}{2} * base * height$.
 
 In our dice game, we are interested in the sum total of the roll. For example, if a 2 
 and a 6 are rolled, the sum total is 8. Each die has 6 outcomes, so there are 36 
@@ -147,19 +148,19 @@ There are 11 possible sum totals you can achieve when rolling two six-sided dies
 
 </div>
 
+While a relatively simple example, this game helps us to illustrate two important 
+concepts. First, without having rolled a single die, we are still able to determine
+how likely we are to win the game. This was done by first enumerating the total number
+of possible outcomes and then counting what proportion of these outcomes resulted
+in a win. The collection of all possible outcomes of a random process is called
+the **sample space**, while any particular outcome is known as an **event**. An 
+event can be a single outcome, or even a collection of outcomes, but it will always
+be contained within the sample space.
 
-While this was a relatively simple dice game, it illustrates several important concepts.
-Going into the game, we are able to determine how likely it is that we win. We did 
-this by first enumerating all possible outcomes of two dies being rolled. Any such collection 
-of all possible outcomes of a random process is called the **sample space**. Then,
-we considered the ways we could observe the **event** that the two rolls result 
-in a sum total of 7. In general, an event is an outcome or collection of outcomes 
-from a random process and will always be contained in the sample space. 
-
-Another important observation is that we have not physically rolled any dice ourselves.
-Instead, we have used the computer to perform a **simulation**. Simulations are
-a powerful tool which allow us to quickly and consistently repeat a random process.
-There are two components to simulation:  
+A more subtle observation is that in playing our game, we have not physically rolled
+any dice ourselves. Instead, we have used the computer to perform a **simulation**,
+a powerful method that quickly and consistently enables us to repeat a random process.
+Simulations are made up of two components:
 
 1. The conditions and behavior of the experiment are determined in advance through
   the **simulation parameters**.  
@@ -202,20 +203,20 @@ is the mechanism that allows us to do so, by telling us how likely something is 
 People talk loosely about probability all the time. For example, "What's the 
 chance of rain tomorrow?" or "How likely is it that drug A is better than drug B?"
 In order for probability to be used for statistical inference, we must be precise
-about our definition of probability.
+about with our definition.
 
 We would all agree that the probability of heads when flipping a fair coin is 50% 
 and the probability of rolling a 2 on a 6-sided die is 1/6, but why is that true? 
 Well, if we were to flip a coin many, many times, we would expect half of the 
 flips to result in heads. Similarly, if we roll a 6-sided die over and over, 1/6 
-of the rolls should result in a value of 2. The big idea is that when we talk
+of the rolls should result in a value of 2. The idea is that when we talk
 about probability, we are thinking about a *long-run frequency* or what will 
 happen if the random process is repeated over and over again under the same 
 conditions. If we think about probabilities in terms of the long-run frequencies, 
-we can define and quantify **probability** as the fraction of time an event 
+we can define and quantify **probability** as the fraction of times an event 
 occurs if a random process is repeated indefinitely. This means that 
-probabilities are always between 0 and 1, since we can never observed more 
-or less events than the number of times the process is repeated, e.g. we can never 
+probabilities are always between 0 and 1, since we can never observe greater 
+or fewer events than the number of times the process is repeated, e.g. we can never 
 observed 12 heads on 10 coin flips. 
 
 This leads us to some important properties of probabilities:
@@ -229,14 +230,14 @@ This leads us to some important properties of probabilities:
 </div>
 
 Consider flipping a fair coin three times. Each act of flipping the coin is 
-random process - the coin might land on heads and it might land on tails. 
+random process -- the coin might land on heads, and it might land on tails. 
 Letting $H$ be shorthand for the flip resulting in heads and $T$ be shorthand 
 for the flip resulting in tails, the sample space can be enumerated as 
 
 $$\mathcal{S} = \{HHH, HHT, HTH, THH, TTH, THT, HTT, TTT\},$$ 
 
-giving us eight possible results from the three coin flips. Since each outcome 
-is equally likely (why?) The first property tells us that the probability of any
+giving us eight possible results from the three coin flips. As each outcome 
+is equally likely (why?), the first property tells us that the probability of any
 specific outcome (say, $HHH$) is 1/8. The second tells us that the probability 
 of heads on the first toss is $4/8 = 1/2$, since four of the eight possible 
 outcomes have heads on the first toss ($\{HHH, HHT, HTH, HTT\}$ ). These 
@@ -371,7 +372,7 @@ at 0.5, which translates to half of the flips resulting in heads.
 ## Methods for Computing Probabilities {#ch4_s3}
 
 There are several methods that can be used to compute probabilities. We will
-introduce these methods in the context of coin flipping and seeking to answer 
+introduce these methods in the context of coin flipping and seek to answer 
 the question: if a coin is flipped three times, what is the probability that 
 exactly two of the coins will be heads?
 
@@ -426,12 +427,12 @@ method, we find that $P(\text{# Heads = 2}) = 0.375 = \frac38$. </li>
 <li> **Simulation method:** The previous methods are valid, but can quickly 
 become impractical or even impossible once the problem grows becomes more complex.
 Even for an example as simple as coin flipping, the 
-enumeration method can quickly become infeasible. As the number of flips increases, 
+enumeration method can quickly become unfeasible. As the number of flips increases, 
 the size of the sample space increases exponentially, making it challenging (or
 lengthy) to count all possible outcomes and all the ways the event can occur. If
 we seek to use the probability function method, we must know what the function is; 
 for complex processes, these functions can be nearly impossible to construct, 
-leaving statisticians and researchers with no clear way to specify the probability of events.
+leaving statisticians and researchers with no clear way to identify the probability of events.
 
 The simulation method allows us to mitigate both problems by using the computer
 to repeatedly perform an experiment (say 10,000 times), and computing the
@@ -446,13 +447,13 @@ P(\# \text{ Heads} = 2) \approx \frac{\text{Number of times \{# Heads = 2\} } }{
 $$
 A careful reader might note that for a given random experiment (such as flipping 
 a coin three times) and a specified event (exactly two heads), there is only a
-single* correct answer to the question, "What is the probability of getting
+*single* correct answer to the question, "What is the probability of getting
 exactly two heads when flipping a coin three times?", and this single correct 
 answer is precisely what was found using the enumeration and probability
-function methods described above. contrast, The simulation method provides an 
-approximation to the probability, as opposed to an exact calculation. However,
+function methods described above. By contrast, the simulation method provides an 
+approximation to the probability as opposed to an exact calculation. However,
 as the number of repeated experiments increases, the simulation method will give
-a result closer and closer to the true answer.
+a closer and closer approximation to the true answer.
 
 
 </li>

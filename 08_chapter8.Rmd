@@ -188,8 +188,8 @@ table.
 </div>
 
 How good were you at guessing the truth? To play the game, you had to come up with 
-some method to make your best guess, an interval of plausible values, and determine
-how likely it was that a given value was the truth. These are some of the 
+some method to make your best guess, an interval of plausible values, and finally 
+determine how likely it was that a given value was the truth. These are some of the 
 foundational goals of statistical inference, which help us answer questions like:
 
 * By how much can you expect your blood pressure to be reduced after starting
@@ -198,39 +198,32 @@ foundational goals of statistical inference, which help us answer questions like
   the current treatment standard?
 * After getting the flu, for approximately how many days is someone infectious?
 
-
-<!-- You may have noticed that your guesses were better when you took more samples  -->
-<!-- from the population. What if you could only use one sample? How would your  -->
-<!-- methods for making your guesses work? In real studies, typically only one sample -->
-<!-- is collected, so that is what we must use to make inference. Luckily, statisticians -->
-<!-- and mathematicians have derived formulas using one sample of data to make -->
-<!-- optimal guesses and decisions. -->
-
-In the rest of this chapter, we will further explore these ideas.
-
-
 ## Point Estimation and Confidence Intervals { #ch8_s2}
 
 The idea of coming up with a single best guess at a population parameter is more
 formally known as **point estimation**. For example, using the mean value of a sample 
-to estimate the mean value of the population is a form of point estimation. In other words, it is a single number computed from the sample data that is used to infer the value of the population 
-parameter. 
+to estimate the mean value of the population is a form of point estimation. In 
+other words, it is a single number computed from the sample data that is used to 
+infer the value of the population parameter. 
 
 As we have seen in the probability distribution exercises of chapter 5, the process 
-of obtaining a sample is random,
-which means that sample means computed from two separate samples taken from the same 
-population will not be identical. To account for both this random variation and
-the fact that we are generally only able to obtain one sample, we might consider instead
-determining an interval of likely values that our point estimate may fall
-within. We might consider this our *margin of error* for the point estimate. A wider interval around a point estimate is associated with a higher margin of error, which may also serve as a measure of our uncertainty
-This process is known as **interval estimation**. By including a measure of uncertainty, interval estimation is a more informative metric than a point estimation alone, making it a critical part of performing statistical inference.
+of obtaining a sample is random, which means that sample means computed from two 
+separate samples taken from the same population will likely not be identical. To 
+account for both this random variation and the fact that we are generally only able 
+to obtain a single sample, we might consider instead determining an interval of 
+likely values that our point estimate may fall within. We might consider this our 
+*margin of error* for the point estimate. A wider interval around a point estimate 
+is associated with a higher margin of error, which may also serve as a measure of 
+our uncertainty. This process is known as **interval estimation**. By including a 
+measure of uncertainty, interval estimation is a more informative metric than a 
+point estimation alone, making it a critical aspect of performing statistical inference.
 
-<!-- To begin, let's first note that the interval we construct will be determined by the point estimate that we have collected. As this point estimate is itself a random variable, it follows that the interval itself will be random as well. The primary consequence of this fact is that there is some probability that the true -->
 
 Constructing a desirable interval consists in suitably resolving the tension between 
 two competing values:
 
-1. The interval should be large enough that it contains the *true* parameter value with high probability
+1. The interval should be large enough that it contains the *true* parameter value 
+with high probability
 
 2. The interval should be narrow enough to remain useful.
 
@@ -243,17 +236,13 @@ hardly tells us if we need to pack a swimming suit or a parka. Fortunately for u
 we have statistical tools available to remove much of this guesswork -- namely, 
 through an application of the Central Limit Theorem.
 
-
-
-
-
-How does the Central Limit Theorem help us construct confidence intervals? Well, the
-CLT tells us that the distribution of the sample mean is normally distributed, 
-and it gives us the parameters (mean and standard deviation) of said distribution. As
-we saw in Chapter 5, (we need to add this to ch 5) the standard deviation gives us
-a useful metric in determining how dispersed our data is around the mean. The highlighted
-sections in the image below detail what proportion of our data lies within a standard
-deviation of the mean in the case when $\mu = 0$:
+How does the Central Limit Theorem help us construct confidence intervals? Well, 
+the CLT tells us that the distribution of the sample mean is normally distributed, 
+giving us the parameters (mean and standard deviation) of said distribution. As
+we saw in Chapter 5, the standard deviation gives us a useful metric in determining 
+how dispersed our data is around the mean. The highlighted sections in the image 
+below detail what proportion of our data lies within a standard deviation of the 
+mean in the case when $\mu = 0$:
 
 <center>
 ![normal distribution stuff](images/sd_diagram_wikipedia_smaller.png)
@@ -293,8 +282,9 @@ bit backwards at first, but our reasons for doing so will be clear shortly.
 If $1 - \alpha$ represents our coverage probability, then $\alpha$ must represent
 the probability of our interval not containing the true value. And, as our interval 
 is symmetric about the sample mean, this means that there is a probability of $\alpha/2$
-that the true value is *above* the sample mean, and a probability of $\alpha/2$ that
-it lies *below* the sample mean. This concept is illustrated below:
+that the true value is outside of our interval and *above* the sample mean, while 
+a probability of $\alpha/2$ that it lies outside of our confidence interval and 
+*below* the sample mean. This concept is illustrated below:
 
 ```{r, echo = F, fig.width = 8, fig.align='center'}
 curve(dnorm(x, 0, 1), from = -3, to = 3, lwd = 5, col = 'steelblue',
@@ -439,7 +429,7 @@ this concept a little further by playing with the following applet.
 <div class="exercise-container">
 <div class="exercise"> &nbsp; </div>
 <div class="text">
-The applet below is designed to help you get familiar with some of the important concepts related to confidence intervals. The inputs to the simulation are the sample size, number of experiments, and the confidence level. The simulation proceeds by taking a sample of the specified size and constructing a confidence interval based on that sample with the specified level of confidence. This process is one experiment. Each sample is drawn from the same population. For a specified number of experiments, the sampling and confidence interval construction is repeated either 10, 50, 100, or 1000 times. The plot shows all the confidence intervals constructed from each experiment - the number of intervals shown is equal to the "Number of Experiments." The true population parameter in this case is 0 (only for simplicity). Intervals are shaded in blue if they cover the true population parameter and red if they do not contain the true parameter. The applet also reports the "observed coverage" from all experiments, this is the proportion of all the intervals shown that did contain the truth. Clicking "Run Simulation" will redo the specified number of experiments using the inputs provided.
+The applet below is designed to help you get familiar with some of the important concepts related to confidence intervals. The inputs to the simulation are the sample size, number of experiments, and the confidence level. The simulation proceeds by taking a sample of the specified size and constructing a confidence interval based on that sample with the specified level of confidence. This process is one experiment. Each sample is drawn from the same population. For a specified number of experiments, the sampling and confidence interval construction is repeated either 10, 50, 100, or 1000 times. The plot shows all the confidence intervals constructed from each experiment -- the number of intervals shown is equal to the "Number of Experiments." The true population parameter in this case is 0 (only for simplicity). Intervals are shaded in blue if they cover the true population parameter and red if they do not contain the true parameter. The applet also reports the "observed coverage" from all experiments, this is the proportion of all the intervals shown that did contain the truth. Clicking "Run Simulation" will redo the specified number of experiments using the inputs provided.
 </div>
 </div>
 
@@ -472,7 +462,7 @@ The applet below is designed to help you get familiar with some of the important
   <li>Return to a sample size of 30 and set the number of experiments to be 1000. 
   <ol style="list-style-type: lower-alpha; ">
   <li>Run the simulation once with a confidence level of 95%. What is the observed coverage? </li>
-  <li>Re-run the simulation several more times withi 1000 experiments each. What are the coverage probabilities? How do these compare to (f) in question 1? </li>
+  <li>Re-run the simulation several more times with 1000 experiments each. What are the coverage probabilities? How do these compare to (f) in question 1? </li>
   <li>Re-run the simulation using a confidence level of 50%. 
         How do these intervals compare to those using a confidence level of 95%? How does this change with different sample sizes? </li>
   </ol>
@@ -503,7 +493,7 @@ The applet below is designed to help you get familiar with some of the important
 **Coverage Probability: ** <em> The probability that a constructed confidence interval contains the true population parameter </em>
 
 **Critical Value: ** <em> The cutoff value that defines the upper and lower bounds 
-of the interval </em>
+of a confidence interval interval </em>
 
 **Confidence Interval: ** <em> An interval estimate which contains the true population parameter according to a specified confidence level </em>
 
@@ -517,9 +507,9 @@ scientific question about a population. We have just seen that, along with the
 CLT, the collection of a sample mean along with a standard error allows us to
 construct an intervals of values representing likely values of the true parameter. 
 
-Along with parameter estimation, a cornerstone of statistical inference is significance testing. Confidence intervals allow us to construct a range of plausible values for the parameter, and significance tests allow us to determine the likelihood of a parameter taking a certain value. A **hypothesis test** uses sample data to assess the plausibility of each of two competing hypotheses regarding an unknown parameter (or set of parameters). A **statistical hypothesis** is a statement or claim about an unknown parameter. The **null hypothesis** generally represents what is assumed to be true before the experiment is conducted. This hypothesis is typically denoted $H_0$. The **alternative hypothesis** represents what the investigator is interested in establishing. This hypothesis is typically denoted $H_A$. Oftentimes when people refer to the "scientific hypothesis," this in reference to the alternative hypothesis - it is what the investigators think will happen or what they want to show. The goal of a hypothesis test is to determine which hypothesis is the most plausible - the null or the alternative. 
+Along with parameter estimation, a cornerstone of statistical inference is significance testing. Confidence intervals allow us to construct a range of plausible values for the parameter, and significance tests allow us to determine the likelihood of a parameter taking a certain value. A **hypothesis test** uses sample data to assess the plausibility of each of two competing hypotheses regarding an unknown parameter (or set of parameters). A **statistical hypothesis** is a statement or claim about an unknown parameter. The **null hypothesis** generally represents what is assumed to be true before the experiment is conducted. This hypothesis is typically denoted $H_0$. The **alternative hypothesis** represents what the investigator is interested in establishing; this hypothesis is typically denoted $H_A$. Oftentimes when people refer to the "scientific hypothesis," this in reference to the alternative hypothesis -- it is what the investigators think will happen or what they want to show. The goal of a hypothesis test is to determine which hypothesis is the most plausible -- the null or the alternative. 
 
-As an example, consider researchers that have developed a new drug to treat cancer. In order for the drug to be approved for use, the investigators must prove that it is more effective in treating cancer than the current  treatment options. To do this, the investigators gather a sample of cancer patients and randomize half of them to receive their new drug and half to receive the current treatment. Then they determine how many patients improved in both groups. In this scenario, the null hypothesis would be that the new drug and the current drug result in the same improvement. Why? Well, the null hypothesis is what is believed before the data was collected. The key is *whose* beliefs we are talking about. While the scientists that developed the drug most likely believe that their new drug is more effective, the rest of the scientific community remains in a state of uncertainty. The null hypothesis reflects the general beliefs of the scientific community. The alternative hypothesis in this scenario is that the drugs differ in their effectiveness on treating cancer. This is what the researchers hope to show, specifically, they hope to show that their drug is more effective, however, when the study is conducted there is no evidence in either direction, so we leave the alternative hypothesis to also encompass the possibility of the new drug being worse.
+As an example, consider researchers that have developed a new drug to treat cancer. In order for the drug to be approved for use, the investigators must prove that it is more effective in treating cancer than the current treatment options. To do this, the investigators gather a sample of cancer patients and randomize half of them to receive their new drug and half to receive the current treatment. Then they determine how many patients improved in both groups. In this scenario, the null hypothesis would be that the new drug and the current drug result in the same improvement. Why? Well, the null hypothesis is what is believed before the data was collected. The key is *whose* beliefs we are talking about. While the scientists that developed the drug most likely believe that their new drug is more effective, the rest of the scientific community remains in a state of uncertainty. The null hypothesis reflects the general beliefs of the scientific community. The alternative hypothesis in this scenario is that the drugs differ in their effectiveness on treating cancer. 
 
 In general, we can think about the null hypothesis as being the "baseline," "boring," "nothing to see here" hypothesis. The exact specification will depend on the study context and the type of data being measured (categorical or continuous):
 
@@ -538,11 +528,11 @@ The hypothesis testing procedure uses probability to quantify the amount of evid
 6) How do the results align with your hypothesis?
 7) Communicate results
 
-We are really focusing on steps 3-5. In step 3, we construct the "scientific hypothesis" and in step 4, we test that hypothesis. In order to produce rigorous scientific results we cannot assume that the scientific hypothesis is true, as that is the goal of our study. We must assume the current state of knowledge (null hypothesis) and then if we are to prove that our hypothesis is correct, we would show that if the current knowledge was true, it would be really unlikely that our experiment would have ended up how it did. 
+We are really focusing on steps 3-5. In step 3, we construct the "scientific hypothesis" and in step 4, we test that hypothesis. In order to produce rigorous scientific results, we cannot assume that the scientific hypothesis is true, as that is the goal of our study. We must assume the current state of knowledge (null hypothesis), and then if we are to prove that our hypothesis is correct, we would show that if the current knowledge was true, it would be really unlikely that our experiment would have ended up how it did. 
 
-A great analogy to the concept of hypothesis testing is our judicial system. In court, the legal principle is that everyone is "innocent until proven guilty" and the prosecution must prove that the accused is guilty beyond a reasonable doubt. In many cases, there may not be definitive evidence if the defendant is actually innocent or guilty. But, if the prosecution can show that the likelihood of the accused individual being guilty is high (or equivalently, that the likelihood of the accused individual being innocent is low), then the defendant will be convicted. In hypothesis testing researchers are like the prosecution and must use data to prove that the null hypothesis (current state of knowledge) is false beyond a reasonable doubt. The next several chapters will go through how we can use different types of data to quantify our evidence against the null hypothesis.
+A great analogy to the concept of hypothesis testing is our judicial system. In court, the legal principle is that everyone is "innocent until proven guilty" and the prosecution must prove that the accused is guilty beyond a reasonable doubt. In many cases, there may not be definitive evidence if the defendant is actually innocent or guilty. But, if the prosecution can show that the likelihood of the accused individual being guilty is high (or equivalently, that the likelihood of the accused individual being innocent is low), then the defendant will be convicted. In hypothesis testing, researchers are like the prosecution and must use data to prove that the null hypothesis (current state of knowledge) is false beyond a reasonable doubt. The next several chapters will go through how we can use different types of data to quantify our evidence against the null hypothesis.
 
-With this set up in mind, we have two possible outcomes of a hypothesis test. Either we conclude that we do not have a lot of evidence against the null hypothesis, i.e. the null hypothesis looks reasonable, and we *fail to reject the null* or we conclude that we have enough evidence against the null and we *reject the null*. It is extremely important to note here that we NEVER accept the null or accept the alternative. Many people find this annoying because we can never say anything with 100\% certainty. But this is exactly the point! Remember that statistics is all about quantifying our uncertainty. Think back to our drug development example. There will never ever ever be a drug that works exactly the same in every person that takes it. People are too variable and many aspects of a person's life impacts how a drug works in their body. So it would be completely unreasonable to say that a new drug works all the time. However, there can be a drug that improves outcomes for the average person or that this drug is likely to improve outcomes in a randomly selected person who takes it.
+With this set up in mind, we have two possible outcomes of a hypothesis test. Either we conclude that we do not have a lot of evidence against the null hypothesis, i.e. the null hypothesis looks reasonable, and we *fail to reject the null* or we conclude that we have enough evidence against the null and we *reject the null*. It is extremely important to note here that we NEVER accept the null or accept the alternative. Many people find this annoying because we can never say anything with 100\% certainty. But this is exactly the point! Remember that statistics is all about quantifying our uncertainty. Think back to our drug development example. There will never ever ever be a drug that works exactly the same in every person that takes it. People are too variable, and many aspects of a person's life impacts how a drug works in their body. It would be completely unreasonable to say that a new drug works all the time. However, there can be a drug that improves outcomes for the average person or that this drug is likely to improve outcomes in a randomly selected person who takes it.
 
 We can create a two by two table for the results of any hypothesis test. In the rows we have the two possible outcomes from our test - fail to reject $H_0$ and reject $H_0$. In the columns we have the true underlying state of nature - either $H_0$ is true or false. 
 
@@ -563,7 +553,7 @@ kbl(toOutput) %>%
 
 In the upper-left and bottom-right cells of the table we are making the correct decision based on our test. When the null hypothesis is true, failing to reject $H_0$ is the correct decision and when the null hypothesis is false, rejecting $H_0$ is the correct decision. However, the other two cells correspond to a mistake being made. Because statisticians are not creative, these mistakes are referred to as **type 1 error** and **type 2 error**. A type 1 error is equivalent to a false alarm or a false positive - the null hypothesis was rejected, when in fact it was true. A type 2 error can be thought of as a missed opportunity or a false negative - the null hypothesis was false, but it was not rejected. Typically, the type 1 error rate is symbolically denoted with $\alpha$ and the type 2 error rate is denoted by $\beta$ (again the statisticians of the past were not creative).
 
-If we were looking to create a good hypothesis test, we would want to minimize type 1 and type 2 errors. In other words, if we were to conduct our study over and over again and there was something to be found, we would want to reject the null hypothesis (find something) at a high rate and fail to reject the null hypothesis at a low rate. If there was truly nothing to be found, we wouldn't want to find anything and if there is something to be found we want to find it. However, there is a trade-off between type 1 and type 2 error. Let us illustrate this point with a simulation.
+If we were looking to create a good hypothesis test, we would want to minimize type 1 and type 2 errors. In other words, if we were to conduct our study over and over again and there was something to be found, we would want to reject the null hypothesis (find something) at a high rate and fail to reject the null hypothesis at a low rate. If there was truly nothing to be found, we wouldn't want to find anything, and if there is something to be found we want to find it. However, there is a trade-off between type 1 and type 2 error. Let us illustrate this point with a simulation.
 
 
 
@@ -574,7 +564,7 @@ In this experiment, we are looking to determine if a coin is fair, i.e. whether 
 
 This applet allows the user to specify the "Rejection Threshold" to determine the cutoff where the app will reject the null hypothesis. This is specified in terms of how far off the proportion of heads in the experiment is from 50%. Since we have no way to determine if the coin is more prone to heads or tails, we consider this distance in both directions. If the observed proportion of the 20 flips that result in heads is beyond the specified threshold, the null hypothesis will be rejected. For example, if you choose a threshold of 10%, then any experiment where there are 60% (12/20) or more flips resulting in heads *or* 40% (8/20) or less flips resulting in heads, then the null hypothesis is rejected and the coin is determined to not be fair. 
 
-The simulation involves replicating the 20 flip experiment 10,000 times. For each experiment, a coin is flipped 20 times and the proportion of heads is calculated. If that proportion exceeds the specified threshold it is counted as "Reject." If the proportion does not exceed the threshold, that experiment is considered a "Fail to Reject." The barchart shows the proportion of 10,000 experiments in which the null hypothesis was and was not rejected. Note: Since we are replicating the experiment 10,000 times, we don't expect the results to change much if the simulation is re-ran. However, you may see small changes in the proportion of rejects/fail to rejects for the same input values. 
+The simulation involves replicating the 20 flip experiment 10,000 times. For each experiment, a coin is flipped 20 times and the proportion of heads is calculated. If that proportion exceeds the specified threshold it is counted as "Reject." If the proportion does not exceed the threshold, that experiment is considered a "Fail to Reject." The bar chart shows the proportion of 10,000 experiments in which the null hypothesis was and was not rejected. Note: Since we are replicating the experiment 10,000 times, we don't expect the results to change much if the simulation is re-ran. However, you may see small changes in the proportion of rejects/fail to rejects for the same input values. 
 
 </div>
 </div>
@@ -631,7 +621,7 @@ The simulation involves replicating the 20 flip experiment 10,000 times. For eac
 
 **Null hypothesis: ** <em> The assumed state of truth prior to running the experiment, denoted $H_0$ </em>
 
-**Alternative hypothesis: ** <em> Range of values for the parameter we might believe are true,  denoted $H_A$ </em>
+**Alternative hypothesis: ** <em> Range of values for the parameter we might believe are true, denoted $H_A$ </em>
 
 **Type I error: ** <em> Rejecting a true null hypothesis, i.e., false positive </em>
 
@@ -642,7 +632,7 @@ The simulation involves replicating the 20 flip experiment 10,000 times. For eac
 
 ## P-values { #ch8_s4}
 
-All hypothesis tests are based on quantifying the probability of the study results assuming the null hypothesis is true. This probability is so important that it has a special name, the **p-value**. In technical terms, the p-value gives the probability of obtaining results as extreme or more extreme than the ones observed in the sample, *given* that the null hypothesis is true. A less technical way to describe a p-value is that assuming there is truly nothing going on, what's the chances of obtaining results similar in opposition to the null hypothesis as our study? 
+All hypothesis tests are based on quantifying the probability of the study results assuming the null hypothesis is true. This probability is so important that it has a special name, the **p-value**. In technical terms, the p-value gives the probability of obtaining results as extreme or more extreme than the ones observed in the sample, *given* that the null hypothesis is true. A less technical way to describe a p-value is that assuming there is truly nothing going on, how likely are we to have seen what we have seen? 
 
 If we are thinking about hypothesis testing as a court case, p-values are the way that we can quantify the evidence against the defendant. Recall, the prosecution wants to prove beyond a reasonable doubt that the defendant is not innocent. So what does the scientific community consider sufficient evidence? There is a generally agreed-upon scale for interpreting p-values with regards to the strength of evidence that they represent.
 
@@ -658,9 +648,9 @@ Often, the term "**statistically significant**" is used to describe p-values bel
 * "Borderline significant" (p < 0.1)  
 * "Highly significant" (p < 0.01)
 
-However, don't let these clearly arbitrary cutoffs distract you from the main idea that p-values represent - how far off is the data from what you would expect under the null hypothesis. A p-value of 0.04 and 0.000000001 are not at all the same thing, even though both are "statistically significant."
+However, don't let these clearly arbitrary cutoffs distract you from the main idea that p-values represent -- how far off is the data from what you would expect under the null hypothesis. A p-value of 0.04 and 0.000000001 are not at all the same thing, even though both are "statistically significant."
 
-In general, a p-value cutoff is chosen and if a p-value below the cutoff is observed, the null hypothesis is rejected. The investigators choose this cutoff, which is equivalent to the type I error rate and thus denoted by $\alpha$, before analyzing the data. Most of the time $\alpha$ is set to 0.05, which means there is a 5\% chance of a type I error (false alarm). The smaller the value of $\alpha$, the greater the "burden of proof" required to reject the null hypothesis. $\alpha$ is also commonly called the **significance level**.
+In general, a type I error rate, $\alpha$, is chosen prior to beginning the study. That is, investigators specify beforehand how much evidence should be needed to reject the null hypothesis. The smaller the value of $\alpha$, the greater the "burden of proof" required. If the observed p-value is smaller than the specified $\alpha$, the null is rejected. In the context of rejecting or failing to reject a hypothesis, $\alpha$ is also commonly referred to as the **significance level**. 
 
 A fundamental property of p-values is that if we use $p < \alpha$ as cutoff for rejecting the null hypothesis, the type I error rate is guaranteed to be no more than $\alpha$. However, the $p < \alpha$ cutoff guarantees us nothing about the type II error rate. This is because p-values are calculated assuming the null hypothesis is true, so they don't give us any information about what to expect when the null hypothesis is false.
 

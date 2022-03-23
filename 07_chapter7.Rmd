@@ -22,8 +22,7 @@ Suppose policy makers and public health experts in Iowa are concerned with Iowan
 
 A true numeric quantity about the population, here assumed to be the mean, is known as a **population parameter**. While we may never know the exact value of a population parameter, we have tools at our disposal to estimate it. For example, officials can determine a *representative sample* of Iowans and have those consenting to share their information report their monthly fast food spending. The average spending of this group is the *sample mean*, which can then be used approximate the population mean. The sample mean is an example of a **sample statistic**, which is a numerical quantity about the sample. In other words, statistics are what investigators know, and parameters are what investigators want to know. 
 
-The statistical framework (pictured below) demonstrates the process of making **inference** about population parameters with the use of sample statistics, as was done in the example above. The numerical quantities of interest can be many different things -- means, proportions, standard deviations, etc.,. While the methods of estimation are similar in each case, the present chapter will focus specifically on estimations of the mean. (maybe mention here that this is general discussion with mathematical derivations saved for a later chapter)
-
+The statistical framework (pictured below) demonstrates the process of making **inference** about population parameters with the use of sample statistics, as was done in the example above. The numerical quantities of interest can be many different things -- means, proportions, standard deviations, etc.,. While the methods of estimation are similar in each case, the present chapter will simplify our discussion with a focus specifically on estimations of the mean.
 
 ```{tikz statFramework2, fig.cap = "Statistical Framework", fig.ext = 'png', echo = F, fig.align= 'center'}
 
@@ -61,7 +60,7 @@ The statistical framework outlines the general process of making inference using
 * On average, does our estimate tend to be centered around the true answer, or is it *biased*?  
 * How much *variability* is there likely to be in our sample? 
 
-The difference between our estimate and our parameter is called **bias**. **Variance** (or "noise") is a description of the spread of our data. Sometimes we talk about spread in terms of **precision**, which is the reciprocal of variance. The more precision we have, the less variance, and vice-versa. A good statistic will have little or no bias and would have minimal variability. We can visualize both bias and variability using a dart board analogy:
+The difference between our estimate and our parameter is called **bias**. **Variance** (or "noise") is a description of the spread of our data. Sometimes we talk about spread in terms of **precision**, which is the reciprocal of variance. The more precision we have, the less variance and vice-versa. A good statistic will have little or no bias and would have minimal variability. We can visualize both bias and variability using a dart board analogy:
 
 ```{r image-ref-for-in-text2, fig.align ='center', fig.cap='Bias and Variability Illustration', fig.pos='H', message = FALSE, echo=FALSE, fig.height=7, fig.width=9}
 knitr::include_graphics("./images/biasVariabilityTargets2.png")
@@ -84,19 +83,18 @@ In terms of priority, having a low bias is generally more desirable than low var
 
 **Variability: ** <em> The spread or noise in the data </em>
 
-**Precision: ** <em> Inverse of variance, how "narrow" the data is   </em>
+**Precision: ** <em> Inverse of variance, or how "narrow" the data is   </em>
 
 </div>
 </div>
 
 ## Sampling Distributions 
 
-In order to make inference, we must be able to quantify our uncertainty about the population parameter based on our sample data. To illustrate this uncertainty, consider again our example above in estimating the average expenditures of Iowans on fast food, and suppose that researchers decide to sample 500 individuals from the population and calculate the sample mean, $\overline{x}$. Now suppose that those same researchers go out and collect a *second* sample of 500 individuals from the population and calculate the sample mean again, which me might call $\overline{x}_2$. Should we expect $\overline{x}$ and $\overline{x}_2$ to be exactly the same? What if they did this again and calculated $\overline{x}_3$? Or $\overline{x}_4$?
+In order to make inference, we must be able to quantify our uncertainty about the population parameter based on our sample data. To illustrate this uncertainty, consider again our example above in estimating the average expenditures of Iowans on fast food, and suppose that researchers decide to sample 500 individuals from the population and calculate the sample mean, denoted $\overline{x}$. Now suppose that those same researchers go out and collect a *second* sample of 500 individuals from the population and calculate the sample mean again, which me might call $\overline{x}_2$. Should we expect $\overline{x}$ and $\overline{x}_2$ to be exactly the same? What if they did this again and calculated $\overline{x}_3$? Or $\overline{x}_4$?
 
 As we might expect, it is very unlikely that any of these will be exactly equal to any of the others, though they might be close. But if none of these sample means are equal to each other, how accurate might we expect any of them to be with regards to estimating our population parameter? Herein lies the question of quantifying our uncertainty. Fortunately, statisticians have created powerful methods for being able to do so accurately, even when only a single sample statistic has been obtained.
 
-We might first begin by recognizing that the process of sampling from a population is itself a *random experiment*, with the sample mean $\overline{x}$ being a numeric quantity which assumes a value based on the outcome of that experiment. This should sound familiar -- this is precisely the definition of a random variable! Just as with other random variables, sample statistics themselves also follow a probability distribution. When the random variable itself is a statistic, we call the probability distribution a **sampling distribution**. Sampling distributions reflect which values of the statistic are likely if we were to repeat the sampling process (that is, likely values for $\overline{x}_2$, $\overline{x}_3$, etc.,), and which values are improbable. We might then expect that the value of the true population parameter will fall somewhere within the range of likely values. [[As we will see later in this chapter, this uncertainty depends on the number of individuals sampled and the variability of the data we measure.]]
-
+We might first begin by recognizing that the process of sampling from a population is itself a *random experiment*, with the sample mean $\overline{x}$ being a numeric quantity which assumes a value based on the outcome of that experiment. This should sound familiar -- this is precisely the definition of a random variable! Just as with other random variables, sample statistics themselves also follow a probability distribution. When the random variable itself is a statistic, we call the probability distribution a **sampling distribution**. Sampling distributions reflect which values of the statistic are likely if we were to repeat the sampling process (that is, likely values for $\overline{x}_2$, $\overline{x}_3$, etc.,), and which values are improbable. We might then expect that the value of the true population parameter will fall somewhere within the range of likely values. 
 
 <div class="exercise-container">
 <div class="exercise"> &nbsp; </div>
@@ -278,11 +276,11 @@ expValue <- sum(as.numeric(names(countMeans))*col2)
 kable(toPrint, col.names = c('', 'Probability'), row.names = F, escape = F) |> kable_styling(full_width=FALSE)
 ```
 
-With this probability distribution, we can get the expected value of the sampling distribution. Whenever we think about probability, we are thinking about long-run frequencies, so when we think about the expected value, we are thinking about the average sample mean if we were to take repeated samples of size three from this population. The probability distribution indicates that if we took samples of size three from this population over and over again (say 1,000 times), we would end up with `r col2[1]*100`% with a mean of `r names(countMeans)[1]`, `r col2[2]*100`% with a mean of `r names(countMeans)[2]`, `r col2[3]*100`% with a mean of `r names(countMeans)[3]`; and so on. So the expected value (average) we would observed if we kept taking samples over and over would be:
+With this probability distribution, we can get the expected value of the sampling distribution. Whenever we think about probability, we are thinking about long-run frequencies, so when we think about the expected value, we are thinking about the average sample mean if we were to take repeated samples of size three from this population. The probability distribution indicates that if we took samples of size three from this population over and over again (say 1,000 times), we would end up with `r col2[1]*100`% with a mean of `r names(countMeans)[1]`, `r col2[2]*100`% with a mean of `r names(countMeans)[2]`, `r col2[3]*100`% with a mean of `r names(countMeans)[3]`; and so on. So the expected value we would observe if we continued collecting samples over and over would be:
 
 (`r col2[1]` $\times$ `r names(countMeans)[1]`) + (`r col2[2]` $\times$ `r names(countMeans)[2]`)  + (`r col2[3]` $\times$ `r names(countMeans)[3]`)  + (`r col2[4]` $\times$ `r names(countMeans)[4]`) + (`r col2[5]` $\times$ `r names(countMeans)[5]`) =  `r expValue`
 
-But wait! That *is* the population mean. This illustrates an extremely powerful property of the sample mean - the expected value of the sample mean $\overline{X}$ is equal to the population parameter $\mu$! Because of this, we say that the sample mean is an **unbiased estimator** of the population mean. While we illustrated the property with a small example, this holds regardless of the population or sample size. 
+But wait! That *is* the population mean. This illustrates an extremely powerful property of the sample mean -- the expected value of the sample mean $\overline{X}$ is equal to the population parameter $\mu$! Because of this, we say that the sample mean is an **unbiased estimator** of the population mean. While we illustrated the property with a small example, this holds regardless of the population or sample size. 
 
 ---
 
@@ -326,8 +324,6 @@ Note that while all standard errors could be referred to as standard deviations,
 the converse does not hold -- standard deviations not associated with a sampling
 distribution are never referred to as standard errors. 
 
-<!-- Using these formulas we are able to describe the typical value of the sample mean and how variable the sample mean is in repeated sampling. Notice that the expected value does not depend on the sample size, $n$, but the variance does. This means regardless of the sample size, the sample mean is an unbiased estimator of the population mean. But, as the sample size increases, the variance decreases, and we get a more precise estimate of the population mean. As we've seen in the past, it is more common to talk about the standard deviation than the variance and the standard deviation is the square root of the variance. The quantity $\sqrt{Var(\overline{X}_n)} = \sigma / \sqrt{n}$ is primarily called the **standard error** of the mean, and is denoted by $SE(\overline{X}_n)$. We use the term standard error to make it really clear that it is referencing the sampling distribution of the mean, but all standard errors could be referred to as standard deviations. Conversely, not all standard deviations could be referred to as a standard error - the term is only used in describing the distribution of the sample mean. -->
-
 Until now, we have discussed the mean and standard error of a random statistic
 without having described the sampling *distribution* itself. Why might having
 the distribution of a statistic be useful? Recall from the previous chapter that
@@ -342,7 +338,6 @@ and computing its sample means has a truly amazing property -- the sampling
 distribution will always be normally distributed. This brings us to what is 
 largely considered the "fundamental theorem of statistics". 
 
-
 **Central Limit Theorem**
 
 What the Central Limit Theorem (CLT) states is this: so long as the size of our sample is "large enough", the sampling distribution of $\overline{X}$ will be approximately normal, regardless of the characteristics of the underlying distribution. That is, we have
@@ -350,7 +345,6 @@ What the Central Limit Theorem (CLT) states is this: so long as the size of our 
 $$\overline{X}_n \sim N(\mu, \sigma^2/n).$$
 
 While the term "large enough" will inevitably depend on the context of the problem at hand, a typical rule of thumb puts this value at $n \geq 30$. Because the variance of $\overline{X}$ is inversely related to the sample size, as the $n$ increases, the variance decreases and the distribution becomes more concentrated around its mean value. This is one of the most important, remarkable, and powerful results in all of statistics. In the real world, we rarely know the underlying population distribution of our data, yet the CLT assures us that this is not an issue. In the next chapter, we will investigate how the consequences of the CLT create an immensely powerful tool in performing statistical inference. 
-
 
 
 <div class="exercise-container">
