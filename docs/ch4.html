@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>4 Introduction to Probability and Simulation | An Intuitive, Interactive, Introduction to Biostatistics</title>
   <meta name="description" content="4 Introduction to Probability and Simulation | An Intuitive, Interactive, Introduction to Biostatistics" />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
 
   <meta property="og:title" content="4 Introduction to Probability and Simulation | An Intuitive, Interactive, Introduction to Biostatistics" />
   <meta property="og:type" content="book" />
-  
   
   
   <meta name="github-repo" content="ceward/introTextbook" />
@@ -32,7 +31,6 @@
   
 <link rel="prev" href="ch3.html"/>
 <link rel="next" href="ch6.html"/>
-<script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -50,8 +48,9 @@
 
 
 
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
@@ -94,7 +93,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -107,7 +106,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -121,6 +120,10 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -221,8 +224,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="ch4" class="section level1" number="4">
-<h1><span class="header-section-number">4</span> Introduction to Probability and Simulation</h1>
+<div id="ch4" class="section level1 hasAnchor" number="4">
+<h1><span class="header-section-number">4</span> Introduction to Probability and Simulation<a href="ch4.html#ch4" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <blockquote>
 <p>“All life is an experiment. The more experiments you make, the better.”</p>
 <p>— Ralph Waldo Emerson</p>
@@ -237,15 +240,16 @@ Learning objectives
 <li>Methods for calculating probabilities</li>
 </ol>
 </div>
-<div id="ch4_s1" class="section level2" number="4.1">
-<h2><span class="header-section-number">4.1</span> Randomness and Simulation</h2>
-<p>In this section, we seek to understand randomness and how we can use the computer
-to quickly simulate an outcome. To do this, we will start with a dice game in which two dies are
-rolled. Rolling dice is an example of a <strong>random process</strong>, because we cannot
-predict the outcome with certainty. By contrast, a process that is not random is
-known as <strong>deterministic</strong>, as the outcome is determined beforehand. An example
-of a deterministic process would be computing the area of a triangle from its
-base and height - the area is always <span class="math inline">\(\frac{1}{2} * base * height\)</span>.</p>
+<div id="ch4_s1" class="section level2 hasAnchor" number="4.1">
+<h2><span class="header-section-number">4.1</span> Randomness and Simulation<a href="ch4.html#ch4_s1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>In this section, we will work to both understand randomness and how it can be used
+with a computer to quickly simulate an outcome. To do this, we will start with a
+game in which two dice are rolled. Because we cannot predict the outcome of a particular
+roll with certainty, rolling dice is an example of a <strong>random process</strong>. In contrast,
+a process in which the outcome can be determined beforehand is known as <strong>deterministic</strong>.
+An example of a deterministic process would be computing the area of a given triangle
+from its base and height – no matter how many times this process is repeated, the
+area is always <span class="math inline">\(\frac{1}{2} * base * height\)</span>.</p>
 <p>In our dice game, we are interested in the sum total of the roll. For example, if a 2
 and a 6 are rolled, the sum total is 8. Each die has 6 outcomes, so there are 36
 possible ways to roll the two die:</p>
@@ -377,7 +381,8 @@ possible ways to roll the two die:</p>
 </center>
 <div class="exercise-container">
 <div class="exercise">
-<span id="exr:unlabeled-div-15" class="exercise"><strong>Exercise 4.1  </strong></span> 
+<p><span id="exr:unlabeled-div-15" class="exercise"><strong>Exercise 4.1  </strong></span></p>
+ 
 </div>
 <div class="text">
 <p>There are 11 possible sum totals you can achieve when rolling two six-sided dies,
@@ -636,17 +641,18 @@ Result
 expected? Why or why not?</li>
 </ol>
 </div>
-<p>While this was a relatively simple dice game, it illustrates several important concepts.
-Going into the game, we are able to determine how likely it is that we win. We did
-this by first enumerating all possible outcomes of two dies being rolled. Any such collection
-of all possible outcomes of a random process is called the <strong>sample space</strong>. Then,
-we considered the ways we could observe the <strong>event</strong> that the two rolls result
-in a sum total of 7. In general, an event is an outcome or collection of outcomes
-from a random process and will always be contained in the sample space.</p>
-<p>Another important observation is that we have not physically rolled any dice ourselves.
-Instead, we have used the computer to perform a <strong>simulation</strong>. Simulations are
-a powerful tool which allow us to quickly and consistently repeat a random process.
-There are two components to simulation:</p>
+<p>While a relatively simple example, this game helps us to illustrate two important
+concepts. First, without having rolled a single die, we are still able to determine
+how likely we are to win the game. This was done by first enumerating the total number
+of possible outcomes and then counting what proportion of these outcomes resulted
+in a win. The collection of all possible outcomes of a random process is called
+the <strong>sample space</strong>, while any particular outcome is known as an <strong>event</strong>. An
+event can be a single outcome, or even a collection of outcomes, but it will always
+be contained within the sample space.</p>
+<p>A more subtle observation is that in playing our game, we have not physically rolled
+any dice ourselves. Instead, we have used the computer to perform a <strong>simulation</strong>,
+a powerful method that quickly and consistently enables us to repeat a random process.
+Simulations are made up of two components:</p>
 <ol style="list-style-type: decimal">
 <li><p>The conditions and behavior of the experiment are determined in advance through
 the <strong>simulation parameters</strong>.</p></li>
@@ -663,7 +669,8 @@ conditions will remain exactly the same.</p>
 <hr />
 <div class="definition-container">
 <div class="definition">
-<span id="def:unlabeled-div-16" class="definition"><strong>Definition 4.1  </strong></span> 
+<p><span id="def:unlabeled-div-16" class="definition"><strong>Definition 4.1  </strong></span></p>
+ 
 </div>
 <div class="text">
 <p><strong>Random Process: </strong> <em> An act or process that results in an outcome that cannot be predicted with certainty </em></p>
@@ -675,26 +682,26 @@ conditions will remain exactly the same.</p>
 </div>
 </div>
 </div>
-<div id="ch4_s2" class="section level2" number="4.2">
-<h2><span class="header-section-number">4.2</span> Probability</h2>
+<div id="ch4_s2" class="section level2 hasAnchor" number="4.2">
+<h2><span class="header-section-number">4.2</span> Probability<a href="ch4.html#ch4_s2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Statistical inference is founded in the ability to quantify uncertainty. Probability
 is the mechanism that allows us to do so, by telling us how likely something is to happen.
 People talk loosely about probability all the time. For example, “What’s the
 chance of rain tomorrow?” or “How likely is it that drug A is better than drug B?”
 In order for probability to be used for statistical inference, we must be precise
-about our definition of probability.</p>
+about with our definition.</p>
 <p>We would all agree that the probability of heads when flipping a fair coin is 50%
 and the probability of rolling a 2 on a 6-sided die is 1/6, but why is that true?
 Well, if we were to flip a coin many, many times, we would expect half of the
 flips to result in heads. Similarly, if we roll a 6-sided die over and over, 1/6
-of the rolls should result in a value of 2. The big idea is that when we talk
+of the rolls should result in a value of 2. The idea is that when we talk
 about probability, we are thinking about a <em>long-run frequency</em> or what will
 happen if the random process is repeated over and over again under the same
 conditions. If we think about probabilities in terms of the long-run frequencies,
-we can define and quantify <strong>probability</strong> as the fraction of time an event
+we can define and quantify <strong>probability</strong> as the fraction of times an event
 occurs if a random process is repeated indefinitely. This means that
-probabilities are always between 0 and 1, since we can never observed more
-or less events than the number of times the process is repeated, e.g. we can never
+probabilities are always between 0 and 1, since we can never observe greater
+or fewer events than the number of times the process is repeated, e.g. we can never
 observed 12 heads on 10 coin flips.</p>
 <p>This leads us to some important properties of probabilities:</p>
 <div class="equation-container">
@@ -709,12 +716,12 @@ for all the outcomes in that event</li>
 </ol>
 </div>
 <p>Consider flipping a fair coin three times. Each act of flipping the coin is
-random process - the coin might land on heads and it might land on tails.
+random process – the coin might land on heads, and it might land on tails.
 Letting <span class="math inline">\(H\)</span> be shorthand for the flip resulting in heads and <span class="math inline">\(T\)</span> be shorthand
 for the flip resulting in tails, the sample space can be enumerated as</p>
 <p><span class="math display">\[\mathcal{S} = \{HHH, HHT, HTH, THH, TTH, THT, HTT, TTT\},\]</span></p>
-<p>giving us eight possible results from the three coin flips. Since each outcome
-is equally likely (why?) The first property tells us that the probability of any
+<p>giving us eight possible results from the three coin flips. As each outcome
+is equally likely (why?), the first property tells us that the probability of any
 specific outcome (say, <span class="math inline">\(HHH\)</span>) is 1/8. The second tells us that the probability
 of heads on the first toss is <span class="math inline">\(4/8 = 1/2\)</span>, since four of the eight possible
 outcomes have heads on the first toss (<span class="math inline">\(\{HHH, HHT, HTH, HTT\}\)</span> ). These
@@ -722,7 +729,8 @@ properties underlie a lot of the more complicated formulas and concepts we will
 cover in this chapter, although we don’t always think about them explicitly.</p>
 <div class="exercise-container">
 <div class="exercise">
-<span id="exr:unlabeled-div-17" class="exercise"><strong>Exercise 4.2  </strong></span> 
+<p><span id="exr:unlabeled-div-17" class="exercise"><strong>Exercise 4.2  </strong></span></p>
+ 
 </div>
 <div class="text">
 <p>We will now investigate the long-run frequency definition of probability using
@@ -745,7 +753,7 @@ at 0.5, which translates to half of the flips resulting in heads.</p></li>
 </iframe>
 <ol>
 <li>
-<p>Set the number of flips to 10 and click the “Flip Coins” button
+<p>Set the number of flips to 10 and click the "Flip Coins" button
 15 times. Each time you perform an experiment, record the number of heads you
 observed in the following table:</p>
 <table border="1" cellspacing="0" cellpadding="0">
@@ -881,13 +889,13 @@ How many times did you see <em>exactly</em> four heads? What about at least two 
 </ol>
 </li>
 <li>
-Now set the number of flips to 100 and click the “Flip Coins” button.
+Now set the number of flips to 100 and click the "Flip Coins" button.
 <ol>
 <li>
 What happens to the running proportion of heads as the coin is continually flipped?
 </li>
 <li>
-Focusing your attention on the plot of the running proportion of heads, click the “Flip Coins” button several times. What do you notice about the plot? What characteristics of the plot stay the same and what differ?
+Focusing your attention on the plot of the running proportion of heads, click the "Flip Coins" button several times. What do you notice about the plot? What characteristics of the plot stay the same and what differ?
 </li>
 </ol>
 </li>
@@ -936,17 +944,18 @@ How does the final proportion of heads observed relate to the probability of obs
 <hr />
 <div class="definition-container">
 <div class="definition">
-<span id="def:unlabeled-div-18" class="definition"><strong>Definition 4.2  </strong></span> 
+<p><span id="def:unlabeled-div-18" class="definition"><strong>Definition 4.2  </strong></span></p>
+ 
 </div>
 <div class="text">
 <p><strong>Probability: </strong> <em> The fraction of times an event occurs when a random process is repeated indefinitely</em></p>
 </div>
 </div>
 </div>
-<div id="ch4_s3" class="section level2" number="4.3">
-<h2><span class="header-section-number">4.3</span> Methods for Computing Probabilities</h2>
+<div id="ch4_s3" class="section level2 hasAnchor" number="4.3">
+<h2><span class="header-section-number">4.3</span> Methods for Computing Probabilities<a href="ch4.html#ch4_s3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>There are several methods that can be used to compute probabilities. We will
-introduce these methods in the context of coin flipping and seeking to answer
+introduce these methods in the context of coin flipping and seek to answer
 the question: if a coin is flipped three times, what is the probability that
 exactly two of the coins will be heads?</p>
 <ol type="1">
@@ -980,7 +989,7 @@ P(\text{# Heads = k}) = f(k; n,p) = \binom{n}{k}p^k(1-p)^{n-k}.
 \]</span>
 For our experiment, the probability of heads is <span class="math inline">\(p = 0.5\)</span>, the total number of
 flips is <span class="math inline">\(n = 3\)</span>, and for our event, <span class="math inline">\(k = 2\)</span> heads. Substituting these numbers,
-we have"</p>
+we have”</p>
 <span class="math display">\[
 \begin{align*}
 P(\text{# Heads = 2}) &amp;= \binom{3}{2} (0.5)^2 (0.5)^{3-2} \\
@@ -996,12 +1005,12 @@ method, we find that <span class="math inline">\(P(\text{# Heads = 2}) = 0.375 =
 <p><strong>Simulation method:</strong> The previous methods are valid, but can quickly
 become impractical or even impossible once the problem grows becomes more complex.
 Even for an example as simple as coin flipping, the
-enumeration method can quickly become infeasible. As the number of flips increases,
+enumeration method can quickly become unfeasible. As the number of flips increases,
 the size of the sample space increases exponentially, making it challenging (or
 lengthy) to count all possible outcomes and all the ways the event can occur. If
 we seek to use the probability function method, we must know what the function is;
 for complex processes, these functions can be nearly impossible to construct,
-leaving statisticians and researchers with no clear way to specify the probability of events.</p>
+leaving statisticians and researchers with no clear way to identify the probability of events.</p>
 <p>The simulation method allows us to mitigate both problems by using the computer
 to repeatedly perform an experiment (say 10,000 times), and computing the
 proportion of experiments in which the event was observed. We have previously defined
@@ -1013,18 +1022,19 @@ P(\# \text{ Heads} = 2) \approx \frac{\text{Number of times \{# Heads = 2\} } }{
 \]</span>
 A careful reader might note that for a given random experiment (such as flipping
 a coin three times) and a specified event (exactly two heads), there is only a
-single* correct answer to the question, “What is the probability of getting
-exactly two heads when flipping a coin three times?” and this single correct
+<em>single</em> correct answer to the question, “What is the probability of getting
+exactly two heads when flipping a coin three times?”, and this single correct
 answer is precisely what was found using the enumeration and probability
-function methods described above. contrast, The simulation method provides an
-approximation to the probability, as opposed to an exact calculation. However,
+function methods described above. By contrast, the simulation method provides an
+approximation to the probability as opposed to an exact calculation. However,
 as the number of repeated experiments increases, the simulation method will give
-a result closer and closer to the true answer.</p>
+a closer and closer approximation to the true answer.</p>
 </li>
 </ol>
 <div class="exercise-container">
 <div class="exercise">
-<span id="exr:unlabeled-div-19" class="exercise"><strong>Exercise 4.3  </strong></span> 
+<p><span id="exr:unlabeled-div-19" class="exercise"><strong>Exercise 4.3  </strong></span></p>
+ 
 </div>
 <iframe src="https://ph-ivshiny.iowa.uiowa.edu/ceward/textbook/shinyApps/coinFlipSimulation" width="100%" height="400">
 </iframe>
@@ -1032,7 +1042,8 @@ a result closer and closer to the true answer.</p>
 <hr />
 <div class="definition-container">
 <div class="definition">
-<span id="def:unlabeled-div-20" class="definition"><strong>Definition 4.3  </strong></span> 
+<p><span id="def:unlabeled-div-20" class="definition"><strong>Definition 4.3  </strong></span></p>
+ 
 </div>
 <div class="text">
 <p><strong>Enumeration method: </strong> <em> A method to exactly compute probabilities by dividing
@@ -1113,7 +1124,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');

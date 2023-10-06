@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>7 Introduction to Inference | An Intuitive, Interactive, Introduction to Biostatistics</title>
   <meta name="description" content="7 Introduction to Inference | An Intuitive, Interactive, Introduction to Biostatistics" />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
 
   <meta property="og:title" content="7 Introduction to Inference | An Intuitive, Interactive, Introduction to Biostatistics" />
   <meta property="og:type" content="book" />
-  
   
   
   <meta name="github-repo" content="ceward/introTextbook" />
@@ -32,7 +31,6 @@
   
 <link rel="prev" href="ch7.html"/>
 
-<script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -50,13 +48,82 @@
 
 
 
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
 
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -157,10 +224,10 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="ch8" class="section level1" number="7">
-<h1><span class="header-section-number">7</span> Introduction to Inference</h1>
+<div id="ch8" class="section level1 hasAnchor" number="7">
+<h1><span class="header-section-number">7</span> Introduction to Inference<a href="ch8.html#ch8" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <blockquote>
-<p>" A useful property of a test of significance is that it exerts a sobering influence on the type of experimenter who jumps to conclusions on scanty data, and who might otherwise try to make everyone excited about some sensational treatment effect that can well be ascribed to the ordinary variation in his experiment."</p>
+<p>” A useful property of a test of significance is that it exerts a sobering influence on the type of experimenter who jumps to conclusions on scanty data, and who might otherwise try to make everyone excited about some sensational treatment effect that can well be ascribed to the ordinary variation in his experiment.”</p>
 <p>— Gertrude Mary Cox</p>
 </blockquote>
 <div class="objective-container">
@@ -175,8 +242,8 @@ Learning objectives
 <li>Definition of p-value and how to interpret</li>
 </ol>
 </div>
-<div id="ch8_s1" class="section level2" number="7.1">
-<h2><span class="header-section-number">7.1</span> Statistical Inference</h2>
+<div id="ch8_s1" class="section level2 hasAnchor" number="7.1">
+<h2><span class="header-section-number">7.1</span> Statistical Inference<a href="ch8.html#ch8_s1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>It may be helpful at this point to quickly review our goals as statisticians, as well as some of the key concepts that we have covered so far:</p>
 <ol style="list-style-type: decimal">
 <li><p>First, let’s consider again the primary goal of statistical analysis. We often begin with some population of interest. In particular, we are generally interested in determining some numerical quantity that describes this population. This may include things such as average monthly spending or the proportion of individuals who respond positively to some treatment. As it is typically impractical to measure some quantity within an entire population, we are often limited to collecting a <em>random sample</em> of the population from which we hope to make generalizations that apply to the population as a whole.</p></li>
@@ -187,7 +254,8 @@ Learning objectives
 <p>Let’s start by playing a simple “game” in the exercise below.</p>
 <div class="exercise-container">
 <div class="exercise">
-<span id="exr:unlabeled-div-1" class="exercise"><strong>Exercise 7.1  </strong></span> 
+<p><span id="exr:unlabeled-div-33" class="exercise"><strong>Exercise 7.1  </strong></span></p>
+ 
 </div>
 <div class="text">
 <p>This applet is designed to provide some intuition into inferential thinking. The
@@ -423,8 +491,8 @@ in the sample mean as the sample size increases?
 </ol>
 </div>
 <p>How good were you at guessing the truth? To play the game, you had to come up with
-some method to make your best guess, an interval of plausible values, and determine
-how likely it was that a given value was the truth. These are some of the
+some method to make your best guess, an interval of plausible values, and finally
+determine how likely it was that a given value was the truth. These are some of the
 foundational goals of statistical inference, which help us answer questions like:</p>
 <ul>
 <li>By how much can you expect your blood pressure to be reduced after starting
@@ -434,33 +502,30 @@ a blood pressure medication?<br />
 the current treatment standard?</li>
 <li>After getting the flu, for approximately how many days is someone infectious?</li>
 </ul>
-<!-- You may have noticed that your guesses were better when you took more samples  -->
-<!-- from the population. What if you could only use one sample? How would your  -->
-<!-- methods for making your guesses work? In real studies, typically only one sample -->
-<!-- is collected, so that is what we must use to make inference. Luckily, statisticians -->
-<!-- and mathematicians have derived formulas using one sample of data to make -->
-<!-- optimal guesses and decisions. -->
-<p>In the rest of this chapter, we will further explore these ideas.</p>
 </div>
-<div id="ch8_s2" class="section level2" number="7.2">
-<h2><span class="header-section-number">7.2</span> Point Estimation and Confidence Intervals</h2>
+<div id="ch8_s2" class="section level2 hasAnchor" number="7.2">
+<h2><span class="header-section-number">7.2</span> Point Estimation and Confidence Intervals<a href="ch8.html#ch8_s2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The idea of coming up with a single best guess at a population parameter is more
 formally known as <strong>point estimation</strong>. For example, using the mean value of a sample
-to estimate the mean value of the population is a form of point estimation. In other words, it is a single number computed from the sample data that is used to infer the value of the population
-parameter.</p>
+to estimate the mean value of the population is a form of point estimation. In
+other words, it is a single number computed from the sample data that is used to
+infer the value of the population parameter.</p>
 <p>As we have seen in the probability distribution exercises of chapter 5, the process
-of obtaining a sample is random,
-which means that sample means computed from two separate samples taken from the same
-population will not be identical. To account for both this random variation and
-the fact that we are generally only able to obtain one sample, we might consider instead
-determining an interval of likely values that our point estimate may fall
-within. We might consider this our <em>margin of error</em> for the point estimate. A wider interval around a point estimate is associated with a higher margin of error, which may also serve as a measure of our uncertainty
-This process is known as <strong>interval estimation</strong>. By including a measure of uncertainty, interval estimation is a more informative metric than a point estimation alone, making it a critical part of performing statistical inference.</p>
-<!-- To begin, let's first note that the interval we construct will be determined by the point estimate that we have collected. As this point estimate is itself a random variable, it follows that the interval itself will be random as well. The primary consequence of this fact is that there is some probability that the true -->
+of obtaining a sample is random, which means that sample means computed from two
+separate samples taken from the same population will likely not be identical. To
+account for both this random variation and the fact that we are generally only able
+to obtain a single sample, we might consider instead determining an interval of
+likely values that our point estimate may fall within. We might consider this our
+<em>margin of error</em> for the point estimate. A wider interval around a point estimate
+is associated with a higher margin of error, which may also serve as a measure of
+our uncertainty. This process is known as <strong>interval estimation</strong>. By including a
+measure of uncertainty, interval estimation is a more informative metric than a
+point estimation alone, making it a critical aspect of performing statistical inference.</p>
 <p>Constructing a desirable interval consists in suitably resolving the tension between
 two competing values:</p>
 <ol style="list-style-type: decimal">
-<li><p>The interval should be large enough that it contains the <em>true</em> parameter value with high probability</p></li>
+<li><p>The interval should be large enough that it contains the <em>true</em> parameter value
+with high probability</p></li>
 <li><p>The interval should be narrow enough to remain useful.</p></li>
 </ol>
 <p>We might consider with an example how these two goals compete: suppose that we are
@@ -471,15 +536,18 @@ On the other hand, however, having a range of temperatures between 0°F and 100�
 hardly tells us if we need to pack a swimming suit or a parka. Fortunately for us,
 we have statistical tools available to remove much of this guesswork – namely,
 through an application of the Central Limit Theorem.</p>
-<p>How does the Central Limit Theorem help us construct confidence intervals? Well, the
-CLT tells us that the distribution of the sample mean is normally distributed,
-and it gives us the parameters (mean and standard deviation) of said distribution. As
-we saw in Chapter 5, (we need to add this to ch 5) the standard deviation gives us
-a useful metric in determining how dispersed our data is around the mean. The highlighted
-sections in the image below detail what proportion of our data lies within a standard
-deviation of the mean in the case when <span class="math inline">\(\mu = 0\)</span>:</p>
+<p>How does the Central Limit Theorem help us construct confidence intervals? Well,
+the CLT tells us that the distribution of the sample mean is normally distributed,
+giving us the parameters (mean and standard deviation) of said distribution. As
+we saw in Chapter 5, the standard deviation gives us a useful metric in determining
+how dispersed our data is around the mean. The highlighted sections in the image
+below detail what proportion of our data lies within a standard deviation of the
+mean in the case when <span class="math inline">\(\mu = 0\)</span>:</p>
 <center>
-<img src="images/sd_diagram_wikipedia_smaller.png" title="fig:" alt="normal distribution stuff" />
+<div class="float">
+<img src="images/sd_diagram_wikipedia_smaller.png" alt="normal distribution stuff" />
+<div class="figcaption">normal distribution stuff</div>
+</div>
 </center>
 <p>For example, knowing that 34.1% of our data will be within one standard deviation (<span class="math inline">\(\sigma\)</span>)
 above the mean and 34.1% will be within one standard deviation below. Together,
@@ -510,9 +578,10 @@ bit backwards at first, but our reasons for doing so will be clear shortly.</p>
 <p>If <span class="math inline">\(1 - \alpha\)</span> represents our coverage probability, then <span class="math inline">\(\alpha\)</span> must represent
 the probability of our interval not containing the true value. And, as our interval
 is symmetric about the sample mean, this means that there is a probability of <span class="math inline">\(\alpha/2\)</span>
-that the true value is <em>above</em> the sample mean, and a probability of <span class="math inline">\(\alpha/2\)</span> that
-it lies <em>below</em> the sample mean. This concept is illustrated below:</p>
-<p><img src="introTextbookTemplate_files/figure-html/unnamed-chunk-2-1.png" width="768" style="display: block; margin: auto;" /></p>
+that the true value is outside of our interval and <em>above</em> the sample mean, while
+a probability of <span class="math inline">\(\alpha/2\)</span> that it lies outside of our confidence interval and
+<em>below</em> the sample mean. This concept is illustrated below:</p>
+<p><img src="introTextbookTemplate_files/figure-html/unnamed-chunk-39-1.png" width="768" style="display: block; margin: auto;" /></p>
 <p>As you may have guessed, the lines at <span class="math inline">\(z_{1-\alpha/2}\)</span> and <span class="math inline">\(z_{\alpha/2}\)</span> represent
 the endpoints of our confidence interval. These values are known as <strong>critical values</strong>.
 In particular, <span class="math inline">\(z_{1-\alpha/2}\)</span> gives us the value for which <span class="math inline">\(\alpha/2\%\)</span> of the
@@ -523,7 +592,7 @@ which <span class="math inline">\(\alpha/2\%\)</span> is greater. In the case of
 generated interval contains the true value and, as a consequence, change the size
 of the interval itself. We illustrate this below by considering two different
 commonly used values for <span class="math inline">\(\alpha\)</span> and the intervals that are generated:</p>
-<p><img src="introTextbookTemplate_files/figure-html/unnamed-chunk-3-1.png" width="960" style="display: block; margin: auto;" /></p>
+<p><img src="introTextbookTemplate_files/figure-html/unnamed-chunk-40-1.png" width="960" style="display: block; margin: auto;" /></p>
 <p>The mathematical details of constructing a confidence interval depends on the
 parameter of interest and how the study was designed. Here, however, we will
 focus on conceptual understanding and interpretation, using sample data and
@@ -557,10 +626,11 @@ that the <em>process</em> will give us a valid interval 95% of the time. Let’s
 this concept a little further by playing with the following applet.</p>
 <div class="exercise-container">
 <div class="exercise">
-<span id="exr:unlabeled-div-2" class="exercise"><strong>Exercise 7.2  </strong></span> 
+<p><span id="exr:unlabeled-div-34" class="exercise"><strong>Exercise 7.2  </strong></span></p>
+ 
 </div>
 <div class="text">
-<p>The applet below is designed to help you get familiar with some of the important concepts related to confidence intervals. The inputs to the simulation are the sample size, number of experiments, and the confidence level. The simulation proceeds by taking a sample of the specified size and constructing a confidence interval based on that sample with the specified level of confidence. This process is one experiment. Each sample is drawn from the same population. For a specified number of experiments, the sampling and confidence interval construction is repeated either 10, 50, 100, or 1000 times. The plot shows all the confidence intervals constructed from each experiment - the number of intervals shown is equal to the “Number of Experiments.” The true population parameter in this case is 0 (only for simplicity). Intervals are shaded in blue if they cover the true population parameter and red if they do not contain the true parameter. The applet also reports the “observed coverage” from all experiments, this is the proportion of all the intervals shown that did contain the truth. Clicking “Run Simulation” will redo the specified number of experiments using the inputs provided.</p>
+<p>The applet below is designed to help you get familiar with some of the important concepts related to confidence intervals. The inputs to the simulation are the sample size, number of experiments, and the confidence level. The simulation proceeds by taking a sample of the specified size and constructing a confidence interval based on that sample with the specified level of confidence. This process is one experiment. Each sample is drawn from the same population. For a specified number of experiments, the sampling and confidence interval construction is repeated either 10, 50, 100, or 1000 times. The plot shows all the confidence intervals constructed from each experiment – the number of intervals shown is equal to the “Number of Experiments.” The true population parameter in this case is 0 (only for simplicity). Intervals are shaded in blue if they cover the true population parameter and red if they do not contain the true parameter. The applet also reports the “observed coverage” from all experiments, this is the proportion of all the intervals shown that did contain the truth. Clicking “Run Simulation” will redo the specified number of experiments using the inputs provided.</p>
 </div>
 </div>
 <!-- frameBorder="0" -->
@@ -605,25 +675,24 @@ What is the observed coverage? What would you expect the coverage to be based on
 Across the 100 confidence intervals shown, how do the widths of the confidence intervals compare? Is there any difference in the confidence interval widths between intervals that do contain the true parameter and those that do not?
 </li>
 <li>
-Now change the sample size to 100. How do these intervals compare to those using sample sizes of 30 or 50?
+Now change the sample size to 100. How do these intervals compare to those using sample sizes of 30 or 50? Does the sample size seem to impact the coverage probability?
 </li>
 <li>
-Change the number of experiments to be 1000. Play around with various sample sizes. How does changing the sample size effect the observed coverage?
-</li>
+Change the confidence level to 50% and again run several simulations with sample sizes of 30, 50, or 100. How do these compare to other simulations we have seen? What appears to be the relationship between sample size, the confidence level, and the width of the intervals?
 </ol>
 </li>
 <li>
-Return to a sample size of 30. Now we will simulate 1000 experiments. Simulating more experiments makes things harder to visualize (we can no longer easily count the intervals that did not contain the truth), but the coverage is more stable when the simulation is re-ran.
+Return to a sample size of 30 and set the number of experiments to be 1000.
 <ol style="list-style-type: lower-alpha; ">
 <li>
-With a confidence level of 95%, what is the observed coverage?
+Run the simulation once with a confidence level of 95%. What is the observed coverage?
 </li>
 <li>
-Re-run the simulation with a sample size of 100. How do these intervals compare to those using sample sizes of 30 or 50?
+Re-run the simulation several more times with 1000 experiments each. What are the coverage probabilities? How do these compare to (f) in question 1?
 </li>
 <li>
 Re-run the simulation using a confidence level of 50%.
-How do these intervals compare to those using a confidence level of 95%? What is the observed coverage?
+How do these intervals compare to those using a confidence level of 95%? How does this change with different sample sizes?
 </li>
 </ol>
 </li>
@@ -643,7 +712,7 @@ As the sample size increases, the width of the confidence intervals increases.
 If a researcher wants a narrower confidence interval, they should obtain a larger sample.
 </li>
 <li>
-If a researcher wants a narrower confidence interval, they should decrease the confidence level.
+If a researcher wants a wider confidence interval, they should increase the confidence level.
 </li>
 </ol>
 </li>
@@ -652,26 +721,27 @@ If a researcher wants a narrower confidence interval, they should decrease the c
 <hr />
 <div class="definition-container">
 <div class="definition">
-<span id="def:unlabeled-div-3" class="definition"><strong>Definition 7.1  </strong></span> 
+<p><span id="def:unlabeled-div-35" class="definition"><strong>Definition 7.1  </strong></span></p>
+ 
 </div>
 <div class="text">
 <p><strong>Point Estimation: </strong> <em> Using a single numeric quantity to estimate a population parameter </em></p>
 <p><strong>Interval Estimation: </strong> <em> Using a range of numeric values to estimate a population parameter </em></p>
 <p><strong>Coverage Probability: </strong> <em> The probability that a constructed confidence interval contains the true population parameter </em></p>
 <p><strong>Critical Value: </strong> <em> The cutoff value that defines the upper and lower bounds
-of the interval </em></p>
+of a confidence interval interval </em></p>
 <p><strong>Confidence Interval: </strong> <em> An interval estimate which contains the true population parameter according to a specified confidence level </em></p>
 </div>
 </div>
 </div>
-<div id="ch8_s3" class="section level2" number="7.3">
-<h2><span class="header-section-number">7.3</span> Hypothesis Tests</h2>
+<div id="ch8_s3" class="section level2 hasAnchor" number="7.3">
+<h2><span class="header-section-number">7.3</span> Hypothesis Tests<a href="ch8.html#ch8_s3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Often, the motivation for performing a particular experiment is to answer a
 scientific question about a population. We have just seen that, along with the
 CLT, the collection of a sample mean along with a standard error allows us to
 construct an intervals of values representing likely values of the true parameter.</p>
-<p>Along with parameter estimation, a cornerstone of statistical inference is significance testing. Confidence intervals allow us to construct a range of plausible values for the parameter, and significance tests allow us to determine the likelihood of a parameter taking a certain value. A <strong>hypothesis test</strong> uses sample data to assess the plausibility of each of two competing hypotheses regarding an unknown parameter (or set of parameters). A <strong>statistical hypothesis</strong> is a statement or claim about an unknown parameter. The <strong>null hypothesis</strong> generally represents what is assumed to be true before the experiment is conducted. This hypothesis is typically denoted <span class="math inline">\(H_0\)</span>. The <strong>alternative hypothesis</strong> represents what the investigator is interested in establishing. This hypothesis is typically denoted <span class="math inline">\(H_A\)</span>. Oftentimes when people refer to the “scientific hypothesis,” this in reference to the alternative hypothesis - it is what the investigators think will happen or what they want to show. The goal of a hypothesis test is to determine which hypothesis is the most plausible - the null or the alternative.</p>
-<p>As an example, consider researchers that have developed a new drug to treat cancer. In order for the drug to be approved for use, the investigators must prove that it is more effective in treating cancer than the current treatment options. To do this, the investigators gather a sample of cancer patients and randomize half of them to receive their new drug and half to receive the current treatment. Then they determine how many patients improved in both groups. In this scenario, the null hypothesis would be that the new drug and the current drug result in the same improvement. Why? Well, the null hypothesis is what is believed before the data was collected. The key is <em>whose</em> beliefs we are talking about. While the scientists that developed the drug most likely believe that their new drug is more effective, the rest of the scientific community remains in a state of uncertainty. The null hypothesis reflects the general beliefs of the scientific community. The alternative hypothesis in this scenario is that the drugs differ in their effectiveness on treating cancer. This is what the researchers hope to show, specifically, they hope to show that their drug is more effective, however, when the study is conducted there is no evidence in either direction, so we leave the alternative hypothesis to also encompass the possibility of the new drug being worse.</p>
+<p>Along with parameter estimation, a cornerstone of statistical inference is significance testing. Confidence intervals allow us to construct a range of plausible values for the parameter, and significance tests allow us to determine the likelihood of a parameter taking a certain value. A <strong>hypothesis test</strong> uses sample data to assess the plausibility of each of two competing hypotheses regarding an unknown parameter (or set of parameters). A <strong>statistical hypothesis</strong> is a statement or claim about an unknown parameter. The <strong>null hypothesis</strong> generally represents what is assumed to be true before the experiment is conducted. This hypothesis is typically denoted <span class="math inline">\(H_0\)</span>. The <strong>alternative hypothesis</strong> represents what the investigator is interested in establishing; this hypothesis is typically denoted <span class="math inline">\(H_A\)</span>. Oftentimes when people refer to the “scientific hypothesis,” this in reference to the alternative hypothesis – it is what the investigators think will happen or what they want to show. The goal of a hypothesis test is to determine which hypothesis is the most plausible – the null or the alternative.</p>
+<p>As an example, consider researchers that have developed a new drug to treat cancer. In order for the drug to be approved for use, the investigators must prove that it is more effective in treating cancer than the current treatment options. To do this, the investigators gather a sample of cancer patients and randomize half of them to receive their new drug and half to receive the current treatment. Then they determine how many patients improved in both groups. In this scenario, the null hypothesis would be that the new drug and the current drug result in the same improvement. Why? Well, the null hypothesis is what is believed before the data was collected. The key is <em>whose</em> beliefs we are talking about. While the scientists that developed the drug most likely believe that their new drug is more effective, the rest of the scientific community remains in a state of uncertainty. The null hypothesis reflects the general beliefs of the scientific community. The alternative hypothesis in this scenario is that the drugs differ in their effectiveness on treating cancer.</p>
 <p>In general, we can think about the null hypothesis as being the “baseline,” “boring,” “nothing to see here” hypothesis. The exact specification will depend on the study context and the type of data being measured (categorical or continuous):</p>
 <ul>
 <li><span class="math inline">\(H_0\)</span>: the average cholesterol for hypertensive smokers’ is no different than the general population</li>
@@ -689,9 +759,9 @@ construct an intervals of values representing likely values of the true paramete
 <li>How do the results align with your hypothesis?</li>
 <li>Communicate results</li>
 </ol>
-<p>We are really focusing on steps 3-5. In step 3, we construct the “scientific hypothesis” and in step 4, we test that hypothesis. In order to produce rigorous scientific results we cannot assume that the scientific hypothesis is true, as that is the goal of our study. We must assume the current state of knowledge (null hypothesis) and then if we are to prove that our hypothesis is correct, we would show that if the current knowledge was true, it would be really unlikely that our experiment would have ended up how it did.</p>
-<p>A great analogy to the concept of hypothesis testing is our judicial system. In court, the legal principle is that everyone is “innocent until proven guilty” and the prosecution must prove that the accused is guilty beyond a reasonable doubt. In many cases, there may not be definitive evidence if the defendant is actually innocent or guilty. But, if the prosecution can show that the likelihood of the accused individual being guilty is high (or equivalently, that the likelihood of the accused individual being innocent is low), then the defendant will be convicted. In hypothesis testing researchers are like the prosecution and must use data to prove that the null hypothesis (current state of knowledge) is false beyond a reasonable doubt. The next several chapters will go through how we can use different types of data to quantify our evidence against the null hypothesis.</p>
-<p>With this set up in mind, we have two possible outcomes of a hypothesis test. Either we conclude that we do not have a lot of evidence against the null hypothesis, i.e. the null hypothesis looks reasonable, and we <em>fail to reject the null</em> or we conclude that we have enough evidence against the null and we <em>reject the null</em>. It is extremely important to note here that we NEVER accept the null or accept the alternative. Many people find this annoying because we can never say anything with 100% certainty. But this is exactly the point! Remember that statistics is all about quantifying our uncertainty. Think back to our drug development example. There will never ever ever be a drug that works exactly the same in every person that takes it. People are too variable and many aspects of a person’s life impacts how a drug works in their body. So it would be completely unreasonable to say that a new drug works all the time. However, there can be a drug that improves outcomes for the average person or that this drug is likely to improve outcomes in a randomly selected person who takes it.</p>
+<p>We are really focusing on steps 3-5. In step 3, we construct the “scientific hypothesis” and in step 4, we test that hypothesis. In order to produce rigorous scientific results, we cannot assume that the scientific hypothesis is true, as that is the goal of our study. We must assume the current state of knowledge (null hypothesis), and then if we are to prove that our hypothesis is correct, we would show that if the current knowledge was true, it would be really unlikely that our experiment would have ended up how it did.</p>
+<p>A great analogy to the concept of hypothesis testing is our judicial system. In court, the legal principle is that everyone is “innocent until proven guilty” and the prosecution must prove that the accused is guilty beyond a reasonable doubt. In many cases, there may not be definitive evidence if the defendant is actually innocent or guilty. But, if the prosecution can show that the likelihood of the accused individual being guilty is high (or equivalently, that the likelihood of the accused individual being innocent is low), then the defendant will be convicted. In hypothesis testing, researchers are like the prosecution and must use data to prove that the null hypothesis (current state of knowledge) is false beyond a reasonable doubt. The next several chapters will go through how we can use different types of data to quantify our evidence against the null hypothesis.</p>
+<p>With this set up in mind, we have two possible outcomes of a hypothesis test. Either we conclude that we do not have a lot of evidence against the null hypothesis, i.e. the null hypothesis looks reasonable, and we <em>fail to reject the null</em> or we conclude that we have enough evidence against the null and we <em>reject the null</em>. It is extremely important to note here that we NEVER accept the null or accept the alternative. Many people find this annoying because we can never say anything with 100% certainty. But this is exactly the point! Remember that statistics is all about quantifying our uncertainty. Think back to our drug development example. There will never ever ever be a drug that works exactly the same in every person that takes it. People are too variable, and many aspects of a person’s life impacts how a drug works in their body. It would be completely unreasonable to say that a new drug works all the time. However, there can be a drug that improves outcomes for the average person or that this drug is likely to improve outcomes in a randomly selected person who takes it.</p>
 <p>We can create a two by two table for the results of any hypothesis test. In the rows we have the two possible outcomes from our test - fail to reject <span class="math inline">\(H_0\)</span> and reject <span class="math inline">\(H_0\)</span>. In the columns we have the true underlying state of nature - either <span class="math inline">\(H_0\)</span> is true or false.</p>
 <table class=" lightable-paper table" style="font-family: &quot;Arial Narrow&quot;, arial, helvetica, sans-serif; width: auto !important; margin-left: auto; margin-right: auto; width: auto !important; margin-left: auto; margin-right: auto;">
 <thead>
@@ -732,15 +802,16 @@ Correct (1 - <span class="math inline">\(\beta\)</span>)
 </tbody>
 </table>
 <p>In the upper-left and bottom-right cells of the table we are making the correct decision based on our test. When the null hypothesis is true, failing to reject <span class="math inline">\(H_0\)</span> is the correct decision and when the null hypothesis is false, rejecting <span class="math inline">\(H_0\)</span> is the correct decision. However, the other two cells correspond to a mistake being made. Because statisticians are not creative, these mistakes are referred to as <strong>type 1 error</strong> and <strong>type 2 error</strong>. A type 1 error is equivalent to a false alarm or a false positive - the null hypothesis was rejected, when in fact it was true. A type 2 error can be thought of as a missed opportunity or a false negative - the null hypothesis was false, but it was not rejected. Typically, the type 1 error rate is symbolically denoted with <span class="math inline">\(\alpha\)</span> and the type 2 error rate is denoted by <span class="math inline">\(\beta\)</span> (again the statisticians of the past were not creative).</p>
-<p>If we were looking to create a good hypothesis test, we would want to minimize type 1 and type 2 errors. In other words, if we were to conduct our study over and over again and there was something to be found, we would want to reject the null hypothesis (find something) at a high rate and fail to reject the null hypothesis at a low rate. If there was truly nothing to be found, we wouldn’t want to find anything and if there is something to be found we want to find it. However, there is a trade-off between type 1 and type 2 error. Let us illustrate this point with a simulation.</p>
+<p>If we were looking to create a good hypothesis test, we would want to minimize type 1 and type 2 errors. In other words, if we were to conduct our study over and over again and there was something to be found, we would want to reject the null hypothesis (find something) at a high rate and fail to reject the null hypothesis at a low rate. If there was truly nothing to be found, we wouldn’t want to find anything, and if there is something to be found we want to find it. However, there is a trade-off between type 1 and type 2 error. Let us illustrate this point with a simulation.</p>
 <div class="exercise-container">
 <div class="exercise">
-<span id="exr:unlabeled-div-4" class="exercise"><strong>Exercise 7.3  </strong></span> 
+<p><span id="exr:unlabeled-div-36" class="exercise"><strong>Exercise 7.3  </strong></span></p>
+ 
 </div>
 <div class="text">
 <p>In this experiment, we are looking to determine if a coin is fair, i.e. whether or not the probability of heads is 50%. A type 1 error in this context would be concluding that the coin is not fair, when it actually is. A type 2 error in this context would be concluding that the coin is fair when it is actually not. Each experiment consists of flipping a coin 20 times and observing the proportion of the 20 flips that result in heads. If the coin is fair, we would expect around 10 of the 20 flip to result in heads. However, if we observed 11 or 12 heads in one experiment, would you be convinced the coin isn’t fair? What about if you observed 19/20 of the flips resulting in heads?</p>
 <p>This applet allows the user to specify the “Rejection Threshold” to determine the cutoff where the app will reject the null hypothesis. This is specified in terms of how far off the proportion of heads in the experiment is from 50%. Since we have no way to determine if the coin is more prone to heads or tails, we consider this distance in both directions. If the observed proportion of the 20 flips that result in heads is beyond the specified threshold, the null hypothesis will be rejected. For example, if you choose a threshold of 10%, then any experiment where there are 60% (12/20) or more flips resulting in heads <em>or</em> 40% (8/20) or less flips resulting in heads, then the null hypothesis is rejected and the coin is determined to not be fair.</p>
-<p>The simulation involves replicating the 20 flip experiment 10,000 times. For each experiment, a coin is flipped 20 times and the proportion of heads is calculated. If that proportion exceeds the specified threshold it is counted as “Reject.” If the proportion does not exceed the threshold, that experiment is considered a “Fail to Reject.” The barchart shows the proportion of 10,000 experiments in which the null hypothesis was and was not rejected. Note: Since we are replicating the experiment 10,000 times, we don’t expect the results to change much if the simulation is re-ran. However, you may see small changes in the proportion of rejects/fail to rejects for the same input values.</p>
+<p>The simulation involves replicating the 20 flip experiment 10,000 times. For each experiment, a coin is flipped 20 times and the proportion of heads is calculated. If that proportion exceeds the specified threshold it is counted as “Reject.” If the proportion does not exceed the threshold, that experiment is considered a “Fail to Reject.” The bar chart shows the proportion of 10,000 experiments in which the null hypothesis was and was not rejected. Note: Since we are replicating the experiment 10,000 times, we don’t expect the results to change much if the simulation is re-ran. However, you may see small changes in the proportion of rejects/fail to rejects for the same input values.</p>
 </div>
 </div>
 <!-- frameBorder="0" -->
@@ -825,7 +896,8 @@ What can you conclude about the relationship between type 1 and type 2 errors?
 <hr />
 <div class="definition-container">
 <div class="definition">
-<span id="def:unlabeled-div-5" class="definition"><strong>Definition 7.2  </strong></span> 
+<p><span id="def:unlabeled-div-37" class="definition"><strong>Definition 7.2  </strong></span></p>
+ 
 </div>
 <div class="text">
 <p><strong>Hypothesis test: </strong> <em> A decision making technique which assesses the plausibility
@@ -838,9 +910,9 @@ of two competing hypotheses </em></p>
 </div>
 </div>
 </div>
-<div id="ch8_s4" class="section level2" number="7.4">
-<h2><span class="header-section-number">7.4</span> P-values</h2>
-<p>All hypothesis tests are based on quantifying the probability of the study results assuming the null hypothesis is true. This probability is so important that it has a special name, the <strong>p-value</strong>. In technical terms, the p-value gives the probability of obtaining results as extreme or more extreme than the ones observed in the sample, <em>given</em> that the null hypothesis is true. A less technical way to describe a p-value is that assuming there is truly nothing going on, what’s the chances of obtaining results similar in opposition to the null hypothesis as our study?</p>
+<div id="ch8_s4" class="section level2 hasAnchor" number="7.4">
+<h2><span class="header-section-number">7.4</span> P-values<a href="ch8.html#ch8_s4" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>All hypothesis tests are based on quantifying the probability of the study results assuming the null hypothesis is true. This probability is so important that it has a special name, the <strong>p-value</strong>. In technical terms, the p-value gives the probability of obtaining results as extreme or more extreme than the ones observed in the sample, <em>given</em> that the null hypothesis is true. A less technical way to describe a p-value is that assuming there is truly nothing going on, how likely are we to have seen what we have seen?</p>
 <p>If we are thinking about hypothesis testing as a court case, p-values are the way that we can quantify the evidence against the defendant. Recall, the prosecution wants to prove beyond a reasonable doubt that the defendant is not innocent. So what does the scientific community consider sufficient evidence? There is a generally agreed-upon scale for interpreting p-values with regards to the strength of evidence that they represent.</p>
 <table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <thead>
@@ -902,14 +974,15 @@ Overwhelming
 </li>
 <li>“Highly significant” (p &lt; 0.01)</li>
 </ul>
-<p>However, don’t let these clearly arbitrary cutoffs distract you from the main idea that p-values represent - how far off is the data from what you would expect under the null hypothesis. A p-value of 0.04 and 0.000000001 are not at all the same thing, even though both are “statistically significant.”</p>
-<p>In general, a p-value cutoff is chosen and if a p-value below the cutoff is observed, the null hypothesis is rejected. The investigators choose this cutoff, which is equivalent to the type I error rate and thus denoted by <span class="math inline">\(\alpha\)</span>, before analyzing the data. Most of the time <span class="math inline">\(\alpha\)</span> is set to 0.05, which means there is a 5% chance of a type I error (false alarm). The smaller the value of <span class="math inline">\(\alpha\)</span>, the greater the “burden of proof” required to reject the null hypothesis. <span class="math inline">\(\alpha\)</span> is also commonly called the <strong>significance level</strong>.</p>
+<p>However, don’t let these clearly arbitrary cutoffs distract you from the main idea that p-values represent – how far off is the data from what you would expect under the null hypothesis. A p-value of 0.04 and 0.000000001 are not at all the same thing, even though both are “statistically significant.”</p>
+<p>In general, a type I error rate, <span class="math inline">\(\alpha\)</span>, is chosen prior to beginning the study. That is, investigators specify beforehand how much evidence should be needed to reject the null hypothesis. The smaller the value of <span class="math inline">\(\alpha\)</span>, the greater the “burden of proof” required. If the observed p-value is smaller than the specified <span class="math inline">\(\alpha\)</span>, the null is rejected. In the context of rejecting or failing to reject a hypothesis, <span class="math inline">\(\alpha\)</span> is also commonly referred to as the <strong>significance level</strong>.</p>
 <p>A fundamental property of p-values is that if we use <span class="math inline">\(p &lt; \alpha\)</span> as cutoff for rejecting the null hypothesis, the type I error rate is guaranteed to be no more than <span class="math inline">\(\alpha\)</span>. However, the <span class="math inline">\(p &lt; \alpha\)</span> cutoff guarantees us nothing about the type II error rate. This is because p-values are calculated assuming the null hypothesis is true, so they don’t give us any information about what to expect when the null hypothesis is false.</p>
 <p>While p-values are widely used, have a distinct purpose, and can be informative they also have a number of limitations.</p>
 <hr />
 <div class="definition-container">
 <div class="definition">
-<span id="def:unlabeled-div-6" class="definition"><strong>Definition 7.3  </strong></span> 
+<p><span id="def:unlabeled-div-38" class="definition"><strong>Definition 7.3  </strong></span></p>
+ 
 </div>
 <div class="text">
 <p><strong>p-value: </strong> <em> The probability of observing data as extreme or more extreme than
@@ -988,7 +1061,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');

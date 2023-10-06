@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>3 Study Design | An Intuitive, Interactive, Introduction to Biostatistics</title>
   <meta name="description" content="3 Study Design | An Intuitive, Interactive, Introduction to Biostatistics" />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
 
   <meta property="og:title" content="3 Study Design | An Intuitive, Interactive, Introduction to Biostatistics" />
   <meta property="og:type" content="book" />
-  
   
   
   <meta name="github-repo" content="ceward/introTextbook" />
@@ -32,7 +31,6 @@
   
 <link rel="prev" href="ch2.html"/>
 <link rel="next" href="ch4.html"/>
-<script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -50,8 +48,9 @@
 
 
 
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
@@ -94,7 +93,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -107,7 +106,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -121,6 +120,10 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -221,8 +224,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="ch3" class="section level1" number="3">
-<h1><span class="header-section-number">3</span> Study Design</h1>
+<div id="ch3" class="section level1 hasAnchor" number="3">
+<h1><span class="header-section-number">3</span> Study Design<a href="ch3.html#ch3" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <blockquote>
 <p>“Randomization is too important to be left to chance.”</p>
 <p>— J. D. Petruccelli</p>
@@ -239,14 +242,14 @@ Learning objectives
 <li>Know what a randomized controlled double-blind experiment is and why it is the gold standard</li>
 </ol>
 </div>
-<div id="ch3_s1" class="section level2" number="3.1">
-<h2><span class="header-section-number">3.1</span> Importance of Study Design</h2>
+<div id="ch3_s1" class="section level2 hasAnchor" number="3.1">
+<h2><span class="header-section-number">3.1</span> Importance of Study Design<a href="ch3.html#ch3_s1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>There are many avenues by which data may land on the desk of a statistician. Many times, data is simply <em>observational</em>, that is, the data is collected by researchers without any control over independent variables. Such was the case with the La Guardia air quality data explored in Chapter 2, where in addition to temperature and ozone data, information was also collected for month, date, windspeed, and solar radiation. While this kind of study is useful for exploring the relationship between processes, it is often limited in its ability to make causal statements and inference.</p>
 <p>More useful to researchers, and especially in biomedical studies, are those in which clinicians take a more proactive approach, manipulating independent variables in an attempt to determine a more direct relationship with an outcome, or the dependent variable. This is particularly important in studies that seek to determine the efficacy of a new drug or treatment. While there are a number of different designs that are used by medical researchers for a variety of purposes, we limit our discussion in this chapter to a broad class of studies known as <em>clinical trials</em>. More specifically, we will discuss a class of studies known as <em>randomized controlled clinical trials</em>, which are considered the gold-standard in medical research.</p>
 <p>We will begin by addressing issues with variability and bias, followed by an outline of the procedures that typically go into a clinical trial. Finally, we will explore a list of specific biases that statisticians and researchers attempt to mitigate through effective study design.</p>
 </div>
-<div id="ch3_s22" class="section level2" number="3.2">
-<h2><span class="header-section-number">3.2</span> Variability and Bias</h2>
+<div id="ch3_s22" class="section level2 hasAnchor" number="3.2">
+<h2><span class="header-section-number">3.2</span> Variability and Bias<a href="ch3.html#ch3_s22" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>In Chapter 1, we defined statistics by its ability to quantify uncertainty regarding the potential outcome of a random process. In order to do this most effectively and make accurate inference, researchers and statisticians do their best to remove potential sources of variability. Variability can manifest in a number of ways, ranging from the standard biological variability associated with a given population (genetic variation), as well as imprecision associated with measurement (measuring blood pressure, weight, etc.,). While these sources of variation do impact the ability to make precise inference, the effects associated with this kind of variability often “even out” in the end. In other words, though it may make inference less certain, it does not make it incorrect.</p>
 <p>Similar to variability is the concept of <strong>bias</strong>. Whereas variability is used to describe the effects of random variation and imprecision, bias refers to a characteristics of a process or technique in which the measured outcome is <em>systematically different</em> from the true value it is meant to represent. For example, a researcher may be interested in taking the weight of patients at different times during the day. Due to fluctuations in metabolism, an individual patient may have a slightly different weight at different times of the day, resulting in variability. However, if the scale that is used is miscalibrated and always reports a weight that is ten pounds less than the true value, this would be bias. Unfortunately, there are very few tools at a statisticians disposal to address bias, and there is frequently no way to test if it is present or not. However, a well designed study can reduce this risk and put researchers and statisticians in the best possible place to perform successful science.</p>
 <p>As a critical piece of the statistical framework, <strong>study design</strong> is the process of organizing, conducting, and analyzing a scientific experiment with the intention of resolving a hypothesis or achieving research goals. There are many types of study designs with various strengths and limitations, the entirety of which could not possibly be covered here. Instead, we will focus on some of the main considerations when designing a study, as well as the statistical implications associated with common ways in which study design can go wrong.</p>
@@ -278,7 +281,8 @@ a study.</p>
 <hr />
 <div class="definition-container">
 <div class="definition">
-<span id="def:unlabeled-div-11" class="definition"><strong>Definition 3.1  </strong></span> 
+<p><span id="def:unlabeled-div-11" class="definition"><strong>Definition 3.1  </strong></span></p>
+ 
 </div>
 <div class="text">
 <p><strong>Study design: </strong> <em> The process of obtaining the best sample to answer the research questions </em></p>
@@ -287,21 +291,21 @@ systematically different from the true value it is intended to estimate </em></p
 </div>
 </div>
 </div>
-<div id="clinical-trials" class="section level2" number="3.3">
-<h2><span class="header-section-number">3.3</span> Clinical Trials</h2>
+<div id="clinical-trials" class="section level2 hasAnchor" number="3.3">
+<h2><span class="header-section-number">3.3</span> Clinical Trials<a href="ch3.html#clinical-trials" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>There are several phases involved in a formal clinical trial, with early stages focused on determining safety and evidence for potential efficacy of a treatment. Often, these trials are small, usually with numbers between 10 and 100 patients. Once enough evidence has been collected to demonstrate the safety and possible efficacy of an intervention, larger Stage 3 clinical trials are conducted, often with hundreds or even thousands of patients, and usually at multiple clinics or sites. Yet, in all cases, the general framework is the same. This helps ensure consistency across studies and sites and prevents researchers from introducing sources of bias that may unintentionally influence results. What follows are brief principles that are used to guide each step of the study process.</p>
-<div id="study-protocol-and-human-subjects" class="section level3 unnumbered">
-<h3>Study Protocol and Human Subjects</h3>
+<div id="study-protocol-and-human-subjects" class="section level3 unnumbered hasAnchor">
+<h3>Study Protocol and Human Subjects<a href="ch3.html#study-protocol-and-human-subjects" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Before any study on human subjects begin, researchers are tasked with writing and proposing a <em>study protocol</em> that outlines who will be studied, what metrics will be collected, how the data will be analyzed, and a set of procedures to actively monitor the safety of the participants, as well as address how specific problems will be handled, if they arise. It is critical that these protocols are written and adhered to before a study begins; decisions that are made once the study has begun may be influenced by data that has already been seen. Further, specifying the main analysis in advance ensures that the hypothesis in question is being adequately answered. Without this safeguard in place, investigators may let the data observed direct the methods of analysis. This is known as <em>data snooping</em>, which can drastically impact the validity of the results.</p>
 <p>Once the study protocol has been written, it is then submitted to an ethics/review board to ensure that subjects are treated fairly and humanely, and that all participants are able to give informed consent. This also helps evaluate the potential risks faced by subjects against any potential benefits from the trial. In the United States, this process is governed by an <em>Institutional Review Board</em>, or IRB. Further approval may be needed in cases involving the use of drugs or radioactive materials.</p>
 </div>
-<div id="participant-selection" class="section level3 unnumbered">
-<h3>Participant Selection</h3>
+<div id="participant-selection" class="section level3 unnumbered hasAnchor">
+<h3>Participant Selection<a href="ch3.html#participant-selection" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Before a study can begin, subjects must be enrolled and consent to performing in a study. Typically, eligible participants are selected for a study based on a set of eligibility criterion to ensure that subjects come from a population of interest. For example, in a study designed to test the efficacy of a new medication for lowering cholesterol, clinicians may only select subjects who have a demonstrated risk for heart disease. Similarly, it is often important to have a set of criteria that can <em>exclude</em> certain subjects, such as those with confounding issues that may make it difficult to limit the amount of variability in a study.</p>
 <p>Of importance here is the fact that the results of study are only valid for populations from which the subjects in the study were drawn. If participants in a study are limited to a certain demographic, such as age or sex, then the findings may not hold for a more general population. This may result in a form of extrapolation bias, defined below, and is often a concern when extending treatment to minors, who are often not included in clinical trials.</p>
 </div>
-<div id="control-groups-and-randomization" class="section level3 unnumbered">
-<h3>Control Groups and Randomization</h3>
+<div id="control-groups-and-randomization" class="section level3 unnumbered hasAnchor">
+<h3>Control Groups and Randomization<a href="ch3.html#control-groups-and-randomization" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>In order to correctly estimate the efficacy of a treatment, it is vital to have
 a <em>control group</em> with which to evaluate it. In some cases, the control group
 may receive an existing method of treatment; in others, it may be a <em>placebo</em>,
@@ -316,12 +320,12 @@ there may be underlying differences between these groups that impact the results
 of the study.</p>
 <p>For many clinical trials, researchers may choose to create sub-groups before initiating randomization to help control for any potential confounding effects. This process helps ensure that both treatment and control groups are similar in composition, for example, balancing the number of men and women or subjects within particular age groups. This is known as <em>stratified randomization</em>.</p>
 </div>
-<div id="blinding" class="section level3 unnumbered">
-<h3>Blinding</h3>
+<div id="blinding" class="section level3 unnumbered hasAnchor">
+<h3>Blinding<a href="ch3.html#blinding" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The efficiacy of many treatments can be influenced by perceptual or psychological factors of either the patient or clinician, especially in the evaluation of subjective measures such as pain or nausea. Further, the knowledge of which treatment a subject has been assigned may unintentionally bias the way a physician treats them, further complicating the study. To mitigate this, clinical trials often engage in <em>blinding</em>, in which either the subject, the clinician, or both, are unaware of the treatment assigned until the completion of the study. The case in which both the subject and the researcher are blinded is known as a <em>double blind</em> and has become standard practice for clinical trials.</p>
 </div>
-<div id="compliance-and-intent-to-treat-itt" class="section level3 unnumbered">
-<h3>Compliance and Intent-To-Treat (ITT)</h3>
+<div id="compliance-and-intent-to-treat-itt" class="section level3 unnumbered hasAnchor">
+<h3>Compliance and Intent-To-Treat (ITT)<a href="ch3.html#compliance-and-intent-to-treat-itt" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Not infrequently, external circumstances or lack of compliance can alter the
 treatment that a subject in a clinical trial actually receives. As such, it is
 important that the study protocol outlines in advance exactly how such cases
@@ -331,13 +335,13 @@ they were assigned at randomization, regardless of the treatment that is
 actually received.</p>
 </div>
 </div>
-<div id="biases" class="section level2" number="3.4">
-<h2><span class="header-section-number">3.4</span> Biases</h2>
-<div id="ch3_s2" class="section level3" number="3.4.1">
-<h3><span class="header-section-number">3.4.1</span> Pre-trial Bias</h3>
+<div id="biases" class="section level2 hasAnchor" number="3.4">
+<h2><span class="header-section-number">3.4</span> Biases<a href="ch3.html#biases" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="ch3_s2" class="section level3 hasAnchor" number="3.4.1">
+<h3><span class="header-section-number">3.4.1</span> Pre-trial Bias<a href="ch3.html#ch3_s2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Pre-trial biases describe a collection of biases that can be introduced into a study before it even begins. Generally, these are associated with ensuring that our sample is representative of the population in question and that the study is designed in such a way that meaningful comparisons can be made.</p>
-<div id="ch3_s2_ss1" class="section level4 unnumbered">
-<h4>Selection Bias</h4>
+<div id="ch3_s2_ss1" class="section level4 unnumbered hasAnchor">
+<h4>Selection Bias<a href="ch3.html#ch3_s2_ss1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>The first major consideration when planning a study is who you will ask
 to participate. When selecting your sample, you must ensure the sample is
 representative of the population of interest. Otherwise, your study may be prone to
@@ -355,8 +359,8 @@ Selection bias can be avoided by careful consideration of the make up of the
 population and a sampling method that accounts for various sub-populations that
 may differ in respect to the study outcome.</p>
 </div>
-<div id="ch3_s2_ss2" class="section level4 unnumbered">
-<h4>Non-response/Participant Bias</h4>
+<div id="ch3_s2_ss2" class="section level4 unnumbered hasAnchor">
+<h4>Non-response/Participant Bias<a href="ch3.html#ch3_s2_ss2" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>We remarked earlier that in an ideal world, all selected participants would be
 eager to participate in our study. However, this is not always the case. To make
 matters even more difficult, sometimes those that want to participate in our
@@ -372,8 +376,8 @@ positive ratings, whereas the instructor’s actual performance maybe be somewhe
 middle. Participant bias can be avoided when designing a study by reducing the
 survey length and offering incentives for participation.</p>
 </div>
-<div id="ch3_s2_ss3" class="section level4 unnumbered">
-<h4>Confirmation Bias/Placebo Effect</h4>
+<div id="ch3_s2_ss3" class="section level4 unnumbered hasAnchor">
+<h4>Confirmation Bias/Placebo Effect<a href="ch3.html#ch3_s2_ss3" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <!-- I hate this. -->
 <p>To determine if a new treatment is effective, it must be compared to something
 else. This is addressed by splitting the sample into two groups: the
@@ -393,7 +397,8 @@ or saline infection).</p>
 <hr />
 <div class="definition-container">
 <div class="definition">
-<span id="def:unlabeled-div-12" class="definition"><strong>Definition 3.2  </strong></span> 
+<p><span id="def:unlabeled-div-12" class="definition"><strong>Definition 3.2  </strong></span></p>
+ 
 </div>
 <div class="text">
 <p><strong>Selection Bias: </strong> <em> A type of bias in which subgroups of the population were more likely to be included than others.</em></p>
@@ -408,10 +413,10 @@ meaningful way from the participants </em></p>
 </div>
 </div>
 </div>
-<div id="ch3_s3" class="section level3" number="3.4.2">
-<h3><span class="header-section-number">3.4.2</span> During-trial Bias</h3>
-<div id="ch3_s3_ss1" class="section level4 unnumbered">
-<h4>Confounding</h4>
+<div id="ch3_s3" class="section level3 hasAnchor" number="3.4.2">
+<h3><span class="header-section-number">3.4.2</span> During-trial Bias<a href="ch3.html#ch3_s3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="ch3_s3_ss1" class="section level4 unnumbered hasAnchor">
+<h4>Confounding<a href="ch3.html#ch3_s3_ss1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Many epidemiological studies have shown that coffee drinkers have an increased
 risk of lung cancer. However, upon further investigation, researchers also
 noticed that smokers are more likely to drink coffee. There is a known association
@@ -438,8 +443,8 @@ similar proportions of smokers in the coffee drinking and non-coffee drinking
 groups. If it is not possible to control for a confounder when designing the
 study, there may be other analytical methods that can be used.</p>
 </div>
-<div id="ch3_s3_ss2" class="section level4 unnumbered">
-<h4>Observer Bias</h4>
+<div id="ch3_s3_ss2" class="section level4 unnumbered hasAnchor">
+<h4>Observer Bias<a href="ch3.html#ch3_s3_ss2" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Researchers often have expectations about how effective their treatment is
 (otherwise they probably wouldn’t be studying it). If the researcher is also
 responsible for recording subjective assessments of the study participants, there
@@ -448,7 +453,8 @@ perceive a subject’s progress during follow-up.</p>
 <hr />
 <div class="definition-container">
 <div class="definition">
-<span id="def:unlabeled-div-13" class="definition"><strong>Definition 3.3  </strong></span> 
+<p><span id="def:unlabeled-div-13" class="definition"><strong>Definition 3.3  </strong></span></p>
+ 
 </div>
 <div class="text">
 <p><strong>Confounding: </strong> <em> A third variable related to both exposure and outcome </em></p>
@@ -457,15 +463,15 @@ perceive a subject’s progress during follow-up.</p>
 </div>
 </div>
 </div>
-<div id="ch3_s4" class="section level3" number="3.4.3">
-<h3><span class="header-section-number">3.4.3</span> Post-trial Bias</h3>
+<div id="ch3_s4" class="section level3 hasAnchor" number="3.4.3">
+<h3><span class="header-section-number">3.4.3</span> Post-trial Bias<a href="ch3.html#ch3_s4" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <blockquote>
 <p>“To consult the statistician after an experiment is finished is often merely to ask him to conduct a post mortem examination. He can perhaps say what the experiment died of.”</p>
 <p>— R. A. Fisher</p>
 </blockquote>
 <p>Once a study has been completed, there is often very little that can be done to correct potential biases made during or before the study began. That being said, researchers still have a responsibility to present their findings in ways that can promote future research.</p>
-<div id="ch3_s4_ss1" class="section level4 unnumbered">
-<h4>Compliance Bias</h4>
+<div id="ch3_s4_ss1" class="section level4 unnumbered hasAnchor">
+<h4>Compliance Bias<a href="ch3.html#ch3_s4_ss1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Despite individuals being willing to participate in a research study, this does
 not always mean they will comply perfectly with their assigned treatment.
 Consider an exercise study designed to help people lose weight. Individuals that
@@ -657,8 +663,8 @@ is also called <strong>intent-to-treat (ITT) analysis</strong>.</p>
 <!-- study, there are many analysis methods (beyond the scope of this course) that -->
 <!-- can be used. -->
 </div>
-<div id="ch3_s4_ss2" class="section level4 unnumbered">
-<h4>Extrapolation Bias</h4>
+<div id="ch3_s4_ss2" class="section level4 unnumbered hasAnchor">
+<h4>Extrapolation Bias<a href="ch3.html#ch3_s4_ss2" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>The previous two examples demonstrated ways in which we might incorrectly move
 from a target population to a non-representative sample. This final case
 describes movement in the opposite direction: from a specified sample to a more
@@ -673,7 +679,8 @@ children.</p>
 <hr />
 <div class="definition-container">
 <div class="definition">
-<span id="def:unlabeled-div-14" class="definition"><strong>Definition 3.4  </strong></span> 
+<p><span id="def:unlabeled-div-14" class="definition"><strong>Definition 3.4  </strong></span></p>
+ 
 </div>
 <div class="text">
 <p><strong>Compliance Bias: </strong> <em> Bias arising when those complying to study protocol differ from
@@ -753,7 +760,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');

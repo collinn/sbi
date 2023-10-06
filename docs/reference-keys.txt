@@ -87,6 +87,3 @@ ch8_s1
 ch8_s2
 ch8_s3
 ch8_s4
-exr:unlabeled-div-1
-exr:unlabeled-div-2
-exr:unlabeled-div-4

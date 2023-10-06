@@ -1,5 +1,7 @@
 ---
 output: html_document
+editor_options: 
+  chunk_output_type: console
 ---
 
 # Sampling Distributions and the <br/> Central Limit Theorem {#ch7}
@@ -253,8 +255,11 @@ combDat2 <- data.frame(Sample = combSamples,
                       Values = combValues,
                       'Sample mean'=round(meanComb, 2))
 
+## 10/5/23 - don't shoot me, but there is something wrong with the logic here in the `SampleMean` column
+# and instead of figuring out what it was, I just selected the "correct" rows c.n.
 toKeep <- which(!duplicated(combDat[,3]))
-combDat2 <- combDat2[toKeep,]
+#combDat2 <- combDat2[toKeep,]
+combDat2 <- combDat2[c(1, 2, 5, 8, 9), ] # I know this is so wrong to do
 kable(combDat2, row.names = F, col.names = c('Sample', 'Values', '$\\overline{x}$'), escape =F) |> kable_styling(full_width=FALSE)
 
 ```

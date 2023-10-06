@@ -59,10 +59,14 @@ distinct categories. Categorical data can further be classified into two distinc
 * **Ordinal data**: data that does have a natural ordering, e.g., education 
   (high school, some college, college) and injury severity (low, medium, high)
 
-Continuous data (sometimes called *quantitative* data), on the other hand, are 
-data that can take on any numeric value on some interval or on a continuum. 
-Examples of continuous data include height, weight, and temperature. Categorical
-and continuous data are summarized differently, and we'll explore a number of 
+Continuous data (sometimes called *quantitative* data) can also be further categorized into two distinct types:
+
+* **Interval data:** data in which the scale is defined in terms of differences between observations; *zero point is arbitrary*. This includes, for examples, data such as temperature measured in Celsius or measures of intelligence (IQ). 
+* **Ratio data:** data in which scale differences represent real relationships in the items measured; *zero is not arbitrary*. Examples of this include height, weight, income, or cytokine levels
+
+A helpful way to classify these is to ask the question: "does it make sense to say that one measurement is twice as large as another?". 50 inches is twice as large as 25 inches, but 50 degrees Fahrenheit is not twice as warm as 25 degrees Fahrenheit. 
+
+Categorical and continuous data are summarized differently, and we'll explore a number of 
 ways to summarize both types of data.
 
 ---
@@ -77,6 +81,10 @@ ways to summarize both types of data.
 **Ordinal data: ** <em> A type of categorical data where there is a natural ordering </em>
 
 **Continuous data: ** <em> Data that takes on numeric values, often measured on an interval </em>
+
+**Interval data: ** <em> Data in which scale is defined in terms of differences between observations; zero is arbitrary </em>
+
+**Ratio data: ** <em> Data in which scale refers to real relationships between observations; zero is not arbitrary </em>
 </div>
 </div>
 
@@ -141,20 +149,18 @@ blond, and red.
 
 However, suppose somebody asks you how common brown hair is *relative* to other 
 colors. Does it make sense to respond, "Oh, there are 286 individuals with 
-brown hair"? Without knowing the values for the other hair colors, this number 
+brown hair?" Without knowing the values for the other hair colors, this number 
 alone doesn't carry much meaning. Is 286 observations a lot? It depends. Were 
 300 people examined? 3,000? Without knowing anything about the rest of the data, 
 the absolute frequency may not be very useful.
 
 In addition to actual counts of observations in categorical data, we may often 
-be interested in **rates**. A rate can be as simple as taking the total number 
-of a single category observed, and stating it in terms of the total number of 
+be interested in **proportions**. A proportion can be as simple as taking the total number of a single category observed, and stating it in terms of the total number of 
 observations. For example, instead of saying, "286 subjects who were
 observed had brown hair," we might instead say, "286 of 592 subjects surveyed
-had brown hair." Rates are also known as **relative frequencies**, because
+had brown hair." Proportions are also sometimes known as **relative frequencies**, because
 they are relative to a specific number of observations. More commonly, we use
-**percentages**, also known as **proportions**, which are a special type of rate or
-relative frequency -- the count per 100 observations. That is, 286 of 592 subjects becomes
+**percentages**, a special type of **proportions** -- where the quantity is considered per 100 observations. That is, 286 of 592 subjects becomes
 $286/592 = 0.4831 = 48.31\%$. Let's consider again the same table as above, this time
 in terms of percentages:
 
@@ -163,7 +169,7 @@ t(scales::percent(prop.table(tab[1:4]))) %>%  kable() %>% kable_classic(full_wid
 ```
 
 
-By considering all observations as rates per one hundred, we can quickly compare 
+By considering all observations as proportion per one hundred, we can quickly compare 
 the relative counts of our observations. For example, we can quickly note that 
 about half of the observations collected had brown hair, and almost twice as many 
 had blond hair compared to red. 
@@ -172,7 +178,7 @@ In addition to tables, we can also summarize categorical data visually. The most
 common figure used to represent categorical data is the **bar plot**. Below is a 
 demonstration of a bar plot for the percentages of hair color in our data.
 
-```{r}
+```{r, warning = FALSE}
 ggplot(dt, aes(Hair, fill = Hair)) + 
   geom_bar(aes(y = (..count..)/sum(..count..))) + 
   geom_text(aes(label = scales::percent((..count..)/sum(..count..)),
@@ -256,7 +262,6 @@ research question and the data at hand. We can also use stratification graphical
 by creating multiple bar plots for each category of the stratification variable.
 
 
-
 ```{r, fig.width = 10}
 ggplot(dt, aes(x=Hair, fill=Sex))+
   geom_bar(aes( y=..count../tapply(..count.., ..x.. ,sum)[..x..]), position="dodge" ) +
@@ -288,9 +293,13 @@ ggplot(dt, aes(x=Sex, fill=Hair))+
 <div class="text">
 **Absolute frequency: ** <em> The number of observations in a category </em>
 
-**Rate/Relative frequency: ** <em> The number of observations in a category relative to any other quantity </em>
+**Proportion/Relative frequency:** *A proportion is a number or quantity relative to a whole. That is, both the part and the whole are of the same basic unit, i.e., hair color.*
 
-**Percent/Proportion: ** <em> The number of observations per 100 </em>
+**Percent:** *A percentage represents a special proportion, when the whole is standardized to be 100.*
+
+**Ratio:** *A ratio is a comparison of relative size between two values; it is commonly expressed with a colon.*
+
+**Rate:** <em> When one quantity is divided by another, often (but not necessarily) with different units. A proportion is a type of rate in which the units are the same, though a rate such as "miles per hour" would not be a proportion. </em>
 
 **Bar plot: ** <em> Visualization of categorical data which uses bars to represent each category, 
 with counts or percents represented by the height of each bar </em>

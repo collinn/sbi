@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>2 Data Summaries and Presentation | An Intuitive, Interactive, Introduction to Biostatistics</title>
   <meta name="description" content="2 Data Summaries and Presentation | An Intuitive, Interactive, Introduction to Biostatistics" />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
 
   <meta property="og:title" content="2 Data Summaries and Presentation | An Intuitive, Interactive, Introduction to Biostatistics" />
   <meta property="og:type" content="book" />
-  
   
   
   <meta name="github-repo" content="ceward/introTextbook" />
@@ -32,7 +31,6 @@
   
 <link rel="prev" href="ch1.html"/>
 <link rel="next" href="ch3.html"/>
-<script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -50,8 +48,9 @@
 
 
 
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
@@ -94,7 +93,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -107,7 +106,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -121,6 +120,10 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -221,8 +224,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="ch2" class="section level1" number="2">
-<h1><span class="header-section-number">2</span> Data Summaries and Presentation</h1>
+<div id="ch2" class="section level1 hasAnchor" number="2">
+<h1><span class="header-section-number">2</span> Data Summaries and Presentation<a href="ch2.html#ch2" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <blockquote>
 <p>“Numerical quantities focus on expected values, graphical summaries on unexpected values.”</p>
 <p>— John Tukey</p>
@@ -237,8 +240,8 @@ Learning objectives
 <li>Learn about different types of graphs and how they can be interpreted</li>
 </ol>
 </div>
-<div id="ch2_s1" class="section level2" number="2.1">
-<h2><span class="header-section-number">2.1</span> Introduction to Data</h2>
+<div id="ch2_s1" class="section level2 hasAnchor" number="2.1">
+<h2><span class="header-section-number">2.1</span> Introduction to Data<a href="ch2.html#ch2_s1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Data can be virtually anything that is observed and recorded, including how
 tall you are, the color of all the cars in a town, or the time it takes to drive to work.
 Just as the different types of data can vary considerably, so can the amount.
@@ -263,28 +266,34 @@ e.g., colors (red, green, blue), gender (male, female), and type of motor vehicl
 <li><strong>Ordinal data</strong>: data that does have a natural ordering, e.g., education
 (high school, some college, college) and injury severity (low, medium, high)</li>
 </ul>
-<p>Continuous data (sometimes called <em>quantitative</em> data), on the other hand, are
-data that can take on any numeric value on some interval or on a continuum.
-Examples of continuous data include height, weight, and temperature. Categorical
-and continuous data are summarized differently, and we’ll explore a number of
+<p>Continuous data (sometimes called <em>quantitative</em> data) can also be further categorized into two distinct types:</p>
+<ul>
+<li><strong>Interval data:</strong> data in which the scale is defined in terms of differences between observations; <em>zero point is arbitrary</em>. This includes, for examples, data such as temperature measured in Celsius or measures of intelligence (IQ).</li>
+<li><strong>Ratio data:</strong> data in which scale differences represent real relationships in the items measured; <em>zero is not arbitrary</em>. Examples of this include height, weight, income, or cytokine levels</li>
+</ul>
+<p>A helpful way to classify these is to ask the question: “does it make sense to say that one measurement is twice as large as another?”. 50 inches is twice as large as 25 inches, but 50 degrees Fahrenheit is not twice as warm as 25 degrees Fahrenheit.</p>
+<p>Categorical and continuous data are summarized differently, and we’ll explore a number of
 ways to summarize both types of data.</p>
 <hr />
 <div class="definition-container">
 <div class="definition">
-<span id="def:unlabeled-div-4" class="definition"><strong>Definition 2.1  </strong></span> 
+<p><span id="def:unlabeled-div-4" class="definition"><strong>Definition 2.1  </strong></span></p>
+ 
 </div>
 <div class="text">
 <p><strong>Categorical data: </strong> <em> Data that takes on a distinct value (i.e., falls into categories) </em></p>
 <p><strong>Nominal data: </strong> <em> A type of categorical data where the categories do not have any apparent ordering </em></p>
 <p><strong>Ordinal data: </strong> <em> A type of categorical data where there is a natural ordering </em></p>
 <p><strong>Continuous data: </strong> <em> Data that takes on numeric values, often measured on an interval </em></p>
+<p><strong>Interval data: </strong> <em> Data in which scale is defined in terms of differences between observations; zero is arbitrary </em></p>
+<p><strong>Ratio data: </strong> <em> Data in which scale refers to real relationships between observations; zero is not arbitrary </em></p>
 </div>
 </div>
 </div>
-<div id="ch2_s2" class="section level2" number="2.2">
-<h2><span class="header-section-number">2.2</span> Categorical Data</h2>
-<div id="ch2_s2_ss1" class="section level3" number="2.2.1">
-<h3><span class="header-section-number">2.2.1</span> Basic Categorical Summaries</h3>
+<div id="ch2_s2" class="section level2 hasAnchor" number="2.2">
+<h2><span class="header-section-number">2.2</span> Categorical Data<a href="ch2.html#ch2_s2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="ch2_s2_ss1" class="section level3 hasAnchor" number="2.2.1">
+<h3><span class="header-section-number">2.2.1</span> Basic Categorical Summaries<a href="ch2.html#ch2_s2_ss1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Let’s begin by considering a dataset of survey responses for 592 students
 responding with their sex, hair color, and eye color. This data includes
 responses from male and female students, with hair colors that are black, brown,
@@ -509,14 +518,12 @@ alone doesn’t carry much meaning. Is 286 observations a lot? It depends. Were
 300 people examined? 3,000? Without knowing anything about the rest of the data,
 the absolute frequency may not be very useful.</p>
 <p>In addition to actual counts of observations in categorical data, we may often
-be interested in <strong>rates</strong>. A rate can be as simple as taking the total number
-of a single category observed, and stating it in terms of the total number of
+be interested in <strong>proportions</strong>. A proportion can be as simple as taking the total number of a single category observed, and stating it in terms of the total number of
 observations. For example, instead of saying, “286 subjects who were
 observed had brown hair,” we might instead say, “286 of 592 subjects surveyed
-had brown hair.” Rates are also known as <strong>relative frequencies</strong>, because
+had brown hair.” Proportions are also sometimes known as <strong>relative frequencies</strong>, because
 they are relative to a specific number of observations. More commonly, we use
-<strong>percentages</strong>, also known as <strong>proportions</strong>, which are a special type of rate or
-relative frequency – the count per 100 observations. That is, 286 of 592 subjects becomes
+<strong>percentages</strong>, a special type of <strong>proportions</strong> – where the quantity is considered per 100 observations. That is, 286 of 592 subjects becomes
 <span class="math inline">\(286/592 = 0.4831 = 48.31\%\)</span>. Let’s consider again the same table as above, this time
 in terms of percentages:</p>
 <table class=" lightable-classic" style="font-family: &quot;Arial Narrow&quot;, &quot;Source Sans Pro&quot;, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;">
@@ -553,7 +560,7 @@ Blond
 </tr>
 </tbody>
 </table>
-<p>By considering all observations as rates per one hundred, we can quickly compare
+<p>By considering all observations as proportion per one hundred, we can quickly compare
 the relative counts of our observations. For example, we can quickly note that
 about half of the observations collected had brown hair, and almost twice as many
 had blond hair compared to red.</p>
@@ -562,8 +569,8 @@ common figure used to represent categorical data is the <strong>bar plot</strong
 demonstration of a bar plot for the percentages of hair color in our data.</p>
 <p><img src="introTextbookTemplate_files/figure-html/unnamed-chunk-6-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
-<div id="ch2_s2_ss2" class="section level3" number="2.2.2">
-<h3><span class="header-section-number">2.2.2</span> Advanced Categorical Summaries</h3>
+<div id="ch2_s2_ss2" class="section level3 hasAnchor" number="2.2.2">
+<h3><span class="header-section-number">2.2.2</span> Advanced Categorical Summaries<a href="ch2.html#ch2_s2_ss2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Numerical and visual summaries become even more useful as our data becomes more
 complicated. Let’s continue with the data we’ve been using, but now let us also
 break down observations with each hair color by sex as well. This process is
@@ -902,12 +909,15 @@ by creating multiple bar plots for each category of the stratification variable.
 <hr />
 <div class="definition-container">
 <div class="definition">
-<span id="def:unlabeled-div-5" class="definition"><strong>Definition 2.2  </strong></span> 
+<p><span id="def:unlabeled-div-5" class="definition"><strong>Definition 2.2  </strong></span></p>
+ 
 </div>
 <div class="text">
 <p><strong>Absolute frequency: </strong> <em> The number of observations in a category </em></p>
-<p><strong>Rate/Relative frequency: </strong> <em> The number of observations in a category relative to any other quantity </em></p>
-<p><strong>Percent/Proportion: </strong> <em> The number of observations per 100 </em></p>
+<p><strong>Proportion/Relative frequency:</strong> <em>A proportion is a number or quantity relative to a whole. That is, both the part and the whole are of the same basic unit, i.e., hair color.</em></p>
+<p><strong>Percent:</strong> <em>A percentage represents a special proportion, when the whole is standardized to be 100.</em></p>
+<p><strong>Ratio:</strong> <em>A ratio is a comparison of relative size between two values; it is commonly expressed with a colon.</em></p>
+<p><strong>Rate:</strong> <em> When one quantity is divided by another, often (but not necessarily) with different units. A proportion is a type of rate in which the units are the same, though a rate such as “miles per hour” would not be a proportion. </em></p>
 <p><strong>Bar plot: </strong> <em> Visualization of categorical data which uses bars to represent each category,
 with counts or percents represented by the height of each bar </em></p>
 <p><strong>Stratification: </strong> <em> The process of partitioning data into categories prior to summarizing </em></p>
@@ -915,8 +925,8 @@ with counts or percents represented by the height of each bar </em></p>
 </div>
 </div>
 </div>
-<div id="ch2_s3" class="section level2" number="2.3">
-<h2><span class="header-section-number">2.3</span> Continuous Data</h2>
+<div id="ch2_s3" class="section level2 hasAnchor" number="2.3">
+<h2><span class="header-section-number">2.3</span> Continuous Data<a href="ch2.html#ch2_s3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>To explore graphical and numerical summaries of continuous data, let’s consider
 a dataset which contains daily air quality measurements in New York from May to
 September 1973. Let’s look at the first 10 rows of the data:</p>
@@ -1144,9 +1154,9 @@ were quite hot, with temperatures above 90°F.</p>
 <!--      xlab = 'Temperature (degrees F)', ylab = 'Count', -->
 <!--      col = 'salmon1', breaks = 150) -->
 <!-- ``` -->
-<p>Histograms also provide a nice picture of the <em>distribution</em>, or “shape,” of the observed data. Distributions of data can look very different for different sets of data, and we will consider them in more detail in <a href="ch6.html#ch6">Chapter 6</a>. For now, its only relevant to know that distributions of data are often summarized with two types of measures – those that describe where the centers (peaks) of our data are and those that describe how spread out the data is about that peak. As these will be important concepts for the rest of this book, let’s take a moment now to go into a bit more detail into each.</p>
-<div id="ch3_centrality" class="section level3" number="2.3.1">
-<h3><span class="header-section-number">2.3.1</span> Measures of Centrality</h3>
+<p>Histograms also provide a nice picture of the <em>distribution</em>, or “shape”, of the observed data. Distributions of data can look very different for different sets of data, and we will consider them in more detail in <a href="ch6.html#ch6">Chapter 6</a>. For now, its only relevant to know that distributions of data are often summarized with two types of measures – those that describe where the centers (peaks) of our data are and those that describe how spread out the data is about that peak. As these will be important concepts for the rest of this book, let’s take a moment now to go into a bit more detail into each.</p>
+<div id="ch3_centrality" class="section level3 hasAnchor" number="2.3.1">
+<h3><span class="header-section-number">2.3.1</span> Measures of Centrality<a href="ch2.html#ch3_centrality" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>While nothing can replace a picture, sometimes it is preferable to summarize our data with one or two numbers characterizing the most important information about the distribution. Often, we are most interested in information that describes the ‘center’ of a distribution, where the bulk of our data tends to aggregate. The two most common ways to describe the center are with the <em>mean</em> and the <em>median</em>.</p>
 <!-- Histograms can come in a variety of shapes and are often described by the number -->
 <!-- of peaks shown and by their *skewness*. In -->
@@ -1284,7 +1294,7 @@ them to differ? Here, we consider a collection of histograms showing us differen
 Figure 2.1: Examples of modality and skew
 </p>
 </div>
-<p>The shape of a distribution is often characterized by its <strong>modality</strong> and its <strong>skew</strong>. The modality of a distribution is a statement about its modes, or “peaks.” Distributions with a single peak are called <em>unimodal</em>, whereas distributions with two peaks are call <em>bimodal</em>. <em>Multimodal</em> distributions are those with three or more peaks. The skew on the other hand describes how our data relates to those peaks. Distributions in which the data is dispersed evenly on either side of a peak are called <em>symmetric distributions</em>; otherwise, the distribution is considered skewed. The direction of the skew is towards the side in which the tail is longest. Examples of modality and skew are presented in Figure 2.1.</p>
+<p>The shape of a distribution is often characterized by its <strong>modality</strong> and its <strong>skew</strong>. The modality of a distribution is a statement about its modes, or “peaks”. Distributions with a single peak are called <em>unimodal</em>, whereas distributions with two peaks are call <em>bimodal</em>. <em>Multimodal</em> distributions are those with three or more peaks. The skew on the other hand describes how our data relates to those peaks. Distributions in which the data is dispersed evenly on either side of a peak are called <em>symmetric distributions</em>; otherwise, the distribution is considered skewed. The direction of the skew is towards the side in which the tail is longest. Examples of modality and skew are presented in Figure 2.1.</p>
 <p>When the data is unimodal and symmetric, the mean and median are indistinguishable.
 However, when there is skew or multiple peaks, we see the mean and median start
 to differ. When the distribution is skewed, the mean is pulled towards the tail.
@@ -1295,7 +1305,8 @@ well. In that case, it might be better to characterize the center of each peak i
 <hr />
 <div class="definition-container">
 <div class="definition">
-<span id="def:unlabeled-div-6" class="definition"><strong>Definition 2.3  </strong></span> 
+<p><span id="def:unlabeled-div-6" class="definition"><strong>Definition 2.3  </strong></span></p>
+ 
 </div>
 <div class="text">
 <p><strong>Mean: </strong> <em> The average value, denoted <span class="math inline">\(\bar{x}\)</span> and computed as the sum of the observations divided by the number of obervations </em></p>
@@ -1311,8 +1322,8 @@ well. In that case, it might be better to characterize the center of each peak i
 </div>
 </div>
 </div>
-<div id="ch3_dispersion" class="section level3" number="2.3.2">
-<h3><span class="header-section-number">2.3.2</span> Measures of Dispersion</h3>
+<div id="ch3_dispersion" class="section level3 hasAnchor" number="2.3.2">
+<h3><span class="header-section-number">2.3.2</span> Measures of Dispersion<a href="ch2.html#ch3_dispersion" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>In addition to measuring the center of the distribution, we are also interested
 in the <em>spread</em> or <em>dispersion</em> of the data. Two distributions could have the
 same mean or median without necessarily having the same shape.
@@ -1320,8 +1331,8 @@ For example, consider the two distributions of data shown below. Each distributi
 represents a sample of 1,000 observations with mean of 100.</p>
 <p><img src="introTextbookTemplate_files/figure-html/unnamed-chunk-17-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>Despite the mean values of each of these distributions being the same, we can clearly see that they are different. On the left, we see that nearly the entire range of the observed data falls between 50 and 150. For the distribution on the right, the data is much more spread out, taking on values near 0 and 200. In order to accurately capture these differences, we need a second numerical summary describing the degree to which the data is spread about its center. Here, we consider two broad categories – those based on percentiles and those based on the variance.</p>
-<div id="percentiles-and-iqr" class="section level4" number="2.3.2.1">
-<h4><span class="header-section-number">2.3.2.1</span> Percentiles and IQR</h4>
+<div id="percentiles-and-iqr" class="section level4 hasAnchor" number="2.3.2.1">
+<h4><span class="header-section-number">2.3.2.1</span> Percentiles and IQR<a href="ch2.html#percentiles-and-iqr" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Perhaps the most intuitive methods of describing the dispersion of our data are those associated with <strong>percentile</strong>-based summaries. Formally, the <span class="math inline">\(p\)</span>th percentile is some value <span class="math inline">\(V_p\)</span> such that</p>
 <ol style="list-style-type: decimal">
 <li><span class="math inline">\(p\%\)</span> of observations are less than or equal to <span class="math inline">\(V_p\)</span></li>
@@ -1397,7 +1408,7 @@ boxplot consist of the following elements:</p>
 <ul>
 <li>A box, indicating the Interquartile Range (IQR), bounded by the values <span class="math inline">\(Q_1\)</span> and <span class="math inline">\(Q_3\)</span></li>
 <li>The median, or <span class="math inline">\(Q_2\)</span>, represented by the line drawn within the box</li>
-<li>The “whiskers,” extending out of the box, which can be defined in a number of
+<li>The “whiskers”, extending out of the box, which can be defined in a number of
 ways. Commonly, the whiskers are 1.5 times the length of the IQR from either
 <span class="math inline">\(Q_1\)</span> or <span class="math inline">\(Q_3\)</span></li>
 <li>Outliers, presented as small circles or dots, and are values in the data that are not present within the bounds set by either the box or whiskers</li>
@@ -1411,7 +1422,8 @@ and boxplots for various distributions of data.</p>
 <hr />
 <div class="definition-container">
 <div class="definition">
-<span id="def:unlabeled-div-7" class="definition"><strong>Definition 2.4  </strong></span> 
+<p><span id="def:unlabeled-div-7" class="definition"><strong>Definition 2.4  </strong></span></p>
+ 
 </div>
 <div class="text">
 <p><strong>Percentile: </strong> <em> A value, <span class="math inline">\(V_p\)</span> such that <span class="math inline">\(p\)</span>% of observations are smaller than <span class="math inline">\(V_p\)</span> and <span class="math inline">\(1-p\)</span>% of observations are larger than <span class="math inline">\(V_p\)</span> </em></p>
@@ -1421,8 +1433,8 @@ and boxplots for various distributions of data.</p>
 </div>
 </div>
 </div>
-<div id="variance-and-standard-deviation" class="section level4" number="2.3.2.2">
-<h4><span class="header-section-number">2.3.2.2</span> Variance and Standard Deviation</h4>
+<div id="variance-and-standard-deviation" class="section level4 hasAnchor" number="2.3.2.2">
+<h4><span class="header-section-number">2.3.2.2</span> Variance and Standard Deviation<a href="ch2.html#variance-and-standard-deviation" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>The <strong>variance</strong> and the <strong>standard deviation</strong> are numerical summaries which
 quantify how spread out the distribution is around its mean. This is done by
 calculating how far away each observation is from the mean, squaring that difference,
@@ -1443,7 +1455,8 @@ preferred as a measure of spread over the variance.</p>
 <p>Finally, unlike the median and the IQR, which are based the percentiles of the observed data, both the variance and standard deviation are calculated based on the mean. Recall that the mean is <em>not</em> a robust outlier and is highly sensitive to skew or the presence of outliers. Consequently, the variance and the standard deviation are also very sensitive. When the data are unimodal and symmetric, choosing between the mean/standard deviation and the median/IQR is largely a matter of preference. However, when the data is skewed or has large outliers, more robust statistics such as the median and IQR are preferred.</p>
 <div class="exercise-container">
 <div class="exercise">
-<span id="exr:unlabeled-div-8" class="exercise"><strong>Exercise 2.1  </strong></span>Exercises
+<p><span id="exr:unlabeled-div-8" class="exercise"><strong>Exercise 2.1  </strong></span></p>
+Exercises
 </div>
 <div class="text">
 <p>The applet below is designed to help illustrate the properties of the mean and
@@ -1513,7 +1526,8 @@ pattern in your table?
 <hr />
 <div class="definition-container">
 <div class="definition">
-<span id="def:unlabeled-div-9" class="definition"><strong>Definition 2.5  </strong></span> 
+<p><span id="def:unlabeled-div-9" class="definition"><strong>Definition 2.5  </strong></span></p>
+ 
 </div>
 <div class="text">
 <p><strong>Variance: </strong> <em> The average of the squared differences between each data value and the mean, denoted <span class="math inline">\(s^2\)</span> </em></p>
@@ -1524,8 +1538,8 @@ pattern in your table?
 </div>
 </div>
 </div>
-<div id="ch2_s4" class="section level2" number="2.4">
-<h2><span class="header-section-number">2.4</span> Advanced Data Visualizations</h2>
+<div id="ch2_s4" class="section level2 hasAnchor" number="2.4">
+<h2><span class="header-section-number">2.4</span> Advanced Data Visualizations<a href="ch2.html#ch2_s4" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>As we saw in the last section, histograms and boxplots are useful when describing
 the distribution of one continuous measurement. What if we have both categorical
 and continuous measurements or multiple continuous measurements? Let’s return to
@@ -1770,7 +1784,8 @@ questions and hypotheses.</p>
 <hr />
 <div class="definition-container">
 <div class="definition">
-<span id="def:unlabeled-div-10" class="definition"><strong>Definition 2.6  </strong></span> 
+<p><span id="def:unlabeled-div-10" class="definition"><strong>Definition 2.6  </strong></span></p>
+ 
 </div>
 <div class="text">
 <p><strong>Scatter plot: </strong> <em> Visualization of two continuous measures which uses dots
@@ -1846,7 +1861,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');
